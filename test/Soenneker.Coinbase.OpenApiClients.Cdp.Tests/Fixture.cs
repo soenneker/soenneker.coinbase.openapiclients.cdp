@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Soenneker.Fixtures.Unit;
 using Soenneker.Utils.Test;
-using Soenneker.Coinbase.OpenApiClients.Cdp.Registrars;
 
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Tests;
 
@@ -25,7 +24,5 @@ public sealed class Fixture : UnitFixture
 
         IConfiguration config = TestUtil.BuildConfig();
         services.AddSingleton(config);
-
-        services.AddCoinbaseCdpOpenApiClientAsScoped();
     }
 }
