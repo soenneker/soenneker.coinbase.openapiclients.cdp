@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/.github/">
+    <File Path=".github/renovate.json" />
+  </Folder>
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/build-and-test.yml" />
+    <File Path=".github/workflows/publish-package.yml" />
+  </Folder>
+  <Project Path="src/Soenneker.Coinbase.OpenApiClients.Cdp.csproj" />
+  <Project Path="test/Soenneker.Coinbase.OpenApiClients.Cdp.Tests/Soenneker.Coinbase.OpenApiClients.Cdp.Tests.csproj" />
+</Solution>
