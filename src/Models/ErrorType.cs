@@ -15,6 +15,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Bad_gateway,
         #pragma warning restore CS1591
+        [EnumMember(Value = "client_closed_request")]
+        #pragma warning disable CS1591
+        Client_closed_request,
+        #pragma warning restore CS1591
         [EnumMember(Value = "faucet_limit_exceeded")]
         #pragma warning disable CS1591
         Faucet_limit_exceeded,
@@ -230,6 +234,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "order_already_canceled")]
         #pragma warning disable CS1591
         Order_already_canceled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "account_not_ready")]
+        #pragma warning disable CS1591
+        Account_not_ready,
         #pragma warning restore CS1591
     }
 }

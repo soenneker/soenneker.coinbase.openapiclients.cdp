@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The type of criterion to use. This should be `solMessage`.</summary>
+    /// <summary>The operation to which the rule applies. Every element of the `criteria` array must match the specified operation.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum Accounts_type
+    public enum SignEndUserEvmMessageRule_operation
     {
-        [EnumMember(Value = "solMessage")]
+        [EnumMember(Value = "signEndUserEvmMessage")]
         #pragma warning disable CS1591
-        SolMessage,
+        SignEndUserEvmMessage,
         #pragma warning restore CS1591
     }
 }
