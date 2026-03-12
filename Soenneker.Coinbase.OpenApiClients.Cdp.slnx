@@ -4,8 +4,13 @@
   </Folder>
   <Folder Name="/.github/workflows/">
     <File Path=".github/workflows/build-and-test.yml" />
+    <File Path=".github/workflows/codeql.yml" />
     <File Path=".github/workflows/publish-package.yml" />
   </Folder>
-  <Project Path="src/Soenneker.Coinbase.OpenApiClients.Cdp.csproj" />
-  <Project Path="test/Soenneker.Coinbase.OpenApiClients.Cdp.Tests/Soenneker.Coinbase.OpenApiClients.Cdp.Tests.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Soenneker.Coinbase.OpenApiClients.Cdp/Soenneker.Coinbase.OpenApiClients.Cdp.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Soenneker.Coinbase.OpenApiClients.Cdp.Tests/Soenneker.Coinbase.OpenApiClients.Cdp.Tests.csproj" />
+  </Folder>
 </Solution>

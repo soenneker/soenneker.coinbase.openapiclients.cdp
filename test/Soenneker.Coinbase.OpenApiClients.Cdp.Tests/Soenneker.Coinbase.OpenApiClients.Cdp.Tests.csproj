@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Coinbase.OpenApiClients.Cdp.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Coinbase.OpenApiClients.Cdp\Soenneker.Coinbase.OpenApiClients.Cdp.csproj" />
     </ItemGroup>
 
     <ItemGroup>
