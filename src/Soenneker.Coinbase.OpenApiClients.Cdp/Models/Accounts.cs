@@ -14,7 +14,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A regular expression the message is matched against. Accepts valid regular expression syntax described by [RE2](https://github.com/google/re2/wiki/Syntax).</summary>
+        /// <summary>A regular expression the field is matched against.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Match { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Match { get; set; }
 #endif
-        /// <summary>The type of criterion to use. This should be `evmMessage`.</summary>
+        /// <summary>The type of criterion to use. This should be `solMessage`.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Accounts_type? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Accounts"/> and sets the default values.
