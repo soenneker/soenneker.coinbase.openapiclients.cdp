@@ -19,10 +19,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A schema for specifying the rejection criteria for the SignEvmMessage operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policies>? Criteria { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Accounts>? Criteria { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policies> Criteria { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Accounts> Criteria { get; set; }
 #endif
         /// <summary>The operation to which the rule applies. Every element of the `criteria` array must match the specified operation.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule_operation? Operation { get; set; }
@@ -52,7 +52,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "action", n => { Action = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule_action>(); } },
-                { "criteria", n => { Criteria = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policies>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policies.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "criteria", n => { Criteria = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Accounts>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Accounts.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule_operation>(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule_action>("action", Action);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policies>("criteria", Criteria);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Accounts>("criteria", Criteria);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule_operation>("operation", Operation);
             writer.WriteAdditionalData(AdditionalData);
         }
