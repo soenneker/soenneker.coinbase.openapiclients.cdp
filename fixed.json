@@ -77,7 +77,7 @@
                       }
                     ],
                     "evmAccount": {
-                      "createSmartAccount": "true"
+                      "createSmartAccount": true
                     }
                   }
                 },
@@ -91,7 +91,7 @@
                       }
                     ],
                     "solanaAccount": {
-                      "createSmartAccount": "false"
+                      "createSmartAccount": false
                     }
                   }
                 },
@@ -105,10 +105,10 @@
                       }
                     ],
                     "evmAccount": {
-                      "createSmartAccount": "true"
+                      "createSmartAccount": true
                     },
                     "solanaAccount": {
-                      "createSmartAccount": "false"
+                      "createSmartAccount": false
                     }
                   }
                 }
@@ -376,9 +376,9 @@
               "maximum": 100,
               "minimum": 1,
               "type": "integer",
-              "default": "20"
+              "default": 20
             },
-            "example": "10"
+            "example": 10
           },
           {
             "name": "pageToken",
@@ -795,7 +795,7 @@
                 "with_spend_permissions": {
                   "summary": "Create smart account with spend permissions",
                   "value": {
-                    "enableSpendPermissions": "true"
+                    "enableSpendPermissions": true
                   }
                 }
               }
@@ -3940,9 +3940,9 @@
             "description": "The number of spend permissions to return per page.",
             "schema": {
               "type": "integer",
-              "default": "20"
+              "default": 20
             },
-            "example": "10"
+            "example": 10
           },
           {
             "name": "pageToken",
@@ -4224,9 +4224,9 @@
                           "currentBalance": "1000000000000000000",
                           "requiredBalance": "1000000000000000000"
                         },
-                        "simulationIncomplete": "false"
+                        "simulationIncomplete": false
                       },
-                      "liquidityAvailable": "true",
+                      "liquidityAvailable": true,
                       "minToAmount": "900000000000000000",
                       "fromAmount": "1000000000000000000",
                       "fromToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
@@ -4237,7 +4237,7 @@
                   "unavailable": {
                     "summary": "Swap with unavailable liquidity",
                     "value": {
-                      "liquidityAvailable": "false"
+                      "liquidityAvailable": false
                     }
                   }
                 }
@@ -4354,9 +4354,9 @@
                           "currentBalance": "1000000000000000000",
                           "requiredBalance": "1000000000000000000"
                         },
-                        "simulationIncomplete": "false"
+                        "simulationIncomplete": false
                       },
-                      "liquidityAvailable": "true",
+                      "liquidityAvailable": true,
                       "minToAmount": "900000000000000000",
                       "fromAmount": "1000000000000000000",
                       "fromToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
@@ -4365,7 +4365,7 @@
                         "eip712": {
                           "domain": {
                             "name": "Permit2",
-                            "chainId": "1",
+                            "chainId": 1,
                             "verifyingContract": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
                           },
                           "types": {
@@ -4436,7 +4436,7 @@
                   "unavailable": {
                     "summary": "Swap with unavailable liquidity",
                     "value": {
-                      "liquidityAvailable": "false"
+                      "liquidityAvailable": false
                     }
                   }
                 }
@@ -6405,9 +6405,9 @@
             "description": "The number of balances to return per page.",
             "schema": {
               "type": "integer",
-              "default": "20"
+              "default": 20
             },
-            "example": "10"
+            "example": 10
           },
           {
             "name": "pageToken",
@@ -6840,9 +6840,9 @@
               "maximum": 100,
               "minimum": 1,
               "type": "integer",
-              "default": "20"
+              "default": 20
             },
-            "example": "10"
+            "example": 10
           },
           {
             "name": "pageToken",
@@ -6949,7 +6949,7 @@
                     "target": {
                       "url": "https://api.example.com/webhooks"
                     },
-                    "isEnabled": "true"
+                    "isEnabled": true
                   }
                 },
                 "onramp_transactions": {
@@ -6966,7 +6966,7 @@
                     "target": {
                       "url": "https://api.example.com/webhooks"
                     },
-                    "isEnabled": "true"
+                    "isEnabled": true
                   }
                 },
                 "offramp_transactions": {
@@ -6983,7 +6983,7 @@
                     "target": {
                       "url": "https://api.example.com/webhooks"
                     },
-                    "isEnabled": "true"
+                    "isEnabled": true
                   }
                 },
                 "wallet_outgoing_transactions": {
@@ -7000,7 +7000,7 @@
                     "target": {
                       "url": "https://api.example.com/webhooks"
                     },
-                    "isEnabled": "true"
+                    "isEnabled": true
                   }
                 }
               }
@@ -7912,7 +7912,7 @@
           "id": {
             "type": "integer",
             "description": "The Telegram ID for the end user.",
-            "example": "123456"
+            "example": 123456
           },
           "firstName": {
             "type": "string",
@@ -7932,7 +7932,7 @@
           "authDate": {
             "type": "integer",
             "description": "The Telegram user's last login as a Unix timestamp.",
-            "example": "1770681412"
+            "example": 1770681412
           },
           "username": {
             "type": "string",
@@ -8465,7 +8465,7 @@
             "type": "integer",
             "description": "The chain ID of the EVM network.",
             "format": "int64",
-            "example": "1"
+            "example": 1
           },
           "verifyingContract": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
@@ -8483,7 +8483,7 @@
         "description": "The domain of the EIP-712 typed data.",
         "example": {
           "name": "Permit2",
-          "chainId": "1",
+          "chainId": 1,
           "verifyingContract": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
         }
       },
@@ -8574,7 +8574,7 @@
         "example": {
           "domain": {
             "name": "Permit2",
-            "chainId": "1",
+            "chainId": 1,
             "verifyingContract": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
           },
           "types": {
@@ -8839,7 +8839,7 @@
           "blockNumber": {
             "type": "integer",
             "description": "The block height (number) of the block including the transaction.",
-            "example": "29338819"
+            "example": 29338819
           },
           "gasUsed": {
             "type": "string",
@@ -8854,7 +8854,7 @@
             "message": "reason for failure"
           },
           "blockHash": "0x386544b58930c0ec9e8f3ed09fb4cdb76b9ae0a1a37ddcacebe3925b57978e65",
-          "blockNumber": "29338819",
+          "blockNumber": 29338819,
           "gasUsed": "100000"
         }
       },
@@ -9099,7 +9099,7 @@
           "revoked": {
             "type": "boolean",
             "description": "Whether this permission has been revoked.",
-            "example": "false"
+            "example": false
           },
           "revokedAt": {
             "type": "string",
@@ -9230,7 +9230,7 @@
             "type": "boolean",
             "description": "If true, enables spend permissions for the EVM smart account.",
             "default": false,
-            "example": "true"
+            "example": true
           }
         }
       },
@@ -9413,7 +9413,7 @@
               "simulationIncomplete": {
                 "type": "boolean",
                 "description": "This is set to true when the transaction cannot be validated. This can happen when the taker has an insufficient balance of the `fromToken`. Note that this does not necessarily mean that the trade will revert.",
-                "example": "false"
+                "example": false
               }
             },
             "description": "An object containing potential issues discovered during validation that could prevent the swap from being executed successfully.",
@@ -9427,17 +9427,15 @@
                 "currentBalance": "900000000000000000",
                 "requiredBalance": "1000000000000000000"
               },
-              "simulationIncomplete": "false"
+              "simulationIncomplete": false
             }
           },
           "liquidityAvailable": {
-            "enum": [
-              "true"
-            ],
             "type": "boolean",
             "additionalProperties": false,
             "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
-            "example": "true"
+            "default": true,
+            "example": true
           },
           "minToAmount": {
             "pattern": "^(0|[1-9]\\d*)$",
@@ -9482,9 +9480,9 @@
               "currentBalance": "1000000000000000000",
               "requiredBalance": "1000000000000000000"
             },
-            "simulationIncomplete": "false"
+            "simulationIncomplete": false
           },
-          "liquidityAvailable": "true",
+          "liquidityAvailable": true,
           "minToAmount": "900000000000000000",
           "fromAmount": "1000000000000000000",
           "fromToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
@@ -9529,17 +9527,15 @@
         "type": "object",
         "properties": {
           "liquidityAvailable": {
-            "enum": [
-              "false"
-            ],
             "type": "boolean",
             "additionalProperties": false,
             "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
-            "example": "false"
+            "default": false,
+            "example": false
           }
         },
         "example": {
-          "liquidityAvailable": "false"
+          "liquidityAvailable": false
         }
       },
       "GetSwapPriceResponseWrapper": {
@@ -9706,13 +9702,13 @@
             "type": "integer",
             "description": "'decimals' is the exponential value N that satisfies the equation `amount * 10^-N = standard_denomination`. The standard denomination is the most commonly used denomination for the token.\n- In the case of the native gas token, `decimals` is defined via convention. As an example, for ETH of Ethereum mainnet, the standard denomination is 10^-18 the smallest denomination (Wei). As such, for ETH on Ethereum mainnet, `decimals` is 18. - In the case of ERC-20 tokens, `decimals` is defined via configuration. `decimals` will be the number returned by `function decimals() public view returns (uint8)` on the underlying token contract.\nNot all tokens have a `decimals` field, as this function is [optional in the ERC-20 specification](https://eips.ethereum.org/EIPS/eip-20#decimals). This field will be left empty if the underlying token contract doesn't implement `decimals`.\nFurther, this endpoint will only populate this value for a small subset of whitelisted ERC-20 tokens at this time. We intend to improve coverage in the future.",
             "format": "int64",
-            "example": "18"
+            "example": 18
           }
         },
         "description": "Amount of a given token.",
         "example": {
           "amount": "125000000000000000000",
-          "decimals": "18"
+          "decimals": 18
         }
       },
       "Token": {
@@ -9955,12 +9951,12 @@
           "constant": {
             "type": "boolean",
             "description": "Deprecated. Use pure or view from stateMutability instead.",
-            "example": "false"
+            "example": false
           },
           "payable": {
             "type": "boolean",
             "description": "Deprecated. Use payable or nonpayable from `stateMutability` instead.",
-            "example": "false"
+            "example": false
           },
           "stateMutability": {
             "$ref": "#/components/schemas/AbiStateMutability"
@@ -9968,7 +9964,7 @@
           "gas": {
             "type": "integer",
             "description": "Deprecated. Vyper used to provide gas estimates.",
-            "example": "0"
+            "example": 0
           }
         },
         "description": "ABI function type for contract functions.",
@@ -10230,7 +10226,7 @@
           "changeCents": {
             "type": "integer",
             "description": "The amount of USD, in cents, that the total value of a transaction's asset transfer should be compared to.",
-            "example": "10000"
+            "example": 10000
           },
           "operator": {
             "enum": [
@@ -11073,12 +11069,12 @@
                       "writable": {
                         "type": "boolean",
                         "description": "Whether the account is writable.",
-                        "example": "true"
+                        "example": true
                       },
                       "signer": {
                         "type": "boolean",
                         "description": "Whether the account must be a signer.",
-                        "example": "false"
+                        "example": false
                       }
                     }
                   },
@@ -12326,13 +12322,13 @@
             "type": "integer",
             "description": "'decimals' is the exponential value N that satisfies the equation `amount * 10^-N = standard_denomination`. The standard denomination is the most commonly used denomination for the token.\n- For native SOL, `decimals` is 9 (1 SOL = 10^9 lamports). - For SPL tokens, `decimals` is defined in the token's mint configuration.",
             "format": "int64",
-            "example": "9"
+            "example": 9
           }
         },
         "description": "Amount of a given Solana token.",
         "example": {
           "amount": "1250000000",
-          "decimals": "9"
+          "decimals": 9
         }
       },
       "SolanaToken": {
@@ -12403,12 +12399,12 @@
                 "type": "integer",
                 "description": "The maximum tolerable staleness of the query result cache in milliseconds. If a previous execution result of an identical query is older than this age, the query will be re-executed. If the data is less than this age, the result will be returned from cache.",
                 "default": 500,
-                "example": "1000"
+                "example": 1000
               }
             },
             "description": "\"Enables control over how often queries need to be fully re-executed on the backing store.\nThis can be useful in scenarios where API calls might be made frequently, API latency is critical, and some freshness lag (ex: 750ms, 2s, 5s) is tolerable.\nBy default, each query result is returned from cache so long as the result is from an identical query and less than 500ms old. This freshness tolerance can be modified upwards, to a maximum of 900000ms (i.e. 900s, 15m).\n\"",
             "example": {
-              "maxAgeMs": "1000"
+              "maxAgeMs": 1000
             }
           }
         },
@@ -12426,7 +12422,7 @@
                 "event_signature": "Transfer(address,address,uint256)",
                 "from": "0x1234567890abcdef",
                 "to": "0x1234567890abcdef",
-                "amount": "1000000000000000000"
+                "amount": 1000000000000000000
               }
             },
             "description": "Query result as an array of objects representing rows."
@@ -12500,7 +12496,7 @@
               "cached": {
                 "type": "boolean",
                 "description": "Whether the result was served from the query result cache.",
-                "example": "false"
+                "example": false
               },
               "executionTimestamp": {
                 "type": "string",
@@ -12511,20 +12507,20 @@
               "executionTimeMs": {
                 "type": "integer",
                 "description": "Query execution time in milliseconds.",
-                "example": "145"
+                "example": 145
               },
               "rowCount": {
                 "type": "integer",
                 "description": "Number of rows returned.",
-                "example": "2"
+                "example": 2
               }
             },
             "description": "Metadata about query execution.",
             "example": {
-              "cached": "false",
+              "cached": false,
               "executionTimestamp": "2025-01-01T00:00:00.000Z",
-              "executionTimeMs": "145",
-              "rowCount": "2"
+              "executionTimeMs": 145,
+              "rowCount": 2
             }
           }
         },
@@ -12551,7 +12547,7 @@
             "minimum": 0,
             "type": "integer",
             "description": "Total number of unique token addresses discovered.",
-            "example": "15"
+            "example": 15
           }
         },
         "description": "Response containing token addresses that an account has received."
@@ -12664,7 +12660,7 @@
           "isEnabled": {
             "type": "boolean",
             "description": "Whether the subscription is enabled.",
-            "example": "true"
+            "example": true
           },
           "metadata": {
             "type": "object",
@@ -12730,7 +12726,7 @@
           "eventTypes": [
             "onchain.activity.detected"
           ],
-          "isEnabled": "true",
+          "isEnabled": true,
           "labels": {
             "contract_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
             "event_name": "Transfer",
@@ -12802,7 +12798,7 @@
           "isEnabled": {
             "type": "boolean",
             "description": "Whether the subscription is enabled.",
-            "example": "true"
+            "example": true
           },
           "target": {
             "$ref": "#/components/schemas/WebhookTarget"
@@ -12861,7 +12857,7 @@
           "isEnabled": {
             "type": "boolean",
             "description": "Whether the subscription is enabled.",
-            "example": "false"
+            "example": false
           },
           "target": {
             "$ref": "#/components/schemas/WebhookTarget"
@@ -12892,13 +12888,13 @@
       },
       "X402Version": {
         "enum": [
-          "1",
-          "2"
+          1,
+          2
         ],
         "type": "integer",
         "additionalProperties": false,
         "description": "The version of the x402 protocol.",
-        "example": "1"
+        "example": 1
       },
       "x402ExactEvmPayload": {
         "title": "x402ExactEvmPayload",
@@ -13199,7 +13195,7 @@
         },
         "description": "The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the X-PAYMENT header.",
         "example": {
-          "x402Version": "1",
+          "x402Version": 1,
           "scheme": "exact",
           "network": "base",
           "payload": {
@@ -13260,7 +13256,7 @@
           "maxTimeoutSeconds": {
             "type": "integer",
             "description": "The maximum time in seconds for the resource server to respond.",
-            "example": "10"
+            "example": 10
           },
           "extra": {
             "type": "object",
@@ -13349,21 +13345,21 @@
             "description": "Optional protocol extensions.",
             "example": {
               "bazaar": {
-                "discoveryEnabled": "true"
+                "discoveryEnabled": true
               }
             }
           }
         },
         "description": "The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the X-PAYMENT header.",
         "example": {
-          "x402Version": "2",
+          "x402Version": 2,
           "accepted": {
             "scheme": "exact",
             "network": "eip155:84532",
             "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
             "amount": "1000",
             "payTo": "0x122F8Fcaf2152420445Aa424E1D8C0306935B5c9",
-            "maxTimeoutSeconds": "60",
+            "maxTimeoutSeconds": 60,
             "extra": {
               "name": "USDC",
               "version": "2"
@@ -13494,7 +13490,7 @@
           "maxTimeoutSeconds": {
             "type": "integer",
             "description": "The maximum time in seconds for the resource server to respond.",
-            "example": "10"
+            "example": 10
           },
           "asset": {
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
@@ -13601,7 +13597,7 @@
           "isValid": {
             "type": "boolean",
             "description": "Indicates whether the payment is valid.",
-            "example": "false"
+            "example": false
           },
           "invalidReason": {
             "$ref": "#/components/schemas/x402VerifyInvalidReason"
@@ -13620,7 +13616,7 @@
         },
         "description": "The result when x402 payment verification fails.",
         "example": {
-          "isValid": "false",
+          "isValid": false,
           "invalidReason": "insufficient_funds",
           "invalidMessage": "Insufficient funds",
           "payer": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
@@ -13692,7 +13688,7 @@
           "success": {
             "type": "boolean",
             "description": "Indicates whether the payment settlement is successful.",
-            "example": "false"
+            "example": false
           },
           "errorReason": {
             "$ref": "#/components/schemas/x402SettleErrorReason"
@@ -13722,7 +13718,7 @@
         },
         "description": "The result when x402 payment settlement fails.",
         "example": {
-          "success": "false",
+          "success": false,
           "errorReason": "insufficient_funds",
           "payer": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
         }
@@ -14031,12 +14027,12 @@
                 "type": "boolean",
                 "description": "If true, creates an EVM smart account and a default EVM EOA account as the owner. If false, only a EVM EOA account is created.",
                 "default": false,
-                "example": "true"
+                "example": true
               },
               "enableSpendPermissions": {
                 "type": "boolean",
                 "description": "If true, enables spend permissions for the EVM smart account.",
-                "example": "true"
+                "example": true
               }
             },
             "description": "Configuration for creating an EVM account for the end user."
@@ -14048,7 +14044,7 @@
                 "type": "boolean",
                 "description": "Only false is a valid option since currently smart accounts on Solana are not supported.",
                 "default": false,
-                "example": "false"
+                "example": false
               }
             },
             "description": "Configuration for creating a Solana account for the end user."
@@ -14391,7 +14387,7 @@
             "type": "boolean",
             "description": "Whether to configure spend permissions for the upgraded, delegated account. When enabled, the account can grant permissions for third parties to spend on its behalf.",
             "default": false,
-            "example": "true"
+            "example": true
           }
         }
       },
@@ -14706,7 +14702,7 @@
             "type": "integer",
             "description": "The maximum acceptable slippage of the `toToken` in basis points. If this parameter is set to 0, no slippage will be tolerated. If not provided, the default slippage tolerance is 100 bps (i.e., 1%).",
             "default": 100,
-            "example": "100"
+            "example": 100
           }
         }
       },
@@ -14729,7 +14725,7 @@
                   {
                     "amount": {
                       "amount": "1250000000000000000",
-                      "decimals": "18"
+                      "decimals": 18
                     },
                     "token": {
                       "network": "base",
@@ -14741,7 +14737,7 @@
                   {
                     "amount": {
                       "amount": "123456",
-                      "decimals": "6"
+                      "decimals": 6
                     },
                     "token": {
                       "network": "base",
@@ -15163,7 +15159,7 @@
                   {
                     "amount": {
                       "amount": "1250000000",
-                      "decimals": "9"
+                      "decimals": 9
                     },
                     "token": {
                       "symbol": "SOL",
@@ -15174,7 +15170,7 @@
                   {
                     "amount": {
                       "amount": "123456000",
-                      "decimals": "6"
+                      "decimals": 6
                     },
                     "token": {
                       "symbol": "USDC",
@@ -15215,7 +15211,7 @@
                   {
                     "amount": {
                       "amount": "1250000000000000000",
-                      "decimals": "18"
+                      "decimals": 18
                     },
                     "token": {
                       "network": "base",
@@ -15227,7 +15223,7 @@
                   {
                     "amount": {
                       "amount": "123456",
-                      "decimals": "6"
+                      "decimals": 6
                     },
                     "token": {
                       "network": "base",
@@ -15789,7 +15785,7 @@
                 "isValid": {
                   "type": "boolean",
                   "description": "Indicates whether the payment is valid.",
-                  "example": "false"
+                  "example": false
                 },
                 "invalidReason": {
                   "$ref": "#/components/schemas/x402VerifyInvalidReason"
@@ -15820,7 +15816,7 @@
             "examples": {
               "invalid_verification": {
                 "value": {
-                  "isValid": "false",
+                  "isValid": false,
                   "invalidReason": "insufficient_funds",
                   "invalidMessage": "Insufficient funds",
                   "payer": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
@@ -15846,7 +15842,7 @@
                 "success": {
                   "type": "boolean",
                   "description": "Indicates whether the payment settlement is successful.",
-                  "example": "false"
+                  "example": false
                 },
                 "errorReason": {
                   "$ref": "#/components/schemas/x402SettleErrorReason"
@@ -15888,7 +15884,7 @@
             "examples": {
               "unsuccessful_settlement": {
                 "value": {
-                  "success": "false",
+                  "success": false,
                   "errorReason": "insufficient_funds",
                   "errorMessage": "Insufficient funds",
                   "payer": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
@@ -15918,27 +15914,27 @@
                   "description": "The list of supported payment kinds.",
                   "example": [
                     {
-                      "x402Version": "1",
+                      "x402Version": 1,
                       "scheme": "exact",
                       "network": "base"
                     },
                     {
-                      "x402Version": "1",
+                      "x402Version": 1,
                       "scheme": "exact",
                       "network": "base-sepolia"
                     },
                     {
-                      "x402Version": "1",
+                      "x402Version": 1,
                       "scheme": "exact",
                       "network": "solana"
                     },
                     {
-                      "x402Version": "1",
+                      "x402Version": 1,
                       "scheme": "exact",
                       "network": "solana-devnet"
                     },
                     {
-                      "x402Version": "1",
+                      "x402Version": 1,
                       "scheme": "exact",
                       "network": "polygon"
                     }
@@ -16025,9 +16021,9 @@
         "description": "The number of resources to return per page.",
         "schema": {
           "type": "integer",
-          "default": "20"
+          "default": 20
         },
-        "example": "10"
+        "example": 10
       },
       "PageToken": {
         "name": "pageToken",

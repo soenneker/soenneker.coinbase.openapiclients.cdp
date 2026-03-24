@@ -15,7 +15,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapUnavailableResponse_liquidityAvailable? LiquidityAvailable { get; set; }
+        public bool? LiquidityAvailable { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapUnavailableResponse"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "liquidityAvailable", n => { LiquidityAvailable = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapUnavailableResponse_liquidityAvailable>(); } },
+                { "liquidityAvailable", n => { LiquidityAvailable = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapUnavailableResponse_liquidityAvailable>("liquidityAvailable", LiquidityAvailable);
+            writer.WriteBoolValue("liquidityAvailable", LiquidityAvailable);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

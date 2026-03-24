@@ -28,7 +28,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The scheme of the payment protocol.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_scheme? Scheme { get; set; }
         /// <summary>The version of the x402 protocol.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Version? X402Version { get; set; }
+        public int? X402Version { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind"/> and sets the default values.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "extra", n => { Extra = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra.CreateFromDiscriminatorValue); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_network>(); } },
                 { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_scheme>(); } },
-                { "x402Version", n => { X402Version = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Version>(); } },
+                { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra>("extra", Extra);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_network>("network", Network);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_scheme>("scheme", Scheme);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Version>("x402Version", X402Version);
+            writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -55,7 +55,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues Issues { get; set; }
 #endif
         /// <summary>Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_liquidityAvailable? LiquidityAvailable { get; set; }
+        public bool? LiquidityAvailable { get; set; }
         /// <summary>The minimum amount of the `toToken` that must be received for the swap to succeed, in atomic units of the `toToken`.  For example, `1000000000000000000` when receiving ETH equates to 1 ETH, `1000000` when receiving USDC equates to 1 USDC, etc. This value is influenced by the `slippageBps` parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,7 +110,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "fromAmount", n => { FromAmount = n.GetStringValue(); } },
                 { "fromToken", n => { FromToken = n.GetStringValue(); } },
                 { "issues", n => { Issues = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues.CreateFromDiscriminatorValue); } },
-                { "liquidityAvailable", n => { LiquidityAvailable = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_liquidityAvailable>(); } },
+                { "liquidityAvailable", n => { LiquidityAvailable = n.GetBoolValue(); } },
                 { "minToAmount", n => { MinToAmount = n.GetStringValue(); } },
                 { "toAmount", n => { ToAmount = n.GetStringValue(); } },
                 { "toToken", n => { ToToken = n.GetStringValue(); } },
@@ -128,7 +128,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("fromAmount", FromAmount);
             writer.WriteStringValue("fromToken", FromToken);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues>("issues", Issues);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_liquidityAvailable>("liquidityAvailable", LiquidityAvailable);
+            writer.WriteBoolValue("liquidityAvailable", LiquidityAvailable);
             writer.WriteStringValue("minToAmount", MinToAmount);
             writer.WriteStringValue("toAmount", ToAmount);
             writer.WriteStringValue("toToken", ToToken);

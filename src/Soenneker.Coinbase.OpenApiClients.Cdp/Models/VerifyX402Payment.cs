@@ -31,7 +31,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements PaymentRequirements { get; set; }
 #endif
         /// <summary>The version of the x402 protocol.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Version? X402Version { get; set; }
+        public int? X402Version { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.VerifyX402Payment"/> and sets the default values.
         /// </summary>
@@ -59,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "paymentPayload", n => { PaymentPayload = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload.CreateFromDiscriminatorValue); } },
                 { "paymentRequirements", n => { PaymentRequirements = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements.CreateFromDiscriminatorValue); } },
-                { "x402Version", n => { X402Version = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Version>(); } },
+                { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload>("paymentPayload", PaymentPayload);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>("paymentRequirements", PaymentRequirements);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Version>("x402Version", X402Version);
+            writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
