@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The type of criterion to use. This should be `evmMessage`.</summary>
+    /// <summary>The type of criterion to use. This should be `solMessage`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum Accounts_type
     {
-        [EnumMember(Value = "evmMessage")]
+        [EnumMember(Value = "solMessage")]
         #pragma warning disable CS1591
-        EvmMessage,
+        SolMessage,
         #pragma warning restore CS1591
     }
 }
