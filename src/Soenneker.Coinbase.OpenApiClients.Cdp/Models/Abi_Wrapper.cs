@@ -17,10 +17,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Contract ABI Specification following Solidity&apos;s external JSON interface format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Policies>? Value { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Accounts>? Value { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Policies> Value { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Accounts> Value { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper"/> and sets the default values.
@@ -47,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Policies>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Policies.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Accounts>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Accounts.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -57,14 +57,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Policies>("value", Value);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Accounts>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
         /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class Policies : IComposedTypeWrapper, IParsable
+        public partial class Accounts : IComposedTypeWrapper, IParsable
         {
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,13 +85,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             /// <summary>
             /// Creates a new instance of the appropriate class based on discriminator value
             /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Policies"/></returns>
+            /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Accounts"/></returns>
             /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Policies CreateFromDiscriminatorValue(IParseNode parseNode)
+            public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Accounts CreateFromDiscriminatorValue(IParseNode parseNode)
             {
                 if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
                 var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Policies();
+                var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Abi_Wrapper.Accounts();
                 if("AbiFunction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.AbiFunction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction();
