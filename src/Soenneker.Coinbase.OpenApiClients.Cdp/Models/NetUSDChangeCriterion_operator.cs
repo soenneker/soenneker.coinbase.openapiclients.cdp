@@ -13,7 +13,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning restore CS1591
         [EnumMember(Value = ">=")]
         #pragma warning disable CS1591
-        GreaterThanEqual,
+        GreaterThanOrEqual,
         #pragma warning restore CS1591
         [EnumMember(Value = "<")]
         #pragma warning disable CS1591
@@ -21,11 +21,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "<=")]
         #pragma warning disable CS1591
-        LessThanEqual,
+        LessThanOrEqual,
         #pragma warning restore CS1591
         [EnumMember(Value = "==")]
         #pragma warning disable CS1591
-        EqualEqual,
+        DoubleEqual,
         #pragma warning restore CS1591
     }
 }

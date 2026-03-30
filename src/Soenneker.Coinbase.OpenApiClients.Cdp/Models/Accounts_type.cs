@@ -5,7 +5,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>The type of criterion to use. This should be `evmMessage`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum Policies_type
+    public enum Accounts_type
     {
         [EnumMember(Value = "evmMessage")]
         #pragma warning disable CS1591
