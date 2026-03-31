@@ -33,6 +33,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PermissionHash { get; set; }
 #endif
+        /// <summary>Whether to use the CDP Paymaster for the user operation.</summary>
+        public bool? UseCdpPaymaster { get; set; }
+        /// <summary>The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WalletSecretId { get; set; }
+#nullable restore
+#else
+        public string WalletSecretId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeSpendPermissionRequest"/> and sets the default values.
         /// </summary>
@@ -61,6 +71,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork>(); } },
                 { "paymasterUrl", n => { PaymasterUrl = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeSpendPermissionRequest_paymasterUrl>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeSpendPermissionRequest_paymasterUrl.CreateFromDiscriminatorValue); } },
                 { "permissionHash", n => { PermissionHash = n.GetStringValue(); } },
+                { "useCdpPaymaster", n => { UseCdpPaymaster = n.GetBoolValue(); } },
+                { "walletSecretId", n => { WalletSecretId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -73,6 +85,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork>("network", Network);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeSpendPermissionRequest_paymasterUrl>("paymasterUrl", PaymasterUrl);
             writer.WriteStringValue("permissionHash", PermissionHash);
+            writer.WriteBoolValue("useCdpPaymaster", UseCdpPaymaster);
+            writer.WriteStringValue("walletSecretId", WalletSecretId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

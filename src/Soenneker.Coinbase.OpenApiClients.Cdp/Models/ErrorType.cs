@@ -239,5 +239,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Account_not_ready,
         #pragma warning restore CS1591
+        [EnumMember(Value = "insufficient_liquidity")]
+        #pragma warning disable CS1591
+        Insufficient_liquidity,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "insufficient_allowance")]
+        #pragma warning disable CS1591
+        Insufficient_allowance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "transaction_simulation_failed")]
+        #pragma warning disable CS1591
+        Transaction_simulation_failed,
+        #pragma warning restore CS1591
     }
 }

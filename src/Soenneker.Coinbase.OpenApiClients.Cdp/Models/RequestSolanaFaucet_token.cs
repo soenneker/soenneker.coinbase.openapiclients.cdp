@@ -15,5 +15,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Usdc,
         #pragma warning restore CS1591
+        [EnumMember(Value = "cbtusd")]
+        #pragma warning disable CS1591
+        Cbtusd,
+        #pragma warning restore CS1591
     }
 }

@@ -23,5 +23,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Telegram,
         #pragma warning restore CS1591
+        [EnumMember(Value = "github")]
+        #pragma warning disable CS1591
+        Github,
+        #pragma warning restore CS1591
     }
 }

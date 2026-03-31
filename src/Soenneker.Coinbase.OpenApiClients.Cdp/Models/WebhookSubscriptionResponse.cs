@@ -63,6 +63,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget Target { get; set; }
 #endif
+        /// <summary>When the subscription was last updated.</summary>
+        public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponse"/> and sets the default values.
         /// </summary>
@@ -97,6 +99,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "secret", n => { Secret = n.GetGuidValue(); } },
                 { "subscriptionId", n => { SubscriptionId = n.GetGuidValue(); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget.CreateFromDiscriminatorValue); } },
+                { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -115,6 +118,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteGuidValue("secret", Secret);
             writer.WriteGuidValue("subscriptionId", SubscriptionId);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget>("target", Target);
+            writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
