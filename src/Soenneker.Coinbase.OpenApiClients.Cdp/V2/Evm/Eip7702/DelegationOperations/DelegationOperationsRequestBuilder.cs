@@ -27,19 +27,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Eip7702.DelegationOperati
                 return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Eip7702.DelegationOperations.Item.WithDelegationOperationItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
-        /// <summary>Gets an item from the Soenneker.Coinbase.OpenApiClients.Cdp.v2.evm.eip7702.delegationOperations.item collection</summary>
-        /// <param name="position">The unique identifier for the delegation operation.</param>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Eip7702.DelegationOperations.Item.WithDelegationOperationItemRequestBuilder"/></returns>
-        [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Eip7702.DelegationOperations.Item.WithDelegationOperationItemRequestBuilder this[string position]
-        {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("delegationOperationId", position);
-                return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Eip7702.DelegationOperations.Item.WithDelegationOperationItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
-        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Eip7702.DelegationOperations.DelegationOperationsRequestBuilder"/> and sets the default values.
         /// </summary>
