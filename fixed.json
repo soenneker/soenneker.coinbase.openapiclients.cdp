@@ -91,7 +91,7 @@
                     "authenticationMethods": [
                       {
                         "type": "sms",
-                        "phoneNumber": "\u002B15555551234"
+                        "phoneNumber": 15555551234
                       }
                     ],
                     "solanaAccount": {
@@ -105,7 +105,7 @@
                     "authenticationMethods": [
                       {
                         "type": "sms",
-                        "phoneNumber": "\u002B15555551234"
+                        "phoneNumber": 15555551234
                       }
                     ],
                     "evmAccount": {
@@ -159,22 +159,22 @@
                         }
                       ],
                       "evmAccounts": [
-                        "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                        "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                       ],
                       "evmAccountObjects": [
                         {
-                          "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "address": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
                           "createdAt": "2025-11-17T10:00:00Z"
                         }
                       ],
                       "evmSmartAccounts": [
-                        "0x842d35Cc6634C0532925a3b844Bc454e4438f55f"
+                        "842d35Cc6634C0532925a3b844Bc454e4438f55f"
                       ],
                       "evmSmartAccountObjects": [
                         {
-                          "address": "0x842d35Cc6634C0532925a3b844Bc454e4438f55f",
+                          "address": "842d35Cc6634C0532925a3b844Bc454e4438f55f",
                           "ownerAddresses": [
-                            "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                            "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                           ],
                           "createdAt": "2025-11-17T10:00:00Z"
                         }
@@ -191,7 +191,7 @@
                       "authenticationMethods": [
                         {
                           "type": "sms",
-                          "phoneNumber": "\u002B15555551234"
+                          "phoneNumber": 15555551234
                         }
                       ],
                       "evmAccounts": [],
@@ -221,11 +221,11 @@
                         }
                       ],
                       "evmAccounts": [
-                        "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                        "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                       ],
                       "evmAccountObjects": [
                         {
-                          "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "address": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
                           "createdAt": "2025-11-17T10:00:00Z"
                         }
                       ],
@@ -247,40 +247,40 @@
                         }
                       ],
                       "evmAccounts": [
-                        "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                        "0x8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A",
-                        "0xA1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0"
+                        "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                        "8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A",
+                        "A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0"
                       ],
                       "evmAccountObjects": [
                         {
-                          "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "address": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
                           "createdAt": "2025-11-17T10:00:00Z"
                         },
                         {
-                          "address": "0x8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A",
+                          "address": "8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A",
                           "createdAt": "2025-11-17T10:05:00Z"
                         },
                         {
-                          "address": "0xA1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0",
+                          "address": "A1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0",
                           "createdAt": "2025-11-17T10:10:00Z"
                         }
                       ],
                       "evmSmartAccounts": [
-                        "0x842d35Cc6634C0532925a3b844Bc454e4438f55f",
-                        "0x9D3E4F5A6B7C8D9E0F1A2B3C4D5E6F7A8B9C0D1E"
+                        "842d35Cc6634C0532925a3b844Bc454e4438f55f",
+                        "9D3E4F5A6B7C8D9E0F1A2B3C4D5E6F7A8B9C0D1E"
                       ],
                       "evmSmartAccountObjects": [
                         {
-                          "address": "0x842d35Cc6634C0532925a3b844Bc454e4438f55f",
+                          "address": "842d35Cc6634C0532925a3b844Bc454e4438f55f",
                           "ownerAddresses": [
-                            "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                            "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                           ],
                           "createdAt": "2025-11-17T10:02:00Z"
                         },
                         {
-                          "address": "0x9D3E4F5A6B7C8D9E0F1A2B3C4D5E6F7A8B9C0D1E",
+                          "address": "9D3E4F5A6B7C8D9E0F1A2B3C4D5E6F7A8B9C0D1E",
                           "ownerAddresses": [
-                            "0x8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A"
+                            "8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A"
                           ],
                           "createdAt": "2025-11-17T10:07:00Z"
                         }
@@ -672,7 +672,7 @@
                     "summary": "EVM EOA account created",
                     "value": {
                       "evmAccount": {
-                        "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                        "address": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
                         "createdAt": "2025-11-17T10:00:00Z"
                       }
                     }
@@ -819,9 +819,9 @@
                     "summary": "EVM smart account created",
                     "value": {
                       "evmSmartAccount": {
-                        "address": "0x842d35Cc6634C0532925a3b844Bc454e4438f55f",
+                        "address": "842d35Cc6634C0532925a3b844Bc454e4438f55f",
                         "ownerAddresses": [
-                          "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                          "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                         ],
                         "createdAt": "2025-11-17T10:00:00Z"
                       }
@@ -1093,7 +1093,7 @@
                     "authenticationMethods": [
                       {
                         "type": "sms",
-                        "phoneNumber": "\u002B15555551234"
+                        "phoneNumber": 15555551234
                       }
                     ],
                     "encryptedPrivateKey": "U2FsdGVkX1\u002BvupppZksvRf5X5YgHq4\u002Bda\u002BQ4qf51\u002BQ4=",
@@ -1139,11 +1139,11 @@
                         }
                       ],
                       "evmAccounts": [
-                        "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                        "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                       ],
                       "evmAccountObjects": [
                         {
-                          "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "address": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
                           "createdAt": "2025-11-17T10:00:00Z"
                         }
                       ],
@@ -1161,7 +1161,7 @@
                       "authenticationMethods": [
                         {
                           "type": "sms",
-                          "phoneNumber": "\u002B15555551234"
+                          "phoneNumber": 15555551234
                         }
                       ],
                       "evmAccounts": [],
@@ -1746,7 +1746,7 @@
                 }
               ]
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           {
             "name": "asset",
@@ -1783,8 +1783,8 @@
                 "send_usdc_eoa": {
                   "summary": "Send USDC from EOA",
                   "value": {
-                    "to": "0x1234567890123456789012345678901234567890",
-                    "amount": "25.50",
+                    "to": "1234567890123456789012345678901234567890",
+                    "amount": 25.5,
                     "network": "base-sepolia",
                     "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
                   }
@@ -1792,8 +1792,8 @@
                 "send_usdc_smart_account_cdp_paymaster": {
                   "summary": "Send USDC from Smart Account with CDP Paymaster",
                   "value": {
-                    "to": "0x1234567890123456789012345678901234567890",
-                    "amount": "10.00",
+                    "to": "1234567890123456789012345678901234567890",
+                    "amount": 10,
                     "network": "base-sepolia",
                     "useCdpPaymaster": true,
                     "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
@@ -1802,8 +1802,8 @@
                 "send_usdc_smart_account_custom_paymaster": {
                   "summary": "Send USDC from Smart Account with custom Paymaster",
                   "value": {
-                    "to": "0x1234567890123456789012345678901234567890",
-                    "amount": "15.00",
+                    "to": "1234567890123456789012345678901234567890",
+                    "amount": 15,
                     "network": "base-sepolia",
                     "paymasterUrl": "https://api.developer.coinbase.com/rpc/v1/base/AbCdEf123456",
                     "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
@@ -1825,7 +1825,7 @@
                   "eoa_transfer": {
                     "summary": "EOA transfer response",
                     "value": {
-                      "transactionHash": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7",
+                      "transactionHash": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7",
                       "userOpHash": null
                     }
                   },
@@ -1833,7 +1833,7 @@
                     "summary": "Smart Account transfer response",
                     "value": {
                       "transactionHash": null,
-                      "userOpHash": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                      "userOpHash": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
                     }
                   }
                 }
@@ -2494,7 +2494,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           {
             "$ref": "#/components/parameters/XDeveloperAuth"
@@ -2667,7 +2667,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -3407,7 +3407,7 @@
                   "summary": "Send USDC (auto-create ATA)",
                   "value": {
                     "to": "ExXhNkgYf6efh7YyqDRVxPZuzafobao1A74drUdp8trd",
-                    "amount": "25.50",
+                    "amount": 25.5,
                     "network": "solana-devnet",
                     "createRecipientAta": true,
                     "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
@@ -3417,7 +3417,7 @@
                   "summary": "Send USDC (no ATA creation)",
                   "value": {
                     "to": "ExXhNkgYf6efh7YyqDRVxPZuzafobao1A74drUdp8trd",
-                    "amount": "5.00",
+                    "amount": 5,
                     "network": "solana-devnet",
                     "createRecipientAta": false,
                     "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
@@ -3427,7 +3427,7 @@
                   "summary": "Send USDC with CDP gas sponsorship",
                   "value": {
                     "to": "ExXhNkgYf6efh7YyqDRVxPZuzafobao1A74drUdp8trd",
-                    "amount": "25.50",
+                    "amount": 25.5,
                     "network": "solana-devnet",
                     "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2",
                     "useCdpSponsor": true
@@ -3736,7 +3736,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "responses": {
@@ -3822,7 +3822,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -4012,7 +4012,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -4157,7 +4157,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -4302,7 +4302,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -4411,7 +4411,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -4520,7 +4520,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -4643,7 +4643,7 @@
             "schema": {
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string",
-              "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+              "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
             }
           }
         ],
@@ -5202,7 +5202,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -5443,7 +5443,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "responses": {
@@ -5526,7 +5526,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -5626,7 +5626,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -5744,7 +5744,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -5886,7 +5886,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           {
             "name": "userOpHash",
@@ -5897,7 +5897,7 @@
               "pattern": "^0x[0-9a-fA-F]{64}$",
               "type": "string"
             },
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           }
         ],
         "responses": {
@@ -5982,7 +5982,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           {
             "name": "userOpHash",
@@ -5993,7 +5993,7 @@
               "pattern": "^0x[0-9a-fA-F]{64}$",
               "type": "string"
             },
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           }
         ],
         "requestBody": {
@@ -6132,7 +6132,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -6226,7 +6226,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           {
             "name": "pageSize",
@@ -6336,7 +6336,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "requestBody": {
@@ -6495,37 +6495,37 @@
                   "success": {
                     "summary": "Successful swap price retrieval",
                     "value": {
-                      "blockNumber": "17038723",
-                      "toAmount": "1000000000000000000",
-                      "toToken": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+                      "blockNumber": 17038723,
+                      "toAmount": 1000000000000000000,
+                      "toToken": "7F5c764cBc14f9669B88837ca1490cCa17c31607",
                       "fees": {
                         "gasFee": {
-                          "amount": "1000000000000000000",
-                          "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                          "amount": 1000000000000000000,
+                          "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                         },
                         "protocolFee": {
-                          "amount": "1000000000000000000",
-                          "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                          "amount": 1000000000000000000,
+                          "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                         }
                       },
                       "issues": {
                         "allowance": {
-                          "currentAllowance": "1000000000",
-                          "spender": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                          "currentAllowance": 1000000000,
+                          "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
                         },
                         "balance": {
-                          "token": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                          "currentBalance": "1000000000000000000",
-                          "requiredBalance": "1000000000000000000"
+                          "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
+                          "currentBalance": 1000000000000000000,
+                          "requiredBalance": 1000000000000000000
                         },
                         "simulationIncomplete": false
                       },
                       "liquidityAvailable": true,
-                      "minToAmount": "900000000000000000",
-                      "fromAmount": "1000000000000000000",
-                      "fromToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                      "gas": "100000",
-                      "gasPrice": "1000000000"
+                      "minToAmount": 900000000000000000,
+                      "fromAmount": 1000000000000000000,
+                      "fromToken": "6B175474E89094C44Da98b954EedeAC495271d0F",
+                      "gas": 100000,
+                      "gasPrice": 1000000000
                     }
                   },
                   "unavailable": {
@@ -6625,42 +6625,42 @@
                   "success": {
                     "summary": "Successful swap quote creation",
                     "value": {
-                      "blockNumber": "17038723",
-                      "toAmount": "1000000000000000000",
-                      "toToken": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+                      "blockNumber": 17038723,
+                      "toAmount": 1000000000000000000,
+                      "toToken": "7F5c764cBc14f9669B88837ca1490cCa17c31607",
                       "fees": {
                         "gasFee": {
-                          "amount": "1000000000000000000",
-                          "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                          "amount": 1000000000000000000,
+                          "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                         },
                         "protocolFee": {
-                          "amount": "1000000000000000000",
-                          "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                          "amount": 1000000000000000000,
+                          "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                         }
                       },
                       "issues": {
                         "allowance": {
-                          "currentAllowance": "1000000000",
-                          "spender": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                          "currentAllowance": 1000000000,
+                          "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
                         },
                         "balance": {
-                          "token": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                          "currentBalance": "1000000000000000000",
-                          "requiredBalance": "1000000000000000000"
+                          "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
+                          "currentBalance": 1000000000000000000,
+                          "requiredBalance": 1000000000000000000
                         },
                         "simulationIncomplete": false
                       },
                       "liquidityAvailable": true,
-                      "minToAmount": "900000000000000000",
-                      "fromAmount": "1000000000000000000",
-                      "fromToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+                      "minToAmount": 900000000000000000,
+                      "fromAmount": 1000000000000000000,
+                      "fromToken": "6B175474E89094C44Da98b954EedeAC495271d0F",
                       "permit2": {
-                        "hash": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+                        "hash": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
                         "eip712": {
                           "domain": {
                             "name": "Permit2",
                             "chainId": 1,
-                            "verifyingContract": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                            "verifyingContract": "000000000022D473030F116dDEE9F6B43aC78BA3"
                           },
                           "types": {
                             "EIP712Domain": [
@@ -6709,21 +6709,21 @@
                           "primaryType": "PermitTransferFrom",
                           "message": {
                             "permitted": {
-                              "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                              "amount": "1000000"
+                              "token": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                              "amount": 1000000
                             },
-                            "spender": "0xFfFfFfFFfFFfFFfFFfFFFFFffFFFffffFfFFFfFf",
-                            "nonce": "123456",
-                            "deadline": "1717123200"
+                            "spender": "FfFfFfFFfFFfFFfFFfFFFFFffFFFffffFfFFFfFf",
+                            "nonce": 123456,
+                            "deadline": 1717123200
                           }
                         }
                       },
                       "transaction": {
-                        "to": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
-                        "data": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
-                        "gas": "100000",
-                        "gasPrice": "1000000000",
-                        "value": "1000000000000000000"
+                        "to": "000000000022D473030F116dDEE9F6B43aC78BA3",
+                        "data": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+                        "gas": 100000,
+                        "gasPrice": 1000000000,
+                        "value": 1000000000000000000
                       }
                     }
                   },
@@ -6808,7 +6808,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           {
             "name": "network",
@@ -8955,7 +8955,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         ],
         "responses": {
@@ -9037,7 +9037,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string"
             },
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           {
             "name": "network",
@@ -9240,7 +9240,7 @@
                     ],
                     "labels": {
                       "network": "base-mainnet",
-                      "contract_address": "0xcd1f9777571493aeacb7eae45cd30a226d3e612d",
+                      "contract_address": "cd1f9777571493aeacb7eae45cd30a226d3e612d",
                       "event_name": "Burn"
                     },
                     "target": {
@@ -9292,7 +9292,7 @@
                     ],
                     "labels": {
                       "network": "base-mainnet",
-                      "params.from": "0xB7f5BF799fB265657c628ef4a13f90f83a3a616A"
+                      "params.from": "B7f5BF799fB265657c628ef4a13f90f83a3a616A"
                     },
                     "target": {
                       "url": "https://api.example.com/webhooks"
@@ -10013,13 +10013,13 @@
                         {
                           "limitType": "weekly_spending",
                           "currency": "USD",
-                          "limit": "500",
-                          "remaining": "400"
+                          "limit": 500,
+                          "remaining": 400
                         },
                         {
                           "limitType": "lifetime_transactions",
-                          "limit": "15",
-                          "remaining": "12"
+                          "limit": 15,
+                          "remaining": 12
                         }
                       ]
                     }
@@ -10113,7 +10113,7 @@
             "pattern": "^\\\u002B[1-9]\\d{1,14}$",
             "type": "string",
             "description": "The phone number of the end user in E.164 format.",
-            "example": "\u002B12055555555"
+            "example": 12055555555
           }
         },
         "description": "Information about an end user who authenticates using a one-time password sent to their phone number via SMS."
@@ -10350,7 +10350,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The address of the EVM account.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "createdAt": {
             "type": "string",
@@ -10373,7 +10373,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The address of the EVM smart account.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "ownerAddresses": {
             "type": "array",
@@ -10381,7 +10381,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string",
               "description": "The address of an EVM EOA account that owns this smart account.",
-              "example": "0x1234567890abcdef1234567890abcdef12345678"
+              "example": "1234567890abcdef1234567890abcdef12345678"
             },
             "description": "The addresses of the EVM EOA accounts that own this smart account. Smart accounts can have multiple owners, such as when spend permissions are enabled."
           },
@@ -10448,7 +10448,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string",
               "description": "The address of the EVM account associated with the end user.",
-              "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+              "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
             },
             "description": "\u0022**DEPRECATED**: Use \u0060evmAccountObjects\u0060 instead for richer account information. The list of EVM account addresses associated with the end user. End users can have up to 10 EVM accounts.\u0022",
             "deprecated": true
@@ -10466,7 +10466,7 @@
               "pattern": "^0x[0-9a-fA-F]{40}$",
               "type": "string",
               "description": "The address of the EVM smart account associated with the end user.",
-              "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+              "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
             },
             "description": "\u0022**DEPRECATED**: Use \u0060evmSmartAccountObjects\u0060 instead for richer account information including owner relationships. The list of EVM smart account addresses associated with the end user. Each EVM EOA can own one smart account.\u0022",
             "deprecated": true
@@ -10654,7 +10654,7 @@
           "signature": {
             "type": "string",
             "description": "The signature of the hash, as a 0x-prefixed hex string.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -10711,13 +10711,13 @@
           "hash": {
             "type": "string",
             "description": "The arbitrary 32 byte hash to sign.",
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           },
           "address": {
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "walletSecretId": {
             "pattern": "^[a-zA-Z0-9-]{1,100}$",
@@ -10773,7 +10773,7 @@
           "version": {
             "type": "string",
             "description": "The version of the DApp or protocol.",
-            "example": "1"
+            "example": 1
           },
           "chainId": {
             "type": "integer",
@@ -10785,20 +10785,20 @@
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "The 0x-prefixed EVM address of the verifying smart contract.",
-            "example": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+            "example": "000000000022D473030F116dDEE9F6B43aC78BA3"
           },
           "salt": {
             "pattern": "^0x[a-fA-F0-9]{64}$",
             "type": "string",
             "description": "The optional 32-byte 0x-prefixed hex salt for domain separation.",
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           }
         },
         "description": "The domain of the EIP-712 typed data.",
         "example": {
           "name": "Permit2",
           "chainId": 1,
-          "verifyingContract": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+          "verifyingContract": "000000000022D473030F116dDEE9F6B43aC78BA3"
         }
       },
       "EIP712Types": {
@@ -10875,12 +10875,12 @@
             "description": "The message to sign. The structure of this message must match the \u0060primaryType\u0060 struct in the \u0060types\u0060 object.",
             "example": {
               "permitted": {
-                "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "amount": "1000000"
+                "token": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                "amount": 1000000
               },
-              "spender": "0x1111111254EEB25477B68fb85Ed929f73A960582",
-              "nonce": "0",
-              "deadline": "1716239020"
+              "spender": "1111111254EEB25477B68fb85Ed929f73A960582",
+              "nonce": 0,
+              "deadline": 1716239020
             }
           }
         },
@@ -10889,7 +10889,7 @@
           "domain": {
             "name": "Permit2",
             "chainId": 1,
-            "verifyingContract": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+            "verifyingContract": "000000000022D473030F116dDEE9F6B43aC78BA3"
           },
           "types": {
             "EIP712Domain": [
@@ -10938,12 +10938,12 @@
           "primaryType": "PermitTransferFrom",
           "message": {
             "permitted": {
-              "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-              "amount": "1000000"
+              "token": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+              "amount": 1000000
             },
-            "spender": "0xFfFfFfFFfFFfFFfFFfFFFFFffFFFffffFfFFFfFf",
-            "nonce": "123456",
-            "deadline": "1717123200"
+            "spender": "FfFfFfFFfFFfFFfFFfFFFFFffFFFffffFfFFFfFf",
+            "nonce": 123456,
+            "deadline": 1717123200
           }
         }
       },
@@ -10992,23 +10992,23 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The address the call is directed to.",
-            "example": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+            "example": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
           },
           "value": {
             "type": "string",
             "description": "The amount of ETH to send with the call, in wei.",
-            "example": "0"
+            "example": 0
           },
           "data": {
             "pattern": "^0x[0-9a-fA-F]*$",
             "type": "string",
             "description": "The call data to send. This is the hex-encoded data of the function call consisting of the method selector and the function arguments.",
-            "example": "0xa9059cbb000000000000000000000000fc807d1be4997e5c7b33e4d8d57e60c5b0f02b1a0000000000000000000000000000000000000000000000000000000000000064"
+            "example": "a9059cbb000000000000000000000000fc807d1be4997e5c7b33e4d8d57e60c5b0f02b1a0000000000000000000000000000000000000000000000000000000000000064"
           },
           "overrideGasLimit": {
             "type": "string",
             "description": "The override gas limit to use for the call instead of the bundler\u0027s estimated gas limit.",
-            "example": "100000"
+            "example": 100000
           }
         }
       },
@@ -11023,7 +11023,7 @@
             "pattern": "^0x[0-9a-fA-F]*$",
             "type": "string",
             "description": "The 0x-prefixed raw hex string.",
-            "example": "0x123"
+            "example": 291
           },
           "message": {
             "type": "string",
@@ -11033,7 +11033,7 @@
         },
         "description": "The revert data if the user operation has reverted.",
         "example": {
-          "data": "0x123",
+          "data": 291,
           "message": "reason for failure"
         }
       },
@@ -11047,13 +11047,13 @@
             "pattern": "^0x[a-fA-F0-9]{64}$",
             "type": "string",
             "description": "The hash of this transaction as 0x-prefixed string.",
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           },
           "blockHash": {
             "pattern": "^0x[0-9a-fA-F]{64}$|^$",
             "type": "string",
             "description": "The block hash of the block including the transaction as 0x-prefixed string.",
-            "example": "0x386544b58930c0ec9e8f3ed09fb4cdb76b9ae0a1a37ddcacebe3925b57978e65"
+            "example": "386544b58930c0ec9e8f3ed09fb4cdb76b9ae0a1a37ddcacebe3925b57978e65"
           },
           "blockNumber": {
             "type": "integer",
@@ -11063,18 +11063,18 @@
           "gasUsed": {
             "type": "string",
             "description": "The gas used for landing this user operation.",
-            "example": "100000"
+            "example": 100000
           }
         },
         "description": "The receipt that contains information about the execution of user operation.",
         "example": {
           "revert": {
-            "data": "0x123",
+            "data": 291,
             "message": "reason for failure"
           },
-          "blockHash": "0x386544b58930c0ec9e8f3ed09fb4cdb76b9ae0a1a37ddcacebe3925b57978e65",
+          "blockHash": "386544b58930c0ec9e8f3ed09fb4cdb76b9ae0a1a37ddcacebe3925b57978e65",
           "blockNumber": 29338819,
-          "gasUsed": "100000"
+          "gasUsed": 100000
         }
       },
       "EvmUserOperation": {
@@ -11093,7 +11093,7 @@
             "pattern": "^0x[0-9a-fA-F]{64}$",
             "type": "string",
             "description": "The hash of the user operation. This is not the transaction hash, as a transaction consists of multiple user operations. The user operation hash is the hash of this particular user operation which gets signed by the owner of the Smart Account.",
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           },
           "calls": {
             "type": "array",
@@ -11120,7 +11120,7 @@
             "pattern": "^0x[0-9a-fA-F]{64}$|^$",
             "type": "string",
             "description": "The hash of the transaction that included this particular user operation. This gets set after the user operation is broadcasted and the transaction is included in a block.",
-            "example": "0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+            "example": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
           },
           "receipts": {
             "type": "array",
@@ -11168,7 +11168,7 @@
           "permissionHash": {
             "type": "string",
             "description": "The hash of the spend permission to revoke.",
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           },
           "useCdpPaymaster": {
             "type": "boolean",
@@ -11202,7 +11202,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The 0x-prefixed, checksum EVM address.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "name": {
             "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,34}[A-Za-z0-9]$",
@@ -11264,7 +11264,7 @@
             "pattern": "^0x[0-9a-fA-F]{64}$",
             "type": "string",
             "description": "The hash of the delegation transaction, if available. Present once the transaction has been submitted to the network.",
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           },
           "network": {
             "$ref": "#/components/schemas/EvmEip7702DelegationNetwork"
@@ -11273,7 +11273,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The address the account has delegated to, if any. Only present when the account has an active delegation.",
-            "example": "0x7702cb554e6bFb442cb743A7dF23154544a7176C"
+            "example": "7702cb554e6bFb442cb743A7dF23154544a7176C"
           }
         },
         "description": "The status of an EIP-7702 delegation operation."
@@ -11289,7 +11289,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The 0x-prefixed, checksum address of the Smart Account.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "owners": {
             "type": "array",
@@ -11347,38 +11347,38 @@
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "Entity that can spend account\u0027s tokens. Can be either a Smart Account or an EOA.",
-            "example": "0x9Fb909eA400c2b8D99Be292DADf07e63B814527c"
+            "example": "9Fb909eA400c2b8D99Be292DADf07e63B814527c"
           },
           "token": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "ERC-7528 native token address (e.g. \u00220xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE\u0022 for native ETH), or an  ERC-20 contract address.",
-            "example": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+            "example": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
           },
           "allowance": {
             "type": "string",
             "description": "Maximum allowed value to spend, in atomic units for the specified token, within each period.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "period": {
             "type": "string",
             "description": "Time duration for resetting used allowance on a recurring basis (seconds).",
-            "example": "86400"
+            "example": 86400
           },
           "start": {
             "type": "string",
             "description": "The start time for this spend permission, in Unix seconds.",
-            "example": "0"
+            "example": 0
           },
           "end": {
             "type": "string",
             "description": "The expiration time for this spend permission, in Unix seconds.",
-            "example": "281474976710655"
+            "example": 281474976710655
           },
           "salt": {
             "type": "string",
             "description": "An arbitrary salt to differentiate unique spend permissions with otherwise identical data.",
-            "example": "95959551014433038874972658238091428449162862973207257628575040053304171156143"
+            "example": 9.595955101443304E+76
           },
           "extraData": {
             "type": "string",
@@ -11420,44 +11420,44 @@
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "Smart account this spend permission is valid for.",
-            "example": "0xd53Ee96438383Bb1eff07958D110B81363E9Ab47"
+            "example": "d53Ee96438383Bb1eff07958D110B81363E9Ab47"
           },
           "spender": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "Entity that can spend account\u0027s tokens.",
-            "example": "0x9Fb909eA400c2b8D99Be292DADf07e63B814527c"
+            "example": "9Fb909eA400c2b8D99Be292DADf07e63B814527c"
           },
           "token": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "Token address (ERC-7528 native token address or ERC-20 contract).",
-            "example": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+            "example": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
           },
           "allowance": {
             "type": "string",
             "description": "Maximum allowed value to spend, in atomic units for the specified token, within each period.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "period": {
             "type": "string",
             "description": "Time duration for resetting used allowance on a recurring basis (seconds).",
-            "example": "86400"
+            "example": 86400
           },
           "start": {
             "type": "string",
             "description": "The start time for this spend permission, in Unix seconds.",
-            "example": "0"
+            "example": 0
           },
           "end": {
             "type": "string",
             "description": "The expiration time for this spend permission, in Unix seconds.",
-            "example": "281474976710655"
+            "example": 281474976710655
           },
           "salt": {
             "type": "string",
             "description": "An arbitrary salt to differentiate unique spend permissions with otherwise identical data.",
-            "example": "0"
+            "example": 0
           },
           "extraData": {
             "type": "string",
@@ -11467,14 +11467,14 @@
         },
         "description": "The core spend permission.",
         "example": {
-          "account": "0xd53Ee96438383Bb1eff07958D110B81363E9Ab47",
-          "spender": "0x9Fb909eA400c2b8D99Be292DADf07e63B814527c",
-          "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-          "allowance": "1000000000000000000",
-          "period": "86400",
-          "start": "0",
-          "end": "281474976710655",
-          "salt": "0",
+          "account": "d53Ee96438383Bb1eff07958D110B81363E9Ab47",
+          "spender": "9Fb909eA400c2b8D99Be292DADf07e63B814527c",
+          "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+          "allowance": 1000000000000000000,
+          "period": 86400,
+          "start": 0,
+          "end": 281474976710655,
+          "salt": 0,
           "extraData": "0x"
         }
       },
@@ -11494,7 +11494,7 @@
           "permissionHash": {
             "type": "string",
             "description": "Unique hash identifier for this permission.",
-            "example": "0x62bc94756bb6221a7913beab6024171fc60d3380fdc06759bfac76e8ccb3f63d"
+            "example": "62bc94756bb6221a7913beab6024171fc60d3380fdc06759bfac76e8ccb3f63d"
           },
           "revoked": {
             "type": "boolean",
@@ -11531,7 +11531,7 @@
           "permissionHash": {
             "type": "string",
             "description": "The hash of the spend permission to revoke.",
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           },
           "paymasterUrl": {
             "type": "object",
@@ -11638,13 +11638,13 @@
             "pattern": "^\\d\u002B$",
             "type": "string",
             "description": "The estimated amount of the fee in atomic units of the \u0060token\u0060. For example, \u00601000000000000000\u0060 if the fee is in ETH equates to 0.001 ETH, \u006010000\u0060 if the fee is in USDC equates to 0.01 USDC, etc.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "token": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "The contract address of the token that the fee is paid in. The address \u00600xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE\u0060 is used for the native token of the network (e.g. ETH).",
-            "example": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+            "example": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
           }
         }
       },
@@ -11666,19 +11666,19 @@
             "pattern": "^[1-9]\\d*$",
             "type": "string",
             "description": "The block number at which the liquidity conditions were examined.",
-            "example": "17038723"
+            "example": 17038723
           },
           "toAmount": {
             "pattern": "^(0|[1-9]\\d*)$",
             "type": "string",
             "description": "The amount of the \u0060toToken\u0060 that will be received in atomic units of the \u0060toToken\u0060. For example, \u00601000000000000000000\u0060 when receiving ETH equates to 1 ETH, \u00601000000\u0060 when receiving USDC equates to 1 USDC, etc.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "toToken": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "The 0x-prefixed contract address of the token that will be received.",
-            "example": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
+            "example": "7F5c764cBc14f9669B88837ca1490cCa17c31607"
           },
           "fees": {
             "required": [
@@ -11711,12 +11711,12 @@
             "description": "The estimated fees for the swap.",
             "example": {
               "gasFee": {
-                "amount": "1000000000000000000",
-                "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                "amount": 1000000000000000000,
+                "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
               },
               "protocolFee": {
-                "amount": "1000000000000000000",
-                "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                "amount": 1000000000000000000,
+                "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
               }
             }
           },
@@ -11739,20 +11739,20 @@
                     "pattern": "^\\d\u002B$",
                     "type": "string",
                     "description": "The current allowance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
-                    "example": "1000000000"
+                    "example": 1000000000
                   },
                   "spender": {
                     "pattern": "^0x[a-fA-F0-9]{40}$",
                     "type": "string",
                     "description": "The 0x-prefixed address of to set the allowance on.",
-                    "example": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                    "example": "000000000022D473030F116dDEE9F6B43aC78BA3"
                   }
                 },
                 "description": "Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.",
                 "nullable": true,
                 "example": {
-                  "currentAllowance": "1000000000",
-                  "spender": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                  "currentAllowance": 1000000000,
+                  "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
                 }
               },
               "balance": {
@@ -11772,21 +11772,21 @@
                     "pattern": "^\\d\u002B$",
                     "type": "string",
                     "description": "The current balance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
-                    "example": "10000000"
+                    "example": 10000000
                   },
                   "requiredBalance": {
                     "pattern": "^\\d\u002B$",
                     "type": "string",
                     "description": "The amount of the token that the \u0060taker\u0060 must hold.",
-                    "example": "1000000000000000000"
+                    "example": 1000000000000000000
                   }
                 },
                 "description": "Details of the balance of the \u0060fromToken\u0060 that the \u0060taker\u0060 must hold. Null if the \u0060taker\u0060 has a sufficient balance.",
                 "nullable": true,
                 "example": {
-                  "token": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                  "currentBalance": "1000000000000000000",
-                  "requiredBalance": "1000000000000000000"
+                  "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
+                  "currentBalance": 1000000000000000000,
+                  "requiredBalance": 1000000000000000000
                 }
               },
               "simulationIncomplete": {
@@ -11798,13 +11798,13 @@
             "description": "An object containing potential issues discovered during validation that could prevent the swap from being executed successfully.",
             "example": {
               "allowance": {
-                "currentAllowance": "1000000000",
-                "spender": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                "currentAllowance": 1000000000,
+                "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
               },
               "balance": {
-                "token": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "currentBalance": "900000000000000000",
-                "requiredBalance": "1000000000000000000"
+                "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
+                "currentBalance": 900000000000000000,
+                "requiredBalance": 1000000000000000000
               },
               "simulationIncomplete": false
             }
@@ -11820,51 +11820,51 @@
             "pattern": "^(0|[1-9]\\d*)$",
             "type": "string",
             "description": "The minimum amount of the \u0060toToken\u0060 that must be received for the swap to succeed, in atomic units of the \u0060toToken\u0060.  For example, \u00601000000000000000000\u0060 when receiving ETH equates to 1 ETH, \u00601000000\u0060 when receiving USDC equates to 1 USDC, etc. This value is influenced by the \u0060slippageBps\u0060 parameter.",
-            "example": "900000000000000000"
+            "example": 900000000000000000
           },
           "fromAmount": {
             "pattern": "^(0|[1-9]\\d*)$",
             "type": "string",
             "description": "The amount of the \u0060fromToken\u0060 that will be sent in this swap, in atomic units of the \u0060fromToken\u0060. For example, \u00601000000000000000000\u0060 when sending ETH equates to 1 ETH, \u00601000000\u0060 when sending USDC equates to 1 USDC, etc.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "fromToken": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "The 0x-prefixed contract address of the token that will be sent.",
-            "example": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+            "example": "6B175474E89094C44Da98b954EedeAC495271d0F"
           }
         },
         "example": {
-          "blockNumber": "17038723",
-          "toAmount": "1000000000000000000",
-          "toToken": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+          "blockNumber": 17038723,
+          "toAmount": 1000000000000000000,
+          "toToken": "7F5c764cBc14f9669B88837ca1490cCa17c31607",
           "fees": {
             "gasFee": {
-              "amount": "1000000000000000000",
-              "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+              "amount": 1000000000000000000,
+              "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
             },
             "protocolFee": {
-              "amount": "1000000000000000000",
-              "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+              "amount": 1000000000000000000,
+              "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
             }
           },
           "issues": {
             "allowance": {
-              "currentAllowance": "1000000000",
-              "spender": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+              "currentAllowance": 1000000000,
+              "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
             },
             "balance": {
-              "token": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-              "currentBalance": "1000000000000000000",
-              "requiredBalance": "1000000000000000000"
+              "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
+              "currentBalance": 1000000000000000000,
+              "requiredBalance": 1000000000000000000
             },
             "simulationIncomplete": false
           },
           "liquidityAvailable": true,
-          "minToAmount": "900000000000000000",
-          "fromAmount": "1000000000000000000",
-          "fromToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+          "minToAmount": 900000000000000000,
+          "fromAmount": 1000000000000000000,
+          "fromToken": "6B175474E89094C44Da98b954EedeAC495271d0F"
         }
       },
       "GetSwapPriceResponse": {
@@ -11886,13 +11886,13 @@
                 "type": "string",
                 "description": "The estimated gas limit that should be used to send the transaction to guarantee settlement.",
                 "nullable": true,
-                "example": "100000"
+                "example": 100000
               },
               "gasPrice": {
                 "pattern": "^\\d\u002B$",
                 "type": "string",
                 "description": "The gas price, in Wei, that should be used to send the transaction. For EIP-1559 transactions, this value should be seen as the \u0060maxFeePerGas\u0060 value. The transaction should be sent with this gas price to guarantee settlement.",
-                "example": "1000000000"
+                "example": 1000000000
               }
             }
           }
@@ -11967,7 +11967,7 @@
                     "pattern": "^0x[a-fA-F0-9]{64}$",
                     "type": "string",
                     "description": "The hash for the approval according to [EIP-712](https://eips.ethereum.org/EIPS/eip-712). Computing the hash of the \u0060eip712\u0060 field should match the value of this field.",
-                    "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                    "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
                   },
                   "eip712": {
                     "$ref": "#/components/schemas/EIP712Message"
@@ -11990,30 +11990,30 @@
                     "pattern": "^0x[a-fA-F0-9]{40}$",
                     "type": "string",
                     "description": "The 0x-prefixed address of the contract to call.",
-                    "example": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                    "example": "000000000022D473030F116dDEE9F6B43aC78BA3"
                   },
                   "data": {
                     "type": "string",
                     "description": "The hex-encoded call data to send to the contract.",
-                    "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                    "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
                   },
                   "gas": {
                     "pattern": "^\\d\u002B$",
                     "type": "string",
                     "description": "The estimated gas limit that should be used to send the transaction to guarantee settlement.",
-                    "example": "100000"
+                    "example": 100000
                   },
                   "gasPrice": {
                     "pattern": "^\\d\u002B$",
                     "type": "string",
                     "description": "The gas price, in Wei, that should be used to send the transaction. For EIP-1559 transactions, this value should be seen as the \u0060maxFeePerGas\u0060 value. The transaction should be sent with this gas price to guarantee settlement.",
-                    "example": "1000000000"
+                    "example": 1000000000
                   },
                   "value": {
                     "pattern": "^\\d\u002B$",
                     "type": "string",
                     "description": "The value of the transaction in Wei.",
-                    "example": "1000000000000000000"
+                    "example": 1000000000000000000
                   }
                 },
                 "description": "The details of the transaction to be signed and submitted to execute the swap."
@@ -12075,7 +12075,7 @@
             "pattern": "^[0-9]\u002B$",
             "type": "string",
             "description": "The amount is denominated in the smallest indivisible unit of the token. For ETH, the smallest indivisible unit is Wei (10^-18 ETH). For ERC-20s, the smallest unit is the unit returned from \u0060function totalSupply() public view returns (uint256)\u0060.",
-            "example": "1250000000000000000"
+            "example": 1250000000000000000
           },
           "decimals": {
             "type": "integer",
@@ -12086,7 +12086,7 @@
         },
         "description": "Amount of a given token.",
         "example": {
-          "amount": "125000000000000000000",
+          "amount": 125000000000000000000,
           "decimals": 18
         }
       },
@@ -12114,7 +12114,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The contract address of the token.\nFor Ether, the contract address is \u00600xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE\u0060 per [EIP-7528](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7528.md). For ERC-20 tokens, this is the contract address where the token is deployed.",
-            "example": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+            "example": "a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
           }
         },
         "description": "General information about a token. Includes the type, the network, and other identifying information.",
@@ -12122,7 +12122,7 @@
           "network": "base",
           "symbol": "ETH",
           "name": "Ether",
-          "contractAddress": "0x1234567890123456789012345678901234567890"
+          "contractAddress": "1234567890123456789012345678901234567890"
         }
       },
       "TokenBalance": {
@@ -12163,7 +12163,7 @@
             "pattern": "^[0-9]\u002B$",
             "type": "string",
             "description": "The amount of ETH, in wei, that the transaction\u0027s \u0060value\u0060 field should be compared to.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "operator": {
             "enum": [
@@ -12505,7 +12505,7 @@
           "value": {
             "type": "string",
             "description": "A single value to compare the value resolved at \u0060name\u0060 to. All values are encoded as strings. Refer to the table in the documentation for how values should be encoded, and which operators are supported for each type.",
-            "example": "100000"
+            "example": 100000
           }
         },
         "x-audience": "public"
@@ -12539,7 +12539,7 @@
             "items": {
               "type": "string",
               "description": "A single potential value to compare against the resolved \u0060name\u0060 value. All values are encoded as strings. Refer to the table in the documentation for how values should be encoded, and which operators are supported for each type.",
-              "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+              "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
             },
             "description": "Values to compare against the resolved \u0060name\u0060 value. All values are encoded as strings. Refer to the table in the documentation for how values should be encoded, and which operators are supported for each type."
           }
@@ -12581,13 +12581,13 @@
             {
               "name": "value",
               "operator": "\u003C=",
-              "value": "10000"
+              "value": 10000
             },
             {
               "name": "to",
               "operator": "in",
               "values": [
-                "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                "742d35Cc6634C0532925a3b844Bc454e4438f44e"
               ]
             }
           ]
@@ -12991,7 +12991,7 @@
             "pattern": "^[0-9]\u002B$",
             "type": "string",
             "description": "The amount that the value located at the message\u0027s path should be compared to.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "operator": {
             "enum": [
@@ -13322,7 +13322,7 @@
           "solValue": {
             "type": "string",
             "description": "The amount of SOL in lamports that the transaction instruction\u0027s \u0060value\u0060 field should be compared to.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "operator": {
             "enum": [
@@ -13429,7 +13429,7 @@
           "splValue": {
             "type": "string",
             "description": "The amount of the SPL token that the transaction instruction\u0027s \u0060value\u0060 field should be compared to.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "operator": {
             "enum": [
@@ -13712,7 +13712,7 @@
           "value": {
             "type": "string",
             "description": "The value to compare against.",
-            "example": "1000000"
+            "example": 1000000
           }
         },
         "description": "A single parameter condition to apply against a specific instruction\u0027s parameters.",
@@ -13747,7 +13747,7 @@
             "items": {
               "type": "string",
               "description": "A single potential value to compare against the resolved \u0060name\u0060 value.",
-              "example": "1000000"
+              "example": 1000000
             },
             "description": "The values to compare against."
           }
@@ -14751,13 +14751,13 @@
           "criteria": [
             {
               "type": "ethValue",
-              "ethValue": "1000000",
+              "ethValue": 1000000,
               "operator": "\u003E="
             },
             {
               "type": "evmAddress",
               "addresses": [
-                "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                "742d35Cc6634C0532925a3b844Bc454e4438f44e"
               ],
               "operator": "in"
             }
@@ -14877,7 +14877,7 @@
             "pattern": "^[0-9]\u002B$",
             "type": "string",
             "description": "The amount is denominated in the smallest indivisible unit of the token. For SOL, the smallest indivisible unit is lamports (10^-9 SOL). For SPL tokens, the smallest unit is defined by the token\u0027s decimals configuration.",
-            "example": "1250000000"
+            "example": 1250000000
           },
           "decimals": {
             "type": "integer",
@@ -14888,7 +14888,7 @@
         },
         "description": "Amount of a given Solana token.",
         "example": {
-          "amount": "1250000000",
+          "amount": 1250000000,
           "decimals": 9
         }
       },
@@ -14981,8 +14981,8 @@
               "description": "Row data with column names as keys.",
               "example": {
                 "event_signature": "Transfer(address,address,uint256)",
-                "from": "0x1234567890abcdef",
-                "to": "0x1234567890abcdef",
+                "from": 1311768467294899695,
+                "to": 1311768467294899695,
                 "amount": 1000000000000000000
               }
             },
@@ -15093,7 +15093,7 @@
           "accountAddress": {
             "type": "string",
             "description": "The account address that was queried.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "tokenAddresses": {
             "type": "array",
@@ -15292,7 +15292,7 @@
             "example": {
               "env": "dev",
               "team": "payments",
-              "contract_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+              "contract_address": "833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
             }
           }
         },
@@ -15304,10 +15304,10 @@
           ],
           "isEnabled": true,
           "labels": {
-            "contract_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            "contract_address": "833589fcd6edb6e08f4c7c32d4f71b54bda02913",
             "event_name": "Transfer",
             "network": "base-mainnet",
-            "transaction_to": "0xf5042e6ffac5a625d4e7848e0b01373d8eb9e222"
+            "transaction_to": "f5042e6ffac5a625d4e7848e0b01373d8eb9e222"
           },
           "description": "USDC Transfer events to specific address.",
           "createdAt": "2025-11-12T09:19:52.051Z",
@@ -15397,7 +15397,7 @@
             "description": "Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger when\nan event contains ALL the key-value pairs specified here. Additional labels on\nthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.\n\n**Note:** Currently, labels are supported for onchain webhooks only.\n\nSee [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).\n",
             "example": {
               "network": "base-mainnet",
-              "contract_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+              "contract_address": "833589fcd6edb6e08f4c7c32d4f71b54bda02913",
               "event_name": "Transfer"
             }
           }
@@ -15456,7 +15456,7 @@
             "description": "Optional. Multi-label filters that trigger only when an event contains ALL of these key-value pairs.\n\n**Note:** Currently, labels are supported for onchain webhooks only.\n\nSee [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).\nOmit to receive all events for the selected event types.\n",
             "example": {
               "network": "base-mainnet",
-              "contract_address": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+              "contract_address": "833589fcd6edb6e08f4c7c32d4f71b54bda02913",
               "event_name": "Transfer"
             }
           }
@@ -15485,7 +15485,7 @@
             "pattern": "^0x[0-9a-fA-F]{130,}$",
             "type": "string",
             "description": "The EIP-712 hex-encoded signature of the ERC-3009 authorization message. Smart account signatures may be longer than 65 bytes.",
-            "example": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
+            "example": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
           },
           "authorization": {
             "required": [
@@ -15502,57 +15502,57 @@
                 "pattern": "^0x[0-9a-fA-F]{40}$",
                 "type": "string",
                 "description": "The 0x-prefixed, checksum EVM address of the sender of the payment.",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
               },
               "to": {
                 "pattern": "^0x[0-9a-fA-F]{40}$",
                 "type": "string",
                 "description": "The 0x-prefixed, checksum EVM address of the recipient of the payment.",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
               },
               "value": {
                 "type": "string",
                 "description": "The value of the payment, in atomic units of the payment asset.",
-                "example": "1000000000000000000"
+                "example": 1000000000000000000
               },
               "validAfter": {
                 "type": "string",
                 "description": "The unix timestamp after which the payment is valid.",
-                "example": "1716150000"
+                "example": 1716150000
               },
               "validBefore": {
                 "type": "string",
                 "description": "The unix timestamp before which the payment is valid.",
-                "example": "1716150000"
+                "example": 1716150000
               },
               "nonce": {
                 "pattern": "^0x[0-9a-fA-F]{64}$",
                 "type": "string",
                 "description": "The hex-encoded nonce of the payment (bytes32).",
-                "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
               }
             },
             "description": "The authorization data for the ERC-3009 authorization message.",
             "example": {
-              "from": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "to": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "value": "1000000000000000000",
-              "validAfter": "1716150000",
-              "validBefore": "1716150000",
-              "nonce": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+              "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+              "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+              "value": 1000000000000000000,
+              "validAfter": 1716150000,
+              "validBefore": 1716150000,
+              "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
             }
           }
         },
         "description": "The x402 protocol exact scheme payload for EVM networks. The scheme is implemented using ERC-3009. For more details, please see [EVM Exact Scheme Details](https://github.com/coinbase/x402/blob/main/specs/schemes/exact/scheme_exact_evm.md).",
         "example": {
-          "signature": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+          "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
           "authorization": {
-            "from": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-            "to": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-            "value": "1000000000000000000",
-            "validAfter": "1716150000",
-            "validBefore": "1716150000",
-            "nonce": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+            "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+            "value": 1000000000000000000,
+            "validAfter": 1716150000,
+            "validBefore": 1716150000,
+            "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           }
         }
       },
@@ -15568,7 +15568,7 @@
             "pattern": "^0x[0-9a-fA-F]{130,}$",
             "type": "string",
             "description": "The EIP-712 hex-encoded signature of the Permit2 PermitWitnessTransferFrom message. Smart account signatures may be longer than 65 bytes.",
-            "example": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
+            "example": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
           },
           "permit2Authorization": {
             "required": [
@@ -15585,7 +15585,7 @@
                 "pattern": "^0x[0-9a-fA-F]{40}$",
                 "type": "string",
                 "description": "The 0x-prefixed, checksum EVM address of the sender of the payment.",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
               },
               "permitted": {
                 "required": [
@@ -15598,12 +15598,12 @@
                     "pattern": "^0x[0-9a-fA-F]{40}$",
                     "type": "string",
                     "description": "The 0x-prefixed, checksum EVM address of the token to transfer.",
-                    "example": "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+                    "example": "036CbD53842c5426634e7929541eC2318f3dCF7e"
                   },
                   "amount": {
                     "type": "string",
                     "description": "The amount to transfer in atomic units.",
-                    "example": "1000000"
+                    "example": 1000000
                   }
                 },
                 "description": "The token permissions for the transfer."
@@ -15612,18 +15612,18 @@
                 "pattern": "^0x[0-9a-fA-F]{40}$",
                 "type": "string",
                 "description": "The 0x-prefixed, checksum EVM address of the spender (x402 Permit2 proxy contract).",
-                "example": "0x4020615294c913F045dc10f0a5cdEbd86c280001"
+                "example": "4020615294c913F045dc10f0a5cdEbd86c280001"
               },
               "nonce": {
                 "pattern": "^[0-9]\u002B$",
                 "type": "string",
                 "description": "The Permit2 nonce as a decimal string (uint256).",
-                "example": "12345678901234567890"
+                "example": 12345678901234567890
               },
               "deadline": {
                 "type": "string",
                 "description": "The unix timestamp before which the permit is valid.",
-                "example": "1716150000"
+                "example": 1716150000
               },
               "witness": {
                 "required": [
@@ -15636,12 +15636,12 @@
                     "pattern": "^0x[0-9a-fA-F]{40}$",
                     "type": "string",
                     "description": "The 0x-prefixed, checksum EVM address of the recipient.",
-                    "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                    "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                   },
                   "validAfter": {
                     "type": "string",
                     "description": "The unix timestamp after which the payment is valid.",
-                    "example": "1716150000"
+                    "example": 1716150000
                   },
                   "extra": {
                     "pattern": "^0x[0-9a-fA-F]*$",
@@ -15655,17 +15655,17 @@
             },
             "description": "The authorization data for the Permit2 PermitWitnessTransferFrom message.",
             "example": {
-              "from": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+              "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
               "permitted": {
-                "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
-                "amount": "1000000"
+                "token": "036CbD53842c5426634e7929541eC2318f3dCF7e",
+                "amount": 1000000
               },
-              "spender": "0x4020615294c913F045dc10f0a5cdEbd86c280001",
-              "nonce": "12345678901234567890",
-              "deadline": "1716150000",
+              "spender": "4020615294c913F045dc10f0a5cdEbd86c280001",
+              "nonce": 12345678901234567890,
+              "deadline": 1716150000,
               "witness": {
-                "to": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "validAfter": "1716150000",
+                "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "validAfter": 1716150000,
                 "extra": "0x"
               }
             }
@@ -15673,19 +15673,19 @@
         },
         "description": "The x402 protocol exact scheme payload for EVM networks using Permit2. Permit2 is a universal token approval mechanism that works with any ERC-20 token, unlike ERC-3009 which requires token-level support.",
         "example": {
-          "signature": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+          "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
           "permit2Authorization": {
-            "from": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+            "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
             "permitted": {
-              "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
-              "amount": "1000000"
+              "token": "036CbD53842c5426634e7929541eC2318f3dCF7e",
+              "amount": 1000000
             },
-            "spender": "0x4020615294c913F045dc10f0a5cdEbd86c280001",
-            "nonce": "12345678901234567890",
-            "deadline": "1716150000",
+            "spender": "4020615294c913F045dc10f0a5cdEbd86c280001",
+            "nonce": 12345678901234567890,
+            "deadline": 1716150000,
             "witness": {
-              "to": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "validAfter": "1716150000",
+              "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+              "validAfter": 1716150000,
               "extra": "0x"
             }
           }
@@ -15738,18 +15738,18 @@
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
             "type": "string",
             "description": "The asset to pay with.\n\nFor EVM networks, the asset will be a 0x-prefixed, checksum EVM address.\n\nFor Solana-based networks, the asset will be a base58-encoded Solana address.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "amount": {
             "type": "string",
             "description": "The amount to pay for the resource in atomic units of the payment asset.",
-            "example": "1000000"
+            "example": 1000000
           },
           "payTo": {
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
             "type": "string",
             "description": "The destination to pay value to.\n\nFor EVM networks, payTo will be a 0x-prefixed, checksum EVM address.\n\nFor Solana-based networks, payTo will be a base58-encoded Solana address.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "maxTimeoutSeconds": {
             "type": "integer",
@@ -15761,7 +15761,7 @@
             "description": "The optional additional scheme-specific payment info.",
             "example": {
               "name": "USDC",
-              "version": "2"
+              "version": 2
             }
           }
         },
@@ -15821,14 +15821,14 @@
             ],
             "description": "The payload of the payment depending on the x402Version, scheme, and network.",
             "example": {
-              "signature": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+              "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
               "authorization": {
-                "from": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "to": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "value": "1000000000000000000",
-                "validAfter": "1716150000",
-                "validBefore": "1716150000",
-                "nonce": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "value": 1000000000000000000,
+                "validAfter": 1716150000,
+                "validBefore": 1716150000,
+                "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
               }
             }
           },
@@ -15854,24 +15854,24 @@
           "accepted": {
             "scheme": "exact",
             "network": "eip155:84532",
-            "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
-            "amount": "1000",
-            "payTo": "0x122F8Fcaf2152420445Aa424E1D8C0306935B5c9",
+            "asset": "036CbD53842c5426634e7929541eC2318f3dCF7e",
+            "amount": 1000,
+            "payTo": "122F8Fcaf2152420445Aa424E1D8C0306935B5c9",
             "maxTimeoutSeconds": 60,
             "extra": {
               "name": "USDC",
-              "version": "2"
+              "version": 2
             }
           },
           "payload": {
-            "signature": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+            "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
             "authorization": {
-              "from": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "to": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "value": "1000000000000000000",
-              "validAfter": "1716150000",
-              "validBefore": "1716150000",
-              "nonce": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+              "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+              "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+              "value": 1000000000000000000,
+              "validAfter": 1716150000,
+              "validBefore": 1716150000,
+              "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
             }
           },
           "resource": {
@@ -15930,14 +15930,14 @@
             ],
             "description": "The payload of the payment depending on the x402Version, scheme, and network.",
             "example": {
-              "signature": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+              "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
               "authorization": {
-                "from": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "to": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "value": "1000000000000000000",
-                "validAfter": "1716150000",
-                "validBefore": "1716150000",
-                "nonce": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "value": 1000000000000000000,
+                "validAfter": 1716150000,
+                "validBefore": 1716150000,
+                "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
               }
             }
           }
@@ -15948,14 +15948,14 @@
           "scheme": "exact",
           "network": "base",
           "payload": {
-            "signature": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+            "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
             "authorization": {
-              "from": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "to": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "value": "1000000000000000000",
-              "validAfter": "1716150000",
-              "validBefore": "1716150000",
-              "nonce": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+              "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+              "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+              "value": 1000000000000000000,
+              "validAfter": 1716150000,
+              "validBefore": 1716150000,
+              "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
             }
           }
         }
@@ -16027,7 +16027,7 @@
           "maxAmountRequired": {
             "type": "string",
             "description": "The maximum amount required to pay for the resource in atomic units of the payment asset.",
-            "example": "1000000"
+            "example": 1000000
           },
           "resource": {
             "type": "string",
@@ -16062,7 +16062,7 @@
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
             "type": "string",
             "description": "The destination to pay value to.\n\nFor EVM networks, payTo will be a 0x-prefixed, checksum EVM address.\n\nFor Solana-based networks, payTo will be a base58-encoded Solana address.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "maxTimeoutSeconds": {
             "type": "integer",
@@ -16073,13 +16073,13 @@
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
             "type": "string",
             "description": "The asset to pay with.\n\nFor EVM networks, the asset will be a 0x-prefixed, checksum EVM address.\n\nFor Solana-based networks, the asset will be a base58-encoded Solana address.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "extra": {
             "type": "object",
             "description": "The optional additional scheme-specific payment info.",
             "example": {
-              "gasLimit": "1000000"
+              "gasLimit": 1000000
             }
           }
         },
@@ -16188,7 +16188,7 @@
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
             "type": "string",
             "description": "The onchain address of the client that is paying for the resource.\n\nFor EVM networks, the payer will be a 0x-prefixed, checksum EVM address.\n\nFor Solana-based networks, the payer will be a base58-encoded Solana address.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         },
         "description": "The result when x402 payment verification fails.",
@@ -16196,7 +16196,7 @@
           "isValid": false,
           "invalidReason": "insufficient_funds",
           "invalidMessage": "Insufficient funds",
-          "payer": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          "payer": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
         }
       },
       "x402SettleErrorReason": {
@@ -16279,13 +16279,13 @@
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
             "type": "string",
             "description": "The onchain address of the client that is paying for the resource.\n\nFor EVM networks, the payer will be a 0x-prefixed, checksum EVM address.\n\nFor Solana-based networks, the payer will be a base58-encoded Solana address.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "transaction": {
             "pattern": "^(0x[a-fA-F0-9]{64}|[1-9A-HJ-NP-Za-km-z]{87,88})$",
             "type": "string",
             "description": "The transaction of the settlement.\nFor EVM networks, the transaction will be a 0x-prefixed, EVM transaction hash.\nFor Solana-based networks, the transaction will be a base58-encoded Solana signature.",
-            "example": "0x89c91c789e57059b17285e7ba1716a1f5ff4c5dace0ea5a5135f26158d0421b9"
+            "example": "89c91c789e57059b17285e7ba1716a1f5ff4c5dace0ea5a5135f26158d0421b9"
           },
           "network": {
             "type": "string",
@@ -16297,7 +16297,7 @@
         "example": {
           "success": false,
           "errorReason": "insufficient_funds",
-          "payer": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          "payer": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
         }
       },
       "x402SupportedPaymentKind": {
@@ -16379,7 +16379,7 @@
           "amount": {
             "type": "string",
             "description": "The amount of the fee.",
-            "example": "0.95"
+            "example": 0.95
           },
           "currency": {
             "type": "string",
@@ -16429,12 +16429,12 @@
           "paymentTotal": {
             "type": "string",
             "description": "The total amount of fiat to be paid, inclusive of any fees.",
-            "example": "100.75"
+            "example": 100.75
           },
           "paymentSubtotal": {
             "type": "string",
             "description": "The amount of fiat to be converted to crypto.",
-            "example": "100"
+            "example": 100
           },
           "paymentCurrency": {
             "type": "string",
@@ -16447,7 +16447,7 @@
           "purchaseAmount": {
             "type": "string",
             "description": "The amount of crypto to be purchased.",
-            "example": "100.000000"
+            "example": 100
           },
           "purchaseCurrency": {
             "type": "string",
@@ -16464,7 +16464,7 @@
           "exchangeRate": {
             "type": "string",
             "description": "The exchange rate used to convert fiat to crypto i.e. the crypto value of one fiat.",
-            "example": "1"
+            "example": 1
           },
           "destinationAddress": {
             "type": "object",
@@ -16476,7 +16476,7 @@
               }
             ],
             "description": "The destination address to send the crypto to.",
-            "example": "0x71C7656EC7ab88b098defB751B7401B5f6d8976F"
+            "example": "71C7656EC7ab88b098defB751B7401B5f6d8976F"
           },
           "destinationNetwork": {
             "type": "string",
@@ -16489,7 +16489,7 @@
           "txHash": {
             "type": "string",
             "description": "The transaction hash of the order (only available once crypto has been sent).",
-            "example": "0x363cd3b3d4f49497cf5076150cd709307b90e9fc897fdd623546ea7b9313cecb"
+            "example": "363cd3b3d4f49497cf5076150cd709307b90e9fc897fdd623546ea7b9313cecb"
           },
           "createdAt": {
             "type": "string",
@@ -16647,12 +16647,12 @@
           "paymentTotal": {
             "type": "string",
             "description": "The total amount of fiat to be paid, inclusive of any fees.",
-            "example": "100.75"
+            "example": 100.75
           },
           "paymentSubtotal": {
             "type": "string",
             "description": "The amount of fiat to be converted to crypto.",
-            "example": "100.00"
+            "example": 100
           },
           "paymentCurrency": {
             "type": "string",
@@ -16662,7 +16662,7 @@
           "purchaseAmount": {
             "type": "string",
             "description": "The amount of crypto to be purchased.",
-            "example": "100.000000"
+            "example": 100
           },
           "purchaseCurrency": {
             "type": "string",
@@ -16684,30 +16684,30 @@
           "exchangeRate": {
             "type": "string",
             "description": "The exchange rate used to convert fiat to crypto i.e. the crypto value of one fiat.",
-            "example": "1"
+            "example": 1
           }
         },
         "description": "Quote information with pricing details for the crypto purchase.",
         "example": {
-          "paymentTotal": "100.75",
-          "paymentSubtotal": "100.00",
+          "paymentTotal": 100.75,
+          "paymentSubtotal": 100,
           "paymentCurrency": "USD",
-          "purchaseAmount": "100.000000",
+          "purchaseAmount": 100,
           "purchaseCurrency": "USDC",
           "destinationNetwork": "base",
           "fees": [
             {
               "type": "FEE_TYPE_EXCHANGE",
-              "amount": "0.5",
+              "amount": 0.5,
               "currency": "USD"
             },
             {
               "type": "FEE_TYPE_NETWORK",
-              "amount": "0.25",
+              "amount": 0.25,
               "currency": "USD"
             }
           ],
-          "exchangeRate": "1"
+          "exchangeRate": 1
         }
       },
       "OnrampUserIdType": {
@@ -16748,12 +16748,12 @@
           "limit": {
             "type": "string",
             "description": "The maximum limit value.",
-            "example": "2500"
+            "example": 2500
           },
           "remaining": {
             "type": "string",
             "description": "The remaining amount or count available.",
-            "example": "2000"
+            "example": 2000
           }
         },
         "description": "A single limit with remaining capacity."
@@ -16769,12 +16769,12 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "transaction": {
             "type": "string",
             "description": "The RLP-encoded transaction to sign, as a 0x-prefixed hex string.",
-            "example": "0xf86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
+            "example": "f86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
           },
           "walletSecretId": {
             "pattern": "^[a-zA-Z0-9-]{1,100}$",
@@ -16793,7 +16793,7 @@
           "signedTransaction": {
             "type": "string",
             "description": "The RLP-encoded signed transaction, as a 0x-prefixed hex string.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -16809,7 +16809,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "network": {
             "enum": [
@@ -16836,7 +16836,7 @@
           "transaction": {
             "type": "string",
             "description": "The RLP-encoded transaction to sign and send, as a 0x-prefixed hex string.",
-            "example": "0xf86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
+            "example": "f86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
           }
         }
       },
@@ -16849,7 +16849,7 @@
           "transactionHash": {
             "type": "string",
             "description": "The hash of the transaction, as a 0x-prefixed hex string.",
-            "example": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+            "example": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
           }
         }
       },
@@ -16872,14 +16872,14 @@
               }
             ],
             "description": "The 0x-prefixed address of the recipient.",
-            "example": "0x1234567890123456789012345678901234567890"
+            "example": "1234567890123456789012345678901234567890"
           },
           "amount": {
             "maxLength": 32,
             "minLength": 1,
             "type": "string",
             "description": "The amount of USDC to send as a decimal string (e.g., \u00221.5\u0022 or \u002225.50\u0022).",
-            "example": "1.50"
+            "example": 1.5
           },
           "network": {
             "enum": [
@@ -16931,13 +16931,13 @@
             "type": "string",
             "description": "The hash of the transaction, as a 0x-prefixed hex string. Populated for EOA accounts. Null for Smart Accounts (use userOpHash instead).",
             "nullable": true,
-            "example": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+            "example": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
           },
           "userOpHash": {
             "type": "string",
             "description": "The hash of the user operation, as a 0x-prefixed hex string. Populated for Smart Accounts. Null for EOA accounts (use transactionHash instead).",
             "nullable": true,
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           }
         }
       },
@@ -16952,7 +16952,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "message": {
             "type": "string",
@@ -16976,7 +16976,7 @@
           "signature": {
             "type": "string",
             "description": "The signature of the message, as a 0x-prefixed hex string.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -16991,7 +16991,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "typedData": {
             "$ref": "#/components/schemas/EIP712Message"
@@ -17013,7 +17013,7 @@
           "signature": {
             "type": "string",
             "description": "The signature of the typed data, as a 0x-prefixed hex string.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -17039,7 +17039,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The 0x-prefixed address of the EVM account to delegate.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "network": {
             "$ref": "#/components/schemas/EvmEip7702DelegationNetwork"
@@ -17119,7 +17119,7 @@
             "pattern": "^0x[0-9a-fA-F]\u002B$",
             "type": "string",
             "description": "The EIP-8021 data suffix (hex-encoded) that enables transaction attribution for the user operation.",
-            "example": "0xdddddddd62617365617070070080218021802180218021802180218021"
+            "example": "dddddddd62617365617070070080218021802180218021802180218021"
           }
         }
       },
@@ -17321,7 +17321,7 @@
             "minLength": 1,
             "type": "string",
             "description": "The amount of USDC to send as a decimal string (e.g., \u00221.5\u0022 or \u002225.50\u0022).",
-            "example": "1.50"
+            "example": 1.5
           },
           "network": {
             "enum": [
@@ -17449,7 +17449,7 @@
           "transaction": {
             "type": "string",
             "description": "The RLP-encoded transaction to sign and send, as a 0x-prefixed hex string.",
-            "example": "0xf86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
+            "example": "f86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
           }
         }
       },
@@ -17462,7 +17462,7 @@
           "transactionHash": {
             "type": "string",
             "description": "The hash of the transaction, as a 0x-prefixed hex string.",
-            "example": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+            "example": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
           }
         }
       },
@@ -17475,7 +17475,7 @@
           "transaction": {
             "type": "string",
             "description": "The RLP-encoded transaction to sign, as a 0x-prefixed hex string.",
-            "example": "0xf86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
+            "example": "f86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
           }
         }
       },
@@ -17488,7 +17488,7 @@
           "signedTransaction": {
             "type": "string",
             "description": "The RLP-encoded signed transaction, as a 0x-prefixed hex string.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -17501,7 +17501,7 @@
           "hash": {
             "type": "string",
             "description": "The arbitrary 32 byte hash to sign.",
-            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           }
         }
       },
@@ -17514,7 +17514,7 @@
           "signature": {
             "type": "string",
             "description": "The signature of the hash, as a 0x-prefixed hex string.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -17540,7 +17540,7 @@
           "signature": {
             "type": "string",
             "description": "The signature of the message, as a 0x-prefixed hex string.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -17553,7 +17553,7 @@
           "signature": {
             "type": "string",
             "description": "The signature of the typed data, as a 0x-prefixed hex string.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -17757,7 +17757,7 @@
             "pattern": "^0x[0-9a-fA-F]\u002B$",
             "type": "string",
             "description": "The EIP-8021 data suffix (hex-encoded) that enables transaction attribution for the user operation.",
-            "example": "0xdddddddd62617365617070070080218021802180218021802180218021"
+            "example": "dddddddd62617365617070070080218021802180218021802180218021"
           }
         }
       },
@@ -17803,7 +17803,7 @@
           "signature": {
             "type": "string",
             "description": "The hex-encoded signature of the user operation. This should be a 65-byte signature consisting of the \u0060r\u0060, \u0060s\u0060, and \u0060v\u0060 values of the ECDSA signature. Note that the \u0060v\u0060 value should conform to the \u0060personal_sign\u0060 standard, which means it should be 27 or 28.",
-            "example": "0x1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
           }
         }
       },
@@ -17847,37 +17847,37 @@
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "The 0x-prefixed contract address of the token to receive.",
-            "example": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
+            "example": "7F5c764cBc14f9669B88837ca1490cCa17c31607"
           },
           "fromToken": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "The 0x-prefixed contract address of the token to send.",
-            "example": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+            "example": "6B175474E89094C44Da98b954EedeAC495271d0F"
           },
           "fromAmount": {
             "pattern": "^\\d\u002B$",
             "type": "string",
             "description": "The amount of the \u0060fromToken\u0060 to send in atomic units of the token. For example, \u00601000000000000000000\u0060 when sending ETH equates to 1 ETH, \u00601000000\u0060 when sending USDC equates to 1 USDC, etc.",
-            "example": "1000000000000000000"
+            "example": 1000000000000000000
           },
           "taker": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "The 0x-prefixed address that holds the \u0060fromToken\u0060 balance and has the \u0060Permit2\u0060 allowance set for the swap.",
-            "example": "0xAc0974bec39a17e36ba4a6b4d238ff944bacb478"
+            "example": "Ac0974bec39a17e36ba4a6b4d238ff944bacb478"
           },
           "signerAddress": {
             "pattern": "^0x[a-fA-F0-9]{40}$",
             "type": "string",
             "description": "The 0x-prefixed Externally Owned Account (EOA) address that will sign the \u0060Permit2\u0060 EIP-712 permit message. This is only needed if \u0060taker\u0060 is a smart contract.",
-            "example": "0x922f49447d8a07e3bd95bd0d56f35241523fbab8"
+            "example": "922f49447d8a07e3bd95bd0d56f35241523fbab8"
           },
           "gasPrice": {
             "pattern": "^\\d\u002B$",
             "type": "string",
             "description": "The target gas price for the swap transaction, in Wei. For EIP-1559 transactions, this value should be seen as the \u0060maxFeePerGas\u0060 value. If not provided, the API will use an estimate based on the current network conditions.",
-            "example": "1000000000"
+            "example": 1000000000
           },
           "slippageBps": {
             "maximum": 10000,
@@ -17907,26 +17907,26 @@
                 "example": [
                   {
                     "amount": {
-                      "amount": "1250000000000000000",
+                      "amount": 1250000000000000000,
                       "decimals": 18
                     },
                     "token": {
                       "network": "base",
                       "symbol": "ETH",
                       "name": "ether",
-                      "contractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                      "contractAddress": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                     }
                   },
                   {
                     "amount": {
-                      "amount": "123456",
+                      "amount": 123456,
                       "decimals": 6
                     },
                     "token": {
                       "network": "base",
                       "symbol": "USDC",
                       "name": "USD Coin",
-                      "contractAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+                      "contractAddress": "833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
                     }
                   }
                 ]
@@ -17961,7 +17961,7 @@
             "pattern": "^0x[0-9a-fA-F]{40}$",
             "type": "string",
             "description": "The address to request funds to, which is a 0x-prefixed hexadecimal string.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "token": {
             "enum": [
@@ -17986,7 +17986,7 @@
           "transactionHash": {
             "type": "string",
             "description": "The hash of the transaction that requested the funds.\n**Note:** In rare cases, when gas conditions are unusually high, the transaction may not confirm, and the system may issue a replacement transaction to complete the faucet request. In these rare cases, the \u0060transactionHash\u0060 will be out of sync with the actual faucet transaction that was confirmed onchain.",
-            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         }
       },
@@ -18342,7 +18342,7 @@
                 "example": [
                   {
                     "amount": {
-                      "amount": "1250000000",
+                      "amount": 1250000000,
                       "decimals": 9
                     },
                     "token": {
@@ -18353,7 +18353,7 @@
                   },
                   {
                     "amount": {
-                      "amount": "123456000",
+                      "amount": 123456000,
                       "decimals": 6
                     },
                     "token": {
@@ -18394,26 +18394,26 @@
                 "example": [
                   {
                     "amount": {
-                      "amount": "1250000000000000000",
+                      "amount": 1250000000000000000,
                       "decimals": 18
                     },
                     "token": {
                       "network": "base",
                       "symbol": "ETH",
                       "name": "ether",
-                      "contractAddress": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                      "contractAddress": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                     }
                   },
                   {
                     "amount": {
-                      "amount": "123456",
+                      "amount": 123456,
                       "decimals": 6
                     },
                     "token": {
                       "network": "base",
                       "symbol": "USDC",
                       "name": "USD Coin",
-                      "contractAddress": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+                      "contractAddress": "833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
                     }
                   }
                 ]
@@ -18523,7 +18523,7 @@
           "paymentAmount": {
             "type": "string",
             "description": "A string representing the amount of fiat the user wishes to pay in exchange for crypto. When using  this parameter, the returned quote will be inclusive of fees i.e. the user will pay this exact amount  of the payment currency.",
-            "example": "100.00"
+            "example": 100
           },
           "paymentCurrency": {
             "type": "string",
@@ -18536,7 +18536,7 @@
           "phoneNumber": {
             "type": "string",
             "description": "The phone number of the user requesting the onramp transaction in E.164 format. This phone number must  be verified by your app (via OTP) before being used with the Onramp API.\n\nPlease refer to the [Onramp docs](https://docs.cdp.coinbase.com/onramp-\u0026-offramp/onramp-apis/apple-pay-onramp-api) for more details on phone number verification requirements and best practices.",
-            "example": "\u002B12055555555"
+            "example": 12055555555
           },
           "phoneNumberVerifiedAt": {
             "type": "string",
@@ -18547,7 +18547,7 @@
           "purchaseAmount": {
             "type": "string",
             "description": "A string representing the amount of crypto the user wishes to purchase. When using this parameter the  returned quote will be exclusive of fees i.e. the user will receive this exact amount of the purchase  currency.",
-            "example": "10.000000"
+            "example": 10
           },
           "purchaseCurrency": {
             "type": "string",
@@ -18623,12 +18623,12 @@
           "paymentAmount": {
             "type": "string",
             "description": "A string representing the amount of fiat the user wishes to pay in exchange for crypto. When using this parameter, the returned quote will be inclusive of fees i.e. the user  will pay this exact amount of the payment currency.",
-            "example": "100.00"
+            "example": 100
           },
           "purchaseAmount": {
             "type": "string",
             "description": "A string representing the amount of crypto the user wishes to purchase. When using  this parameter, the returned quote will be exclusive of fees i.e. the user will  receive this exact amount of the purchase currency.",
-            "example": "10.000000"
+            "example": 10
           },
           "paymentCurrency": {
             "type": "string",
@@ -18702,7 +18702,7 @@
           "userId": {
             "type": "string",
             "description": "The user identifier value. For \u0060phone_number\u0060 type, this must be in E.164 format.",
-            "example": "\u002B12055555555"
+            "example": 12055555555
           },
           "userIdType": {
             "$ref": "#/components/schemas/OnrampUserIdType"
@@ -18983,7 +18983,7 @@
                   "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
                   "type": "string",
                   "description": "The onchain address of the client that is paying for the resource.\n\nFor EVM networks, the payer will be a 0x-prefixed, checksum EVM address.\n\nFor Solana-based networks, the payer will be a base58-encoded Solana address.",
-                  "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                  "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                 }
               }
             }
@@ -19003,7 +19003,7 @@
                   "isValid": false,
                   "invalidReason": "insufficient_funds",
                   "invalidMessage": "Insufficient funds",
-                  "payer": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                  "payer": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                 }
               }
             }
@@ -19040,13 +19040,13 @@
                   "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
                   "type": "string",
                   "description": "The onchain address of the client that is paying for the resource.\n\nFor EVM networks, the payer will be a 0x-prefixed, checksum EVM address.\n\nFor Solana-based networks, the payer will be a base58-encoded Solana address.",
-                  "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                  "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                 },
                 "transaction": {
                   "pattern": "^(0x[a-fA-F0-9]{64}|[1-9A-HJ-NP-Za-km-z]{87,88})$",
                   "type": "string",
                   "description": "The transaction of the settlement.\nFor EVM networks, the transaction will be a 0x-prefixed, EVM transaction hash.\nFor Solana-based networks, the transaction will be a base58-encoded Solana signature.",
-                  "example": "0x89c91c789e57059b17285e7ba1716a1f5ff4c5dace0ea5a5135f26158d0421b9"
+                  "example": "89c91c789e57059b17285e7ba1716a1f5ff4c5dace0ea5a5135f26158d0421b9"
                 },
                 "network": {
                   "type": "string",
@@ -19071,7 +19071,7 @@
                   "success": false,
                   "errorReason": "insufficient_funds",
                   "errorMessage": "Insufficient funds",
-                  "payer": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                  "payer": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
                 }
               }
             }
@@ -19145,8 +19145,8 @@
                   "description": "A map of CAIP-2 network or protocol family patterns to their supported signer addresses.",
                   "example": {
                     "eip155:*": [
-                      "0x1234567890abcdef1234567890abcdef12345678",
-                      "0xabcdef1234567890abcdef1234567890abcdef12"
+                      "1234567890abcdef1234567890abcdef12345678",
+                      "abcdef1234567890abcdef1234567890abcdef12"
                     ],
                     "solana:*": [
                       "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d"
