@@ -15,6 +15,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The amount that was settled, in atomic units.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Amount { get; set; }
+#nullable restore
+#else
+        public string Amount { get; set; }
+#endif
         /// <summary>The message describing the error reason.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,6 +84,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "amount", n => { Amount = n.GetStringValue(); } },
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
                 { "errorReason", n => { ErrorReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason>(); } },
                 { "network", n => { Network = n.GetStringValue(); } },
@@ -91,6 +100,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("errorMessage", ErrorMessage);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason>("errorReason", ErrorReason);
             writer.WriteStringValue("network", Network);

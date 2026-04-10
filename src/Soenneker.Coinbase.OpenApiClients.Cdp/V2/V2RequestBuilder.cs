@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data;
-using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp;
@@ -26,11 +25,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.DataRequestBuilder Data
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.DataRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The embeddedWalletApi property</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EmbeddedWalletApiRequestBuilder EmbeddedWalletApi
-        {
-            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EmbeddedWalletApiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The endUsers property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.EndUsersRequestBuilder EndUsers

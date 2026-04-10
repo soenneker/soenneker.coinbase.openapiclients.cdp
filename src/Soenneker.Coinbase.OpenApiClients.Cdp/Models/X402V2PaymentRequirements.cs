@@ -57,7 +57,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PayTo { get; set; }
 #endif
-        /// <summary>The scheme of the payment protocol to use. Currently, the only supported scheme is `exact`.</summary>
+        /// <summary>The scheme of the payment protocol to use. Supported schemes are `exact` and `upto`.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirements_scheme? Scheme { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirements"/> and sets the default values.

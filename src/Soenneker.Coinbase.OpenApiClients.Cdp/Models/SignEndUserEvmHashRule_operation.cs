@@ -3,13 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The type of criterion to use. This should be `evmMessage`.</summary>
+    /// <summary>The operation to which the rule applies.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum Policies_type
+    public enum SignEndUserEvmHashRule_operation
     {
-        [EnumMember(Value = "evmMessage")]
+        [EnumMember(Value = "signEndUserEvmHash")]
         #pragma warning disable CS1591
-        EvmMessage,
+        SignEndUserEvmHash,
         #pragma warning restore CS1591
     }
 }

@@ -7,41 +7,50 @@ using System.IO;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
+    /// <summary>
+    /// Details of the HTTP response received from the webhook target.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class SendSolanaTransaction : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class WebhookEventResponseDetail : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The Solana network to send the transaction to.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction_network? Network { get; set; }
-        /// <summary>The base64 encoded transaction to sign and send. This transaction can contain multiple instructions for native Solana batching.</summary>
+        /// <summary>Response body returned by the webhook target.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Transaction { get; set; }
+        public string? Body { get; set; }
 #nullable restore
 #else
-        public string Transaction { get; set; }
+        public string Body { get; set; }
 #endif
-        /// <summary>Whether transaction fees should be sponsored by CDP. When true, CDP sponsors the transaction fees on behalf of the server wallet. When false, the server wallet is responsible for paying the transaction fees.</summary>
-        public bool? UseCdpSponsor { get; set; }
+        /// <summary>Round-trip time of the webhook delivery in milliseconds.</summary>
+        public int? ElapsedTimeMs { get; set; }
+        /// <summary>Error name if the delivery failed (e.g., timeout, connection_refused).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ErrorName { get; set; }
+#nullable restore
+#else
+        public string ErrorName { get; set; }
+#endif
+        /// <summary>HTTP status code returned by the webhook target.</summary>
+        public int? HttpCode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseDetail"/> and sets the default values.
         /// </summary>
-        public SendSolanaTransaction()
+        public WebhookEventResponseDetail()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseDetail();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,9 +60,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction_network>(); } },
-                { "transaction", n => { Transaction = n.GetStringValue(); } },
-                { "useCdpSponsor", n => { UseCdpSponsor = n.GetBoolValue(); } },
+                { "body", n => { Body = n.GetStringValue(); } },
+                { "elapsedTimeMs", n => { ElapsedTimeMs = n.GetIntValue(); } },
+                { "errorName", n => { ErrorName = n.GetStringValue(); } },
+                { "httpCode", n => { HttpCode = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -63,9 +73,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction_network>("network", Network);
-            writer.WriteStringValue("transaction", Transaction);
-            writer.WriteBoolValue("useCdpSponsor", UseCdpSponsor);
+            writer.WriteStringValue("body", Body);
+            writer.WriteIntValue("elapsedTimeMs", ElapsedTimeMs);
+            writer.WriteStringValue("errorName", ErrorName);
+            writer.WriteIntValue("httpCode", HttpCode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

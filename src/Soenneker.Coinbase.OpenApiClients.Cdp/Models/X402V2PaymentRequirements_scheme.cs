@@ -3,13 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The scheme of the payment protocol to use. Currently, the only supported scheme is `exact`.</summary>
+    /// <summary>The scheme of the payment protocol to use. Supported schemes are `exact` and `upto`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum X402V2PaymentRequirements_scheme
     {
         [EnumMember(Value = "exact")]
         #pragma warning disable CS1591
         Exact,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "upto")]
+        #pragma warning disable CS1591
+        Upto,
         #pragma warning restore CS1591
     }
 }

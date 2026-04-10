@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendUserOperationRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTypedDataRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolTransactionRule"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendUserOperationRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTypedDataRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolTransactionRule"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Rule : IComposedTypeWrapper, IParsable
@@ -60,6 +60,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendUserOperationRule SendUserOperationRule { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule? SignEndUserEvmHashRule { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule SignEndUserEvmHashRule { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmMessageRule"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -183,6 +191,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 result.SendUserOperationRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendUserOperationRule();
             }
+            else if("SignEndUserEvmHashRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SignEndUserEvmHashRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule();
+            }
             else if("SignEndUserEvmMessageRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEndUserEvmMessageRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmMessageRule();
@@ -258,6 +270,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             else if(SendUserOperationRule != null)
             {
                 return SendUserOperationRule.GetFieldDeserializers();
+            }
+            else if(SignEndUserEvmHashRule != null)
+            {
+                return SignEndUserEvmHashRule.GetFieldDeserializers();
             }
             else if(SignEndUserEvmMessageRule != null)
             {
@@ -335,6 +351,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             else if(SendUserOperationRule != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendUserOperationRule>(null, SendUserOperationRule);
+            }
+            else if(SignEndUserEvmHashRule != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule>(null, SignEndUserEvmHashRule);
             }
             else if(SignEndUserEvmMessageRule != null)
             {

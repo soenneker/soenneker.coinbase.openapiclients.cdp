@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJWTAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TelegramAuthentication"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJWTAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TelegramAuthentication"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthenticationMethod : IComposedTypeWrapper, IParsable
@@ -36,6 +36,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication OAuth2Authentication { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication? SiweAuthentication { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication SiweAuthentication { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,6 +83,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 result.OAuth2Authentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication();
             }
+            else if("SiweAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SiweAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication();
+            }
             else if("SmsAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SmsAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication();
@@ -102,6 +114,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             else if(OAuth2Authentication != null)
             {
                 return OAuth2Authentication.GetFieldDeserializers();
+            }
+            else if(SiweAuthentication != null)
+            {
+                return SiweAuthentication.GetFieldDeserializers();
             }
             else if(SmsAuthentication != null)
             {
@@ -131,6 +147,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             else if(OAuth2Authentication != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication>(null, OAuth2Authentication);
+            }
+            else if(SiweAuthentication != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication>(null, SiweAuthentication);
             }
             else if(SmsAuthentication != null)
             {

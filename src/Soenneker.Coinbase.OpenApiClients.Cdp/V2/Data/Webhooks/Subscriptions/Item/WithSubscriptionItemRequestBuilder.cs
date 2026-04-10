@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Webhooks.Subscriptions.Item.Events;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Webhooks.Subscriptions.I
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithSubscriptionItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The events property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Webhooks.Subscriptions.Item.Events.EventsRequestBuilder Events
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Webhooks.Subscriptions.Item.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Webhooks.Subscriptions.Item.WithSubscriptionItemRequestBuilder"/> and sets the default values.
         /// </summary>

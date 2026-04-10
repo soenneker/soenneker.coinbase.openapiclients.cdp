@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The scheme of the payment protocol.</summary>
+    /// <summary>Whether any attempts to sign a hash will be accepted or rejected. This rule does not accept any criteria.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum X402SupportedPaymentKind_scheme
+    public enum SignEndUserEvmHashRule_action
     {
-        [EnumMember(Value = "exact")]
+        [EnumMember(Value = "reject")]
         #pragma warning disable CS1591
-        Exact,
+        Reject,
         #pragma warning restore CS1591
-        [EnumMember(Value = "upto")]
+        [EnumMember(Value = "accept")]
         #pragma warning disable CS1591
-        Upto,
+        Accept,
         #pragma warning restore CS1591
     }
 }

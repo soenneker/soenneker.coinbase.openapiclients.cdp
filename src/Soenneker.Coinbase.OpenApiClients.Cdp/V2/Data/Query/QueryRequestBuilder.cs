@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Grammar;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Run;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Schema;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,6 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Run.RunRequestBuilder Run
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Run.RunRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The schema property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Schema.SchemaRequestBuilder Schema
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Schema.SchemaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.QueryRequestBuilder"/> and sets the default values.

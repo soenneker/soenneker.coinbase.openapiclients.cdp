@@ -7,30 +7,33 @@ using System.IO;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>
-    /// Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebhookSubscriptionRequest_metadata : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class SignEndUserEvmHashRule : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
+        /// <summary>Whether any attempts to sign a hash will be accepted or rejected. This rule does not accept any criteria.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule_action? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The operation to which the rule applies.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule_operation? Operation { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequest_metadata"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule"/> and sets the default values.
         /// </summary>
-        public WebhookSubscriptionRequest_metadata()
+        public SignEndUserEvmHashRule()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequest_metadata"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequest_metadata CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequest_metadata();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +43,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule_action>(); } },
+                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule_operation>(); } },
             };
         }
         /// <summary>
@@ -49,6 +54,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule_action>("action", Action);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule_operation>("operation", Operation);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
