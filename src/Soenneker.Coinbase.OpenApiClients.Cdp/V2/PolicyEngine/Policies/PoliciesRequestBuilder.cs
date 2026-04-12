@@ -49,7 +49,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies
         /// <summary>
         /// Lists the policies belonging to the developer&apos;s CDP Project. Use the `scope` parameter to filter the policies by scope.The response is paginated, and by default, returns 20 policies per page.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
@@ -57,11 +57,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -71,7 +71,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies_200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Create a policy that can be used to govern the behavior of accounts.

@@ -61,7 +61,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers
         /// <summary>
         /// Lists the end users belonging to the developer&apos;s CDP Project.By default, the response is sorted by creation date in ascending order and paginated to 20 users per page.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 400 status code</exception>
@@ -71,11 +71,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.EndUsersRequestBuilder.EndUsersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.EndUsersRequestBuilder.EndUsersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.EndUsersRequestBuilder.EndUsersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.EndUsersRequestBuilder.EndUsersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -87,7 +87,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers_200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEndUsers200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates an end user. An end user is an entity that can own CDP EVM accounts, EVM smart accounts, and/or Solana accounts. 1 or more authentication methods must be associated with an end user. By default, no accounts are created unless the optional `evmAccount` and/or `solanaAccount` fields are provided.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.

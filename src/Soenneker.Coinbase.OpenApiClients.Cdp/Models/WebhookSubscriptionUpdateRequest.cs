@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Description of the webhook subscription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequest_description? Description { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestDescription? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequest_description Description { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestDescription Description { get; set; }
 #endif
         /// <summary>Types of events to subscribe to. Event types follow a three-part dot-separated format:service.resource.verb (e.g., &quot;onchain.activity.detected&quot;, &quot;wallet.activity.detected&quot;, &quot;onramp.transaction.created&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequest_description>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequest_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestDescription>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestDescription.CreateFromDiscriminatorValue); } },
                 { "eventTypes", n => { EventTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequest_labels>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequest_labels.CreateFromDiscriminatorValue); } },
@@ -97,7 +97,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequest_description>("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestDescription>("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("eventTypes", EventTypes);
             writer.WriteBoolValue("isEnabled", IsEnabled);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequest_labels>("labels", Labels);

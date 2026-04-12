@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Sessions
         /// <summary>
         /// &quot;Returns a single-use URL for an Onramp session. This API provides flexible  functionality based on the parameters provided, supporting three cases:**Important**: The returned URL is single-use only. Once a user visits the URL,  no one else can access it.## Use Cases### 1. Basic Session (Minimum Parameters)**Required**: `destinationAddress`, `purchaseCurrency`, `destinationNetwork`**Returns**: Basic single-use onramp URL. The `quote` object will not be included in the response.### 2. One-Click Onramp URL**Required**: Basic parameters + (`paymentAmount` OR `purchaseAmount`), `paymentCurrency`**Returns**: One-click onramp URL for streamlined checkout. The `quote` object will not be included in the response.### 3. One-Click Onramp URL with Quote**Required**: One-Click Onramp parameters + `paymentMethod`, `country`, `subdivision`**Returns**: Complete pricing quote and one-click onramp URL. Both `session` and `quote` objects will be included in the response.**Note**: Only one of `paymentAmount` or `purchaseAmount` should be provided, not both. Providing both will result in an error. When `paymentAmount` is provided, the quote shows how much crypto the user will receive for the specified fiat amount (fee-inclusive). When `purchaseAmount` is provided, the quote shows how much fiat the user needs to pay for the specified crypto amount (fee-exclusive).&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession_201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession201"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +46,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Sessions
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession_201?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession201?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession_201> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession201> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -62,7 +62,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Sessions
                 { "429", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession_201>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession_201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession201>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampSession201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Returns a single-use URL for an Onramp session. This API provides flexible  functionality based on the parameters provided, supporting three cases:**Important**: The returned URL is single-use only. Once a user visits the URL,  no one else can access it.## Use Cases### 1. Basic Session (Minimum Parameters)**Required**: `destinationAddress`, `purchaseCurrency`, `destinationNetwork`**Returns**: Basic single-use onramp URL. The `quote` object will not be included in the response.### 2. One-Click Onramp URL**Required**: Basic parameters + (`paymentAmount` OR `purchaseAmount`), `paymentCurrency`**Returns**: One-click onramp URL for streamlined checkout. The `quote` object will not be included in the response.### 3. One-Click Onramp URL with Quote**Required**: One-Click Onramp parameters + `paymentMethod`, `country`, `subdivision`**Returns**: Complete pricing quote and one-click onramp URL. Both `session` and `quote` objects will be included in the response.**Note**: Only one of `paymentAmount` or `purchaseAmount` should be provided, not both. Providing both will result in an error. When `paymentAmount` is provided, the quote shows how much crypto the user will receive for the specified fiat amount (fee-inclusive). When `purchaseAmount` is provided, the quote shows how much fiat the user needs to pay for the specified crypto amount (fee-exclusive).&quot;

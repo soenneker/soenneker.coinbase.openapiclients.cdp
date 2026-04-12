@@ -24,7 +24,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
         public string InvalidMessage { get; set; }
 #endif
         /// <summary>The reason the payment is invalid on the x402 protocol.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason? InvalidReason { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason_1? InvalidReason { get; set; }
         /// <summary>Indicates whether the payment is valid.</summary>
         public bool? IsValid { get; set; }
         /// <summary>The onchain address of the client that is paying for the resource.For EVM networks, the payer will be a 0x-prefixed, checksum EVM address.For Solana-based networks, the payer will be a base58-encoded Solana address.</summary>
@@ -61,7 +61,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "invalidMessage", n => { InvalidMessage = n.GetStringValue(); } },
-                { "invalidReason", n => { InvalidReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason>(); } },
+                { "invalidReason", n => { InvalidReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason_1>(); } },
                 { "isValid", n => { IsValid = n.GetBoolValue(); } },
                 { "payer", n => { Payer = n.GetStringValue(); } },
             };
@@ -74,7 +74,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("invalidMessage", InvalidMessage);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason>("invalidReason", InvalidReason);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason_1>("invalidReason", InvalidReason);
             writer.WriteBoolValue("isValid", IsValid);
             writer.WriteStringValue("payer", Payer);
             writer.WriteAdditionalData(AdditionalData);

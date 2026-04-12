@@ -34,10 +34,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Optional metadata about the IDL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_metadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IdlMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_metadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IdlMetadata Metadata { get; set; }
 #endif
         /// <summary>Optional type definitions for custom data structures used in the program.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +74,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "instructions", n => { Instructions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_instructions>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_instructions.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_metadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IdlMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IdlMetadata.CreateFromDiscriminatorValue); } },
                 { "types", n => { Types = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_types>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_types.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -87,7 +87,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_instructions>("instructions", Instructions);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IdlMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl_types>("types", Types);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts.Send.Transact
         /// <summary>
         /// Signs and sends a single Solana transaction using multiple Solana accounts. The transaction may contain contain several instructions, each of which may require signatures from different account keys.The transaction should be serialized into a byte array and base64 encoded. The API handles recent blockhash management and fee estimation, leaving the developer to provide only the minimal set of fields necessary to send the transaction.**Transaction types**The following transaction types are supported:* [Legacy transactions](https://solana.com/developers/guides/advanced/versions#current-transaction-versions)* [Versioned transactions](https://solana.com/developers/guides/advanced/versions)**Instruction Batching**To batch multiple operations, include multiple instructions within a single transaction. All instructions within a transaction are executed atomically - if any instruction fails, the entire transaction fails and is rolled back.**Network Support**The following Solana networks are supported:* `solana` - Solana Mainnet* `solana-devnet` - Solana DevnetThe developer is responsible for ensuring that the unsigned transaction is valid, as the API will not validate the transaction.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -51,11 +51,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts.Send.Transact
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction_200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction_200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -72,7 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts.Send.Transact
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction_200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransaction200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Signs and sends a single Solana transaction using multiple Solana accounts. The transaction may contain contain several instructions, each of which may require signatures from different account keys.The transaction should be serialized into a byte array and base64 encoded. The API handles recent blockhash management and fee estimation, leaving the developer to provide only the minimal set of fields necessary to send the transaction.**Transaction types**The following transaction types are supported:* [Legacy transactions](https://solana.com/developers/guides/advanced/versions#current-transaction-versions)* [Versioned transactions](https://solana.com/developers/guides/advanced/versions)**Instruction Batching**To batch multiple operations, include multiple instructions within a single transaction. All instructions within a transaction are executed atomically - if any instruction fails, the entire transaction fails and is rolled back.**Network Support**The following Solana networks are supported:* `solana` - Solana Mainnet* `solana-devnet` - Solana DevnetThe developer is responsible for ensuring that the unsigned transaction is valid, as the API will not validate the transaction.

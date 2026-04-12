@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Evm.TokenBalances.Item.I
         /// <summary>
         /// Lists the token balances of an EVM address on a given network. The balances include ERC-20 tokens and the native gas token (usually ETH). The response is paginated, and by default, returns 20 balances per page.**Note:** This endpoint provides &lt;1 second freshness from chain tip, &lt;500ms response latency for wallets with reasonable token history, and 99.9% uptime for production use.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 400 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Evm.TokenBalances.Item.I
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Evm.TokenBalances.Item.Item.WithAddressItemRequestBuilder.WithAddressItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Evm.TokenBalances.Item.Item.WithAddressItemRequestBuilder.WithAddressItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Evm.TokenBalances.Item.Item.WithAddressItemRequestBuilder.WithAddressItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Evm.TokenBalances.Item.Item.WithAddressItemRequestBuilder.WithAddressItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -62,7 +62,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Evm.TokenBalances.Item.I
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances_200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDataTokenBalances200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Lists the token balances of an EVM address on a given network. The balances include ERC-20 tokens and the native gas token (usually ETH). The response is paginated, and by default, returns 20 balances per page.**Note:** This endpoint provides &lt;1 second freshness from chain tip, &lt;500ms response latency for wallets with reasonable token history, and 99.9% uptime for production use.

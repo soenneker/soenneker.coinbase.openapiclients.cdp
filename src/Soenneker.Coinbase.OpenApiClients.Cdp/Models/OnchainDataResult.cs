@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Metadata about query execution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_metadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_metadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata Metadata { get; set; }
 #endif
         /// <summary>Query result as an array of objects representing rows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -34,10 +34,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Schema information for the query result. This is a derived schema from the query result, so types may not match the underlying table.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_schema? Schema { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultSchema? Schema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_schema Schema { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultSchema Schema { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult"/> and sets the default values.
@@ -64,9 +64,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_metadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata.CreateFromDiscriminatorValue); } },
                 { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_result>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_result.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_schema>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_schema.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultSchema>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultSchema.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,9 +76,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_result>("result", Result);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_schema>("schema", Schema);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultSchema>("schema", Schema);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

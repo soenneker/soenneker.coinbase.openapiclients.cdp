@@ -26,10 +26,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported
         /// <summary>The list of supported payment kinds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind>? Kinds { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_1>? Kinds { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind> Kinds { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_1> Kinds { get; set; }
 #endif
         /// <summary>A map of CAIP-2 network or protocol family patterns to their supported signer addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "extensions", n => { Extensions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "kinds", n => { Kinds = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "kinds", n => { Kinds = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_1>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_1.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "signers", n => { Signers = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported.SupportedGetResponse_signers>(global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported.SupportedGetResponse_signers.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,7 +77,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("extensions", Extensions);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind>("kinds", Kinds);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_1>("kinds", Kinds);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported.SupportedGetResponse_signers>("signers", Signers);
             writer.WriteAdditionalData(AdditionalData);
         }

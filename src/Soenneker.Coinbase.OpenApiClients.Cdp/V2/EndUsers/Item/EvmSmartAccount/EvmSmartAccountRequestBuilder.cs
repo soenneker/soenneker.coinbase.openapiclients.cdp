@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.EvmSmartAccount
         /// <summary>
         /// Creates an EVM smart account for an existing end user. The backend will create a new EVM EOA account to serve as the owner of the smart account.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount_201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount201"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,11 +50,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.EvmSmartAccount
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount_201?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount201?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount_201> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount201> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.EvmSmartAccount
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount_201>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount_201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount201>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmSmartAccount201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates an EVM smart account for an existing end user. The backend will create a new EVM EOA account to serve as the owner of the smart account.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.

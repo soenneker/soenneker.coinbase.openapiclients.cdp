@@ -25,10 +25,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The estimated fees for the swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_fees? Fees { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees? Fees { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_fees Fees { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees Fees { get; set; }
 #endif
         /// <summary>The amount of the `fromToken` that will be sent in this swap, in atomic units of the `fromToken`. For example, `1000000000000000000` when sending ETH equates to 1 ETH, `1000000` when sending USDC equates to 1 USDC, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,10 +49,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>An object containing potential issues discovered during validation that could prevent the swap from being executed successfully.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues? Issues { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues? Issues { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues Issues { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues Issues { get; set; }
 #endif
         /// <summary>Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.</summary>
         public bool? LiquidityAvailable { get; set; }
@@ -106,10 +106,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "blockNumber", n => { BlockNumber = n.GetStringValue(); } },
-                { "fees", n => { Fees = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_fees>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_fees.CreateFromDiscriminatorValue); } },
+                { "fees", n => { Fees = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees.CreateFromDiscriminatorValue); } },
                 { "fromAmount", n => { FromAmount = n.GetStringValue(); } },
                 { "fromToken", n => { FromToken = n.GetStringValue(); } },
-                { "issues", n => { Issues = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues.CreateFromDiscriminatorValue); } },
+                { "issues", n => { Issues = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues.CreateFromDiscriminatorValue); } },
                 { "liquidityAvailable", n => { LiquidityAvailable = n.GetBoolValue(); } },
                 { "minToAmount", n => { MinToAmount = n.GetStringValue(); } },
                 { "toAmount", n => { ToAmount = n.GetStringValue(); } },
@@ -124,10 +124,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("blockNumber", BlockNumber);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_fees>("fees", Fees);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees>("fees", Fees);
             writer.WriteStringValue("fromAmount", FromAmount);
             writer.WriteStringValue("fromToken", FromToken);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse_issues>("issues", Issues);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues>("issues", Issues);
             writer.WriteBoolValue("liquidityAvailable", LiquidityAvailable);
             writer.WriteStringValue("minToAmount", MinToAmount);
             writer.WriteStringValue("toAmount", ToAmount);

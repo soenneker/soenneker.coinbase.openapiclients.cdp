@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Eip7702.Del
         /// <summary>
         /// Creates an EIP-7702 delegation for an EVM EOA account, upgrading it with smart account capabilities.This endpoint:- Retrieves delegation artifacts from onchain- Signs the EIP-7702 authorization for delegation- Assembles and submits a Type 4 transaction- Creates an associated smart account objectThe delegation allows the EVM EOA to be used as a smart account, which enables batched transactions and gas sponsorship via paymaster.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation_201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation201"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -51,11 +51,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Eip7702.Del
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation_201?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation201?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation_201> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation201> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -72,7 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Eip7702.Del
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation_201>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation_201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation201>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702Delegation201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates an EIP-7702 delegation for an EVM EOA account, upgrading it with smart account capabilities.This endpoint:- Retrieves delegation artifacts from onchain- Signs the EIP-7702 authorization for delegation- Assembles and submits a Type 4 transaction- Creates an associated smart account objectThe delegation allows the EVM EOA to be used as a smart account, which enables batched transactions and gas sponsorship via paymaster.

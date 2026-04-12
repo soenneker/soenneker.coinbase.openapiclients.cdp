@@ -20,10 +20,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The URL to the hosted widget the user should be redirected to. For certain payment link types you can append your own redirect_url query parameter to this URL to ensure the user is redirected back to your app after the widget completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink_url? Url { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl? Url { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink_url Url { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl Url { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink"/> and sets the default values.
@@ -51,7 +51,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "paymentLinkType", n => { PaymentLinkType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkType>(); } },
-                { "url", n => { Url = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink_url>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink_url.CreateFromDiscriminatorValue); } },
+                { "url", n => { Url = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkType>("paymentLinkType", PaymentLinkType);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink_url>("url", Url);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl>("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

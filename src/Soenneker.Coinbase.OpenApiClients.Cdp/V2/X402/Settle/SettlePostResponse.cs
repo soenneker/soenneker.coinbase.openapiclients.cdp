@@ -32,7 +32,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
         public string ErrorMessage { get; set; }
 #endif
         /// <summary>The reason the payment settlement errored on the x402 protocol.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason? ErrorReason { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason_1? ErrorReason { get; set; }
         /// <summary>The network where the settlement occurred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,7 +86,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
-                { "errorReason", n => { ErrorReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason>(); } },
+                { "errorReason", n => { ErrorReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason_1>(); } },
                 { "network", n => { Network = n.GetStringValue(); } },
                 { "payer", n => { Payer = n.GetStringValue(); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
@@ -102,7 +102,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("errorMessage", ErrorMessage);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason>("errorReason", ErrorReason);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason_1>("errorReason", ErrorReason);
             writer.WriteStringValue("network", Network);
             writer.WriteStringValue("payer", Payer);
             writer.WriteBoolValue("success", Success);

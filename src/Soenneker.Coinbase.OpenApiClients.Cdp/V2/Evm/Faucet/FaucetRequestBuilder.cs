@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Faucet
         /// <summary>
         /// Request funds from the CDP Faucet on supported EVM test networks.Faucets are available for ETH, USDC, EURC, and cbBTC on Base Sepolia and Ethereum Sepolia, and for ETH only on Ethereum Hoodi.To prevent abuse, we enforce rate limits within a rolling 24-hour window to control the amount of funds that can be requested.These limits are applied at both the CDP User level and the blockchain address level.A single blockchain address cannot exceed the specified limits, even if multiple users submit requests to the same address.| Token | Amount per Faucet Request |Rolling 24-hour window Rate Limits||:-----:|:-------------------------:|:--------------------------------:|| ETH   | 0.0001 ETH                | 0.1 ETH                          || USDC  | 1 USDC                    | 10 USDC                          || EURC  | 1 EURC                    | 10 EURC                          || cbBTC | 0.0001 cbBTC              | 0.001 cbBTC                      |
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -48,11 +48,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Faucet
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet_200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet_200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -66,7 +66,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Faucet
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet_200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RequestEvmFaucet200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Request funds from the CDP Faucet on supported EVM test networks.Faucets are available for ETH, USDC, EURC, and cbBTC on Base Sepolia and Ethereum Sepolia, and for ETH only on Ethereum Hoodi.To prevent abuse, we enforce rate limits within a rolling 24-hour window to control the amount of funds that can be requested.These limits are applied at both the CDP User level and the blockchain address level.A single blockchain address cannot exceed the specified limits, even if multiple users submit requests to the same address.| Token | Amount per Faucet Request |Rolling 24-hour window Rate Limits||:-----:|:-------------------------:|:--------------------------------:|| ETH   | 0.0001 ETH                | 0.1 ETH                          || USDC  | 1 USDC                    | 10 USDC                          || EURC  | 1 EURC                    | 10 EURC                          || cbBTC | 0.0001 cbBTC              | 0.001 cbBTC                      |

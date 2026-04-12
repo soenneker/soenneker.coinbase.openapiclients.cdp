@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The ERC-55 checksummed Ethereum address of the end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication_address? Address { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthenticationAddress? Address { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication_address Address { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthenticationAddress Address { get; set; }
 #endif
         /// <summary>The type of authentication information.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication_address>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication_address.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthenticationAddress>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthenticationAddress.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication_address>("address", Address);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthenticationAddress>("address", Address);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

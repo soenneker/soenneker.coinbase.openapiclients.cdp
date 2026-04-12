@@ -20,18 +20,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>An object containing information about the end user&apos;s SMS MFA enrollment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_sms? Sms { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsSms? Sms { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_sms Sms { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsSms Sms { get; set; }
 #endif
         /// <summary>An object containing information about the end user&apos;s TOTP enrollment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_totp? Totp { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsTotp? Totp { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_totp Totp { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsTotp Totp { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods"/> and sets the default values.
@@ -59,8 +59,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enrollmentPromptedAt", n => { EnrollmentPromptedAt = n.GetDateTimeOffsetValue(); } },
-                { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_sms>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_sms.CreateFromDiscriminatorValue); } },
-                { "totp", n => { Totp = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_totp>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_totp.CreateFromDiscriminatorValue); } },
+                { "sms", n => { Sms = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsSms>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsSms.CreateFromDiscriminatorValue); } },
+                { "totp", n => { Totp = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsTotp>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsTotp.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -71,8 +71,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("enrollmentPromptedAt", EnrollmentPromptedAt);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_sms>("sms", Sms);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods_totp>("totp", Totp);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsSms>("sms", Sms);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethodsTotp>("totp", Totp);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

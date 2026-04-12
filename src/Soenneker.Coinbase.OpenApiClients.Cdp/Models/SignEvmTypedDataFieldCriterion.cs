@@ -27,10 +27,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>An object containing EIP-712 type definitions, as well as a primary type for the root message object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion_types? Types { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypes? Types { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion_types Types { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypes Types { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion"/> and sets the default values.
@@ -59,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion.SignEvmTypedDataFieldCriterion_conditions>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion.SignEvmTypedDataFieldCriterion_conditions.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion_type>(); } },
-                { "types", n => { Types = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion_types>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion_types.CreateFromDiscriminatorValue); } },
+                { "types", n => { Types = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypes>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypes.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion.SignEvmTypedDataFieldCriterion_conditions>("conditions", Conditions);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion_type>("type", Type);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion_types>("types", Types);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypes>("types", Types);
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>

@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Sign.Messag
         /// <summary>
         /// Signs an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) message with the given EVM account.Per the specification, the message in the request body is prepended with `0x19 &lt;0x45 (E)&gt; &lt;thereum Signed Message:\n&quot; + len(message)&gt;` before being signed.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage200"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -50,11 +50,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Sign.Messag
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage_200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage_200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -70,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Sign.Messag
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage_200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessage200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Signs an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) message with the given EVM account.Per the specification, the message in the request body is prepended with `0x19 &lt;0x45 (E)&gt; &lt;thereum Signed Message:\n&quot; + len(message)&gt;` before being signed.

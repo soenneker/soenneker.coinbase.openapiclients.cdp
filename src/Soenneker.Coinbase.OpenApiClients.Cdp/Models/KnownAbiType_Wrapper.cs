@@ -14,6 +14,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>A reference to an established EIP standard. When referencing a `KnownAbiType` within a policy rule configuring an `EvmDataCriterion`, criteria will only decode function data officially documented in the standard. For more information on supported token standards, see the links below.  - [erc20 - Token Standard](https://eips.ethereum.org/EIPS/eip-20).  - [erc721 - Non-Fungible Token Standard](https://eips.ethereum.org/EIPS/eip-721).  - [erc1155 - Multi Token Standard](https://eips.ethereum.org/EIPS/eip-1155).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType? Value { get; set; }
         /// <summary>
@@ -41,6 +49,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "type", n => { Type = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType>(); } },
             };
         }
@@ -51,6 +60,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("type", Type);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

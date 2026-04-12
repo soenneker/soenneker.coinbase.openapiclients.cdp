@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>&quot;Enables control over how often queries need to be fully re-executed on the backing store.This can be useful in scenarios where API calls might be made frequently, API latency is critical, and some freshness lag (ex: 750ms, 2s, 5s) is tolerable.By default, each query result is returned from cache so long as the result is from an identical query and less than 500ms old. This freshness tolerance can be modified upwards, to a maximum of 900000ms (i.e. 900s, 15m).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQuery_cache? Cache { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache? Cache { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQuery_cache Cache { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache Cache { get; set; }
 #endif
         /// <summary>SQL query to execute against the indexed blockchain data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cache", n => { Cache = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQuery_cache>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQuery_cache.CreateFromDiscriminatorValue); } },
+                { "cache", n => { Cache = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache.CreateFromDiscriminatorValue); } },
                 { "sql", n => { Sql = n.GetStringValue(); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQuery_cache>("cache", Cache);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache>("cache", Cache);
             writer.WriteStringValue("sql", Sql);
             writer.WriteAdditionalData(AdditionalData);
         }

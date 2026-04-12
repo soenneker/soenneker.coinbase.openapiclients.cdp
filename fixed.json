@@ -41,7 +41,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createEndUser"
+                "$ref": "#/components/schemas/CreateEndUser"
               },
               "examples": {
                 "default_behavior": {
@@ -416,7 +416,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listEndUsers_200"
+                  "$ref": "#/components/schemas/ListEndUsers200"
                 }
               }
             }
@@ -471,7 +471,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/validateEndUserAccessToken"
+                "$ref": "#/components/schemas/ValidateEndUserAccessToken"
               }
             }
           }
@@ -661,7 +661,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/addEndUserEvmAccount_201"
+                  "$ref": "#/components/schemas/AddEndUserEvmAccount201"
                 },
                 "examples": {
                   "default": {
@@ -785,7 +785,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/addEndUserEvmSmartAccount"
+                "$ref": "#/components/schemas/AddEndUserEvmSmartAccount"
               },
               "examples": {
                 "default": {
@@ -808,7 +808,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/addEndUserEvmSmartAccount_201"
+                  "$ref": "#/components/schemas/AddEndUserEvmSmartAccount201"
                 },
                 "examples": {
                   "default": {
@@ -952,7 +952,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/addEndUserSolanaAccount_201"
+                  "$ref": "#/components/schemas/AddEndUserSolanaAccount201"
                 },
                 "examples": {
                   "default": {
@@ -1065,7 +1065,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/importEndUser"
+                "$ref": "#/components/schemas/ImportEndUser"
               },
               "examples": {
                 "import_evm_key": {
@@ -1291,7 +1291,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listEvmAccounts_200"
+                  "$ref": "#/components/schemas/ListEvmAccounts200"
                 }
               }
             }
@@ -1331,7 +1331,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createEvmAccount"
+                "$ref": "#/components/schemas/CreateEvmAccount"
               }
             }
           }
@@ -1535,7 +1535,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/updateEvmAccount"
+                "$ref": "#/components/schemas/UpdateEvmAccount"
               }
             }
           }
@@ -1725,7 +1725,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/sendEvmTransaction"
+                "$ref": "#/components/schemas/SendEvmTransaction"
               }
             }
           }
@@ -1736,7 +1736,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/sendEvmTransaction_200"
+                  "$ref": "#/components/schemas/SendEvmTransaction200"
                 }
               }
             }
@@ -1870,7 +1870,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/signEvmTransaction"
+                "$ref": "#/components/schemas/SignEvmTransaction"
               }
             }
           }
@@ -1881,7 +1881,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/signEvmTransaction_200"
+                  "$ref": "#/components/schemas/SignEvmTransaction200"
                 }
               }
             }
@@ -2015,7 +2015,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/signEvmHash"
+                "$ref": "#/components/schemas/SignEvmHash"
               }
             }
           }
@@ -2026,7 +2026,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/signEvmHash_200"
+                  "$ref": "#/components/schemas/SignEvmHash200"
                 }
               }
             }
@@ -2124,7 +2124,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/signEvmMessage"
+                "$ref": "#/components/schemas/SignEvmMessage"
               }
             }
           }
@@ -2135,7 +2135,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/signEvmMessage_200"
+                  "$ref": "#/components/schemas/SignEvmMessage200"
                 }
               }
             }
@@ -2244,7 +2244,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/signEvmTypedData_200"
+                  "$ref": "#/components/schemas/SignEvmTypedData200"
                 }
               }
             }
@@ -2357,7 +2357,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createEvmEip7702Delegation"
+                "$ref": "#/components/schemas/CreateEvmEip7702Delegation"
               }
             }
           }
@@ -2368,7 +2368,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/createEvmEip7702Delegation_201"
+                  "$ref": "#/components/schemas/CreateEvmEip7702Delegation201"
                 }
               }
             }
@@ -2578,7 +2578,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listEvmSmartAccounts_200"
+                  "$ref": "#/components/schemas/ListEvmSmartAccounts200"
                 }
               }
             }
@@ -2633,7 +2633,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createEvmSmartAccount"
+                "$ref": "#/components/schemas/CreateEvmSmartAccount"
               }
             }
           }
@@ -2791,7 +2791,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/importEvmAccount"
+                "$ref": "#/components/schemas/ImportEvmAccount"
               }
             }
           }
@@ -2915,7 +2915,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/exportEvmAccount"
+                "$ref": "#/components/schemas/ExportEvmAccount"
               }
             }
           }
@@ -2926,7 +2926,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/exportEvmAccount_200"
+                  "$ref": "#/components/schemas/ExportEvmAccount200"
                 }
               }
             }
@@ -3038,7 +3038,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/exportEvmAccountByName"
+                "$ref": "#/components/schemas/ExportEvmAccountByName"
               }
             }
           }
@@ -3049,7 +3049,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/exportEvmAccountByName_200"
+                  "$ref": "#/components/schemas/ExportEvmAccountByName200"
                 }
               }
             }
@@ -3239,7 +3239,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/updateEvmSmartAccount"
+                "$ref": "#/components/schemas/UpdateEvmSmartAccount"
               }
             }
           }
@@ -3339,7 +3339,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/prepareUserOperation"
+                "$ref": "#/components/schemas/PrepareUserOperation"
               }
             }
           }
@@ -3457,7 +3457,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/prepareAndSendUserOperation"
+                "$ref": "#/components/schemas/PrepareAndSendUserOperation"
               }
             }
           }
@@ -3706,7 +3706,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/sendUserOperation"
+                "$ref": "#/components/schemas/SendUserOperation"
               }
             }
           }
@@ -3960,7 +3960,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listSpendPermissions_200"
+                  "$ref": "#/components/schemas/ListSpendPermissions200"
                 }
               }
             }
@@ -4314,7 +4314,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createEvmSwapQuote"
+                "$ref": "#/components/schemas/CreateEvmSwapQuote"
               }
             }
           }
@@ -4539,7 +4539,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listEvmTokenBalances_200"
+                  "$ref": "#/components/schemas/ListEvmTokenBalances200"
                 }
               }
             }
@@ -4609,7 +4609,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/requestEvmFaucet"
+                "$ref": "#/components/schemas/RequestEvmFaucet"
               }
             }
           }
@@ -4620,7 +4620,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/requestEvmFaucet_200"
+                  "$ref": "#/components/schemas/RequestEvmFaucet200"
                 }
               }
             }
@@ -4732,7 +4732,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listPolicies_200"
+                  "$ref": "#/components/schemas/ListPolicies200"
                 }
               }
             }
@@ -4769,7 +4769,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createPolicy"
+                "$ref": "#/components/schemas/CreatePolicy"
               }
             }
           }
@@ -5001,7 +5001,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/updatePolicy"
+                "$ref": "#/components/schemas/UpdatePolicy"
               }
             }
           }
@@ -5098,7 +5098,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listSolanaAccounts_200"
+                  "$ref": "#/components/schemas/ListSolanaAccounts200"
                 }
               }
             }
@@ -5138,7 +5138,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createSolanaAccount"
+                "$ref": "#/components/schemas/CreateSolanaAccount"
               }
             }
           }
@@ -5342,7 +5342,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/updateSolanaAccount"
+                "$ref": "#/components/schemas/UpdateSolanaAccount"
               }
             }
           }
@@ -5521,7 +5521,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/importSolanaAccount"
+                "$ref": "#/components/schemas/ImportSolanaAccount"
               }
             }
           }
@@ -5645,7 +5645,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/exportSolanaAccount"
+                "$ref": "#/components/schemas/ExportSolanaAccount"
               }
             }
           }
@@ -5656,7 +5656,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/exportSolanaAccount_200"
+                  "$ref": "#/components/schemas/ExportSolanaAccount200"
                 }
               }
             }
@@ -5768,7 +5768,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/exportSolanaAccountByName"
+                "$ref": "#/components/schemas/ExportSolanaAccountByName"
               }
             }
           }
@@ -5779,7 +5779,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/exportSolanaAccountByName_200"
+                  "$ref": "#/components/schemas/ExportSolanaAccountByName200"
                 }
               }
             }
@@ -5892,7 +5892,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/signSolanaTransaction"
+                "$ref": "#/components/schemas/SignSolanaTransaction"
               }
             }
           }
@@ -5903,7 +5903,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/signSolanaTransaction_200"
+                  "$ref": "#/components/schemas/SignSolanaTransaction200"
                 }
               }
             }
@@ -6037,7 +6037,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/signSolanaMessage"
+                "$ref": "#/components/schemas/SignSolanaMessage"
               }
             }
           }
@@ -6048,7 +6048,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/signSolanaMessage_200"
+                  "$ref": "#/components/schemas/SignSolanaMessage200"
                 }
               }
             }
@@ -6153,7 +6153,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/sendSolanaTransaction"
+                "$ref": "#/components/schemas/SendSolanaTransaction"
               },
               "examples": {
                 "send_transaction": {
@@ -6181,7 +6181,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/sendSolanaTransaction_200"
+                  "$ref": "#/components/schemas/SendSolanaTransaction200"
                 }
               }
             }
@@ -6293,7 +6293,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/requestSolanaFaucet"
+                "$ref": "#/components/schemas/RequestSolanaFaucet"
               }
             }
           }
@@ -6304,7 +6304,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/requestSolanaFaucet_200"
+                  "$ref": "#/components/schemas/RequestSolanaFaucet200"
                 }
               }
             }
@@ -6442,7 +6442,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listSolanaTokenBalances_200"
+                  "$ref": "#/components/schemas/ListSolanaTokenBalances200"
                 }
               }
             }
@@ -6844,7 +6844,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/listDataTokenBalances_200"
+                  "$ref": "#/components/schemas/ListDataTokenBalances200"
                 }
               }
             }
@@ -7581,7 +7581,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/verifyX402Payment"
+                "$ref": "#/components/schemas/VerifyX402Payment"
               }
             }
           }
@@ -7622,7 +7622,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/settleX402Payment"
+                "$ref": "#/components/schemas/SettleX402Payment"
               }
             }
           }
@@ -7695,7 +7695,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createOnrampOrder"
+                "$ref": "#/components/schemas/CreateOnrampOrder"
               }
             }
           }
@@ -7706,7 +7706,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/createOnrampOrder_201"
+                  "$ref": "#/components/schemas/CreateOnrampOrder201"
                 }
               }
             }
@@ -7808,7 +7808,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/getOnrampOrderById_200"
+                  "$ref": "#/components/schemas/GetOnrampOrderById200"
                 }
               }
             }
@@ -7857,7 +7857,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/createOnrampSession"
+                "$ref": "#/components/schemas/CreateOnrampSession"
               }
             }
           }
@@ -7868,7 +7868,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/createOnrampSession_201"
+                  "$ref": "#/components/schemas/CreateOnrampSession201"
                 }
               }
             }
@@ -7926,7 +7926,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/getOnrampUserLimits"
+                "$ref": "#/components/schemas/GetOnrampUserLimits"
               }
             }
           }
@@ -7937,7 +7937,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/getOnrampUserLimits_200"
+                  "$ref": "#/components/schemas/GetOnrampUserLimits200"
                 },
                 "examples": {
                   "default": {
@@ -8173,28 +8173,73 @@
         },
         "description": "Information about an end user who authenticates using Telegram."
       },
-      "listEvmAccounts_200": {
+      "SignEvmTypedDataFieldCriterionTypes": {
+        "required": [
+          "types",
+          "primaryType"
+        ],
         "type": "object",
-        "allOf": [
-          {
-            "required": [
-              "accounts"
-            ],
+        "properties": {
+          "types": {
             "type": "object",
-            "properties": {
-              "accounts": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/EvmAccount"
-                },
-                "description": "The list of EVM accounts."
-              }
-            }
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of a key within an EIP-712 data structure."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The Solidity type of a value within an EIP-712 data structure."
+                  }
+                }
+              },
+              "description": "Object containing names and types for fields within structured data."
+            },
+            "description": "EIP-712 compliant map of model names to model definitions."
           },
-          {
-            "$ref": "#/components/schemas/ListResponse"
+          "primaryType": {
+            "type": "string",
+            "description": "The name of the root EIP-712 type. This value must be included in the \u0060types\u0060 object."
           }
-        ]
+        },
+        "description": "An object containing EIP-712 type definitions, as well as a primary type for the root message object.",
+        "example": {
+          "primaryType": "Mail",
+          "types": {
+            "Person": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "wallet",
+                "type": "address"
+              },
+              {
+                "name": "score",
+                "type": "uint256"
+              }
+            ],
+            "Mail": [
+              {
+                "name": "from",
+                "type": "Person"
+              },
+              {
+                "name": "to",
+                "type": "Person"
+              },
+              {
+                "name": "contents",
+                "type": "string"
+              }
+            ]
+          }
+        }
       },
       "SiweAuthentication": {
         "title": "SiweAuthentication",
@@ -8214,16 +8259,7 @@
             "example": "siwe"
           },
           "address": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 128,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
-              }
-            ],
-            "description": "The ERC-55 checksummed Ethereum address of the end user.",
-            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+            "$ref": "#/components/schemas/SiweAuthenticationAddress"
           }
         },
         "description": "Information about an end user who authenticates using Sign In With Ethereum (EIP-4361)."
@@ -8289,34 +8325,10 @@
             "example": "2025-01-15T10:30:00Z"
           },
           "totp": {
-            "required": [
-              "enrolledAt"
-            ],
-            "type": "object",
-            "properties": {
-              "enrolledAt": {
-                "type": "string",
-                "description": "The date and time when the method was enrolled, in ISO 8601 format.",
-                "format": "date-time",
-                "example": "2025-01-15T10:30:00Z"
-              }
-            },
-            "description": "An object containing information about the end user\u0027s TOTP enrollment."
+            "$ref": "#/components/schemas/MFAMethodsTotp"
           },
           "sms": {
-            "required": [
-              "enrolledAt"
-            ],
-            "type": "object",
-            "properties": {
-              "enrolledAt": {
-                "type": "string",
-                "description": "The date and time when the method was enrolled, in ISO 8601 format.",
-                "format": "date-time",
-                "example": "2025-01-15T10:30:00Z"
-              }
-            },
-            "description": "An object containing information about the end user\u0027s SMS MFA enrollment."
+            "$ref": "#/components/schemas/MFAMethodsSms"
           }
         },
         "description": "Information about the end user\u0027s MFA enrollments.\n",
@@ -8637,40 +8649,34 @@
           "transaction_simulation_failed": "This error occurs when the pre-broadcast simulation of the swap transaction predicted a revert.\nNo transaction was submitted and no gas was spent.\n\n**Common causes:**\n- The on-chain price moved past the \u0060slippageBps\u0060 tolerance between the price estimate and execution\n- Taker balance changed between the price estimate and execution\n\n**Steps to resolve:**\n1. Retry immediately \u2014 prices change quickly and a new quote may succeed\n2. Increase \u0060slippageBps\u0060 if retries continue to fail (e.g. from 100 to 200)\n3. For large swaps, consider splitting into smaller amounts to reduce price impact"
         }
       },
-      "importEndUser": {
+      "EvmDataCriterionAbi": {
         "required": [
-          "userId",
-          "authenticationMethods",
-          "encryptedPrivateKey",
-          "keyType"
+          "type"
         ],
         "type": "object",
-        "properties": {
-          "userId": {
-            "pattern": "^[a-zA-Z0-9-]{1,100}$",
-            "type": "string",
-            "description": "A stable, unique identifier for the end user. The \u0060userId\u0060 must be unique across all end users in the developer\u0027s CDP Project. It must be between 1 and 100 characters long and can only contain alphanumeric characters and hyphens.",
-            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/KnownAbiType_Wrapper"
           },
-          "authenticationMethods": {
-            "$ref": "#/components/schemas/AuthenticationMethods"
-          },
-          "encryptedPrivateKey": {
-            "type": "string",
-            "description": "The base64-encoded, encrypted private key to import. The private key must be encrypted using the CDP SDK\u0027s encryption scheme. This is a 32-byte raw private key.",
-            "example": "U2FsdGVkX1\u002BvupppZksvRf5X5YgHq4\u002Bda\u002BQ4qf51\u002BQ4="
-          },
-          "keyType": {
-            "enum": [
-              "evm",
-              "solana"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The type of key being imported. Determines what type of account will be associated for the end user.",
-            "example": "evm"
+          {
+            "$ref": "#/components/schemas/Abi_Wrapper"
           }
-        }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "The ABI of the smart contract being called. This can be a partial structure with only specific functions.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "KnownAbiType": "#/components/schemas/KnownAbiType_Wrapper",
+            "Abi": "#/components/schemas/Abi_Wrapper"
+          }
+        },
+        "example": "erc20"
       },
       "Error": {
         "required": [
@@ -8693,18 +8699,7 @@
             "example": "41deb8d59a9dc9a7-IAD"
           },
           "errorLink": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 2048,
-                "pattern": "^https?://.*$",
-                "type": "string",
-                "description": "A valid HTTP or HTTPS URL.",
-                "format": "uri"
-              }
-            ],
-            "description": "A link to the corresponding error documentation.",
-            "example": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+            "$ref": "#/components/schemas/ErrorErrorLink"
           }
         },
         "description": "An error response including the code for the type of error and a human-readable message describing the error.",
@@ -8866,16 +8861,7 @@
           },
           "message": {
             "type": "object",
-            "description": "The message to sign. The structure of this message must match the \u0060primaryType\u0060 struct in the \u0060types\u0060 object.",
-            "example": {
-              "permitted": {
-                "token": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "amount": 1000000
-              },
-              "spender": "1111111254EEB25477B68fb85Ed929f73A960582",
-              "nonce": 0,
-              "deadline": 1716239020
-            }
+            "description": "The message to sign. The structure of this message must match the \u0060primaryType\u0060 struct in the \u0060types\u0060 object."
           }
         },
         "description": "The message to sign using EIP-712.",
@@ -9294,18 +9280,7 @@
             "example": "0x"
           },
           "paymasterUrl": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 2048,
-                "pattern": "^https?://.*$",
-                "type": "string",
-                "description": "A valid HTTP or HTTPS URL.",
-                "format": "uri"
-              }
-            ],
-            "description": "The paymaster URL of the spend permission.",
-            "example": "https://paymaster.cdp.coinbase.com"
+            "$ref": "#/components/schemas/CreateSpendPermissionRequestPaymasterUrl"
           }
         },
         "description": "Request parameters for creating a Spend Permission."
@@ -9442,18 +9417,7 @@
             "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           },
           "paymasterUrl": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 2048,
-                "pattern": "^https?://.*$",
-                "type": "string",
-                "description": "A valid HTTP or HTTPS URL.",
-                "format": "uri"
-              }
-            ],
-            "description": "The paymaster URL of the spend permission.",
-            "example": "https://paymaster.cdp.coinbase.com"
+            "$ref": "#/components/schemas/RevokeSpendPermissionRequestPaymasterUrl"
           }
         },
         "description": "Request parameters for revoking a Spend Permission."
@@ -9471,69 +9435,135 @@
         "description": "The network on which to perform the swap.",
         "example": "base"
       },
-      "addEndUserSolanaAccount_201": {
+      "CommonSwapResponseIssues": {
         "required": [
-          "solanaAccount"
+          "allowance",
+          "balance",
+          "simulationIncomplete"
         ],
         "type": "object",
         "properties": {
-          "solanaAccount": {
-            "$ref": "#/components/schemas/EndUserSolanaAccount"
-          }
-        }
-      },
-      "addEndUserSolanaAccount": {
-        "type": "object"
-      },
-      "addEndUserEvmSmartAccount_201": {
-        "required": [
-          "evmSmartAccount"
-        ],
-        "type": "object",
-        "properties": {
-          "evmSmartAccount": {
-            "$ref": "#/components/schemas/EndUserEvmSmartAccount"
-          }
-        }
-      },
-      "addEndUserEvmSmartAccount": {
-        "type": "object",
-        "properties": {
-          "enableSpendPermissions": {
+          "allowance": {
+            "$ref": "#/components/schemas/CommonSwapResponseIssuesAllowance"
+          },
+          "balance": {
+            "$ref": "#/components/schemas/CommonSwapResponseIssuesBalance"
+          },
+          "simulationIncomplete": {
             "type": "boolean",
-            "description": "If true, enables spend permissions for the EVM smart account.",
-            "default": false,
-            "example": true
-          }
-        }
-      },
-      "addEndUserEvmAccount_201": {
-        "required": [
-          "evmAccount"
-        ],
-        "type": "object",
-        "properties": {
-          "evmAccount": {
-            "$ref": "#/components/schemas/EndUserEvmAccount"
-          }
-        }
-      },
-      "addEndUserEvmAccount": {
-        "type": "object"
-      },
-      "validateEndUserAccessToken": {
-        "required": [
-          "accessToken"
-        ],
-        "type": "object",
-        "properties": {
-          "accessToken": {
-            "type": "string",
-            "description": "The access token in JWT format to verify.",
-            "example": "eyJhbGciOiJFUzI1NiIsImtpZCI6IjA1ZGNmYTU1LWY1NzktNDg5YS1iNThhLTFlMDI5Nzk0N2VlNiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjZHAtYXBpIiwiYXV0aF90eXBlIjoiZW1haWwiLCJleHAiOjE3NTM5ODAyOTksImlhdCI6MTc1Mzk3ODQ5OSwiaXNzIjoiY2RwLWFwaSIsImp0aSI6IjA3ZWY5M2JlLTYzMDQtNGQ1YS05NmE3LWJlMGI5MWI0ZTE3NCIsInByb2plY3RfaWQiOiJjNzRkOGI4OC0wOTNiLTQyZDItOGE4Yy1kZGM1YzVlMGViNDMiLCJzdWIiOiJjYTM4YTM4ZC0xNmE5LTRkMjYtYTcxZC0zOWY2NmY5YzZiN2UifQ.1SU0pOy-WR002qUw4hd_UmZWRSLz-ZL6v7PvQvZMKVE6a51x_tqeUeRGaTGuYl1whg0eccMObmK7FqXKRH6E4g"
+            "description": "This is set to true when the transaction cannot be validated. This can happen when the taker has an insufficient balance of the \u0060fromToken\u0060. Note that this does not necessarily mean that the trade will revert.",
+            "example": false
           }
         },
-        "description": "The request body for a developer to verify an end user\u0027s access token."
+        "description": "An object containing potential issues discovered during validation that could prevent the swap from being executed successfully.",
+        "example": {
+          "allowance": {
+            "currentAllowance": 1000000000,
+            "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
+          },
+          "balance": {
+            "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
+            "currentBalance": 900000000000000000,
+            "requiredBalance": 1000000000000000000
+          },
+          "simulationIncomplete": false
+        }
+      },
+      "CommonSwapResponseFees": {
+        "required": [
+          "gasFee",
+          "protocolFee"
+        ],
+        "type": "object",
+        "properties": {
+          "gasFee": {
+            "$ref": "#/components/schemas/CommonSwapResponseFeesGasFee"
+          },
+          "protocolFee": {
+            "$ref": "#/components/schemas/CommonSwapResponseFeesProtocolFee"
+          }
+        },
+        "description": "The estimated fees for the swap.",
+        "example": {
+          "gasFee": {
+            "amount": 1000000000000000000,
+            "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+          },
+          "protocolFee": {
+            "amount": 1000000000000000000,
+            "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+          }
+        }
+      },
+      "RevokeSpendPermissionRequestPaymasterUrl": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 2048,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "format": "uri"
+          }
+        ],
+        "description": "The paymaster URL of the spend permission.",
+        "example": "https://paymaster.cdp.coinbase.com"
+      },
+      "CreateSpendPermissionRequestPaymasterUrl": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 2048,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "format": "uri"
+          }
+        ],
+        "description": "The paymaster URL of the spend permission.",
+        "example": "https://paymaster.cdp.coinbase.com"
+      },
+      "EIP712MessageMessage": {
+        "type": "object",
+        "description": "The message to sign. The structure of this message must match the \u0060primaryType\u0060 struct in the \u0060types\u0060 object.",
+        "example": {
+          "permitted": {
+            "token": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "amount": 1000000
+          },
+          "spender": "1111111254EEB25477B68fb85Ed929f73A960582",
+          "nonce": 0,
+          "deadline": 1716239020
+        }
+      },
+      "ErrorErrorLink": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 2048,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "format": "uri"
+          }
+        ],
+        "description": "A link to the corresponding error documentation.",
+        "example": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+      },
+      "MFAMethodsSms": {
+        "required": [
+          "enrolledAt"
+        ],
+        "type": "object",
+        "properties": {
+          "enrolledAt": {
+            "type": "string",
+            "description": "The date and time when the method was enrolled, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2025-01-15T10:30:00Z"
+          }
+        },
+        "description": "An object containing information about the end user\u0027s SMS MFA enrollment."
       },
       "TokenFee": {
         "required": [
@@ -9589,133 +9619,10 @@
             "example": "7F5c764cBc14f9669B88837ca1490cCa17c31607"
           },
           "fees": {
-            "required": [
-              "gasFee",
-              "protocolFee"
-            ],
-            "type": "object",
-            "properties": {
-              "gasFee": {
-                "type": "object",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/TokenFee"
-                  }
-                ],
-                "description": "The estimated gas fee for the swap.",
-                "nullable": true
-              },
-              "protocolFee": {
-                "type": "object",
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/TokenFee"
-                  }
-                ],
-                "description": "The estimated protocol fee for the swap.",
-                "nullable": true
-              }
-            },
-            "description": "The estimated fees for the swap.",
-            "example": {
-              "gasFee": {
-                "amount": 1000000000000000000,
-                "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
-              },
-              "protocolFee": {
-                "amount": 1000000000000000000,
-                "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
-              }
-            }
+            "$ref": "#/components/schemas/CommonSwapResponseFees"
           },
           "issues": {
-            "required": [
-              "allowance",
-              "balance",
-              "simulationIncomplete"
-            ],
-            "type": "object",
-            "properties": {
-              "allowance": {
-                "required": [
-                  "currentAllowance",
-                  "spender"
-                ],
-                "type": "object",
-                "properties": {
-                  "currentAllowance": {
-                    "pattern": "^\\d\u002B$",
-                    "type": "string",
-                    "description": "The current allowance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
-                    "example": 1000000000
-                  },
-                  "spender": {
-                    "pattern": "^0x[a-fA-F0-9]{40}$",
-                    "type": "string",
-                    "description": "The 0x-prefixed address of to set the allowance on.",
-                    "example": "000000000022D473030F116dDEE9F6B43aC78BA3"
-                  }
-                },
-                "description": "Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.",
-                "nullable": true,
-                "example": {
-                  "currentAllowance": 1000000000,
-                  "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
-                }
-              },
-              "balance": {
-                "required": [
-                  "token",
-                  "currentBalance",
-                  "requiredBalance"
-                ],
-                "type": "object",
-                "properties": {
-                  "token": {
-                    "pattern": "^0x[a-fA-F0-9]{40}$",
-                    "type": "string",
-                    "description": "The 0x-prefixed contract address of the token."
-                  },
-                  "currentBalance": {
-                    "pattern": "^\\d\u002B$",
-                    "type": "string",
-                    "description": "The current balance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
-                    "example": 10000000
-                  },
-                  "requiredBalance": {
-                    "pattern": "^\\d\u002B$",
-                    "type": "string",
-                    "description": "The amount of the token that the \u0060taker\u0060 must hold.",
-                    "example": 1000000000000000000
-                  }
-                },
-                "description": "Details of the balance of the \u0060fromToken\u0060 that the \u0060taker\u0060 must hold. Null if the \u0060taker\u0060 has a sufficient balance.",
-                "nullable": true,
-                "example": {
-                  "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
-                  "currentBalance": 1000000000000000000,
-                  "requiredBalance": 1000000000000000000
-                }
-              },
-              "simulationIncomplete": {
-                "type": "boolean",
-                "description": "This is set to true when the transaction cannot be validated. This can happen when the taker has an insufficient balance of the \u0060fromToken\u0060. Note that this does not necessarily mean that the trade will revert.",
-                "example": false
-              }
-            },
-            "description": "An object containing potential issues discovered during validation that could prevent the swap from being executed successfully.",
-            "example": {
-              "allowance": {
-                "currentAllowance": 1000000000,
-                "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
-              },
-              "balance": {
-                "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
-                "currentBalance": 900000000000000000,
-                "requiredBalance": 1000000000000000000
-              },
-              "simulationIncomplete": false
-            }
+            "$ref": "#/components/schemas/CommonSwapResponseIssues"
           },
           "liquidityAvailable": {
             "type": "boolean",
@@ -10521,17 +10428,7 @@
             "example": "evmData"
           },
           "abi": {
-            "type": "object",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/KnownAbiType_Wrapper"
-              },
-              {
-                "$ref": "#/components/schemas/Abi_Wrapper"
-              }
-            ],
-            "description": "The ABI of the smart contract being called. This can be a partial structure with only specific functions.",
-            "example": "erc20"
+            "$ref": "#/components/schemas/EvmDataCriterionAbi"
           },
           "conditions": {
             "type": "array",
@@ -10990,72 +10887,7 @@
             "example": "evmTypedDataField"
           },
           "types": {
-            "required": [
-              "types",
-              "primaryType"
-            ],
-            "type": "object",
-            "properties": {
-              "types": {
-                "type": "object",
-                "additionalProperties": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string",
-                        "description": "The name of a key within an EIP-712 data structure."
-                      },
-                      "type": {
-                        "type": "string",
-                        "description": "The Solidity type of a value within an EIP-712 data structure."
-                      }
-                    }
-                  },
-                  "description": "Object containing names and types for fields within structured data."
-                },
-                "description": "EIP-712 compliant map of model names to model definitions."
-              },
-              "primaryType": {
-                "type": "string",
-                "description": "The name of the root EIP-712 type. This value must be included in the \u0060types\u0060 object."
-              }
-            },
-            "description": "An object containing EIP-712 type definitions, as well as a primary type for the root message object.",
-            "example": {
-              "primaryType": "Mail",
-              "types": {
-                "Person": [
-                  {
-                    "name": "name",
-                    "type": "string"
-                  },
-                  {
-                    "name": "wallet",
-                    "type": "address"
-                  },
-                  {
-                    "name": "score",
-                    "type": "uint256"
-                  }
-                ],
-                "Mail": [
-                  {
-                    "name": "from",
-                    "type": "Person"
-                  },
-                  {
-                    "name": "to",
-                    "type": "Person"
-                  },
-                  {
-                    "name": "contents",
-                    "type": "string"
-                  }
-                ]
-              }
-            }
+            "$ref": "#/components/schemas/SignEvmTypedDataFieldCriterionTypes"
           },
           "conditions": {
             "type": "array",
@@ -11528,30 +11360,7 @@
             "description": "List of program instructions."
           },
           "metadata": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string",
-                "description": "The program name.",
-                "example": "system_program"
-              },
-              "version": {
-                "type": "string",
-                "description": "The program version.",
-                "example": "0.1.0"
-              },
-              "spec": {
-                "type": "string",
-                "description": "The IDL specification version.",
-                "example": "0.1.0"
-              }
-            },
-            "description": "Optional metadata about the IDL.",
-            "example": {
-              "name": "system_program",
-              "version": "0.1.0",
-              "spec": "0.1.0"
-            }
+            "$ref": "#/components/schemas/IdlMetadata"
           },
           "types": {
             "type": "array",
@@ -12893,22 +12702,7 @@
             "example": "SELECT block_number, transaction_hash FROM base.transactions WHERE block_number \u003E 1000000 LIMIT 10"
           },
           "cache": {
-            "title": "Query result cache configuration",
-            "type": "object",
-            "properties": {
-              "maxAgeMs": {
-                "maximum": 900000,
-                "minimum": 500,
-                "type": "integer",
-                "description": "The maximum tolerable staleness of the query result cache in milliseconds. If a previous execution result of an identical query is older than this age, the query will be re-executed. If the data is less than this age, the result will be returned from cache.",
-                "default": 500,
-                "example": 1000
-              }
-            },
-            "description": "\u0022Enables control over how often queries need to be fully re-executed on the backing store.\nThis can be useful in scenarios where API calls might be made frequently, API latency is critical, and some freshness lag (ex: 750ms, 2s, 5s) is tolerable.\nBy default, each query result is returned from cache so long as the result is from an identical query and less than 500ms old. This freshness tolerance can be modified upwards, to a maximum of 900000ms (i.e. 900s, 15m).\n\u0022",
-            "example": {
-              "maxAgeMs": 1000
-            }
+            "$ref": "#/components/schemas/OnchainDataQueryCache"
           }
         },
         "description": "Request to execute a SQL query against indexed blockchain data."
@@ -12931,126 +12725,28 @@
             "description": "Query result as an array of objects representing rows."
           },
           "schema": {
-            "type": "object",
-            "properties": {
-              "columns": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "Column name."
-                    },
-                    "type": {
-                      "enum": [
-                        "String",
-                        "UInt8",
-                        "UInt16",
-                        "UInt32",
-                        "UInt64",
-                        "UInt128",
-                        "UInt256",
-                        "Int8",
-                        "Int16",
-                        "Int32",
-                        "Int64",
-                        "Int128",
-                        "Int256",
-                        "Float32",
-                        "Float64",
-                        "Bool",
-                        "Date",
-                        "DateTime",
-                        "DateTime64",
-                        "UUID"
-                      ],
-                      "type": "string",
-                      "additionalProperties": false,
-                      "description": "Column data type (ClickHouse types)."
-                    }
-                  },
-                  "example": {
-                    "name": "event_signature",
-                    "type": "String",
-                    "description": "The signature of the event."
-                  }
-                },
-                "description": "Column definitions."
-              }
-            },
-            "description": "Schema information for the query result. This is a derived schema from the query result, so types may not match the underlying table.\n",
-            "example": {
-              "columns": [
-                {
-                  "name": "block_number",
-                  "type": "UInt64"
-                },
-                {
-                  "name": "transaction_hash",
-                  "type": "String"
-                }
-              ]
-            }
+            "$ref": "#/components/schemas/OnchainDataResultSchema"
           },
           "metadata": {
-            "type": "object",
-            "properties": {
-              "cached": {
-                "type": "boolean",
-                "description": "Whether the result was served from the query result cache.",
-                "example": false
-              },
-              "executionTimestamp": {
-                "type": "string",
-                "description": "When the query result was executed against the backing store in RFC 3339 format.",
-                "format": "date-time",
-                "example": "2025-01-01T00:00:00.000Z"
-              },
-              "executionTimeMs": {
-                "type": "integer",
-                "description": "Query execution time in milliseconds.",
-                "example": 145
-              },
-              "rowCount": {
-                "type": "integer",
-                "description": "Number of rows returned.",
-                "example": 2
-              }
-            },
-            "description": "Metadata about query execution.",
-            "example": {
-              "cached": false,
-              "executionTimestamp": "2025-01-01T00:00:00.000Z",
-              "executionTimeMs": 145,
-              "rowCount": 2
-            }
+            "$ref": "#/components/schemas/OnchainDataResultMetadata"
           }
         },
         "description": "Result of executing a SQL query."
       },
-      "listEndUsers_200": {
+      "MFAMethodsTotp": {
+        "required": [
+          "enrolledAt"
+        ],
         "type": "object",
-        "allOf": [
-          {
-            "required": [
-              "endUsers"
-            ],
-            "type": "object",
-            "properties": {
-              "endUsers": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/EndUser"
-                },
-                "description": "The list of end users."
-              }
-            }
-          },
-          {
-            "$ref": "#/components/schemas/ListResponse"
+        "properties": {
+          "enrolledAt": {
+            "type": "string",
+            "description": "The date and time when the method was enrolled, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2025-01-15T10:30:00Z"
           }
-        ]
+        },
+        "description": "An object containing information about the end user\u0027s TOTP enrollment."
       },
       "OnchainDataColumnSchema": {
         "type": "object",
@@ -13071,16 +12767,7 @@
             "example": false
           },
           "description": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 500,
-                "type": "string",
-                "description": "A human-readable description."
-              }
-            ],
-            "description": "Human-readable description of the column.",
-            "example": "The signature of the decoded event log."
+            "$ref": "#/components/schemas/OnchainDataColumnSchemaDescription"
           },
           "indexOrder": {
             "type": "integer",
@@ -13200,29 +12887,14 @@
         "type": "object",
         "properties": {
           "url": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 2048,
-                "pattern": "^https?://.*$",
-                "type": "string",
-                "description": "A valid HTTP or HTTPS URL.",
-                "format": "uri"
-              }
-            ],
-            "description": "The webhook URL to deliver events to.",
-            "example": "https://api.example.com/webhooks"
+            "$ref": "#/components/schemas/WebhookTargetUrl"
           },
           "headers": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
             },
-            "description": "Additional headers to include in webhook requests.",
-            "example": {
-              "Authorization": "Bearer token123",
-              "Content-Type": "application/json"
-            }
+            "description": "Additional headers to include in webhook requests."
           }
         },
         "description": "Target configuration for webhook delivery.\nSpecifies the destination URL and any custom headers to include in webhook requests.\n",
@@ -13258,16 +12930,7 @@
             "example": "2025-01-16T14:00:00Z"
           },
           "description": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 500,
-                "type": "string",
-                "description": "A human-readable description."
-              }
-            ],
-            "description": "Description of the webhook subscription.",
-            "example": "Subscription for token transfer events"
+            "$ref": "#/components/schemas/WebhookSubscriptionResponseDescription"
           },
           "eventTypes": {
             "type": "array",
@@ -13282,34 +12945,7 @@
             "example": true
           },
           "metadata": {
-            "type": "object",
-            "allOf": [
-              {
-                "type": "object",
-                "additionalProperties": {
-                  "maxLength": 500,
-                  "minLength": 0,
-                  "type": "string"
-                },
-                "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "secret": {
-                    "type": "string",
-                    "description": "Use the root-level \u0060secret\u0060 field instead. Maintained for backward compatibility only.",
-                    "format": "uuid",
-                    "example": "123e4567-e89b-12d3-a456-426614174000",
-                    "deprecated": true
-                  }
-                }
-              }
-            ],
-            "description": "Additional metadata for the subscription.",
-            "example": {
-              "secret": "123e4567-e89b-12d3-a456-426614174000"
-            }
+            "$ref": "#/components/schemas/WebhookSubscriptionResponseMetadata"
           },
           "secret": {
             "type": "string",
@@ -13331,12 +12967,7 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "Multi-label filters using total overlap logic. Total overlap means the subscription only triggers when events contain ALL these key-value pairs.\nPresent when subscription uses multi-label format.\n",
-            "example": {
-              "env": "dev",
-              "team": "payments",
-              "contract_address": "833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
-            }
+            "description": "Multi-label filters using total overlap logic. Total overlap means the subscription only triggers when events contain ALL these key-value pairs.\nPresent when subscription uses multi-label format.\n"
           }
         },
         "description": "Response containing webhook subscription details.",
@@ -13397,16 +13028,7 @@
         "type": "object",
         "properties": {
           "description": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 500,
-                "type": "string",
-                "description": "A human-readable description."
-              }
-            ],
-            "description": "Description of the webhook subscription.",
-            "example": "Subscription for token transfer events"
+            "$ref": "#/components/schemas/WebhookSubscriptionRequestDescription"
           },
           "eventTypes": {
             "type": "array",
@@ -13437,12 +13059,7 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger when\nan event contains ALL the key-value pairs specified here. Additional labels on\nthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.\n\n**Note:** Currently, labels are supported for onchain webhooks only.\n\nSee [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).\n",
-            "example": {
-              "network": "base-mainnet",
-              "contract_address": "833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-              "event_name": "Transfer"
-            }
+            "description": "Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger when\nan event contains ALL the key-value pairs specified here. Additional labels on\nthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.\n\n**Note:** Currently, labels are supported for onchain webhooks only.\n\nSee [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).\n"
           }
         },
         "description": "Request to create a new webhook subscription with support for multi-label filtering.\n"
@@ -13456,16 +13073,7 @@
         "type": "object",
         "properties": {
           "description": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 500,
-                "type": "string",
-                "description": "A human-readable description."
-              }
-            ],
-            "description": "Description of the webhook subscription.",
-            "example": "Updated subscription for token transfer events"
+            "$ref": "#/components/schemas/WebhookSubscriptionUpdateRequestDescription"
           },
           "eventTypes": {
             "type": "array",
@@ -13496,12 +13104,7 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "Optional. Multi-label filters that trigger only when an event contains ALL of these key-value pairs.\n\n**Note:** Currently, labels are supported for onchain webhooks only.\n\nSee [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).\nOmit to receive all events for the selected event types.\n",
-            "example": {
-              "network": "base-mainnet",
-              "contract_address": "833589fcd6edb6e08f4c7c32d4f71b54bda02913",
-              "event_name": "Transfer"
-            }
+            "description": "Optional. Multi-label filters that trigger only when an event contains ALL of these key-value pairs.\n\n**Note:** Currently, labels are supported for onchain webhooks only.\n\nSee [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).\nOmit to receive all events for the selected event types.\n"
           }
         },
         "description": "Request to update an existing webhook subscription.\n"
@@ -13649,7 +13252,7 @@
         "description": "The version of the x402 protocol.",
         "example": 2
       },
-      "x402ExactEvmPayload": {
+      "X402ExactEvmPayload_1": {
         "title": "x402ExactEvmPayload",
         "required": [
           "signature",
@@ -13664,59 +13267,7 @@
             "example": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
           },
           "authorization": {
-            "required": [
-              "from",
-              "to",
-              "value",
-              "validAfter",
-              "validBefore",
-              "nonce"
-            ],
-            "type": "object",
-            "properties": {
-              "from": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string",
-                "description": "The 0x-prefixed, checksum EVM address of the sender of the payment.",
-                "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "to": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string",
-                "description": "The 0x-prefixed, checksum EVM address of the recipient of the payment.",
-                "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "value": {
-                "type": "string",
-                "description": "The value of the payment, in atomic units of the payment asset.",
-                "example": 1000000000000000000
-              },
-              "validAfter": {
-                "type": "string",
-                "description": "The unix timestamp after which the payment is valid.",
-                "example": 1716150000
-              },
-              "validBefore": {
-                "type": "string",
-                "description": "The unix timestamp before which the payment is valid.",
-                "example": 1716150000
-              },
-              "nonce": {
-                "pattern": "^0x[0-9a-fA-F]{64}$",
-                "type": "string",
-                "description": "The hex-encoded nonce of the payment (bytes32).",
-                "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-              }
-            },
-            "description": "The authorization data for the ERC-3009 authorization message.",
-            "example": {
-              "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "value": 1000000000000000000,
-              "validAfter": 1716150000,
-              "validBefore": 1716150000,
-              "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-            }
+            "$ref": "#/components/schemas/X402ExactEvmPayload1Authorization"
           }
         },
         "description": "The x402 protocol exact scheme payload for EVM networks. The scheme is implemented using ERC-3009. For more details, please see [EVM Exact Scheme Details](https://github.com/coinbase/x402/blob/main/specs/schemes/exact/scheme_exact_evm.md).",
@@ -13732,7 +13283,7 @@
           }
         }
       },
-      "x402ExactEvmPermit2Payload": {
+      "X402ExactEvmPermit2Payload_1": {
         "title": "x402ExactEvmPermit2Payload",
         "required": [
           "signature",
@@ -13747,104 +13298,7 @@
             "example": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
           },
           "permit2Authorization": {
-            "required": [
-              "from",
-              "permitted",
-              "spender",
-              "nonce",
-              "deadline",
-              "witness"
-            ],
-            "type": "object",
-            "properties": {
-              "from": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string",
-                "description": "The 0x-prefixed, checksum EVM address of the sender of the payment.",
-                "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "permitted": {
-                "required": [
-                  "token",
-                  "amount"
-                ],
-                "type": "object",
-                "properties": {
-                  "token": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
-                    "type": "string",
-                    "description": "The 0x-prefixed, checksum EVM address of the token to transfer.",
-                    "example": "036CbD53842c5426634e7929541eC2318f3dCF7e"
-                  },
-                  "amount": {
-                    "type": "string",
-                    "description": "The amount to transfer in atomic units.",
-                    "example": 1000000
-                  }
-                },
-                "description": "The token permissions for the transfer."
-              },
-              "spender": {
-                "pattern": "^0x[0-9a-fA-F]{40}$",
-                "type": "string",
-                "description": "The 0x-prefixed, checksum EVM address of the spender (x402 Permit2 proxy contract).",
-                "example": "4020615294c913F045dc10f0a5cdEbd86c280001"
-              },
-              "nonce": {
-                "pattern": "^[0-9]\u002B$",
-                "type": "string",
-                "description": "The Permit2 nonce as a decimal string (uint256).",
-                "example": 12345678901234567890
-              },
-              "deadline": {
-                "type": "string",
-                "description": "The unix timestamp before which the permit is valid.",
-                "example": 1716150000
-              },
-              "witness": {
-                "required": [
-                  "to",
-                  "validAfter"
-                ],
-                "type": "object",
-                "properties": {
-                  "to": {
-                    "pattern": "^0x[0-9a-fA-F]{40}$",
-                    "type": "string",
-                    "description": "The 0x-prefixed, checksum EVM address of the recipient.",
-                    "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
-                  },
-                  "validAfter": {
-                    "type": "string",
-                    "description": "The unix timestamp after which the payment is valid.",
-                    "example": 1716150000
-                  },
-                  "extra": {
-                    "pattern": "^0x[0-9a-fA-F]*$",
-                    "type": "string",
-                    "description": "Optional hex-encoded extra data.",
-                    "example": "0x"
-                  }
-                },
-                "description": "The witness data containing payment details."
-              }
-            },
-            "description": "The authorization data for the Permit2 PermitWitnessTransferFrom message.",
-            "example": {
-              "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-              "permitted": {
-                "token": "036CbD53842c5426634e7929541eC2318f3dCF7e",
-                "amount": 1000000
-              },
-              "spender": "4020615294c913F045dc10f0a5cdEbd86c280001",
-              "nonce": 12345678901234567890,
-              "deadline": 1716150000,
-              "witness": {
-                "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "validAfter": 1716150000,
-                "extra": "0x"
-              }
-            }
+            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload1Permit2Authorization"
           }
         },
         "description": "The x402 protocol exact scheme payload for EVM networks using Permit2. Permit2 is a universal token approval mechanism that works with any ERC-20 token, unlike ERC-3009 which requires token-level support.",
@@ -13867,7 +13321,7 @@
           }
         }
       },
-      "x402ExactSolanaPayload": {
+      "X402ExactSolanaPayload_1": {
         "title": "x402ExactSolanaPayload",
         "required": [
           "transaction"
@@ -13885,7 +13339,7 @@
           "transaction": "AQABAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAQECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8CBgMBAQAAAAIBAwQAAAAABgIAAAAAAAYDBQEBAAAGBAgAAAAABgUAAAAA6AMAAAAAAAAGBgUBAQEBBgcEAQAAAAYICgMBAQIDBgkCBgAAAAYKAwABAQEGCwMGAQEBBgwDAAABAQAAAAA="
         }
       },
-      "x402V2PaymentRequirements": {
+      "X402V2PaymentRequirements_1": {
         "required": [
           "scheme",
           "network",
@@ -13935,16 +13389,12 @@
           },
           "extra": {
             "type": "object",
-            "description": "The optional additional scheme-specific payment info.",
-            "example": {
-              "name": "USDC",
-              "version": 2
-            }
+            "description": "The optional additional scheme-specific payment info."
           }
         },
         "description": "The x402 protocol payment requirements that the resource server expects the client\u0027s payment payload to meet."
       },
-      "x402ResourceInfo": {
+      "X402ResourceInfo_1": {
         "type": "object",
         "properties": {
           "url": {
@@ -13953,16 +13403,7 @@
             "example": "https://api.example.com/premium/resource/123"
           },
           "description": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 500,
-                "type": "string",
-                "description": "A human-readable description."
-              }
-            ],
-            "description": "A human-readable description of the resource.",
-            "example": "Premium API access for data analysis"
+            "$ref": "#/components/schemas/X402ResourceInfo1Description"
           },
           "mimeType": {
             "type": "string",
@@ -13972,7 +13413,7 @@
         },
         "description": "Describes the resource being accessed in x402 protocol."
       },
-      "x402V2PaymentPayload": {
+      "X402V2PaymentPayload_1": {
         "required": [
           "x402Version",
           "accepted",
@@ -13984,45 +13425,17 @@
             "$ref": "#/components/schemas/X402Version"
           },
           "payload": {
-            "type": "object",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/x402ExactEvmPayload"
-              },
-              {
-                "$ref": "#/components/schemas/x402ExactEvmPermit2Payload"
-              },
-              {
-                "$ref": "#/components/schemas/x402ExactSolanaPayload"
-              }
-            ],
-            "description": "The payload of the payment depending on the x402Version, scheme, and network.",
-            "example": {
-              "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
-              "authorization": {
-                "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "value": 1000000000000000000,
-                "validAfter": 1716150000,
-                "validBefore": 1716150000,
-                "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-              }
-            }
+            "$ref": "#/components/schemas/X402V2PaymentPayload1Payload"
           },
           "accepted": {
-            "$ref": "#/components/schemas/x402V2PaymentRequirements"
+            "$ref": "#/components/schemas/X402V2PaymentRequirements_1"
           },
           "resource": {
-            "$ref": "#/components/schemas/x402ResourceInfo"
+            "$ref": "#/components/schemas/X402ResourceInfo_1"
           },
           "extensions": {
             "type": "object",
-            "description": "Optional protocol extensions.",
-            "example": {
-              "bazaar": {
-                "discoveryEnabled": true
-              }
-            }
+            "description": "Optional protocol extensions."
           }
         },
         "description": "The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the X-PAYMENT header.",
@@ -14058,7 +13471,7 @@
           }
         }
       },
-      "x402V1PaymentPayload": {
+      "X402V1PaymentPayload_1": {
         "required": [
           "x402Version",
           "scheme",
@@ -14093,30 +13506,7 @@
             "example": "base"
           },
           "payload": {
-            "type": "object",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/x402ExactEvmPayload"
-              },
-              {
-                "$ref": "#/components/schemas/x402ExactEvmPermit2Payload"
-              },
-              {
-                "$ref": "#/components/schemas/x402ExactSolanaPayload"
-              }
-            ],
-            "description": "The payload of the payment depending on the x402Version, scheme, and network.",
-            "example": {
-              "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
-              "authorization": {
-                "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-                "value": 1000000000000000000,
-                "validAfter": 1716150000,
-                "validBefore": 1716150000,
-                "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-              }
-            }
+            "$ref": "#/components/schemas/X402V1PaymentPayload1Payload"
           }
         },
         "description": "The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the X-PAYMENT header.",
@@ -14137,17 +13527,17 @@
           }
         }
       },
-      "x402PaymentPayload": {
+      "X402PaymentPayload_1": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/x402V2PaymentPayload"
+            "$ref": "#/components/schemas/X402V2PaymentPayload_1"
           },
           {
-            "$ref": "#/components/schemas/x402V1PaymentPayload"
+            "$ref": "#/components/schemas/X402V1PaymentPayload_1"
           }
         ],
         "properties": {
@@ -14160,12 +13550,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "x402V2PaymentPayload": "#/components/schemas/x402V2PaymentPayload",
-            "x402V1PaymentPayload": "#/components/schemas/x402V1PaymentPayload"
+            "X402V2PaymentPayload_1": "#/components/schemas/X402V2PaymentPayload_1",
+            "X402V1PaymentPayload_1": "#/components/schemas/X402V1PaymentPayload_1"
           }
         }
       },
-      "x402V1PaymentRequirements": {
+      "X402V1PaymentRequirements_1": {
         "required": [
           "scheme",
           "network",
@@ -14212,16 +13602,7 @@
             "example": "https://api.example.com/premium/resource/123"
           },
           "description": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 500,
-                "type": "string",
-                "description": "A human-readable description."
-              }
-            ],
-            "description": "A human-readable description of the resource.",
-            "example": "Premium API access for data analysis"
+            "$ref": "#/components/schemas/X402V1PaymentRequirements1Description"
           },
           "mimeType": {
             "type": "string",
@@ -14230,10 +13611,7 @@
           },
           "outputSchema": {
             "type": "object",
-            "description": "The optional JSON schema describing the resource output.",
-            "example": {
-              "data": "string"
-            }
+            "description": "The optional JSON schema describing the resource output."
           },
           "payTo": {
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
@@ -14254,25 +13632,22 @@
           },
           "extra": {
             "type": "object",
-            "description": "The optional additional scheme-specific payment info.",
-            "example": {
-              "gasLimit": 1000000
-            }
+            "description": "The optional additional scheme-specific payment info."
           }
         },
         "description": "The x402 protocol payment requirements that the resource server expects the client\u0027s payment payload to meet."
       },
-      "x402PaymentRequirements": {
+      "X402PaymentRequirements_1": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/x402V2PaymentRequirements"
+            "$ref": "#/components/schemas/X402V2PaymentRequirements_1"
           },
           {
-            "$ref": "#/components/schemas/x402V1PaymentRequirements"
+            "$ref": "#/components/schemas/X402V1PaymentRequirements_1"
           }
         ],
         "properties": {
@@ -14285,12 +13660,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "x402V2PaymentRequirements": "#/components/schemas/x402V2PaymentRequirements",
-            "x402V1PaymentRequirements": "#/components/schemas/x402V1PaymentRequirements"
+            "X402V2PaymentRequirements_1": "#/components/schemas/X402V2PaymentRequirements_1",
+            "X402V1PaymentRequirements_1": "#/components/schemas/X402V1PaymentRequirements_1"
           }
         }
       },
-      "x402VerifyInvalidReason": {
+      "X402VerifyInvalidReason_1": {
         "enum": [
           "insufficient_funds",
           "invalid_scheme",
@@ -14341,7 +13716,7 @@
         "description": "The reason the payment is invalid on the x402 protocol.",
         "example": "insufficient_funds"
       },
-      "x402VerifyPaymentRejection": {
+      "X402VerifyPaymentRejection_1": {
         "required": [
           "isValid",
           "invalidReason"
@@ -14354,7 +13729,7 @@
             "example": false
           },
           "invalidReason": {
-            "$ref": "#/components/schemas/x402VerifyInvalidReason"
+            "$ref": "#/components/schemas/X402VerifyInvalidReason_1"
           },
           "invalidMessage": {
             "type": "string",
@@ -14376,7 +13751,7 @@
           "payer": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
         }
       },
-      "x402SettleErrorReason": {
+      "X402SettleErrorReason_1": {
         "enum": [
           "insufficient_funds",
           "invalid_scheme",
@@ -14432,7 +13807,7 @@
         "description": "The reason the payment settlement errored on the x402 protocol.",
         "example": "insufficient_funds"
       },
-      "x402SettlePaymentRejection": {
+      "X402SettlePaymentRejection_1": {
         "required": [
           "success",
           "errorReason"
@@ -14445,7 +13820,7 @@
             "example": false
           },
           "errorReason": {
-            "$ref": "#/components/schemas/x402SettleErrorReason"
+            "$ref": "#/components/schemas/X402SettleErrorReason_1"
           },
           "errorMessage": {
             "type": "string",
@@ -14477,7 +13852,7 @@
           "payer": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
         }
       },
-      "x402SupportedPaymentKind": {
+      "X402SupportedPaymentKind_1": {
         "required": [
           "x402Version",
           "scheme",
@@ -14518,10 +13893,7 @@
           },
           "extra": {
             "type": "object",
-            "description": "The optional additional scheme-specific payment info.",
-            "example": {
-              "feePayer": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
-            }
+            "description": "The optional additional scheme-specific payment info."
           }
         },
         "description": "The supported payment kind for the x402 protocol. A kind is comprised of a scheme and a network, which together uniquely identify a way to move money on the x402 protocol. For more details, please see [x402 Schemes](https://github.com/coinbase/x402?tab=readme-ov-file#schemes)."
@@ -14645,16 +14017,7 @@
             "example": 1
           },
           "destinationAddress": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 128,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
-              }
-            ],
-            "description": "The destination address to send the crypto to.",
-            "example": "71C7656EC7ab88b098defB751B7401B5f6d8976F"
+            "$ref": "#/components/schemas/OnrampOrderDestinationAddress"
           },
           "destinationNetwork": {
             "type": "string",
@@ -14704,18 +14067,7 @@
         "type": "object",
         "properties": {
           "url": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 2048,
-                "pattern": "^https?://.*$",
-                "type": "string",
-                "description": "A valid HTTP or HTTPS URL.",
-                "format": "uri"
-              }
-            ],
-            "description": "The URL to the hosted widget the user should be redirected to. For certain payment link types you can append your own redirect_url query parameter to this URL to ensure the user is redirected back to your app after the widget completes.",
-            "example": "https://pay.coinbase.com/v2/api-onramp/apple-pay?sessionToken=MWYwNWQwODktZTZlYy02OTdlLTgzZTYtMTI3NzcyOWJhNjM3"
+            "$ref": "#/components/schemas/OnrampPaymentLinkUrl"
           },
           "paymentLinkType": {
             "$ref": "#/components/schemas/OnrampPaymentLinkType"
@@ -14737,51 +14089,17 @@
         "description": "The type of payment method used to generate the onramp quote.",
         "example": "CARD"
       },
-      "createEndUser": {
-        "required": [
-          "authenticationMethods"
-        ],
+      "SiweAuthenticationAddress": {
         "type": "object",
-        "properties": {
-          "userId": {
-            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+        "allOf": [
+          {
+            "maxLength": 128,
             "type": "string",
-            "description": "A stable, unique identifier for the end user. The \u0060userId\u0060 must be unique across all end users in the developer\u0027s CDP Project. It must be between 1 and 100 characters long and can only contain alphanumeric characters and hyphens.\n\nIf \u0060userId\u0060 is not provided in the request, the server will generate a random UUID.",
-            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
-          },
-          "authenticationMethods": {
-            "$ref": "#/components/schemas/AuthenticationMethods"
-          },
-          "evmAccount": {
-            "type": "object",
-            "properties": {
-              "createSmartAccount": {
-                "type": "boolean",
-                "description": "If true, creates an EVM smart account and a default EVM EOA account as the owner. If false, only a EVM EOA account is created.",
-                "default": false,
-                "example": true
-              },
-              "enableSpendPermissions": {
-                "type": "boolean",
-                "description": "If true, enables spend permissions for the EVM smart account.",
-                "example": true
-              }
-            },
-            "description": "Configuration for creating an EVM account for the end user."
-          },
-          "solanaAccount": {
-            "type": "object",
-            "properties": {
-              "createSmartAccount": {
-                "type": "boolean",
-                "description": "Only false is a valid option since currently smart accounts on Solana are not supported.",
-                "default": false,
-                "example": false
-              }
-            },
-            "description": "Configuration for creating a Solana account for the end user."
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
           }
-        }
+        ],
+        "description": "The ERC-55 checksummed Ethereum address of the end user.",
+        "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
       },
       "OnrampSession": {
         "required": [
@@ -14790,18 +14108,7 @@
         "type": "object",
         "properties": {
           "onrampUrl": {
-            "type": "object",
-            "allOf": [
-              {
-                "maxLength": 2048,
-                "pattern": "^https?://.*$",
-                "type": "string",
-                "description": "A valid HTTP or HTTPS URL.",
-                "format": "uri"
-              }
-            ],
-            "description": "Ready-to-use onramp URL.",
-            "example": "https://pay.coinbase.com/buy?sessionToken=abc123F"
+            "$ref": "#/components/schemas/OnrampSessionOnrampUrl"
           }
         },
         "description": "An onramp session containing a ready-to-use onramp URL.",
@@ -14936,7 +14243,928 @@
         },
         "description": "A single limit with remaining capacity."
       },
-      "createEvmAccount": {
+      "IdlMetadata": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The program name.",
+            "example": "system_program"
+          },
+          "version": {
+            "type": "string",
+            "description": "The program version.",
+            "example": "0.1.0"
+          },
+          "spec": {
+            "type": "string",
+            "description": "The IDL specification version.",
+            "example": "0.1.0"
+          }
+        },
+        "description": "Optional metadata about the IDL.",
+        "example": {
+          "name": "system_program",
+          "version": "0.1.0",
+          "spec": "0.1.0"
+        }
+      },
+      "OnchainDataQueryCache": {
+        "title": "Query result cache configuration",
+        "type": "object",
+        "properties": {
+          "maxAgeMs": {
+            "maximum": 900000,
+            "minimum": 500,
+            "type": "integer",
+            "description": "The maximum tolerable staleness of the query result cache in milliseconds. If a previous execution result of an identical query is older than this age, the query will be re-executed. If the data is less than this age, the result will be returned from cache.",
+            "default": 500,
+            "example": 1000
+          }
+        },
+        "description": "\u0022Enables control over how often queries need to be fully re-executed on the backing store.\nThis can be useful in scenarios where API calls might be made frequently, API latency is critical, and some freshness lag (ex: 750ms, 2s, 5s) is tolerable.\nBy default, each query result is returned from cache so long as the result is from an identical query and less than 500ms old. This freshness tolerance can be modified upwards, to a maximum of 900000ms (i.e. 900s, 15m).\n\u0022",
+        "example": {
+          "maxAgeMs": 1000
+        }
+      },
+      "OnchainDataResultSchema": {
+        "type": "object",
+        "properties": {
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Column name."
+                },
+                "type": {
+                  "enum": [
+                    "String",
+                    "UInt8",
+                    "UInt16",
+                    "UInt32",
+                    "UInt64",
+                    "UInt128",
+                    "UInt256",
+                    "Int8",
+                    "Int16",
+                    "Int32",
+                    "Int64",
+                    "Int128",
+                    "Int256",
+                    "Float32",
+                    "Float64",
+                    "Bool",
+                    "Date",
+                    "DateTime",
+                    "DateTime64",
+                    "UUID"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Column data type (ClickHouse types)."
+                }
+              },
+              "example": {
+                "name": "event_signature",
+                "type": "String",
+                "description": "The signature of the event."
+              }
+            },
+            "description": "Column definitions."
+          }
+        },
+        "description": "Schema information for the query result. This is a derived schema from the query result, so types may not match the underlying table.\n",
+        "example": {
+          "columns": [
+            {
+              "name": "block_number",
+              "type": "UInt64"
+            },
+            {
+              "name": "transaction_hash",
+              "type": "String"
+            }
+          ]
+        }
+      },
+      "OnchainDataResultMetadata": {
+        "type": "object",
+        "properties": {
+          "cached": {
+            "type": "boolean",
+            "description": "Whether the result was served from the query result cache.",
+            "example": false
+          },
+          "executionTimestamp": {
+            "type": "string",
+            "description": "When the query result was executed against the backing store in RFC 3339 format.",
+            "format": "date-time",
+            "example": "2025-01-01T00:00:00.000Z"
+          },
+          "executionTimeMs": {
+            "type": "integer",
+            "description": "Query execution time in milliseconds.",
+            "example": 145
+          },
+          "rowCount": {
+            "type": "integer",
+            "description": "Number of rows returned.",
+            "example": 2
+          }
+        },
+        "description": "Metadata about query execution.",
+        "example": {
+          "cached": false,
+          "executionTimestamp": "2025-01-01T00:00:00.000Z",
+          "executionTimeMs": 145,
+          "rowCount": 2
+        }
+      },
+      "OnchainDataColumnSchemaDescription": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 500,
+            "type": "string",
+            "description": "A human-readable description."
+          }
+        ],
+        "description": "Human-readable description of the column.",
+        "example": "The signature of the decoded event log."
+      },
+      "WebhookTargetUrl": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 2048,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "format": "uri"
+          }
+        ],
+        "description": "The webhook URL to deliver events to.",
+        "example": "https://api.example.com/webhooks"
+      },
+      "WebhookTargetHeaders": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Additional headers to include in webhook requests.",
+        "example": {
+          "Authorization": "Bearer token123",
+          "Content-Type": "application/json"
+        }
+      },
+      "WebhookSubscriptionResponseDescription": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 500,
+            "type": "string",
+            "description": "A human-readable description."
+          }
+        ],
+        "description": "Description of the webhook subscription.",
+        "example": "Subscription for token transfer events"
+      },
+      "WebhookSubscriptionResponseMetadata": {
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "maxLength": 500,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
+          },
+          {
+            "type": "object",
+            "properties": {
+              "secret": {
+                "type": "string",
+                "description": "Use the root-level \u0060secret\u0060 field instead. Maintained for backward compatibility only.",
+                "format": "uuid",
+                "example": "123e4567-e89b-12d3-a456-426614174000",
+                "deprecated": true
+              }
+            }
+          }
+        ],
+        "description": "Additional metadata for the subscription.",
+        "example": {
+          "secret": "123e4567-e89b-12d3-a456-426614174000"
+        }
+      },
+      "WebhookSubscriptionResponseLabels": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Multi-label filters using total overlap logic. Total overlap means the subscription only triggers when events contain ALL these key-value pairs.\nPresent when subscription uses multi-label format.\n",
+        "example": {
+          "env": "dev",
+          "team": "payments",
+          "contract_address": "833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        }
+      },
+      "WebhookSubscriptionRequestDescription": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 500,
+            "type": "string",
+            "description": "A human-readable description."
+          }
+        ],
+        "description": "Description of the webhook subscription.",
+        "example": "Subscription for token transfer events"
+      },
+      "WebhookSubscriptionRequestLabels": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger when\nan event contains ALL the key-value pairs specified here. Additional labels on\nthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.\n\n**Note:** Currently, labels are supported for onchain webhooks only.\n\nSee [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).\n",
+        "example": {
+          "network": "base-mainnet",
+          "contract_address": "833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "event_name": "Transfer"
+        }
+      },
+      "WebhookSubscriptionUpdateRequestDescription": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 500,
+            "type": "string",
+            "description": "A human-readable description."
+          }
+        ],
+        "description": "Description of the webhook subscription.",
+        "example": "Updated subscription for token transfer events"
+      },
+      "WebhookSubscriptionUpdateRequestLabels": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Optional. Multi-label filters that trigger only when an event contains ALL of these key-value pairs.\n\n**Note:** Currently, labels are supported for onchain webhooks only.\n\nSee [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).\nOmit to receive all events for the selected event types.\n",
+        "example": {
+          "network": "base-mainnet",
+          "contract_address": "833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "event_name": "Transfer"
+        }
+      },
+      "X402ExactEvmPayload1Authorization": {
+        "required": [
+          "from",
+          "to",
+          "value",
+          "validAfter",
+          "validBefore",
+          "nonce"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed, checksum EVM address of the sender of the payment.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "to": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed, checksum EVM address of the recipient of the payment.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the payment, in atomic units of the payment asset.",
+            "example": 1000000000000000000
+          },
+          "validAfter": {
+            "type": "string",
+            "description": "The unix timestamp after which the payment is valid.",
+            "example": 1716150000
+          },
+          "validBefore": {
+            "type": "string",
+            "description": "The unix timestamp before which the payment is valid.",
+            "example": 1716150000
+          },
+          "nonce": {
+            "pattern": "^0x[0-9a-fA-F]{64}$",
+            "type": "string",
+            "description": "The hex-encoded nonce of the payment (bytes32).",
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          }
+        },
+        "description": "The authorization data for the ERC-3009 authorization message.",
+        "example": {
+          "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+          "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+          "value": 1000000000000000000,
+          "validAfter": 1716150000,
+          "validBefore": 1716150000,
+          "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        }
+      },
+      "X402ExactEvmPermit2Payload1Permit2Authorization": {
+        "required": [
+          "from",
+          "permitted",
+          "spender",
+          "nonce",
+          "deadline",
+          "witness"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed, checksum EVM address of the sender of the payment.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "permitted": {
+            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload1Permit2AuthorizationPermitted"
+          },
+          "spender": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed, checksum EVM address of the spender (x402 Permit2 proxy contract).",
+            "example": "4020615294c913F045dc10f0a5cdEbd86c280001"
+          },
+          "nonce": {
+            "pattern": "^[0-9]\u002B$",
+            "type": "string",
+            "description": "The Permit2 nonce as a decimal string (uint256).",
+            "example": 12345678901234567890
+          },
+          "deadline": {
+            "type": "string",
+            "description": "The unix timestamp before which the permit is valid.",
+            "example": 1716150000
+          },
+          "witness": {
+            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload1Permit2AuthorizationWitness"
+          }
+        },
+        "description": "The authorization data for the Permit2 PermitWitnessTransferFrom message.",
+        "example": {
+          "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+          "permitted": {
+            "token": "036CbD53842c5426634e7929541eC2318f3dCF7e",
+            "amount": 1000000
+          },
+          "spender": "4020615294c913F045dc10f0a5cdEbd86c280001",
+          "nonce": 12345678901234567890,
+          "deadline": 1716150000,
+          "witness": {
+            "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+            "validAfter": 1716150000,
+            "extra": "0x"
+          }
+        }
+      },
+      "X402V2PaymentRequirements1Extra": {
+        "type": "object",
+        "description": "The optional additional scheme-specific payment info.",
+        "example": {
+          "name": "USDC",
+          "version": 2
+        }
+      },
+      "X402ResourceInfo1Description": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 500,
+            "type": "string",
+            "description": "A human-readable description."
+          }
+        ],
+        "description": "A human-readable description of the resource.",
+        "example": "Premium API access for data analysis"
+      },
+      "X402V2PaymentPayload1Payload": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/X402ExactEvmPayload_1"
+          },
+          {
+            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload_1"
+          },
+          {
+            "$ref": "#/components/schemas/X402ExactSolanaPayload_1"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "The payload of the payment depending on the x402Version, scheme, and network.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "X402ExactEvmPayload_1": "#/components/schemas/X402ExactEvmPayload_1",
+            "X402ExactEvmPermit2Payload_1": "#/components/schemas/X402ExactEvmPermit2Payload_1",
+            "X402ExactSolanaPayload_1": "#/components/schemas/X402ExactSolanaPayload_1"
+          }
+        },
+        "example": {
+          "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+          "authorization": {
+            "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+            "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+            "value": 1000000000000000000,
+            "validAfter": 1716150000,
+            "validBefore": 1716150000,
+            "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          }
+        }
+      },
+      "X402V2PaymentPayload1Extensions": {
+        "type": "object",
+        "description": "Optional protocol extensions.",
+        "example": {
+          "bazaar": {
+            "discoveryEnabled": true
+          }
+        }
+      },
+      "X402V1PaymentPayload1Payload": {
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/X402ExactEvmPayload_1"
+          },
+          {
+            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload_1"
+          },
+          {
+            "$ref": "#/components/schemas/X402ExactSolanaPayload_1"
+          }
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Union discriminator"
+          }
+        },
+        "description": "The payload of the payment depending on the x402Version, scheme, and network.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "X402ExactEvmPayload_1": "#/components/schemas/X402ExactEvmPayload_1",
+            "X402ExactEvmPermit2Payload_1": "#/components/schemas/X402ExactEvmPermit2Payload_1",
+            "X402ExactSolanaPayload_1": "#/components/schemas/X402ExactSolanaPayload_1"
+          }
+        },
+        "example": {
+          "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+          "authorization": {
+            "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+            "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+            "value": 1000000000000000000,
+            "validAfter": 1716150000,
+            "validBefore": 1716150000,
+            "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          }
+        }
+      },
+      "X402V1PaymentRequirements1Description": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 500,
+            "type": "string",
+            "description": "A human-readable description."
+          }
+        ],
+        "description": "A human-readable description of the resource.",
+        "example": "Premium API access for data analysis"
+      },
+      "X402V1PaymentRequirements1OutputSchema": {
+        "type": "object",
+        "description": "The optional JSON schema describing the resource output.",
+        "example": {
+          "data": "string"
+        }
+      },
+      "X402V1PaymentRequirements1Extra": {
+        "type": "object",
+        "description": "The optional additional scheme-specific payment info.",
+        "example": {
+          "gasLimit": 1000000
+        }
+      },
+      "X402SupportedPaymentKind1Extra": {
+        "type": "object",
+        "description": "The optional additional scheme-specific payment info.",
+        "example": {
+          "feePayer": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
+        }
+      },
+      "OnrampOrderDestinationAddress": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+          }
+        ],
+        "description": "The destination address to send the crypto to.",
+        "example": "71C7656EC7ab88b098defB751B7401B5f6d8976F"
+      },
+      "OnrampPaymentLinkUrl": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 2048,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "format": "uri"
+          }
+        ],
+        "description": "The URL to the hosted widget the user should be redirected to. For certain payment link types you can append your own redirect_url query parameter to this URL to ensure the user is redirected back to your app after the widget completes.",
+        "example": "https://pay.coinbase.com/v2/api-onramp/apple-pay?sessionToken=MWYwNWQwODktZTZlYy02OTdlLTgzZTYtMTI3NzcyOWJhNjM3"
+      },
+      "OnrampSessionOnrampUrl": {
+        "type": "object",
+        "allOf": [
+          {
+            "maxLength": 2048,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "format": "uri"
+          }
+        ],
+        "description": "Ready-to-use onramp URL.",
+        "example": "https://pay.coinbase.com/buy?sessionToken=abc123F"
+      },
+      "SignEvmTypedDataFieldCriterionTypesTypes": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name of a key within an EIP-712 data structure."
+              },
+              "type": {
+                "type": "string",
+                "description": "The Solidity type of a value within an EIP-712 data structure."
+              }
+            }
+          },
+          "description": "Object containing names and types for fields within structured data."
+        },
+        "description": "EIP-712 compliant map of model names to model definitions."
+      },
+      "CommonSwapResponseIssuesAllowance": {
+        "required": [
+          "currentAllowance",
+          "spender"
+        ],
+        "type": "object",
+        "properties": {
+          "currentAllowance": {
+            "pattern": "^\\d\u002B$",
+            "type": "string",
+            "description": "The current allowance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
+            "example": 1000000000
+          },
+          "spender": {
+            "pattern": "^0x[a-fA-F0-9]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed address of to set the allowance on.",
+            "example": "000000000022D473030F116dDEE9F6B43aC78BA3"
+          }
+        },
+        "description": "Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.",
+        "nullable": true,
+        "example": {
+          "currentAllowance": 1000000000,
+          "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
+        }
+      },
+      "CommonSwapResponseIssuesBalance": {
+        "required": [
+          "token",
+          "currentBalance",
+          "requiredBalance"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "pattern": "^0x[a-fA-F0-9]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed contract address of the token."
+          },
+          "currentBalance": {
+            "pattern": "^\\d\u002B$",
+            "type": "string",
+            "description": "The current balance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
+            "example": 10000000
+          },
+          "requiredBalance": {
+            "pattern": "^\\d\u002B$",
+            "type": "string",
+            "description": "The amount of the token that the \u0060taker\u0060 must hold.",
+            "example": 1000000000000000000
+          }
+        },
+        "description": "Details of the balance of the \u0060fromToken\u0060 that the \u0060taker\u0060 must hold. Null if the \u0060taker\u0060 has a sufficient balance.",
+        "nullable": true,
+        "example": {
+          "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
+          "currentBalance": 1000000000000000000,
+          "requiredBalance": 1000000000000000000
+        }
+      },
+      "CommonSwapResponseFeesGasFee": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TokenFee"
+          }
+        ],
+        "description": "The estimated gas fee for the swap.",
+        "nullable": true
+      },
+      "CommonSwapResponseFeesProtocolFee": {
+        "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TokenFee"
+          }
+        ],
+        "description": "The estimated protocol fee for the swap.",
+        "nullable": true
+      },
+      "X402ExactEvmPermit2Payload1Permit2AuthorizationPermitted": {
+        "required": [
+          "token",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed, checksum EVM address of the token to transfer.",
+            "example": "036CbD53842c5426634e7929541eC2318f3dCF7e"
+          },
+          "amount": {
+            "type": "string",
+            "description": "The amount to transfer in atomic units.",
+            "example": 1000000
+          }
+        },
+        "description": "The token permissions for the transfer."
+      },
+      "X402ExactEvmPermit2Payload1Permit2AuthorizationWitness": {
+        "required": [
+          "to",
+          "validAfter"
+        ],
+        "type": "object",
+        "properties": {
+          "to": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed, checksum EVM address of the recipient.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "validAfter": {
+            "type": "string",
+            "description": "The unix timestamp after which the payment is valid.",
+            "example": 1716150000
+          },
+          "extra": {
+            "pattern": "^0x[0-9a-fA-F]*$",
+            "type": "string",
+            "description": "Optional hex-encoded extra data.",
+            "example": "0x"
+          }
+        },
+        "description": "The witness data containing payment details."
+      },
+      "CreateEndUser": {
+        "required": [
+          "authenticationMethods"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "A stable, unique identifier for the end user. The \u0060userId\u0060 must be unique across all end users in the developer\u0027s CDP Project. It must be between 1 and 100 characters long and can only contain alphanumeric characters and hyphens.\n\nIf \u0060userId\u0060 is not provided in the request, the server will generate a random UUID.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          },
+          "authenticationMethods": {
+            "$ref": "#/components/schemas/AuthenticationMethods"
+          },
+          "evmAccount": {
+            "type": "object",
+            "properties": {
+              "createSmartAccount": {
+                "type": "boolean",
+                "description": "If true, creates an EVM smart account and a default EVM EOA account as the owner. If false, only a EVM EOA account is created.",
+                "default": false,
+                "example": true
+              },
+              "enableSpendPermissions": {
+                "type": "boolean",
+                "description": "If true, enables spend permissions for the EVM smart account.",
+                "example": true
+              }
+            },
+            "description": "Configuration for creating an EVM account for the end user."
+          },
+          "solanaAccount": {
+            "type": "object",
+            "properties": {
+              "createSmartAccount": {
+                "type": "boolean",
+                "description": "Only false is a valid option since currently smart accounts on Solana are not supported.",
+                "default": false,
+                "example": false
+              }
+            },
+            "description": "Configuration for creating a Solana account for the end user."
+          }
+        }
+      },
+      "ListEndUsers200": {
+        "type": "object",
+        "allOf": [
+          {
+            "required": [
+              "endUsers"
+            ],
+            "type": "object",
+            "properties": {
+              "endUsers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EndUser"
+                },
+                "description": "The list of end users."
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/ListResponse"
+          }
+        ]
+      },
+      "ValidateEndUserAccessToken": {
+        "required": [
+          "accessToken"
+        ],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "description": "The access token in JWT format to verify.",
+            "example": "eyJhbGciOiJFUzI1NiIsImtpZCI6IjA1ZGNmYTU1LWY1NzktNDg5YS1iNThhLTFlMDI5Nzk0N2VlNiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjZHAtYXBpIiwiYXV0aF90eXBlIjoiZW1haWwiLCJleHAiOjE3NTM5ODAyOTksImlhdCI6MTc1Mzk3ODQ5OSwiaXNzIjoiY2RwLWFwaSIsImp0aSI6IjA3ZWY5M2JlLTYzMDQtNGQ1YS05NmE3LWJlMGI5MWI0ZTE3NCIsInByb2plY3RfaWQiOiJjNzRkOGI4OC0wOTNiLTQyZDItOGE4Yy1kZGM1YzVlMGViNDMiLCJzdWIiOiJjYTM4YTM4ZC0xNmE5LTRkMjYtYTcxZC0zOWY2NmY5YzZiN2UifQ.1SU0pOy-WR002qUw4hd_UmZWRSLz-ZL6v7PvQvZMKVE6a51x_tqeUeRGaTGuYl1whg0eccMObmK7FqXKRH6E4g"
+          }
+        },
+        "description": "The request body for a developer to verify an end user\u0027s access token."
+      },
+      "AddEndUserEvmAccount": {
+        "type": "object"
+      },
+      "AddEndUserEvmAccount201": {
+        "required": [
+          "evmAccount"
+        ],
+        "type": "object",
+        "properties": {
+          "evmAccount": {
+            "$ref": "#/components/schemas/EndUserEvmAccount"
+          }
+        }
+      },
+      "AddEndUserEvmSmartAccount": {
+        "type": "object",
+        "properties": {
+          "enableSpendPermissions": {
+            "type": "boolean",
+            "description": "If true, enables spend permissions for the EVM smart account.",
+            "default": false,
+            "example": true
+          }
+        }
+      },
+      "AddEndUserEvmSmartAccount201": {
+        "required": [
+          "evmSmartAccount"
+        ],
+        "type": "object",
+        "properties": {
+          "evmSmartAccount": {
+            "$ref": "#/components/schemas/EndUserEvmSmartAccount"
+          }
+        }
+      },
+      "AddEndUserSolanaAccount": {
+        "type": "object"
+      },
+      "AddEndUserSolanaAccount201": {
+        "required": [
+          "solanaAccount"
+        ],
+        "type": "object",
+        "properties": {
+          "solanaAccount": {
+            "$ref": "#/components/schemas/EndUserSolanaAccount"
+          }
+        }
+      },
+      "ImportEndUser": {
+        "required": [
+          "userId",
+          "authenticationMethods",
+          "encryptedPrivateKey",
+          "keyType"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "A stable, unique identifier for the end user. The \u0060userId\u0060 must be unique across all end users in the developer\u0027s CDP Project. It must be between 1 and 100 characters long and can only contain alphanumeric characters and hyphens.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          },
+          "authenticationMethods": {
+            "$ref": "#/components/schemas/AuthenticationMethods"
+          },
+          "encryptedPrivateKey": {
+            "type": "string",
+            "description": "The base64-encoded, encrypted private key to import. The private key must be encrypted using the CDP SDK\u0027s encryption scheme. This is a 32-byte raw private key.",
+            "example": "U2FsdGVkX1\u002BvupppZksvRf5X5YgHq4\u002Bda\u002BQ4qf51\u002BQ4="
+          },
+          "keyType": {
+            "enum": [
+              "evm",
+              "solana"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The type of key being imported. Determines what type of account will be associated for the end user.",
+            "example": "evm"
+          }
+        }
+      },
+      "ListEvmAccounts200": {
+        "type": "object",
+        "allOf": [
+          {
+            "required": [
+              "accounts"
+            ],
+            "type": "object",
+            "properties": {
+              "accounts": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EvmAccount"
+                },
+                "description": "The list of EVM accounts."
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/ListResponse"
+          }
+        ]
+      },
+      "CreateEvmAccount": {
         "type": "object",
         "properties": {
           "name": {
@@ -14954,7 +15182,7 @@
           }
         }
       },
-      "updateEvmAccount": {
+      "UpdateEvmAccount": {
         "type": "object",
         "properties": {
           "name": {
@@ -14972,7 +15200,7 @@
           }
         }
       },
-      "sendEvmTransaction": {
+      "SendEvmTransaction": {
         "required": [
           "transaction",
           "network"
@@ -15002,7 +15230,7 @@
           }
         }
       },
-      "sendEvmTransaction_200": {
+      "SendEvmTransaction200": {
         "required": [
           "transactionHash"
         ],
@@ -15015,7 +15243,7 @@
           }
         }
       },
-      "signEvmTransaction": {
+      "SignEvmTransaction": {
         "required": [
           "transaction"
         ],
@@ -15028,7 +15256,7 @@
           }
         }
       },
-      "signEvmTransaction_200": {
+      "SignEvmTransaction200": {
         "required": [
           "signedTransaction"
         ],
@@ -15041,7 +15269,7 @@
           }
         }
       },
-      "signEvmHash": {
+      "SignEvmHash": {
         "required": [
           "hash"
         ],
@@ -15054,7 +15282,7 @@
           }
         }
       },
-      "signEvmHash_200": {
+      "SignEvmHash200": {
         "required": [
           "signature"
         ],
@@ -15067,7 +15295,7 @@
           }
         }
       },
-      "signEvmMessage": {
+      "SignEvmMessage": {
         "required": [
           "message"
         ],
@@ -15080,7 +15308,7 @@
           }
         }
       },
-      "signEvmMessage_200": {
+      "SignEvmMessage200": {
         "required": [
           "signature"
         ],
@@ -15093,7 +15321,7 @@
           }
         }
       },
-      "signEvmTypedData_200": {
+      "SignEvmTypedData200": {
         "required": [
           "signature"
         ],
@@ -15106,7 +15334,7 @@
           }
         }
       },
-      "createEvmEip7702Delegation": {
+      "CreateEvmEip7702Delegation": {
         "required": [
           "network"
         ],
@@ -15123,7 +15351,7 @@
           }
         }
       },
-      "createEvmEip7702Delegation_201": {
+      "CreateEvmEip7702Delegation201": {
         "required": [
           "delegationOperationId"
         ],
@@ -15137,7 +15365,7 @@
           }
         }
       },
-      "listEvmSmartAccounts_200": {
+      "ListEvmSmartAccounts200": {
         "type": "object",
         "allOf": [
           {
@@ -15160,7 +15388,7 @@
           }
         ]
       },
-      "createEvmSmartAccount": {
+      "CreateEvmSmartAccount": {
         "required": [
           "owners"
         ],
@@ -15182,7 +15410,7 @@
           }
         }
       },
-      "importEvmAccount": {
+      "ImportEvmAccount": {
         "required": [
           "encryptedPrivateKey"
         ],
@@ -15208,7 +15436,7 @@
           }
         }
       },
-      "exportEvmAccount": {
+      "ExportEvmAccount": {
         "required": [
           "exportEncryptionKey"
         ],
@@ -15221,7 +15449,7 @@
           }
         }
       },
-      "exportEvmAccount_200": {
+      "ExportEvmAccount200": {
         "required": [
           "encryptedPrivateKey"
         ],
@@ -15234,7 +15462,7 @@
           }
         }
       },
-      "exportEvmAccountByName": {
+      "ExportEvmAccountByName": {
         "required": [
           "exportEncryptionKey"
         ],
@@ -15247,7 +15475,7 @@
           }
         }
       },
-      "exportEvmAccountByName_200": {
+      "ExportEvmAccountByName200": {
         "required": [
           "encryptedPrivateKey"
         ],
@@ -15260,7 +15488,7 @@
           }
         }
       },
-      "updateEvmSmartAccount": {
+      "UpdateEvmSmartAccount": {
         "type": "object",
         "properties": {
           "name": {
@@ -15271,7 +15499,7 @@
           }
         }
       },
-      "prepareUserOperation": {
+      "PrepareUserOperation": {
         "required": [
           "network",
           "calls"
@@ -15310,7 +15538,7 @@
           }
         }
       },
-      "prepareAndSendUserOperation": {
+      "PrepareAndSendUserOperation": {
         "required": [
           "network",
           "calls"
@@ -15343,7 +15571,7 @@
           }
         }
       },
-      "sendUserOperation": {
+      "SendUserOperation": {
         "required": [
           "signature"
         ],
@@ -15356,7 +15584,7 @@
           }
         }
       },
-      "listSpendPermissions_200": {
+      "ListSpendPermissions200": {
         "type": "object",
         "allOf": [
           {
@@ -15379,7 +15607,7 @@
           }
         ]
       },
-      "createEvmSwapQuote": {
+      "CreateEvmSwapQuote": {
         "required": [
           "network",
           "toToken",
@@ -15438,7 +15666,7 @@
           }
         }
       },
-      "listEvmTokenBalances_200": {
+      "ListEvmTokenBalances200": {
         "type": "object",
         "allOf": [
           {
@@ -15487,7 +15715,7 @@
           }
         ]
       },
-      "requestEvmFaucet": {
+      "RequestEvmFaucet": {
         "required": [
           "network",
           "address",
@@ -15526,7 +15754,7 @@
           }
         }
       },
-      "requestEvmFaucet_200": {
+      "RequestEvmFaucet200": {
         "required": [
           "transactionHash"
         ],
@@ -15539,7 +15767,7 @@
           }
         }
       },
-      "listPolicies_200": {
+      "ListPolicies200": {
         "type": "object",
         "allOf": [
           {
@@ -15562,7 +15790,7 @@
           }
         ]
       },
-      "createPolicy": {
+      "CreatePolicy": {
         "required": [
           "scope",
           "rules"
@@ -15594,7 +15822,7 @@
           }
         }
       },
-      "updatePolicy": {
+      "UpdatePolicy": {
         "required": [
           "rules"
         ],
@@ -15615,7 +15843,7 @@
           }
         }
       },
-      "listSolanaAccounts_200": {
+      "ListSolanaAccounts200": {
         "type": "object",
         "allOf": [
           {
@@ -15638,7 +15866,7 @@
           }
         ]
       },
-      "createSolanaAccount": {
+      "CreateSolanaAccount": {
         "type": "object",
         "properties": {
           "name": {
@@ -15656,7 +15884,7 @@
           }
         }
       },
-      "updateSolanaAccount": {
+      "UpdateSolanaAccount": {
         "type": "object",
         "properties": {
           "name": {
@@ -15674,7 +15902,7 @@
           }
         }
       },
-      "importSolanaAccount": {
+      "ImportSolanaAccount": {
         "required": [
           "encryptedPrivateKey"
         ],
@@ -15693,7 +15921,7 @@
           }
         }
       },
-      "exportSolanaAccount": {
+      "ExportSolanaAccount": {
         "required": [
           "exportEncryptionKey"
         ],
@@ -15706,7 +15934,7 @@
           }
         }
       },
-      "exportSolanaAccount_200": {
+      "ExportSolanaAccount200": {
         "required": [
           "encryptedPrivateKey"
         ],
@@ -15719,7 +15947,7 @@
           }
         }
       },
-      "exportSolanaAccountByName": {
+      "ExportSolanaAccountByName": {
         "required": [
           "exportEncryptionKey"
         ],
@@ -15732,7 +15960,7 @@
           }
         }
       },
-      "exportSolanaAccountByName_200": {
+      "ExportSolanaAccountByName200": {
         "required": [
           "encryptedPrivateKey"
         ],
@@ -15745,7 +15973,7 @@
           }
         }
       },
-      "signSolanaTransaction": {
+      "SignSolanaTransaction": {
         "required": [
           "transaction"
         ],
@@ -15758,7 +15986,7 @@
           }
         }
       },
-      "signSolanaTransaction_200": {
+      "SignSolanaTransaction200": {
         "required": [
           "signedTransaction"
         ],
@@ -15771,7 +15999,7 @@
           }
         }
       },
-      "signSolanaMessage": {
+      "SignSolanaMessage": {
         "required": [
           "message"
         ],
@@ -15784,7 +16012,7 @@
           }
         }
       },
-      "signSolanaMessage_200": {
+      "SignSolanaMessage200": {
         "required": [
           "signature"
         ],
@@ -15797,7 +16025,7 @@
           }
         }
       },
-      "sendSolanaTransaction": {
+      "SendSolanaTransaction": {
         "required": [
           "network",
           "transaction"
@@ -15826,7 +16054,7 @@
           }
         }
       },
-      "sendSolanaTransaction_200": {
+      "SendSolanaTransaction200": {
         "required": [
           "transactionSignature"
         ],
@@ -15839,7 +16067,7 @@
           }
         }
       },
-      "requestSolanaFaucet": {
+      "RequestSolanaFaucet": {
         "required": [
           "address",
           "token"
@@ -15865,7 +16093,7 @@
           }
         }
       },
-      "requestSolanaFaucet_200": {
+      "RequestSolanaFaucet200": {
         "required": [
           "transactionSignature"
         ],
@@ -15878,7 +16106,7 @@
           }
         }
       },
-      "listSolanaTokenBalances_200": {
+      "ListSolanaTokenBalances200": {
         "type": "object",
         "allOf": [
           {
@@ -15925,12 +16153,12 @@
           }
         ]
       },
-      "getSQLGrammar_200": {
+      "GetSQLGrammar200": {
         "type": "string",
         "description": "The ANTLR4 grammar for the SQL API.",
         "example": "grammar SqlQuery; query: cteClause? unionStatement SEMICOLON? EOF;"
       },
-      "listDataTokenBalances_200": {
+      "ListDataTokenBalances200": {
         "type": "object",
         "allOf": [
           {
@@ -15979,7 +16207,7 @@
           }
         ]
       },
-      "verifyX402Payment": {
+      "VerifyX402Payment": {
         "required": [
           "x402Version",
           "paymentPayload",
@@ -15991,14 +16219,14 @@
             "$ref": "#/components/schemas/X402Version"
           },
           "paymentPayload": {
-            "$ref": "#/components/schemas/x402PaymentPayload"
+            "$ref": "#/components/schemas/X402PaymentPayload_1"
           },
           "paymentRequirements": {
-            "$ref": "#/components/schemas/x402PaymentRequirements"
+            "$ref": "#/components/schemas/X402PaymentRequirements_1"
           }
         }
       },
-      "settleX402Payment": {
+      "SettleX402Payment": {
         "required": [
           "x402Version",
           "paymentPayload",
@@ -16010,14 +16238,14 @@
             "$ref": "#/components/schemas/X402Version"
           },
           "paymentPayload": {
-            "$ref": "#/components/schemas/x402PaymentPayload"
+            "$ref": "#/components/schemas/X402PaymentPayload_1"
           },
           "paymentRequirements": {
-            "$ref": "#/components/schemas/x402PaymentRequirements"
+            "$ref": "#/components/schemas/X402PaymentRequirements_1"
           }
         }
       },
-      "createOnrampOrder": {
+      "CreateOnrampOrder": {
         "required": [
           "paymentCurrency",
           "purchaseCurrency",
@@ -16120,7 +16348,7 @@
           }
         }
       },
-      "createOnrampOrder_201": {
+      "CreateOnrampOrder201": {
         "required": [
           "order"
         ],
@@ -16134,7 +16362,7 @@
           }
         }
       },
-      "getOnrampOrderById_200": {
+      "GetOnrampOrderById200": {
         "required": [
           "order"
         ],
@@ -16145,7 +16373,7 @@
           }
         }
       },
-      "createOnrampSession": {
+      "CreateOnrampSession": {
         "required": [
           "destinationAddress",
           "purchaseCurrency",
@@ -16228,7 +16456,7 @@
           }
         }
       },
-      "createOnrampSession_201": {
+      "CreateOnrampSession201": {
         "required": [
           "session"
         ],
@@ -16242,7 +16470,7 @@
           }
         }
       },
-      "getOnrampUserLimits": {
+      "GetOnrampUserLimits": {
         "required": [
           "paymentMethodType",
           "userId",
@@ -16263,7 +16491,7 @@
           }
         }
       },
-      "getOnrampUserLimits_200": {
+      "GetOnrampUserLimits200": {
         "required": [
           "limits"
         ],
@@ -16278,10 +16506,6 @@
           }
         }
       },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
-      },
       "KnownAbiType_Wrapper": {
         "required": [
           "value"
@@ -16290,6 +16514,9 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/KnownAbiType"
+          },
+          "type": {
+            "type": "string"
           }
         }
       },
@@ -16303,6 +16530,10 @@
             "$ref": "#/components/schemas/Abi"
           }
         }
+      },
+      "ExamplePayload": {
+        "type": "object",
+        "description": "Placeholder schema for path example refs"
       },
       "KnownIdlType_Wrapper": {
         "required": [
@@ -16526,7 +16757,7 @@
                   "example": false
                 },
                 "invalidReason": {
-                  "$ref": "#/components/schemas/x402VerifyInvalidReason"
+                  "$ref": "#/components/schemas/X402VerifyInvalidReason_1"
                 },
                 "invalidMessage": {
                   "type": "string",
@@ -16549,7 +16780,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/x402VerifyPaymentRejection"
+              "$ref": "#/components/schemas/X402VerifyPaymentRejection_1"
             },
             "examples": {
               "invalid_verification": {
@@ -16583,7 +16814,7 @@
                   "example": false
                 },
                 "errorReason": {
-                  "$ref": "#/components/schemas/x402SettleErrorReason"
+                  "$ref": "#/components/schemas/X402SettleErrorReason_1"
                 },
                 "errorMessage": {
                   "type": "string",
@@ -16622,7 +16853,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/x402SettlePaymentRejection"
+              "$ref": "#/components/schemas/X402SettlePaymentRejection_1"
             },
             "examples": {
               "unsuccessful_settlement": {
@@ -16652,7 +16883,7 @@
                 "kinds": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/x402SupportedPaymentKind"
+                    "$ref": "#/components/schemas/X402SupportedPaymentKind_1"
                   },
                   "description": "The list of supported payment kinds.",
                   "example": [

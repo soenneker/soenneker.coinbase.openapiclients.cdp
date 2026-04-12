@@ -73,7 +73,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts
         /// <summary>
         /// Lists the Solana accounts belonging to the developer.The response is paginated, and by default, returns 20 accounts per page.If a name is provided, the response will contain only the account with that name.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts_200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts200"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
@@ -81,11 +81,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts_200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts_200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts.AccountsRequestBuilder.AccountsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -95,7 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.Accounts
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts_200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts_200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListSolanaAccounts200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates a new Solana account.
