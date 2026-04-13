@@ -8,45 +8,29 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.
+    /// A human-readable description of the resource.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CommonSwapResponseIssuesAllowance : IAdditionalDataHolder, IParsable
+    public partial class X402ResourceInfo_1_description : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The current allowance of the `fromToken` by the `taker`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CurrentAllowance { get; set; }
-#nullable restore
-#else
-        public string CurrentAllowance { get; set; }
-#endif
-        /// <summary>The 0x-prefixed address of to set the allowance on.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Spender { get; set; }
-#nullable restore
-#else
-        public string Spender { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description"/> and sets the default values.
         /// </summary>
-        public CommonSwapResponseIssuesAllowance()
+        public X402ResourceInfo_1_description()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +40,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "currentAllowance", n => { CurrentAllowance = n.GetStringValue(); } },
-                { "spender", n => { Spender = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,8 +49,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("currentAllowance", CurrentAllowance);
-            writer.WriteStringValue("spender", Spender);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

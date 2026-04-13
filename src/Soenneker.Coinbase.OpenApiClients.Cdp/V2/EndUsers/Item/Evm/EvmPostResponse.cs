@@ -2,35 +2,43 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
+namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Evm
 {
-    /// <summary>
-    /// The URL to the hosted widget the user should be redirected to. For certain payment link types you can append your own redirect_url query parameter to this URL to ensure the user is redirected back to your app after the widget completes.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class OnrampPaymentLinkUrl : IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class EvmPostResponse : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Information about an EVM account associated with an end user.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount? EvmAccount { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount EvmAccount { get; set; }
+#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Evm.EvmPostResponse"/> and sets the default values.
         /// </summary>
-        public OnrampPaymentLinkUrl()
+        public EvmPostResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Evm.EvmPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Evm.EvmPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLinkUrl();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Evm.EvmPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,6 +48,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "evmAccount", n => { EvmAccount = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount>("evmAccount", EvmAccount);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

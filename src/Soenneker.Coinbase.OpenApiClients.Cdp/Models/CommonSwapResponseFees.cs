@@ -18,18 +18,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The estimated gas fee for the swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee? GasFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_gasFee? GasFee { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee GasFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_gasFee GasFee { get; set; }
 #endif
         /// <summary>The estimated protocol fee for the swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesProtocolFee? ProtocolFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_protocolFee? ProtocolFee { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesProtocolFee ProtocolFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_protocolFee ProtocolFee { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "gasFee", n => { GasFee = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee.CreateFromDiscriminatorValue); } },
-                { "protocolFee", n => { ProtocolFee = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesProtocolFee>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesProtocolFee.CreateFromDiscriminatorValue); } },
+                { "gasFee", n => { GasFee = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_gasFee>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_gasFee.CreateFromDiscriminatorValue); } },
+                { "protocolFee", n => { ProtocolFee = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_protocolFee>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_protocolFee.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee>("gasFee", GasFee);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesProtocolFee>("protocolFee", ProtocolFee);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_gasFee>("gasFee", GasFee);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees_protocolFee>("protocolFee", ProtocolFee);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

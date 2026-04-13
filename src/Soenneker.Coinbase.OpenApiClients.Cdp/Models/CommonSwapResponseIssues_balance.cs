@@ -11,7 +11,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// Details of the balance of the `fromToken` that the `taker` must hold. Null if the `taker` has a sufficient balance.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CommonSwapResponseIssuesBalance : IAdditionalDataHolder, IParsable
+    public partial class CommonSwapResponseIssues_balance : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -40,21 +40,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string Token { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance"/> and sets the default values.
         /// </summary>
-        public CommonSwapResponseIssuesBalance()
+        public CommonSwapResponseIssues_balance()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance();
         }
         /// <summary>
         /// The deserialization information for the current model

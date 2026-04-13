@@ -26,10 +26,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The destination address to send the crypto to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderDestinationAddress? DestinationAddress { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder_destinationAddress? DestinationAddress { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderDestinationAddress DestinationAddress { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder_destinationAddress DestinationAddress { get; set; }
 #endif
         /// <summary>The network to send the crypto on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -157,7 +157,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
-                { "destinationAddress", n => { DestinationAddress = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderDestinationAddress>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderDestinationAddress.CreateFromDiscriminatorValue); } },
+                { "destinationAddress", n => { DestinationAddress = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder_destinationAddress>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder_destinationAddress.CreateFromDiscriminatorValue); } },
                 { "destinationNetwork", n => { DestinationNetwork = n.GetStringValue(); } },
                 { "exchangeRate", n => { ExchangeRate = n.GetStringValue(); } },
                 { "fees", n => { Fees = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -182,7 +182,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderDestinationAddress>("destinationAddress", DestinationAddress);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder_destinationAddress>("destinationAddress", DestinationAddress);
             writer.WriteStringValue("destinationNetwork", DestinationNetwork);
             writer.WriteStringValue("exchangeRate", ExchangeRate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee>("fees", Fees);

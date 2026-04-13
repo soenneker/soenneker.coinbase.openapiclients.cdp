@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A human-readable description of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo1Description? Description { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo1Description Description { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description Description { get; set; }
 #endif
         /// <summary>The MIME type of the resource response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo1Description>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo1Description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description.CreateFromDiscriminatorValue); } },
                 { "mimeType", n => { MimeType = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -76,7 +76,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo1Description>("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1_description>("description", Description);
             writer.WriteStringValue("mimeType", MimeType);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);

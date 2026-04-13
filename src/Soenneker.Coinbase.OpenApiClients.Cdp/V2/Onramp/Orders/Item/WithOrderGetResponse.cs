@@ -2,42 +2,43 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
+namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Orders.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AddEndUserEvmAccount201 : IAdditionalDataHolder, IParsable
+    public partial class WithOrderGetResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Information about an EVM account associated with an end user.</summary>
+        /// <summary>An Onramp order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount? EvmAccount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder? Order { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount EvmAccount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder Order { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmAccount201"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Orders.Item.WithOrderGetResponse"/> and sets the default values.
         /// </summary>
-        public AddEndUserEvmAccount201()
+        public WithOrderGetResponse()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmAccount201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Orders.Item.WithOrderGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmAccount201 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Orders.Item.WithOrderGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserEvmAccount201();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Orders.Item.WithOrderGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +48,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "evmAccount", n => { EvmAccount = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount.CreateFromDiscriminatorValue); } },
+                { "order", n => { Order = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +58,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount>("evmAccount", EvmAccount);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder>("order", Order);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

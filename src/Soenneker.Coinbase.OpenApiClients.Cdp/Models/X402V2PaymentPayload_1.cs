@@ -34,10 +34,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The payload of the payment depending on the x402Version, scheme, and network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload1Payload? Payload { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1.X402V2PaymentPayload_1_payload? Payload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload1Payload Payload { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1.X402V2PaymentPayload_1_payload Payload { get; set; }
 #endif
         /// <summary>Describes the resource being accessed in x402 protocol.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,7 +76,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "accepted", n => { Accepted = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirements_1>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirements_1.CreateFromDiscriminatorValue); } },
                 { "extensions", n => { Extensions = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1_extensions>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1_extensions.CreateFromDiscriminatorValue); } },
-                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload1Payload>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload1Payload.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1.X402V2PaymentPayload_1_payload>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1.X402V2PaymentPayload_1_payload.CreateFromDiscriminatorValue); } },
                 { "resource", n => { Resource = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1.CreateFromDiscriminatorValue); } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
@@ -90,10 +90,105 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirements_1>("accepted", Accepted);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1_extensions>("extensions", Extensions);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload1Payload>("payload", Payload);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1.X402V2PaymentPayload_1_payload>("payload", Payload);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceInfo_1>("resource", Resource);
             writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
+        }
+        /// <summary>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPayload_1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPermit2Payload_1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactSolanaPayload_1"/>
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class X402V2PaymentPayload_1_payload : IComposedTypeWrapper, IParsable
+        {
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPayload_1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPayload_1? X402ExactEvmPayload1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPayload_1 X402ExactEvmPayload1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPermit2Payload_1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPermit2Payload_1? X402ExactEvmPermit2Payload1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPermit2Payload_1 X402ExactEvmPermit2Payload1 { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactSolanaPayload_1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactSolanaPayload_1? X402ExactSolanaPayload1 { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactSolanaPayload_1 X402ExactSolanaPayload1 { get; set; }
+#endif
+            /// <summary>
+            /// Creates a new instance of the appropriate class based on discriminator value
+            /// </summary>
+            /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1.X402V2PaymentPayload_1_payload"/></returns>
+            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+            public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1.X402V2PaymentPayload_1_payload CreateFromDiscriminatorValue(IParseNode parseNode)
+            {
+                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+                var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayload_1.X402V2PaymentPayload_1_payload();
+                if("X402ExactEvmPayload_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.X402ExactEvmPayload1 = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPayload_1();
+                }
+                else if("X402ExactEvmPermit2Payload_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.X402ExactEvmPermit2Payload1 = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPermit2Payload_1();
+                }
+                else if("X402ExactSolanaPayload_1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.X402ExactSolanaPayload1 = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactSolanaPayload_1();
+                }
+                return result;
+            }
+            /// <summary>
+            /// The deserialization information for the current model
+            /// </summary>
+            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+            {
+                if(X402ExactEvmPayload1 != null)
+                {
+                    return X402ExactEvmPayload1.GetFieldDeserializers();
+                }
+                else if(X402ExactEvmPermit2Payload1 != null)
+                {
+                    return X402ExactEvmPermit2Payload1.GetFieldDeserializers();
+                }
+                else if(X402ExactSolanaPayload1 != null)
+                {
+                    return X402ExactSolanaPayload1.GetFieldDeserializers();
+                }
+                return new Dictionary<string, Action<IParseNode>>();
+            }
+            /// <summary>
+            /// Serializes information the current object
+            /// </summary>
+            /// <param name="writer">Serialization writer to use to serialize this model</param>
+            public virtual void Serialize(ISerializationWriter writer)
+            {
+                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+                if(X402ExactEvmPayload1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPayload_1>(null, X402ExactEvmPayload1);
+                }
+                else if(X402ExactEvmPermit2Payload1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPermit2Payload_1>(null, X402ExactEvmPermit2Payload1);
+                }
+                else if(X402ExactSolanaPayload1 != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactSolanaPayload_1>(null, X402ExactSolanaPayload1);
+                }
+            }
         }
     }
 }

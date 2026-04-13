@@ -27,10 +27,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A link to the corresponding error documentation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorErrorLink? ErrorLink { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink? ErrorLink { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorErrorLink ErrorLink { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink ErrorLink { get; set; }
 #endif
         /// <summary>The error message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
-                { "errorLink", n => { ErrorLink = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorErrorLink>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorErrorLink.CreateFromDiscriminatorValue); } },
+                { "errorLink", n => { ErrorLink = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink.CreateFromDiscriminatorValue); } },
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
                 { "errorType", n => { ErrorType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType>(); } },
             };
@@ -83,7 +83,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("correlationId", CorrelationId);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorErrorLink>("errorLink", ErrorLink);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink>("errorLink", ErrorLink);
             writer.WriteStringValue("errorMessage", ErrorMessage);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType>("errorType", ErrorType);
             writer.WriteAdditionalData(AdditionalData);

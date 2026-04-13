@@ -26,10 +26,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A human-readable description of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements1Description? Description { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_1_description? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements1Description Description { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_1_description Description { get; set; }
 #endif
         /// <summary>The optional additional scheme-specific payment info.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -111,7 +111,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "asset", n => { Asset = n.GetStringValue(); } },
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements1Description>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements1Description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_1_description>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_1_description.CreateFromDiscriminatorValue); } },
                 { "extra", n => { Extra = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_1_extra>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_1_extra.CreateFromDiscriminatorValue); } },
                 { "maxAmountRequired", n => { MaxAmountRequired = n.GetStringValue(); } },
                 { "maxTimeoutSeconds", n => { MaxTimeoutSeconds = n.GetIntValue(); } },
@@ -131,7 +131,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("asset", Asset);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements1Description>("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_1_description>("description", Description);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_1_extra>("extra", Extra);
             writer.WriteStringValue("maxAmountRequired", MaxAmountRequired);
             writer.WriteIntValue("maxTimeoutSeconds", MaxTimeoutSeconds);

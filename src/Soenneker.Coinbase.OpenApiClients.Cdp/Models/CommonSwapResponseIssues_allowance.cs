@@ -8,45 +8,45 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// The estimated gas fee for the swap.
+    /// Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CommonSwapResponseFeesGasFee : IAdditionalDataHolder, IParsable
+    public partial class CommonSwapResponseIssues_allowance : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The estimated amount of the fee in atomic units of the `token`. For example, `1000000000000000` if the fee is in ETH equates to 0.001 ETH, `10000` if the fee is in USDC equates to 0.01 USDC, etc.</summary>
+        /// <summary>The current allowance of the `fromToken` by the `taker`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Amount { get; set; }
+        public string? CurrentAllowance { get; set; }
 #nullable restore
 #else
-        public string Amount { get; set; }
+        public string CurrentAllowance { get; set; }
 #endif
-        /// <summary>The contract address of the token that the fee is paid in. The address `0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE` is used for the native token of the network (e.g. ETH).</summary>
+        /// <summary>The 0x-prefixed address of to set the allowance on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public string? Spender { get; set; }
 #nullable restore
 #else
-        public string Token { get; set; }
+        public string Spender { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance"/> and sets the default values.
         /// </summary>
-        public CommonSwapResponseFeesGasFee()
+        public CommonSwapResponseIssues_allowance()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "amount", n => { Amount = n.GetStringValue(); } },
-                { "token", n => { Token = n.GetStringValue(); } },
+                { "currentAllowance", n => { CurrentAllowance = n.GetStringValue(); } },
+                { "spender", n => { Spender = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("amount", Amount);
-            writer.WriteStringValue("token", Token);
+            writer.WriteStringValue("currentAllowance", CurrentAllowance);
+            writer.WriteStringValue("spender", Spender);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

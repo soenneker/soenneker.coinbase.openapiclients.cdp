@@ -661,7 +661,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddEndUserEvmAccount201"
+                  "required": [
+                    "evmAccount"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "evmAccount": {
+                      "$ref": "#/components/schemas/EndUserEvmAccount"
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -808,7 +816,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddEndUserEvmSmartAccount201"
+                  "required": [
+                    "evmSmartAccount"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "evmSmartAccount": {
+                      "$ref": "#/components/schemas/EndUserEvmSmartAccount"
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -952,7 +968,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AddEndUserSolanaAccount201"
+                  "required": [
+                    "solanaAccount"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "solanaAccount": {
+                      "$ref": "#/components/schemas/EndUserSolanaAccount"
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -7808,7 +7832,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetOnrampOrderById200"
+                  "required": [
+                    "order"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "order": {
+                      "$ref": "#/components/schemas/OnrampOrder"
+                    }
+                  }
                 }
               }
             }
@@ -7937,7 +7969,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetOnrampUserLimits200"
+                  "required": [
+                    "limits"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "limits": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/OnrampUserLimit"
+                      },
+                      "description": "The list of limits applicable to the user."
+                    }
+                  }
                 },
                 "examples": {
                   "default": {
@@ -8173,72 +8217,34 @@
         },
         "description": "Information about an end user who authenticates using Telegram."
       },
-      "SignEvmTypedDataFieldCriterionTypes": {
-        "required": [
-          "types",
-          "primaryType"
-        ],
+      "WebhookSubscriptionResponseMetadata": {
         "type": "object",
-        "properties": {
-          "types": {
+        "allOf": [
+          {
             "type": "object",
             "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "The name of a key within an EIP-712 data structure."
-                  },
-                  "type": {
-                    "type": "string",
-                    "description": "The Solidity type of a value within an EIP-712 data structure."
-                  }
-                }
-              },
-              "description": "Object containing names and types for fields within structured data."
+              "maxLength": 500,
+              "minLength": 0,
+              "type": "string"
             },
-            "description": "EIP-712 compliant map of model names to model definitions."
+            "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
           },
-          "primaryType": {
-            "type": "string",
-            "description": "The name of the root EIP-712 type. This value must be included in the \u0060types\u0060 object."
+          {
+            "type": "object",
+            "properties": {
+              "secret": {
+                "type": "string",
+                "description": "Use the root-level \u0060secret\u0060 field instead. Maintained for backward compatibility only.",
+                "format": "uuid",
+                "example": "123e4567-e89b-12d3-a456-426614174000",
+                "deprecated": true
+              }
+            }
           }
-        },
-        "description": "An object containing EIP-712 type definitions, as well as a primary type for the root message object.",
+        ],
+        "description": "Additional metadata for the subscription.",
         "example": {
-          "primaryType": "Mail",
-          "types": {
-            "Person": [
-              {
-                "name": "name",
-                "type": "string"
-              },
-              {
-                "name": "wallet",
-                "type": "address"
-              },
-              {
-                "name": "score",
-                "type": "uint256"
-              }
-            ],
-            "Mail": [
-              {
-                "name": "from",
-                "type": "Person"
-              },
-              {
-                "name": "to",
-                "type": "Person"
-              },
-              {
-                "name": "contents",
-                "type": "string"
-              }
-            ]
-          }
+          "secret": "123e4567-e89b-12d3-a456-426614174000"
         }
       },
       "SiweAuthentication": {
@@ -8259,7 +8265,16 @@
             "example": "siwe"
           },
           "address": {
-            "$ref": "#/components/schemas/SiweAuthenticationAddress"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 128,
+                "type": "string",
+                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+              }
+            ],
+            "description": "The ERC-55 checksummed Ethereum address of the end user.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
         },
         "description": "Information about an end user who authenticates using Sign In With Ethereum (EIP-4361)."
@@ -8649,34 +8664,16 @@
           "transaction_simulation_failed": "This error occurs when the pre-broadcast simulation of the swap transaction predicted a revert.\nNo transaction was submitted and no gas was spent.\n\n**Common causes:**\n- The on-chain price moved past the \u0060slippageBps\u0060 tolerance between the price estimate and execution\n- Taker balance changed between the price estimate and execution\n\n**Steps to resolve:**\n1. Retry immediately \u2014 prices change quickly and a new quote may succeed\n2. Increase \u0060slippageBps\u0060 if retries continue to fail (e.g. from 100 to 200)\n3. For large swaps, consider splitting into smaller amounts to reduce price impact"
         }
       },
-      "EvmDataCriterionAbi": {
-        "required": [
-          "type"
-        ],
+      "WebhookTargetHeaders": {
         "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/KnownAbiType_Wrapper"
-          },
-          {
-            "$ref": "#/components/schemas/Abi_Wrapper"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
+        "additionalProperties": {
+          "type": "string"
         },
-        "description": "The ABI of the smart contract being called. This can be a partial structure with only specific functions.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "KnownAbiType": "#/components/schemas/KnownAbiType_Wrapper",
-            "Abi": "#/components/schemas/Abi_Wrapper"
-          }
-        },
-        "example": "erc20"
+        "description": "Additional headers to include in webhook requests.",
+        "example": {
+          "Authorization": "Bearer token123",
+          "Content-Type": "application/json"
+        }
       },
       "Error": {
         "required": [
@@ -8699,7 +8696,18 @@
             "example": "41deb8d59a9dc9a7-IAD"
           },
           "errorLink": {
-            "$ref": "#/components/schemas/ErrorErrorLink"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 2048,
+                "pattern": "^https?://.*$",
+                "type": "string",
+                "description": "A valid HTTP or HTTPS URL.",
+                "format": "uri"
+              }
+            ],
+            "description": "A link to the corresponding error documentation.",
+            "example": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
           }
         },
         "description": "An error response including the code for the type of error and a human-readable message describing the error.",
@@ -8861,7 +8869,16 @@
           },
           "message": {
             "type": "object",
-            "description": "The message to sign. The structure of this message must match the \u0060primaryType\u0060 struct in the \u0060types\u0060 object."
+            "description": "The message to sign. The structure of this message must match the \u0060primaryType\u0060 struct in the \u0060types\u0060 object.",
+            "example": {
+              "permitted": {
+                "token": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                "amount": 1000000
+              },
+              "spender": "1111111254EEB25477B68fb85Ed929f73A960582",
+              "nonce": 0,
+              "deadline": 1716239020
+            }
           }
         },
         "description": "The message to sign using EIP-712.",
@@ -9280,7 +9297,18 @@
             "example": "0x"
           },
           "paymasterUrl": {
-            "$ref": "#/components/schemas/CreateSpendPermissionRequestPaymasterUrl"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 2048,
+                "pattern": "^https?://.*$",
+                "type": "string",
+                "description": "A valid HTTP or HTTPS URL.",
+                "format": "uri"
+              }
+            ],
+            "description": "The paymaster URL of the spend permission.",
+            "example": "https://paymaster.cdp.coinbase.com"
           }
         },
         "description": "Request parameters for creating a Spend Permission."
@@ -9417,7 +9445,18 @@
             "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           },
           "paymasterUrl": {
-            "$ref": "#/components/schemas/RevokeSpendPermissionRequestPaymasterUrl"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 2048,
+                "pattern": "^https?://.*$",
+                "type": "string",
+                "description": "A valid HTTP or HTTPS URL.",
+                "format": "uri"
+              }
+            ],
+            "description": "The paymaster URL of the spend permission.",
+            "example": "https://paymaster.cdp.coinbase.com"
           }
         },
         "description": "Request parameters for revoking a Spend Permission."
@@ -9435,6 +9474,214 @@
         "description": "The network on which to perform the swap.",
         "example": "base"
       },
+      "OnchainDataResultMetadata": {
+        "type": "object",
+        "properties": {
+          "cached": {
+            "type": "boolean",
+            "description": "Whether the result was served from the query result cache.",
+            "example": false
+          },
+          "executionTimestamp": {
+            "type": "string",
+            "description": "When the query result was executed against the backing store in RFC 3339 format.",
+            "format": "date-time",
+            "example": "2025-01-01T00:00:00.000Z"
+          },
+          "executionTimeMs": {
+            "type": "integer",
+            "description": "Query execution time in milliseconds.",
+            "example": 145
+          },
+          "rowCount": {
+            "type": "integer",
+            "description": "Number of rows returned.",
+            "example": 2
+          }
+        },
+        "description": "Metadata about query execution.",
+        "example": {
+          "cached": false,
+          "executionTimestamp": "2025-01-01T00:00:00.000Z",
+          "executionTimeMs": 145,
+          "rowCount": 2
+        }
+      },
+      "OnchainDataResultSchema": {
+        "type": "object",
+        "properties": {
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Column name."
+                },
+                "type": {
+                  "enum": [
+                    "String",
+                    "UInt8",
+                    "UInt16",
+                    "UInt32",
+                    "UInt64",
+                    "UInt128",
+                    "UInt256",
+                    "Int8",
+                    "Int16",
+                    "Int32",
+                    "Int64",
+                    "Int128",
+                    "Int256",
+                    "Float32",
+                    "Float64",
+                    "Bool",
+                    "Date",
+                    "DateTime",
+                    "DateTime64",
+                    "UUID"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "description": "Column data type (ClickHouse types)."
+                }
+              },
+              "example": {
+                "name": "event_signature",
+                "type": "String",
+                "description": "The signature of the event."
+              }
+            },
+            "description": "Column definitions."
+          }
+        },
+        "description": "Schema information for the query result. This is a derived schema from the query result, so types may not match the underlying table.\n",
+        "example": {
+          "columns": [
+            {
+              "name": "block_number",
+              "type": "UInt64"
+            },
+            {
+              "name": "transaction_hash",
+              "type": "String"
+            }
+          ]
+        }
+      },
+      "OnchainDataQueryCache": {
+        "title": "Query result cache configuration",
+        "type": "object",
+        "properties": {
+          "maxAgeMs": {
+            "maximum": 900000,
+            "minimum": 500,
+            "type": "integer",
+            "description": "The maximum tolerable staleness of the query result cache in milliseconds. If a previous execution result of an identical query is older than this age, the query will be re-executed. If the data is less than this age, the result will be returned from cache.",
+            "default": 500,
+            "example": 1000
+          }
+        },
+        "description": "\u0022Enables control over how often queries need to be fully re-executed on the backing store.\nThis can be useful in scenarios where API calls might be made frequently, API latency is critical, and some freshness lag (ex: 750ms, 2s, 5s) is tolerable.\nBy default, each query result is returned from cache so long as the result is from an identical query and less than 500ms old. This freshness tolerance can be modified upwards, to a maximum of 900000ms (i.e. 900s, 15m).\n\u0022",
+        "example": {
+          "maxAgeMs": 1000
+        }
+      },
+      "IdlMetadata": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The program name.",
+            "example": "system_program"
+          },
+          "version": {
+            "type": "string",
+            "description": "The program version.",
+            "example": "0.1.0"
+          },
+          "spec": {
+            "type": "string",
+            "description": "The IDL specification version.",
+            "example": "0.1.0"
+          }
+        },
+        "description": "Optional metadata about the IDL.",
+        "example": {
+          "name": "system_program",
+          "version": "0.1.0",
+          "spec": "0.1.0"
+        }
+      },
+      "SignEvmTypedDataFieldCriterionTypes": {
+        "required": [
+          "types",
+          "primaryType"
+        ],
+        "type": "object",
+        "properties": {
+          "types": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The name of a key within an EIP-712 data structure."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The Solidity type of a value within an EIP-712 data structure."
+                  }
+                }
+              },
+              "description": "Object containing names and types for fields within structured data."
+            },
+            "description": "EIP-712 compliant map of model names to model definitions."
+          },
+          "primaryType": {
+            "type": "string",
+            "description": "The name of the root EIP-712 type. This value must be included in the \u0060types\u0060 object."
+          }
+        },
+        "description": "An object containing EIP-712 type definitions, as well as a primary type for the root message object.",
+        "example": {
+          "primaryType": "Mail",
+          "types": {
+            "Person": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "wallet",
+                "type": "address"
+              },
+              {
+                "name": "score",
+                "type": "uint256"
+              }
+            ],
+            "Mail": [
+              {
+                "name": "from",
+                "type": "Person"
+              },
+              {
+                "name": "to",
+                "type": "Person"
+              },
+              {
+                "name": "contents",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
       "CommonSwapResponseIssues": {
         "required": [
           "allowance",
@@ -9444,10 +9691,65 @@
         "type": "object",
         "properties": {
           "allowance": {
-            "$ref": "#/components/schemas/CommonSwapResponseIssuesAllowance"
+            "required": [
+              "currentAllowance",
+              "spender"
+            ],
+            "type": "object",
+            "properties": {
+              "currentAllowance": {
+                "pattern": "^\\d\u002B$",
+                "type": "string",
+                "description": "The current allowance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
+                "example": 1000000000
+              },
+              "spender": {
+                "pattern": "^0x[a-fA-F0-9]{40}$",
+                "type": "string",
+                "description": "The 0x-prefixed address of to set the allowance on.",
+                "example": "000000000022D473030F116dDEE9F6B43aC78BA3"
+              }
+            },
+            "description": "Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.",
+            "nullable": true,
+            "example": {
+              "currentAllowance": 1000000000,
+              "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
+            }
           },
           "balance": {
-            "$ref": "#/components/schemas/CommonSwapResponseIssuesBalance"
+            "required": [
+              "token",
+              "currentBalance",
+              "requiredBalance"
+            ],
+            "type": "object",
+            "properties": {
+              "token": {
+                "pattern": "^0x[a-fA-F0-9]{40}$",
+                "type": "string",
+                "description": "The 0x-prefixed contract address of the token."
+              },
+              "currentBalance": {
+                "pattern": "^\\d\u002B$",
+                "type": "string",
+                "description": "The current balance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
+                "example": 10000000
+              },
+              "requiredBalance": {
+                "pattern": "^\\d\u002B$",
+                "type": "string",
+                "description": "The amount of the token that the \u0060taker\u0060 must hold.",
+                "example": 1000000000000000000
+              }
+            },
+            "description": "Details of the balance of the \u0060fromToken\u0060 that the \u0060taker\u0060 must hold. Null if the \u0060taker\u0060 has a sufficient balance.",
+            "nullable": true,
+            "example": {
+              "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
+              "currentBalance": 1000000000000000000,
+              "requiredBalance": 1000000000000000000
+            }
           },
           "simulationIncomplete": {
             "type": "boolean",
@@ -9477,10 +9779,24 @@
         "type": "object",
         "properties": {
           "gasFee": {
-            "$ref": "#/components/schemas/CommonSwapResponseFeesGasFee"
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TokenFee"
+              }
+            ],
+            "description": "The estimated gas fee for the swap.",
+            "nullable": true
           },
           "protocolFee": {
-            "$ref": "#/components/schemas/CommonSwapResponseFeesProtocolFee"
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TokenFee"
+              }
+            ],
+            "description": "The estimated protocol fee for the swap.",
+            "nullable": true
           }
         },
         "description": "The estimated fees for the swap.",
@@ -9494,76 +9810,6 @@
             "token": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
           }
         }
-      },
-      "RevokeSpendPermissionRequestPaymasterUrl": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 2048,
-            "pattern": "^https?://.*$",
-            "type": "string",
-            "description": "A valid HTTP or HTTPS URL.",
-            "format": "uri"
-          }
-        ],
-        "description": "The paymaster URL of the spend permission.",
-        "example": "https://paymaster.cdp.coinbase.com"
-      },
-      "CreateSpendPermissionRequestPaymasterUrl": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 2048,
-            "pattern": "^https?://.*$",
-            "type": "string",
-            "description": "A valid HTTP or HTTPS URL.",
-            "format": "uri"
-          }
-        ],
-        "description": "The paymaster URL of the spend permission.",
-        "example": "https://paymaster.cdp.coinbase.com"
-      },
-      "EIP712MessageMessage": {
-        "type": "object",
-        "description": "The message to sign. The structure of this message must match the \u0060primaryType\u0060 struct in the \u0060types\u0060 object.",
-        "example": {
-          "permitted": {
-            "token": "A0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-            "amount": 1000000
-          },
-          "spender": "1111111254EEB25477B68fb85Ed929f73A960582",
-          "nonce": 0,
-          "deadline": 1716239020
-        }
-      },
-      "ErrorErrorLink": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 2048,
-            "pattern": "^https?://.*$",
-            "type": "string",
-            "description": "A valid HTTP or HTTPS URL.",
-            "format": "uri"
-          }
-        ],
-        "description": "A link to the corresponding error documentation.",
-        "example": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
-      },
-      "MFAMethodsSms": {
-        "required": [
-          "enrolledAt"
-        ],
-        "type": "object",
-        "properties": {
-          "enrolledAt": {
-            "type": "string",
-            "description": "The date and time when the method was enrolled, in ISO 8601 format.",
-            "format": "date-time",
-            "example": "2025-01-15T10:30:00Z"
-          }
-        },
-        "description": "An object containing information about the end user\u0027s SMS MFA enrollment."
       },
       "TokenFee": {
         "required": [
@@ -10428,7 +10674,17 @@
             "example": "evmData"
           },
           "abi": {
-            "$ref": "#/components/schemas/EvmDataCriterionAbi"
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/KnownAbiType_Wrapper"
+              },
+              {
+                "$ref": "#/components/schemas/Abi_Wrapper"
+              }
+            ],
+            "description": "The ABI of the smart contract being called. This can be a partial structure with only specific functions.",
+            "example": "erc20"
           },
           "conditions": {
             "type": "array",
@@ -12733,7 +12989,7 @@
         },
         "description": "Result of executing a SQL query."
       },
-      "MFAMethodsTotp": {
+      "MFAMethodsSms": {
         "required": [
           "enrolledAt"
         ],
@@ -12746,7 +13002,7 @@
             "example": "2025-01-15T10:30:00Z"
           }
         },
-        "description": "An object containing information about the end user\u0027s TOTP enrollment."
+        "description": "An object containing information about the end user\u0027s SMS MFA enrollment."
       },
       "OnchainDataColumnSchema": {
         "type": "object",
@@ -12767,7 +13023,16 @@
             "example": false
           },
           "description": {
-            "$ref": "#/components/schemas/OnchainDataColumnSchemaDescription"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 500,
+                "type": "string",
+                "description": "A human-readable description."
+              }
+            ],
+            "description": "Human-readable description of the column.",
+            "example": "The signature of the decoded event log."
           },
           "indexOrder": {
             "type": "integer",
@@ -12887,7 +13152,18 @@
         "type": "object",
         "properties": {
           "url": {
-            "$ref": "#/components/schemas/WebhookTargetUrl"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 2048,
+                "pattern": "^https?://.*$",
+                "type": "string",
+                "description": "A valid HTTP or HTTPS URL.",
+                "format": "uri"
+              }
+            ],
+            "description": "The webhook URL to deliver events to.",
+            "example": "https://api.example.com/webhooks"
           },
           "headers": {
             "type": "object",
@@ -12930,7 +13206,16 @@
             "example": "2025-01-16T14:00:00Z"
           },
           "description": {
-            "$ref": "#/components/schemas/WebhookSubscriptionResponseDescription"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 500,
+                "type": "string",
+                "description": "A human-readable description."
+              }
+            ],
+            "description": "Description of the webhook subscription.",
+            "example": "Subscription for token transfer events"
           },
           "eventTypes": {
             "type": "array",
@@ -13028,7 +13313,16 @@
         "type": "object",
         "properties": {
           "description": {
-            "$ref": "#/components/schemas/WebhookSubscriptionRequestDescription"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 500,
+                "type": "string",
+                "description": "A human-readable description."
+              }
+            ],
+            "description": "Description of the webhook subscription.",
+            "example": "Subscription for token transfer events"
           },
           "eventTypes": {
             "type": "array",
@@ -13073,7 +13367,16 @@
         "type": "object",
         "properties": {
           "description": {
-            "$ref": "#/components/schemas/WebhookSubscriptionUpdateRequestDescription"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 500,
+                "type": "string",
+                "description": "A human-readable description."
+              }
+            ],
+            "description": "Description of the webhook subscription.",
+            "example": "Updated subscription for token transfer events"
           },
           "eventTypes": {
             "type": "array",
@@ -13389,7 +13692,11 @@
           },
           "extra": {
             "type": "object",
-            "description": "The optional additional scheme-specific payment info."
+            "description": "The optional additional scheme-specific payment info.",
+            "example": {
+              "name": "USDC",
+              "version": 2
+            }
           }
         },
         "description": "The x402 protocol payment requirements that the resource server expects the client\u0027s payment payload to meet."
@@ -13403,7 +13710,16 @@
             "example": "https://api.example.com/premium/resource/123"
           },
           "description": {
-            "$ref": "#/components/schemas/X402ResourceInfo1Description"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 500,
+                "type": "string",
+                "description": "A human-readable description."
+              }
+            ],
+            "description": "A human-readable description of the resource.",
+            "example": "Premium API access for data analysis"
           },
           "mimeType": {
             "type": "string",
@@ -13425,7 +13741,30 @@
             "$ref": "#/components/schemas/X402Version"
           },
           "payload": {
-            "$ref": "#/components/schemas/X402V2PaymentPayload1Payload"
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/X402ExactEvmPayload_1"
+              },
+              {
+                "$ref": "#/components/schemas/X402ExactEvmPermit2Payload_1"
+              },
+              {
+                "$ref": "#/components/schemas/X402ExactSolanaPayload_1"
+              }
+            ],
+            "description": "The payload of the payment depending on the x402Version, scheme, and network.",
+            "example": {
+              "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+              "authorization": {
+                "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "value": 1000000000000000000,
+                "validAfter": 1716150000,
+                "validBefore": 1716150000,
+                "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+              }
+            }
           },
           "accepted": {
             "$ref": "#/components/schemas/X402V2PaymentRequirements_1"
@@ -13435,7 +13774,12 @@
           },
           "extensions": {
             "type": "object",
-            "description": "Optional protocol extensions."
+            "description": "Optional protocol extensions.",
+            "example": {
+              "bazaar": {
+                "discoveryEnabled": true
+              }
+            }
           }
         },
         "description": "The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the X-PAYMENT header.",
@@ -13506,7 +13850,30 @@
             "example": "base"
           },
           "payload": {
-            "$ref": "#/components/schemas/X402V1PaymentPayload1Payload"
+            "type": "object",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/X402ExactEvmPayload_1"
+              },
+              {
+                "$ref": "#/components/schemas/X402ExactEvmPermit2Payload_1"
+              },
+              {
+                "$ref": "#/components/schemas/X402ExactSolanaPayload_1"
+              }
+            ],
+            "description": "The payload of the payment depending on the x402Version, scheme, and network.",
+            "example": {
+              "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
+              "authorization": {
+                "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                "value": 1000000000000000000,
+                "validAfter": 1716150000,
+                "validBefore": 1716150000,
+                "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+              }
+            }
           }
         },
         "description": "The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the X-PAYMENT header.",
@@ -13602,7 +13969,16 @@
             "example": "https://api.example.com/premium/resource/123"
           },
           "description": {
-            "$ref": "#/components/schemas/X402V1PaymentRequirements1Description"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 500,
+                "type": "string",
+                "description": "A human-readable description."
+              }
+            ],
+            "description": "A human-readable description of the resource.",
+            "example": "Premium API access for data analysis"
           },
           "mimeType": {
             "type": "string",
@@ -13611,7 +13987,10 @@
           },
           "outputSchema": {
             "type": "object",
-            "description": "The optional JSON schema describing the resource output."
+            "description": "The optional JSON schema describing the resource output.",
+            "example": {
+              "data": "string"
+            }
           },
           "payTo": {
             "pattern": "^(0x[a-fA-F0-9]{40}|[1-9A-HJ-NP-Za-km-z]{32,44})$",
@@ -13632,7 +14011,10 @@
           },
           "extra": {
             "type": "object",
-            "description": "The optional additional scheme-specific payment info."
+            "description": "The optional additional scheme-specific payment info.",
+            "example": {
+              "gasLimit": 1000000
+            }
           }
         },
         "description": "The x402 protocol payment requirements that the resource server expects the client\u0027s payment payload to meet."
@@ -13893,7 +14275,10 @@
           },
           "extra": {
             "type": "object",
-            "description": "The optional additional scheme-specific payment info."
+            "description": "The optional additional scheme-specific payment info.",
+            "example": {
+              "feePayer": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
+            }
           }
         },
         "description": "The supported payment kind for the x402 protocol. A kind is comprised of a scheme and a network, which together uniquely identify a way to move money on the x402 protocol. For more details, please see [x402 Schemes](https://github.com/coinbase/x402?tab=readme-ov-file#schemes)."
@@ -14017,7 +14402,16 @@
             "example": 1
           },
           "destinationAddress": {
-            "$ref": "#/components/schemas/OnrampOrderDestinationAddress"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 128,
+                "type": "string",
+                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+              }
+            ],
+            "description": "The destination address to send the crypto to.",
+            "example": "71C7656EC7ab88b098defB751B7401B5f6d8976F"
           },
           "destinationNetwork": {
             "type": "string",
@@ -14067,7 +14461,18 @@
         "type": "object",
         "properties": {
           "url": {
-            "$ref": "#/components/schemas/OnrampPaymentLinkUrl"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 2048,
+                "pattern": "^https?://.*$",
+                "type": "string",
+                "description": "A valid HTTP or HTTPS URL.",
+                "format": "uri"
+              }
+            ],
+            "description": "The URL to the hosted widget the user should be redirected to. For certain payment link types you can append your own redirect_url query parameter to this URL to ensure the user is redirected back to your app after the widget completes.",
+            "example": "https://pay.coinbase.com/v2/api-onramp/apple-pay?sessionToken=MWYwNWQwODktZTZlYy02OTdlLTgzZTYtMTI3NzcyOWJhNjM3"
           },
           "paymentLinkType": {
             "$ref": "#/components/schemas/OnrampPaymentLinkType"
@@ -14089,17 +14494,20 @@
         "description": "The type of payment method used to generate the onramp quote.",
         "example": "CARD"
       },
-      "SiweAuthenticationAddress": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 128,
-            "type": "string",
-            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
-          }
+      "MFAMethodsTotp": {
+        "required": [
+          "enrolledAt"
         ],
-        "description": "The ERC-55 checksummed Ethereum address of the end user.",
-        "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+        "type": "object",
+        "properties": {
+          "enrolledAt": {
+            "type": "string",
+            "description": "The date and time when the method was enrolled, in ISO 8601 format.",
+            "format": "date-time",
+            "example": "2025-01-15T10:30:00Z"
+          }
+        },
+        "description": "An object containing information about the end user\u0027s TOTP enrollment."
       },
       "OnrampSession": {
         "required": [
@@ -14108,7 +14516,18 @@
         "type": "object",
         "properties": {
           "onrampUrl": {
-            "$ref": "#/components/schemas/OnrampSessionOnrampUrl"
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 2048,
+                "pattern": "^https?://.*$",
+                "type": "string",
+                "description": "A valid HTTP or HTTPS URL.",
+                "format": "uri"
+              }
+            ],
+            "description": "Ready-to-use onramp URL.",
+            "example": "https://pay.coinbase.com/buy?sessionToken=abc123F"
           }
         },
         "description": "An onramp session containing a ready-to-use onramp URL.",
@@ -14243,225 +14662,6 @@
         },
         "description": "A single limit with remaining capacity."
       },
-      "IdlMetadata": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The program name.",
-            "example": "system_program"
-          },
-          "version": {
-            "type": "string",
-            "description": "The program version.",
-            "example": "0.1.0"
-          },
-          "spec": {
-            "type": "string",
-            "description": "The IDL specification version.",
-            "example": "0.1.0"
-          }
-        },
-        "description": "Optional metadata about the IDL.",
-        "example": {
-          "name": "system_program",
-          "version": "0.1.0",
-          "spec": "0.1.0"
-        }
-      },
-      "OnchainDataQueryCache": {
-        "title": "Query result cache configuration",
-        "type": "object",
-        "properties": {
-          "maxAgeMs": {
-            "maximum": 900000,
-            "minimum": 500,
-            "type": "integer",
-            "description": "The maximum tolerable staleness of the query result cache in milliseconds. If a previous execution result of an identical query is older than this age, the query will be re-executed. If the data is less than this age, the result will be returned from cache.",
-            "default": 500,
-            "example": 1000
-          }
-        },
-        "description": "\u0022Enables control over how often queries need to be fully re-executed on the backing store.\nThis can be useful in scenarios where API calls might be made frequently, API latency is critical, and some freshness lag (ex: 750ms, 2s, 5s) is tolerable.\nBy default, each query result is returned from cache so long as the result is from an identical query and less than 500ms old. This freshness tolerance can be modified upwards, to a maximum of 900000ms (i.e. 900s, 15m).\n\u0022",
-        "example": {
-          "maxAgeMs": 1000
-        }
-      },
-      "OnchainDataResultSchema": {
-        "type": "object",
-        "properties": {
-          "columns": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "Column name."
-                },
-                "type": {
-                  "enum": [
-                    "String",
-                    "UInt8",
-                    "UInt16",
-                    "UInt32",
-                    "UInt64",
-                    "UInt128",
-                    "UInt256",
-                    "Int8",
-                    "Int16",
-                    "Int32",
-                    "Int64",
-                    "Int128",
-                    "Int256",
-                    "Float32",
-                    "Float64",
-                    "Bool",
-                    "Date",
-                    "DateTime",
-                    "DateTime64",
-                    "UUID"
-                  ],
-                  "type": "string",
-                  "additionalProperties": false,
-                  "description": "Column data type (ClickHouse types)."
-                }
-              },
-              "example": {
-                "name": "event_signature",
-                "type": "String",
-                "description": "The signature of the event."
-              }
-            },
-            "description": "Column definitions."
-          }
-        },
-        "description": "Schema information for the query result. This is a derived schema from the query result, so types may not match the underlying table.\n",
-        "example": {
-          "columns": [
-            {
-              "name": "block_number",
-              "type": "UInt64"
-            },
-            {
-              "name": "transaction_hash",
-              "type": "String"
-            }
-          ]
-        }
-      },
-      "OnchainDataResultMetadata": {
-        "type": "object",
-        "properties": {
-          "cached": {
-            "type": "boolean",
-            "description": "Whether the result was served from the query result cache.",
-            "example": false
-          },
-          "executionTimestamp": {
-            "type": "string",
-            "description": "When the query result was executed against the backing store in RFC 3339 format.",
-            "format": "date-time",
-            "example": "2025-01-01T00:00:00.000Z"
-          },
-          "executionTimeMs": {
-            "type": "integer",
-            "description": "Query execution time in milliseconds.",
-            "example": 145
-          },
-          "rowCount": {
-            "type": "integer",
-            "description": "Number of rows returned.",
-            "example": 2
-          }
-        },
-        "description": "Metadata about query execution.",
-        "example": {
-          "cached": false,
-          "executionTimestamp": "2025-01-01T00:00:00.000Z",
-          "executionTimeMs": 145,
-          "rowCount": 2
-        }
-      },
-      "OnchainDataColumnSchemaDescription": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 500,
-            "type": "string",
-            "description": "A human-readable description."
-          }
-        ],
-        "description": "Human-readable description of the column.",
-        "example": "The signature of the decoded event log."
-      },
-      "WebhookTargetUrl": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 2048,
-            "pattern": "^https?://.*$",
-            "type": "string",
-            "description": "A valid HTTP or HTTPS URL.",
-            "format": "uri"
-          }
-        ],
-        "description": "The webhook URL to deliver events to.",
-        "example": "https://api.example.com/webhooks"
-      },
-      "WebhookTargetHeaders": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "Additional headers to include in webhook requests.",
-        "example": {
-          "Authorization": "Bearer token123",
-          "Content-Type": "application/json"
-        }
-      },
-      "WebhookSubscriptionResponseDescription": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 500,
-            "type": "string",
-            "description": "A human-readable description."
-          }
-        ],
-        "description": "Description of the webhook subscription.",
-        "example": "Subscription for token transfer events"
-      },
-      "WebhookSubscriptionResponseMetadata": {
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "maxLength": 500,
-              "minLength": 0,
-              "type": "string"
-            },
-            "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
-          },
-          {
-            "type": "object",
-            "properties": {
-              "secret": {
-                "type": "string",
-                "description": "Use the root-level \u0060secret\u0060 field instead. Maintained for backward compatibility only.",
-                "format": "uuid",
-                "example": "123e4567-e89b-12d3-a456-426614174000",
-                "deprecated": true
-              }
-            }
-          }
-        ],
-        "description": "Additional metadata for the subscription.",
-        "example": {
-          "secret": "123e4567-e89b-12d3-a456-426614174000"
-        }
-      },
       "WebhookSubscriptionResponseLabels": {
         "type": "object",
         "additionalProperties": {
@@ -14474,18 +14674,6 @@
           "contract_address": "833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
         }
       },
-      "WebhookSubscriptionRequestDescription": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 500,
-            "type": "string",
-            "description": "A human-readable description."
-          }
-        ],
-        "description": "Description of the webhook subscription.",
-        "example": "Subscription for token transfer events"
-      },
       "WebhookSubscriptionRequestLabels": {
         "type": "object",
         "additionalProperties": {
@@ -14497,18 +14685,6 @@
           "contract_address": "833589fcd6edb6e08f4c7c32d4f71b54bda02913",
           "event_name": "Transfer"
         }
-      },
-      "WebhookSubscriptionUpdateRequestDescription": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 500,
-            "type": "string",
-            "description": "A human-readable description."
-          }
-        ],
-        "description": "Description of the webhook subscription.",
-        "example": "Updated subscription for token transfer events"
       },
       "WebhookSubscriptionUpdateRequestLabels": {
         "type": "object",
@@ -14635,194 +14811,6 @@
           }
         }
       },
-      "X402V2PaymentRequirements1Extra": {
-        "type": "object",
-        "description": "The optional additional scheme-specific payment info.",
-        "example": {
-          "name": "USDC",
-          "version": 2
-        }
-      },
-      "X402ResourceInfo1Description": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 500,
-            "type": "string",
-            "description": "A human-readable description."
-          }
-        ],
-        "description": "A human-readable description of the resource.",
-        "example": "Premium API access for data analysis"
-      },
-      "X402V2PaymentPayload1Payload": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/X402ExactEvmPayload_1"
-          },
-          {
-            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload_1"
-          },
-          {
-            "$ref": "#/components/schemas/X402ExactSolanaPayload_1"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "The payload of the payment depending on the x402Version, scheme, and network.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "X402ExactEvmPayload_1": "#/components/schemas/X402ExactEvmPayload_1",
-            "X402ExactEvmPermit2Payload_1": "#/components/schemas/X402ExactEvmPermit2Payload_1",
-            "X402ExactSolanaPayload_1": "#/components/schemas/X402ExactSolanaPayload_1"
-          }
-        },
-        "example": {
-          "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
-          "authorization": {
-            "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-            "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-            "value": 1000000000000000000,
-            "validAfter": 1716150000,
-            "validBefore": 1716150000,
-            "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-          }
-        }
-      },
-      "X402V2PaymentPayload1Extensions": {
-        "type": "object",
-        "description": "Optional protocol extensions.",
-        "example": {
-          "bazaar": {
-            "discoveryEnabled": true
-          }
-        }
-      },
-      "X402V1PaymentPayload1Payload": {
-        "required": [
-          "type"
-        ],
-        "type": "object",
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/X402ExactEvmPayload_1"
-          },
-          {
-            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload_1"
-          },
-          {
-            "$ref": "#/components/schemas/X402ExactSolanaPayload_1"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "description": "The payload of the payment depending on the x402Version, scheme, and network.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "X402ExactEvmPayload_1": "#/components/schemas/X402ExactEvmPayload_1",
-            "X402ExactEvmPermit2Payload_1": "#/components/schemas/X402ExactEvmPermit2Payload_1",
-            "X402ExactSolanaPayload_1": "#/components/schemas/X402ExactSolanaPayload_1"
-          }
-        },
-        "example": {
-          "signature": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b",
-          "authorization": {
-            "from": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-            "to": "742d35Cc6634C0532925a3b844Bc454e4438f44e",
-            "value": 1000000000000000000,
-            "validAfter": 1716150000,
-            "validBefore": 1716150000,
-            "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-          }
-        }
-      },
-      "X402V1PaymentRequirements1Description": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 500,
-            "type": "string",
-            "description": "A human-readable description."
-          }
-        ],
-        "description": "A human-readable description of the resource.",
-        "example": "Premium API access for data analysis"
-      },
-      "X402V1PaymentRequirements1OutputSchema": {
-        "type": "object",
-        "description": "The optional JSON schema describing the resource output.",
-        "example": {
-          "data": "string"
-        }
-      },
-      "X402V1PaymentRequirements1Extra": {
-        "type": "object",
-        "description": "The optional additional scheme-specific payment info.",
-        "example": {
-          "gasLimit": 1000000
-        }
-      },
-      "X402SupportedPaymentKind1Extra": {
-        "type": "object",
-        "description": "The optional additional scheme-specific payment info.",
-        "example": {
-          "feePayer": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
-        }
-      },
-      "OnrampOrderDestinationAddress": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 128,
-            "type": "string",
-            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
-          }
-        ],
-        "description": "The destination address to send the crypto to.",
-        "example": "71C7656EC7ab88b098defB751B7401B5f6d8976F"
-      },
-      "OnrampPaymentLinkUrl": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 2048,
-            "pattern": "^https?://.*$",
-            "type": "string",
-            "description": "A valid HTTP or HTTPS URL.",
-            "format": "uri"
-          }
-        ],
-        "description": "The URL to the hosted widget the user should be redirected to. For certain payment link types you can append your own redirect_url query parameter to this URL to ensure the user is redirected back to your app after the widget completes.",
-        "example": "https://pay.coinbase.com/v2/api-onramp/apple-pay?sessionToken=MWYwNWQwODktZTZlYy02OTdlLTgzZTYtMTI3NzcyOWJhNjM3"
-      },
-      "OnrampSessionOnrampUrl": {
-        "type": "object",
-        "allOf": [
-          {
-            "maxLength": 2048,
-            "pattern": "^https?://.*$",
-            "type": "string",
-            "description": "A valid HTTP or HTTPS URL.",
-            "format": "uri"
-          }
-        ],
-        "description": "Ready-to-use onramp URL.",
-        "example": "https://pay.coinbase.com/buy?sessionToken=abc123F"
-      },
       "SignEvmTypedDataFieldCriterionTypesTypes": {
         "type": "object",
         "additionalProperties": {
@@ -14843,87 +14831,6 @@
           "description": "Object containing names and types for fields within structured data."
         },
         "description": "EIP-712 compliant map of model names to model definitions."
-      },
-      "CommonSwapResponseIssuesAllowance": {
-        "required": [
-          "currentAllowance",
-          "spender"
-        ],
-        "type": "object",
-        "properties": {
-          "currentAllowance": {
-            "pattern": "^\\d\u002B$",
-            "type": "string",
-            "description": "The current allowance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
-            "example": 1000000000
-          },
-          "spender": {
-            "pattern": "^0x[a-fA-F0-9]{40}$",
-            "type": "string",
-            "description": "The 0x-prefixed address of to set the allowance on.",
-            "example": "000000000022D473030F116dDEE9F6B43aC78BA3"
-          }
-        },
-        "description": "Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.",
-        "nullable": true,
-        "example": {
-          "currentAllowance": 1000000000,
-          "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
-        }
-      },
-      "CommonSwapResponseIssuesBalance": {
-        "required": [
-          "token",
-          "currentBalance",
-          "requiredBalance"
-        ],
-        "type": "object",
-        "properties": {
-          "token": {
-            "pattern": "^0x[a-fA-F0-9]{40}$",
-            "type": "string",
-            "description": "The 0x-prefixed contract address of the token."
-          },
-          "currentBalance": {
-            "pattern": "^\\d\u002B$",
-            "type": "string",
-            "description": "The current balance of the \u0060fromToken\u0060 by the \u0060taker\u0060.",
-            "example": 10000000
-          },
-          "requiredBalance": {
-            "pattern": "^\\d\u002B$",
-            "type": "string",
-            "description": "The amount of the token that the \u0060taker\u0060 must hold.",
-            "example": 1000000000000000000
-          }
-        },
-        "description": "Details of the balance of the \u0060fromToken\u0060 that the \u0060taker\u0060 must hold. Null if the \u0060taker\u0060 has a sufficient balance.",
-        "nullable": true,
-        "example": {
-          "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
-          "currentBalance": 1000000000000000000,
-          "requiredBalance": 1000000000000000000
-        }
-      },
-      "CommonSwapResponseFeesGasFee": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TokenFee"
-          }
-        ],
-        "description": "The estimated gas fee for the swap.",
-        "nullable": true
-      },
-      "CommonSwapResponseFeesProtocolFee": {
-        "type": "object",
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TokenFee"
-          }
-        ],
-        "description": "The estimated protocol fee for the swap.",
-        "nullable": true
       },
       "X402ExactEvmPermit2Payload1Permit2AuthorizationPermitted": {
         "required": [
@@ -15059,17 +14966,6 @@
       "AddEndUserEvmAccount": {
         "type": "object"
       },
-      "AddEndUserEvmAccount201": {
-        "required": [
-          "evmAccount"
-        ],
-        "type": "object",
-        "properties": {
-          "evmAccount": {
-            "$ref": "#/components/schemas/EndUserEvmAccount"
-          }
-        }
-      },
       "AddEndUserEvmSmartAccount": {
         "type": "object",
         "properties": {
@@ -15081,30 +14977,8 @@
           }
         }
       },
-      "AddEndUserEvmSmartAccount201": {
-        "required": [
-          "evmSmartAccount"
-        ],
-        "type": "object",
-        "properties": {
-          "evmSmartAccount": {
-            "$ref": "#/components/schemas/EndUserEvmSmartAccount"
-          }
-        }
-      },
       "AddEndUserSolanaAccount": {
         "type": "object"
-      },
-      "AddEndUserSolanaAccount201": {
-        "required": [
-          "solanaAccount"
-        ],
-        "type": "object",
-        "properties": {
-          "solanaAccount": {
-            "$ref": "#/components/schemas/EndUserSolanaAccount"
-          }
-        }
       },
       "ImportEndUser": {
         "required": [
@@ -16362,17 +16236,6 @@
           }
         }
       },
-      "GetOnrampOrderById200": {
-        "required": [
-          "order"
-        ],
-        "type": "object",
-        "properties": {
-          "order": {
-            "$ref": "#/components/schemas/OnrampOrder"
-          }
-        }
-      },
       "CreateOnrampSession": {
         "required": [
           "destinationAddress",
@@ -16491,20 +16354,9 @@
           }
         }
       },
-      "GetOnrampUserLimits200": {
-        "required": [
-          "limits"
-        ],
+      "ExamplePayload": {
         "type": "object",
-        "properties": {
-          "limits": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OnrampUserLimit"
-            },
-            "description": "The list of limits applicable to the user."
-          }
-        }
+        "description": "Placeholder schema for path example refs"
       },
       "KnownAbiType_Wrapper": {
         "required": [
@@ -16514,9 +16366,6 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/KnownAbiType"
-          },
-          "type": {
-            "type": "string"
           }
         }
       },
@@ -16530,10 +16379,6 @@
             "$ref": "#/components/schemas/Abi"
           }
         }
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
       },
       "KnownIdlType_Wrapper": {
         "required": [

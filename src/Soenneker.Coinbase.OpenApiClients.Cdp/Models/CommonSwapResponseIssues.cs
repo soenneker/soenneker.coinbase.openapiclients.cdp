@@ -18,18 +18,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance? Allowance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance? Allowance { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance Allowance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance Allowance { get; set; }
 #endif
         /// <summary>Details of the balance of the `fromToken` that the `taker` must hold. Null if the `taker` has a sufficient balance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance? Balance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance? Balance { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance Balance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance Balance { get; set; }
 #endif
         /// <summary>This is set to true when the transaction cannot be validated. This can happen when the taker has an insufficient balance of the `fromToken`. Note that this does not necessarily mean that the trade will revert.</summary>
         public bool? SimulationIncomplete { get; set; }
@@ -58,8 +58,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowance", n => { Allowance = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance.CreateFromDiscriminatorValue); } },
-                { "balance", n => { Balance = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance.CreateFromDiscriminatorValue); } },
+                { "allowance", n => { Allowance = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance.CreateFromDiscriminatorValue); } },
+                { "balance", n => { Balance = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance.CreateFromDiscriminatorValue); } },
                 { "simulationIncomplete", n => { SimulationIncomplete = n.GetBoolValue(); } },
             };
         }
@@ -70,8 +70,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance>("allowance", Allowance);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance>("balance", Balance);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_allowance>("allowance", Allowance);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues_balance>("balance", Balance);
             writer.WriteBoolValue("simulationIncomplete", SimulationIncomplete);
             writer.WriteAdditionalData(AdditionalData);
         }
