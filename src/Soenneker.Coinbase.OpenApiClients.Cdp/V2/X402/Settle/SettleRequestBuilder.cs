@@ -40,7 +40,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection_1">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 402 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 502 status code</exception>
@@ -58,7 +58,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection_1.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection.CreateFromDiscriminatorValue },
                 { "402", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },

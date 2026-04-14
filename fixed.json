@@ -13555,7 +13555,7 @@
         "description": "The version of the x402 protocol.",
         "example": 2
       },
-      "X402ExactEvmPayload_1": {
+      "X402ExactEvmPayload": {
         "title": "x402ExactEvmPayload",
         "required": [
           "signature",
@@ -13570,7 +13570,7 @@
             "example": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
           },
           "authorization": {
-            "$ref": "#/components/schemas/X402ExactEvmPayload1Authorization"
+            "$ref": "#/components/schemas/X402ExactEvmPayloadAuthorization"
           }
         },
         "description": "The x402 protocol exact scheme payload for EVM networks. The scheme is implemented using ERC-3009. For more details, please see [EVM Exact Scheme Details](https://github.com/coinbase/x402/blob/main/specs/schemes/exact/scheme_exact_evm.md).",
@@ -13586,7 +13586,7 @@
           }
         }
       },
-      "X402ExactEvmPermit2Payload_1": {
+      "X402ExactEvmPermit2Payload": {
         "title": "x402ExactEvmPermit2Payload",
         "required": [
           "signature",
@@ -13601,7 +13601,7 @@
             "example": "f3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
           },
           "permit2Authorization": {
-            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload1Permit2Authorization"
+            "$ref": "#/components/schemas/X402ExactEvmPermit2PayloadPermit2Authorization"
           }
         },
         "description": "The x402 protocol exact scheme payload for EVM networks using Permit2. Permit2 is a universal token approval mechanism that works with any ERC-20 token, unlike ERC-3009 which requires token-level support.",
@@ -13624,7 +13624,7 @@
           }
         }
       },
-      "X402ExactSolanaPayload_1": {
+      "X402ExactSolanaPayload": {
         "title": "x402ExactSolanaPayload",
         "required": [
           "transaction"
@@ -13642,7 +13642,7 @@
           "transaction": "AQABAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAQECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8CBgMBAQAAAAIBAwQAAAAABgIAAAAAAAYDBQEBAAAGBAgAAAAABgUAAAAA6AMAAAAAAAAGBgUBAQEBBgcEAQAAAAYICgMBAQIDBgkCBgAAAAYKAwABAQEGCwMGAQEBBgwDAAABAQAAAAA="
         }
       },
-      "X402V2PaymentRequirements_1": {
+      "X402V2PaymentRequirements": {
         "required": [
           "scheme",
           "network",
@@ -13701,7 +13701,7 @@
         },
         "description": "The x402 protocol payment requirements that the resource server expects the client\u0027s payment payload to meet."
       },
-      "X402ResourceInfo_1": {
+      "X402ResourceInfo": {
         "type": "object",
         "properties": {
           "url": {
@@ -13729,7 +13729,7 @@
         },
         "description": "Describes the resource being accessed in x402 protocol."
       },
-      "X402V2PaymentPayload_1": {
+      "X402V2PaymentPayload": {
         "required": [
           "x402Version",
           "accepted",
@@ -13744,13 +13744,13 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/X402ExactEvmPayload_1"
+                "$ref": "#/components/schemas/X402ExactEvmPayload"
               },
               {
-                "$ref": "#/components/schemas/X402ExactEvmPermit2Payload_1"
+                "$ref": "#/components/schemas/X402ExactEvmPermit2Payload"
               },
               {
-                "$ref": "#/components/schemas/X402ExactSolanaPayload_1"
+                "$ref": "#/components/schemas/X402ExactSolanaPayload"
               }
             ],
             "description": "The payload of the payment depending on the x402Version, scheme, and network.",
@@ -13767,10 +13767,10 @@
             }
           },
           "accepted": {
-            "$ref": "#/components/schemas/X402V2PaymentRequirements_1"
+            "$ref": "#/components/schemas/X402V2PaymentRequirements"
           },
           "resource": {
-            "$ref": "#/components/schemas/X402ResourceInfo_1"
+            "$ref": "#/components/schemas/X402ResourceInfo"
           },
           "extensions": {
             "type": "object",
@@ -13815,7 +13815,7 @@
           }
         }
       },
-      "X402V1PaymentPayload_1": {
+      "X402V1PaymentPayload": {
         "required": [
           "x402Version",
           "scheme",
@@ -13853,13 +13853,13 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/X402ExactEvmPayload_1"
+                "$ref": "#/components/schemas/X402ExactEvmPayload"
               },
               {
-                "$ref": "#/components/schemas/X402ExactEvmPermit2Payload_1"
+                "$ref": "#/components/schemas/X402ExactEvmPermit2Payload"
               },
               {
-                "$ref": "#/components/schemas/X402ExactSolanaPayload_1"
+                "$ref": "#/components/schemas/X402ExactSolanaPayload"
               }
             ],
             "description": "The payload of the payment depending on the x402Version, scheme, and network.",
@@ -13894,17 +13894,17 @@
           }
         }
       },
-      "X402PaymentPayload_1": {
+      "X402PaymentPayload": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/X402V2PaymentPayload_1"
+            "$ref": "#/components/schemas/X402V2PaymentPayload"
           },
           {
-            "$ref": "#/components/schemas/X402V1PaymentPayload_1"
+            "$ref": "#/components/schemas/X402V1PaymentPayload"
           }
         ],
         "properties": {
@@ -13917,12 +13917,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "X402V2PaymentPayload_1": "#/components/schemas/X402V2PaymentPayload_1",
-            "X402V1PaymentPayload_1": "#/components/schemas/X402V1PaymentPayload_1"
+            "X402V2PaymentPayload": "#/components/schemas/X402V2PaymentPayload",
+            "X402V1PaymentPayload": "#/components/schemas/X402V1PaymentPayload"
           }
         }
       },
-      "X402V1PaymentRequirements_1": {
+      "X402V1PaymentRequirements": {
         "required": [
           "scheme",
           "network",
@@ -14019,17 +14019,17 @@
         },
         "description": "The x402 protocol payment requirements that the resource server expects the client\u0027s payment payload to meet."
       },
-      "X402PaymentRequirements_1": {
+      "X402PaymentRequirements": {
         "required": [
           "type"
         ],
         "type": "object",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/X402V2PaymentRequirements_1"
+            "$ref": "#/components/schemas/X402V2PaymentRequirements"
           },
           {
-            "$ref": "#/components/schemas/X402V1PaymentRequirements_1"
+            "$ref": "#/components/schemas/X402V1PaymentRequirements"
           }
         ],
         "properties": {
@@ -14042,12 +14042,12 @@
         "discriminator": {
           "propertyName": "type",
           "mapping": {
-            "X402V2PaymentRequirements_1": "#/components/schemas/X402V2PaymentRequirements_1",
-            "X402V1PaymentRequirements_1": "#/components/schemas/X402V1PaymentRequirements_1"
+            "X402V2PaymentRequirements": "#/components/schemas/X402V2PaymentRequirements",
+            "X402V1PaymentRequirements": "#/components/schemas/X402V1PaymentRequirements"
           }
         }
       },
-      "X402VerifyInvalidReason_1": {
+      "X402VerifyInvalidReason": {
         "enum": [
           "insufficient_funds",
           "invalid_scheme",
@@ -14098,7 +14098,7 @@
         "description": "The reason the payment is invalid on the x402 protocol.",
         "example": "insufficient_funds"
       },
-      "X402VerifyPaymentRejection_1": {
+      "X402VerifyPaymentRejection": {
         "required": [
           "isValid",
           "invalidReason"
@@ -14111,7 +14111,7 @@
             "example": false
           },
           "invalidReason": {
-            "$ref": "#/components/schemas/X402VerifyInvalidReason_1"
+            "$ref": "#/components/schemas/X402VerifyInvalidReason"
           },
           "invalidMessage": {
             "type": "string",
@@ -14133,7 +14133,7 @@
           "payer": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
         }
       },
-      "X402SettleErrorReason_1": {
+      "X402SettleErrorReason": {
         "enum": [
           "insufficient_funds",
           "invalid_scheme",
@@ -14189,7 +14189,7 @@
         "description": "The reason the payment settlement errored on the x402 protocol.",
         "example": "insufficient_funds"
       },
-      "X402SettlePaymentRejection_1": {
+      "X402SettlePaymentRejection": {
         "required": [
           "success",
           "errorReason"
@@ -14202,7 +14202,7 @@
             "example": false
           },
           "errorReason": {
-            "$ref": "#/components/schemas/X402SettleErrorReason_1"
+            "$ref": "#/components/schemas/X402SettleErrorReason"
           },
           "errorMessage": {
             "type": "string",
@@ -14234,7 +14234,7 @@
           "payer": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
         }
       },
-      "X402SupportedPaymentKind_1": {
+      "X402SupportedPaymentKind": {
         "required": [
           "x402Version",
           "scheme",
@@ -14698,7 +14698,7 @@
           "event_name": "Transfer"
         }
       },
-      "X402ExactEvmPayload1Authorization": {
+      "X402ExactEvmPayloadAuthorization": {
         "required": [
           "from",
           "to",
@@ -14753,7 +14753,7 @@
           "nonce": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
         }
       },
-      "X402ExactEvmPermit2Payload1Permit2Authorization": {
+      "X402ExactEvmPermit2PayloadPermit2Authorization": {
         "required": [
           "from",
           "permitted",
@@ -14771,7 +14771,7 @@
             "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
           "permitted": {
-            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload1Permit2AuthorizationPermitted"
+            "$ref": "#/components/schemas/X402ExactEvmPermit2PayloadPermit2AuthorizationPermitted"
           },
           "spender": {
             "pattern": "^0x[0-9a-fA-F]{40}$",
@@ -14791,7 +14791,7 @@
             "example": 1716150000
           },
           "witness": {
-            "$ref": "#/components/schemas/X402ExactEvmPermit2Payload1Permit2AuthorizationWitness"
+            "$ref": "#/components/schemas/X402ExactEvmPermit2PayloadPermit2AuthorizationWitness"
           }
         },
         "description": "The authorization data for the Permit2 PermitWitnessTransferFrom message.",
@@ -14832,7 +14832,7 @@
         },
         "description": "EIP-712 compliant map of model names to model definitions."
       },
-      "X402ExactEvmPermit2Payload1Permit2AuthorizationPermitted": {
+      "X402ExactEvmPermit2PayloadPermit2AuthorizationPermitted": {
         "required": [
           "token",
           "amount"
@@ -14853,7 +14853,7 @@
         },
         "description": "The token permissions for the transfer."
       },
-      "X402ExactEvmPermit2Payload1Permit2AuthorizationWitness": {
+      "X402ExactEvmPermit2PayloadPermit2AuthorizationWitness": {
         "required": [
           "to",
           "validAfter"
@@ -16093,10 +16093,10 @@
             "$ref": "#/components/schemas/X402Version"
           },
           "paymentPayload": {
-            "$ref": "#/components/schemas/X402PaymentPayload_1"
+            "$ref": "#/components/schemas/X402PaymentPayload"
           },
           "paymentRequirements": {
-            "$ref": "#/components/schemas/X402PaymentRequirements_1"
+            "$ref": "#/components/schemas/X402PaymentRequirements"
           }
         }
       },
@@ -16112,10 +16112,10 @@
             "$ref": "#/components/schemas/X402Version"
           },
           "paymentPayload": {
-            "$ref": "#/components/schemas/X402PaymentPayload_1"
+            "$ref": "#/components/schemas/X402PaymentPayload"
           },
           "paymentRequirements": {
-            "$ref": "#/components/schemas/X402PaymentRequirements_1"
+            "$ref": "#/components/schemas/X402PaymentRequirements"
           }
         }
       },
@@ -16602,7 +16602,7 @@
                   "example": false
                 },
                 "invalidReason": {
-                  "$ref": "#/components/schemas/X402VerifyInvalidReason_1"
+                  "$ref": "#/components/schemas/X402VerifyInvalidReason"
                 },
                 "invalidMessage": {
                   "type": "string",
@@ -16625,7 +16625,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/X402VerifyPaymentRejection_1"
+              "$ref": "#/components/schemas/X402VerifyPaymentRejection"
             },
             "examples": {
               "invalid_verification": {
@@ -16659,7 +16659,7 @@
                   "example": false
                 },
                 "errorReason": {
-                  "$ref": "#/components/schemas/X402SettleErrorReason_1"
+                  "$ref": "#/components/schemas/X402SettleErrorReason"
                 },
                 "errorMessage": {
                   "type": "string",
@@ -16698,7 +16698,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/X402SettlePaymentRejection_1"
+              "$ref": "#/components/schemas/X402SettlePaymentRejection"
             },
             "examples": {
               "unsuccessful_settlement": {
@@ -16728,7 +16728,7 @@
                 "kinds": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/X402SupportedPaymentKind_1"
+                    "$ref": "#/components/schemas/X402SupportedPaymentKind"
                   },
                   "description": "The list of supported payment kinds.",
                   "example": [

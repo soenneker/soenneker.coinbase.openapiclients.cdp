@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "B166CD6B91AC91C94B6809126F95CBB31615AD2DBE68C46363D8B9810338EE089533669684881404A9682F36D6D36951A156A1F48564734D9B651DD80FB6F7CE",
+  "descriptionHash": "66BF79DB545BE531D09D67574A2B6035C7449DDF54D6BA1EA78C60C6CE57A3C3894D80DC0E5A93668CD22A0A0C16B7221B81C688057ECD6C8475C0B772BF095A",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.0",
+  "kiotaVersion": "1.31.1",
   "clientClassName": "CoinbaseCdpOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Coinbase.OpenApiClients.Cdp",

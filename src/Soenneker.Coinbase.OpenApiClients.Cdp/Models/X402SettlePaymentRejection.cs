@@ -2,27 +2,20 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
+namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
+    /// <summary>
+    /// The result when x402 payment settlement fails.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class SettlePostResponse : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class X402SettlePaymentRejection : ApiException, IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The amount that was settled, in atomic units.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Amount { get; set; }
-#nullable restore
-#else
-        public string Amount { get; set; }
-#endif
         /// <summary>The message describing the error reason.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,6 +26,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
 #endif
         /// <summary>The reason the payment settlement errored on the x402 protocol.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason? ErrorReason { get; set; }
+        /// <summary>The primary error message.</summary>
+        public override string Message { get => base.Message; }
         /// <summary>The network where the settlement occurred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,21 +55,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
         public string Transaction { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle.SettlePostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection"/> and sets the default values.
         /// </summary>
-        public SettlePostResponse()
+        public X402SettlePaymentRejection()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle.SettlePostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle.SettlePostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle.SettlePostResponse();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,7 +79,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "amount", n => { Amount = n.GetStringValue(); } },
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
                 { "errorReason", n => { ErrorReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason>(); } },
                 { "network", n => { Network = n.GetStringValue(); } },
@@ -100,7 +94,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("errorMessage", ErrorMessage);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason>("errorReason", ErrorReason);
             writer.WriteStringValue("network", Network);

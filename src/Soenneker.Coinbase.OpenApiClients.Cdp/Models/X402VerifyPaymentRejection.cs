@@ -2,16 +2,17 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
+using Microsoft.Kiota.Abstractions;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
+namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
+    /// <summary>
+    /// The result when x402 payment verification fails.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class VerifyPostResponse : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class X402VerifyPaymentRejection : ApiException, IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -27,6 +28,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason? InvalidReason { get; set; }
         /// <summary>Indicates whether the payment is valid.</summary>
         public bool? IsValid { get; set; }
+        /// <summary>The primary error message.</summary>
+        public override string Message { get => base.Message; }
         /// <summary>The onchain address of the client that is paying for the resource.For EVM networks, the payer will be a 0x-prefixed, checksum EVM address.For Solana-based networks, the payer will be a base58-encoded Solana address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,21 +39,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
         public string Payer { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyPaymentRejection"/> and sets the default values.
         /// </summary>
-        public VerifyPostResponse()
+        public X402VerifyPaymentRejection()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyPaymentRejection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyPaymentRejection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyPaymentRejection();
         }
         /// <summary>
         /// The deserialization information for the current model

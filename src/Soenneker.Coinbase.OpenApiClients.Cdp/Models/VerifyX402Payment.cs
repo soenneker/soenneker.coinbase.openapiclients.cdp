@@ -17,18 +17,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the X-PAYMENT header.For EVM networks, smart account signatures can be longer than 65 bytes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload_1? PaymentPayload { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload? PaymentPayload { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload_1 PaymentPayload { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload PaymentPayload { get; set; }
 #endif
         /// <summary>The x402 protocol payment requirements that the resource server expects the client&apos;s payment payload to meet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements_1? PaymentRequirements { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements? PaymentRequirements { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements_1 PaymentRequirements { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements PaymentRequirements { get; set; }
 #endif
         /// <summary>The version of the x402 protocol.</summary>
         public int? X402Version { get; set; }
@@ -57,8 +57,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "paymentPayload", n => { PaymentPayload = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload_1>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload_1.CreateFromDiscriminatorValue); } },
-                { "paymentRequirements", n => { PaymentRequirements = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements_1>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements_1.CreateFromDiscriminatorValue); } },
+                { "paymentPayload", n => { PaymentPayload = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload.CreateFromDiscriminatorValue); } },
+                { "paymentRequirements", n => { PaymentRequirements = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements.CreateFromDiscriminatorValue); } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }
@@ -69,8 +69,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload_1>("paymentPayload", PaymentPayload);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements_1>("paymentRequirements", PaymentRequirements);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload>("paymentPayload", PaymentPayload);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>("paymentRequirements", PaymentRequirements);
             writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
         }
