@@ -1293,6 +1293,1823 @@
         ]
       }
     },
+    "/v2/embedded-wallet-api/end-users/{userId}/evm/sign/transaction": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Sign a transaction with end user EVM account",
+        "description": "Signs a transaction with the given end user EVM account.\nThe transaction should be serialized as a hex string using [RLP](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/).\n\nThe transaction must be an [EIP-1559 dynamic fee transaction](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md). The developer is responsible for ensuring that the unsigned transaction is valid, as the API will not validate the transaction.",
+        "operationId": "signEvmTransactionWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignEvmTransactionWithEndUserAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully signed transaction.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignEvmTransactionWithEndUserAccount200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "malformed_transaction": {
+                    "value": {
+                      "errorType": "malformed_transaction",
+                      "errorMessage": "Malformed unsigned transaction."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "Access to resource forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "forbidden": {
+                    "value": {
+                      "errorType": "forbidden",
+                      "errorMessage": "Unable to sign transaction for this address."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/AlreadyExistsError"
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/evm/send/transaction": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Send a transaction with end user EVM account",
+        "description": "\u0022Signs a transaction with the given end user EVM account and sends it to the indicated supported network. This API handles nonce management and gas estimation, leaving the developer to provide only the minimal set of fields necessary to send the transaction. The transaction should be serialized as a hex string using [RLP](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/).\n\nThe transaction must be an [EIP-1559 dynamic fee transaction](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md).\n\n\n**Transaction fields and API behavior**\n\n- \u0060to\u0060 *(Required)*: The address of the contract or account to send the transaction to.\n- \u0060chainId\u0060 *(Ignored)*: The value of the \u0060chainId\u0060 field in the transaction is ignored.\n  The transaction will be sent to the network indicated by the \u0060network\u0060 field in the request body.\n\n- \u0060nonce\u0060 *(Optional)*: The nonce to use for the transaction. If not provided, the API will assign\n   a nonce to the transaction based on the current state of the account.\n\n- \u0060maxPriorityFeePerGas\u0060 *(Optional)*: The maximum priority fee per gas to use for the transaction.\n   If not provided, the API will estimate a value based on current network conditions.\n\n- \u0060maxFeePerGas\u0060 *(Optional)*: The maximum fee per gas to use for the transaction.\n   If not provided, the API will estimate a value based on current network conditions.\n\n- \u0060gasLimit\u0060 *(Optional)*: The gas limit to use for the transaction. If not provided, the API will estimate a value\n  based on the \u0060to\u0060 and \u0060data\u0060 fields of the transaction.\n\n- \u0060value\u0060 *(Optional)*: The amount of ETH, in wei, to send with the transaction.\n- \u0060data\u0060 *(Optional)*: The data to send with the transaction; only used for contract calls.\n- \u0060accessList\u0060 *(Optional)*: The access list to use for the transaction.\u0022",
+        "operationId": "sendEvmTransactionWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendEvmTransactionWithEndUserAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully signed and sent transaction.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendEvmTransactionWithEndUserAccount200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "malformed_transaction": {
+                    "value": {
+                      "errorType": "malformed_transaction",
+                      "errorMessage": "Malformed unsigned transaction."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "Access to resource forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "forbidden": {
+                    "value": {
+                      "errorType": "forbidden",
+                      "errorMessage": "Unable to sign transaction for this address."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/AlreadyExistsError"
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/evm/{address}/send/{asset}": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Send USDC on EVM",
+        "description": "Sends USDC from an end user\u0027s EVM account (EOA or Smart Account) to a recipient address on a supported EVM network. This endpoint simplifies USDC transfers by automatically handling contract resolution, decimal conversion, gas estimation, and transaction encoding.\nThe \u0060amount\u0060 field accepts human-readable amounts as decimal strings (e.g., \u00221.5\u0022, \u002225.50\u0022).",
+        "operationId": "sendEvmAssetWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string"
+            },
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The 0x-prefixed address of the EVM account (EOA or Smart Account) to send USDC from. The address does not need to be checksummed.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "object",
+              "allOf": [
+                {
+                  "maxLength": 128,
+                  "type": "string",
+                  "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+                }
+              ]
+            },
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          {
+            "name": "asset",
+            "in": "path",
+            "description": "The asset to send. Currently only \u0022usdc\u0022 is supported.",
+            "required": true,
+            "schema": {
+              "enum": [
+                "usdc"
+              ],
+              "type": "string",
+              "allOf": [
+                {
+                  "maxLength": 42,
+                  "type": "string",
+                  "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt)."
+                }
+              ],
+              "additionalProperties": false
+            },
+            "example": "usdc"
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendEvmAssetWithEndUserAccount"
+              },
+              "examples": {
+                "send_usdc_eoa": {
+                  "summary": "Send USDC from EOA",
+                  "value": {
+                    "to": "1234567890123456789012345678901234567890",
+                    "amount": 25.5,
+                    "network": "base-sepolia",
+                    "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+                  }
+                },
+                "send_usdc_smart_account_cdp_paymaster": {
+                  "summary": "Send USDC from Smart Account with CDP Paymaster",
+                  "value": {
+                    "to": "1234567890123456789012345678901234567890",
+                    "amount": 10,
+                    "network": "base-sepolia",
+                    "useCdpPaymaster": true,
+                    "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+                  }
+                },
+                "send_usdc_smart_account_custom_paymaster": {
+                  "summary": "Send USDC from Smart Account with custom Paymaster",
+                  "value": {
+                    "to": "1234567890123456789012345678901234567890",
+                    "amount": 15,
+                    "network": "base-sepolia",
+                    "paymasterUrl": "https://api.developer.coinbase.com/rpc/v1/base/AbCdEf123456",
+                    "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully sent transaction.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendEvmAssetWithEndUserAccount200"
+                },
+                "examples": {
+                  "eoa_transfer": {
+                    "summary": "EOA transfer response",
+                    "value": {
+                      "transactionHash": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7",
+                      "userOpHash": null
+                    }
+                  },
+                  "smart_account_transfer": {
+                    "summary": "Smart Account transfer response",
+                    "value": {
+                      "transactionHash": null,
+                      "userOpHash": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_amount": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid amount format. Amount must be a valid decimal string.",
+                      "errorParam": "amount",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "invalid_network": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Unsupported network for USDC transfers.",
+                      "errorParam": "network",
+                      "errorLink": "https://docs.cdp.coinbase.com/get-started/supported-networks#supported-networks"
+                    }
+                  },
+                  "invalid_asset": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Unsupported asset. Currently only \u0027usdc\u0027 is supported.",
+                      "errorParam": "asset",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "insufficient_balance": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Account has insufficient USDC balance to complete the transfer.",
+                      "errorParam": "amount",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "conflicting_paymaster": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Cannot specify both \u0027useCdpPaymaster\u0027 and \u0027paymasterUrl\u0027. Please use only one.",
+                      "errorLink": "https://docs.cdp.coinbase.com/embedded-wallets/evm-features/smart-accounts#gas-sponsorship-with-paymaster"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found.",
+                      "errorParam": "address",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/evm/sign/message": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Sign an EIP-191 message with end user EVM account",
+        "description": "Signs an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) message with the given end user EVM account.\n\nPer the specification, the message in the request body is prepended with \u00600x19 \u003C0x45 (E)\u003E \u003Cthereum Signed Message:\\n\u0022 \u002B len(message)\u003E\u0060 before being signed.",
+        "operationId": "signEvmMessageWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignEvmMessageWithEndUserAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully signed message.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignEvmMessageWithEndUserAccount200"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/AlreadyExistsError"
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/evm/sign/typed-data": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Sign EIP-712 typed data with end user EVM account",
+        "description": "Signs [EIP-712](https://eips.ethereum.org/EIPS/eip-712) typed data with the given end user EVM account.",
+        "operationId": "signEvmTypedDataWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignEvmTypedDataWithEndUserAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully signed typed data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignEvmTypedDataWithEndUserAccount200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_request": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid request. Please check the request body and parameters."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/delegation": {
+      "delete": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Revoke delegation for end user",
+        "description": "Revokes all active delegations for the specified end user. This operation can be performed by the end user themselves or by a developer using their API key.",
+        "operationId": "revokeDelegationForEndUser",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevokeDelegationForEndUser"
+              },
+              "example": {
+                "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "Delegation not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "No active delegation found for the specified end user.",
+                      "errorParam": "userId",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/evm/eip7702/delegation": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Create EIP-7702 delegation for end user EVM account",
+        "description": "Creates an EIP-7702 delegation for an end user\u0027s EVM EOA account, upgrading it with smart account capabilities.\n\nThis endpoint:\n- Retrieves delegation artifacts from onchain\n- Signs the EIP-7702 authorization for delegation\n- Assembles and submits a Type 4 transaction\n- Creates an associated smart account object\n\nThe delegation allows the EVM EOA to be used as a smart account, which enables batched transactions and gas sponsorship via paymaster.",
+        "operationId": "createEvmEip7702DelegationWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEvmEip7702DelegationWithEndUserAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Delegation operation created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateEvmEip7702DelegationWithEndUserAccount201"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "missing_network": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Field \u0027network\u0027 is required.",
+                      "errorParam": "network",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "unsupported_network": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Network \u0027gnosis\u0027 is not supported for EIP-7702.",
+                      "errorParam": "network",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "404": {
+            "description": "EVM account not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found.",
+                      "errorParam": "address",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Account already delegated on the given network.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "already_delegated": {
+                    "value": {
+                      "errorType": "already_exists",
+                      "errorMessage": "Account already has an active EIP-7702 delegation on the given network.",
+                      "errorParam": "address",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#already-exists"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "rate_limit_exceeded": {
+                    "value": {
+                      "errorType": "rate_limit_exceeded",
+                      "errorMessage": "Too many requests. Please try again later.",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#rate-limit-exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/evm/smart-accounts/{address}/send": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Send a user operation for end user Smart Account",
+        "description": "Prepares, signs, and sends a user operation for an end user\u0027s Smart Account.",
+        "operationId": "sendUserOperationWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The address of the EVM Smart Account to execute the user operation from.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendUserOperationWithEndUserAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The user operation was successfully prepared, signed, and sent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmUserOperation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_request": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Field \u0022network\u0022 is required."
+                    }
+                  },
+                  "invalid_signature": {
+                    "value": {
+                      "errorType": "invalid_signature",
+                      "errorMessage": "Failed to sign user operation."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "Access to resource forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "forbidden": {
+                    "value": {
+                      "errorType": "forbidden",
+                      "errorMessage": "Unable to sign transaction for this address."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "End user Smart Account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "rate_limit_exceeded": {
+                    "value": {
+                      "errorType": "rate_limit_exceeded",
+                      "errorMessage": "Max concurrent user operations reached."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/solana/sign/message": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Sign a Base64 encoded message",
+        "description": "Signs an arbitrary Base64 encoded message with the given Solana account.\n**WARNING:**  Never sign a message that you didn\u0027t generate as it may put your funds at risk.",
+        "operationId": "signSolanaMessageWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignSolanaMessageWithEndUserAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully signed message.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignSolanaMessageWithEndUserAccount200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "malformed_transaction": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Malformed message to sign."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "404": {
+            "description": "Solana account not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Solana account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/AlreadyExistsError"
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/solana/sign/transaction": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Sign a transaction with end user Solana account",
+        "description": "Signs a transaction with the given end user Solana account.\nThe unsigned transaction should be serialized into a byte array and then encoded as base64.\n**Transaction types**\nThe following transaction types are supported:\n* [Legacy transactions](https://solana-labs.github.io/solana-web3.js/classes/Transaction.html)\n* [Versioned transactions](https://solana-labs.github.io/solana-web3.js/classes/VersionedTransaction.html)\nThe developer is responsible for ensuring that the unsigned transaction is valid, as the API will not validate the transaction.",
+        "operationId": "signSolanaTransactionWithEndUserAccount",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignSolanaTransactionWithEndUserAccount"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully signed transaction.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignSolanaTransactionWithEndUserAccount200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "malformed_transaction": {
+                    "value": {
+                      "errorType": "malformed_transaction",
+                      "errorMessage": "Malformed unsigned transaction."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "Access to resource forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "forbidden": {
+                    "value": {
+                      "errorType": "forbidden",
+                      "errorMessage": "Unable to sign transaction for this address."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "End user with the given ID not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "$ref": "#/components/responses/AlreadyExistsError"
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/solana/send/transaction": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Send a transaction with end user Solana account",
+        "description": "Signs a transaction with the given end user Solana account and sends it to the indicated supported network.\nThe API handles recent blockhash management and fee estimation, leaving the developer to provide only the minimal set of fields necessary to send the transaction.\nThe unsigned transaction should be serialized into a byte array and then encoded as base64.\n**Transaction types**\nThe following transaction types are supported:\n* [Legacy transactions](https://solana.com/developers/guides/advanced/versions#current-transaction-versions)\n* [Versioned transactions](https://solana.com/developers/guides/advanced/versions)\n**Instruction Batching**\nTo batch multiple operations, include multiple instructions within a single transaction. All instructions within a transaction are executed atomically - if any instruction fails, the entire transaction fails and is rolled back.\n**Network Support**\nThe following Solana networks are supported:\n* \u0060solana\u0060 - Solana Mainnet\n* \u0060solana-devnet\u0060 - Solana Devnet\nThe developer is responsible for ensuring that the unsigned transaction is valid, as the API will not validate the transaction.",
+        "operationId": "sendSolanaTransactionWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSolanaTransactionWithEndUserAccount"
+              },
+              "examples": {
+                "send_transaction": {
+                  "summary": "Send a transaction",
+                  "value": {
+                    "address": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT",
+                    "network": "solana-devnet",
+                    "transaction": "AQABAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAQECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8CBgMBAQAAAAIBAwQAAAAABgIAAAAAAAYDBQEBAAAGBAgAAAAABgUAAAAA6AMAAAAAAAAGBgUBAQEBBgcEAQAAAAYICgMBAQIDBgkCBgAAAAYKAwABAQEGCwMGAQEBBgwDAAABAQAAAAA=",
+                    "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+                  }
+                },
+                "send_transaction_sponsored": {
+                  "summary": "Send a transaction with CDP gas sponsorship",
+                  "value": {
+                    "address": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT",
+                    "network": "solana-devnet",
+                    "transaction": "AQABAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAQECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8CBgMBAQAAAAIBAwQAAAAABgIAAAAAAAYDBQEBAAAGBAgAAAAABgUAAAAA6AMAAAAAAAAGBgUBAQEBBgcEAQAAAAYICgMBAQIDBgkCBgAAAAYKAwABAQEGCwMGAQEBBgwDAAABAQAAAAA=",
+                    "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2",
+                    "useCdpSponsor": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully signed and sent transaction.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSolanaTransactionWithEndUserAccount200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "malformed_transaction": {
+                    "value": {
+                      "errorType": "malformed_transaction",
+                      "errorMessage": "Malformed unsigned transaction."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "Access to resource forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "forbidden": {
+                    "value": {
+                      "errorType": "forbidden",
+                      "errorMessage": "Unable to sign transaction for this address."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Solana account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/solana/{address}/send/{asset}": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Send USDC on Solana",
+        "description": "Sends USDC from an end user\u0027s Solana account to a recipient address on the Solana network. This endpoint simplifies USDC transfers by automatically handling mint resolution, Associated Token Account (ATA) creation, decimal conversion, and transaction encoding.\nThe \u0060amount\u0060 field accepts human-readable amounts as decimal strings (e.g., \u00221.5\u0022, \u002225.50\u0022).\nUse the optional \u0060createRecipientAta\u0060 parameter to control whether the sender pays for creating the recipient\u0027s Associated Token Account if it doesn\u0027t exist.",
+        "operationId": "sendSolanaAssetWithEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string"
+            },
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The base58 encoded address of the Solana account to send USDC from.",
+            "required": true,
+            "schema": {
+              "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+              "type": "object",
+              "allOf": [
+                {
+                  "maxLength": 128,
+                  "type": "string",
+                  "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+                }
+              ]
+            },
+            "example": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
+          },
+          {
+            "name": "asset",
+            "in": "path",
+            "description": "The asset to send. Currently only \u0022usdc\u0022 is supported.",
+            "required": true,
+            "schema": {
+              "enum": [
+                "usdc"
+              ],
+              "type": "string",
+              "allOf": [
+                {
+                  "maxLength": 42,
+                  "type": "string",
+                  "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt)."
+                }
+              ],
+              "additionalProperties": false
+            },
+            "example": "usdc"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSolanaAssetWithEndUserAccount"
+              },
+              "examples": {
+                "send_usdc_auto_create_ata": {
+                  "summary": "Send USDC (auto-create ATA)",
+                  "value": {
+                    "to": "ExXhNkgYf6efh7YyqDRVxPZuzafobao1A74drUdp8trd",
+                    "amount": 25.5,
+                    "network": "solana-devnet",
+                    "createRecipientAta": true,
+                    "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+                  }
+                },
+                "send_usdc_no_ata_creation": {
+                  "summary": "Send USDC (no ATA creation)",
+                  "value": {
+                    "to": "ExXhNkgYf6efh7YyqDRVxPZuzafobao1A74drUdp8trd",
+                    "amount": 5,
+                    "network": "solana-devnet",
+                    "createRecipientAta": false,
+                    "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+                  }
+                },
+                "send_usdc_sponsored": {
+                  "summary": "Send USDC with CDP gas sponsorship",
+                  "value": {
+                    "to": "ExXhNkgYf6efh7YyqDRVxPZuzafobao1A74drUdp8trd",
+                    "amount": 25.5,
+                    "network": "solana-devnet",
+                    "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2",
+                    "useCdpSponsor": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully sent transaction.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSolanaAssetWithEndUserAccount200"
+                },
+                "examples": {
+                  "successful_transfer": {
+                    "value": {
+                      "transactionSignature": "5VERv8NMvzbJMEkV8xnrLkEaWRtSz9CosKDYjCJjBRnbJLgp8uirBgmQpjKhoR4tjF3ZpRzrFmBV6UjKdiSZkQUW"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_amount": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid amount format. Amount must be a valid decimal string.",
+                      "errorParam": "amount",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "invalid_network": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Unsupported network for USDC transfers.",
+                      "errorParam": "network",
+                      "errorLink": "https://docs.cdp.coinbase.com/get-started/supported-networks#supported-networks"
+                    }
+                  },
+                  "invalid_asset": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Unsupported asset. Currently only \u0027usdc\u0027 is supported.",
+                      "errorParam": "asset",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "insufficient_balance": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Account has insufficient USDC balance to complete the transfer.",
+                      "errorParam": "amount",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "insufficient_sol": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Account has insufficient SOL to pay for transaction fees and rent.",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "recipient_ata_missing": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Recipient does not have a USDC Associated Token Account. Set \u0027createRecipientAta: true\u0027 to create one automatically.",
+                      "errorParam": "to",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Solana account with the given address not found.",
+                      "errorParam": "address",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/v2/evm/accounts": {
       "get": {
         "tags": [
@@ -7028,7 +8845,7 @@
           "Webhooks"
         ],
         "summary": "Create webhook subscription",
-        "description": "\u0022Subscribe to real-time events across CDP products using flexible filtering.\n\n### Event Types\n\n**Onchain Events** - Monitor Base mainnet with microsecond precision:\n- \u0060onchain.activity.detected\u0060 - Smart contract events, transfers, swaps, NFT activity\n- **Requires** \u0060labels\u0060 for filtering (e.g., \u0060contract_address\u0060, \u0060event_name\u0060)\n\n**Onramp/Offramp Events** - Transaction lifecycle notifications:\n- \u0060onramp.transaction.created\u0060, \u0060onramp.transaction.updated\u0060\n- \u0060onramp.transaction.success\u0060, \u0060onramp.transaction.failed\u0060\n- \u0060offramp.transaction.created\u0060, \u0060offramp.transaction.updated\u0060\n- \u0060offramp.transaction.success\u0060, \u0060offramp.transaction.failed\u0060\n- **No labels required** - maximum simplicity for transaction monitoring\n\n**Payments Transfers Events** - Transfer lifecycle notifications:\n- \u0060payments.transfers.quoted\u0060\n- \u0060payments.transfers.processing\u0060\n- \u0060payments.transfers.completed\u0060\n- \u0060payments.transfers.failed\u0060\n- \u0060payments.transfers.travel_rule_incomplete\u0060\n- \u0060payments.transfers.travel_rule_completed\u0060\n- **No labels required** - enable the transfers webhook to monitor status transitions\n\n**Wallet Events** - Wallet activity notifications:\n- \u0060wallet.activity.detected\u0060\n\n### Webhook Signature Verification\nAll webhooks include cryptographic signatures for security.\nThe signature secret is returned in \u0060secret\u0060 field when creating a subscription.\n\n**Note:** Webhooks are in beta and this interface is subject to change.\n\nSee the [verification guide](https://docs.cdp.coinbase.com/onramp-\u0026-offramp/webhooks#webhook-signature-verification) for implementation details.\n\n### Onchain Label Filtering\n\nFor \u0060onchain.activity.detected\u0060 events, use \u0060labels\u0060 for precise filtering with AND logic (max 20 labels per webhook).\n\n**Allowed labels** (all in snake_case format):\n- \u0060network\u0060 (required) - Blockchain network\n- \u0060contract_address\u0060 - Smart contract address\n- \u0060event_name\u0060 - Event name (e.g., \\\u0022Transfer\\\u0022, \\\u0022Burn\\\u0022)\n- \u0060event_signature\u0060 - Event signature hash\n- \u0060transaction_from\u0060 - Transaction sender address\n- \u0060transaction_to\u0060 - Transaction recipient address\n- \u0060params.*\u0060 - Any event parameter (e.g., \u0060params.from\u0060, \u0060params.to\u0060, \u0060params.sender\u0060, \u0060params.tokenId\u0060)\n\n**Examples**:\n- **Liquidity Pool Monitor**: \u0060{\\\u0022network\\\u0022: \\\u0022base-mainnet\\\u0022, \\\u0022contract_address\\\u0022: \\\u00220xcd1f9777571493aeacb7eae45cd30a226d3e612d\\\u0022, \\\u0022event_name\\\u0022: \\\u0022Burn\\\u0022}\u0060\n- **Price Oracle Tracker**: \u0060{\\\u0022network\\\u0022: \\\u0022base-mainnet\\\u0022, \\\u0022contract_address\\\u0022: \\\u00220xbac4a9428ea707c51f171ed9890c3c2fa810305d\\\u0022, \\\u0022event_name\\\u0022: \\\u0022PriceUpdated\\\u0022}\u0060\n- **DeFi Protocol Activity**: \u0060{\\\u0022network\\\u0022: \\\u0022base-mainnet\\\u0022, \\\u0022contract_address\\\u0022: \\\u00220x45c6e6a47a711b14d8357d5243f46704904578e3\\\u0022, \\\u0022event_name\\\u0022: \\\u0022Deposit\\\u0022}\u0060\n\u0022",
+        "description": "\u0022Subscribe to real-time events across CDP products using flexible filtering.\n\n### Event Types\n\n**Onchain Events** - Monitor Base mainnet with microsecond precision:\n- \u0060onchain.activity.detected\u0060 - Smart contract events, transfers, swaps, NFT activity\n- **Requires** \u0060labels\u0060 for filtering (e.g., \u0060contract_address\u0060, \u0060event_name\u0060)\n\n**Onramp/Offramp Events** - Transaction lifecycle notifications:\n- \u0060onramp.transaction.created\u0060, \u0060onramp.transaction.updated\u0060\n- \u0060onramp.transaction.success\u0060, \u0060onramp.transaction.failed\u0060\n- \u0060offramp.transaction.created\u0060, \u0060offramp.transaction.updated\u0060\n- \u0060offramp.transaction.success\u0060, \u0060offramp.transaction.failed\u0060\n- **No labels required** - maximum simplicity for transaction monitoring\n\n**Payments Transfers Events** - Transfer lifecycle notifications:\n- \u0060payments.transfers.quoted\u0060 - Transfer created and awaiting execution\n- \u0060payments.transfers.processing\u0060 - Transfer execution in progress\n- \u0060payments.transfers.completed\u0060 - Transfer completed successfully\n- \u0060payments.transfers.failed\u0060 - Transfer failed\n- \u0060payments.transfers.travel_rule_incomplete\u0060 - Travel rule information is missing\n- \u0060payments.transfers.travel_rule_completed\u0060 - Travel rule information has been provided and the transfer will proceed\n- **No labels required** - enable the transfers webhook to monitor status transitions\n\n**Wallet Events** - Wallet activity notifications:\n- \u0060wallet.activity.detected\u0060\n\n### Webhook Signature Verification\nAll webhooks include cryptographic signatures for security.\nThe signature secret is returned in \u0060secret\u0060 field when creating a subscription.\n\n**Note:** Webhooks are in beta and this interface is subject to change.\n\nSee the [verification guide](https://docs.cdp.coinbase.com/onramp-\u0026-offramp/webhooks#webhook-signature-verification) for implementation details.\n\n### Onchain Label Filtering\n\nFor \u0060onchain.activity.detected\u0060 events, use \u0060labels\u0060 for precise filtering with AND logic (max 20 labels per webhook).\n\n**Allowed labels** (all in snake_case format):\n- \u0060network\u0060 (required) - Blockchain network\n- \u0060contract_address\u0060 - Smart contract address\n- \u0060event_name\u0060 - Event name (e.g., \\\u0022Transfer\\\u0022, \\\u0022Burn\\\u0022)\n- \u0060event_signature\u0060 - Event signature hash\n- \u0060transaction_from\u0060 - Transaction sender address\n- \u0060transaction_to\u0060 - Transaction recipient address\n- \u0060params.*\u0060 - Any event parameter (e.g., \u0060params.from\u0060, \u0060params.to\u0060, \u0060params.sender\u0060, \u0060params.tokenId\u0060)\n\n**Examples**:\n- **Liquidity Pool Monitor**: \u0060{\\\u0022network\\\u0022: \\\u0022base-mainnet\\\u0022, \\\u0022contract_address\\\u0022: \\\u00220xcd1f9777571493aeacb7eae45cd30a226d3e612d\\\u0022, \\\u0022event_name\\\u0022: \\\u0022Burn\\\u0022}\u0060\n- **Price Oracle Tracker**: \u0060{\\\u0022network\\\u0022: \\\u0022base-mainnet\\\u0022, \\\u0022contract_address\\\u0022: \\\u00220xbac4a9428ea707c51f171ed9890c3c2fa810305d\\\u0022, \\\u0022event_name\\\u0022: \\\u0022PriceUpdated\\\u0022}\u0060\n- **DeFi Protocol Activity**: \u0060{\\\u0022network\\\u0022: \\\u0022base-mainnet\\\u0022, \\\u0022contract_address\\\u0022: \\\u00220x45c6e6a47a711b14d8357d5243f46704904578e3\\\u0022, \\\u0022event_name\\\u0022: \\\u0022Deposit\\\u0022}\u0060\n\u0022",
         "operationId": "createWebhookSubscription",
         "requestBody": {
           "content": {
@@ -8217,34 +10034,16 @@
         },
         "description": "Information about an end user who authenticates using Telegram."
       },
-      "WebhookSubscriptionResponseMetadata": {
+      "WebhookSubscriptionResponseLabels": {
         "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "maxLength": 500,
-              "minLength": 0,
-              "type": "string"
-            },
-            "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
-          },
-          {
-            "type": "object",
-            "properties": {
-              "secret": {
-                "type": "string",
-                "description": "Use the root-level \u0060secret\u0060 field instead. Maintained for backward compatibility only.",
-                "format": "uuid",
-                "example": "123e4567-e89b-12d3-a456-426614174000",
-                "deprecated": true
-              }
-            }
-          }
-        ],
-        "description": "Additional metadata for the subscription.",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Multi-label filters using total overlap logic. Total overlap means the subscription only triggers when events contain ALL these key-value pairs.\nPresent when subscription uses multi-label format.\n",
         "example": {
-          "secret": "123e4567-e89b-12d3-a456-426614174000"
+          "env": "dev",
+          "team": "payments",
+          "contract_address": "833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
         }
       },
       "SiweAuthentication": {
@@ -8664,15 +10463,34 @@
           "transaction_simulation_failed": "This error occurs when the pre-broadcast simulation of the swap transaction predicted a revert.\nNo transaction was submitted and no gas was spent.\n\n**Common causes:**\n- The on-chain price moved past the \u0060slippageBps\u0060 tolerance between the price estimate and execution\n- Taker balance changed between the price estimate and execution\n\n**Steps to resolve:**\n1. Retry immediately \u2014 prices change quickly and a new quote may succeed\n2. Increase \u0060slippageBps\u0060 if retries continue to fail (e.g. from 100 to 200)\n3. For large swaps, consider splitting into smaller amounts to reduce price impact"
         }
       },
-      "WebhookTargetHeaders": {
+      "WebhookSubscriptionResponseMetadata": {
         "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "Additional headers to include in webhook requests.",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "maxLength": 500,
+              "minLength": 0,
+              "type": "string"
+            },
+            "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
+          },
+          {
+            "type": "object",
+            "properties": {
+              "secret": {
+                "type": "string",
+                "description": "Use the root-level \u0060secret\u0060 field instead. Maintained for backward compatibility only.",
+                "format": "uuid",
+                "example": "123e4567-e89b-12d3-a456-426614174000",
+                "deprecated": true
+              }
+            }
+          }
+        ],
+        "description": "Additional metadata for the subscription.",
         "example": {
-          "Authorization": "Bearer token123",
-          "Content-Type": "application/json"
+          "secret": "123e4567-e89b-12d3-a456-426614174000"
         }
       },
       "Error": {
@@ -8718,45 +10536,15 @@
           "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
         }
       },
-      "EvmAccount": {
-        "required": [
-          "address"
-        ],
+      "WebhookTargetHeaders": {
         "type": "object",
-        "properties": {
-          "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
-            "type": "string",
-            "description": "The 0x-prefixed, checksum EVM address.",
-            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
-          },
-          "name": {
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,34}[A-Za-z0-9]$",
-            "type": "string",
-            "description": "An optional name for the account.\nAccount names can consist of alphanumeric characters and hyphens, and be between 2 and 36 characters long.\nAccount names are guaranteed to be unique across all EVM accounts in the developer\u0027s CDP Project.",
-            "example": "my-account"
-          },
-          "policies": {
-            "type": "array",
-            "items": {
-              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-              "type": "string"
-            },
-            "description": "The list of policy IDs that apply to the account. This will include both the project-level policy and the account-level policy, if one exists.",
-            "x-audience": "public"
-          },
-          "createdAt": {
-            "type": "string",
-            "description": "The UTC ISO 8601 timestamp at which the account was created.",
-            "format": "date-time",
-            "example": "2025-03-25T12:00:00Z"
-          },
-          "updatedAt": {
-            "type": "string",
-            "description": "The UTC ISO 8601 timestamp at which the account was last updated.",
-            "format": "date-time",
-            "example": "2025-03-26T12:00:00Z"
-          }
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "Additional headers to include in webhook requests.",
+        "example": {
+          "Authorization": "Bearer token123",
+          "Content-Type": "application/json"
         }
       },
       "EIP712Domain": {
@@ -8959,101 +10747,6 @@
         "description": "The network for the EIP-7702 delegation.",
         "example": "base"
       },
-      "EvmEip7702DelegationOperation": {
-        "required": [
-          "delegationOperationId",
-          "status",
-          "network"
-        ],
-        "type": "object",
-        "properties": {
-          "delegationOperationId": {
-            "type": "string",
-            "description": "The unique identifier for the delegation operation.",
-            "format": "uuid",
-            "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
-          },
-          "status": {
-            "enum": [
-              "UNSPECIFIED",
-              "PENDING",
-              "SUBMITTED",
-              "COMPLETED",
-              "FAILED"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The current status of the delegation operation.\nUNSPECIFIED means the status has not been set. PENDING means the operation has been created but not yet submitted. SUBMITTED means the operation has been submitted to the network. COMPLETED means the operation has completed successfully. FAILED means the operation has failed.",
-            "example": "COMPLETED"
-          },
-          "transactionHash": {
-            "pattern": "^0x[0-9a-fA-F]{64}$",
-            "type": "string",
-            "description": "The hash of the delegation transaction, if available. Present once the transaction has been submitted to the network.",
-            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
-          },
-          "network": {
-            "$ref": "#/components/schemas/EvmEip7702DelegationNetwork"
-          },
-          "delegateAddress": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
-            "type": "string",
-            "description": "The address the account has delegated to, if any. Only present when the account has an active delegation.",
-            "example": "7702cb554e6bFb442cb743A7dF23154544a7176C"
-          }
-        },
-        "description": "The status of an EIP-7702 delegation operation."
-      },
-      "EvmSmartAccount": {
-        "required": [
-          "address",
-          "owners"
-        ],
-        "type": "object",
-        "properties": {
-          "address": {
-            "pattern": "^0x[0-9a-fA-F]{40}$",
-            "type": "string",
-            "description": "The 0x-prefixed, checksum address of the Smart Account.",
-            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
-          },
-          "owners": {
-            "type": "array",
-            "items": {
-              "pattern": "^0x[0-9a-fA-F]{40}$",
-              "type": "string"
-            },
-            "description": "Today, only a single owner can be set for a Smart Account, but this is an array to allow having multiple owners in the future. The address is a 0x-prefixed, checksum address."
-          },
-          "name": {
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,34}[A-Za-z0-9]$",
-            "type": "string",
-            "description": "An optional name for the account.\nAccount names can consist of alphanumeric characters and hyphens, and be between 2 and 36 characters long.\nAccount names are guaranteed to be unique across all Smart Accounts in the developer\u0027s CDP Project.",
-            "example": "my-smart-account"
-          },
-          "policies": {
-            "type": "array",
-            "items": {
-              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-              "type": "string"
-            },
-            "description": "The list of policy IDs that apply to the smart account. This will include both the project-level policy and the account-level policy, if one exists.",
-            "x-audience": "public"
-          },
-          "createdAt": {
-            "type": "string",
-            "description": "The UTC ISO 8601 timestamp at which the account was created.",
-            "format": "date-time",
-            "example": "2025-03-25T12:00:00Z"
-          },
-          "updatedAt": {
-            "type": "string",
-            "description": "The UTC ISO 8601 timestamp at which the account was last updated.",
-            "format": "date-time",
-            "example": "2025-03-26T12:00:00Z"
-          }
-        }
-      },
       "EvmUserOperationNetwork": {
         "enum": [
           "base-sepolia",
@@ -9220,6 +10913,142 @@
               "$ref": "#/components/schemas/UserOperationReceipt"
             },
             "description": "The list of receipts associated with the user operation."
+          }
+        }
+      },
+      "EvmAccount": {
+        "required": [
+          "address"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed, checksum EVM address.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "name": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,34}[A-Za-z0-9]$",
+            "type": "string",
+            "description": "An optional name for the account.\nAccount names can consist of alphanumeric characters and hyphens, and be between 2 and 36 characters long.\nAccount names are guaranteed to be unique across all EVM accounts in the developer\u0027s CDP Project.",
+            "example": "my-account"
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            "description": "The list of policy IDs that apply to the account. This will include both the project-level policy and the account-level policy, if one exists.",
+            "x-audience": "public"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which the account was created.",
+            "format": "date-time",
+            "example": "2025-03-25T12:00:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which the account was last updated.",
+            "format": "date-time",
+            "example": "2025-03-26T12:00:00Z"
+          }
+        }
+      },
+      "EvmEip7702DelegationOperation": {
+        "required": [
+          "delegationOperationId",
+          "status",
+          "network"
+        ],
+        "type": "object",
+        "properties": {
+          "delegationOperationId": {
+            "type": "string",
+            "description": "The unique identifier for the delegation operation.",
+            "format": "uuid",
+            "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          },
+          "status": {
+            "enum": [
+              "UNSPECIFIED",
+              "PENDING",
+              "SUBMITTED",
+              "COMPLETED",
+              "FAILED"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The current status of the delegation operation.\nUNSPECIFIED means the status has not been set. PENDING means the operation has been created but not yet submitted. SUBMITTED means the operation has been submitted to the network. COMPLETED means the operation has completed successfully. FAILED means the operation has failed.",
+            "example": "COMPLETED"
+          },
+          "transactionHash": {
+            "pattern": "^0x[0-9a-fA-F]{64}$",
+            "type": "string",
+            "description": "The hash of the delegation transaction, if available. Present once the transaction has been submitted to the network.",
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          },
+          "network": {
+            "$ref": "#/components/schemas/EvmEip7702DelegationNetwork"
+          },
+          "delegateAddress": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The address the account has delegated to, if any. Only present when the account has an active delegation.",
+            "example": "7702cb554e6bFb442cb743A7dF23154544a7176C"
+          }
+        },
+        "description": "The status of an EIP-7702 delegation operation."
+      },
+      "EvmSmartAccount": {
+        "required": [
+          "address",
+          "owners"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed, checksum address of the Smart Account.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "owners": {
+            "type": "array",
+            "items": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "description": "Today, only a single owner can be set for a Smart Account, but this is an array to allow having multiple owners in the future. The address is a 0x-prefixed, checksum address."
+          },
+          "name": {
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{0,34}[A-Za-z0-9]$",
+            "type": "string",
+            "description": "An optional name for the account.\nAccount names can consist of alphanumeric characters and hyphens, and be between 2 and 36 characters long.\nAccount names are guaranteed to be unique across all Smart Accounts in the developer\u0027s CDP Project.",
+            "example": "my-smart-account"
+          },
+          "policies": {
+            "type": "array",
+            "items": {
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            "description": "The list of policy IDs that apply to the smart account. This will include both the project-level policy and the account-level policy, if one exists.",
+            "x-audience": "public"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which the account was created.",
+            "format": "date-time",
+            "example": "2025-03-25T12:00:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which the account was last updated.",
+            "format": "date-time",
+            "example": "2025-03-26T12:00:00Z"
           }
         }
       },
@@ -10846,8 +12675,11 @@
                 "polygon",
                 "optimism",
                 "arbitrum",
+                "arbitrum-sepolia",
                 "zora",
-                "bnb"
+                "bnb",
+                "world",
+                "world-sepolia"
               ],
               "type": "string",
               "additionalProperties": false,
@@ -13222,7 +15054,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Types of events to subscribe to. Event types follow a three-part dot-separated format:\nservice.resource.verb (e.g., \u0022onchain.activity.detected\u0022, \u0022wallet.activity.detected\u0022, \u0022onramp.transaction.created\u0022,\n\u0022acceptance.payment_session\u0022).\n"
+            "description": "Types of events to subscribe to. Event types follow a dot-separated format:\nservice.resource.verb (e.g., \u0022onchain.activity.detected\u0022, \u0022wallet.activity.detected\u0022, \u0022onramp.transaction.created\u0022,\n\u0022acceptance.payment_session.authorization_succeeded\u0022).\n"
           },
           "isEnabled": {
             "type": "boolean",
@@ -13329,7 +15161,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Types of events to subscribe to. Event types follow a three-part dot-separated format:\nservice.resource.verb (e.g., \u0022onchain.activity.detected\u0022, \u0022wallet.activity.detected\u0022, \u0022onramp.transaction.created\u0022,\n\u0022acceptance.payment_session\u0022).\nThe subscription will only receive events matching these types AND the label filter(s).\n"
+            "description": "Types of events to subscribe to. Event types follow a dot-separated format:\nservice.resource.verb (e.g., \u0022onchain.activity.detected\u0022, \u0022wallet.activity.detected\u0022, \u0022onramp.transaction.created\u0022,\n\u0022acceptance.payment_session.authorization_succeeded\u0022).\nThe subscription will only receive events matching these types AND the label filter(s).\n"
           },
           "isEnabled": {
             "type": "boolean",
@@ -14662,18 +16494,6 @@
         },
         "description": "A single limit with remaining capacity."
       },
-      "WebhookSubscriptionResponseLabels": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        },
-        "description": "Multi-label filters using total overlap logic. Total overlap means the subscription only triggers when events contain ALL these key-value pairs.\nPresent when subscription uses multi-label format.\n",
-        "example": {
-          "env": "dev",
-          "team": "payments",
-          "contract_address": "833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
-        }
-      },
       "WebhookSubscriptionRequestLabels": {
         "type": "object",
         "additionalProperties": {
@@ -15015,6 +16835,579 @@
           }
         }
       },
+      "SignEvmTransactionWithEndUserAccount": {
+        "required": [
+          "address",
+          "transaction"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "transaction": {
+            "type": "string",
+            "description": "The RLP-encoded transaction to sign, as a 0x-prefixed hex string.",
+            "example": "f86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "SignEvmTransactionWithEndUserAccount200": {
+        "required": [
+          "signedTransaction"
+        ],
+        "type": "object",
+        "properties": {
+          "signedTransaction": {
+            "type": "string",
+            "description": "The RLP-encoded signed transaction, as a 0x-prefixed hex string.",
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+          }
+        }
+      },
+      "SendEvmTransactionWithEndUserAccount": {
+        "required": [
+          "address",
+          "transaction",
+          "network"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "enum": [
+              "base",
+              "base-sepolia",
+              "ethereum",
+              "ethereum-sepolia",
+              "avalanche",
+              "polygon",
+              "optimism",
+              "arbitrum",
+              "arbitrum-sepolia",
+              "world",
+              "world-sepolia"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The network to send the transaction to.",
+            "example": "base-sepolia"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          },
+          "transaction": {
+            "type": "string",
+            "description": "The RLP-encoded transaction to sign and send, as a 0x-prefixed hex string.",
+            "example": "f86b098505d21dba00830334509431415daf58e2c6b7323b4c58712fd92952145da79018080"
+          }
+        }
+      },
+      "SendEvmTransactionWithEndUserAccount200": {
+        "required": [
+          "transactionHash"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionHash": {
+            "type": "string",
+            "description": "The hash of the transaction, as a 0x-prefixed hex string.",
+            "example": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+          }
+        }
+      },
+      "SendEvmAssetWithEndUserAccount": {
+        "required": [
+          "to",
+          "amount",
+          "network"
+        ],
+        "type": "object",
+        "properties": {
+          "to": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 128,
+                "type": "string",
+                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+              }
+            ],
+            "description": "The 0x-prefixed address of the recipient.",
+            "example": "1234567890123456789012345678901234567890"
+          },
+          "amount": {
+            "maxLength": 32,
+            "minLength": 1,
+            "type": "string",
+            "description": "The amount of USDC to send as a decimal string (e.g., \u00221.5\u0022 or \u002225.50\u0022).",
+            "example": 1.5
+          },
+          "network": {
+            "enum": [
+              "base",
+              "base-sepolia",
+              "ethereum",
+              "ethereum-sepolia",
+              "avalanche",
+              "polygon",
+              "optimism",
+              "arbitrum",
+              "arbitrum-sepolia",
+              "world",
+              "world-sepolia"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The EVM network to send USDC on.",
+            "example": "base-sepolia"
+          },
+          "useCdpPaymaster": {
+            "type": "boolean",
+            "description": "Whether to use CDP Paymaster to sponsor gas fees. Only applicable for EVM Smart Accounts. When true, the transaction gas will be paid by the Paymaster, allowing users to send USDC without holding native gas tokens. Ignored for EOA accounts. Cannot be used together with \u0060paymasterUrl\u0060.",
+            "example": true
+          },
+          "paymasterUrl": {
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 2048,
+                "pattern": "^https?://.*$",
+                "type": "string",
+                "description": "A valid HTTP or HTTPS URL.",
+                "format": "uri"
+              }
+            ],
+            "description": "Optional custom Paymaster URL to use for gas sponsorship. Only applicable for EVM Smart Accounts. This allows you to use your own Paymaster service instead of CDP\u0027s Paymaster. Cannot be used together with \u0060useCdpPaymaster\u0060.",
+            "example": "https://api.developer.coinbase.com/rpc/v1/base/AbCdEf123456"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "SendEvmAssetWithEndUserAccount200": {
+        "type": "object",
+        "properties": {
+          "transactionHash": {
+            "type": "string",
+            "description": "The hash of the transaction, as a 0x-prefixed hex string. Populated for EOA accounts. Null for Smart Accounts (use userOpHash instead).",
+            "nullable": true,
+            "example": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+          },
+          "userOpHash": {
+            "type": "string",
+            "description": "The hash of the user operation, as a 0x-prefixed hex string. Populated for Smart Accounts. Null for EOA accounts (use transactionHash instead).",
+            "nullable": true,
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          }
+        }
+      },
+      "SignEvmMessageWithEndUserAccount": {
+        "required": [
+          "address",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "message": {
+            "type": "string",
+            "description": "The message to sign.",
+            "example": "Hello, world!"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "SignEvmMessageWithEndUserAccount200": {
+        "required": [
+          "signature"
+        ],
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The signature of the message, as a 0x-prefixed hex string.",
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+          }
+        }
+      },
+      "SignEvmTypedDataWithEndUserAccount": {
+        "required": [
+          "address",
+          "typedData"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed address of the EVM account belonging to the end user.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "typedData": {
+            "$ref": "#/components/schemas/EIP712Message"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "SignEvmTypedDataWithEndUserAccount200": {
+        "required": [
+          "signature"
+        ],
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The signature of the typed data, as a 0x-prefixed hex string.",
+            "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+          }
+        }
+      },
+      "RevokeDelegationForEndUser": {
+        "type": "object",
+        "properties": {
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "When revoking with a wallet authentication scheme, the ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "CreateEvmEip7702DelegationWithEndUserAccount": {
+        "required": [
+          "address",
+          "network"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^0x[0-9a-fA-F]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed address of the EVM account to delegate.",
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/EvmEip7702DelegationNetwork"
+          },
+          "enableSpendPermissions": {
+            "type": "boolean",
+            "description": "Whether to configure spend permissions for the upgraded, delegated account. When enabled, the account can grant permissions for third parties to spend on its behalf.",
+            "default": false,
+            "example": true
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "CreateEvmEip7702DelegationWithEndUserAccount201": {
+        "required": [
+          "delegationOperationId"
+        ],
+        "type": "object",
+        "properties": {
+          "delegationOperationId": {
+            "type": "string",
+            "description": "The unique identifier for the delegation operation. Use this to poll the operation status.",
+            "format": "uuid",
+            "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          }
+        }
+      },
+      "SendUserOperationWithEndUserAccount": {
+        "required": [
+          "network",
+          "calls",
+          "useCdpPaymaster"
+        ],
+        "type": "object",
+        "properties": {
+          "network": {
+            "$ref": "#/components/schemas/EvmUserOperationNetwork"
+          },
+          "calls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EvmCall"
+            },
+            "description": "The list of calls to make from the Smart Account."
+          },
+          "useCdpPaymaster": {
+            "type": "boolean",
+            "description": "Whether to use the CDP Paymaster for the user operation.",
+            "example": true
+          },
+          "paymasterUrl": {
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 2048,
+                "pattern": "^https?://.*$",
+                "type": "string",
+                "description": "A valid HTTP or HTTPS URL.",
+                "format": "uri"
+              }
+            ],
+            "description": "The URL of the paymaster to use for the user operation. If using the CDP Paymaster, use the \u0060useCdpPaymaster\u0060 option.",
+            "example": "https://api.developer.coinbase.com/rpc/v1/base/\u003Ctoken\u003E"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          },
+          "dataSuffix": {
+            "pattern": "^0x[0-9a-fA-F]\u002B$",
+            "type": "string",
+            "description": "The EIP-8021 data suffix (hex-encoded) that enables transaction attribution for the user operation.",
+            "example": "dddddddd62617365617070070080218021802180218021802180218021"
+          }
+        }
+      },
+      "SignSolanaMessageWithEndUserAccount": {
+        "required": [
+          "address",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+            "type": "string",
+            "description": "The base58 encoded address of the Solana account belonging to the end user.",
+            "example": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
+          },
+          "message": {
+            "type": "string",
+            "description": "The base64 encoded arbitrary message to sign.",
+            "example": "SGVsbG8sIHdvcmxk"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "SignSolanaMessageWithEndUserAccount200": {
+        "required": [
+          "signature"
+        ],
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "The signature of the message, as a base58 encoded string.",
+            "example": "4YecmNqVT9QFqzuSvE9Zih3toZzNAijjXpj8xupgcC6E4VzwzFjuZBk5P99yz9JQaLRLm1K4L4FpMjxByFxQBe2h"
+          }
+        }
+      },
+      "SignSolanaTransactionWithEndUserAccount": {
+        "required": [
+          "address",
+          "transaction"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+            "type": "string",
+            "description": "The base58 encoded address of the Solana account belonging to the end user.",
+            "example": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
+          },
+          "transaction": {
+            "type": "string",
+            "description": "The base64 encoded transaction to sign.",
+            "example": "AQABAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAQECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8CBgMBAQAAAAIBAwQAAAAABgIAAAAAAAYDBQEBAAAGBAgAAAAABgUAAAAA6AMAAAAAAAAGBgUBAQEBBgcEAQAAAAYICgMBAQIDBgkCBgAAAAYKAwABAQEGCwMGAQEBBgwDAAABAQAAAAA="
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "SignSolanaTransactionWithEndUserAccount200": {
+        "required": [
+          "signedTransaction"
+        ],
+        "type": "object",
+        "properties": {
+          "signedTransaction": {
+            "type": "string",
+            "description": "The base64 encoded signed transaction.",
+            "example": "AQACAdSOvpk0UJXs/rQRXYKSI9hcR0bkGp24qGv6t0/M1XjcQpHf6AHwLcPjEtKQI7p/U0Zo98lnJ5/PZMfVq/0BAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAQECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8CBgMBAQAAAAIBAwQAAAAABgIAAAAAAAYDBQEBAAAGBAgAAAAABgUAAAAA6AMAAAAAAAAGBgUBAQEBBgcEAQAAAAYICgMBAQIDBgkCBgAAAAYKAwABAQEGCwMGAQEBBgwDAAABAQAAAAA="
+          }
+        }
+      },
+      "SendSolanaTransactionWithEndUserAccount": {
+        "required": [
+          "address",
+          "network",
+          "transaction"
+        ],
+        "type": "object",
+        "properties": {
+          "address": {
+            "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+            "type": "string",
+            "description": "The base58 encoded address of the Solana account belonging to the end user.",
+            "example": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
+          },
+          "network": {
+            "enum": [
+              "solana",
+              "solana-devnet"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The Solana network to send the transaction to.",
+            "example": "solana-devnet"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          },
+          "transaction": {
+            "type": "string",
+            "description": "The base64 encoded transaction to sign and send. This transaction can contain multiple instructions for native Solana batching.",
+            "example": "AQABAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAQECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8CBgMBAQAAAAIBAwQAAAAABgIAAAAAAAYDBQEBAAAGBAgAAAAABgUAAAAA6AMAAAAAAAAGBgUBAQEBBgcEAQAAAAYICgMBAQIDBgkCBgAAAAYKAwABAQEGCwMGAQEBBgwDAAABAQAAAAA="
+          },
+          "useCdpSponsor": {
+            "type": "boolean",
+            "description": "Whether transaction fees should be sponsored by CDP. When true, CDP sponsors the transaction fees on behalf of the end user. When false, the end user is responsible for paying the transaction fees.",
+            "example": true
+          }
+        }
+      },
+      "SendSolanaTransactionWithEndUserAccount200": {
+        "required": [
+          "transactionSignature"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionSignature": {
+            "type": "string",
+            "description": "The base58 encoded transaction signature.",
+            "example": "5VERv8NMvzbJMEkV8xnrLkEaWRtSz9CosKDYjCJjBRnbJLgp8uirBgmQpjKhoR4tjF3ZpRzrFmBV6UjKdiSZkQUW"
+          }
+        }
+      },
+      "SendSolanaAssetWithEndUserAccount": {
+        "required": [
+          "to",
+          "amount",
+          "network"
+        ],
+        "type": "object",
+        "properties": {
+          "to": {
+            "pattern": "^[1-9A-HJ-NP-Za-km-z]{32,44}$",
+            "type": "object",
+            "allOf": [
+              {
+                "maxLength": 128,
+                "type": "string",
+                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+              }
+            ],
+            "description": "The base58 encoded address of the recipient.",
+            "example": "ExXhNkgYf6efh7YyqDRVxPZuzafobao1A74drUdp8trd"
+          },
+          "amount": {
+            "maxLength": 32,
+            "minLength": 1,
+            "type": "string",
+            "description": "The amount of USDC to send as a decimal string (e.g., \u00221.5\u0022 or \u002225.50\u0022).",
+            "example": 1.5
+          },
+          "network": {
+            "enum": [
+              "solana",
+              "solana-devnet"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The Solana network to send USDC on.",
+            "example": "solana-devnet"
+          },
+          "createRecipientAta": {
+            "type": "boolean",
+            "description": "Whether to automatically create an Associated Token Account (ATA) for the recipient if it doesn\u0027t exist. When true, the sender pays the rent-exempt minimum to create the recipient\u0027s USDC ATA. When false, the transaction will fail if the recipient doesn\u0027t have a USDC ATA.",
+            "example": true
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          },
+          "useCdpSponsor": {
+            "type": "boolean",
+            "description": "Whether transaction fees should be sponsored by CDP. When true, CDP sponsors the transaction fees on behalf of the end user. When false, the end user is responsible for paying the transaction fees.",
+            "example": true
+          }
+        }
+      },
+      "SendSolanaAssetWithEndUserAccount200": {
+        "required": [
+          "transactionSignature"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionSignature": {
+            "type": "string",
+            "description": "The base58 encoded transaction signature.",
+            "example": "5VERv8NMvzbJMEkV8xnrLkEaWRtSz9CosKDYjCJjBRnbJLgp8uirBgmQpjKhoR4tjF3ZpRzrFmBV6UjKdiSZkQUW"
+          }
+        }
+      },
       "ListEvmAccounts200": {
         "type": "object",
         "allOf": [
@@ -15090,7 +17483,10 @@
               "avalanche",
               "polygon",
               "optimism",
-              "arbitrum"
+              "arbitrum",
+              "arbitrum-sepolia",
+              "world",
+              "world-sepolia"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -16834,6 +19230,34 @@
         },
         "example": "8e03978e-40d5-43e8-bc93-6894a57f9324"
       },
+      "XWalletAuthOptional": {
+        "name": "X-Wallet-Auth",
+        "in": "header",
+        "description": "A JWT signed using your Wallet Secret, encoded in base64. Refer to the\n[Generate Wallet Token](https://docs.cdp.coinbase.com/api-reference/v2/authentication#2-generate-wallet-token)\nsection of our Authentication docs for more details on how to generate your Wallet Token.\n",
+        "schema": {
+          "type": "string"
+        },
+        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywicm9sZSI6ImFkbWluIiwiZXhwIjoxNzAxOTgwMDAwfQ.HWvMTKmCCTxHaxjvZyLaC6UQ6TV3ErTDWBf7zmdH0Lw"
+      },
+      "XDeveloperAuth": {
+        "name": "X-Developer-Auth",
+        "in": "header",
+        "description": "A JWT signed using your Wallet Secret, encoded in base64. Refer to the\n[Generate Wallet Token](https://docs.cdp.coinbase.com/api-reference/v2/authentication#2-generate-wallet-token)\nsection of our Authentication docs for more details on how to generate your Wallet Token.\n",
+        "schema": {
+          "type": "string"
+        },
+        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywicm9sZSI6ImFkbWluIiwiZXhwIjoxNzAxOTgwMDAwfQ.HWvMTKmCCTxHaxjvZyLaC6UQ6TV3ErTDWBf7zmdH0Lw"
+      },
+      "ProjectIDOptional": {
+        "name": "projectID",
+        "in": "query",
+        "description": "The ID of the CDP Project. Required for end users authenticated using custom auth (i.e. a non-CDP JWT provider).",
+        "schema": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "type": "string",
+          "example": "8e03978e-40d5-43e8-bc93-6894a57f9324"
+        }
+      },
       "PageSize": {
         "name": "pageSize",
         "in": "query",
@@ -16861,6 +19285,13 @@
         "scheme": "bearer",
         "bearerFormat": "JWT"
       },
+      "endUserAuth": {
+        "type": "http",
+        "description": "A JWT signed using the developer\u0027s own JWT private key (in the case of JWT authentication), or an end user JWT signed by CDP, encoded in base64. This is used for End User Account APIs.",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "x-audience": "public"
+      },
       "assets_jwt": {
         "type": "http",
         "description": "JWT used for assets upload",
@@ -16875,6 +19306,14 @@
     }
   ],
   "tags": [
+    {
+      "name": "Embedded Wallets",
+      "description": "The Embedded Wallet APIs enable end users to directly create, manage, and use their accounts. They are typically accessed via the CDP Web SDK. End users authenticate with the APIs via the \u0060InitiateAuthentication\u0060 endpoint, and use the returned access token and refresh token to authenticate with the other endpoints. The Embedded Wallet APIs offer end users full control over their accounts, including the ability to sign transactions and messages, and to export their accounts\u0027 private keys.\n\nThere are three authentication credentials involved in the Embedded Wallet APIs:\n\n1. **Access Token**: A JWT signed by CDP, encoded in base64. This is used to identify the end user, and is\n  issued after the end user has signed in using one of the provided authentication methods.\n  The APIs provide multiple mechanisms for end user authentication, including custom auth JWT authentication,\n  email one-time-password (OTP) authentication, and social sign-in.\n\n\n2. **Refresh Token**: A cryptographically random string, set as the \u0060cdp_refresh_token\u0060 cookie in the end user\u0027s browser.\n  By hitting the \u0060RefreshAccessToken\u0060 endpoint, the included refresh token can be used to obtain a new access token\n  without requiring the end user to sign in again.\n\n\n3. **Temporary Wallet Secret (TWS)**: Requests to signing-related endpoints must also be authenticated using a\n  **Temporary Wallet Secret** (TWS) generated on the end user\u0027s browser/device. Typically, this is done using the CDP Embedded Wallet SDK. The Temporary Wallet Secret\n  follows similar semantics to the Wallet Secret used by the EVM and Solana Account APIs, with the following key differences:\n\n  - The end user must register their TWS with the End User Accounts APIs before it can be used.\n  - Temporary Wallet Secrets have a time-to-live (TTL) defined by the \u0060validUntil\u0060 field in the TWS registration request.\n  - A maximum of five TWS\u0027s can be registered for a single end user at any given time.\n\n\n## Delegated Signing\n\nDelegated signing allows developers to sign and send transactions on behalf of an end user without requiring the end user to be present at signing time. This is useful for background operations, automated workflows, and scenarios where the developer\u0027s server needs to act on the end user\u0027s behalf.\n\nTo use delegated signing, the end user must first create a short-lived **delegation grant** by authenticating with their access token and Temporary Wallet Secret. The grant specifies an \u0060expiresAt\u0060 timestamp that defines how long the developer is authorized to sign on the end user\u0027s behalf.\n\nOnce a delegation grant is active, the developer\u0027s server can use its CDP API key to perform signing operations for that end user. The delegation middleware transparently validates that an active (non-expired, non-revoked) grant exists for the {project, user} pair before allowing the operation to proceed.\n\n**Grant lifecycle:**\n\n  - Delegation grants are scoped to a single project and end user pair.\n  - Grants are time-bounded by the \u0060expiresAt\u0060 timestamp and are automatically cleaned up after expiration.\n  - Grants can be revoked early by either the end user (using their access token and TWS) or the\n    developer (using their API key), via the \u0060RevokeDelegationForEndUser\u0060 endpoint.\n  - Only one active grant can exist per {project, user} pair at a given time.",
+      "x-audience": "public",
+      "x-slo-tier": {
+        "tier": "ga"
+      }
+    },
     {
       "name": "End User Accounts",
       "description": "The End User Accounts APIs enable developers to manage the accounts belonging to their end users. End User Accounts are typically created by end users themselves when they sign in to the developer\u0027s application via the CDP Web SDK. However, developers also have the option of creating End User Accounts on behalf of their end users. Critically, developers do not have the ability to sign transactions or messages on behalf of the end user; only end users can do this.\n\nEnd User Accounts APIs are accessed by the developer\u0027s servers and authenticated by the developer\u0027s CDP API key.",
@@ -16941,7 +19380,7 @@
     },
     {
       "name": "Policy Engine",
-      "description": "The Policy Engine APIs evaluate policies (a set of rules) to govern the behavior of accounts or projects, such as enforce allowlists and denylists.\n- A **policy** is a collection of \u0060rules\u0060 with defined criteria.\n- Each **rule** contains a specified \u0060action\u0060, \u0060operation\u0060, and \u0060criteria\u0060:\n  - An \u0060action\u0060 can either \u0060accept\u0060 or \u0060reject\u0060 a transaction if the criteria in the rule are met.\n  - \u0060criteria\u0060 is an array of logical expressions. All parameters must evaluate to true for the action to be applied.\n  - An \u0060operation\u0060 corresponds to a CDP v2 API:\n      - \u0060signEvmTransaction\u0060 or \u0060signSolTransaction\u0060 for signing transactions (to set a transaction limit).\n      - \u0060sendEvmTransaction\u0060 for signing a transaction, and sending it to a supported network.\n      - \u0060signEvmHash\u0060 for signing an arbitrary 32 byte hash.\n      - \u0060signEvmMessage\u0060 for signing an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) message.\n      - \u0060prepareUserOperation\u0060 for preparing user operations on a smart account.\n      - \u0060sendUserOperation\u0060 for sending user operations using a smart account.\n      - \u0060signEndUserEvmTransaction\u0060 or \u0060signEndUserSolTransaction\u0060 for signing end user transactions (to set a transaction limit).\n      - \u0060sendEndUserEvmTransaction\u0060 for signing an end user transaction, and sending it to a supported EVM network.\n      - \u0060sendEndUserSolTransaction\u0060 for signing an end user transaction, and sending it to a supported Solana network.\n      - \u0060signEndUserEvmMessage\u0060 for signing an end user [EIP-191](https://eips.ethereum.org/EIPS/eip-191) message.\n      - \u0060signEndUserEvmTypedData\u0060 for signing end user [EIP-712](https://eips.ethereum.org/EIPS/eip-712) typed data.\n      - \u0060signEndUserSolMessage\u0060 for signing an end user Solana message.\n- A **rule** indicates how an operation should behave, specifying whether a request with defined criteria should be accepted or rejected.\n## Policy Scope\nPolicies can be applied at the project and/or account level:\n- **Project-level policy**: A \u0060project\u0060-level policy applies to all accounts in a CDP Project. Only one project-level policy can be applied to accounts within a CDP Project at any given time.\n- **Account-level policy**: An \u0060account\u0060-level policy applies to one or more accounts. An account\n  can have at most one account-level policy at any given time.\n\nThus, a single account can be assigned at most two policies at any given time: one project-level policy and one account-level policy.\n\n**Note:** End user operation rules (e.g., \u0060signEndUserEvmTransaction\u0060, \u0060sendEndUserSolTransaction\u0060) currently only apply for policies with the \u0060project\u0060 scope.\n\nScope is specified in the \u0060scope\u0060 field of a policy:\n\u0060\u0060\u0060json {\n  \u0022description\u0022: \u0022Project-level policy\u0022,\n  \u0022scope\u0022: \u0022account\u0022,\n  ...\n\u0060\u0060\u0060\n## Policy Evaluation\n**Project-level policies** are evaluated first, followed by **account-level policies**.\nThe Policy Engine will process the request against each rule in the order it is defined within the \u0060rules\u0060 array:\n\n  1. If the rule\u0027s \u0060criteria\u0060 (processed as a logical **AND** operation applied to a list of independently evaluated boolean expressions) are met, \u0060accept\u0060 or \u0060reject\u0060 behavior is applied immediately and the engine stops further evaluation of the policy.\n  1. If after policy evaluation, no rule\u0027s \u0060criteria\u0060 are met, the engine moves to processing the next policy (i.e., an \u0060account\u0060-level policy).\n  1. If no further policies exist, the request is rejected.\n\nFor example, the following policy is a project-level policy with two rules. The Policy Engine will:\n\n   1. **Evaluate the first rule:** For a \u0060signEvmTransaction\u0060 request, accept the request if the transaction is less than or equal to 1000000000000000000 wei OR\n   1. **Evaluate the second rule:** if the request is a \u0060signEvmTransaction\u0060 request, accept the request if the transaction is less than or equal to 2000000000000000000 wei AND the request is made to the address \u00600xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE\u0060.\n   1. **If the request does not meet the criteria of either rule**, the engine will move on to evaluate an \u0060account\u0060-level policy (if one exists).\n   1. Otherwise, the request is rejected.\n\nRules are processed in the order they are defined. Once a rule applies to an operation, subsequent rules are ignored.\n\u0060\u0060\u0060json\n{\n  \u0022description\u0022: \u0022Project-level policy\u0022,\n  \u0022scope\u0022: \u0022project\u0022,\n  \u0022rules\u0022: [\n    {\n      \u0022action\u0022: \u0022accept\u0022,\n      \u0022operation\u0022: \u0022signEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022ethValue\u0022,\n          \u0022ethValue\u0022: \u00221000000000000000000\u0022,\n          \u0022operator\u0022: \u0022\u003C=\u0022\n        }\n      ]\n    },\n    {\n      \u0022action\u0022: \u0022accept\u0022,\n      \u0022operation\u0022: \u0022signEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022ethValue\u0022,\n          \u0022ethValue\u0022: \u00222000000000000000000\u0022,\n          \u0022operator\u0022: \u0022\u003C=\u0022\n        },\n        {\n          \u0022type\u0022: \u0022evmAddress\u0022,\n          \u0022addresses\u0022: [\n            \u00220xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE\u0022\n          ],\n          \u0022operator\u0022: \u0022in\u0022\n        }\n      ]\n    }\n  ]\n}\n\u0060\u0060\u0060\n\n## Policy Application\n\nProject-level policies are applied to all accounts in a CDP Project. They will apply retroactively even if the project-level policy is created after the account was created. To disable a project-level policy, you must remove the project-level policy from the CDP Project using the \u0060deletePolicy\u0060 operation.\n\nAccount-level policies can be applied in two ways:\n- By specifying the \u0060accountPolicy\u0060 field in the request body of the \u0060createEvmAccount\u0060 and\n  \u0060createSolAccount\u0060 operations.\n\n- By specifying the \u0060accountPolicy\u0060 field in the request body of the \u0060updateEvmAccount\u0060 and\n  \u0060updateSolanaAccount\u0060 operations.\n\n\n## Criteria\n\nThe following criteria are supported:\n\n### SignEvmTransaction Criteria\n#### ethValue\nA criterion based on the value of the transaction. The transaction\u0027s \u0060value\u0060 field is compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the transaction. The transaction\u0027s \u0060to\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n#### netUSDChange\nA criterion based on the USD denominated market value of assets being transferred, or exposing the sender to. The types of assets included in the calculation include native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens. The sum total USD amount of assets being transferred and exposed is compared to the criterion\u0027s \u0060changeCents\u0060 field using the \u0060operator\u0060 field. If signing a testnet transaction, then this criterion configuration will be ignored.\n### SendEvmTransaction Criteria\n#### ethValue\nA criterion based on the value of the transaction. The transaction\u0027s \u0060value\u0060 field is compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the transaction. The transaction\u0027s \u0060to\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmNetwork\nA criterion based on the intended network of the transaction. The \u0060network\u0060 field in the \u0060sendEvmTransaction\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060base\u0060\n  - \u0060base-sepolia\u0060\n  - \u0060ethereum\u0060\n  - \u0060ethereum-sepolia\u0060\n  - \u0060avalanche\u0060\n  - \u0060polygon\u0060\n  - \u0060optimism\u0060\n  - \u0060arbitrum\u0060\n\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n#### netUSDChange\nA criterion based on the USD denominated market value of assets being transferred, or exposing the sender to. The types of assets included in the calculation include native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens. The sum total USD amount of assets being transferred and exposed is compared to the criterion\u0027s \u0060changeCents\u0060 field using the \u0060operator\u0060 field. If sending a testnet transaction, then this criterion configuration will be ignored.\n### SendUserOperation Criteria\n#### ethValue\nA criterion based on the value of the user operation. The operation\u0027s \u0060value\u0060 fields are compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the operation. The operation\u0027s \u0060to\u0060 fields are compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n### PrepareUserOperation Criteria\n#### ethValue\nA criterion based on the value of the user operation. The operation\u0027s \u0060value\u0060 fields are compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the user operation. The operation\u0027s \u0060to\u0060 fields are compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmNetwork\nA criterion based on the intended network of the user operation. The \u0060network\u0060 field in the \u0060prepareUserOperation\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060base-sepolia\u0060\n  - \u0060base\u0060\n  - \u0060arbitrum\u0060\n  - \u0060optimism\u0060\n  - \u0060zora\u0060\n  - \u0060polygon\u0060\n  - \u0060bnb\u0060\n  - \u0060avalanche\u0060\n  - \u0060ethereum\u0060\n  - \u0060ethereum-sepolia\u0060\n\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n### SignEvmHash Criteria\nThe \u0060signEvmHash\u0060 operation does not accept any criteria. To prevent this operation from being executed by any account, specify a rule with \u0060signEvmHash\u0060 as the operation, and \u0060reject\u0060 as its action.\n### SignEvmMessage Criteria\n#### evmMessage\nA criterion based on the intended message to be signed. The \u0060match\u0060 field in the criteria is a [RE2](https://github.com/google/re2/wiki/Syntax) compliant regular expression that will be executed against the message in the API request.\n### SignSolMessage Criteria\n#### solMessage\nA criterion based on the intended message to be signed. The \u0060match\u0060 field in the criteria is a [RE2](https://github.com/google/re2/wiki/Syntax) compliant regular expression that will be executed against the message in the API request.\n### SignSolTransaction Criteria\n#### solAddress\nA criterion based on the recipient addresses of the transaction. The criterion\u0027s \u0060address\u0060 field is compared to the list of addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solValue\nA criterion based on the value of the transaction. The criterion\u0027s \u0060solValue\u0060 field is compared to the transaction\u0027s \u0060value\u0060, which is the amount of SOL in lamports being transferred, using the \u0060operator\u0060 field.\n#### splAddress\nA criterion based on the recipient addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of SPL token transfer recipient addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### splValue\nA criterion based on the SPL token value of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060splValue\u0060 field is compared to the transaction instruction\u0027s \u0060value\u0060 field, which is the amount of the SPL token being transferred, using the \u0060operator\u0060 field.\n#### mintAddress\nA criterion based on the token mint addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of token mint addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solData\nA criterion based on Solana transaction instruction data. The criterion uses Interface Definition Language (IDL) specifications to decode and validate instruction data against specific rules. The \u0060idls\u0060 field specifies which Solana programs to validate against (either known program names like \u0022SystemProgram\u0022 and \u0022TokenProgram\u0022, or custom IDL objects), and the \u0060conditions\u0060 field defines instruction-specific validation rules including instruction names and parameter constraints.\n#### programId\nA criterion based on the program IDs of a transaction\u0027s instructions. The criterion\u0027s \u0060programIds\u0060 field is compared to the list of program IDs in the transaction\u0027s instructions using the \u0060operator\u0060 field.\n### SendSolTransaction Criteria\n#### solAddress\nA criterion based on the recipient addresses of the transaction. The criterion\u0027s \u0060address\u0060 field is compared to the list of addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solValue\nA criterion based on the value of the transaction. The criterion\u0027s \u0060solValue\u0060 field is compared to the transaction\u0027s \u0060value\u0060, which is the amount of SOL in lamports being transferred, using the \u0060operator\u0060 field.\n#### splAddress\nA criterion based on the recipient addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of SPL token transfer recipient addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### splValue\nA criterion based on the SPL token value of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060splValue\u0060 field is compared to the transaction instruction\u0027s \u0060value\u0060 field, which is the amount of the SPL token being transferred, using the \u0060operator\u0060 field.\n#### mintAddress\nA criterion based on the token mint addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of token mint addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solData\nA criterion based on Solana transaction instruction data. The criterion uses Interface Definition Language (IDL) specifications to decode and validate instruction data against specific rules. The \u0060idls\u0060 field specifies which Solana programs to validate against (either known program names like \u0022SystemProgram\u0022 and \u0022TokenProgram\u0022, or custom IDL objects), and the \u0060conditions\u0060 field defines instruction-specific validation rules including instruction names and parameter constraints.\n#### programId\nA criterion based on the program IDs of a transaction\u0027s instructions. The criterion\u0027s \u0060programIds\u0060 field is compared to the list of program IDs in the transaction\u0027s instructions using the \u0060operator\u0060 field.\n#### solNetwork\nA criterion based on the intended network of the transaction. The \u0060network\u0060 field in the \u0060sendSolanaTransaction\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060solana-devnet\u0060\n  - \u0060solana\u0060\n\n## End User Criteria for Embedded Wallets\nEnd user criteria apply to operations performed by end users via embedded wallets. These criteria are only evaluated for policies with the \u0060project\u0060 scope. The supported criterion types for each end user operation mirror their non-end-user counterparts.\n### SignEndUserEvmTransaction Criteria\n#### ethValue\nA criterion based on the value of the transaction. The transaction\u0027s \u0060value\u0060 field is compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the transaction. The transaction\u0027s \u0060to\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n#### netUSDChange\nA criterion based on the USD denominated market value of assets being transferred, or exposing the sender to. The types of assets included in the calculation include native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens. The sum total USD amount of assets being transferred and exposed is compared to the criterion\u0027s \u0060changeCents\u0060 field using the \u0060operator\u0060 field. If signing a testnet transaction, then this criterion configuration will be ignored.\n### SendEndUserEvmTransaction Criteria\n#### ethValue\nA criterion based on the value of the transaction. The transaction\u0027s \u0060value\u0060 field is compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the transaction. The transaction\u0027s \u0060to\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmNetwork\nA criterion based on the intended network of the transaction. The \u0060network\u0060 field in the \u0060sendEndUserEvmTransaction\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060base\u0060\n  - \u0060base-sepolia\u0060\n  - \u0060ethereum\u0060\n  - \u0060ethereum-sepolia\u0060\n  - \u0060avalanche\u0060\n  - \u0060polygon\u0060\n  - \u0060optimism\u0060\n  - \u0060arbitrum\u0060\n\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n#### netUSDChange\nA criterion based on the USD denominated market value of assets being transferred, or exposing the sender to. The types of assets included in the calculation include native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens. The sum total USD amount of assets being transferred and exposed is compared to the criterion\u0027s \u0060changeCents\u0060 field using the \u0060operator\u0060 field. If sending a testnet transaction, then this criterion configuration will be ignored.\n### SignEndUserEvmMessage Criteria\n#### evmMessage\nA criterion based on the intended message to be signed. The \u0060match\u0060 field in the criteria is a [RE2](https://github.com/google/re2/wiki/Syntax) compliant regular expression that will be executed against the message in the API request.\n### SignEndUserEvmTypedData Criteria\n#### evmTypedDataField\nA criterion based on the fields of the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) typed data being signed. The \u0060types\u0060 field specifies the EIP-712 type definitions and primary type, while the \u0060conditions\u0060 field defines validation rules for specific fields within the typed data message. Conditions can target address fields, numerical fields, or string fields, and can reference deeply nested values using dot-separated paths.\n#### evmTypedDataVerifyingContract\nA criterion based on the verifying contract address in the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) domain separator. The domain\u0027s \u0060verifyingContract\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n### SignEndUserSolTransaction Criteria\n#### solAddress\nA criterion based on the recipient addresses of the transaction. The criterion\u0027s \u0060address\u0060 field is compared to the list of addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solValue\nA criterion based on the value of the transaction. The criterion\u0027s \u0060solValue\u0060 field is compared to the transaction\u0027s \u0060value\u0060, which is the amount of SOL in lamports being transferred, using the \u0060operator\u0060 field.\n#### splAddress\nA criterion based on the recipient addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of SPL token transfer recipient addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### splValue\nA criterion based on the SPL token value of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060splValue\u0060 field is compared to the transaction instruction\u0027s \u0060value\u0060 field, which is the amount of the SPL token being transferred, using the \u0060operator\u0060 field.\n#### mintAddress\nA criterion based on the token mint addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of token mint addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solData\nA criterion based on Solana transaction instruction data. The criterion uses Interface Definition Language (IDL) specifications to decode and validate instruction data against specific rules. The \u0060idls\u0060 field specifies which Solana programs to validate against (either known program names like \u0022SystemProgram\u0022 and \u0022TokenProgram\u0022, or custom IDL objects), and the \u0060conditions\u0060 field defines instruction-specific validation rules including instruction names and parameter constraints.\n#### programId\nA criterion based on the program IDs of a transaction\u0027s instructions. The criterion\u0027s \u0060programIds\u0060 field is compared to the list of program IDs in the transaction\u0027s instructions using the \u0060operator\u0060 field.\n### SendEndUserSolTransaction Criteria\n#### solAddress\nA criterion based on the recipient addresses of the transaction. The criterion\u0027s \u0060address\u0060 field is compared to the list of addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solValue\nA criterion based on the value of the transaction. The criterion\u0027s \u0060solValue\u0060 field is compared to the transaction\u0027s \u0060value\u0060, which is the amount of SOL in lamports being transferred, using the \u0060operator\u0060 field.\n#### splAddress\nA criterion based on the recipient addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of SPL token transfer recipient addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### splValue\nA criterion based on the SPL token value of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060splValue\u0060 field is compared to the transaction instruction\u0027s \u0060value\u0060 field, which is the amount of the SPL token being transferred, using the \u0060operator\u0060 field.\n#### mintAddress\nA criterion based on the token mint addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of token mint addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solData\nA criterion based on Solana transaction instruction data. The criterion uses Interface Definition Language (IDL) specifications to decode and validate instruction data against specific rules. The \u0060idls\u0060 field specifies which Solana programs to validate against (either known program names like \u0022SystemProgram\u0022 and \u0022TokenProgram\u0022, or custom IDL objects), and the \u0060conditions\u0060 field defines instruction-specific validation rules including instruction names and parameter constraints.\n#### programId\nA criterion based on the program IDs of a transaction\u0027s instructions. The criterion\u0027s \u0060programIds\u0060 field is compared to the list of program IDs in the transaction\u0027s instructions using the \u0060operator\u0060 field.\n#### solNetwork\nA criterion based on the intended network of the transaction. The \u0060network\u0060 field in the \u0060sendEndUserSolTransaction\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060solana-devnet\u0060\n  - \u0060solana\u0060\n\n### SignEndUserSolMessage Criteria\n#### solMessage\nA criterion based on the intended message to be signed. The \u0060match\u0060 field in the criteria is a [RE2](https://github.com/google/re2/wiki/Syntax) compliant regular expression that will be executed against the message in the API request.\n## Restricting Contract Interactions on Ethereum\nSmart contract function restrictions serve as a critical security and governance mechanism in decentralized applications, allowing developers and organizations to implement fine-grained access controls over their protocol interactions.\nOne of the primary use cases for function restrictions is protecting high-risk operations from unauthorized access such as:\n- Fund transfers - Contract upgrades - Parameter modifications - Emergency pauses\nPolicy Engine supports such restrictions that evaluate against transaction data with the \u0060evmData\u0060 criterion for the \u0060signEvmTransaction\u0060, and \u0060sendEvmTransaction\u0060 operations.\n## Examples\n### USD Limits\nThe following example demonstrates a policy that only allows transactions to transfer, or expose the sender to, less than $100.00 worth of assets at a time. This USD denominated amount includes native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens calculated using current market prices.\n\u0060\u0060\u0060json {\n  \u0022scope\u0022: \u0022account\u0022,\n  \u0022description\u0022: \u0022Reject assets out over 100 USD\u0022,\n  \u0022rules\u0022: [\n    {\n      \u0022action\u0022: \u0022reject\u0022,\n      \u0022operation\u0022: \u0022sendEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022netUSDChange\u0022,\n          \u0022changeCents\u0022: 10000,\n          \u0022operator\u0022: \u0022\u003E\u0022,\n        },\n      ],\n    },\n    {\n      \u0022action\u0022: \u0022reject\u0022,\n      \u0022operation\u0022: \u0022signEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022netUSDChange\u0022,\n          \u0022changeCents\u0022: 10000,\n          \u0022operator\u0022: \u0022\u003E\u0022,\n        },\n      ],\n    },\n  ],\n} \u0060\u0060\u0060\n### Limiting USDC Spend\nThis policy restricts USDC transactions on the Base network to transfers of 10,000 tokens or less. It applies to both signing and sending transactions to the USDC contract address, using the ERC20 ABI to validate that only \u0060transfer\u0060 function calls with a \u0060value\u0060 parameter under the specified limit are permitted.\n\u0060\u0060\u0060json {\n  \u0022description\u0022: \u0022Limit USDC Spend\u0022,\n  \u0022scope\u0022: \u0022account\u0022,\n  \u0022rules\u0022: [\n    {\n      \u0022action\u0022: \u0022accept\u0022,\n      \u0022operation\u0022: \u0022sendEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022evmNetwork\u0022,\n          \u0022networks\u0022: [\u0022base\u0022],\n          \u0022operator\u0022: \u0022in\u0022\n        },\n        {\n          \u0022type\u0022: \u0022evmAddress\u0022,\n          \u0022addresses\u0022: [\u00220x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\u0022],\n          \u0022operator\u0022: \u0022in\u0022\n        },\n        {\n          \u0022type\u0022: \u0022evmData\u0022,\n          \u0022abi\u0022: \u0022erc20\u0022,\n          \u0022conditions\u0022: [\n            {\n              \u0022function\u0022: \u0022transfer\u0022,\n              \u0022params\u0022: [\n                {\n                  \u0022name\u0022: \u0022value\u0022,\n                  \u0022operator\u0022: \u0022\u003C=\u0022,\n                  \u0022value\u0022: \u002210000\u0022\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \u0022action\u0022: \u0022accept\u0022,\n      \u0022operation\u0022: \u0022signEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022evmAddress\u0022,\n          \u0022addresses\u0022: [\u00220x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\u0022],\n          \u0022operator\u0022: \u0022in\u0022\n        },\n        {\n          \u0022type\u0022: \u0022evmData\u0022,\n          \u0022abi\u0022: \u0022erc20\u0022,\n          \u0022conditions\u0022: [\n            {\n              \u0022function\u0022: \u0022transfer\u0022,\n              \u0022params\u0022: [\n                {\n                  \u0022name\u0022: \u0022value\u0022,\n                  \u0022operator\u0022: \u0022\u003C=\u0022,\n                  \u0022value\u0022: \u002210000\u0022\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ]\n} \u0060\u0060\u0060.",
+      "description": "The Policy Engine APIs evaluate policies (a set of rules) to govern the behavior of accounts or projects, such as enforce allowlists and denylists.\n- A **policy** is a collection of \u0060rules\u0060 with defined criteria.\n- Each **rule** contains a specified \u0060action\u0060, \u0060operation\u0060, and \u0060criteria\u0060:\n  - An \u0060action\u0060 can either \u0060accept\u0060 or \u0060reject\u0060 a transaction if the criteria in the rule are met.\n  - \u0060criteria\u0060 is an array of logical expressions. All parameters must evaluate to true for the action to be applied.\n  - An \u0060operation\u0060 corresponds to a CDP v2 API:\n      - \u0060signEvmTransaction\u0060 or \u0060signSolTransaction\u0060 for signing transactions (to set a transaction limit).\n      - \u0060sendEvmTransaction\u0060 for signing a transaction, and sending it to a supported network.\n      - \u0060signEvmHash\u0060 for signing an arbitrary 32 byte hash.\n      - \u0060signEvmMessage\u0060 for signing an [EIP-191](https://eips.ethereum.org/EIPS/eip-191) message.\n      - \u0060prepareUserOperation\u0060 for preparing user operations on a smart account.\n      - \u0060sendUserOperation\u0060 for sending user operations using a smart account.\n      - \u0060signEndUserEvmTransaction\u0060 or \u0060signEndUserSolTransaction\u0060 for signing end user transactions (to set a transaction limit).\n      - \u0060sendEndUserEvmTransaction\u0060 for signing an end user transaction, and sending it to a supported EVM network.\n      - \u0060sendEndUserSolTransaction\u0060 for signing an end user transaction, and sending it to a supported Solana network.\n      - \u0060signEndUserEvmMessage\u0060 for signing an end user [EIP-191](https://eips.ethereum.org/EIPS/eip-191) message.\n      - \u0060signEndUserEvmTypedData\u0060 for signing end user [EIP-712](https://eips.ethereum.org/EIPS/eip-712) typed data.\n      - \u0060signEndUserSolMessage\u0060 for signing an end user Solana message.\n- A **rule** indicates how an operation should behave, specifying whether a request with defined criteria should be accepted or rejected.\n## Policy Scope\nPolicies can be applied at the project and/or account level:\n- **Project-level policy**: A \u0060project\u0060-level policy applies to all accounts in a CDP Project. Only one project-level policy can be applied to accounts within a CDP Project at any given time.\n- **Account-level policy**: An \u0060account\u0060-level policy applies to one or more accounts. An account\n  can have at most one account-level policy at any given time.\n\nThus, a single account can be assigned at most two policies at any given time: one project-level policy and one account-level policy.\n\n**Note:** End user operation rules (e.g., \u0060signEndUserEvmTransaction\u0060, \u0060sendEndUserSolTransaction\u0060) currently only apply for policies with the \u0060project\u0060 scope.\n\nScope is specified in the \u0060scope\u0060 field of a policy:\n\u0060\u0060\u0060json {\n  \u0022description\u0022: \u0022Project-level policy\u0022,\n  \u0022scope\u0022: \u0022account\u0022,\n  ...\n\u0060\u0060\u0060\n## Policy Evaluation\n**Project-level policies** are evaluated first, followed by **account-level policies**.\nThe Policy Engine will process the request against each rule in the order it is defined within the \u0060rules\u0060 array:\n\n  1. If the rule\u0027s \u0060criteria\u0060 (processed as a logical **AND** operation applied to a list of independently evaluated boolean expressions) are met, \u0060accept\u0060 or \u0060reject\u0060 behavior is applied immediately and the engine stops further evaluation of the policy.\n  1. If after policy evaluation, no rule\u0027s \u0060criteria\u0060 are met, the engine moves to processing the next policy (i.e., an \u0060account\u0060-level policy).\n  1. If no further policies exist, the request is rejected.\n\nFor example, the following policy is a project-level policy with two rules. The Policy Engine will:\n\n   1. **Evaluate the first rule:** For a \u0060signEvmTransaction\u0060 request, accept the request if the transaction is less than or equal to 1000000000000000000 wei OR\n   1. **Evaluate the second rule:** if the request is a \u0060signEvmTransaction\u0060 request, accept the request if the transaction is less than or equal to 2000000000000000000 wei AND the request is made to the address \u00600xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE\u0060.\n   1. **If the request does not meet the criteria of either rule**, the engine will move on to evaluate an \u0060account\u0060-level policy (if one exists).\n   1. Otherwise, the request is rejected.\n\nRules are processed in the order they are defined. Once a rule applies to an operation, subsequent rules are ignored.\n\u0060\u0060\u0060json\n{\n  \u0022description\u0022: \u0022Project-level policy\u0022,\n  \u0022scope\u0022: \u0022project\u0022,\n  \u0022rules\u0022: [\n    {\n      \u0022action\u0022: \u0022accept\u0022,\n      \u0022operation\u0022: \u0022signEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022ethValue\u0022,\n          \u0022ethValue\u0022: \u00221000000000000000000\u0022,\n          \u0022operator\u0022: \u0022\u003C=\u0022\n        }\n      ]\n    },\n    {\n      \u0022action\u0022: \u0022accept\u0022,\n      \u0022operation\u0022: \u0022signEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022ethValue\u0022,\n          \u0022ethValue\u0022: \u00222000000000000000000\u0022,\n          \u0022operator\u0022: \u0022\u003C=\u0022\n        },\n        {\n          \u0022type\u0022: \u0022evmAddress\u0022,\n          \u0022addresses\u0022: [\n            \u00220xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE\u0022\n          ],\n          \u0022operator\u0022: \u0022in\u0022\n        }\n      ]\n    }\n  ]\n}\n\u0060\u0060\u0060\n\n## Policy Application\n\nProject-level policies are applied to all accounts in a CDP Project. They will apply retroactively even if the project-level policy is created after the account was created. To disable a project-level policy, you must remove the project-level policy from the CDP Project using the \u0060deletePolicy\u0060 operation.\n\nAccount-level policies can be applied in two ways:\n- By specifying the \u0060accountPolicy\u0060 field in the request body of the \u0060createEvmAccount\u0060 and\n  \u0060createSolAccount\u0060 operations.\n\n- By specifying the \u0060accountPolicy\u0060 field in the request body of the \u0060updateEvmAccount\u0060 and\n  \u0060updateSolanaAccount\u0060 operations.\n\n\n## Criteria\n\nThe following criteria are supported:\n\n### SignEvmTransaction Criteria\n#### ethValue\nA criterion based on the value of the transaction. The transaction\u0027s \u0060value\u0060 field is compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the transaction. The transaction\u0027s \u0060to\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n#### netUSDChange\nA criterion based on the USD denominated market value of assets being transferred, or exposing the sender to. The types of assets included in the calculation include native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens. The sum total USD amount of assets being transferred and exposed is compared to the criterion\u0027s \u0060changeCents\u0060 field using the \u0060operator\u0060 field. If signing a testnet transaction, then this criterion configuration will be ignored.\n### SendEvmTransaction Criteria\n#### ethValue\nA criterion based on the value of the transaction. The transaction\u0027s \u0060value\u0060 field is compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the transaction. The transaction\u0027s \u0060to\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmNetwork\nA criterion based on the intended network of the transaction. The \u0060network\u0060 field in the \u0060sendEvmTransaction\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060base\u0060\n  - \u0060base-sepolia\u0060\n  - \u0060ethereum\u0060\n  - \u0060ethereum-sepolia\u0060\n  - \u0060avalanche\u0060\n  - \u0060polygon\u0060\n  - \u0060optimism\u0060\n  - \u0060arbitrum\u0060\n  - \u0060arbitrum-sepolia\u0060\n  - \u0060world\u0060\n  - \u0060world-sepolia\u0060\n\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n#### netUSDChange\nA criterion based on the USD denominated market value of assets being transferred, or exposing the sender to. The types of assets included in the calculation include native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens. The sum total USD amount of assets being transferred and exposed is compared to the criterion\u0027s \u0060changeCents\u0060 field using the \u0060operator\u0060 field. If sending a testnet transaction, then this criterion configuration will be ignored.\n### SendUserOperation Criteria\n#### ethValue\nA criterion based on the value of the user operation. The operation\u0027s \u0060value\u0060 fields are compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the operation. The operation\u0027s \u0060to\u0060 fields are compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n### PrepareUserOperation Criteria\n#### ethValue\nA criterion based on the value of the user operation. The operation\u0027s \u0060value\u0060 fields are compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the user operation. The operation\u0027s \u0060to\u0060 fields are compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmNetwork\nA criterion based on the intended network of the user operation. The \u0060network\u0060 field in the \u0060prepareUserOperation\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060base-sepolia\u0060\n  - \u0060base\u0060\n  - \u0060arbitrum\u0060\n  - \u0060optimism\u0060\n  - \u0060zora\u0060\n  - \u0060polygon\u0060\n  - \u0060bnb\u0060\n  - \u0060avalanche\u0060\n  - \u0060ethereum\u0060\n  - \u0060ethereum-sepolia\u0060\n\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n### SignEvmHash Criteria\nThe \u0060signEvmHash\u0060 operation does not accept any criteria. To prevent this operation from being executed by any account, specify a rule with \u0060signEvmHash\u0060 as the operation, and \u0060reject\u0060 as its action.\n### SignEvmMessage Criteria\n#### evmMessage\nA criterion based on the intended message to be signed. The \u0060match\u0060 field in the criteria is a [RE2](https://github.com/google/re2/wiki/Syntax) compliant regular expression that will be executed against the message in the API request.\n### SignSolMessage Criteria\n#### solMessage\nA criterion based on the intended message to be signed. The \u0060match\u0060 field in the criteria is a [RE2](https://github.com/google/re2/wiki/Syntax) compliant regular expression that will be executed against the message in the API request.\n### SignSolTransaction Criteria\n#### solAddress\nA criterion based on the recipient addresses of the transaction. The criterion\u0027s \u0060address\u0060 field is compared to the list of addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solValue\nA criterion based on the value of the transaction. The criterion\u0027s \u0060solValue\u0060 field is compared to the transaction\u0027s \u0060value\u0060, which is the amount of SOL in lamports being transferred, using the \u0060operator\u0060 field.\n#### splAddress\nA criterion based on the recipient addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of SPL token transfer recipient addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### splValue\nA criterion based on the SPL token value of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060splValue\u0060 field is compared to the transaction instruction\u0027s \u0060value\u0060 field, which is the amount of the SPL token being transferred, using the \u0060operator\u0060 field.\n#### mintAddress\nA criterion based on the token mint addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of token mint addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solData\nA criterion based on Solana transaction instruction data. The criterion uses Interface Definition Language (IDL) specifications to decode and validate instruction data against specific rules. The \u0060idls\u0060 field specifies which Solana programs to validate against (either known program names like \u0022SystemProgram\u0022 and \u0022TokenProgram\u0022, or custom IDL objects), and the \u0060conditions\u0060 field defines instruction-specific validation rules including instruction names and parameter constraints.\n#### programId\nA criterion based on the program IDs of a transaction\u0027s instructions. The criterion\u0027s \u0060programIds\u0060 field is compared to the list of program IDs in the transaction\u0027s instructions using the \u0060operator\u0060 field.\n### SendSolTransaction Criteria\n#### solAddress\nA criterion based on the recipient addresses of the transaction. The criterion\u0027s \u0060address\u0060 field is compared to the list of addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solValue\nA criterion based on the value of the transaction. The criterion\u0027s \u0060solValue\u0060 field is compared to the transaction\u0027s \u0060value\u0060, which is the amount of SOL in lamports being transferred, using the \u0060operator\u0060 field.\n#### splAddress\nA criterion based on the recipient addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of SPL token transfer recipient addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### splValue\nA criterion based on the SPL token value of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060splValue\u0060 field is compared to the transaction instruction\u0027s \u0060value\u0060 field, which is the amount of the SPL token being transferred, using the \u0060operator\u0060 field.\n#### mintAddress\nA criterion based on the token mint addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of token mint addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solData\nA criterion based on Solana transaction instruction data. The criterion uses Interface Definition Language (IDL) specifications to decode and validate instruction data against specific rules. The \u0060idls\u0060 field specifies which Solana programs to validate against (either known program names like \u0022SystemProgram\u0022 and \u0022TokenProgram\u0022, or custom IDL objects), and the \u0060conditions\u0060 field defines instruction-specific validation rules including instruction names and parameter constraints.\n#### programId\nA criterion based on the program IDs of a transaction\u0027s instructions. The criterion\u0027s \u0060programIds\u0060 field is compared to the list of program IDs in the transaction\u0027s instructions using the \u0060operator\u0060 field.\n#### solNetwork\nA criterion based on the intended network of the transaction. The \u0060network\u0060 field in the \u0060sendSolanaTransaction\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060solana-devnet\u0060\n  - \u0060solana\u0060\n\n## End User Criteria for Embedded Wallets\nEnd user criteria apply to operations performed by end users via embedded wallets. These criteria are only evaluated for policies with the \u0060project\u0060 scope. The supported criterion types for each end user operation mirror their non-end-user counterparts.\n### SignEndUserEvmTransaction Criteria\n#### ethValue\nA criterion based on the value of the transaction. The transaction\u0027s \u0060value\u0060 field is compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the transaction. The transaction\u0027s \u0060to\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n#### netUSDChange\nA criterion based on the USD denominated market value of assets being transferred, or exposing the sender to. The types of assets included in the calculation include native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens. The sum total USD amount of assets being transferred and exposed is compared to the criterion\u0027s \u0060changeCents\u0060 field using the \u0060operator\u0060 field. If signing a testnet transaction, then this criterion configuration will be ignored.\n### SendEndUserEvmTransaction Criteria\n#### ethValue\nA criterion based on the value of the transaction. The transaction\u0027s \u0060value\u0060 field is compared to the criterion\u0027s \u0060ethValue\u0060 field using the \u0060operator\u0060 field.\n#### evmAddress\nA criterion based on the recipient address of the transaction. The transaction\u0027s \u0060to\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n#### evmNetwork\nA criterion based on the intended network of the transaction. The \u0060network\u0060 field in the \u0060sendEndUserEvmTransaction\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060base\u0060\n  - \u0060base-sepolia\u0060\n  - \u0060ethereum\u0060\n  - \u0060ethereum-sepolia\u0060\n  - \u0060avalanche\u0060\n  - \u0060polygon\u0060\n  - \u0060optimism\u0060\n  - \u0060arbitrum\u0060\n\n#### evmData\nA criterion based on encoded transaction data that evaluates the function being called, as well as any number of arguments accessed by either name or index. Currently this criterion only supports primitive types; \u0060string\u0060, \u0060bool\u0060, \u0060uint(8,16,32,64,256)\u0060, \u0060int(8,16,32,64,256)\u0060, \u0060address\u0060, and both fixed and dynamic length \u0060bytes\u0060.\n#### netUSDChange\nA criterion based on the USD denominated market value of assets being transferred, or exposing the sender to. The types of assets included in the calculation include native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens. The sum total USD amount of assets being transferred and exposed is compared to the criterion\u0027s \u0060changeCents\u0060 field using the \u0060operator\u0060 field. If sending a testnet transaction, then this criterion configuration will be ignored.\n### SignEndUserEvmMessage Criteria\n#### evmMessage\nA criterion based on the intended message to be signed. The \u0060match\u0060 field in the criteria is a [RE2](https://github.com/google/re2/wiki/Syntax) compliant regular expression that will be executed against the message in the API request.\n### SignEndUserEvmTypedData Criteria\n#### evmTypedDataField\nA criterion based on the fields of the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) typed data being signed. The \u0060types\u0060 field specifies the EIP-712 type definitions and primary type, while the \u0060conditions\u0060 field defines validation rules for specific fields within the typed data message. Conditions can target address fields, numerical fields, or string fields, and can reference deeply nested values using dot-separated paths.\n#### evmTypedDataVerifyingContract\nA criterion based on the verifying contract address in the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) domain separator. The domain\u0027s \u0060verifyingContract\u0060 field is compared to the criterion\u0027s \u0060addresses\u0060 field using the \u0060operator\u0060 field.\n### SignEndUserSolTransaction Criteria\n#### solAddress\nA criterion based on the recipient addresses of the transaction. The criterion\u0027s \u0060address\u0060 field is compared to the list of addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solValue\nA criterion based on the value of the transaction. The criterion\u0027s \u0060solValue\u0060 field is compared to the transaction\u0027s \u0060value\u0060, which is the amount of SOL in lamports being transferred, using the \u0060operator\u0060 field.\n#### splAddress\nA criterion based on the recipient addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of SPL token transfer recipient addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### splValue\nA criterion based on the SPL token value of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060splValue\u0060 field is compared to the transaction instruction\u0027s \u0060value\u0060 field, which is the amount of the SPL token being transferred, using the \u0060operator\u0060 field.\n#### mintAddress\nA criterion based on the token mint addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of token mint addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solData\nA criterion based on Solana transaction instruction data. The criterion uses Interface Definition Language (IDL) specifications to decode and validate instruction data against specific rules. The \u0060idls\u0060 field specifies which Solana programs to validate against (either known program names like \u0022SystemProgram\u0022 and \u0022TokenProgram\u0022, or custom IDL objects), and the \u0060conditions\u0060 field defines instruction-specific validation rules including instruction names and parameter constraints.\n#### programId\nA criterion based on the program IDs of a transaction\u0027s instructions. The criterion\u0027s \u0060programIds\u0060 field is compared to the list of program IDs in the transaction\u0027s instructions using the \u0060operator\u0060 field.\n### SendEndUserSolTransaction Criteria\n#### solAddress\nA criterion based on the recipient addresses of the transaction. The criterion\u0027s \u0060address\u0060 field is compared to the list of addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solValue\nA criterion based on the value of the transaction. The criterion\u0027s \u0060solValue\u0060 field is compared to the transaction\u0027s \u0060value\u0060, which is the amount of SOL in lamports being transferred, using the \u0060operator\u0060 field.\n#### splAddress\nA criterion based on the recipient addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of SPL token transfer recipient addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### splValue\nA criterion based on the SPL token value of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060splValue\u0060 field is compared to the transaction instruction\u0027s \u0060value\u0060 field, which is the amount of the SPL token being transferred, using the \u0060operator\u0060 field.\n#### mintAddress\nA criterion based on the token mint addresses of SPL token transfer instructions in the transaction. The criterion\u0027s \u0060addresses\u0060 field is compared to the list of token mint addresses in the transaction\u0027s \u0060accountKeys\u0060 (for legacy transactions) or \u0060staticAccountKeys\u0060 (for V0 transactions) array using the \u0060operator\u0060 field.\n#### solData\nA criterion based on Solana transaction instruction data. The criterion uses Interface Definition Language (IDL) specifications to decode and validate instruction data against specific rules. The \u0060idls\u0060 field specifies which Solana programs to validate against (either known program names like \u0022SystemProgram\u0022 and \u0022TokenProgram\u0022, or custom IDL objects), and the \u0060conditions\u0060 field defines instruction-specific validation rules including instruction names and parameter constraints.\n#### programId\nA criterion based on the program IDs of a transaction\u0027s instructions. The criterion\u0027s \u0060programIds\u0060 field is compared to the list of program IDs in the transaction\u0027s instructions using the \u0060operator\u0060 field.\n#### solNetwork\nA criterion based on the intended network of the transaction. The \u0060network\u0060 field in the \u0060sendEndUserSolTransaction\u0060 request body is compared to the criterion\u0027s \u0060networks\u0060 field using the \u0060operator\u0060 field.\nValid networks for this criterion include:\n  - \u0060solana-devnet\u0060\n  - \u0060solana\u0060\n\n### SignEndUserSolMessage Criteria\n#### solMessage\nA criterion based on the intended message to be signed. The \u0060match\u0060 field in the criteria is a [RE2](https://github.com/google/re2/wiki/Syntax) compliant regular expression that will be executed against the message in the API request.\n## Restricting Contract Interactions on Ethereum\nSmart contract function restrictions serve as a critical security and governance mechanism in decentralized applications, allowing developers and organizations to implement fine-grained access controls over their protocol interactions.\nOne of the primary use cases for function restrictions is protecting high-risk operations from unauthorized access such as:\n- Fund transfers - Contract upgrades - Parameter modifications - Emergency pauses\nPolicy Engine supports such restrictions that evaluate against transaction data with the \u0060evmData\u0060 criterion for the \u0060signEvmTransaction\u0060, and \u0060sendEvmTransaction\u0060 operations.\n## Examples\n### USD Limits\nThe following example demonstrates a policy that only allows transactions to transfer, or expose the sender to, less than $100.00 worth of assets at a time. This USD denominated amount includes native assets, \u0060ERC20\u0060, \u0060ERC721\u0060, and \u0060ERC1155\u0060 tokens calculated using current market prices.\n\u0060\u0060\u0060json {\n  \u0022scope\u0022: \u0022account\u0022,\n  \u0022description\u0022: \u0022Reject assets out over 100 USD\u0022,\n  \u0022rules\u0022: [\n    {\n      \u0022action\u0022: \u0022reject\u0022,\n      \u0022operation\u0022: \u0022sendEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022netUSDChange\u0022,\n          \u0022changeCents\u0022: 10000,\n          \u0022operator\u0022: \u0022\u003E\u0022,\n        },\n      ],\n    },\n    {\n      \u0022action\u0022: \u0022reject\u0022,\n      \u0022operation\u0022: \u0022signEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022netUSDChange\u0022,\n          \u0022changeCents\u0022: 10000,\n          \u0022operator\u0022: \u0022\u003E\u0022,\n        },\n      ],\n    },\n  ],\n} \u0060\u0060\u0060\n### Limiting USDC Spend\nThis policy restricts USDC transactions on the Base network to transfers of 10,000 tokens or less. It applies to both signing and sending transactions to the USDC contract address, using the ERC20 ABI to validate that only \u0060transfer\u0060 function calls with a \u0060value\u0060 parameter under the specified limit are permitted.\n\u0060\u0060\u0060json {\n  \u0022description\u0022: \u0022Limit USDC Spend\u0022,\n  \u0022scope\u0022: \u0022account\u0022,\n  \u0022rules\u0022: [\n    {\n      \u0022action\u0022: \u0022accept\u0022,\n      \u0022operation\u0022: \u0022sendEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022evmNetwork\u0022,\n          \u0022networks\u0022: [\u0022base\u0022],\n          \u0022operator\u0022: \u0022in\u0022\n        },\n        {\n          \u0022type\u0022: \u0022evmAddress\u0022,\n          \u0022addresses\u0022: [\u00220x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\u0022],\n          \u0022operator\u0022: \u0022in\u0022\n        },\n        {\n          \u0022type\u0022: \u0022evmData\u0022,\n          \u0022abi\u0022: \u0022erc20\u0022,\n          \u0022conditions\u0022: [\n            {\n              \u0022function\u0022: \u0022transfer\u0022,\n              \u0022params\u0022: [\n                {\n                  \u0022name\u0022: \u0022value\u0022,\n                  \u0022operator\u0022: \u0022\u003C=\u0022,\n                  \u0022value\u0022: \u002210000\u0022\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \u0022action\u0022: \u0022accept\u0022,\n      \u0022operation\u0022: \u0022signEvmTransaction\u0022,\n      \u0022criteria\u0022: [\n        {\n          \u0022type\u0022: \u0022evmAddress\u0022,\n          \u0022addresses\u0022: [\u00220x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913\u0022],\n          \u0022operator\u0022: \u0022in\u0022\n        },\n        {\n          \u0022type\u0022: \u0022evmData\u0022,\n          \u0022abi\u0022: \u0022erc20\u0022,\n          \u0022conditions\u0022: [\n            {\n              \u0022function\u0022: \u0022transfer\u0022,\n              \u0022params\u0022: [\n                {\n                  \u0022name\u0022: \u0022value\u0022,\n                  \u0022operator\u0022: \u0022\u003C=\u0022,\n                  \u0022value\u0022: \u002210000\u0022\n                }\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ]\n} \u0060\u0060\u0060.",
       "x-audience": "public",
       "x-slo-tier": {
         "tier": "ga"

@@ -39,5 +39,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Arbitrum,
         #pragma warning restore CS1591
+        [EnumMember(Value = "arbitrum-sepolia")]
+        #pragma warning disable CS1591
+        ArbitrumSepolia,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "world")]
+        #pragma warning disable CS1591
+        World,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "world-sepolia")]
+        #pragma warning disable CS1591
+        WorldSepolia,
+        #pragma warning restore CS1591
     }
 }
