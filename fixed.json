@@ -2032,6 +2032,85 @@
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/delegation": {
+      "get": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Get delegation for end user",
+        "description": "Returns the active delegation for the specified end user, if one exists. This operation can be performed by the end user themselves or by a developer using their API key.",
+        "operationId": "getDelegationForEndUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Active delegation found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDelegationForEndUser200"
+                },
+                "example": {
+                  "expiresAt": "2026-02-03T10:35:00Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "No active delegation found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "No active delegation found for the specified end user.",
+                      "errorParam": "userId",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      },
       "delete": {
         "tags": [
           "Embedded Wallets"
@@ -10336,7 +10415,9 @@
       "ErrorType": {
         "enum": [
           "already_exists",
+          "authorization_expired",
           "bad_gateway",
+          "capture_expired",
           "client_closed_request",
           "faucet_limit_exceeded",
           "forbidden",
@@ -10367,6 +10448,7 @@
           "document_verification_failed",
           "recipient_allowlist_violation",
           "recipient_allowlist_pending",
+          "refund_expired",
           "travel_rules_recipient_violation",
           "source_account_invalid",
           "target_account_invalid",
@@ -10403,7 +10485,9 @@
         "example": "invalid_request",
         "x-error-instructions": {
           "already_exists": "This error occurs when trying to create a resource that already exists.\n\n**Steps to resolve:**\n1. Check if the resource exists before creation\n2. Use GET endpoints to verify resource state\n3. Use unique identifiers/names for resources",
+          "authorization_expired": "Returned when an authorization attempt is made after the payment session\u0027s authorization deadline has passed. Create a new payment session with a later authorization deadline.",
           "bad_gateway": "This error occurs when the CDP API is unable to connect to the backend service.\n\n**Steps to resolve:**\n1. Retry your request after a short delay\n2. If persistent, contact CDP support with:\n   - The timestamp of the error\n   - Request details\n3. Consider implementing retry logic with an exponential backoff\n\n**Note:** These errors are automatically logged and monitored by CDP.",
+          "capture_expired": "Returned when a capture attempt is made after the payment session\u0027s capture deadline has passed. The payment session can no longer be captured.",
           "client_closed_request": "This error occurs when the client closes the connection before the server can send a response.\n\n**Common causes:**\n- The client timed out waiting for the server response\n- The client application was terminated during a pending request\n- Network interruption caused the client connection to drop\n\n**Steps to resolve:**\n1. Increase client-side timeout settings if applicable\n2. Implement retry logic with exponential backoff for long-running queries\n3. Consider optimizing the request to reduce server processing time",
           "faucet_limit_exceeded": "This error occurs when you\u0027ve exceeded the faucet request limits.\n\n**Steps to resolve:**\n1. Wait for the time window to reset\n2. Use funds more efficiently in your testing\n\nFor more information on faucet limits, please visit the [EVM Faucet endpoint](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/faucets/request-funds-on-evm-test-networks) or the [Solana Faucet endpoint](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/faucets/request-funds-on-solana-devnet).",
           "forbidden": "This error occurs when you don\u0027t have permission to access the resource.\n\n**Steps to resolve:**\n1. Verify your permissions to access the resource\n2. Ensure that you are the owner of the requested resource",
@@ -10432,6 +10516,7 @@
           "document_verification_failed": "This error occurs when the user has not verified their identity for their coinbase.com account.\n**Steps to resolve:**\n1. Verify your coinbase account identity with valid documents at https://www.coinbase.com/settings/account-levels.",
           "recipient_allowlist_violation": "This error occurs when the user is not allowed to receive funds at this address, according to their coinbase account allowlist.\n**Steps to resolve:**\n1. Either disable the allowlist or add the wallet address at https://www.coinbase.com/settings/allowlist\n2. Wait approximately 2 days for updates to take effect.",
           "recipient_allowlist_pending": "This error occurs when the user is not allowed to receive funds at this address, because changes to their coinbase account allowlist are pending.\n**Steps to resolve:**\n1. Wait approximately 2 days for updates to take effect.",
+          "refund_expired": "Returned when a refund attempt is made after the payment session\u0027s refund deadline has passed. The payment session can no longer be refunded.",
           "travel_rules_recipient_violation": "This error occurs when the user is not allowed to receive funds at this address, because it violates travel rules.\n**Steps to resolve:**\n1. Ensure your desired transfer is not blocked by local travel regulations.",
           "mfa_already_enrolled": "This error occurs when attempting to enroll in an MFA method that the user has already enrolled in.\n\n**Steps to resolve:**\n1. Check if the user is already enrolled in the MFA method before initiating enrollment\n2. To update or reset MFA, remove the existing enrollment first (if supported)\n3. Use a different MFA method if multiple options are available",
           "mfa_invalid_code": "This error occurs when the MFA code provided is incorrect or has already been used.\n\n**Steps to resolve:**\n1. Verify the user entered the correct code from their authenticator app\n2. Ensure the code is current (TOTP codes expire after 30 seconds)\n3. Check that the device time is synchronized correctly\n4. Ask the user to generate a new code and try again\n\n**Common causes:**\n- Typing errors in the 6-digit code\n- Using an expired TOTP code\n- Device clock drift on user\u0027s authenticator app\n- Attempting to reuse a previously submitted code",
@@ -17097,6 +17182,20 @@
             "type": "string",
             "description": "The signature of the typed data, as a 0x-prefixed hex string.",
             "example": "1b0c9cf8cd4554c6c6d9e7311e88f1be075d7f25b418a044f4bf2c0a42a93e212ad0a8b54de9e0b5f7e3812de3f2c6cc79aa8c3e1c02e7ad14b4a8f42012c2c01b"
+          }
+        }
+      },
+      "GetDelegationForEndUser200": {
+        "required": [
+          "expiresAt"
+        ],
+        "type": "object",
+        "properties": {
+          "expiresAt": {
+            "type": "string",
+            "description": "The date until which the delegation is valid.",
+            "format": "date-time",
+            "example": "2026-02-03T10:35:00Z"
           }
         }
       },

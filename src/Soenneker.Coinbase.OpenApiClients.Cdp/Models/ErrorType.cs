@@ -11,9 +11,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Already_exists,
         #pragma warning restore CS1591
+        [EnumMember(Value = "authorization_expired")]
+        #pragma warning disable CS1591
+        Authorization_expired,
+        #pragma warning restore CS1591
         [EnumMember(Value = "bad_gateway")]
         #pragma warning disable CS1591
         Bad_gateway,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "capture_expired")]
+        #pragma warning disable CS1591
+        Capture_expired,
         #pragma warning restore CS1591
         [EnumMember(Value = "client_closed_request")]
         #pragma warning disable CS1591
@@ -134,6 +142,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "recipient_allowlist_pending")]
         #pragma warning disable CS1591
         Recipient_allowlist_pending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "refund_expired")]
+        #pragma warning disable CS1591
+        Refund_expired,
         #pragma warning restore CS1591
         [EnumMember(Value = "travel_rules_recipient_violation")]
         #pragma warning disable CS1591
