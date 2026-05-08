@@ -613,6 +613,242 @@
         ]
       }
     },
+    "/v2/end-users/lookup": {
+      "get": {
+        "tags": [
+          "End User Accounts"
+        ],
+        "summary": "Look up end users by identity",
+        "description": "\u0022Looks up end users. Exactly one lookup type must be provided per request:\n\n- **email**: searches across all email-based authentication methods\n  (email, Google, Apple, GitHub). May return multiple end users if the\n  same email address appears across different auth methods.\n\n- **oauthProvider \u002B oauthSubject**: looks up a user by their OAuth\n  provider and subject (the \u0060sub\u0060 claim from the provider\u0027s ID token).\n  Both params must be provided together.\n\n- **phoneNumber**: looks up a user by their SMS-verified phone number.\n\nReturns all matching end users. If no end users match, an empty array is returned.\n\nThis API is intended to be used by the developer\u0027s own backend, and is authenticated using the developer\u0027s CDP API key.\u0022",
+        "operationId": "lookupEndUser",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "The email address to search for across all email-based authentication methods.",
+            "schema": {
+              "type": "string",
+              "format": "email"
+            },
+            "example": "user@example.com"
+          },
+          {
+            "name": "oauthProvider",
+            "in": "query",
+            "description": "The OAuth provider to search by. Must be provided together with oauthSubject.",
+            "schema": {
+              "$ref": "#/components/schemas/OAuth2ProviderType"
+            },
+            "example": "google"
+          },
+          {
+            "name": "oauthSubject",
+            "in": "query",
+            "description": "The OAuth subject (the \u0060sub\u0060 claim from the provider\u0027s ID token). Must be provided together with oauthProvider.",
+            "schema": {
+              "type": "string"
+            },
+            "example": 1234567890
+          },
+          {
+            "name": "phoneNumber",
+            "in": "query",
+            "description": "The E.164-formatted phone number to search for. Must be URL-encoded when passed as a query parameter (e.g. \u0060\u002B14155552671\u0060 \u2192 \u0060%2B14155552671\u0060).",
+            "schema": {
+              "pattern": "^\\\u002B[1-9]\\d{1,14}$",
+              "type": "string"
+            },
+            "example": 14155552671
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully looked up end users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "required": [
+                    "endUsers"
+                  ],
+                  "type": "object",
+                  "properties": {
+                    "endUsers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/EndUser"
+                      },
+                      "description": "The list of end users matching the lookup."
+                    }
+                  }
+                },
+                "examples": {
+                  "email_match": {
+                    "summary": "End user found by email",
+                    "value": {
+                      "endUsers": [
+                        {
+                          "userId": "user-001",
+                          "authenticationMethods": [
+                            {
+                              "type": "email",
+                              "email": "user@example.com"
+                            }
+                          ],
+                          "evmAccounts": [],
+                          "evmAccountObjects": [],
+                          "evmSmartAccounts": [],
+                          "evmSmartAccountObjects": [],
+                          "solanaAccounts": [],
+                          "solanaAccountObjects": [],
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        }
+                      ]
+                    }
+                  },
+                  "multiple_email_matches": {
+                    "summary": "Multiple end users with same email across auth methods",
+                    "value": {
+                      "endUsers": [
+                        {
+                          "userId": "user-001",
+                          "authenticationMethods": [
+                            {
+                              "type": "email",
+                              "email": "user@example.com"
+                            }
+                          ],
+                          "evmAccounts": [],
+                          "evmAccountObjects": [],
+                          "evmSmartAccounts": [],
+                          "evmSmartAccountObjects": [],
+                          "solanaAccounts": [],
+                          "solanaAccountObjects": [],
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        },
+                        {
+                          "userId": "user-002",
+                          "authenticationMethods": [
+                            {
+                              "type": "google",
+                              "sub": "google-sub-123",
+                              "email": "user@example.com"
+                            }
+                          ],
+                          "evmAccounts": [],
+                          "evmAccountObjects": [],
+                          "evmSmartAccounts": [],
+                          "evmSmartAccountObjects": [],
+                          "solanaAccounts": [],
+                          "solanaAccountObjects": [],
+                          "createdAt": "2025-11-17T11:00:00Z"
+                        }
+                      ]
+                    }
+                  },
+                  "oauth_match": {
+                    "summary": "End user found by OAuth subject",
+                    "value": {
+                      "endUsers": [
+                        {
+                          "userId": "user-003",
+                          "authenticationMethods": [
+                            {
+                              "type": "google",
+                              "sub": 1234567890,
+                              "email": "user@example.com"
+                            }
+                          ],
+                          "evmAccounts": [],
+                          "evmAccountObjects": [],
+                          "evmSmartAccounts": [],
+                          "evmSmartAccountObjects": [],
+                          "solanaAccounts": [],
+                          "solanaAccountObjects": [],
+                          "createdAt": "2025-11-17T12:00:00Z"
+                        }
+                      ]
+                    }
+                  },
+                  "phone_match": {
+                    "summary": "End user found by phone number",
+                    "value": {
+                      "endUsers": [
+                        {
+                          "userId": "user-004",
+                          "authenticationMethods": [
+                            {
+                              "type": "sms",
+                              "phoneNumber": 14155552671
+                            }
+                          ],
+                          "evmAccounts": [],
+                          "evmAccountObjects": [],
+                          "evmSmartAccounts": [],
+                          "evmSmartAccountObjects": [],
+                          "solanaAccounts": [],
+                          "solanaAccountObjects": [],
+                          "createdAt": "2025-11-17T13:00:00Z"
+                        }
+                      ]
+                    }
+                  },
+                  "no_matches": {
+                    "summary": "No end users found",
+                    "value": {
+                      "endUsers": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "no_lookup_param": {
+                    "summary": "No lookup parameter provided",
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Exactly one lookup type must be provided: email, phoneNumber, or oauthProvider\u002BoauthSubject"
+                    }
+                  },
+                  "multiple_lookup_params": {
+                    "summary": "Multiple lookup parameters provided",
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Exactly one lookup type must be provided: email, phoneNumber, or oauthProvider\u002BoauthSubject"
+                    }
+                  },
+                  "oauth_missing_subject": {
+                    "summary": "oauthProvider provided without oauthSubject",
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "oauthProvider and oauthSubject must be provided together"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/v2/end-users/{userId}/evm": {
       "post": {
         "tags": [
@@ -926,7 +1162,7 @@
           "End User Accounts"
         ],
         "summary": "Add a Solana account to an end user",
-        "description": "Adds a new Solana account to an existing end user. End users can have  up to 10 Solana accounts.\nThis API is intended to be used by the developer\u0027s own backend, and is authenticated using the developer\u0027s CDP API key.",
+        "description": "Adds a new Solana account to an existing end user. End users can have up to 10 Solana accounts.\nThis API is intended to be used by the developer\u0027s own backend, and is authenticated using the developer\u0027s CDP API key.",
         "operationId": "addEndUserSolanaAccount",
         "parameters": [
           {
@@ -2138,6 +2374,9 @@
               "type": "string",
               "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
             }
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
           }
         ],
         "requestBody": {
@@ -2169,6 +2408,379 @@
                       "errorType": "not_found",
                       "errorMessage": "No active delegation found for the specified end user.",
                       "errorParam": "userId",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/v2/embedded-wallet-api/end-users/{userId}/address/{address}/delegation": {
+      "post": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Create account-scoped delegation for an end user account",
+        "description": "Creates an account-scoped delegation that allows a developer to sign on behalf of an end user for a single blockchain account (identified by its address) for the specified duration. The end user must be authenticated to authorize this delegation.\nMultiple account-scoped delegations may exist concurrently for a single end user (one per canonical account address). Account-scoped and user-scoped delegations cannot coexist for the same user.\nWhen the address corresponds to an EVM Smart Account, the delegation is scoped to the Smart Account\u0027s owner EOA rather than the Smart Account address itself. This means \u0060/address/{smartAccountAddress}/delegation\u0060 and \u0060/address/{ownerEoaAddress}/delegation\u0060 resolve to the same delegation, and the 409 \u0060account_scoped_delegation_active\u0060 error may be returned when creating via either address if one already exists for the canonical owner.",
+        "operationId": "createDelegationForEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuth"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address of the end user account to scope this delegation to. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana). For EVM addresses, matching is case-insensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDelegationForEndUserAccount"
+              },
+              "example": {
+                "expiresAt": "2026-02-03T10:35:00Z",
+                "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Delegation created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateDelegationForEndUserAccount201"
+                },
+                "example": {
+                  "expiresAt": "2026-02-03T10:35:00Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "missing_expiresAt": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Field \u0027expiresAt\u0027 is required.",
+                      "errorParam": "expiresAt",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  },
+                  "invalid_expiresAt": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Field \u0027expiresAt\u0027 must be a valid ISO 8601 string.",
+                      "errorParam": "expiresAt",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "404": {
+            "description": "Account not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "unknown_address": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "No account with the given address exists for this end user.",
+                      "errorParam": "address",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict with an existing delegation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "user_scoped_delegation_active": {
+                    "value": {
+                      "errorType": "already_exists",
+                      "errorMessage": "A user-scoped delegation is already active for this user. Revoke it before creating an account-scoped delegation.",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#already-exists"
+                    }
+                  },
+                  "account_scoped_delegation_active": {
+                    "value": {
+                      "errorType": "already_exists",
+                      "errorMessage": "An account-scoped delegation is already active for this address.",
+                      "errorParam": "address",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#already-exists"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "rate_limit_exceeded": {
+                    "value": {
+                      "errorType": "rate_limit_exceeded",
+                      "errorMessage": "Too many requests. Please try again later.",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#rate-limit-exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Get account-scoped delegation for an end user account",
+        "description": "Returns the active account-scoped delegation for the specified end user account, if one exists. Useful for showing delegation status in a UI.\nWhen the address corresponds to an EVM Smart Account, this returns the delegation for the Smart Account\u0027s owner EOA.",
+        "operationId": "getDelegationForEndUserAccount",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address of the end user account to query. For EVM addresses, matching is case-insensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Active delegation found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetDelegationForEndUserAccount200"
+                },
+                "example": {
+                  "expiresAt": "2026-02-03T10:35:00Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "No active delegation found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "No active account-scoped delegation found for the specified address.",
+                      "errorParam": "address",
+                      "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "endUserAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Embedded Wallets"
+        ],
+        "summary": "Revoke account-scoped delegation for an end user account",
+        "description": "Revokes the active account-scoped delegation for the specified end user account. Other account-scoped delegations for the same user are unaffected. This operation can be performed by the end user themselves or by a developer using their API key.\nWhen the address corresponds to an EVM Smart Account, this revokes the delegation for the Smart Account\u0027s owner EOA.",
+        "operationId": "revokeDelegationForEndUserAccount",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/XWalletAuthOptional"
+          },
+          {
+            "$ref": "#/components/parameters/XDeveloperAuth"
+          },
+          {
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "The ID of the end user.",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-zA-Z0-9-]{1,100}$",
+              "type": "string",
+              "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+            }
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The blockchain address of the end user account whose delegation should be revoked. For EVM addresses, matching is case-insensitive.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          {
+            "$ref": "#/components/parameters/ProjectIDOptional"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevokeDelegationForEndUserAccount"
+              },
+              "example": {
+                "walletSecretId": "e051beeb-7163-4527-a5b6-35e301529ff2"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "Delegation not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "No active account-scoped delegation found for the specified address.",
+                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -9935,6 +10547,71 @@
           }
         ]
       }
+    },
+    "/v2/onramp/limits/upgrade": {
+      "post": {
+        "tags": [
+          "Onramp"
+        ],
+        "summary": "Request limit upgrade",
+        "description": "\u0022Requests a limit upgrade for an onramp user by submitting identity information. Only phone number is currently supported as a userId. \n\nThe verification process is asynchronous. After calling this endpoint, use the [Get Onramp User Limits](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/onramp/get-onramp-user-limits) endpoint to check the status in the \u0060limitUpgradeOptions\u0060 array.\n\n**Prerequisites:**\n- The phone number must have been previously verified by your app via OTP. - Upgrades may not be available until a certain number of successful transactions by the user.\n\n**Supported fields:**\n- \u0060ssnLast4\u0060: Last 4 digits of the Social Security Number (no dashes or spaces).\n- \u0060dateOfBirth\u0060: Date of birth (day, month, year as zero-padded strings).\u0022",
+        "operationId": "requestLimitsUpgrade",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnrampLimitUpgradeRequest"
+              },
+              "example": {
+                "userId": 12055555555,
+                "userIdType": "phone_number",
+                "fields": {
+                  "ssnLast4": 5678,
+                  "dateOfBirth": {
+                    "day": 15,
+                    "month": 8,
+                    "year": 1990
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_request": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid user identifier or fields."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimitExceeded"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -15694,7 +16371,13 @@
             "description": "Optional protocol extensions.",
             "example": {
               "bazaar": {
-                "discoveryEnabled": true
+                "info": {
+                  "input": {
+                    "type": "http",
+                    "method": "GET"
+                  }
+                },
+                "schema": {}
               }
             }
           }
@@ -16183,7 +16866,12 @@
               "eip155:84532",
               "eip155:137",
               "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-              "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1"
+              "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1",
+              "avalanche",
+              "arbitrum",
+              "arbitrum-sepolia",
+              "world",
+              "world-sepolia"
             ],
             "type": "string",
             "additionalProperties": false,
@@ -16578,6 +17266,103 @@
           }
         },
         "description": "A single limit with remaining capacity."
+      },
+      "DateOfBirth": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "maxLength": 2,
+            "minLength": 2,
+            "pattern": "^[0-9]{2}$",
+            "type": "string",
+            "description": "Day of birth (01-31).",
+            "example": 15
+          },
+          "month": {
+            "maxLength": 2,
+            "minLength": 2,
+            "pattern": "^[0-9]{2}$",
+            "type": "string",
+            "description": "Month of birth (01-12).",
+            "example": 8
+          },
+          "year": {
+            "maxLength": 4,
+            "minLength": 4,
+            "pattern": "^[0-9]{4}$",
+            "type": "string",
+            "description": "Year of birth (four digits).",
+            "example": 1990
+          }
+        },
+        "description": "Date of birth.",
+        "example": {
+          "day": 15,
+          "month": 8,
+          "year": 1990
+        }
+      },
+      "OnrampLimitUpgradeIdentityFields": {
+        "type": "object",
+        "properties": {
+          "ssnLast4": {
+            "type": "string",
+            "description": "Last 4 digits of the Social Security Number (no dashes or spaces).",
+            "example": 5678
+          },
+          "dateOfBirth": {
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DateOfBirth"
+              }
+            ],
+            "description": "Date of birth."
+          }
+        },
+        "description": "Populate the properties that correspond to the \u0060fields\u0060 array from the user\u0027s \u0060OnrampLimitUpgradeOption\u0060.",
+        "example": {
+          "ssnLast4": 5678,
+          "dateOfBirth": {
+            "day": 15,
+            "month": 8,
+            "year": 1990
+          }
+        }
+      },
+      "OnrampLimitUpgradeRequest": {
+        "required": [
+          "userId",
+          "userIdType",
+          "fields"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "The user identifier value. For \u0060phone_number\u0060 type, this must be in E.164 format.",
+            "example": 12055555555
+          },
+          "userIdType": {
+            "$ref": "#/components/schemas/OnrampUserIdType"
+          },
+          "fields": {
+            "$ref": "#/components/schemas/OnrampLimitUpgradeIdentityFields"
+          }
+        },
+        "description": "Request to request a limits upgrade for a user.",
+        "example": {
+          "userId": 12055555555,
+          "userIdType": "phone_number",
+          "fields": {
+            "ssnLast4": 5678,
+            "dateOfBirth": {
+              "day": 15,
+              "month": 8,
+              "year": 1990
+            }
+          }
+        }
       },
       "WebhookSubscriptionRequestLabels": {
         "type": "object",
@@ -17200,6 +17985,66 @@
         }
       },
       "RevokeDelegationForEndUser": {
+        "type": "object",
+        "properties": {
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "When revoking with a wallet authentication scheme, the ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "CreateDelegationForEndUserAccount": {
+        "required": [
+          "expiresAt",
+          "walletSecretId"
+        ],
+        "type": "object",
+        "properties": {
+          "expiresAt": {
+            "type": "string",
+            "description": "The date until which the delegation is valid.",
+            "format": "date-time",
+            "example": "2026-02-03T10:35:00Z"
+          },
+          "walletSecretId": {
+            "pattern": "^[a-zA-Z0-9-]{1,100}$",
+            "type": "string",
+            "description": "The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.",
+            "example": "e051beeb-7163-4527-a5b6-35e301529ff2"
+          }
+        }
+      },
+      "CreateDelegationForEndUserAccount201": {
+        "required": [
+          "expiresAt"
+        ],
+        "type": "object",
+        "properties": {
+          "expiresAt": {
+            "type": "string",
+            "description": "The date until which the delegation is valid.",
+            "format": "date-time",
+            "example": "2026-02-03T10:35:00Z"
+          }
+        }
+      },
+      "GetDelegationForEndUserAccount200": {
+        "required": [
+          "expiresAt"
+        ],
+        "type": "object",
+        "properties": {
+          "expiresAt": {
+            "type": "string",
+            "description": "The date until which the delegation is valid.",
+            "format": "date-time",
+            "example": "2026-02-03T10:35:00Z"
+          }
+        }
+      },
+      "RevokeDelegationForEndUserAccount": {
         "type": "object",
         "properties": {
           "walletSecretId": {

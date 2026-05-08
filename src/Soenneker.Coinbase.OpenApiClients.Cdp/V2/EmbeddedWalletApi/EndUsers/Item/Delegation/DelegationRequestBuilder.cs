@@ -47,11 +47,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream?> DeleteAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUser body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<Stream> DeleteAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUser body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -105,11 +105,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUser body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUser body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUser body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUser body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -146,6 +146,23 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// Revokes all active delegations for the specified end user. This operation can be performed by the end user themselves or by a developer using their API key.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class DelegationRequestBuilderDeleteQueryParameters 
+        {
+            /// <summary>The ID of the CDP Project. Required for end users authenticated using custom auth (i.e. a non-CDP JWT provider).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("projectID")]
+            public string? ProjectID { get; set; }
+#nullable restore
+#else
+            [QueryParameter("projectID")]
+            public string ProjectID { get; set; }
+#endif
         }
         /// <summary>
         /// Returns the active delegation for the specified end user, if one exists. This operation can be performed by the end user themselves or by a developer using their API key.

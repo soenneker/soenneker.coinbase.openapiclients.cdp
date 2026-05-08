@@ -34,7 +34,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Solana
         {
         }
         /// <summary>
-        /// Adds a new Solana account to an existing end user. End users can have  up to 10 Solana accounts.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.
+        /// Adds a new Solana account to an existing end user. End users can have up to 10 Solana accounts.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Solana.SolanaPostResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Solana
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Solana.SolanaPostResponse>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item.Solana.SolanaPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Adds a new Solana account to an existing end user. End users can have  up to 10 Solana accounts.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.
+        /// Adds a new Solana account to an existing end user. End users can have up to 10 Solana accounts.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

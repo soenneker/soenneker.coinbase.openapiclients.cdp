@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.Upgrade;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LimitsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The upgrade property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.Upgrade.UpgradeRequestBuilder Upgrade
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.Upgrade.UpgradeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.LimitsRequestBuilder"/> and sets the default values.
         /// </summary>

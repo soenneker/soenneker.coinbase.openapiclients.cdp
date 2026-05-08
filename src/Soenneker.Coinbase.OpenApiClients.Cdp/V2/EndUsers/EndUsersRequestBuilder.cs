@@ -7,6 +7,7 @@ using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Auth;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Import;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Item;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -29,6 +30,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Import.ImportRequestBuilder Import
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Import.ImportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The lookup property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupRequestBuilder Lookup
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Soenneker.Coinbase.OpenApiClients.Cdp.v2.endUsers.item collection</summary>
         /// <param name="position">The ID of the end user to get.</param>

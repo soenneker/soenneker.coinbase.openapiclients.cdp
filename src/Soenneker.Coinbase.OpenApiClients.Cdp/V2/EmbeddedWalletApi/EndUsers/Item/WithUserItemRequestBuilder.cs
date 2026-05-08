@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Address;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana;
@@ -17,6 +18,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithUserItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The address property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Address.AddressRequestBuilder Address
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Address.AddressRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The delegation property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder Delegation
         {
