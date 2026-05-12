@@ -15255,6 +15255,168 @@
         },
         "x-audience": "public"
       },
+      "SendEndUserEvmAssetCriteria": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/EvmNetworkCriterion"
+            },
+            {
+              "$ref": "#/components/schemas/EvmDataCriterion"
+            },
+            {
+              "$ref": "#/components/schemas/NetUSDChangeCriterion"
+            }
+          ]
+        },
+        "description": "A schema for specifying criteria for the sendEndUserEvmAsset operation.",
+        "x-audience": "public"
+      },
+      "SendEndUserEvmAssetRule": {
+        "title": "SendEndUserEvmAssetRule",
+        "required": [
+          "action",
+          "operation",
+          "criteria"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "reject",
+              "accept"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Whether matching the rule will cause the request to be rejected or accepted.",
+            "example": "accept"
+          },
+          "operation": {
+            "enum": [
+              "sendEndUserEvmAsset"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The operation to which the rule applies. Every element of the \u0060criteria\u0060 array must match the specified operation.",
+            "example": "sendEndUserEvmAsset"
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/SendEndUserEvmAssetCriteria"
+          }
+        },
+        "x-audience": "public"
+      },
+      "SendEndUserSolAssetCriteria": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/SplAddressCriterion"
+            },
+            {
+              "$ref": "#/components/schemas/SplValueCriterion"
+            },
+            {
+              "$ref": "#/components/schemas/SolDataCriterion"
+            },
+            {
+              "$ref": "#/components/schemas/SolNetworkCriterion"
+            }
+          ]
+        },
+        "description": "A schema for specifying criteria for the sendEndUserSolAsset operation.",
+        "x-audience": "public"
+      },
+      "SendEndUserSolAssetRule": {
+        "title": "SendEndUserSolAssetRule",
+        "required": [
+          "action",
+          "operation",
+          "criteria"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "reject",
+              "accept"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Whether matching the rule will cause the request to be rejected or accepted.",
+            "example": "accept"
+          },
+          "operation": {
+            "enum": [
+              "sendEndUserSolAsset"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The operation to which the rule applies. Every element of the \u0060criteria\u0060 array must match the specified operation.",
+            "example": "sendEndUserSolAsset"
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/SendEndUserSolAssetCriteria"
+          }
+        },
+        "x-audience": "public"
+      },
+      "CreateEndUserEvmSwapCriteria": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/components/schemas/EvmNetworkCriterion"
+            },
+            {
+              "$ref": "#/components/schemas/EvmDataCriterion"
+            },
+            {
+              "$ref": "#/components/schemas/NetUSDChangeCriterion"
+            }
+          ]
+        },
+        "description": "A schema for specifying criteria for the createEndUserEvmSwap operation.",
+        "x-audience": "public"
+      },
+      "CreateEndUserEvmSwapRule": {
+        "title": "CreateEndUserEvmSwapRule",
+        "required": [
+          "action",
+          "operation",
+          "criteria"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "enum": [
+              "reject",
+              "accept"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "Whether matching the rule will cause the request to be rejected or accepted.",
+            "example": "accept"
+          },
+          "operation": {
+            "enum": [
+              "createEndUserEvmSwap"
+            ],
+            "type": "string",
+            "additionalProperties": false,
+            "description": "The operation to which the rule applies. Every element of the \u0060criteria\u0060 array must match the specified operation.",
+            "example": "createEndUserEvmSwap"
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/CreateEndUserEvmSwapCriteria"
+          }
+        },
+        "x-audience": "public"
+      },
       "Rule": {
         "required": [
           "type"
@@ -15314,6 +15476,15 @@
           },
           {
             "$ref": "#/components/schemas/SignEndUserSolMessageRule"
+          },
+          {
+            "$ref": "#/components/schemas/SendEndUserEvmAssetRule"
+          },
+          {
+            "$ref": "#/components/schemas/SendEndUserSolAssetRule"
+          },
+          {
+            "$ref": "#/components/schemas/CreateEndUserEvmSwapRule"
           }
         ],
         "properties": {
@@ -15343,7 +15514,10 @@
             "SignEndUserEvmHashRule": "#/components/schemas/SignEndUserEvmHashRule",
             "SignEndUserSolTransactionRule": "#/components/schemas/SignEndUserSolTransactionRule",
             "SendEndUserSolTransactionRule": "#/components/schemas/SendEndUserSolTransactionRule",
-            "SignEndUserSolMessageRule": "#/components/schemas/SignEndUserSolMessageRule"
+            "SignEndUserSolMessageRule": "#/components/schemas/SignEndUserSolMessageRule",
+            "SendEndUserEvmAssetRule": "#/components/schemas/SendEndUserEvmAssetRule",
+            "SendEndUserSolAssetRule": "#/components/schemas/SendEndUserSolAssetRule",
+            "CreateEndUserEvmSwapRule": "#/components/schemas/CreateEndUserEvmSwapRule"
           }
         },
         "example": {

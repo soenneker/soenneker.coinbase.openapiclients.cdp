@@ -8,11 +8,19 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendUserOperationRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTypedDataRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolTransactionRule"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendUserOperationRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTypedDataRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTransactionRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolMessageRule"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolTransactionRule"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Rule : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule? CreateEndUserEvmSwapRule { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule CreateEndUserEvmSwapRule { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,6 +29,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule PrepareUserOperationRule { get; set; }
 #endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetRule"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetRule? SendEndUserEvmAssetRule { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetRule SendEndUserEvmAssetRule { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,6 +44,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule SendEndUserEvmTransactionRule { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetRule"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetRule? SendEndUserSolAssetRule { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetRule SendEndUserSolAssetRule { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolTransactionRule"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -167,13 +191,25 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule();
-            if("PrepareUserOperationRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("CreateEndUserEvmSwapRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateEndUserEvmSwapRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule();
+            }
+            else if("PrepareUserOperationRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PrepareUserOperationRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule();
+            }
+            else if("SendEndUserEvmAssetRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SendEndUserEvmAssetRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetRule();
             }
             else if("SendEndUserEvmTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendEndUserEvmTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule();
+            }
+            else if("SendEndUserSolAssetRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SendEndUserSolAssetRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetRule();
             }
             else if("SendEndUserSolTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -247,13 +283,25 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PrepareUserOperationRule != null)
+            if(CreateEndUserEvmSwapRule != null)
+            {
+                return CreateEndUserEvmSwapRule.GetFieldDeserializers();
+            }
+            else if(PrepareUserOperationRule != null)
             {
                 return PrepareUserOperationRule.GetFieldDeserializers();
+            }
+            else if(SendEndUserEvmAssetRule != null)
+            {
+                return SendEndUserEvmAssetRule.GetFieldDeserializers();
             }
             else if(SendEndUserEvmTransactionRule != null)
             {
                 return SendEndUserEvmTransactionRule.GetFieldDeserializers();
+            }
+            else if(SendEndUserSolAssetRule != null)
+            {
+                return SendEndUserSolAssetRule.GetFieldDeserializers();
             }
             else if(SendEndUserSolTransactionRule != null)
             {
@@ -328,13 +376,25 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PrepareUserOperationRule != null)
+            if(CreateEndUserEvmSwapRule != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule>(null, CreateEndUserEvmSwapRule);
+            }
+            else if(PrepareUserOperationRule != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule>(null, PrepareUserOperationRule);
+            }
+            else if(SendEndUserEvmAssetRule != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetRule>(null, SendEndUserEvmAssetRule);
             }
             else if(SendEndUserEvmTransactionRule != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule>(null, SendEndUserEvmTransactionRule);
+            }
+            else if(SendEndUserSolAssetRule != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetRule>(null, SendEndUserSolAssetRule);
             }
             else if(SendEndUserSolTransactionRule != null)
             {
