@@ -9,9 +9,43 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class GetSwapPriceResponse : global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse, IParsable
+    public partial class GetSwapPriceResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The block number at which the liquidity conditions were examined.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? BlockNumber { get; set; }
+#nullable restore
+#else
+        public string BlockNumber { get; set; }
+#endif
+        /// <summary>The estimated fees for the swap.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees? Fees { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees Fees { get; set; }
+#endif
+        /// <summary>The amount of the `fromToken` that will be sent in this swap, in atomic units of the `fromToken`. For example, `1000000000000000000` when sending ETH equates to 1 ETH, `1000000` when sending USDC equates to 1 USDC, etc.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FromAmount { get; set; }
+#nullable restore
+#else
+        public string FromAmount { get; set; }
+#endif
+        /// <summary>The 0x-prefixed contract address of the token that will be sent.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FromToken { get; set; }
+#nullable restore
+#else
+        public string FromToken { get; set; }
+#endif
         /// <summary>The estimated gas limit that should be used to send the transaction to guarantee settlement.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,12 +62,53 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string GasPrice { get; set; }
 #endif
+        /// <summary>An object containing potential issues discovered during validation that could prevent the swap from being executed successfully.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues? Issues { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues Issues { get; set; }
+#endif
+        /// <summary>Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.</summary>
+        public bool? LiquidityAvailable { get; set; }
+        /// <summary>The minimum amount of the `toToken` that must be received for the swap to succeed, in atomic units of the `toToken`.  For example, `1000000000000000000` when receiving ETH equates to 1 ETH, `1000000` when receiving USDC equates to 1 USDC, etc. This value is influenced by the `slippageBps` parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MinToAmount { get; set; }
+#nullable restore
+#else
+        public string MinToAmount { get; set; }
+#endif
+        /// <summary>The amount of the `toToken` that will be received in atomic units of the `toToken`. For example, `1000000000000000000` when receiving ETH equates to 1 ETH, `1000000` when receiving USDC equates to 1 USDC, etc.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ToAmount { get; set; }
+#nullable restore
+#else
+        public string ToAmount { get; set; }
+#endif
+        /// <summary>The 0x-prefixed contract address of the token that will be received.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ToToken { get; set; }
+#nullable restore
+#else
+        public string ToToken { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSwapPriceResponse"/> and sets the default values.
+        /// </summary>
+        public GetSwapPriceResponse()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSwapPriceResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSwapPriceResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSwapPriceResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSwapPriceResponse();
@@ -42,24 +117,42 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "blockNumber", n => { BlockNumber = n.GetStringValue(); } },
+                { "fees", n => { Fees = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees.CreateFromDiscriminatorValue); } },
+                { "fromAmount", n => { FromAmount = n.GetStringValue(); } },
+                { "fromToken", n => { FromToken = n.GetStringValue(); } },
                 { "gas", n => { Gas = n.GetStringValue(); } },
                 { "gasPrice", n => { GasPrice = n.GetStringValue(); } },
+                { "issues", n => { Issues = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues.CreateFromDiscriminatorValue); } },
+                { "liquidityAvailable", n => { LiquidityAvailable = n.GetBoolValue(); } },
+                { "minToAmount", n => { MinToAmount = n.GetStringValue(); } },
+                { "toAmount", n => { ToAmount = n.GetStringValue(); } },
+                { "toToken", n => { ToToken = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteStringValue("blockNumber", BlockNumber);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees>("fees", Fees);
+            writer.WriteStringValue("fromAmount", FromAmount);
+            writer.WriteStringValue("fromToken", FromToken);
             writer.WriteStringValue("gas", Gas);
             writer.WriteStringValue("gasPrice", GasPrice);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues>("issues", Issues);
+            writer.WriteBoolValue("liquidityAvailable", LiquidityAvailable);
+            writer.WriteStringValue("minToAmount", MinToAmount);
+            writer.WriteStringValue("toAmount", ToAmount);
+            writer.WriteStringValue("toToken", ToToken);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

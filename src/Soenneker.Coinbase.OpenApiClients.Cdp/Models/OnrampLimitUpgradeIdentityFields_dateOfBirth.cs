@@ -11,14 +11,47 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// Date of birth.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class OnrampLimitUpgradeIdentityFields_dateOfBirth : global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth, IParsable
+    public partial class OnrampLimitUpgradeIdentityFields_dateOfBirth : IAdditionalDataHolder, IParsable
     {
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Day of birth (01-31).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Day { get; set; }
+#nullable restore
+#else
+        public string Day { get; set; }
+#endif
+        /// <summary>Month of birth (01-12).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Month { get; set; }
+#nullable restore
+#else
+        public string Month { get; set; }
+#endif
+        /// <summary>Year of birth (four digits).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Year { get; set; }
+#nullable restore
+#else
+        public string Year { get; set; }
+#endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields_dateOfBirth"/> and sets the default values.
+        /// </summary>
+        public OnrampLimitUpgradeIdentityFields_dateOfBirth()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields_dateOfBirth"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields_dateOfBirth CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields_dateOfBirth CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields_dateOfBirth();
@@ -27,20 +60,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+            return new Dictionary<string, Action<IParseNode>>
             {
+                { "day", n => { Day = n.GetStringValue(); } },
+                { "month", n => { Month = n.GetStringValue(); } },
+                { "year", n => { Year = n.GetStringValue(); } },
             };
         }
         /// <summary>
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public override void Serialize(ISerializationWriter writer)
+        public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            base.Serialize(writer);
+            writer.WriteStringValue("day", Day);
+            writer.WriteStringValue("month", Month);
+            writer.WriteStringValue("year", Year);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

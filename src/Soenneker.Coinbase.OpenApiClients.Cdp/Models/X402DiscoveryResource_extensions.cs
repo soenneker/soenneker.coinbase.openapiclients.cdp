@@ -7,45 +7,30 @@ using System.IO;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
+    /// <summary>
+    /// Map of x402 protocol extensions supported by the resource, keyed by extension name.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class ListEvmAccounts200 : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class X402DiscoveryResource_extensions : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The list of EVM accounts.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAccount>? Accounts { get; set; }
-#nullable restore
-#else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAccount> Accounts { get; set; }
-#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The token for the next page of items, if any.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? NextPageToken { get; set; }
-#nullable restore
-#else
-        public string NextPageToken { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEvmAccounts200"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_extensions"/> and sets the default values.
         /// </summary>
-        public ListEvmAccounts200()
+        public X402DiscoveryResource_extensions()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEvmAccounts200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_extensions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEvmAccounts200 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_extensions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEvmAccounts200();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_extensions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +40,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAccount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAccount.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "nextPageToken", n => { NextPageToken = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -66,8 +49,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAccount>("accounts", Accounts);
-            writer.WriteStringValue("nextPageToken", NextPageToken);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

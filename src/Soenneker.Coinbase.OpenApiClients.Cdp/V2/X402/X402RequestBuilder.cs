@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify;
@@ -17,6 +18,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402RequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The discovery property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.DiscoveryRequestBuilder Discovery
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.DiscoveryRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The settle property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle.SettleRequestBuilder Settle
         {
