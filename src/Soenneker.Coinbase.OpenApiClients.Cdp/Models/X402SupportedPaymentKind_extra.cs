@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// The optional additional scheme-specific payment info.
+    /// &quot;The optional additional scheme-specific payment info.Common scheme-specific fields:  - `exact` on Solana: `feePayer` — the base58-encoded Solana address that pays transaction fees.  - `upto` on EVM: `name`, `version`, and `facilitatorAddress` — the EVM address of the facilitator that the client must bind into the Permit2 witness when constructing the payment payload.  - `batch-settlement` on EVM: `name`, `version`, `receiverAuthorizer` (the EVM address authorized to sign claim batches), `withdrawDelay` (channel non-cooperative withdraw delay in seconds, 900–2,592,000), and optionally `assetTransferMethod` (e.g., `\&quot;eip3009\&quot;`).&quot;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402SupportedPaymentKind_extra : IAdditionalDataHolder, IParsable

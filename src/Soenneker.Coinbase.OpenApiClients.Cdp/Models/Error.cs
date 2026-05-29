@@ -44,6 +44,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType? ErrorType { get; set; }
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
+        /// <summary>The capability code(s) that were not authorized for the customer onthis request. Present only when `errorType` is`customer_not_authorized`; absent for every other error type.Use this list to render onboarding UX for the listed capabilities, orfetch `GET /v2/customers/{customerId}` and inspect each entry&apos;s`status` / `requirements` to discover what (if anything) can besubmitted to resolve the block.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?>? UnauthorizedCapabilities { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?> UnauthorizedCapabilities { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error"/> and sets the default values.
         /// </summary>
@@ -73,6 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "errorLink", n => { ErrorLink = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink.CreateFromDiscriminatorValue); } },
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
                 { "errorType", n => { ErrorType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType>(); } },
+                { "unauthorizedCapabilities", n => { UnauthorizedCapabilities = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -86,6 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink>("errorLink", ErrorLink);
             writer.WriteStringValue("errorMessage", ErrorMessage);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType>("errorType", ErrorType);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName>("unauthorizedCapabilities", UnauthorizedCapabilities);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The search method used to retrieve the results (e.g., &quot;text&quot; or &quot;vector&quot;).</summary>
+    /// <summary>The search method used to retrieve the results (e.g., &quot;text&quot;, &quot;vector&quot;, &quot;hybrid&quot;).</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum X402SearchResourcesResponse_searchMethod
     {
@@ -14,6 +14,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "vector")]
         #pragma warning disable CS1591
         Vector,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "hybrid")]
+        #pragma warning disable CS1591
+        Hybrid,
         #pragma warning restore CS1591
     }
 }

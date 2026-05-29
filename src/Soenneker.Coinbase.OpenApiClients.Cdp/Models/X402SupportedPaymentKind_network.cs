@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The network of the blockchain.</summary>
+    /// <summary>&quot;The network of the blockchain. The format corresponds to the `x402Version` of the enclosing `x402SupportedPaymentKind`: v1 uses human-readable names (see `X402V1Network`); v2 uses CAIP-2 chain IDs (see `X402V2Network`).&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum X402SupportedPaymentKind_network
     {
@@ -23,10 +23,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Solana,
         #pragma warning restore CS1591
-        [EnumMember(Value = "polygon")]
-        #pragma warning disable CS1591
-        Polygon,
-        #pragma warning restore CS1591
         [EnumMember(Value = "eip155:8453")]
         #pragma warning disable CS1591
         Eip1558453,
@@ -39,6 +35,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Eip155137,
         #pragma warning restore CS1591
+        [EnumMember(Value = "eip155:42161")]
+        #pragma warning disable CS1591
+        Eip15542161,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "eip155:480")]
+        #pragma warning disable CS1591
+        Eip155480,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "eip155:4801")]
+        #pragma warning disable CS1591
+        Eip1554801,
+        #pragma warning restore CS1591
         [EnumMember(Value = "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp")]
         #pragma warning disable CS1591
         Solana5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp,
@@ -46,26 +54,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1")]
         #pragma warning disable CS1591
         SolanaEtWTRABZaYq6iMfeYKouRu166VU2xqa1,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "avalanche")]
-        #pragma warning disable CS1591
-        Avalanche,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "arbitrum")]
-        #pragma warning disable CS1591
-        Arbitrum,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "arbitrum-sepolia")]
-        #pragma warning disable CS1591
-        ArbitrumSepolia,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "world")]
-        #pragma warning disable CS1591
-        World,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "world-sepolia")]
-        #pragma warning disable CS1591
-        WorldSepolia,
         #pragma warning restore CS1591
     }
 }

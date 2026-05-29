@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The email address of the end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication_email? Email { get; set; }
 #nullable restore
 #else
-        public string Email { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication_email Email { get; set; }
 #endif
         /// <summary>The type of authentication information.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication_type? Type { get; set; }
@@ -50,7 +50,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "email", n => { Email = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication_email>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication_email.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication_type>(); } },
             };
         }
@@ -61,7 +61,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("email", Email);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication_email>("email", Email);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication_type>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

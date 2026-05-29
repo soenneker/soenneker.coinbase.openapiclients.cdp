@@ -3,29 +3,25 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The network of the blockchain to send payment on.</summary>
+    /// <summary>&quot;The x402 v1 network identifier. x402 v1 uses human-readable network names. Supported networks: Base mainnet and testnet, Solana mainnet and devnet.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum X402V1PaymentRequirements_network
+    public enum X402V1Network
     {
-        [EnumMember(Value = "base-sepolia")]
-        #pragma warning disable CS1591
-        BaseSepolia,
-        #pragma warning restore CS1591
         [EnumMember(Value = "base")]
         #pragma warning disable CS1591
         Base,
         #pragma warning restore CS1591
-        [EnumMember(Value = "solana-devnet")]
+        [EnumMember(Value = "base-sepolia")]
         #pragma warning disable CS1591
-        SolanaDevnet,
+        BaseSepolia,
         #pragma warning restore CS1591
         [EnumMember(Value = "solana")]
         #pragma warning disable CS1591
         Solana,
         #pragma warning restore CS1591
-        [EnumMember(Value = "polygon")]
+        [EnumMember(Value = "solana-devnet")]
         #pragma warning disable CS1591
-        Polygon,
+        SolanaDevnet,
         #pragma warning restore CS1591
     }
 }

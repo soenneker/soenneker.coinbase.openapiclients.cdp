@@ -27,6 +27,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Client_closed_request,
         #pragma warning restore CS1591
+        [EnumMember(Value = "customer_not_authorized")]
+        #pragma warning disable CS1591
+        Customer_not_authorized,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "endpoint_unavailable")]
+        #pragma warning disable CS1591
+        Endpoint_unavailable,
+        #pragma warning restore CS1591
         [EnumMember(Value = "faucet_limit_exceeded")]
         #pragma warning disable CS1591
         Faucet_limit_exceeded,
@@ -94,6 +102,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "unauthorized")]
         #pragma warning disable CS1591
         Unauthorized,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "unsupported_tos_language")]
+        #pragma warning disable CS1591
+        Unsupported_tos_language,
         #pragma warning restore CS1591
         [EnumMember(Value = "policy_violation")]
         #pragma warning disable CS1591
@@ -191,6 +203,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Transfer_asset_not_supported,
         #pragma warning restore CS1591
+        [EnumMember(Value = "transfer_quote_expired")]
+        #pragma warning disable CS1591
+        Transfer_quote_expired,
+        #pragma warning restore CS1591
         [EnumMember(Value = "insufficient_balance")]
         #pragma warning disable CS1591
         Insufficient_balance,
@@ -262,6 +278,34 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "transaction_simulation_failed")]
         #pragma warning disable CS1591
         Transaction_simulation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "delegation_not_found")]
+        #pragma warning disable CS1591
+        Delegation_not_found,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "delegation_expired")]
+        #pragma warning disable CS1591
+        Delegation_expired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "delegation_revoked")]
+        #pragma warning disable CS1591
+        Delegation_revoked,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "delegation_not_authorized")]
+        #pragma warning disable CS1591
+        Delegation_not_authorized,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "delegation_not_enabled")]
+        #pragma warning disable CS1591
+        Delegation_not_enabled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "network_mismatch")]
+        #pragma warning disable CS1591
+        Network_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "already_enabled")]
+        #pragma warning disable CS1591
+        Already_enabled,
         #pragma warning restore CS1591
     }
 }

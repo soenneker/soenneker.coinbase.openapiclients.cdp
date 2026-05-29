@@ -15,5 +15,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Upto,
         #pragma warning restore CS1591
+        [EnumMember(Value = "batch-settlement")]
+        #pragma warning disable CS1591
+        BatchSettlement,
+        #pragma warning restore CS1591
     }
 }

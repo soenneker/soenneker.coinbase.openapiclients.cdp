@@ -3,29 +3,25 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The network of the blockchain to send payment on.</summary>
+    /// <summary>The type of the fee, indicating its purpose.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum X402V1PaymentPayload_network
+    public enum TransferFee_type
     {
-        [EnumMember(Value = "base-sepolia")]
+        [EnumMember(Value = "bank")]
         #pragma warning disable CS1591
-        BaseSepolia,
+        Bank,
         #pragma warning restore CS1591
-        [EnumMember(Value = "base")]
+        [EnumMember(Value = "conversion")]
         #pragma warning disable CS1591
-        Base,
+        Conversion,
         #pragma warning restore CS1591
-        [EnumMember(Value = "solana-devnet")]
+        [EnumMember(Value = "network")]
         #pragma warning disable CS1591
-        SolanaDevnet,
+        Network,
         #pragma warning restore CS1591
-        [EnumMember(Value = "solana")]
+        [EnumMember(Value = "other")]
         #pragma warning disable CS1591
-        Solana,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "polygon")]
-        #pragma warning disable CS1591
-        Polygon,
+        Other,
         #pragma warning restore CS1591
     }
 }

@@ -39,6 +39,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_extensions Extensions { get; set; }
 #endif
+        /// <summary>&quot;URL of a square icon representing the service this resource belongs to. Distinct from abrand logo: this is intended for compact, list-view rendering (favicon-style) and isnormalized to a square aspect ratio at ingestion. The image is moderated and re-hosted byCoinbase, so the URL is stable and safe to render directly in clients. Omitted when theprovider did not supply an icon, when the supplied icon failed moderation, or when imageprocessing was unavailable at ingestion time.&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_iconUrl? IconUrl { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_iconUrl IconUrl { get; set; }
+#endif
         /// <summary>Timestamp of the last update.</summary>
         public DateTimeOffset? LastUpdated { get; set; }
         /// <summary>Quality metrics for a discovered x402 resource.</summary>
@@ -56,6 +64,22 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public string Resource { get; set; }
+#endif
+        /// <summary>Provider-supplied display name of the service this resource belongs to. This is a free-formlabel for grouping and presentation only — it is not a stable identifier, and two resourcessharing the same `serviceName` are not guaranteed to belong to the same logical service.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ServiceName { get; set; }
+#nullable restore
+#else
+        public string ServiceName { get; set; }
+#endif
+        /// <summary>Provider-supplied, low-cardinality string labels associated with the resource for client-sidefiltering and display. Values are free-form (no controlled vocabulary) and case-sensitive.Order is not significant and duplicates are not expected.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Tags { get; set; }
+#nullable restore
+#else
+        public List<string> Tags { get; set; }
 #endif
         /// <summary>Communication protocol (e.g., &quot;http&quot;, &quot;mcp&quot;).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_type? Type { get; set; }
@@ -89,9 +113,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "accepts", n => { Accepts = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "extensions", n => { Extensions = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_extensions>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_extensions.CreateFromDiscriminatorValue); } },
+                { "iconUrl", n => { IconUrl = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_iconUrl>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_iconUrl.CreateFromDiscriminatorValue); } },
                 { "lastUpdated", n => { LastUpdated = n.GetDateTimeOffsetValue(); } },
                 { "quality", n => { Quality = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality.CreateFromDiscriminatorValue); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
+                { "serviceName", n => { ServiceName = n.GetStringValue(); } },
+                { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_type>(); } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
@@ -106,9 +133,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>("accepts", Accepts);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_extensions>("extensions", Extensions);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_iconUrl>("iconUrl", IconUrl);
             writer.WriteDateTimeOffsetValue("lastUpdated", LastUpdated);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality>("quality", Quality);
             writer.WriteStringValue("resource", Resource);
+            writer.WriteStringValue("serviceName", ServiceName);
+            writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource_type>("type", Type);
             writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);

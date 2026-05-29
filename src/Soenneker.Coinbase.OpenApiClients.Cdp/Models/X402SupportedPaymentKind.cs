@@ -15,7 +15,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The optional additional scheme-specific payment info.</summary>
+        /// <summary>&quot;The optional additional scheme-specific payment info.Common scheme-specific fields:  - `exact` on Solana: `feePayer` — the base58-encoded Solana address that pays transaction fees.  - `upto` on EVM: `name`, `version`, and `facilitatorAddress` — the EVM address of the facilitator that the client must bind into the Permit2 witness when constructing the payment payload.  - `batch-settlement` on EVM: `name`, `version`, `receiverAuthorizer` (the EVM address authorized to sign claim batches), `withdrawDelay` (channel non-cooperative withdraw delay in seconds, 900–2,592,000), and optionally `assetTransferMethod` (e.g., `\&quot;eip3009\&quot;`).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra? Extra { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra Extra { get; set; }
 #endif
-        /// <summary>The network of the blockchain.</summary>
+        /// <summary>&quot;The network of the blockchain. The format corresponds to the `x402Version` of the enclosing `x402SupportedPaymentKind`: v1 uses human-readable names (see `X402V1Network`); v2 uses CAIP-2 chain IDs (see `X402V2Network`).&quot;</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_network? Network { get; set; }
         /// <summary>The scheme of the payment protocol.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_scheme? Scheme { get; set; }

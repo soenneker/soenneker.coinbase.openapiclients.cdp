@@ -15,6 +15,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Optional scheme-specific verify metadata returned by the facilitator.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_extra? Extra { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_extra Extra { get; set; }
+#endif
         /// <summary>The message describing the invalid reason.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,10 +38,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
         /// <summary>The onchain address of the client that is paying for the resource.For EVM networks, the payer will be a 0x-prefixed, checksum EVM address.For Solana-based networks, the payer will be a base58-encoded Solana address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Payer { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_payer? Payer { get; set; }
 #nullable restore
 #else
-        public string Payer { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_payer Payer { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse"/> and sets the default values.
@@ -60,10 +68,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "extra", n => { Extra = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_extra>(global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_extra.CreateFromDiscriminatorValue); } },
                 { "invalidMessage", n => { InvalidMessage = n.GetStringValue(); } },
                 { "invalidReason", n => { InvalidReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason>(); } },
                 { "isValid", n => { IsValid = n.GetBoolValue(); } },
-                { "payer", n => { Payer = n.GetStringValue(); } },
+                { "payer", n => { Payer = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_payer>(global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_payer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,10 +82,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_extra>("extra", Extra);
             writer.WriteStringValue("invalidMessage", InvalidMessage);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason>("invalidReason", InvalidReason);
             writer.WriteBoolValue("isValid", IsValid);
-            writer.WriteStringValue("payer", Payer);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyPostResponse_payer>("payer", Payer);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

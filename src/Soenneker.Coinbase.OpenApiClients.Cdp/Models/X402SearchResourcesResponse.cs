@@ -25,7 +25,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource> Resources { get; set; }
 #endif
-        /// <summary>The search method used to retrieve the results (e.g., &quot;text&quot; or &quot;vector&quot;).</summary>
+        /// <summary>The search method used to retrieve the results (e.g., &quot;text&quot;, &quot;vector&quot;, &quot;hybrid&quot;).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponse_searchMethod? SearchMethod { get; set; }
         /// <summary>The version of the x402 protocol.</summary>
         public int? X402Version { get; set; }

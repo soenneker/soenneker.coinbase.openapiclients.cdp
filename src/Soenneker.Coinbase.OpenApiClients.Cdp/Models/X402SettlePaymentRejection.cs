@@ -39,10 +39,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The onchain address of the client that is paying for the resource.For EVM networks, the payer will be a 0x-prefixed, checksum EVM address.For Solana-based networks, the payer will be a base58-encoded Solana address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Payer { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection_payer? Payer { get; set; }
 #nullable restore
 #else
-        public string Payer { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection_payer Payer { get; set; }
 #endif
         /// <summary>Indicates whether the payment settlement is successful.</summary>
         public bool? Success { get; set; }
@@ -82,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
                 { "errorReason", n => { ErrorReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason>(); } },
                 { "network", n => { Network = n.GetStringValue(); } },
-                { "payer", n => { Payer = n.GetStringValue(); } },
+                { "payer", n => { Payer = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection_payer>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection_payer.CreateFromDiscriminatorValue); } },
                 { "success", n => { Success = n.GetBoolValue(); } },
                 { "transaction", n => { Transaction = n.GetStringValue(); } },
             };
@@ -97,7 +97,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("errorMessage", ErrorMessage);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettleErrorReason>("errorReason", ErrorReason);
             writer.WriteStringValue("network", Network);
-            writer.WriteStringValue("payer", Payer);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SettlePaymentRejection_payer>("payer", Payer);
             writer.WriteBoolValue("success", Success);
             writer.WriteStringValue("transaction", Transaction);
             writer.WriteAdditionalData(AdditionalData);

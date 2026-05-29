@@ -2,13 +2,17 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402;
 using System.Collections.Generic;
 using System.IO;
@@ -22,10 +26,20 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class V2RequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The accounts property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts.AccountsRequestBuilder Accounts
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts.AccountsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The data property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.DataRequestBuilder Data
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.DataRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The depositDestinations property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations.DepositDestinationsRequestBuilder DepositDestinations
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations.DepositDestinationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The embeddedWalletApi property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EmbeddedWalletApiRequestBuilder EmbeddedWalletApi
@@ -47,6 +61,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.OnrampRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The paymentMethods property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods.PaymentMethodsRequestBuilder PaymentMethods
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods.PaymentMethodsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The policyEngine property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.PolicyEngineRequestBuilder PolicyEngine
         {
@@ -56,6 +75,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.SolanaRequestBuilder Solana
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.SolanaRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The transfers property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.TransfersRequestBuilder Transfers
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.TransfersRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The x402 property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.X402RequestBuilder X402

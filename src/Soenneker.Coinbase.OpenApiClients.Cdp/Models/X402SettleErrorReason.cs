@@ -195,6 +195,670 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Settle_exact_svm_transaction_confirmation_timed_out,
         #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_unknown_settle_action")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_unknown_settle_action,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_claim_payload")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_claim_payload,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_settle_payload")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_settle_payload,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_authorizer_address_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_authorizer_address_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_claim_simulation_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_claim_simulation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_claim_transaction_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_claim_transaction_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_deposit_transaction_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_deposit_transaction_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_refund_simulation_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_refund_simulation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_refund_transaction_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_refund_transaction_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_settle_simulation_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_settle_simulation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_settle_transaction_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_settle_transaction_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_transaction_reverted")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_transaction_reverted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_wait_for_receipt_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_wait_for_receipt_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_erc20_approval_broadcast_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_erc20_approval_broadcast_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_channel_id_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_channel_id_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_channel_state_read_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_channel_state_read_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_cumulative_below_claimed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_cumulative_below_claimed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_cumulative_exceeds_balance")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_cumulative_exceeds_balance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_eip2612_amount_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_eip2612_amount_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_eip2612_asset_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_eip2612_asset_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_eip2612_deadline_expired")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_eip2612_deadline_expired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_eip2612_invalid_format")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_eip2612_invalid_format,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_eip2612_invalid_signature")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_eip2612_invalid_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_eip2612_owner_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_eip2612_owner_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_eip2612_spender_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_eip2612_spender_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_erc20_approval_asset_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_erc20_approval_asset_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_erc20_approval_from_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_erc20_approval_from_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_erc20_approval_invalid_format")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_erc20_approval_invalid_format,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_erc20_approval_unavailable")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_erc20_approval_unavailable,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_erc20_approval_wrong_spender")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_erc20_approval_wrong_spender,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_erc3009_authorization_required")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_erc3009_authorization_required,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_insufficient_balance")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_insufficient_balance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_deposit_payload")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_deposit_payload,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_receive_authorization_signature")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_receive_authorization_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_refund_payload")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_refund_payload,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_voucher_payload")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_voucher_payload,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_voucher_signature")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_voucher_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_missing_eip712_domain")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_missing_eip712_domain,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_payload_authorization_valid_after")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_payload_authorization_valid_after,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_payload_authorization_valid_before")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_payload_authorization_valid_before,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_permit2_allowance_required")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_permit2_allowance_required,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_permit2_amount_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_permit2_amount_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_permit2_authorization_required")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_permit2_authorization_required,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_permit2_deadline_expired")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_permit2_deadline_expired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_permit2_invalid_signature")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_permit2_invalid_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_permit2_invalid_spender")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_permit2_invalid_spender,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_receiver_authorizer_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_receiver_authorizer_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_receiver_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_receiver_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_rpc_read_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_rpc_read_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_token_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_token_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_withdraw_delay_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_withdraw_delay_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_withdraw_delay_out_of_range")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_withdraw_delay_out_of_range,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_scheme")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_scheme,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_network_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_network_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_payload_type")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_payload_type,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_channel_not_found")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_channel_not_found,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_batch_settlement_evm_deposit_simulation_failed")]
+        #pragma warning disable CS1591
+        Invalid_batch_settlement_evm_deposit_simulation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_scheme")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_scheme,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_network_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_network_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_payload")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_payload,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_payload_missing_signature")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_payload_missing_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_failed_to_get_network_config")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_failed_to_get_network_config,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_missing_eip712_domain")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_missing_eip712_domain,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_recipient_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_recipient_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_authorization_value")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_authorization_value,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_required_amount")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_required_amount,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_payload_authorization_value_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_payload_authorization_value_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_failed_to_check_nonce")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_failed_to_check_nonce,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_nonce_already_used")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_nonce_already_used,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_failed_to_get_balance")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_failed_to_get_balance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_insufficient_balance")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_insufficient_balance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_signature_format")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_signature_format,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_failed_to_verify_signature")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_failed_to_verify_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_signature")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_token_name_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_token_name_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_token_version_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_token_version_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_eip3009_not_supported")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_eip3009_not_supported,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_transaction_simulation_failed")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_transaction_simulation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_verification_failed")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_verification_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_failed_to_parse_signature")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_failed_to_parse_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_failed_to_check_deployment")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_failed_to_check_deployment,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_failed_to_execute_transfer")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_failed_to_execute_transfer,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_failed_to_get_receipt")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_failed_to_get_receipt,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_transaction_failed")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_transaction_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_payload_undeployed_smart_wallet")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_payload_undeployed_smart_wallet,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "smart_wallet_deployment_failed")]
+        #pragma warning disable CS1591
+        Smart_wallet_deployment_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "unsupported_payload_type")]
+        #pragma warning disable CS1591
+        Unsupported_payload_type,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_erc20_approval_extension_format")]
+        #pragma warning disable CS1591
+        Invalid_erc20_approval_extension_format,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_tx_failed")]
+        #pragma warning disable CS1591
+        Erc20_approval_tx_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_from_mismatch")]
+        #pragma warning disable CS1591
+        Erc20_approval_from_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_asset_mismatch")]
+        #pragma warning disable CS1591
+        Erc20_approval_asset_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_spender_not_permit2")]
+        #pragma warning disable CS1591
+        Erc20_approval_spender_not_permit2,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_tx_parse_failed")]
+        #pragma warning disable CS1591
+        Erc20_approval_tx_parse_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_tx_wrong_target")]
+        #pragma warning disable CS1591
+        Erc20_approval_tx_wrong_target,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_tx_wrong_selector")]
+        #pragma warning disable CS1591
+        Erc20_approval_tx_wrong_selector,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_tx_wrong_spender")]
+        #pragma warning disable CS1591
+        Erc20_approval_tx_wrong_spender,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_tx_signer_mismatch")]
+        #pragma warning disable CS1591
+        Erc20_approval_tx_signer_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_tx_invalid_signature")]
+        #pragma warning disable CS1591
+        Erc20_approval_tx_invalid_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_unsupported_scheme")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_unsupported_scheme,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_extra_field")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_extra_field,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_payload_recipient_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_payload_recipient_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_insufficient_funds")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_insufficient_funds,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_evm_transaction_state")]
+        #pragma warning disable CS1591
+        Invalid_exact_evm_transaction_state,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_permit2_spender")]
+        #pragma warning disable CS1591
+        Invalid_permit2_spender,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_permit2_recipient_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_permit2_recipient_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_deadline_expired")]
+        #pragma warning disable CS1591
+        Permit2_deadline_expired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_not_yet_valid")]
+        #pragma warning disable CS1591
+        Permit2_not_yet_valid,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_amount_mismatch")]
+        #pragma warning disable CS1591
+        Permit2_amount_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_token_mismatch")]
+        #pragma warning disable CS1591
+        Permit2_token_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_permit2_signature")]
+        #pragma warning disable CS1591
+        Invalid_permit2_signature,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_allowance_required")]
+        #pragma warning disable CS1591
+        Permit2_allowance_required,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_invalid_amount")]
+        #pragma warning disable CS1591
+        Permit2_invalid_amount,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_invalid_destination")]
+        #pragma warning disable CS1591
+        Permit2_invalid_destination,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_invalid_owner")]
+        #pragma warning disable CS1591
+        Permit2_invalid_owner,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_payment_too_early")]
+        #pragma warning disable CS1591
+        Permit2_payment_too_early,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_invalid_nonce")]
+        #pragma warning disable CS1591
+        Permit2_invalid_nonce,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_2612_amount_mismatch")]
+        #pragma warning disable CS1591
+        Permit2_2612_amount_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_simulation_failed")]
+        #pragma warning disable CS1591
+        Permit2_simulation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_insufficient_balance")]
+        #pragma warning disable CS1591
+        Permit2_insufficient_balance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_proxy_not_deployed")]
+        #pragma warning disable CS1591
+        Permit2_proxy_not_deployed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_insufficient_eth_for_gas")]
+        #pragma warning disable CS1591
+        Erc20_approval_insufficient_eth_for_gas,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "erc20_approval_broadcast_failed")]
+        #pragma warning disable CS1591
+        Erc20_approval_broadcast_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_unsupported_scheme")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_unsupported_scheme,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_network_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_network_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_missing_fee_payer")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_missing_fee_payer,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_fee_payer_not_managed_by_facilitator")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_fee_payer_not_managed_by_facilitator,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_transaction")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_transaction,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_transaction_could_not_be_decoded")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_transaction_could_not_be_decoded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_transaction_instructions_length")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_transaction_instructions_length,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_unknown_fourth_instruction")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_unknown_fourth_instruction,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_unknown_fifth_instruction")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_unknown_fifth_instruction,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_unknown_sixth_instruction")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_unknown_sixth_instruction,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_transaction_instructions_compute_limit_instruction")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_transaction_instructions_compute_limit_instruction,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_transaction_instructions_compute_price_instruction")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_transaction_instructions_compute_price_instruction,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_transaction_instructions_compute_price_instruction_too_high")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_transaction_instructions_compute_price_instruction_too_high,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_no_transfer_instruction")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_no_transfer_instruction,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_transaction_fee_payer_transferring_funds")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_transaction_fee_payer_transferring_funds,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_mint_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_mint_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_recipient_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_recipient_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_amount_insufficient")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_amount_insufficient,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_invalid_fee_payer")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_invalid_fee_payer,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_transaction_signing_failed")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_transaction_signing_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_transaction_simulation_failed")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_transaction_simulation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_memo_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_memo_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_payload_memo_count")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_payload_memo_count,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_verification_failed")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_verification_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_fee_payer_mismatch")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_fee_payer_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_transaction_failed")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_transaction_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_transaction_confirmation_failed")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_transaction_confirmation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "duplicate_settlement")]
+        #pragma warning disable CS1591
+        Duplicate_settlement,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_exact_solana_extra_field")]
+        #pragma warning disable CS1591
+        Invalid_exact_solana_extra_field,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch_settlement_cumulative_amount_mismatch")]
+        #pragma warning disable CS1591
+        Batch_settlement_cumulative_amount_mismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch_settlement_channel_busy")]
+        #pragma warning disable CS1591
+        Batch_settlement_channel_busy,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "missing_batch_settlement_channel")]
+        #pragma warning disable CS1591
+        Missing_batch_settlement_channel,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch_settlement_charge_exceeds_signed_cumulative")]
+        #pragma warning disable CS1591
+        Batch_settlement_charge_exceeds_signed_cumulative,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch_settlement_refund_no_balance")]
+        #pragma warning disable CS1591
+        Batch_settlement_refund_no_balance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch_settlement_refund_amount_invalid")]
+        #pragma warning disable CS1591
+        Batch_settlement_refund_amount_invalid,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "batch_settlement_refund_amount_exceeds_balance")]
+        #pragma warning disable CS1591
+        Batch_settlement_refund_amount_exceeds_balance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "amount_too_low")]
+        #pragma warning disable CS1591
+        Amount_too_low,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_amount")]
+        #pragma warning disable CS1591
+        Invalid_amount,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "kyt_risk_detected")]
+        #pragma warning disable CS1591
+        Kyt_risk_detected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "permit2_disabled")]
+        #pragma warning disable CS1591
+        Permit2_disabled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "preflight_validation_failed")]
+        #pragma warning disable CS1591
+        Preflight_validation_failed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "request_blocked_by_location")]
+        #pragma warning disable CS1591
+        Request_blocked_by_location,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "self_send_not_allowed")]
+        #pragma warning disable CS1591
+        Self_send_not_allowed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_bazaar_extension")]
+        #pragma warning disable CS1591
+        Invalid_bazaar_extension,
+        #pragma warning restore CS1591
         [EnumMember(Value = "unknown_error")]
         #pragma warning disable CS1591
         Unknown_error,

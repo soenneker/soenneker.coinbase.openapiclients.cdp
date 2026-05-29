@@ -69,7 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteAdditionalData(AdditionalData);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion"/>
+        /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion"/>
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class SendUserOperationRule_criteria : IComposedTypeWrapper, IParsable
@@ -97,6 +97,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
             public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion EvmDataCriterion { get; set; }
+#endif
+            /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion? EvmNetworkCriterion { get; set; }
+#nullable restore
+#else
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion EvmNetworkCriterion { get; set; }
 #endif
             /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -128,6 +136,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 {
                     result.EvmDataCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion();
                 }
+                else if("EvmNetworkCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.EvmNetworkCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion();
+                }
                 else if("NetUSDChangeCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
                 {
                     result.NetUSDChangeCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion();
@@ -151,6 +163,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 else if(EvmDataCriterion != null)
                 {
                     return EvmDataCriterion.GetFieldDeserializers();
+                }
+                else if(EvmNetworkCriterion != null)
+                {
+                    return EvmNetworkCriterion.GetFieldDeserializers();
                 }
                 else if(NetUSDChangeCriterion != null)
                 {
@@ -176,6 +192,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 else if(EvmDataCriterion != null)
                 {
                     writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion>(null, EvmDataCriterion);
+                }
+                else if(EvmNetworkCriterion != null)
+                {
+                    writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion>(null, EvmNetworkCriterion);
                 }
                 else if(NetUSDChangeCriterion != null)
                 {
