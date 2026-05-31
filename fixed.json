@@ -17801,10 +17801,22 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/KnownAbiType_Wrapper"
+                "$ref": "#/components/schemas/KnownAbiType"
               },
               {
-                "$ref": "#/components/schemas/Abi_Wrapper"
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AbiFunction"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AbiInput"
+                    }
+                  ]
+                },
+                "description": "Contract ABI Specification following Solidity\u0027s external JSON interface format."
               }
             ],
             "description": "The ABI of the smart contract being called. This can be a partial structure with only specific functions.",
@@ -23097,7 +23109,10 @@
             "type": "object",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "type": "integer"
               }
             ],
             "description": "Request identifier.",
@@ -23162,7 +23177,10 @@
           "id": {
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UnionBranch"
+                "type": "string"
+              },
+              {
+                "type": "integer"
               }
             ],
             "description": "Request identifier (matches the request ID, null for notifications).",
@@ -26607,40 +26625,6 @@
         "type": "object",
         "description": "Placeholder schema for path example refs"
       },
-      "KnownAbiType_Wrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/KnownAbiType"
-          }
-        }
-      },
-      "Abi_Wrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/AbiFunction"
-                },
-                {
-                  "$ref": "#/components/schemas/AbiInput"
-                }
-              ]
-            },
-            "description": "Contract ABI Specification following Solidity\u0027s external JSON interface format."
-          }
-        }
-      },
       "KnownIdlType_Wrapper": {
         "required": [
           "value"
@@ -26649,17 +26633,6 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/KnownIdlType"
-          }
-        }
-      },
-      "UnionBranch": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string"
           }
         }
       }
