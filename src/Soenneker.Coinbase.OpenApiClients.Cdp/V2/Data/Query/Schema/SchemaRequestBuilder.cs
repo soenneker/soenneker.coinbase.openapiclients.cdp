@@ -94,7 +94,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Schema
         {
             /// <summary>The name of the database to query. Defaults to &quot;base&quot; when not specified.</summary>
             [QueryParameter("database")]
-            public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Query.Schema.GetDatabaseQueryParameterType? Database { get; set; }
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSqlSchemaDatabaseParameter? Database { get; set; }
             /// <summary>Get the schema for a specific table.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

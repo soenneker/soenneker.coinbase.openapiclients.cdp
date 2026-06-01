@@ -23,21 +23,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Rate { get; set; }
 #endif
-        /// <summary>The asset being converted from.</summary>
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_sourceAsset? SourceAsset { get; set; }
+        public string? SourceAsset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_sourceAsset SourceAsset { get; set; }
+        public string SourceAsset { get; set; }
 #endif
-        /// <summary>The asset being converted to.</summary>
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_targetAsset? TargetAsset { get; set; }
+        public string? TargetAsset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_targetAsset TargetAsset { get; set; }
+        public string TargetAsset { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate"/> and sets the default values.
@@ -65,8 +65,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "rate", n => { Rate = n.GetStringValue(); } },
-                { "sourceAsset", n => { SourceAsset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_sourceAsset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_sourceAsset.CreateFromDiscriminatorValue); } },
-                { "targetAsset", n => { TargetAsset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_targetAsset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_targetAsset.CreateFromDiscriminatorValue); } },
+                { "sourceAsset", n => { SourceAsset = n.GetStringValue(); } },
+                { "targetAsset", n => { TargetAsset = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -77,8 +77,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("rate", Rate);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_sourceAsset>("sourceAsset", SourceAsset);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate_targetAsset>("targetAsset", TargetAsset);
+            writer.WriteStringValue("sourceAsset", SourceAsset);
+            writer.WriteStringValue("targetAsset", TargetAsset);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

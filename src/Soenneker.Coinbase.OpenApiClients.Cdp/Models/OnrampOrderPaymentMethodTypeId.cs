@@ -9,11 +9,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         [EnumMember(Value = "GUEST_CHECKOUT_APPLE_PAY")]
         #pragma warning disable CS1591
-        GUEST_CHECKOUT_APPLE_PAY,
+        GuestCheckoutApplePay,
         #pragma warning restore CS1591
         [EnumMember(Value = "GUEST_CHECKOUT_GOOGLE_PAY")]
         #pragma warning disable CS1591
-        GUEST_CHECKOUT_GOOGLE_PAY,
+        GuestCheckoutGooglePay,
         #pragma warning restore CS1591
     }
 }

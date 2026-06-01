@@ -15,21 +15,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Asset symbol of the payment received by the recipient.</summary>
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_asset? Asset { get; set; }
+        public string? Asset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_asset Asset { get; set; }
+        public string Asset { get; set; }
 #endif
-        /// <summary>The email address of the recipient. The recipient will need to have an account with Coinbase or onboard to Coinbase to receive the payment.</summary>
+        /// <summary>An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_email? Email { get; set; }
+        public string? Email { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_email Email { get; set; }
+        public string Email { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "asset", n => { Asset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_asset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_asset.CreateFromDiscriminatorValue); } },
-                { "email", n => { Email = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_email>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_email.CreateFromDiscriminatorValue); } },
+                { "asset", n => { Asset = n.GetStringValue(); } },
+                { "email", n => { Email = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_asset>("asset", Asset);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument_email>("email", Email);
+            writer.WriteStringValue("asset", Asset);
+            writer.WriteStringValue("email", Email);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

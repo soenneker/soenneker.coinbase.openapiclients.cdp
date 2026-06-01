@@ -18,18 +18,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Additional headers to include in webhook requests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_headers? Headers { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTargetHeadersProperty? Headers { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_headers Headers { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTargetHeadersProperty Headers { get; set; }
 #endif
-        /// <summary>The webhook URL to deliver events to.</summary>
+        /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_url? Url { get; set; }
+        public string? Url { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_url Url { get; set; }
+        public string Url { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget"/> and sets the default values.
@@ -56,8 +56,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_headers>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_headers.CreateFromDiscriminatorValue); } },
-                { "url", n => { Url = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_url>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_url.CreateFromDiscriminatorValue); } },
+                { "headers", n => { Headers = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTargetHeadersProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTargetHeadersProperty.CreateFromDiscriminatorValue); } },
+                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_headers>("headers", Headers);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget_url>("url", Url);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTargetHeadersProperty>("headers", Headers);
+            writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

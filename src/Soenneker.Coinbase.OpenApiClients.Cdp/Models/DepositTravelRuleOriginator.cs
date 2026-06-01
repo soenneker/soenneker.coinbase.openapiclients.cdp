@@ -56,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleVasp VirtualAssetServiceProvider { get; set; }
 #endif
         /// <summary>The type of the originator&apos;s wallet.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator_walletType? WalletType { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorWalletType? WalletType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator"/> and sets the default values.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "personalId", n => { PersonalId = n.GetStringValue(); } },
                 { "virtualAssetServiceProvider", n => { VirtualAssetServiceProvider = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleVasp>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleVasp.CreateFromDiscriminatorValue); } },
-                { "walletType", n => { WalletType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator_walletType>(); } },
+                { "walletType", n => { WalletType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorWalletType>(); } },
             };
         }
         /// <summary>
@@ -102,7 +102,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("personalId", PersonalId);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleVasp>("virtualAssetServiceProvider", VirtualAssetServiceProvider);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator_walletType>("walletType", WalletType);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorWalletType>("walletType", WalletType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

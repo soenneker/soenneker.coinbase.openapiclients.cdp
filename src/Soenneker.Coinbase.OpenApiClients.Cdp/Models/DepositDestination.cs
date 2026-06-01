@@ -28,10 +28,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Crypto-specific details for this deposit destination. Always populated in responses. Contains the network and address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_crypto? Crypto { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto? Crypto { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_crypto Crypto { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto Crypto { get; set; }
 #endif
         /// <summary>The ID of the Deposit Destination, which is a UUID prefixed by the string `depositDestination_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,10 +44,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_metadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_metadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata Metadata { get; set; }
 #endif
         /// <summary>The status of the deposit destination.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationStatus? Status { get; set; }
@@ -96,9 +96,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "accountId", n => { AccountId = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "crypto", n => { Crypto = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_crypto>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_crypto.CreateFromDiscriminatorValue); } },
+                { "crypto", n => { Crypto = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto.CreateFromDiscriminatorValue); } },
                 { "depositDestinationId", n => { DepositDestinationId = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_metadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationStatus>(); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget.CreateFromDiscriminatorValue); } },
                 { "type", n => { Type = n.GetStringValue(); } },
@@ -114,9 +114,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("accountId", AccountId);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_crypto>("crypto", Crypto);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto>("crypto", Crypto);
             writer.WriteStringValue("depositDestinationId", DepositDestinationId);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata>("metadata", Metadata);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>("target", Target);
             writer.WriteStringValue("type", Type);

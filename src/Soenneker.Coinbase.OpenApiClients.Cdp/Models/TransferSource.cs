@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUS"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferSource : IComposedTypeWrapper, IParsable
@@ -21,13 +21,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress OnchainAddress { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUS"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUS? OriginatingBankAccountUS { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs? OriginatingBankAccountUs { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUS OriginatingBankAccountUS { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs OriginatingBankAccountUs { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +59,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 result.OnchainAddress = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress();
             }
-            else if("OriginatingBankAccountUS".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("OriginatingBankAccountUs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OriginatingBankAccountUS = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUS();
+                result.OriginatingBankAccountUs = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs();
             }
             else if("PaymentMethod".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -83,9 +83,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 return OnchainAddress.GetFieldDeserializers();
             }
-            else if(OriginatingBankAccountUS != null)
+            else if(OriginatingBankAccountUs != null)
             {
-                return OriginatingBankAccountUS.GetFieldDeserializers();
+                return OriginatingBankAccountUs.GetFieldDeserializers();
             }
             else if(PaymentMethod != null)
             {
@@ -108,9 +108,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress>(null, OnchainAddress);
             }
-            else if(OriginatingBankAccountUS != null)
+            else if(OriginatingBankAccountUs != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUS>(null, OriginatingBankAccountUS);
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs>(null, OriginatingBankAccountUs);
             }
             else if(PaymentMethod != null)
             {

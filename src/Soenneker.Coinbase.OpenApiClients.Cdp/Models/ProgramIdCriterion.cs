@@ -16,7 +16,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The operator to use for the comparison. Each of the program IDs in the transaction&apos;s instructions will be on the left-hand side of the operator, and the `programIds` field will be on the right-hand side.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion_operator? Operator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionOperator? Operator { get; set; }
         /// <summary>The Solana program IDs that are compared to the list of program IDs in the transaction&apos;s instructions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,7 +26,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<string> ProgramIds { get; set; }
 #endif
         /// <summary>The type of criterion to use. This should be `programId`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion"/> and sets the default values.
         /// </summary>
@@ -52,9 +52,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion_operator>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionOperator>(); } },
                 { "programIds", n => { ProgramIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionType>(); } },
             };
         }
         /// <summary>
@@ -64,9 +64,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion_operator>("operator", Operator);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionOperator>("operator", Operator);
             writer.WriteCollectionOfPrimitiveValues<string>("programIds", ProgramIds);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

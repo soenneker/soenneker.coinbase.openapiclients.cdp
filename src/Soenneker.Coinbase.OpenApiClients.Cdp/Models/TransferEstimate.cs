@@ -41,13 +41,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string TargetAmount { get; set; }
 #endif
-        /// <summary>The asset symbol of the estimated target amount.</summary>
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate_targetAsset? TargetAsset { get; set; }
+        public string? TargetAsset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate_targetAsset TargetAsset { get; set; }
+        public string TargetAsset { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate"/> and sets the default values.
@@ -78,7 +78,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "exchangeRate", n => { ExchangeRate = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate.CreateFromDiscriminatorValue); } },
                 { "fees", n => { Fees = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "targetAmount", n => { TargetAmount = n.GetStringValue(); } },
-                { "targetAsset", n => { TargetAsset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate_targetAsset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate_targetAsset.CreateFromDiscriminatorValue); } },
+                { "targetAsset", n => { TargetAsset = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -92,7 +92,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate>("exchangeRate", ExchangeRate);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>("fees", Fees);
             writer.WriteStringValue("targetAmount", TargetAmount);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate_targetAsset>("targetAsset", TargetAsset);
+            writer.WriteStringValue("targetAsset", TargetAsset);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

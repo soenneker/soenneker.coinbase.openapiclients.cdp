@@ -28,14 +28,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string PaymentMethodId { get; set; }
 #endif
         /// <summary>The payment rail for this payment method.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethod_paymentRail? PaymentRail { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodPaymentRail? PaymentRail { get; set; }
         /// <summary>SEPA (Single Euro Payments Area) details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethod_sepa? Sepa { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodAllOf2Sepa? Sepa { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethod_sepa Sepa { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodAllOf2Sepa Sepa { get; set; }
 #endif
         /// <summary>The timestamp when the payment method was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
@@ -67,8 +67,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "paymentMethodId", n => { PaymentMethodId = n.GetStringValue(); } },
-                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethod_paymentRail>(); } },
-                { "sepa", n => { Sepa = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethod_sepa>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethod_sepa.CreateFromDiscriminatorValue); } },
+                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodPaymentRail>(); } },
+                { "sepa", n => { Sepa = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodAllOf2Sepa>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodAllOf2Sepa.CreateFromDiscriminatorValue); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -82,8 +82,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteStringValue("paymentMethodId", PaymentMethodId);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethod_paymentRail>("paymentRail", PaymentRail);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethod_sepa>("sepa", Sepa);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodPaymentRail>("paymentRail", PaymentRail);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodAllOf2Sepa>("sepa", Sepa);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

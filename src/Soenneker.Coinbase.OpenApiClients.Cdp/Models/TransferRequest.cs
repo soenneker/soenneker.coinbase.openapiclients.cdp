@@ -24,24 +24,24 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string Amount { get; set; }
 #endif
         /// <summary>&quot;Specifies whether the given amount is to be received by the target or taken from the source.- `target`: The transfer `target` receives the exact value specified in `amount`. Fees are added to the amount taken from the transfer `source`.- `source`: The transfer `target` receives the value specified in `amount`, minus any fees.&quot;</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_amountType? AmountType { get; set; }
-        /// <summary>The symbol of the asset for the amount. This must be one of the assets of the source or target.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType? AmountType { get; set; }
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_asset? Asset { get; set; }
+        public string? Asset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_asset Asset { get; set; }
+        public string Asset { get; set; }
 #endif
         /// <summary>Whether to immediately execute the transfer. If false, the transfer will be created in quoted status and must be executed manually via the /execute endpoint.</summary>
         public bool? Execute { get; set; }
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_metadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_metadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata Metadata { get; set; }
 #endif
         /// <summary>The source of the transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,7 +75,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public TransferRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AmountType = global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_amountType.Source;
+            AmountType = global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType.Source;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -96,10 +96,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
-                { "amountType", n => { AmountType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_amountType>(); } },
-                { "asset", n => { Asset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_asset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_asset.CreateFromDiscriminatorValue); } },
+                { "amountType", n => { AmountType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType>(); } },
+                { "asset", n => { Asset = n.GetStringValue(); } },
                 { "execute", n => { Execute = n.GetBoolValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_metadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget.CreateFromDiscriminatorValue); } },
                 { "travelRule", n => { TravelRule = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule.CreateFromDiscriminatorValue); } },
@@ -114,10 +114,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_amountType>("amountType", AmountType);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_asset>("asset", Asset);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType>("amountType", AmountType);
+            writer.WriteStringValue("asset", Asset);
             writer.WriteBoolValue("execute", Execute);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource>("source", Source);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget>("target", Target);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule>("travelRule", TravelRule);

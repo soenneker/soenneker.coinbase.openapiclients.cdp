@@ -42,10 +42,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Information about the originating Virtual Asset Service Provider (VASP) that handles cryptocurrency or other virtual assets on behalf of customers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginator_virtualAssetServiceProvider? VirtualAssetServiceProvider { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider? VirtualAssetServiceProvider { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginator_virtualAssetServiceProvider VirtualAssetServiceProvider { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider VirtualAssetServiceProvider { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginator"/> and sets the default values.
@@ -75,7 +75,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "address", n => { Address = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
                 { "financialInstitution", n => { FinancialInstitution = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "virtualAssetServiceProvider", n => { VirtualAssetServiceProvider = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginator_virtualAssetServiceProvider>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginator_virtualAssetServiceProvider.CreateFromDiscriminatorValue); } },
+                { "virtualAssetServiceProvider", n => { VirtualAssetServiceProvider = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -88,7 +88,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>("address", Address);
             writer.WriteStringValue("financialInstitution", FinancialInstitution);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginator_virtualAssetServiceProvider>("virtualAssetServiceProvider", VirtualAssetServiceProvider);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider>("virtualAssetServiceProvider", VirtualAssetServiceProvider);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

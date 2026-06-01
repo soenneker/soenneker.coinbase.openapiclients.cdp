@@ -9,23 +9,23 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         [EnumMember(Value = "ONRAMP_ORDER_STATUS_PENDING_AUTH")]
         #pragma warning disable CS1591
-        ONRAMP_ORDER_STATUS_PENDING_AUTH,
+        OnrampOrderStatusPendingAuth,
         #pragma warning restore CS1591
         [EnumMember(Value = "ONRAMP_ORDER_STATUS_PENDING_PAYMENT")]
         #pragma warning disable CS1591
-        ONRAMP_ORDER_STATUS_PENDING_PAYMENT,
+        OnrampOrderStatusPendingPayment,
         #pragma warning restore CS1591
         [EnumMember(Value = "ONRAMP_ORDER_STATUS_PROCESSING")]
         #pragma warning disable CS1591
-        ONRAMP_ORDER_STATUS_PROCESSING,
+        OnrampOrderStatusProcessing,
         #pragma warning restore CS1591
         [EnumMember(Value = "ONRAMP_ORDER_STATUS_COMPLETED")]
         #pragma warning disable CS1591
-        ONRAMP_ORDER_STATUS_COMPLETED,
+        OnrampOrderStatusCompleted,
         #pragma warning restore CS1591
         [EnumMember(Value = "ONRAMP_ORDER_STATUS_FAILED")]
         #pragma warning disable CS1591
-        ONRAMP_ORDER_STATUS_FAILED,
+        OnrampOrderStatusFailed,
         #pragma warning restore CS1591
     }
 }

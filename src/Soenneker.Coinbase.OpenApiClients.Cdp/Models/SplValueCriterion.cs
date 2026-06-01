@@ -16,7 +16,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The operator to use for the comparison. The transaction instruction&apos;s `value` field will be on the left-hand side of the operator, and the `splValue` field will be on the right-hand side.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterion_operator? Operator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterionOperator? Operator { get; set; }
         /// <summary>The amount of the SPL token that the transaction instruction&apos;s `value` field should be compared to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,7 +26,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string SplValue { get; set; }
 #endif
         /// <summary>The type of criterion to use. This should be `splValue`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterion_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterion"/> and sets the default values.
         /// </summary>
@@ -52,9 +52,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterion_operator>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterionOperator>(); } },
                 { "splValue", n => { SplValue = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterion_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterionType>(); } },
             };
         }
         /// <summary>
@@ -64,9 +64,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterion_operator>("operator", Operator);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterionOperator>("operator", Operator);
             writer.WriteStringValue("splValue", SplValue);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterion_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

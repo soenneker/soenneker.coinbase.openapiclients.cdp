@@ -26,10 +26,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Query result as an array of objects representing rows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_result>? Result { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultResultItemProperty>? Result { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_result> Result { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultResultItemProperty> Result { get; set; }
 #endif
         /// <summary>Schema information for the query result. This is a derived schema from the query result, so types may not match the underlying table.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata.CreateFromDiscriminatorValue); } },
-                { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_result>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_result.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "result", n => { Result = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultResultItemProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultResultItemProperty.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "schema", n => { Schema = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultSchema>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultSchema.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,7 +77,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata>("metadata", Metadata);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResult_result>("result", Result);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultResultItemProperty>("result", Result);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultSchema>("schema", Schema);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -41,13 +41,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The network the spend permission is on.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork? Network { get; set; }
-        /// <summary>The paymaster URL of the spend permission.</summary>
+        /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSpendPermissionRequest_paymasterUrl? PaymasterUrl { get; set; }
+        public string? PaymasterUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSpendPermissionRequest_paymasterUrl PaymasterUrl { get; set; }
+        public string PaymasterUrl { get; set; }
 #endif
         /// <summary>Time duration for resetting used allowance on a recurring basis (seconds).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -118,7 +118,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "end", n => { End = n.GetStringValue(); } },
                 { "extraData", n => { ExtraData = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork>(); } },
-                { "paymasterUrl", n => { PaymasterUrl = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSpendPermissionRequest_paymasterUrl>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSpendPermissionRequest_paymasterUrl.CreateFromDiscriminatorValue); } },
+                { "paymasterUrl", n => { PaymasterUrl = n.GetStringValue(); } },
                 { "period", n => { Period = n.GetStringValue(); } },
                 { "salt", n => { Salt = n.GetStringValue(); } },
                 { "spender", n => { Spender = n.GetStringValue(); } },
@@ -137,7 +137,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("end", End);
             writer.WriteStringValue("extraData", ExtraData);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork>("network", Network);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSpendPermissionRequest_paymasterUrl>("paymasterUrl", PaymasterUrl);
+            writer.WriteStringValue("paymasterUrl", PaymasterUrl);
             writer.WriteStringValue("period", Period);
             writer.WriteStringValue("salt", Salt);
             writer.WriteStringValue("spender", Spender);

@@ -23,16 +23,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Amount { get; set; }
 #endif
-        /// <summary>The asset symbol.</summary>
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee_asset? Asset { get; set; }
+        public string? Asset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee_asset Asset { get; set; }
+        public string Asset { get; set; }
 #endif
         /// <summary>The type of the fee, indicating its purpose.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFeeType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee"/> and sets the default values.
         /// </summary>
@@ -59,8 +59,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
-                { "asset", n => { Asset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee_asset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee_asset.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee_type>(); } },
+                { "asset", n => { Asset = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFeeType>(); } },
             };
         }
         /// <summary>
@@ -71,8 +71,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee_asset>("asset", Asset);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee_type>("type", Type);
+            writer.WriteStringValue("asset", Asset);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFeeType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,7 +9,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         [EnumMember(Value = "PAYMENT_LINK_TYPE_APPLE_PAY_BUTTON")]
         #pragma warning disable CS1591
-        PAYMENT_LINK_TYPE_APPLE_PAY_BUTTON,
+        PaymentLinkTypeApplePayButton,
         #pragma warning restore CS1591
     }
 }

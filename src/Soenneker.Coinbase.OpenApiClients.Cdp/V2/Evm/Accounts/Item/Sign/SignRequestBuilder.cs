@@ -54,7 +54,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Sign
         /// <summary>
         /// Signs an arbitrary 32 byte hash with the given EVM account.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -68,11 +68,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Sign
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200Response?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200Response> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -88,7 +88,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Sign
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Signs an arbitrary 32 byte hash with the given EVM account.
@@ -98,11 +98,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Sign
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHash body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

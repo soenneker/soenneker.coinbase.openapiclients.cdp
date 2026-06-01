@@ -44,7 +44,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Number of delivery retry attempts so far.</summary>
         public int? RetryCount { get; set; }
         /// <summary>Current delivery status of the event.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponse_status? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseStatus? Status { get; set; }
         /// <summary>Timestamp when the event was successfully delivered. Only present if status is &quot;succeeded&quot;.</summary>
         public DateTimeOffset? SucceededAt { get; set; }
         /// <summary>
@@ -77,7 +77,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "eventTypeName", n => { EventTypeName = n.GetStringValue(); } },
                 { "response", n => { Response = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseDetail>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseDetail.CreateFromDiscriminatorValue); } },
                 { "retryCount", n => { RetryCount = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseStatus>(); } },
                 { "succeededAt", n => { SucceededAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -93,7 +93,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("eventTypeName", EventTypeName);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseDetail>("response", Response);
             writer.WriteIntValue("retryCount", RetryCount);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("succeededAt", SucceededAt);
             writer.WriteAdditionalData(AdditionalData);
         }

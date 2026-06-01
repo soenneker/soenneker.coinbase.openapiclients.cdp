@@ -15,29 +15,29 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The asset to pay with.For EVM networks, the asset will be a 0x-prefixed, checksum EVM address.For Solana-based networks, the asset will be a base58-encoded Solana address.</summary>
+        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_asset? Asset { get; set; }
+        public string? Asset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_asset Asset { get; set; }
+        public string Asset { get; set; }
 #endif
-        /// <summary>A human-readable description of the resource.</summary>
+        /// <summary>A human-readable description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_description? Description { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_description Description { get; set; }
+        public string Description { get; set; }
 #endif
         /// <summary>The optional additional scheme-specific payment info.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_extra? Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty? Extra { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_extra Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty Extra { get; set; }
 #endif
         /// <summary>The maximum amount required to pay for the resource in atomic units of the payment asset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,23 +57,29 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string MimeType { get; set; }
 #endif
-        /// <summary>&quot;The x402 v1 network identifier. x402 v1 uses human-readable network names. Supported networks: Base mainnet and testnet, Solana mainnet and devnet.&quot;</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1Network? Network { get; set; }
+        /// <summary>The network of the blockchain to send payment on.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork? Network { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork Network { get; set; }
+#endif
         /// <summary>The optional JSON schema describing the resource output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_outputSchema? OutputSchema { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty? OutputSchema { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_outputSchema OutputSchema { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty OutputSchema { get; set; }
 #endif
-        /// <summary>The destination to pay value to.For EVM networks, payTo will be a 0x-prefixed, checksum EVM address.For Solana-based networks, payTo will be a base58-encoded Solana address.</summary>
+        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_payTo? PayTo { get; set; }
+        public string? PayTo { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_payTo PayTo { get; set; }
+        public string PayTo { get; set; }
 #endif
         /// <summary>The URL of the resource to pay for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -84,7 +90,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string Resource { get; set; }
 #endif
         /// <summary>The scheme of the payment protocol to use. Currently, the only supported scheme is `exact`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_scheme? Scheme { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsScheme? Scheme { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements"/> and sets the default values.
         /// </summary>
@@ -110,17 +116,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "asset", n => { Asset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_asset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_asset.CreateFromDiscriminatorValue); } },
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_description>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_description.CreateFromDiscriminatorValue); } },
-                { "extra", n => { Extra = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_extra>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_extra.CreateFromDiscriminatorValue); } },
+                { "asset", n => { Asset = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "extra", n => { Extra = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty.CreateFromDiscriminatorValue); } },
                 { "maxAmountRequired", n => { MaxAmountRequired = n.GetStringValue(); } },
                 { "maxTimeoutSeconds", n => { MaxTimeoutSeconds = n.GetIntValue(); } },
                 { "mimeType", n => { MimeType = n.GetStringValue(); } },
-                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1Network>(); } },
-                { "outputSchema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_outputSchema>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_outputSchema.CreateFromDiscriminatorValue); } },
-                { "payTo", n => { PayTo = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_payTo>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_payTo.CreateFromDiscriminatorValue); } },
+                { "network", n => { Network = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork.CreateFromDiscriminatorValue); } },
+                { "outputSchema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty.CreateFromDiscriminatorValue); } },
+                { "payTo", n => { PayTo = n.GetStringValue(); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
-                { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_scheme>(); } },
+                { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsScheme>(); } },
             };
         }
         /// <summary>
@@ -130,17 +136,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_asset>("asset", Asset);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_description>("description", Description);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_extra>("extra", Extra);
+            writer.WriteStringValue("asset", Asset);
+            writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty>("extra", Extra);
             writer.WriteStringValue("maxAmountRequired", MaxAmountRequired);
             writer.WriteIntValue("maxTimeoutSeconds", MaxTimeoutSeconds);
             writer.WriteStringValue("mimeType", MimeType);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1Network>("network", Network);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_outputSchema>("outputSchema", OutputSchema);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_payTo>("payTo", PayTo);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork>("network", Network);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty>("outputSchema", OutputSchema);
+            writer.WriteStringValue("payTo", PayTo);
             writer.WriteStringValue("resource", Resource);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements_scheme>("scheme", Scheme);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsScheme>("scheme", Scheme);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

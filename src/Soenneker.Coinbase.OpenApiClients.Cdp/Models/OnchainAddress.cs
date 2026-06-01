@@ -15,21 +15,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The onchain crypto address of the recipient.Examples:- EVM address: 0xabc1234567890abcdef1234567890abcdef123456- Solana address: HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT- XRP address: rhccc5p23aKiCGFcEqqnjEfLRZ6xEvfy3s&quot;</summary>
+        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_address? Address { get; set; }
+        public string? Address { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_address Address { get; set; }
+        public string Address { get; set; }
 #endif
-        /// <summary>Asset symbol of the payment received by the recipient.</summary>
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_asset? Asset { get; set; }
+        public string? Asset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_asset Asset { get; set; }
+        public string Asset { get; set; }
 #endif
         /// <summary>&quot;The destination tag of the onchain address. Destination tags are used by certain networks(primarily XRP/Ripple) to identify specific recipients when multiple users share a single address.The tag ensures funds are credited to the correct account within the shared address.Examples by network:- XRP/Ripple: Numeric values like \&quot;1234567890\&quot; or \&quot;123456\&quot;- Stellar (XLM): Memos which can be text, ID, or hash formatNote: Most networks (Ethereum, Bitcoin, Solana) do not use destination tags.&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,8 +66,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_address>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_address.CreateFromDiscriminatorValue); } },
-                { "asset", n => { Asset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_asset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_asset.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetStringValue(); } },
+                { "asset", n => { Asset = n.GetStringValue(); } },
                 { "destinationTag", n => { DestinationTag = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Network>(); } },
             };
@@ -79,8 +79,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_address>("address", Address);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress_asset>("asset", Asset);
+            writer.WriteStringValue("address", Address);
+            writer.WriteStringValue("asset", Asset);
             writer.WriteStringValue("destinationTag", DestinationTag);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Network>("network", Network);
             writer.WriteAdditionalData(AdditionalData);

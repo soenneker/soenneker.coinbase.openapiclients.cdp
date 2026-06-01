@@ -9,27 +9,27 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         [EnumMember(Value = "CARD")]
         #pragma warning disable CS1591
-        CARD,
+        Card,
         #pragma warning restore CS1591
         [EnumMember(Value = "ACH")]
         #pragma warning disable CS1591
-        ACH,
+        Ach,
         #pragma warning restore CS1591
         [EnumMember(Value = "APPLE_PAY")]
         #pragma warning disable CS1591
-        APPLE_PAY,
+        ApplePay,
         #pragma warning restore CS1591
         [EnumMember(Value = "PAYPAL")]
         #pragma warning disable CS1591
-        PAYPAL,
+        Paypal,
         #pragma warning restore CS1591
         [EnumMember(Value = "FIAT_WALLET")]
         #pragma warning disable CS1591
-        FIAT_WALLET,
+        FiatWallet,
         #pragma warning restore CS1591
         [EnumMember(Value = "CRYPTO_WALLET")]
         #pragma warning disable CS1591
-        CRYPTO_WALLET,
+        CryptoWallet,
         #pragma warning restore CS1591
     }
 }

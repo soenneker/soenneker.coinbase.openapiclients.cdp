@@ -8,18 +8,18 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJWTAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TelegramAuthentication"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TelegramAuthentication"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthenticationMethod : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJWTAuthentication"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJWTAuthentication? DeveloperJWTAuthentication { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication? DeveloperJwtAuthentication { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJWTAuthentication DeveloperJWTAuthentication { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication DeveloperJwtAuthentication { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,9 +71,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod();
-            if("DeveloperJWTAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("DeveloperJwtAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DeveloperJWTAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJWTAuthentication();
+                result.DeveloperJwtAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication();
             }
             else if("EmailAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -103,9 +103,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(DeveloperJWTAuthentication != null)
+            if(DeveloperJwtAuthentication != null)
             {
-                return DeveloperJWTAuthentication.GetFieldDeserializers();
+                return DeveloperJwtAuthentication.GetFieldDeserializers();
             }
             else if(EmailAuthentication != null)
             {
@@ -136,9 +136,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(DeveloperJWTAuthentication != null)
+            if(DeveloperJwtAuthentication != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJWTAuthentication>(null, DeveloperJWTAuthentication);
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication>(null, DeveloperJwtAuthentication);
             }
             else if(EmailAuthentication != null)
             {

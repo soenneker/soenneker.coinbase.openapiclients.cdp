@@ -24,9 +24,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<string> Addresses { get; set; }
 #endif
         /// <summary>The operator to use for the comparison. The transaction&apos;s `to` field will be on the left-hand side of the operator, and the `addresses` field will be on the right-hand side.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion_operator? Operator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterionOperator? Operator { get; set; }
         /// <summary>The type of criterion to use. This should be `evmAddress`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion"/> and sets the default values.
         /// </summary>
@@ -53,8 +53,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "addresses", n => { Addresses = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion_operator>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion_type>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterionOperator>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterionType>(); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("addresses", Addresses);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion_operator>("operator", Operator);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterionOperator>("operator", Operator);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

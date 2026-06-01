@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Amount details denominated in different assets. - The keys represent the asset symbols (e.g., &quot;btc&quot;, &quot;usd&quot;), - Each value contains available and total amounts. - There will always be an entry for the asset specified in the `asset` field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Balance_amount? Amount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BalanceAmountProperty? Amount { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Balance_amount Amount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BalanceAmountProperty Amount { get; set; }
 #endif
         /// <summary>An asset, e.g. fiat or crypto.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "amount", n => { Amount = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Balance_amount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Balance_amount.CreateFromDiscriminatorValue); } },
+                { "amount", n => { Amount = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BalanceAmountProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BalanceAmountProperty.CreateFromDiscriminatorValue); } },
                 { "asset", n => { Asset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BalancesAsset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BalancesAsset.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Balance_amount>("amount", Amount);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BalanceAmountProperty>("amount", Amount);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BalancesAsset>("asset", Asset);
             writer.WriteAdditionalData(AdditionalData);
         }

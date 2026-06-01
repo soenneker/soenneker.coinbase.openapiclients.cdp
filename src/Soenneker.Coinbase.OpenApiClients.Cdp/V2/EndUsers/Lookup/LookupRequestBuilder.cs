@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup
         /// <summary>
         /// &quot;Looks up end users. Exactly one lookup type must be provided per request:- **email**: searches across all email-based authentication methods  (email, Google, Apple, GitHub). May return multiple end users if the  same email address appears across different auth methods.- **oauthProvider + oauthSubject**: looks up a user by their OAuth  provider and subject (the `sub` claim from the provider&apos;s ID token).  Both params must be provided together.- **phoneNumber**: looks up a user by their SMS-verified phone number.Returns all matching end users. If no end users match, an empty array is returned.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupGetResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.LookupEndUser200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 400 status code</exception>
@@ -44,11 +44,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupGetResponse?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupRequestBuilder.LookupRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.LookupEndUser200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupRequestBuilder.LookupRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupGetResponse> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupRequestBuilder.LookupRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.LookupEndUser200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupRequestBuilder.LookupRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -58,7 +58,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup
                 { "401", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupGetResponse>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.LookupEndUser200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.LookupEndUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Looks up end users. Exactly one lookup type must be provided per request:- **email**: searches across all email-based authentication methods  (email, Google, Apple, GitHub). May return multiple end users if the  same email address appears across different auth methods.- **oauthProvider + oauthSubject**: looks up a user by their OAuth  provider and subject (the `sub` claim from the provider&apos;s ID token).  Both params must be provided together.- **phoneNumber**: looks up a user by their SMS-verified phone number.Returns all matching end users. If no end users match, an empty array is returned.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.&quot;

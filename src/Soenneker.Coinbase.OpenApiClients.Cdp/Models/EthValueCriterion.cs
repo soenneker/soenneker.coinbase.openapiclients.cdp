@@ -24,9 +24,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string EthValue { get; set; }
 #endif
         /// <summary>The operator to use for the comparison. The transaction&apos;s `value` field will be on the left-hand side of the operator, and the `ethValue` field will be on the right-hand side.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion_operator? Operator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterionOperator? Operator { get; set; }
         /// <summary>The type of criterion to use. This should be `ethValue`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion"/> and sets the default values.
         /// </summary>
@@ -53,8 +53,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "ethValue", n => { EthValue = n.GetStringValue(); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion_operator>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion_type>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterionOperator>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterionType>(); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("ethValue", EthValue);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion_operator>("operator", Operator);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterionOperator>("operator", Operator);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

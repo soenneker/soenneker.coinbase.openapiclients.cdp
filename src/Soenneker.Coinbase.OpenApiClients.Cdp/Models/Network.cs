@@ -9,7 +9,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         [EnumMember(Value = "base")]
         #pragma warning disable CS1591
-        Base,
+        BaseValue,
         #pragma warning restore CS1591
         [EnumMember(Value = "ethereum")]
         #pragma warning disable CS1591

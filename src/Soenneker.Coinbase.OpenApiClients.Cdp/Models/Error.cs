@@ -24,13 +24,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string CorrelationId { get; set; }
 #endif
-        /// <summary>A link to the corresponding error documentation.</summary>
+        /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink? ErrorLink { get; set; }
+        public string? ErrorLink { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink ErrorLink { get; set; }
+        public string ErrorLink { get; set; }
 #endif
         /// <summary>The error message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,7 +78,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
-                { "errorLink", n => { ErrorLink = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink.CreateFromDiscriminatorValue); } },
+                { "errorLink", n => { ErrorLink = n.GetStringValue(); } },
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
                 { "errorType", n => { ErrorType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType>(); } },
                 { "unauthorizedCapabilities", n => { UnauthorizedCapabilities = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName>()?.AsList(); } },
@@ -92,7 +92,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("correlationId", CorrelationId);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error_errorLink>("errorLink", ErrorLink);
+            writer.WriteStringValue("errorLink", ErrorLink);
             writer.WriteStringValue("errorMessage", ErrorMessage);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType>("errorType", ErrorType);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName>("unauthorizedCapabilities", UnauthorizedCapabilities);

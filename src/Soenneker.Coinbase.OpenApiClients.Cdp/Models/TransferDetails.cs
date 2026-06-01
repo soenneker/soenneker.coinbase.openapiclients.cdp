@@ -26,10 +26,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The onchain transactions associated with the transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails_onchainTransactions>? OnchainTransactions { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem>? OnchainTransactions { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails_onchainTransactions> OnchainTransactions { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem> OnchainTransactions { get; set; }
 #endif
         /// <summary>Travel rule compliance status for deposit transfers. Present when the transfer requires travel rule information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "depositDestination", n => { DepositDestination = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference.CreateFromDiscriminatorValue); } },
-                { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails_onchainTransactions>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails_onchainTransactions.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "travelRule", n => { TravelRule = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule.CreateFromDiscriminatorValue); } },
             };
         }
@@ -77,7 +77,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference>("depositDestination", DepositDestination);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails_onchainTransactions>("onchainTransactions", OnchainTransactions);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem>("onchainTransactions", OnchainTransactions);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule>("travelRule", TravelRule);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -24,9 +24,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<string> Addresses { get; set; }
 #endif
         /// <summary>The operator to use for the comparison. Each of the SPL token transfer recipient addresses in the transaction&apos;s `accountKeys` (for legacy transactions) or `staticAccountKeys` (for V0 transactions) array will be on the left-hand side of the operator, and the `addresses` field will be on the right-hand side.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterion_operator? Operator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterionOperator? Operator { get; set; }
         /// <summary>The type of criterion to use. This should be `splAddress`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterion_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterion"/> and sets the default values.
         /// </summary>
@@ -53,8 +53,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "addresses", n => { Addresses = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterion_operator>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterion_type>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterionOperator>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterionType>(); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("addresses", Addresses);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterion_operator>("operator", Operator);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterion_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterionOperator>("operator", Operator);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

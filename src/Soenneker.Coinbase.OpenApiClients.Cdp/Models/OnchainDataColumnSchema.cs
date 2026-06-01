@@ -15,13 +15,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Human-readable description of the column.</summary>
+        /// <summary>A human-readable description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema_description? Description { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema_description Description { get; set; }
+        public string Description { get; set; }
 #endif
         /// <summary>The order of the column in the index. A lower number means the column is more important for the index and should be first in the query.</summary>
         public int? IndexOrder { get; set; }
@@ -68,7 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "description", n => { Description = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema_description>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema_description.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "indexOrder", n => { IndexOrder = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "nullable", n => { Nullable = n.GetBoolValue(); } },
@@ -82,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema_description>("description", Description);
+            writer.WriteStringValue("description", Description);
             writer.WriteIntValue("indexOrder", IndexOrder);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("nullable", Nullable);

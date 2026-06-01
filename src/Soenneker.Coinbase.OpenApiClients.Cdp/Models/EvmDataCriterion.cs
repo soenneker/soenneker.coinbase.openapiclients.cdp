@@ -16,10 +16,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The ABI of the smart contract being called. This can be a partial structure with only specific functions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion.EvmDataCriterion_abi? Abi { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi? Abi { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion.EvmDataCriterion_abi Abi { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi Abi { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -32,7 +32,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCondition> Conditions { get; set; }
 #endif
         /// <summary>The type of criterion to use. This should be `evmData`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion"/> and sets the default values.
         /// </summary>
@@ -58,9 +58,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "abi", n => { Abi = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion.EvmDataCriterion_abi>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion.EvmDataCriterion_abi.CreateFromDiscriminatorValue); } },
+                { "abi", n => { Abi = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi.CreateFromDiscriminatorValue); } },
                 { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCondition>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCondition.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionType>(); } },
             };
         }
         /// <summary>
@@ -70,71 +70,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion.EvmDataCriterion_abi>("abi", Abi);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi>("abi", Abi);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCondition>("conditions", Conditions);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType"/>, List&lt;global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput&gt;
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class EvmDataCriterion_abi : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type List&lt;global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput&gt;</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput>? AbiInput { get; set; }
-#nullable restore
-#else
-            public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput> AbiInput { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType"/></summary>
-            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType? KnownAbiType { get; set; }
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion.EvmDataCriterion_abi"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion.EvmDataCriterion_abi CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion.EvmDataCriterion_abi();
-                if(parseNode.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType>() is global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType knownAbiTypeValue)
-                {
-                    result.KnownAbiType = knownAbiTypeValue;
-                }
-                else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput> abiInputValue)
-                {
-                    result.AbiInput = abiInputValue;
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(KnownAbiType != null)
-                {
-                    writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType>(null, KnownAbiType);
-                }
-                else if(AbiInput != null)
-                {
-                    writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput>(null, AbiInput);
-                }
-            }
         }
     }
 }

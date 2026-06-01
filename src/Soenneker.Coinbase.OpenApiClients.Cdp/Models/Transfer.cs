@@ -66,10 +66,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_metadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_metadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferMetadata Metadata { get; set; }
 #endif
         /// <summary>The source of the transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,13 +87,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string SourceAmount { get; set; }
 #endif
-        /// <summary>The asset symbol of the source amount.</summary>
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_sourceAsset? SourceAsset { get; set; }
+        public string? SourceAsset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_sourceAsset SourceAsset { get; set; }
+        public string SourceAsset { get; set; }
 #endif
         /// <summary>The current status of the transfer, indicating what action you need to take next. Required when validateOnly is false.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferStatus? Status { get; set; }
@@ -113,13 +113,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string TargetAmount { get; set; }
 #endif
-        /// <summary>The asset symbol of the target amount.</summary>
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_targetAsset? TargetAsset { get; set; }
+        public string? TargetAsset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_targetAsset TargetAsset { get; set; }
+        public string TargetAsset { get; set; }
 #endif
         /// <summary>The ID of the transfer. Required when validateOnly is false.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -165,14 +165,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "expiresAt", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "failureReason", n => { FailureReason = n.GetStringValue(); } },
                 { "fees", n => { Fees = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_metadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_metadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferMetadata.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferSource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferSource.CreateFromDiscriminatorValue); } },
                 { "sourceAmount", n => { SourceAmount = n.GetStringValue(); } },
-                { "sourceAsset", n => { SourceAsset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_sourceAsset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_sourceAsset.CreateFromDiscriminatorValue); } },
+                { "sourceAsset", n => { SourceAsset = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferStatus>(); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget.CreateFromDiscriminatorValue); } },
                 { "targetAmount", n => { TargetAmount = n.GetStringValue(); } },
-                { "targetAsset", n => { TargetAsset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_targetAsset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_targetAsset.CreateFromDiscriminatorValue); } },
+                { "targetAsset", n => { TargetAsset = n.GetStringValue(); } },
                 { "transferId", n => { TransferId = n.GetStringValue(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -193,14 +193,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteDateTimeOffsetValue("expiresAt", ExpiresAt);
             writer.WriteStringValue("failureReason", FailureReason);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>("fees", Fees);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_metadata>("metadata", Metadata);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferSource>("source", Source);
             writer.WriteStringValue("sourceAmount", SourceAmount);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_sourceAsset>("sourceAsset", SourceAsset);
+            writer.WriteStringValue("sourceAsset", SourceAsset);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget>("target", Target);
             writer.WriteStringValue("targetAmount", TargetAmount);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer_targetAsset>("targetAsset", TargetAsset);
+            writer.WriteStringValue("targetAsset", TargetAsset);
             writer.WriteStringValue("transferId", TransferId);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

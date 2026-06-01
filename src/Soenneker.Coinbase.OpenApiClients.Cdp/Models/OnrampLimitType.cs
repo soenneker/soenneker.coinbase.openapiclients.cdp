@@ -9,11 +9,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         [EnumMember(Value = "weekly_spending")]
         #pragma warning disable CS1591
-        Weekly_spending,
+        WeeklySpending,
         #pragma warning restore CS1591
         [EnumMember(Value = "lifetime_transactions")]
         #pragma warning disable CS1591
-        Lifetime_transactions,
+        LifetimeTransactions,
         #pragma warning restore CS1591
     }
 }

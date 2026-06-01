@@ -26,7 +26,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource> Resources { get; set; }
 #endif
         /// <summary>The search method used to retrieve the results (e.g., &quot;text&quot;, &quot;vector&quot;, &quot;hybrid&quot;).</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponse_searchMethod? SearchMethod { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponseSearchMethod? SearchMethod { get; set; }
         /// <summary>The version of the x402 protocol.</summary>
         public int? X402Version { get; set; }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "partialResults", n => { PartialResults = n.GetBoolValue(); } },
                 { "resources", n => { Resources = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "searchMethod", n => { SearchMethod = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponse_searchMethod>(); } },
+                { "searchMethod", n => { SearchMethod = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponseSearchMethod>(); } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }
@@ -69,7 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("partialResults", PartialResults);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource>("resources", Resources);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponse_searchMethod>("searchMethod", SearchMethod);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponseSearchMethod>("searchMethod", SearchMethod);
             writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
         }

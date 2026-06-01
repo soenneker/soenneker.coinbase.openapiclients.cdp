@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <summary>
         /// Sends USDC from an end user&apos;s Solana account to a recipient address on the Solana network. This endpoint simplifies USDC transfers by automatically handling mint resolution, Associated Token Account (ATA) creation, decimal conversion, and transaction encoding.The `amount` field accepts human-readable amounts as decimal strings (e.g., &quot;1.5&quot;, &quot;25.50&quot;).Use the optional `createRecipientAta` parameter to control whether the sender pays for creating the recipient&apos;s Associated Token Account if it doesn&apos;t exist.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -51,11 +51,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Item.Send.Item.WithAssetItemRequestBuilder.WithAssetItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200Response?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Item.Send.Item.WithAssetItemRequestBuilder.WithAssetItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Item.Send.Item.WithAssetItemRequestBuilder.WithAssetItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200Response> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Item.Send.Item.WithAssetItemRequestBuilder.WithAssetItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -72,7 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Sends USDC from an end user&apos;s Solana account to a recipient address on the Solana network. This endpoint simplifies USDC transfers by automatically handling mint resolution, Associated Token Account (ATA) creation, decimal conversion, and transaction encoding.The `amount` field accepts human-readable amounts as decimal strings (e.g., &quot;1.5&quot;, &quot;25.50&quot;).Use the optional `createRecipientAta` parameter to control whether the sender pays for creating the recipient&apos;s Associated Token Account if it doesn&apos;t exist.
@@ -82,11 +82,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Item.Send.Item.WithAssetItemRequestBuilder.WithAssetItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Item.Send.Item.WithAssetItemRequestBuilder.WithAssetItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Item.Send.Item.WithAssetItemRequestBuilder.WithAssetItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Item.Send.Item.WithAssetItemRequestBuilder.WithAssetItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -18,15 +18,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A list of EVM network identifiers that the transaction&apos;s intended `network` should be compared to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_networks?>? Networks { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem?>? Networks { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_networks?> Networks { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem?> Networks { get; set; }
 #endif
         /// <summary>The operator to use for the comparison. The transaction&apos;s intended `network` will be on the left-hand side of the operator, and the `networks` field will be on the right-hand side.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_operator? Operator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator? Operator { get; set; }
         /// <summary>The type of criterion to use. This should be `evmNetwork`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion"/> and sets the default values.
         /// </summary>
@@ -52,9 +52,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "networks", n => { Networks = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_networks>()?.AsList(); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_operator>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_type>(); } },
+                { "networks", n => { Networks = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem>()?.AsList(); } },
+                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionType>(); } },
             };
         }
         /// <summary>
@@ -64,9 +64,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_networks>("networks", Networks);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_operator>("operator", Operator);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion_type>("type", Type);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem>("networks", Networks);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator>("operator", Operator);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

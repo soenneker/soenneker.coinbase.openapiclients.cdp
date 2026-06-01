@@ -15,16 +15,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.</summary>
+        /// <summary>A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication_phoneNumber? PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication_phoneNumber PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 #endif
         /// <summary>The type of authentication information.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication_type? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthenticationType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication"/> and sets the default values.
         /// </summary>
@@ -50,8 +50,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "phoneNumber", n => { PhoneNumber = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication_phoneNumber>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication_phoneNumber.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication_type>(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthenticationType>(); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication_phoneNumber>("phoneNumber", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication_type>("type", Type);
+            writer.WriteStringValue("phoneNumber", PhoneNumber);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthenticationType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

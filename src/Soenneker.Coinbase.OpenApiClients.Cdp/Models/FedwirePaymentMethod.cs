@@ -22,10 +22,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Fedwire (domestic USD wire) details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod_fedwire? Fedwire { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire? Fedwire { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod_fedwire Fedwire { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire Fedwire { get; set; }
 #endif
         /// <summary>The ID of the Payment Method, which is a UUID prefixed by the string `paymentMethod_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string PaymentMethodId { get; set; }
 #endif
         /// <summary>The payment rail for this payment method.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod_paymentRail? PaymentRail { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodPaymentRail? PaymentRail { get; set; }
         /// <summary>The timestamp when the payment method was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -66,9 +66,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "fedwire", n => { Fedwire = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod_fedwire>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod_fedwire.CreateFromDiscriminatorValue); } },
+                { "fedwire", n => { Fedwire = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire.CreateFromDiscriminatorValue); } },
                 { "paymentMethodId", n => { PaymentMethodId = n.GetStringValue(); } },
-                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod_paymentRail>(); } },
+                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodPaymentRail>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -81,9 +81,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod_fedwire>("fedwire", Fedwire);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire>("fedwire", Fedwire);
             writer.WriteStringValue("paymentMethodId", PaymentMethodId);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod_paymentRail>("paymentRail", PaymentRail);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodPaymentRail>("paymentRail", PaymentRail);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

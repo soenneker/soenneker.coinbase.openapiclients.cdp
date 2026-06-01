@@ -18,15 +18,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>&quot;The optional additional scheme-specific payment info.Common scheme-specific fields:  - `exact` on Solana: `feePayer` — the base58-encoded Solana address that pays transaction fees.  - `upto` on EVM: `name`, `version`, and `facilitatorAddress` — the EVM address of the facilitator that the client must bind into the Permit2 witness when constructing the payment payload.  - `batch-settlement` on EVM: `name`, `version`, `receiverAuthorizer` (the EVM address authorized to sign claim batches), `withdrawDelay` (channel non-cooperative withdraw delay in seconds, 900–2,592,000), and optionally `assetTransferMethod` (e.g., `\&quot;eip3009\&quot;`).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra? Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty? Extra { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty Extra { get; set; }
 #endif
         /// <summary>&quot;The network of the blockchain. The format corresponds to the `x402Version` of the enclosing `x402SupportedPaymentKind`: v1 uses human-readable names (see `X402V1Network`); v2 uses CAIP-2 chain IDs (see `X402V2Network`).&quot;</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_network? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindNetwork? Network { get; set; }
         /// <summary>The scheme of the payment protocol.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_scheme? Scheme { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindScheme? Scheme { get; set; }
         /// <summary>The version of the x402 protocol.</summary>
         public int? X402Version { get; set; }
         /// <summary>
@@ -54,9 +54,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "extra", n => { Extra = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra.CreateFromDiscriminatorValue); } },
-                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_network>(); } },
-                { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_scheme>(); } },
+                { "extra", n => { Extra = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty.CreateFromDiscriminatorValue); } },
+                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindNetwork>(); } },
+                { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindScheme>(); } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }
@@ -67,9 +67,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_extra>("extra", Extra);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_network>("network", Network);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind_scheme>("scheme", Scheme);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty>("extra", Extra);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindNetwork>("network", Network);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindScheme>("scheme", Scheme);
             writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
         }

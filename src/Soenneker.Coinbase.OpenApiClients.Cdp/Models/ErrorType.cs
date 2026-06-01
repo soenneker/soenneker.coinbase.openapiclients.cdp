@@ -9,35 +9,35 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         [EnumMember(Value = "already_exists")]
         #pragma warning disable CS1591
-        Already_exists,
+        AlreadyExists,
         #pragma warning restore CS1591
         [EnumMember(Value = "authorization_expired")]
         #pragma warning disable CS1591
-        Authorization_expired,
+        AuthorizationExpired,
         #pragma warning restore CS1591
         [EnumMember(Value = "bad_gateway")]
         #pragma warning disable CS1591
-        Bad_gateway,
+        BadGateway,
         #pragma warning restore CS1591
         [EnumMember(Value = "capture_expired")]
         #pragma warning disable CS1591
-        Capture_expired,
+        CaptureExpired,
         #pragma warning restore CS1591
         [EnumMember(Value = "client_closed_request")]
         #pragma warning disable CS1591
-        Client_closed_request,
+        ClientClosedRequest,
         #pragma warning restore CS1591
         [EnumMember(Value = "customer_not_authorized")]
         #pragma warning disable CS1591
-        Customer_not_authorized,
+        CustomerNotAuthorized,
         #pragma warning restore CS1591
         [EnumMember(Value = "endpoint_unavailable")]
         #pragma warning disable CS1591
-        Endpoint_unavailable,
+        EndpointUnavailable,
         #pragma warning restore CS1591
         [EnumMember(Value = "faucet_limit_exceeded")]
         #pragma warning disable CS1591
-        Faucet_limit_exceeded,
+        FaucetLimitExceeded,
         #pragma warning restore CS1591
         [EnumMember(Value = "forbidden")]
         #pragma warning disable CS1591
@@ -45,59 +45,59 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "idempotency_error")]
         #pragma warning disable CS1591
-        Idempotency_error,
+        IdempotencyError,
         #pragma warning restore CS1591
         [EnumMember(Value = "internal_server_error")]
         #pragma warning disable CS1591
-        Internal_server_error,
+        InternalServerError,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_request")]
         #pragma warning disable CS1591
-        Invalid_request,
+        InvalidRequest,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_sql_query")]
         #pragma warning disable CS1591
-        Invalid_sql_query,
+        InvalidSqlQuery,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_signature")]
         #pragma warning disable CS1591
-        Invalid_signature,
+        InvalidSignature,
         #pragma warning restore CS1591
         [EnumMember(Value = "malformed_transaction")]
         #pragma warning disable CS1591
-        Malformed_transaction,
+        MalformedTransaction,
         #pragma warning restore CS1591
         [EnumMember(Value = "not_found")]
         #pragma warning disable CS1591
-        Not_found,
+        NotFound,
         #pragma warning restore CS1591
         [EnumMember(Value = "payment_method_required")]
         #pragma warning disable CS1591
-        Payment_method_required,
+        PaymentMethodRequired,
         #pragma warning restore CS1591
         [EnumMember(Value = "payment_required")]
         #pragma warning disable CS1591
-        Payment_required,
+        PaymentRequired,
         #pragma warning restore CS1591
         [EnumMember(Value = "settlement_failed")]
         #pragma warning disable CS1591
-        Settlement_failed,
+        SettlementFailed,
         #pragma warning restore CS1591
         [EnumMember(Value = "rate_limit_exceeded")]
         #pragma warning disable CS1591
-        Rate_limit_exceeded,
+        RateLimitExceeded,
         #pragma warning restore CS1591
         [EnumMember(Value = "request_canceled")]
         #pragma warning disable CS1591
-        Request_canceled,
+        RequestCanceled,
         #pragma warning restore CS1591
         [EnumMember(Value = "service_unavailable")]
         #pragma warning disable CS1591
-        Service_unavailable,
+        ServiceUnavailable,
         #pragma warning restore CS1591
         [EnumMember(Value = "timed_out")]
         #pragma warning disable CS1591
-        Timed_out,
+        TimedOut,
         #pragma warning restore CS1591
         [EnumMember(Value = "unauthorized")]
         #pragma warning disable CS1591
@@ -105,207 +105,207 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning restore CS1591
         [EnumMember(Value = "unsupported_tos_language")]
         #pragma warning disable CS1591
-        Unsupported_tos_language,
+        UnsupportedTosLanguage,
         #pragma warning restore CS1591
         [EnumMember(Value = "policy_violation")]
         #pragma warning disable CS1591
-        Policy_violation,
+        PolicyViolation,
         #pragma warning restore CS1591
         [EnumMember(Value = "policy_in_use")]
         #pragma warning disable CS1591
-        Policy_in_use,
+        PolicyInUse,
         #pragma warning restore CS1591
         [EnumMember(Value = "account_limit_exceeded")]
         #pragma warning disable CS1591
-        Account_limit_exceeded,
+        AccountLimitExceeded,
         #pragma warning restore CS1591
         [EnumMember(Value = "network_not_tradable")]
         #pragma warning disable CS1591
-        Network_not_tradable,
+        NetworkNotTradable,
         #pragma warning restore CS1591
         [EnumMember(Value = "guest_permission_denied")]
         #pragma warning disable CS1591
-        Guest_permission_denied,
+        GuestPermissionDenied,
         #pragma warning restore CS1591
         [EnumMember(Value = "guest_region_forbidden")]
         #pragma warning disable CS1591
-        Guest_region_forbidden,
+        GuestRegionForbidden,
         #pragma warning restore CS1591
         [EnumMember(Value = "guest_transaction_limit")]
         #pragma warning disable CS1591
-        Guest_transaction_limit,
+        GuestTransactionLimit,
         #pragma warning restore CS1591
         [EnumMember(Value = "guest_transaction_count")]
         #pragma warning disable CS1591
-        Guest_transaction_count,
+        GuestTransactionCount,
         #pragma warning restore CS1591
         [EnumMember(Value = "phone_number_verification_expired")]
         #pragma warning disable CS1591
-        Phone_number_verification_expired,
+        PhoneNumberVerificationExpired,
         #pragma warning restore CS1591
         [EnumMember(Value = "document_verification_failed")]
         #pragma warning disable CS1591
-        Document_verification_failed,
+        DocumentVerificationFailed,
         #pragma warning restore CS1591
         [EnumMember(Value = "recipient_allowlist_violation")]
         #pragma warning disable CS1591
-        Recipient_allowlist_violation,
+        RecipientAllowlistViolation,
         #pragma warning restore CS1591
         [EnumMember(Value = "recipient_allowlist_pending")]
         #pragma warning disable CS1591
-        Recipient_allowlist_pending,
+        RecipientAllowlistPending,
         #pragma warning restore CS1591
         [EnumMember(Value = "refund_expired")]
         #pragma warning disable CS1591
-        Refund_expired,
+        RefundExpired,
         #pragma warning restore CS1591
         [EnumMember(Value = "travel_rules_recipient_violation")]
         #pragma warning disable CS1591
-        Travel_rules_recipient_violation,
+        TravelRulesRecipientViolation,
         #pragma warning restore CS1591
         [EnumMember(Value = "source_account_invalid")]
         #pragma warning disable CS1591
-        Source_account_invalid,
+        SourceAccountInvalid,
         #pragma warning restore CS1591
         [EnumMember(Value = "target_account_invalid")]
         #pragma warning disable CS1591
-        Target_account_invalid,
+        TargetAccountInvalid,
         #pragma warning restore CS1591
         [EnumMember(Value = "source_account_not_found")]
         #pragma warning disable CS1591
-        Source_account_not_found,
+        SourceAccountNotFound,
         #pragma warning restore CS1591
         [EnumMember(Value = "target_account_not_found")]
         #pragma warning disable CS1591
-        Target_account_not_found,
+        TargetAccountNotFound,
         #pragma warning restore CS1591
         [EnumMember(Value = "source_asset_not_supported")]
         #pragma warning disable CS1591
-        Source_asset_not_supported,
+        SourceAssetNotSupported,
         #pragma warning restore CS1591
         [EnumMember(Value = "target_asset_not_supported")]
         #pragma warning disable CS1591
-        Target_asset_not_supported,
+        TargetAssetNotSupported,
         #pragma warning restore CS1591
         [EnumMember(Value = "target_email_invalid")]
         #pragma warning disable CS1591
-        Target_email_invalid,
+        TargetEmailInvalid,
         #pragma warning restore CS1591
         [EnumMember(Value = "target_onchain_address_invalid")]
         #pragma warning disable CS1591
-        Target_onchain_address_invalid,
+        TargetOnchainAddressInvalid,
         #pragma warning restore CS1591
         [EnumMember(Value = "transfer_amount_invalid")]
         #pragma warning disable CS1591
-        Transfer_amount_invalid,
+        TransferAmountInvalid,
         #pragma warning restore CS1591
         [EnumMember(Value = "transfer_asset_not_supported")]
         #pragma warning disable CS1591
-        Transfer_asset_not_supported,
+        TransferAssetNotSupported,
         #pragma warning restore CS1591
         [EnumMember(Value = "transfer_quote_expired")]
         #pragma warning disable CS1591
-        Transfer_quote_expired,
+        TransferQuoteExpired,
         #pragma warning restore CS1591
         [EnumMember(Value = "insufficient_balance")]
         #pragma warning disable CS1591
-        Insufficient_balance,
+        InsufficientBalance,
         #pragma warning restore CS1591
         [EnumMember(Value = "metadata_too_many_entries")]
         #pragma warning disable CS1591
-        Metadata_too_many_entries,
+        MetadataTooManyEntries,
         #pragma warning restore CS1591
         [EnumMember(Value = "metadata_key_too_long")]
         #pragma warning disable CS1591
-        Metadata_key_too_long,
+        MetadataKeyTooLong,
         #pragma warning restore CS1591
         [EnumMember(Value = "metadata_value_too_long")]
         #pragma warning disable CS1591
-        Metadata_value_too_long,
+        MetadataValueTooLong,
         #pragma warning restore CS1591
         [EnumMember(Value = "travel_rules_field_missing")]
         #pragma warning disable CS1591
-        Travel_rules_field_missing,
+        TravelRulesFieldMissing,
         #pragma warning restore CS1591
         [EnumMember(Value = "asset_mismatch")]
         #pragma warning disable CS1591
-        Asset_mismatch,
+        AssetMismatch,
         #pragma warning restore CS1591
         [EnumMember(Value = "mfa_already_enrolled")]
         #pragma warning disable CS1591
-        Mfa_already_enrolled,
+        MfaAlreadyEnrolled,
         #pragma warning restore CS1591
         [EnumMember(Value = "mfa_invalid_code")]
         #pragma warning disable CS1591
-        Mfa_invalid_code,
+        MfaInvalidCode,
         #pragma warning restore CS1591
         [EnumMember(Value = "mfa_flow_expired")]
         #pragma warning disable CS1591
-        Mfa_flow_expired,
+        MfaFlowExpired,
         #pragma warning restore CS1591
         [EnumMember(Value = "mfa_required")]
         #pragma warning disable CS1591
-        Mfa_required,
+        MfaRequired,
         #pragma warning restore CS1591
         [EnumMember(Value = "mfa_not_enrolled")]
         #pragma warning disable CS1591
-        Mfa_not_enrolled,
+        MfaNotEnrolled,
         #pragma warning restore CS1591
         [EnumMember(Value = "order_quote_expired")]
         #pragma warning disable CS1591
-        Order_quote_expired,
+        OrderQuoteExpired,
         #pragma warning restore CS1591
         [EnumMember(Value = "order_already_filled")]
         #pragma warning disable CS1591
-        Order_already_filled,
+        OrderAlreadyFilled,
         #pragma warning restore CS1591
         [EnumMember(Value = "order_already_canceled")]
         #pragma warning disable CS1591
-        Order_already_canceled,
+        OrderAlreadyCanceled,
         #pragma warning restore CS1591
         [EnumMember(Value = "account_not_ready")]
         #pragma warning disable CS1591
-        Account_not_ready,
+        AccountNotReady,
         #pragma warning restore CS1591
         [EnumMember(Value = "insufficient_liquidity")]
         #pragma warning disable CS1591
-        Insufficient_liquidity,
+        InsufficientLiquidity,
         #pragma warning restore CS1591
         [EnumMember(Value = "insufficient_allowance")]
         #pragma warning disable CS1591
-        Insufficient_allowance,
+        InsufficientAllowance,
         #pragma warning restore CS1591
         [EnumMember(Value = "transaction_simulation_failed")]
         #pragma warning disable CS1591
-        Transaction_simulation_failed,
+        TransactionSimulationFailed,
         #pragma warning restore CS1591
         [EnumMember(Value = "delegation_not_found")]
         #pragma warning disable CS1591
-        Delegation_not_found,
+        DelegationNotFound,
         #pragma warning restore CS1591
         [EnumMember(Value = "delegation_expired")]
         #pragma warning disable CS1591
-        Delegation_expired,
+        DelegationExpired,
         #pragma warning restore CS1591
         [EnumMember(Value = "delegation_revoked")]
         #pragma warning disable CS1591
-        Delegation_revoked,
+        DelegationRevoked,
         #pragma warning restore CS1591
         [EnumMember(Value = "delegation_not_authorized")]
         #pragma warning disable CS1591
-        Delegation_not_authorized,
+        DelegationNotAuthorized,
         #pragma warning restore CS1591
         [EnumMember(Value = "delegation_not_enabled")]
         #pragma warning disable CS1591
-        Delegation_not_enabled,
+        DelegationNotEnabled,
         #pragma warning restore CS1591
         [EnumMember(Value = "network_mismatch")]
         #pragma warning disable CS1591
-        Network_mismatch,
+        NetworkMismatch,
         #pragma warning restore CS1591
         [EnumMember(Value = "already_enabled")]
         #pragma warning disable CS1591
-        Already_enabled,
+        AlreadyEnabled,
         #pragma warning restore CS1591
     }
 }

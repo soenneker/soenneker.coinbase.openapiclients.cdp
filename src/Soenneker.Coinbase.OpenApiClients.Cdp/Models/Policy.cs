@@ -47,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule> Rules { get; set; }
 #endif
         /// <summary>The scope of the policy. Only one project-level policy can exist at any time.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policy_scope? Scope { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyScope? Scope { get; set; }
         /// <summary>The ISO 8601 timestamp at which the Policy was last updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,7 +85,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policy_scope>(); } },
+                { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyScope>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -100,7 +100,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule>("rules", Rules);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policy_scope>("scope", Scope);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyScope>("scope", Scope);
             writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -13,19 +13,19 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning restore CS1591
     {
         /// <summary>Whether matching the rule will cause the request to be rejected or accepted.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule_action? Action { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A schema for specifying criteria for the createEndUserEvmSwap operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule.CreateEndUserEvmSwapRule_criteria>? Criteria { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem>? Criteria { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule.CreateEndUserEvmSwapRule_criteria> Criteria { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem> Criteria { get; set; }
 #endif
         /// <summary>The operation to which the rule applies. Every element of the `criteria` array must match the specified operation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule_operation? Operation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleOperation? Operation { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule"/> and sets the default values.
         /// </summary>
@@ -51,9 +51,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule_action>(); } },
-                { "criteria", n => { Criteria = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule.CreateEndUserEvmSwapRule_criteria>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule.CreateEndUserEvmSwapRule_criteria.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule_operation>(); } },
+                { "action", n => { Action = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleAction>(); } },
+                { "criteria", n => { Criteria = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleOperation>(); } },
             };
         }
         /// <summary>
@@ -63,105 +63,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule_action>("action", Action);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule.CreateEndUserEvmSwapRule_criteria>("criteria", Criteria);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule_operation>("operation", Operation);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleAction>("action", Action);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem>("criteria", Criteria);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleOperation>("operation", Operation);
             writer.WriteAdditionalData(AdditionalData);
-        }
-        /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class CreateEndUserEvmSwapRule_criteria : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion? EvmDataCriterion { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion EvmDataCriterion { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion? EvmNetworkCriterion { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion EvmNetworkCriterion { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion? NetUSDChangeCriterion { get; set; }
-#nullable restore
-#else
-            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion NetUSDChangeCriterion { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule.CreateEndUserEvmSwapRule_criteria"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule.CreateEndUserEvmSwapRule_criteria CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-                var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule.CreateEndUserEvmSwapRule_criteria();
-                if("EvmDataCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvmDataCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion();
-                }
-                else if("EvmNetworkCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.EvmNetworkCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion();
-                }
-                else if("NetUSDChangeCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.NetUSDChangeCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion();
-                }
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(EvmDataCriterion != null)
-                {
-                    return EvmDataCriterion.GetFieldDeserializers();
-                }
-                else if(EvmNetworkCriterion != null)
-                {
-                    return EvmNetworkCriterion.GetFieldDeserializers();
-                }
-                else if(NetUSDChangeCriterion != null)
-                {
-                    return NetUSDChangeCriterion.GetFieldDeserializers();
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                if(EvmDataCriterion != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion>(null, EvmDataCriterion);
-                }
-                else if(EvmNetworkCriterion != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion>(null, EvmNetworkCriterion);
-                }
-                else if(NetUSDChangeCriterion != null)
-                {
-                    writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUSDChangeCriterion>(null, NetUSDChangeCriterion);
-                }
-            }
         }
     }
 }

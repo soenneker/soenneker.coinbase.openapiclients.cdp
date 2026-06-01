@@ -15,13 +15,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Ready-to-use onramp URL.</summary>
+        /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSession_onrampUrl? OnrampUrl { get; set; }
+        public string? OnrampUrl { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSession_onrampUrl OnrampUrl { get; set; }
+        public string OnrampUrl { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSession"/> and sets the default values.
@@ -48,7 +48,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "onrampUrl", n => { OnrampUrl = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSession_onrampUrl>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSession_onrampUrl.CreateFromDiscriminatorValue); } },
+                { "onrampUrl", n => { OnrampUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSession_onrampUrl>("onrampUrl", OnrampUrl);
+            writer.WriteStringValue("onrampUrl", OnrampUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

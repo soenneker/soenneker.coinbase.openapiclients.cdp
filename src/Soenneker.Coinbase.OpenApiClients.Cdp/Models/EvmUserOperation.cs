@@ -33,7 +33,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt> Receipts { get; set; }
 #endif
         /// <summary>The status of the user operation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation_status? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus? Status { get; set; }
         /// <summary>The hash of the transaction that included this particular user operation. This gets set after the user operation is broadcasted and the transaction is included in a block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,7 +78,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "calls", n => { Calls = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork>(); } },
                 { "receipts", n => { Receipts = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus>(); } },
                 { "transactionHash", n => { TransactionHash = n.GetStringValue(); } },
                 { "userOpHash", n => { UserOpHash = n.GetStringValue(); } },
             };
@@ -93,7 +93,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>("calls", Calls);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork>("network", Network);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt>("receipts", Receipts);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus>("status", Status);
             writer.WriteStringValue("transactionHash", TransactionHash);
             writer.WriteStringValue("userOpHash", UserOpHash);
             writer.WriteAdditionalData(AdditionalData);

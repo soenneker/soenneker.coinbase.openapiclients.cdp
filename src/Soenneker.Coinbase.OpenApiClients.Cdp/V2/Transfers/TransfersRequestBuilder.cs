@@ -49,17 +49,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers
         /// <summary>
         /// &quot;List transfers for your organization. Use this to view and monitor your transfer activity.**Status Filtering**: Filter by specific status to efficiently manage transfers:* `?status=processing` - Monitor active transfers.* `?status=quoted` - Find transfers awaiting execution.* `?status=failed` - Review failed transfers for troubleshooting.* `?status=completed` - Find completed transfers.**Account Filtering**: Filter by account ID to find transfers involving a specific account:* `?accountId=&lt;ID&gt;` - All transfers where the account is either source or target (OR semantics).* `?sourceAccountId=&lt;ID&gt;` - Only transfers where the account is the source (outbound).* `?targetAccountId=&lt;ID&gt;` - Only transfers where the account is the target (inbound).Providing `accountId` together with `sourceAccountId` or `targetAccountId` is a validation error and returns HTTP 400.**Date Range Filtering**: Filter by creation or last-updated time for reconciliation:* `?createdAfter=2026-01-01T00:00:00Z&amp;createdBefore=2026-01-31T23:59:59Z` - Transfers created within a date range.* `?updatedAfter=2026-01-01T00:00:00Z` - Transfers updated since a given time. Useful for incremental sync.**Asset Filtering**: Filter by source or target asset symbol:* `?sourceAsset=usd` - Transfers funded from a USD account.* `?targetAsset=usdc` - Transfers delivering USDC to the target.**Other Filters**:* `?sourceAddress=0x...` - Transfers from a specific on-chain source address.* `?targetAddress=0x...` - Transfers to a specific on-chain destination address.* `?targetEmail=user@example.com` - Transfers to a specific email recipient.* `?transferId=transfer_...` - Look up a single transfer by ID; bypasses pagination.&quot;
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 400 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.TransfersRequestBuilder.TransfersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200Response?> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.TransfersRequestBuilder.TransfersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.TransfersRequestBuilder.TransfersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200Response> GetAsync(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.TransfersRequestBuilder.TransfersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,7 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers
             {
                 { "400", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListTransfers200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// &quot;Create a new transfer to move funds from a source to a target.All transfers first transition to `quoted`. If `execute: false`, the transfer stays quoted until you call `/v2/transfers/{transferId}/execute`.If `execute: true`, quoted status emits momentarily before the transfer moves to `processing`, where execution proceeds. Subscribe to the transfers webhook to  follow progress in real time instead of polling.&quot;

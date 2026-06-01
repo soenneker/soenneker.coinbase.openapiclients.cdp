@@ -28,7 +28,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The network for the EIP-7702 delegation.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationNetwork? Network { get; set; }
         /// <summary>The current status of the delegation operation.UNSPECIFIED means the status has not been set. PENDING means the operation has been created but not yet submitted. SUBMITTED means the operation has been submitted to the network. COMPLETED means the operation has completed successfully. FAILED means the operation has failed.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperation_status? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperationStatus? Status { get; set; }
         /// <summary>The hash of the delegation transaction, if available. Present once the transaction has been submitted to the network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "delegateAddress", n => { DelegateAddress = n.GetStringValue(); } },
                 { "delegationOperationId", n => { DelegationOperationId = n.GetGuidValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationNetwork>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperation_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperationStatus>(); } },
                 { "transactionHash", n => { TransactionHash = n.GetStringValue(); } },
             };
         }
@@ -79,7 +79,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("delegateAddress", DelegateAddress);
             writer.WriteGuidValue("delegationOperationId", DelegationOperationId);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationNetwork>("network", Network);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperation_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperationStatus>("status", Status);
             writer.WriteStringValue("transactionHash", TransactionHash);
             writer.WriteAdditionalData(AdditionalData);
         }

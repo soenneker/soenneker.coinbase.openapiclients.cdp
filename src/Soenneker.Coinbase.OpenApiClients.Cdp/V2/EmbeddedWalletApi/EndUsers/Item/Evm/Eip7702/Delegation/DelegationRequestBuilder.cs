@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <summary>
         /// Creates an EIP-7702 delegation for an end user&apos;s EVM EOA account, upgrading it with smart account capabilities.This endpoint:- Retrieves delegation artifacts from onchain- Signs the EIP-7702 authorization for delegation- Assembles and submits a Type 4 transaction- Creates an associated smart account objectThe delegation allows the EVM EOA to be used as a smart account, which enables batched transactions and gas sponsorship via paymaster.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -53,11 +53,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.Eip7702.Delegation.DelegationRequestBuilder.DelegationRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201Response?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.Eip7702.Delegation.DelegationRequestBuilder.DelegationRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.Eip7702.Delegation.DelegationRequestBuilder.DelegationRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201Response> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.Eip7702.Delegation.DelegationRequestBuilder.DelegationRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -76,7 +76,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount201Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Creates an EIP-7702 delegation for an end user&apos;s EVM EOA account, upgrading it with smart account capabilities.This endpoint:- Retrieves delegation artifacts from onchain- Signs the EIP-7702 authorization for delegation- Assembles and submits a Type 4 transaction- Creates an associated smart account objectThe delegation allows the EVM EOA to be used as a smart account, which enables batched transactions and gas sponsorship via paymaster.
@@ -86,11 +86,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.Eip7702.Delegation.DelegationRequestBuilder.DelegationRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.Eip7702.Delegation.DelegationRequestBuilder.DelegationRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.Eip7702.Delegation.DelegationRequestBuilder.DelegationRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEvmEip7702DelegationWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.Eip7702.Delegation.DelegationRequestBuilder.DelegationRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

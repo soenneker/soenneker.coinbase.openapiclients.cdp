@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <summary>
         /// Signs a transaction with the given end user Solana account and sends it to the indicated supported network.The API handles recent blockhash management and fee estimation, leaving the developer to provide only the minimal set of fields necessary to send the transaction.The unsigned transaction should be serialized into a byte array and then encoded as base64.**Transaction types**The following transaction types are supported:* [Legacy transactions](https://solana.com/developers/guides/advanced/versions#current-transaction-versions)* [Versioned transactions](https://solana.com/developers/guides/advanced/versions)**Instruction Batching**To batch multiple operations, include multiple instructions within a single transaction. All instructions within a transaction are executed atomically - if any instruction fails, the entire transaction fails and is rolled back.**Network Support**The following Solana networks are supported:* `solana` - Solana Mainnet* `solana-devnet` - Solana DevnetThe developer is responsible for ensuring that the unsigned transaction is valid, as the API will not validate the transaction.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200Response"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -51,11 +51,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Send.Transaction.TransactionRequestBuilder.TransactionRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200Response?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Send.Transaction.TransactionRequestBuilder.TransactionRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Send.Transaction.TransactionRequestBuilder.TransactionRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200Response> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Send.Transaction.TransactionRequestBuilder.TransactionRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -72,7 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Signs a transaction with the given end user Solana account and sends it to the indicated supported network.The API handles recent blockhash management and fee estimation, leaving the developer to provide only the minimal set of fields necessary to send the transaction.The unsigned transaction should be serialized into a byte array and then encoded as base64.**Transaction types**The following transaction types are supported:* [Legacy transactions](https://solana.com/developers/guides/advanced/versions#current-transaction-versions)* [Versioned transactions](https://solana.com/developers/guides/advanced/versions)**Instruction Batching**To batch multiple operations, include multiple instructions within a single transaction. All instructions within a transaction are executed atomically - if any instruction fails, the entire transaction fails and is rolled back.**Network Support**The following Solana networks are supported:* `solana` - Solana Mainnet* `solana-devnet` - Solana DevnetThe developer is responsible for ensuring that the unsigned transaction is valid, as the API will not validate the transaction.
@@ -82,11 +82,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Send.Transaction.TransactionRequestBuilder.TransactionRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Send.Transaction.TransactionRequestBuilder.TransactionRequestBuilderPostQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccount body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Send.Transaction.TransactionRequestBuilder.TransactionRequestBuilderPostQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaTransactionWithEndUserAccountRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Solana.Send.Transaction.TransactionRequestBuilder.TransactionRequestBuilderPostQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

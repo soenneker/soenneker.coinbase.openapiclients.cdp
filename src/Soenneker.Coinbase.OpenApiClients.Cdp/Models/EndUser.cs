@@ -62,10 +62,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Information about the end user&apos;s MFA enrollments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods? MfaMethods { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods? MfaMethods { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods MfaMethods { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods MfaMethods { get; set; }
 #endif
         /// <summary>The list of Solana accounts associated with the end user. End users can have up to 10 Solana accounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -123,7 +123,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "evmAccounts", n => { EvmAccounts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "evmSmartAccountObjects", n => { EvmSmartAccountObjects = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "evmSmartAccounts", n => { EvmSmartAccounts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "mfaMethods", n => { MfaMethods = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods.CreateFromDiscriminatorValue); } },
+                { "mfaMethods", n => { MfaMethods = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods.CreateFromDiscriminatorValue); } },
                 { "solanaAccountObjects", n => { SolanaAccountObjects = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "solanaAccounts", n => { SolanaAccounts = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
@@ -142,7 +142,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfPrimitiveValues<string>("evmAccounts", EvmAccounts);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount>("evmSmartAccountObjects", EvmSmartAccountObjects);
             writer.WriteCollectionOfPrimitiveValues<string>("evmSmartAccounts", EvmSmartAccounts);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MFAMethods>("mfaMethods", MfaMethods);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods>("mfaMethods", MfaMethods);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount>("solanaAccountObjects", SolanaAccountObjects);
             writer.WriteCollectionOfPrimitiveValues<string>("solanaAccounts", SolanaAccounts);
             writer.WriteStringValue("userId", UserId);

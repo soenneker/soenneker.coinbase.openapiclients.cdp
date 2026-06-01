@@ -8,13 +8,23 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Contract ABI Specification following Solidity&apos;s external JSON interface format.
+    /// Generic ABI item type encapsulating all other types besides `function`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AbiInput : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>For additional information on the ABI JSON specification, see [the Solidity documentation](https://docs.soliditylang.org/en/latest/abi-spec.html#json).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInputAdditionalProperties? AdditionalProperties { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInputAdditionalProperties AdditionalProperties { get; set; }
+#endif
+        /// <summary>The type of the ABI item.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInputType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput"/> and sets the default values.
         /// </summary>
@@ -40,6 +50,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "additionalProperties", n => { AdditionalProperties = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInputAdditionalProperties>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInputAdditionalProperties.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInputType>(); } },
             };
         }
         /// <summary>
@@ -49,6 +61,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInputAdditionalProperties>("additionalProperties", AdditionalProperties);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInputType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

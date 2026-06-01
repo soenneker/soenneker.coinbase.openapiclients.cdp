@@ -9,35 +9,35 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         [EnumMember(Value = "eip155:8453")]
         #pragma warning disable CS1591
-        Eip1558453,
+        Eip155Colon8453,
         #pragma warning restore CS1591
         [EnumMember(Value = "eip155:84532")]
         #pragma warning disable CS1591
-        Eip15584532,
+        Eip155Colon84532,
         #pragma warning restore CS1591
         [EnumMember(Value = "eip155:137")]
         #pragma warning disable CS1591
-        Eip155137,
+        Eip155Colon137,
         #pragma warning restore CS1591
         [EnumMember(Value = "eip155:42161")]
         #pragma warning disable CS1591
-        Eip15542161,
+        Eip155Colon42161,
         #pragma warning restore CS1591
         [EnumMember(Value = "eip155:480")]
         #pragma warning disable CS1591
-        Eip155480,
+        Eip155Colon480,
         #pragma warning restore CS1591
         [EnumMember(Value = "eip155:4801")]
         #pragma warning disable CS1591
-        Eip1554801,
+        Eip155Colon4801,
         #pragma warning restore CS1591
         [EnumMember(Value = "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp")]
         #pragma warning disable CS1591
-        Solana5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp,
+        SolanaColon5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp,
         #pragma warning restore CS1591
         [EnumMember(Value = "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1")]
         #pragma warning disable CS1591
-        SolanaEtWTRABZaYq6iMfeYKouRu166VU2xqa1,
+        SolanaColonEtWTRABZaYq6iMfeYKouRu166VU2xqa1,
         #pragma warning restore CS1591
     }
 }
