@@ -35,7 +35,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DepositDestinationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/deposit-destinations{?accountId*,address*,network*,pageSize*,pageToken*,type*}", pathParameters)
+        public DepositDestinationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DepositDestinationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/deposit-destinations{?accountId*,address*,network*,pageSize*,pageToken*,type*}", rawUrl)
+        public DepositDestinationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
         {
         }
         /// <summary>

@@ -23,6 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public CreateEndUserRequestSolanaAccount()
         {
             AdditionalData = new Dictionary<string, object>();
+            CreateSmartAccount = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

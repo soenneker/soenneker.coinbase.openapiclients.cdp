@@ -23,6 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public OnchainDataQueryCache()
         {
             AdditionalData = new Dictionary<string, object>();
+            MaxAgeMs = 500;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

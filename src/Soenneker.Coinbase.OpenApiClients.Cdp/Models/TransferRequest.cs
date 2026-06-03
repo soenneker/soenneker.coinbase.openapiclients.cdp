@@ -76,6 +76,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             AdditionalData = new Dictionary<string, object>();
             AmountType = global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType.Source;
+            ValidateOnly = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

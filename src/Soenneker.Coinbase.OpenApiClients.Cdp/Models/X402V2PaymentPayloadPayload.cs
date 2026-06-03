@@ -63,11 +63,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayloadPayload();
-            if("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.X402BatchSettlementEvmPayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementEvmPayload();
-            }
-            else if("X402ExactEvmPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("X402ExactEvmPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.X402ExactEvmPayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ExactEvmPayload();
             }

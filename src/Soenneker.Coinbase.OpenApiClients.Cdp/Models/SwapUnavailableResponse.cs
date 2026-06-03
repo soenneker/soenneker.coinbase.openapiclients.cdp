@@ -22,6 +22,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public SwapUnavailableResponse()
         {
             AdditionalData = new Dictionary<string, object>();
+            LiquidityAvailable = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

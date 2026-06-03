@@ -72,6 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public CreateEvmSwapQuoteRequest()
         {
             AdditionalData = new Dictionary<string, object>();
+            SlippageBps = 100;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
