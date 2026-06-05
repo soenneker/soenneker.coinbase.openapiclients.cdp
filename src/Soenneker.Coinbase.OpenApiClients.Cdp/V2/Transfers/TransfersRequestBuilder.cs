@@ -35,7 +35,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TransfersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+        public TransfersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/transfers{?accountId*,createdAfter*,createdBefore*,pageSize*,pageToken*,sourceAccountId*,sourceAddress*,sourceAsset*,status*,targetAccountId*,targetAddress*,targetAsset*,targetEmail*,transferId*,updatedAfter*,updatedBefore*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TransfersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+        public TransfersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/transfers{?accountId*,createdAfter*,createdBefore*,pageSize*,pageToken*,sourceAccountId*,sourceAddress*,sourceAsset*,status*,targetAccountId*,targetAddress*,targetAsset*,targetEmail*,transferId*,updatedAfter*,updatedBefore*}", rawUrl)
         {
         }
         /// <summary>
@@ -112,7 +112,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.TransfersRequestBuilder.TransfersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/v2/transfers{?accountId*,createdAfter*,createdBefore*,pageSize*,pageToken*,sourceAccountId*,sourceAddress*,sourceAsset*,status*,targetAccountId*,targetAddress*,targetAsset*,targetEmail*,transferId*,updatedAfter*,updatedBefore*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -133,7 +133,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/v2/transfers", PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
