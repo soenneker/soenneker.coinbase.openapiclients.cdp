@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The type of the beneficiary&apos;s wallet.</summary>
+    /// <summary>&quot;The simulated facilitator outcome: `accepted` if the facilitator would index the resource, or `rejected` if it would reject it.&quot;</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TravelRuleBeneficiaryWalletType
+    public enum X402ValidateSimulationOutcome
     {
-        [EnumMember(Value = "custodial")]
+        [EnumMember(Value = "accepted")]
         #pragma warning disable CS1591
-        Custodial,
+        Accepted,
         #pragma warning restore CS1591
-        [EnumMember(Value = "self_custody")]
+        [EnumMember(Value = "rejected")]
         #pragma warning disable CS1591
-        SelfCustody,
+        Rejected,
         #pragma warning restore CS1591
     }
 }

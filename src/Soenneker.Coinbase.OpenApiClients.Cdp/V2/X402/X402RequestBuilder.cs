@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Settle;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Validate;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify;
 using System.Collections.Generic;
 using System.IO;
@@ -32,6 +33,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported.SupportedRequestBuilder Supported
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Supported.SupportedRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The validate property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Validate.ValidateRequestBuilder Validate
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Validate.ValidateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verify property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Verify.VerifyRequestBuilder Verify

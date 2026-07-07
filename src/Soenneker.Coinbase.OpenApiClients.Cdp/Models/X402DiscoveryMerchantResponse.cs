@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Response containing x402 resources associated with a merchant payment address.
+    /// Response containing x402 resources associated with a merchant payment address. The resources list is empty when no active resources are found.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402DiscoveryMerchantResponse : IAdditionalDataHolder, IParsable
@@ -31,7 +31,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PayTo { get; set; }
 #endif
-        /// <summary>List of discovered x402 resources associated with the merchant&apos;s payTo address.</summary>
+        /// <summary>List of discovered x402 resources associated with the merchant&apos;s payTo address. This list is empty when no active resources are found.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource>? Resources { get; set; }

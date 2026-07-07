@@ -22,6 +22,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall> Calls { get; set; }
 #endif
+        /// <summary>The timestamp at which the prepared user operation expires.</summary>
+        public DateTimeOffset? ExpiresAt { get; set; }
         /// <summary>The network the user operation is for.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork? Network { get; set; }
         /// <summary>The list of receipts associated with the user operation.</summary>
@@ -76,6 +78,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "calls", n => { Calls = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "expiresAt", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork>(); } },
                 { "receipts", n => { Receipts = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus>(); } },
@@ -91,6 +94,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>("calls", Calls);
+            writer.WriteDateTimeOffsetValue("expiresAt", ExpiresAt);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork>("network", Network);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt>("receipts", Receipts);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus>("status", Status);

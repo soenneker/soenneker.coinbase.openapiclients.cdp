@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// A point-in-time snapshot of estimated values for a transfer where exact amounts cannot be locked in at quote time (e.g., when the executed rate is determined at execution time and moves with the market).Present in both pre-execution and post-execution states:* **Quoted state:** top-level fields whose values cannot be guaranteed are absent;  `estimate` holds their estimated values.* **Completed state:** top-level fields contain the actual executed values;  `estimate` is retained as an immutable audit snapshot of the pre-execution estimate.
+    /// Captures estimated values for transfers where amounts can&apos;t be guaranteed (e.g., USDC -&gt; EURC).The values in `estimate` are not modified after a transfer is executed. They are preserved as an immutable record of the original pre-execution snapshot.The actual executed values are populated in the `transfer` resource post-execution.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferEstimate : IAdditionalDataHolder, IParsable

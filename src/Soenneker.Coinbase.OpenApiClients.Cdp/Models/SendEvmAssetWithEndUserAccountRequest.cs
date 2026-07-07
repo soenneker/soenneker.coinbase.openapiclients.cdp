@@ -24,6 +24,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The EVM network to send USDC on.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccountRequestNetwork? Network { get; set; }
+        /// <summary>The ERC-7677 `context` object forwarded to the paymaster service as part of the `paymasterService` capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing `paymasterContext` without a paymaster configured results in an `invalid_request` error.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccountRequestPaymasterContext? PaymasterContext { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccountRequestPaymasterContext PaymasterContext { get; set; }
+#endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,6 +85,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccountRequestNetwork>(); } },
+                { "paymasterContext", n => { PaymasterContext = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccountRequestPaymasterContext>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccountRequestPaymasterContext.CreateFromDiscriminatorValue); } },
                 { "paymasterUrl", n => { PaymasterUrl = n.GetStringValue(); } },
                 { "to", n => { To = n.GetStringValue(); } },
                 { "useCdpPaymaster", n => { UseCdpPaymaster = n.GetBoolValue(); } },
@@ -92,6 +101,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccountRequestNetwork>("network", Network);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccountRequestPaymasterContext>("paymasterContext", PaymasterContext);
             writer.WriteStringValue("paymasterUrl", PaymasterUrl);
             writer.WriteStringValue("to", To);
             writer.WriteBoolValue("useCdpPaymaster", UseCdpPaymaster);

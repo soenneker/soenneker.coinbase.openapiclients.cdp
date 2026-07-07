@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger whenan event contains ALL the key-value pairs specified here. Additional labels onthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.**Note:** Currently, labels are supported for onchain webhooks only.See [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).
+    /// Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger whenan event contains ALL the key-value pairs specified here. Additional labels onthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.**Note:** Currently, labels are supported for onchain webhooks only (max 20 labels per subscription).**Allowed labels for `onchain.activity.detected`** (all in snake_case format):- `network` (required) — Blockchain network- `contract_address` — Smart contract address- `event_name` — Event name (e.g., &quot;Transfer&quot;, &quot;Burn&quot;)- `event_signature` — Event signature hash- `transaction_from` — Transaction sender address- `transaction_to` — Transaction recipient address- `params.*` — Any event parameter (e.g., `params.from`, `params.to`, `params.sender`, `params.tokenId`)
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookSubscriptionRequestLabelsProperty : IAdditionalDataHolder, IParsable

@@ -40,7 +40,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string Name { get; set; }
 #endif
         /// <summary>The type of the beneficiary&apos;s wallet.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryWalletType? WalletType { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryAllOf2WalletType? WalletType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiary"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "address", n => { Address = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
                 { "financialInstitution", n => { FinancialInstitution = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "walletType", n => { WalletType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryWalletType>(); } },
+                { "walletType", n => { WalletType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryAllOf2WalletType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>("address", Address);
             writer.WriteStringValue("financialInstitution", FinancialInstitution);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryWalletType>("walletType", WalletType);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryAllOf2WalletType>("walletType", WalletType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

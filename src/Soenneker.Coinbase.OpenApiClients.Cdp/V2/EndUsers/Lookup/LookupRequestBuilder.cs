@@ -22,7 +22,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LookupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/end-users/lookup{?email*,oauthProvider*,oauthSubject*,phoneNumber*}", pathParameters)
+        public LookupRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/end-users/lookup{?email*,oauthProvider*,oauthSubject*,phoneNumber*,siweAddress*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,11 +30,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LookupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/end-users/lookup{?email*,oauthProvider*,oauthSubject*,phoneNumber*}", rawUrl)
+        public LookupRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/end-users/lookup{?email*,oauthProvider*,oauthSubject*,phoneNumber*,siweAddress*}", rawUrl)
         {
         }
         /// <summary>
-        /// &quot;Looks up end users. Exactly one lookup type must be provided per request:- **email**: searches across all email-based authentication methods  (email, Google, Apple, GitHub). May return multiple end users if the  same email address appears across different auth methods.- **oauthProvider + oauthSubject**: looks up a user by their OAuth  provider and subject (the `sub` claim from the provider&apos;s ID token).  Both params must be provided together.- **phoneNumber**: looks up a user by their SMS-verified phone number.Returns all matching end users. If no end users match, an empty array is returned.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.&quot;
+        /// &quot;Looks up end users. Exactly one lookup type must be provided per request:- **email**: searches across all email-based authentication methods  (email, Google, Apple, GitHub). May return multiple end users if the  same email address appears across different auth methods.- **oauthProvider + oauthSubject**: looks up a user by their OAuth  provider and subject (the `sub` claim from the provider&apos;s ID token).  Both params must be provided together.- **phoneNumber**: looks up a user by their SMS-verified phone number.- **siweAddress**: looks up a user by the Ethereum address they authenticated  with via Sign In With Ethereum (EIP-4361).Returns all matching end users. If no end users match, an empty array is returned.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.&quot;
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.LookupEndUser200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -61,7 +61,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.LookupEndUser200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.LookupEndUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Looks up end users. Exactly one lookup type must be provided per request:- **email**: searches across all email-based authentication methods  (email, Google, Apple, GitHub). May return multiple end users if the  same email address appears across different auth methods.- **oauthProvider + oauthSubject**: looks up a user by their OAuth  provider and subject (the `sub` claim from the provider&apos;s ID token).  Both params must be provided together.- **phoneNumber**: looks up a user by their SMS-verified phone number.Returns all matching end users. If no end users match, an empty array is returned.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.&quot;
+        /// &quot;Looks up end users. Exactly one lookup type must be provided per request:- **email**: searches across all email-based authentication methods  (email, Google, Apple, GitHub). May return multiple end users if the  same email address appears across different auth methods.- **oauthProvider + oauthSubject**: looks up a user by their OAuth  provider and subject (the `sub` claim from the provider&apos;s ID token).  Both params must be provided together.- **phoneNumber**: looks up a user by their SMS-verified phone number.- **siweAddress**: looks up a user by the Ethereum address they authenticated  with via Sign In With Ethereum (EIP-4361).Returns all matching end users. If no end users match, an empty array is returned.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.&quot;
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -89,7 +89,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup.LookupRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Looks up end users. Exactly one lookup type must be provided per request:- **email**: searches across all email-based authentication methods  (email, Google, Apple, GitHub). May return multiple end users if the  same email address appears across different auth methods.- **oauthProvider + oauthSubject**: looks up a user by their OAuth  provider and subject (the `sub` claim from the provider&apos;s ID token).  Both params must be provided together.- **phoneNumber**: looks up a user by their SMS-verified phone number.Returns all matching end users. If no end users match, an empty array is returned.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.&quot;
+        /// &quot;Looks up end users. Exactly one lookup type must be provided per request:- **email**: searches across all email-based authentication methods  (email, Google, Apple, GitHub). May return multiple end users if the  same email address appears across different auth methods.- **oauthProvider + oauthSubject**: looks up a user by their OAuth  provider and subject (the `sub` claim from the provider&apos;s ID token).  Both params must be provided together.- **phoneNumber**: looks up a user by their SMS-verified phone number.- **siweAddress**: looks up a user by the Ethereum address they authenticated  with via Sign In With Ethereum (EIP-4361).Returns all matching end users. If no end users match, an empty array is returned.This API is intended to be used by the developer&apos;s own backend, and is authenticated using the developer&apos;s CDP API key.&quot;
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class LookupRequestBuilderGetQueryParameters 
@@ -126,6 +126,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers.Lookup
 #else
             [QueryParameter("phoneNumber")]
             public string PhoneNumber { get; set; }
+#endif
+            /// <summary>The ERC-55 checksummed Ethereum address to search for. Looks up a user by the address they authenticated with via Sign In With Ethereum (EIP-4361).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("siweAddress")]
+            public string? SiweAddress { get; set; }
+#nullable restore
+#else
+            [QueryParameter("siweAddress")]
+            public string SiweAddress { get; set; }
 #endif
         }
     }

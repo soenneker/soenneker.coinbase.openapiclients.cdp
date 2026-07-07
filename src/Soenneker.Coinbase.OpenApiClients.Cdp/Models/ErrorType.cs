@@ -143,6 +143,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         PhoneNumberVerificationExpired,
         #pragma warning restore CS1591
+        [EnumMember(Value = "otp_verification_code_invalid")]
+        #pragma warning disable CS1591
+        OtpVerificationCodeInvalid,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "otp_verification_destination_mismatch")]
+        #pragma warning disable CS1591
+        OtpVerificationDestinationMismatch,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "otp_verification_expired")]
+        #pragma warning disable CS1591
+        OtpVerificationExpired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "otp_verification_invalid")]
+        #pragma warning disable CS1591
+        OtpVerificationInvalid,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "otp_verification_not_found")]
+        #pragma warning disable CS1591
+        OtpVerificationNotFound,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "otp_verification_required")]
+        #pragma warning disable CS1591
+        OtpVerificationRequired,
+        #pragma warning restore CS1591
         [EnumMember(Value = "document_verification_failed")]
         #pragma warning disable CS1591
         DocumentVerificationFailed,
@@ -306,6 +330,50 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "already_enabled")]
         #pragma warning disable CS1591
         AlreadyEnabled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payment_session_already_canceled")]
+        #pragma warning disable CS1591
+        PaymentSessionAlreadyCanceled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payment_session_already_authorized")]
+        #pragma warning disable CS1591
+        PaymentSessionAlreadyAuthorized,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payment_session_action_pending")]
+        #pragma warning disable CS1591
+        PaymentSessionActionPending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "no_capturable_balance")]
+        #pragma warning disable CS1591
+        NoCapturableBalance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "no_voidable_balance")]
+        #pragma warning disable CS1591
+        NoVoidableBalance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "no_refundable_balance")]
+        #pragma warning disable CS1591
+        NoRefundableBalance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "entity_not_configured_for_payment_acceptance")]
+        #pragma warning disable CS1591
+        EntityNotConfiguredForPaymentAcceptance,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "daily_transaction_limit_exceeded")]
+        #pragma warning disable CS1591
+        DailyTransactionLimitExceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "daily_amount_limit_exceeded")]
+        #pragma warning disable CS1591
+        DailyAmountLimitExceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "stale_attestation")]
+        #pragma warning disable CS1591
+        StaleAttestation,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "moderation_rejected")]
+        #pragma warning disable CS1591
+        ModerationRejected,
         #pragma warning restore CS1591
     }
 }

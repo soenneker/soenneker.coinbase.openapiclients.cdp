@@ -15,23 +15,23 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Beneficiary information for a deposit travel rule submission.</summary>
+        /// <summary>Beneficiary information for the travel rule submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleBeneficiary? Beneficiary { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary? Beneficiary { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleBeneficiary Beneficiary { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary Beneficiary { get; set; }
 #endif
         /// <summary>Indicates whether the user attests that the originating wallet belongs to them.</summary>
         public bool? IsSelf { get; set; }
-        /// <summary>Originator information for a deposit travel rule submission.</summary>
+        /// <summary>Originator information for the travel rule submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator? Originator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator? Originator { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator Originator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator Originator { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequest"/> and sets the default values.
@@ -58,9 +58,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "beneficiary", n => { Beneficiary = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleBeneficiary>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleBeneficiary.CreateFromDiscriminatorValue); } },
+                { "beneficiary", n => { Beneficiary = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary.CreateFromDiscriminatorValue); } },
                 { "isSelf", n => { IsSelf = n.GetBoolValue(); } },
-                { "originator", n => { Originator = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator.CreateFromDiscriminatorValue); } },
+                { "originator", n => { Originator = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -70,9 +70,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleBeneficiary>("beneficiary", Beneficiary);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary>("beneficiary", Beneficiary);
             writer.WriteBoolValue("isSelf", IsSelf);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator>("originator", Originator);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator>("originator", Originator);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

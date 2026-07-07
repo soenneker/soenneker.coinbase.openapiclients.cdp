@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Date of birth.
+    /// Date of birth of the originator.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DateOfBirth : IAdditionalDataHolder, IParsable
+    public partial class DepositTravelRuleOriginatorDateOfBirth : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -40,21 +40,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string Year { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth"/> and sets the default values.
         /// </summary>
-        public DateOfBirth()
+        public DepositTravelRuleOriginatorDateOfBirth()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth();
         }
         /// <summary>
         /// The deserialization information for the current model

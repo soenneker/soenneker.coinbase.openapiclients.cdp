@@ -32,6 +32,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The network the user operation is for.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork? Network { get; set; }
+        /// <summary>The ERC-7677 `context` object forwarded to the paymaster service as part of the `paymasterService` capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing `paymasterContext` without a paymaster configured results in an `invalid_request` error.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext? PaymasterContext { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext PaymasterContext { get; set; }
+#endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,6 +76,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "calls", n => { Calls = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "dataSuffix", n => { DataSuffix = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork>(); } },
+                { "paymasterContext", n => { PaymasterContext = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext.CreateFromDiscriminatorValue); } },
                 { "paymasterUrl", n => { PaymasterUrl = n.GetStringValue(); } },
             };
         }
@@ -81,6 +90,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>("calls", Calls);
             writer.WriteStringValue("dataSuffix", DataSuffix);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork>("network", Network);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext>("paymasterContext", PaymasterContext);
             writer.WriteStringValue("paymasterUrl", PaymasterUrl);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -26,14 +26,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Types of events to subscribe to. Event types follow a dot-separated format:service.resource.verb (e.g., &quot;onchain.activity.detected&quot;, &quot;wallet.activity.detected&quot;, &quot;onramp.transaction.created&quot;,&quot;acceptance.payment_session.authorization_succeeded&quot;).The subscription will only receive events matching these types AND the label filter(s).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EventTypes { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EventType?>? EventTypes { get; set; }
 #nullable restore
 #else
-        public List<string> EventTypes { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EventType?> EventTypes { get; set; }
 #endif
         /// <summary>Whether the subscription is enabled.</summary>
         public bool? IsEnabled { get; set; }
-        /// <summary>Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger whenan event contains ALL the key-value pairs specified here. Additional labels onthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.**Note:** Currently, labels are supported for onchain webhooks only.See [allowed labels for onchain webhooks](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/webhooks/create-webhook-subscription#onchain-label-filtering).</summary>
+        /// <summary>Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger whenan event contains ALL the key-value pairs specified here. Additional labels onthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.**Note:** Currently, labels are supported for onchain webhooks only (max 20 labels per subscription).**Allowed labels for `onchain.activity.detected`** (all in snake_case format):- `network` (required) — Blockchain network- `contract_address` — Smart contract address- `event_name` — Event name (e.g., &quot;Transfer&quot;, &quot;Burn&quot;)- `event_signature` — Event signature hash- `transaction_from` — Transaction sender address- `transaction_to` — Transaction recipient address- `params.*` — Any event parameter (e.g., `params.from`, `params.to`, `params.sender`, `params.tokenId`)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestLabelsProperty? Labels { get; set; }
@@ -83,7 +83,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "eventTypes", n => { EventTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "eventTypes", n => { EventTypes = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EventType>()?.AsList(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "labels", n => { Labels = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestLabelsProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestLabelsProperty.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestMetadata.CreateFromDiscriminatorValue); } },
@@ -98,7 +98,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfPrimitiveValues<string>("eventTypes", EventTypes);
+            writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EventType>("eventTypes", EventTypes);
             writer.WriteBoolValue("isEnabled", IsEnabled);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestLabelsProperty>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestMetadata>("metadata", Metadata);

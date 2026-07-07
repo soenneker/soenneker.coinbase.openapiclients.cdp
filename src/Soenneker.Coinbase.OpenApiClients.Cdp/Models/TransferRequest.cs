@@ -59,13 +59,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget Target { get; set; }
 #endif
-        /// <summary>Required Travel Rule fields differ by region. These requirements are determined based on which Coinbase entity the customer has signed the service agreement for.</summary>
+        /// <summary>Travel Rule compliance information for this transfer. Required for transfers to external wallets above regulatory thresholds. Fields required differ by region and Coinbase contracting entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule? TravelRule { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule? TravelRule { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule TravelRule { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule TravelRule { get; set; }
 #endif
         /// <summary>If true, validates the transfer without initiating it.  If the request is valid, a 2xx will be returned. If the request is invalid, a 4xx error will be returned. The response will include an errorType, for e.g. invalid_target if the specified target cannot receive funds.</summary>
         public bool? ValidateOnly { get; set; }
@@ -75,7 +75,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public TransferRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            AmountType = global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType.Source;
             ValidateOnly = false;
         }
         /// <summary>
@@ -103,7 +102,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget.CreateFromDiscriminatorValue); } },
-                { "travelRule", n => { TravelRule = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule.CreateFromDiscriminatorValue); } },
+                { "travelRule", n => { TravelRule = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule.CreateFromDiscriminatorValue); } },
                 { "validateOnly", n => { ValidateOnly = n.GetBoolValue(); } },
             };
         }
@@ -121,7 +120,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource>("source", Source);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget>("target", Target);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule>("travelRule", TravelRule);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule>("travelRule", TravelRule);
             writer.WriteBoolValue("validateOnly", ValidateOnly);
             writer.WriteAdditionalData(AdditionalData);
         }

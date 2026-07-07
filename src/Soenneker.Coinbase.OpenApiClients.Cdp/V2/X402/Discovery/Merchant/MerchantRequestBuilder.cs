@@ -34,13 +34,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Merchant
         {
         }
         /// <summary>
-        /// Gets x402 merchant discovery information for a given merchant payment address.This endpoint returns all active x402 resources associated with the specified `payTo` address, allowing clients to discover what payment-gated resources a merchant exposes and their corresponding payment requirements.The response is paginated, and by default, returns 20 items per page.
+        /// Gets x402 merchant discovery information for a given merchant payment address.This endpoint returns all active x402 resources associated with the specified `payTo` address, allowing clients to discover what payment-gated resources a merchant exposes and their corresponding payment requirements.If no active resources are found for the `payTo` address, the endpoint returns an empty `resources` list.The response is paginated, and by default, returns 20 items per page.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryMerchantResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
@@ -57,7 +56,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Merchant
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
@@ -65,7 +63,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Merchant
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryMerchantResponse>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryMerchantResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Gets x402 merchant discovery information for a given merchant payment address.This endpoint returns all active x402 resources associated with the specified `payTo` address, allowing clients to discover what payment-gated resources a merchant exposes and their corresponding payment requirements.The response is paginated, and by default, returns 20 items per page.
+        /// Gets x402 merchant discovery information for a given merchant payment address.This endpoint returns all active x402 resources associated with the specified `payTo` address, allowing clients to discover what payment-gated resources a merchant exposes and their corresponding payment requirements.If no active resources are found for the `payTo` address, the endpoint returns an empty `resources` list.The response is paginated, and by default, returns 20 items per page.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +91,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Merchant
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Merchant.MerchantRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Gets x402 merchant discovery information for a given merchant payment address.This endpoint returns all active x402 resources associated with the specified `payTo` address, allowing clients to discover what payment-gated resources a merchant exposes and their corresponding payment requirements.The response is paginated, and by default, returns 20 items per page.
+        /// Gets x402 merchant discovery information for a given merchant payment address.This endpoint returns all active x402 resources associated with the specified `payTo` address, allowing clients to discover what payment-gated resources a merchant exposes and their corresponding payment requirements.If no active resources are found for the `payTo` address, the endpoint returns an empty `resources` list.The response is paginated, and by default, returns 20 items per page.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MerchantRequestBuilderGetQueryParameters 

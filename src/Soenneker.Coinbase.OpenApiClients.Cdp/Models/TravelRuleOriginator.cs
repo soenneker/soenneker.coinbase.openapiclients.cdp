@@ -23,6 +23,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress Address { get; set; }
 #endif
+        /// <summary>Date of birth of the originator. Required by certain jurisdictions (such as Coinbase Luxembourg) to satisfy Travel Rule reporting obligations.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth? DateOfBirth { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth DateOfBirth { get; set; }
+#endif
         /// <summary>Name of the financial institution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +46,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>&quot;Personal identifier for travel rule compliance. For individuals: passport number, national ID, or driver&apos;s license. For institutions: LEI (Legal Entity Identifier).&quot;</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PersonalId { get; set; }
+#nullable restore
+#else
+        public string PersonalId { get; set; }
 #endif
         /// <summary>Information about the originating Virtual Asset Service Provider (VASP) that handles cryptocurrency or other virtual assets on behalf of customers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,8 +89,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "address", n => { Address = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
+                { "dateOfBirth", n => { DateOfBirth = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth.CreateFromDiscriminatorValue); } },
                 { "financialInstitution", n => { FinancialInstitution = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "personalId", n => { PersonalId = n.GetStringValue(); } },
                 { "virtualAssetServiceProvider", n => { VirtualAssetServiceProvider = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider.CreateFromDiscriminatorValue); } },
             };
         }
@@ -86,8 +104,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>("address", Address);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth>("dateOfBirth", DateOfBirth);
             writer.WriteStringValue("financialInstitution", FinancialInstitution);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("personalId", PersonalId);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider>("virtualAssetServiceProvider", VirtualAssetServiceProvider);
             writer.WriteAdditionalData(AdditionalData);
         }

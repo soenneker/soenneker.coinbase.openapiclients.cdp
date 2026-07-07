@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Originator information for a deposit travel rule submission.
+    /// Originator information for the travel rule submission.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DepositTravelRuleOriginator : IAdditionalDataHolder, IParsable
+    public partial class DepositTravelRuleRequestOriginator : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -23,13 +23,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress Address { get; set; }
 #endif
-        /// <summary>Date of birth.</summary>
+        /// <summary>Date of birth of the originator.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth? DateOfBirth { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth? DateOfBirth { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth DateOfBirth { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth DateOfBirth { get; set; }
 #endif
         /// <summary>Full name of the originator.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,7 +39,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>Government-issued personal identification number for the originator.</summary>
+        /// <summary>&quot;Personal identifier for travel rule compliance. For individuals: passport number, national ID, or driver&apos;s license. For institutions: LEI (Legal Entity Identifier).&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PersonalId { get; set; }
@@ -58,21 +58,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The type of the originator&apos;s wallet.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorWalletType? WalletType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator"/> and sets the default values.
         /// </summary>
-        public DepositTravelRuleOriginator()
+        public DepositTravelRuleRequestOriginator()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginator();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,7 +83,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "address", n => { Address = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
-                { "dateOfBirth", n => { DateOfBirth = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth.CreateFromDiscriminatorValue); } },
+                { "dateOfBirth", n => { DateOfBirth = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "personalId", n => { PersonalId = n.GetStringValue(); } },
                 { "virtualAssetServiceProvider", n => { VirtualAssetServiceProvider = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleVasp>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleVasp.CreateFromDiscriminatorValue); } },
@@ -98,7 +98,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>("address", Address);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DateOfBirth>("dateOfBirth", DateOfBirth);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleOriginatorDateOfBirth>("dateOfBirth", DateOfBirth);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("personalId", PersonalId);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleVasp>("virtualAssetServiceProvider", VirtualAssetServiceProvider);

@@ -16,5 +16,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         BaseSepolia,
         #pragma warning restore CS1591
+        [EnumMember(Value = "solana")]
+        #pragma warning disable CS1591
+        Solana,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "hyperevm")]
+        #pragma warning disable CS1591
+        Hyperevm,
+        #pragma warning restore CS1591
     }
 }

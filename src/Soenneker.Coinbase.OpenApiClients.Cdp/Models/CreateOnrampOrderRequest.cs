@@ -56,6 +56,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>A unique identifier for an onramp verification record, in the format `onramp_verification_&lt;uuid&gt;`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EmailVerificationId { get; set; }
+#nullable restore
+#else
+        public string EmailVerificationId { get; set; }
+#endif
         /// <summary>If true, this API will return a quote without creating any transaction.</summary>
         public bool? IsQuote { get; set; }
         /// <summary>Optional partner order reference ID.</summary>
@@ -118,6 +126,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PurchaseCurrency { get; set; }
 #endif
+        /// <summary>A unique identifier for an onramp verification record, in the format `onramp_verification_&lt;uuid&gt;`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SmsVerificationId { get; set; }
+#nullable restore
+#else
+        public string SmsVerificationId { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampOrderRequest"/> and sets the default values.
         /// </summary>
@@ -150,6 +166,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "destinationNetwork", n => { DestinationNetwork = n.GetStringValue(); } },
                 { "domain", n => { Domain = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "emailVerificationId", n => { EmailVerificationId = n.GetStringValue(); } },
                 { "isQuote", n => { IsQuote = n.GetBoolValue(); } },
                 { "partnerOrderRef", n => { PartnerOrderRef = n.GetStringValue(); } },
                 { "partnerUserRef", n => { PartnerUserRef = n.GetStringValue(); } },
@@ -160,6 +177,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "phoneNumberVerifiedAt", n => { PhoneNumberVerifiedAt = n.GetDateTimeOffsetValue(); } },
                 { "purchaseAmount", n => { PurchaseAmount = n.GetStringValue(); } },
                 { "purchaseCurrency", n => { PurchaseCurrency = n.GetStringValue(); } },
+                { "smsVerificationId", n => { SmsVerificationId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -175,6 +193,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("destinationNetwork", DestinationNetwork);
             writer.WriteStringValue("domain", Domain);
             writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("emailVerificationId", EmailVerificationId);
             writer.WriteBoolValue("isQuote", IsQuote);
             writer.WriteStringValue("partnerOrderRef", PartnerOrderRef);
             writer.WriteStringValue("partnerUserRef", PartnerUserRef);
@@ -185,6 +204,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteDateTimeOffsetValue("phoneNumberVerifiedAt", PhoneNumberVerifiedAt);
             writer.WriteStringValue("purchaseAmount", PurchaseAmount);
             writer.WriteStringValue("purchaseCurrency", PurchaseCurrency);
+            writer.WriteStringValue("smsVerificationId", SmsVerificationId);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

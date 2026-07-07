@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Orders;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Sessions;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Verifications;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Sessions.SessionsRequestBuilder Sessions
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Sessions.SessionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The verifications property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Verifications.VerificationsRequestBuilder Verifications
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Verifications.VerificationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.OnrampRequestBuilder"/> and sets the default values.

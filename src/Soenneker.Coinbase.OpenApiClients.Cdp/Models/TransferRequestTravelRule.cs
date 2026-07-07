@@ -8,10 +8,10 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Required Travel Rule fields differ by region. These requirements are determined based on which Coinbase entity the customer has signed the service agreement for.
+    /// Travel Rule compliance information for this transfer. Required for transfers to external wallets above regulatory thresholds. Fields required differ by region and Coinbase contracting entity.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TravelRule : IAdditionalDataHolder, IParsable
+    public partial class TransferRequestTravelRule : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -23,7 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiary Beneficiary { get; set; }
 #endif
-        /// <summary>Indicates whether Coinbase is being used as an intermediary Virtual Asset Service Provider (VASP) to send crypto on behalf of your customer.**Background:**The Travel Rule (FATF Recommendation 16) requires VASPs to share originator and beneficiary information for virtual asset transfers. When Coinbase acts as an intermediary, additional Travel Rule data must be provided to satisfy compliance requirements.**Set to `true` when:**- Your organization is a VASP using Coinbase to send crypto **on behalf of your end customer**- In this scenario, Coinbase acts as an intermediary in the transfer chain and handles Travel Rule data exchange with the beneficiary VASP**Set to `false` (or omit) when:**- You are transferring funds directly from your own Coinbase account, where **Coinbase is your primary VASP** rather than an intermediary for another institution**Impact on required fields:**When `isIntermediary` is `true`, you must provide the `originator` object with details about the original sender, including:- Originator name- Originator address- Your VASP information (`virtualAssetServiceProvider` object with `name`, `address`, and `identifier`)</summary>
+        /// <summary>Indicates whether Coinbase is being used as an intermediary Virtual Asset Service Provider (VASP) to send crypto on behalf of your customer.**Background:**The Travel Rule (FATF Recommendation 16) requires VASPs to share originator and beneficiary information for virtual asset transfers. When Coinbase acts as an intermediary, additional Travel Rule data must be provided to satisfy compliance requirements.**Set to `true` when:**- Your organization is a VASP using Coinbase to send crypto **on behalf of your end customer**- In this scenario, Coinbase acts as an intermediary in the transfer chain and handles Travel Rule data exchange with the beneficiary VASP**Set to `false` (or omit) when:**- You are transferring funds directly from your own Coinbase account, where **Coinbase is your primary VASP** rather than an intermediary for another institution**Impact on required fields:**When `isIntermediary` is `true`, you must provide the `originator` object with details about the **original sender**, including:- Originator name- Originator address- Your VASP information (`virtualAssetServiceProvider` object with `name`, `address`, and `identifier`)For jurisdictions that require them (such as Coinbase Luxembourg), `personalIdentification` and `dateOfBirth` must also reflect the **original sender&apos;s** identity — not the intermediary&apos;s. These fields will not be auto-populated from any internal KYC data when `isIntermediary` is `true`.</summary>
         public bool? IsIntermediary { get; set; }
         /// <summary>Indicates whether the user attests that the receiving wallet belongs to them.</summary>
         public bool? IsSelf { get; set; }
@@ -36,21 +36,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginator Originator { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule"/> and sets the default values.
         /// </summary>
-        public TravelRule()
+        public TransferRequestTravelRule()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRule();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule();
         }
         /// <summary>
         /// The deserialization information for the current model

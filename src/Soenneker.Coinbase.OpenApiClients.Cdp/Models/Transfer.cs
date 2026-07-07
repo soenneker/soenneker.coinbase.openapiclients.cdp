@@ -27,7 +27,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails Details { get; set; }
 #endif
-        /// <summary>A point-in-time snapshot of estimated values for a transfer where exact amounts cannot be locked in at quote time (e.g., when the executed rate is determined at execution time and moves with the market).Present in both pre-execution and post-execution states:* **Quoted state:** top-level fields whose values cannot be guaranteed are absent;  `estimate` holds their estimated values.* **Completed state:** top-level fields contain the actual executed values;  `estimate` is retained as an immutable audit snapshot of the pre-execution estimate.</summary>
+        /// <summary>Captures estimated values for transfers where amounts can&apos;t be guaranteed (e.g., USDC -&gt; EURC).The values in `estimate` are not modified after a transfer is executed. They are preserved as an immutable record of the original pre-execution snapshot.The actual executed values are populated in the `transfer` resource post-execution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate? Estimate { get; set; }
@@ -105,7 +105,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget Target { get; set; }
 #endif
-        /// <summary>The amount of the target asset that will be received, as a decimal string in standard unit denomination.</summary>
+        /// <summary>The amount of the target asset received, as a decimal string in standard unit denomination. May be omitted in the `quoted` state if the value cannot be guaranteed; see `estimate.targetAmount` for the expected value. Populated with the actual executed amount once the transfer completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TargetAmount { get; set; }
