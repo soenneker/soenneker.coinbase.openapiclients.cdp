@@ -17195,8 +17195,10 @@
             "pattern": "^\\d\u002B$",
             "type": "string",
             "description": "The estimated gas limit that should be used to send the transaction to guarantee settlement.",
-            "nullable": true,
-            "example": 100000
+            "example": 100000,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "gasPrice": {
             "pattern": "^\\d\u002B$",
@@ -23489,8 +23491,10 @@
             "type": "string",
             "description": "When the endpoint was last crawled, or \u0060null\u0060 if it has been indexed but not yet crawled.",
             "format": "date-time",
-            "nullable": true,
-            "example": "2026-06-01T12:00:00Z"
+            "example": "2026-06-01T12:00:00Z",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "quality": {
             "$ref": "#/components/schemas/X402ValidateIndexQuality"
@@ -23528,14 +23532,18 @@
           "statusCode": {
             "type": "integer",
             "description": "The HTTP status code returned by the endpoint, or \u0060null\u0060 if the endpoint was not reachable.",
-            "nullable": true,
-            "example": 402
+            "example": 402,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "x402Version": {
             "type": "integer",
             "description": "The x402 protocol version advertised by the endpoint, or \u0060null\u0060 if it could not be determined. Intentionally a bare integer rather than the \u0060X402Version\u0060 enum so the validator can surface unsupported or malformed version values returned by non-conforming endpoints.",
-            "nullable": true,
-            "example": 2
+            "example": 2,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "preflight": {
             "type": "array",
@@ -23548,7 +23556,7 @@
             "$ref": "#/components/schemas/X402ValidateResponsePaymentRequirements"
           },
           "bazaarExtension": {
-            "$ref": "#/components/schemas/X402ValidateResponseBazaarExtension"
+            "$ref": "#/components/schemas/X402ValidateResponseBazaarExtensionProperty"
           },
           "simulation": {
             "$ref": "#/components/schemas/X402ValidateSimulation"
@@ -26798,7 +26806,10 @@
             "example": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
           }
         },
-        "description": "The estimated gas fee for the swap."
+        "description": "The estimated gas fee for the swap.",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CommonSwapResponseFeesProtocolFee": {
         "required": [
@@ -26820,7 +26831,10 @@
             "example": "EeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
           }
         },
-        "description": "The estimated protocol fee for the swap."
+        "description": "The estimated protocol fee for the swap.",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "GetSwapPriceResponseAllOf2": {
         "required": [
@@ -26833,8 +26847,10 @@
             "pattern": "^\\d\u002B$",
             "type": "string",
             "description": "The estimated gas limit that should be used to send the transaction to guarantee settlement.",
-            "nullable": true,
-            "example": 100000
+            "example": 100000,
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "gasPrice": {
             "pattern": "^\\d\u002B$",
@@ -28037,6 +28053,7 @@
         "example": 1
       },
       "X402McpResponseId": {
+        "type": "object",
         "oneOf": [
           {
             "type": "string"
@@ -28046,8 +28063,10 @@
           }
         ],
         "description": "Request identifier (matches the request ID, null for notifications).",
-        "nullable": true,
-        "example": 1
+        "example": 1,
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "X402ValidateRequestResource": {
         "maxLength": 2048,
@@ -28088,7 +28107,9 @@
           }
         ],
         "description": "The raw decoded payment requirements returned by the endpoint, or \u0060null\u0060 if the endpoint was not reachable or did not return a parseable 402 payload. Lets sellers inspect exactly what their endpoint is advertising.",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "X402ValidateResponseIndex": {
         "required": [
@@ -28106,14 +28127,19 @@
             "type": "string",
             "description": "When the endpoint was last crawled, or \u0060null\u0060 if it has been indexed but not yet crawled.",
             "format": "date-time",
-            "nullable": true,
-            "example": "2026-06-01T12:00:00Z"
+            "example": "2026-06-01T12:00:00Z",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "quality": {
             "$ref": "#/components/schemas/X402ValidateIndexQuality"
           }
         },
-        "description": "Bazaar index status for the endpoint, or \u0060null\u0060 if the endpoint is not yet indexed. Present on every response regardless of simulation outcome."
+        "description": "Bazaar index status for the endpoint, or \u0060null\u0060 if the endpoint is not yet indexed. Present on every response regardless of simulation outcome.",
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "InitiateOnrampVerificationRequestDestination": {
         "type": "object",
@@ -29398,7 +29424,6 @@
       "X402ValidateResponseBazaarExtension": {
         "type": "object",
         "description": "The \u0060extensions.bazaar\u0060 block from the endpoint\u0027s discovery metadata, or \u0060null\u0060 if the bazaar extension was absent or the endpoint was not reachable. Lets sellers verify the discovery configuration their endpoint is advertising.",
-        "nullable": true,
         "example": {
           "info": {
             "input": {
@@ -29407,6 +29432,9 @@
             }
           },
           "schema": {}
+        },
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "X402SupportedPaymentKindsResponseResponseSigners": {
@@ -29475,7 +29503,9 @@
           }
         },
         "description": "The approval object which contains the necessary fields to submit an approval for this transaction. Null if the \u0060fromToken\u0060 is the native token or the transaction is a native token wrap / unwrap.",
-        "nullable": true
+        "unrecognizedKeywords": {
+          "nullable": true
+        }
       },
       "CreateSwapQuoteResponseAllOf1Transaction": {
         "required": [
@@ -29540,10 +29570,12 @@
           }
         },
         "description": "Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.",
-        "nullable": true,
         "example": {
           "currentAllowance": 1000000000,
           "spender": "000000000022D473030F116dDEE9F6B43aC78BA3"
+        },
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "CommonSwapResponseIssuesBalance": {
@@ -29573,11 +29605,13 @@
           }
         },
         "description": "Details of the balance of the \u0060fromToken\u0060 that the \u0060taker\u0060 must hold. Null if the \u0060taker\u0060 has a sufficient balance.",
-        "nullable": true,
         "example": {
           "token": "6B175474E89094C44Da98b954EedeAC495271d0F",
           "currentBalance": 1000000000000000000,
           "requiredBalance": 1000000000000000000
+        },
+        "unrecognizedKeywords": {
+          "nullable": true
         }
       },
       "SignEvmTypedDataFieldCriterionTypesTypes": {
@@ -30130,14 +30164,18 @@
           "transactionHash": {
             "type": "string",
             "description": "The hash of the transaction, as a 0x-prefixed hex string. Populated for EOA accounts. Null for Smart Accounts (use userOpHash instead).",
-            "nullable": true,
-            "example": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+            "example": "f8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           },
           "userOpHash": {
             "type": "string",
             "description": "The hash of the user operation, as a 0x-prefixed hex string. Populated for Smart Accounts. Null for EOA accounts (use transactionHash instead).",
-            "nullable": true,
-            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+            "example": "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+            "unrecognizedKeywords": {
+              "nullable": true
+            }
           }
         }
       },
@@ -32237,6 +32275,10 @@
       "X402McpResponseResultProperty": {
         "type": "object",
         "description": "The result of the method call (present on success)."
+      },
+      "X402ValidateResponseBazaarExtensionProperty": {
+        "type": "object",
+        "description": "The \u0060extensions.bazaar\u0060 block from the endpoint\u0027s discovery metadata, or \u0060null\u0060 if the bazaar extension was absent or the endpoint was not reachable. Lets sellers verify the discovery configuration their endpoint is advertising."
       },
       "X402SupportedPaymentKindsResponseResponseSignersProperty": {
         "type": "object",
