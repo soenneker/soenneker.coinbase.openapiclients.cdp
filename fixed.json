@@ -10812,7 +10812,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetSqlGrammar200ResponseResponseJson"
+                  "$ref": "#/components/schemas/GetSqlGrammar200ResponseSchema"
                 }
               }
             }
@@ -32082,7 +32082,7 @@
           }
         }
       },
-      "GetSqlGrammar200ResponseResponseJson": {
+      "GetSqlGrammar200ResponseSchema": {
         "type": "string",
         "description": "The ANTLR4 grammar for the SQL API."
       },
