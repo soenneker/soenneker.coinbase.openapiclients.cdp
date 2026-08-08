@@ -32,13 +32,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId Id { get; set; }
 #endif
         /// <summary>JSON-RPC version.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Jsonrpc { get; set; }
-#nullable restore
-#else
-        public string Jsonrpc { get; set; }
-#endif
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseJsonrpc? Jsonrpc { get; set; }
         /// <summary>The result of the method call (present on success).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,7 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId.CreateFromDiscriminatorValue); } },
-                { "jsonrpc", n => { Jsonrpc = n.GetStringValue(); } },
+                { "jsonrpc", n => { Jsonrpc = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseJsonrpc>(); } },
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty.CreateFromDiscriminatorValue); } },
             };
         }
@@ -87,7 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError>("error", Error);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId>("id", Id);
-            writer.WriteStringValue("jsonrpc", Jsonrpc);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseJsonrpc>("jsonrpc", Jsonrpc);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty>("result", Result);
             writer.WriteAdditionalData(AdditionalData);
         }

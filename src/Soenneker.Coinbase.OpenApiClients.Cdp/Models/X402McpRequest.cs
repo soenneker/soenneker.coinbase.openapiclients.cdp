@@ -24,13 +24,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestId Id { get; set; }
 #endif
         /// <summary>JSON-RPC version, must be &quot;2.0&quot;.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Jsonrpc { get; set; }
-#nullable restore
-#else
-        public string Jsonrpc { get; set; }
-#endif
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestJsonrpc? Jsonrpc { get; set; }
         /// <summary>The MCP method to invoke.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestId>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestId.CreateFromDiscriminatorValue); } },
-                { "jsonrpc", n => { Jsonrpc = n.GetStringValue(); } },
+                { "jsonrpc", n => { Jsonrpc = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestJsonrpc>(); } },
                 { "method", n => { Method = n.GetStringValue(); } },
                 { "params", n => { Params = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestParamsProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestParamsProperty.CreateFromDiscriminatorValue); } },
             };
@@ -86,7 +80,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestId>("id", Id);
-            writer.WriteStringValue("jsonrpc", Jsonrpc);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestJsonrpc>("jsonrpc", Jsonrpc);
             writer.WriteStringValue("method", Method);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestParamsProperty>("params", Params);
             writer.WriteAdditionalData(AdditionalData);
