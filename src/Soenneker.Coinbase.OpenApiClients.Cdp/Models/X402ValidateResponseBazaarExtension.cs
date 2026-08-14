@@ -11,26 +11,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// The `extensions.bazaar` block from the endpoint&apos;s discovery metadata, or `null` if the bazaar extension was absent or the endpoint was not reachable. Lets sellers verify the discovery configuration their endpoint is advertising.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class X402ValidateResponseBazaarExtensionProperty : IAdditionalDataHolder, IParsable
+    public partial class X402ValidateResponseBazaarExtension : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension"/> and sets the default values.
         /// </summary>
-        public X402ValidateResponseBazaarExtensionProperty()
+        public X402ValidateResponseBazaarExtension()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension();
         }
         /// <summary>
         /// The deserialization information for the current model

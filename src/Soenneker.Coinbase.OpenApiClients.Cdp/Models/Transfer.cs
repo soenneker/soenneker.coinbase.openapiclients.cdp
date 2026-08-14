@@ -35,7 +35,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate Estimate { get; set; }
 #endif
-        /// <summary>Exchange rate information for currency conversion. The rate indicates how much of the target asset is equivalent to one unit of the source asset.</summary>
+        /// <summary>Exchange rate information for currency conversion. The rate indicates how much of the target asset is equivalent to one unit of the source asset. May be omitted in the `quoted` state if the rate cannot be guaranteed; see `estimate.exchangeRate` for the expected rate. Populated with the actual executed rate once the transfer completes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate? ExchangeRate { get; set; }

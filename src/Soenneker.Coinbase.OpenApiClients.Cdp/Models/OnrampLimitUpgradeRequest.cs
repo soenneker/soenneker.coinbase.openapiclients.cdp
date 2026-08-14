@@ -15,7 +15,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`.</summary>
+        /// <summary>Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`. These fields are required; a request without them is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields? Fields { get; set; }

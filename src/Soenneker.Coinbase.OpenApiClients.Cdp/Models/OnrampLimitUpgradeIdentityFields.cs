@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`.
+    /// Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`. These fields are required; a request without them is rejected.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnrampLimitUpgradeIdentityFields : IAdditionalDataHolder, IParsable

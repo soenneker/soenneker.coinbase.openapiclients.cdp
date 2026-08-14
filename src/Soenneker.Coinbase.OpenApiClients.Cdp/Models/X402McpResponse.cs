@@ -23,7 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError Error { get; set; }
 #endif
-        /// <summary>Request identifier (matches the request ID, null for notifications).</summary>
+        /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId? Id { get; set; }

@@ -17,7 +17,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time when this estimate was captured.</summary>
         public DateTimeOffset? EstimatedAt { get; set; }
-        /// <summary>Exchange rate information for currency conversion. The rate indicates how much of the target asset is equivalent to one unit of the source asset.</summary>
+        /// <summary>The estimated exchange rate at the time this estimate was captured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate? ExchangeRate { get; set; }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Exchange rate information for currency conversion. The rate indicates how much of the target asset is equivalent to one unit of the source asset.
+    /// Exchange rate information for currency conversion. The rate indicates how much of the target asset is equivalent to one unit of the source asset. May be omitted in the `quoted` state if the rate cannot be guaranteed; see `estimate.exchangeRate` for the expected rate. Populated with the actual executed rate once the transfer completes.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferExchangeRate : IAdditionalDataHolder, IParsable
