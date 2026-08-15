@@ -26,7 +26,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string SolValue { get; set; }
 #endif
         /// <summary>The type of criterion to use. This should be `solValue`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueCriterionType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueCriterion"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueCriterionOperator>(); } },
                 { "solValue", n => { SolValue = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueCriterionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueCriterionOperator>("operator", Operator);
             writer.WriteStringValue("solValue", SolValue);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueCriterionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

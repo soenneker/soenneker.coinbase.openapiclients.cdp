@@ -23,7 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Amount { get; set; }
 #endif
-        /// <summary>&quot;Specifies whether the given amount is to be received by the target or taken from the source.- `target`: The transfer `target` receives the exact value specified in `amount`. Fees are added to the amount taken from the transfer `source`.- `source`: The transfer `target` receives the value specified in `amount`, minus any fees.&quot;</summary>
+        /// <summary>Specifies whether the given amount is to be received by the target or taken from the source.- `target`: The transfer `target` receives the exact value specified in `amount`. Fees are added to the amount taken from the transfer `source`.- `source`: The transfer `target` receives the value specified in `amount`, minus any fees.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType? AmountType { get; set; }
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

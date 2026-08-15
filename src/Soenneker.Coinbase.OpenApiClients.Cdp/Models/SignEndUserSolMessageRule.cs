@@ -25,7 +25,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageCriteriaItem> Criteria { get; set; }
 #endif
         /// <summary>The operation to which the rule applies. Every element of the `criteria` array must match the specified operation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRuleOperation? Operation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageOperation? Operation { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRule"/> and sets the default values.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "action", n => { Action = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRuleAction>(); } },
                 { "criteria", n => { Criteria = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageCriteriaItem>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageCriteriaItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRuleOperation>(); } },
+                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageOperation>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRuleAction>("action", Action);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageCriteriaItem>("criteria", Criteria);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRuleOperation>("operation", Operation);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageOperation>("operation", Operation);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

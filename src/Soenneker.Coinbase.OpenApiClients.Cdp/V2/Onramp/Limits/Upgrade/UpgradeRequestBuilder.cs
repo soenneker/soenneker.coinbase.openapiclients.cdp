@@ -34,9 +34,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.Upgrade
         {
         }
         /// <summary>
-        /// &quot;Requests a limit upgrade for an onramp user by submitting identity information. Only phone number is currently supported as a userId. The verification process is asynchronous. After calling this endpoint, use the [Get Onramp User Limits](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/onramp/get-onramp-user-limits) endpoint to check the status in the `limitUpgradeOptions` array.**Prerequisites:**- The phone number must have been previously verified by your app via OTP. - Upgrades may not be available until a certain number of successful transactions by the user.**Supported fields:**- `ssnLast4`: Last 4 digits of the Social Security Number (no dashes or spaces).- `dateOfBirth`: Date of birth (day, month, year as zero-padded strings).&quot;
+        /// Requests a limit upgrade for an onramp user by submitting identity information. Only phone number is currently supported as a userId. The verification process is asynchronous. After calling this endpoint, use the [Get Onramp User Limits](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/onramp/get-onramp-user-limits) endpoint to check the status in the `limitUpgradeOptions` array.**Prerequisites:**- The phone number must have been previously verified by your app via OTP. - Upgrades may not be available until a certain number of successful transactions by the user.**Supported fields:**- `ssnLast4`: Last 4 digits of the Social Security Number (no dashes or spaces).- `dateOfBirth`: Date of birth (day, month, year as zero-padded strings).
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="body">Request to request a limits upgrade for a user.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -46,11 +45,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.Upgrade
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task PostAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -62,10 +61,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.Upgrade
                 { "429", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Requests a limit upgrade for an onramp user by submitting identity information. Only phone number is currently supported as a userId. The verification process is asynchronous. After calling this endpoint, use the [Get Onramp User Limits](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/onramp/get-onramp-user-limits) endpoint to check the status in the `limitUpgradeOptions` array.**Prerequisites:**- The phone number must have been previously verified by your app via OTP. - Upgrades may not be available until a certain number of successful transactions by the user.**Supported fields:**- `ssnLast4`: Last 4 digits of the Social Security Number (no dashes or spaces).- `dateOfBirth`: Date of birth (day, month, year as zero-padded strings).&quot;
+        /// Requests a limit upgrade for an onramp user by submitting identity information. Only phone number is currently supported as a userId. The verification process is asynchronous. After calling this endpoint, use the [Get Onramp User Limits](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/onramp/get-onramp-user-limits) endpoint to check the status in the `limitUpgradeOptions` array.**Prerequisites:**- The phone number must have been previously verified by your app via OTP. - Upgrades may not be available until a certain number of successful transactions by the user.**Supported fields:**- `ssnLast4`: Last 4 digits of the Social Security Number (no dashes or spaces).- `dateOfBirth`: Date of birth (day, month, year as zero-padded strings).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request to request a limits upgrade for a user.</param>

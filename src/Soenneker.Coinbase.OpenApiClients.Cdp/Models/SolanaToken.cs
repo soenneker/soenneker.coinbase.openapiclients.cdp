@@ -23,7 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string MintAddress { get; set; }
 #endif
-        /// <summary>&quot;The name of this token (ex: \&quot;Solana\&quot;, \&quot;USD Coin\&quot;, \&quot;Raydium\&quot;).The token name is not unique. It is possible for two different tokens to have the same name.For the native SOL token, this name is \&quot;Solana\&quot;. For SPL tokens, this name is defined in the token&apos;s metadata.Not all tokens have a name. This field will only be populated when the token has metadata available.&quot;</summary>
+        /// <summary>The name of this token (ex: &quot;Solana&quot;, &quot;USD Coin&quot;, &quot;Raydium&quot;).The token name is not unique. It is possible for two different tokens to have the same name.For the native SOL token, this name is &quot;Solana&quot;. For SPL tokens, this name is defined in the token&apos;s metadata.Not all tokens have a name. This field will only be populated when the token has metadata available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }
@@ -31,7 +31,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>&quot;The symbol of this token (ex: SOL, USDC, RAY).The token symbol is not unique. It is possible for two different tokens to have the same symbol.For the native SOL token, this symbol is \&quot;SOL\&quot;. For SPL tokens, this symbol is defined in the token&apos;s metadata.Not all tokens have a symbol. This field will only be populated when the token has metadata available.&quot;</summary>
+        /// <summary>The symbol of this token (ex: SOL, USDC, RAY).The token symbol is not unique. It is possible for two different tokens to have the same symbol.For the native SOL token, this symbol is &quot;SOL&quot;. For SPL tokens, this symbol is defined in the token&apos;s metadata.Not all tokens have a symbol. This field will only be populated when the token has metadata available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Symbol { get; set; }

@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// &quot;The x402 protocol batch-settlement scheme payload for EVM networks. The `batch-settlement` scheme uses pre-funded payment channels with off-chain cumulative-ceiling vouchers, allowing servers to batch-claim accumulated value in a single on-chain transaction. The payload is a discriminated union on the `type` field with five variants:  - `deposit`: client-initiated channel funding via ERC-3009.  - `voucher`: client-side cumulative voucher against an already-funded channel.  - `refund`: cooperative refund request. The client emits a minimal shape (just channelConfig + voucher, with an optional `amount`); a mediating server enriches it with `amount`, `refundNonce`, and `claims` before forwarding to the facilitator. Authorizer signatures are optional — the facilitator auto-signs when absent.  - `claim`: server-to-facilitator request to batch on-chain voucher claims.  - `settle`: server-to-facilitator request to transfer claimed funds to the receiver.For more details, see [batch-settlement specs](https://github.com/x402-foundation/x402/tree/main/specs/schemes/batch-settlement).&quot;
+    /// The x402 protocol batch-settlement scheme payload for EVM networks. The `batch-settlement` scheme uses pre-funded payment channels with off-chain cumulative-ceiling vouchers, allowing servers to batch-claim accumulated value in a single on-chain transaction. The payload is a discriminated union on the `type` field with five variants:  - `deposit`: client-initiated channel funding via ERC-3009.  - `voucher`: client-side cumulative voucher against an already-funded channel.  - `refund`: cooperative refund request. The client emits a minimal shape (just channelConfig + voucher, with an optional `amount`); a mediating server enriches it with `amount`, `refundNonce`, and `claims` before forwarding to the facilitator. Authorizer signatures are optional — the facilitator auto-signs when absent.  - `claim`: server-to-facilitator request to batch on-chain voucher claims.  - `settle`: server-to-facilitator request to transfer claimed funds to the receiver.For more details, see [batch-settlement specs](https://github.com/x402-foundation/x402/tree/main/specs/schemes/batch-settlement).
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402BatchSettlementEvmPayload : IAdditionalDataHolder, IParsable
@@ -87,14 +87,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Token { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>The payload-type discriminator. Must be `&quot;deposit&quot;` for a channel-funding deposit payload.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositType? Type { get; set; }
         /// <summary>A signed cumulative-ceiling voucher for an x402 batch-settlement channel. `maxClaimableAmount` is monotonically increasing across requests in the same channel; the receiver may claim any amount up to this ceiling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -137,7 +131,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "refundAuthorizerSignature", n => { RefundAuthorizerSignature = n.GetStringValue(); } },
                 { "refundNonce", n => { RefundNonce = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositType>(); } },
                 { "voucher", n => { Voucher = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher.CreateFromDiscriminatorValue); } },
             };
         }
@@ -157,7 +151,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("refundAuthorizerSignature", RefundAuthorizerSignature);
             writer.WriteStringValue("refundNonce", RefundNonce);
             writer.WriteStringValue("token", Token);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositType>("type", Type);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher>("voucher", Voucher);
             writer.WriteAdditionalData(AdditionalData);
         }

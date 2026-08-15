@@ -37,13 +37,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCriterionIdlsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCriterionIdlsItem();
             if("Idl".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Idl = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Idl();
             }
-            else if("KnownIdlType".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("KnownIdlTypeWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.KnownIdlTypeWrapper = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownIdlTypeWrapper();
             }

@@ -25,7 +25,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem> Criteria { get; set; }
 #endif
         /// <summary>The operation to which the rule applies. Every element of the `criteria` array must match the specified operation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleOperation? Operation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapOperation? Operation { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule"/> and sets the default values.
         /// </summary>
@@ -53,7 +53,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "action", n => { Action = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleAction>(); } },
                 { "criteria", n => { Criteria = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleOperation>(); } },
+                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapOperation>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleAction>("action", Action);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem>("criteria", Criteria);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRuleOperation>("operation", Operation);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapOperation>("operation", Operation);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

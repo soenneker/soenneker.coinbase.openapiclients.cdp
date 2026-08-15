@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>&quot;Specifies whether the given amount is to be received by the target or taken from the source.- `target`: The transfer `target` receives the exact value specified in `amount`. Fees are added to the amount taken from the transfer `source`.- `source`: The transfer `target` receives the value specified in `amount`, minus any fees.&quot;</summary>
+    /// <summary>Specifies whether the given amount is to be received by the target or taken from the source.- `target`: The transfer `target` receives the exact value specified in `amount`. Fees are added to the amount taken from the transfer `source`.- `source`: The transfer `target` receives the value specified in `amount`, minus any fees.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum TransferRequestAmountType
     {

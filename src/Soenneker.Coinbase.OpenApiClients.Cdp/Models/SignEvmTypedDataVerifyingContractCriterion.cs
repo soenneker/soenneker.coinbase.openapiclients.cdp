@@ -26,7 +26,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The operator to use for the comparison. The domain&apos;s verifying contract will be on the left-hand side of the operator, and the `addresses` field will be on the right-hand side.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataVerifyingContractCriterionOperator? Operator { get; set; }
         /// <summary>The type of criterion to use. This should be `evmTypedDataVerifyingContract`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataVerifyingContractCriterionType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataVerifyingContractType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataVerifyingContractCriterion"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "addresses", n => { Addresses = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataVerifyingContractCriterionOperator>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataVerifyingContractCriterionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataVerifyingContractType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("addresses", Addresses);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataVerifyingContractCriterionOperator>("operator", Operator);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataVerifyingContractCriterionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataVerifyingContractType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

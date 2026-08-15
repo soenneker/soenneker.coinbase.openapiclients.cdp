@@ -15,7 +15,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The x402 v2 network identifier in CAIP-2 format. x402 v2 identifies networks by their CAIP-2 chain ID (e.g. `eip155:&lt;chainId&gt;` for EVM networks, `solana:&lt;genesisHash&gt;` for Solana). Supported networks: Base, Polygon, Arbitrum One, World Chain (EVM), and Solana.&quot;</summary>
+        /// <summary>The x402 v2 network identifier in CAIP-2 format. x402 v2 identifies networks by their CAIP-2 chain ID (e.g. `eip155:&lt;chainId&gt;` for EVM networks, `solana:&lt;genesisHash&gt;` for Solana). Supported networks: Base, Polygon, Arbitrum One, World Chain (EVM), and Solana.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2Network? Value { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirementsNetwork"/> and sets the default values.

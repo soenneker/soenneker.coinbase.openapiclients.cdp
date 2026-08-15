@@ -36,7 +36,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string PaymentMethodId { get; set; }
 #endif
         /// <summary>The payment rail for this payment method.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodPaymentRail? PaymentRail { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentRail? PaymentRail { get; set; }
         /// <summary>The timestamp when the payment method was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "fedwire", n => { Fedwire = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire.CreateFromDiscriminatorValue); } },
                 { "paymentMethodId", n => { PaymentMethodId = n.GetStringValue(); } },
-                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodPaymentRail>(); } },
+                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentRail>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -83,7 +83,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire>("fedwire", Fedwire);
             writer.WriteStringValue("paymentMethodId", PaymentMethodId);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodPaymentRail>("paymentRail", PaymentRail);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentRail>("paymentRail", PaymentRail);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

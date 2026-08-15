@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>&quot;The type of user identifier:- `phone_number`: A phone number in E.164 format associated with an onramp user.&quot;</summary>
+    /// <summary>The type of user identifier:- `phone_number`: A phone number in E.164 format associated with an onramp user.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum OnrampUserIdType
     {

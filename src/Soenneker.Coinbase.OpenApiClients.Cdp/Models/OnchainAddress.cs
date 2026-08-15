@@ -31,7 +31,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Asset { get; set; }
 #endif
-        /// <summary>&quot;The destination tag of the onchain address. Destination tags are used by certain networks(primarily XRP/Ripple) to identify specific recipients when multiple users share a single address.The tag ensures funds are credited to the correct account within the shared address.Examples by network:- XRP/Ripple: Numeric values like \&quot;1234567890\&quot; or \&quot;123456\&quot;- Stellar (XLM): Memos which can be text, ID, or hash formatNote: Most networks (Ethereum, Bitcoin, Solana) do not use destination tags.&quot;</summary>
+        /// <summary>The destination tag of the onchain address. Destination tags are used by certain networks(primarily XRP/Ripple) to identify specific recipients when multiple users share a single address.The tag ensures funds are credited to the correct account within the shared address.Examples by network:- XRP/Ripple: Numeric values like &quot;1234567890&quot; or &quot;123456&quot;- Stellar (XLM): Memos which can be text, ID, or hash formatNote: Most networks (Ethereum, Bitcoin, Solana) do not use destination tags.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DestinationTag { get; set; }

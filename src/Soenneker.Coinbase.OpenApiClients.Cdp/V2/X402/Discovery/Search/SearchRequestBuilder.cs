@@ -169,7 +169,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Search
             [QueryParameter("scheme")]
             public string Scheme { get; set; }
 #endif
-            /// <summary>&quot;Filter results to resources whose URL contains this value (case-insensitive substring match against the resource URL).Useful for narrowing results to a specific domain, subdomain, or path segment. Combine with `query` to perform semantic search restricted to a URL subset.Tip: include enough of the URL to disambiguate (e.g. `api.example.com` rather than `example`) — a short substring may also match resources whose path contains the same string.&quot;</summary>
+            /// <summary>Filter results to resources whose URL contains this value (case-insensitive substring match against the resource URL).Useful for narrowing results to a specific domain, subdomain, or path segment. Combine with `query` to perform semantic search restricted to a URL subset.Tip: include enough of the URL to disambiguate (e.g. `api.example.com` rather than `example`) — a short substring may also match resources whose path contains the same string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("urlSubstring")]

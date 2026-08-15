@@ -34,7 +34,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item.UserOp
         {
         }
         /// <summary>
-        /// &quot;Sends a user operation with a signature.The payload to sign must be the `userOpHash` field of the user operation. This hash should be signed directly (not using `personal_sign` or EIP-191 message hashing).The signature must be 65 bytes in length, consisting of: - 32 bytes for the `r` value - 32 bytes for the `s` value - 1 byte for the `v` value (must be 27 or 28)If using the CDP Paymaster, the user operation must be signed and sent within 2 minutes of being prepared.&quot;
+        /// Sends a user operation with a signature.The payload to sign must be the `userOpHash` field of the user operation. This hash should be signed directly (not using `personal_sign` or EIP-191 message hashing).The signature must be 65 bytes in length, consisting of: - 32 bytes for the `r` value - 32 bytes for the `s` value - 1 byte for the `v` value (must be 27 or 28)If using the CDP Paymaster, the user operation must be signed and sent within 2 minutes of being prepared.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation"/></returns>
         /// <param name="body">The request body</param>
@@ -73,7 +73,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item.UserOp
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Sends a user operation with a signature.The payload to sign must be the `userOpHash` field of the user operation. This hash should be signed directly (not using `personal_sign` or EIP-191 message hashing).The signature must be 65 bytes in length, consisting of: - 32 bytes for the `r` value - 32 bytes for the `s` value - 1 byte for the `v` value (must be 27 or 28)If using the CDP Paymaster, the user operation must be signed and sent within 2 minutes of being prepared.&quot;
+        /// Sends a user operation with a signature.The payload to sign must be the `userOpHash` field of the user operation. This hash should be signed directly (not using `personal_sign` or EIP-191 message hashing).The signature must be 65 bytes in length, consisting of: - 32 bytes for the `r` value - 32 bytes for the `s` value - 1 byte for the `v` value (must be 27 or 28)If using the CDP Paymaster, the user operation must be signed and sent within 2 minutes of being prepared.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

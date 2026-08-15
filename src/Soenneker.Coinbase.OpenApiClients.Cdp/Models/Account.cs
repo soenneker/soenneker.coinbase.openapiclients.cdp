@@ -32,7 +32,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>&quot;The Owner ID of the Account.Owner IDs are UUIDs prefixed with the Owner Type as follows:* **Entity**: `entity_` - If the Owner is your Entity, e.g. `entity_af2937b0-9846-4fe7-bfe9-ccc22d935114`.Support for Customer-owned accounts (`customer_` prefix) is in development.&quot;</summary>
+        /// <summary>The Owner ID of the Account.Owner IDs are UUIDs prefixed with the Owner Type as follows:* **Entity**: `entity_` - If the Owner is your Entity, e.g. `entity_af2937b0-9846-4fe7-bfe9-ccc22d935114`.Support for Customer-owned accounts (`customer_` prefix) is in development.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Owner { get; set; }

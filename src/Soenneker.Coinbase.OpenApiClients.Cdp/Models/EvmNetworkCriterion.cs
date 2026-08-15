@@ -26,7 +26,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The operator to use for the comparison. The transaction&apos;s intended `network` will be on the left-hand side of the operator, and the `networks` field will be on the right-hand side.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator? Operator { get; set; }
         /// <summary>The type of criterion to use. This should be `evmNetwork`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "networks", n => { Networks = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem>()?.AsList(); } },
                 { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem>("networks", Networks);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator>("operator", Operator);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

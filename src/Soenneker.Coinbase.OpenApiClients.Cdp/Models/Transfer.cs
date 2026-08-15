@@ -55,7 +55,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string FailureReason { get; set; }
 #endif
-        /// <summary>&quot;The fees associated with this transfer. Different transfer types have different fee structures.**NOTE:** These examples are not exhaustive.Common examples:* **Crypto transfers**: Network fees (gas) paid in the native token* **Fiat conversions**: Processing fees + exchange fees in USD* **Wire transfers**: Wire fees ($15) + processing fees ($5) in USD* **Crypto conversions**: Spread fees paid in the source asset.&quot;</summary>
+        /// <summary>The fees associated with this transfer. Different transfer types have different fee structures.**NOTE:** These examples are not exhaustive.Common examples:* **Crypto transfers**: Network fees (gas) paid in the native token* **Fiat conversions**: Processing fees + exchange fees in USD* **Wire transfers**: Wire fees ($15) + processing fees ($5) in USD* **Crypto conversions**: Spread fees paid in the source asset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>? Fees { get; set; }

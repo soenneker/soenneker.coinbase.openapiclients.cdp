@@ -47,14 +47,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget Target { get; set; }
 #endif
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>The type of deposit destination.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTypeOneOf1? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationRequest"/> and sets the default values.
         /// </summary>
@@ -84,7 +78,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "crypto", n => { Crypto = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTypeOneOf1>(); } },
             };
         }
         /// <summary>
@@ -98,7 +92,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto>("crypto", Crypto);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>("target", Target);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTypeOneOf1>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

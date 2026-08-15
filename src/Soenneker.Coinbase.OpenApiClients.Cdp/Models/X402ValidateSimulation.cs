@@ -15,7 +15,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>&quot;The simulated facilitator outcome: `accepted` if the facilitator would index the resource, or `rejected` if it would reject it.&quot;</summary>
+        /// <summary>The simulated facilitator outcome: `accepted` if the facilitator would index the resource, or `rejected` if it would reject it.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulationOutcome? Outcome { get; set; }
         /// <summary>The reason the resource would be rejected, present only when `outcome` is `rejected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

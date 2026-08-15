@@ -57,7 +57,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The HTTP status code returned by the endpoint, or `null` if the endpoint was not reachable.</summary>
         public int? StatusCode { get; set; }
-        /// <summary>&quot;Whether the endpoint is valid: all preflight checks passed and the facilitator would index the resource.&quot;</summary>
+        /// <summary>Whether the endpoint is valid: all preflight checks passed and the facilitator would index the resource.</summary>
         public bool? Valid { get; set; }
         /// <summary>The x402 protocol version advertised by the endpoint, or `null` if it could not be determined. Intentionally a bare integer rather than the `X402Version` enum so the validator can surface unsupported or malformed version values returned by non-conforming endpoints.</summary>
         public int? X402Version { get; set; }

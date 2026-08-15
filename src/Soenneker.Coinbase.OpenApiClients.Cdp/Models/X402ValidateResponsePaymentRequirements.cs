@@ -99,14 +99,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The scheme of the payment protocol to use. Supported schemes are `exact`, `upto`, and `batch-settlement`.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirementsScheme? Scheme { get; set; }
-        /// <summary>Union discriminator</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements"/> and sets the default values.
         /// </summary>
@@ -144,7 +136,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "payTo", n => { PayTo = n.GetStringValue(); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
                 { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirementsScheme>(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -166,7 +157,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("payTo", PayTo);
             writer.WriteStringValue("resource", Resource);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirementsScheme>("scheme", Scheme);
-            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

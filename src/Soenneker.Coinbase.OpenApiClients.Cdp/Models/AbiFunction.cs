@@ -48,7 +48,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>State mutability of a function in Solidity.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiStateMutability? StateMutability { get; set; }
         /// <summary>The type of the ABI item, must be `function`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunctionType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FunctionType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction"/> and sets the default values.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "outputs", n => { Outputs = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiParameter>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiParameter.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "payable", n => { Payable = n.GetBoolValue(); } },
                 { "stateMutability", n => { StateMutability = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiStateMutability>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunctionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FunctionType>(); } },
             };
         }
         /// <summary>
@@ -98,7 +98,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiParameter>("outputs", Outputs);
             writer.WriteBoolValue("payable", Payable);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiStateMutability>("stateMutability", StateMutability);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunctionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FunctionType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

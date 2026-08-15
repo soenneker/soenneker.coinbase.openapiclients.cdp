@@ -31,7 +31,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string UserId { get; set; }
 #endif
-        /// <summary>&quot;The type of user identifier:- `phone_number`: A phone number in E.164 format associated with an onramp user.&quot;</summary>
+        /// <summary>The type of user identifier:- `phone_number`: A phone number in E.164 format associated with an onramp user.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType? UserIdType { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequest"/> and sets the default values.

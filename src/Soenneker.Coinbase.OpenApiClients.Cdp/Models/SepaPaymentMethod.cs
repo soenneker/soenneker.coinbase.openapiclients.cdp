@@ -28,7 +28,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string PaymentMethodId { get; set; }
 #endif
         /// <summary>The payment rail for this payment method.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodPaymentRail? PaymentRail { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentRail? PaymentRail { get; set; }
         /// <summary>SEPA (Single Euro Payments Area) details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,7 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "active", n => { Active = n.GetBoolValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "paymentMethodId", n => { PaymentMethodId = n.GetStringValue(); } },
-                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodPaymentRail>(); } },
+                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentRail>(); } },
                 { "sepa", n => { Sepa = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodAllOf2Sepa>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodAllOf2Sepa.CreateFromDiscriminatorValue); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -82,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteBoolValue("active", Active);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteStringValue("paymentMethodId", PaymentMethodId);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodPaymentRail>("paymentRail", PaymentRail);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentRail>("paymentRail", PaymentRail);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SepaPaymentMethodAllOf2Sepa>("sepa", Sepa);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

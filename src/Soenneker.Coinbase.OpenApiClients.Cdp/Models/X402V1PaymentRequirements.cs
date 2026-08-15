@@ -90,7 +90,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string Resource { get; set; }
 #endif
         /// <summary>The scheme of the payment protocol to use. Currently, the only supported scheme is `exact`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsScheme? Scheme { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme? Scheme { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements"/> and sets the default values.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "outputSchema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "payTo", n => { PayTo = n.GetStringValue(); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
-                { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsScheme>(); } },
+                { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme>(); } },
             };
         }
         /// <summary>
@@ -146,7 +146,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty>("outputSchema", OutputSchema);
             writer.WriteStringValue("payTo", PayTo);
             writer.WriteStringValue("resource", Resource);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsScheme>("scheme", Scheme);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme>("scheme", Scheme);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

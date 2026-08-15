@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>&quot;The simulated facilitator outcome: `accepted` if the facilitator would index the resource, or `rejected` if it would reject it.&quot;</summary>
+    /// <summary>The simulated facilitator outcome: `accepted` if the facilitator would index the resource, or `rejected` if it would reject it.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum X402ValidateSimulationOutcome
     {

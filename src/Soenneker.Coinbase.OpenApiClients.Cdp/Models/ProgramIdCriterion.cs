@@ -26,7 +26,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<string> ProgramIds { get; set; }
 #endif
         /// <summary>The type of criterion to use. This should be `programId`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion"/> and sets the default values.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionOperator>(); } },
                 { "programIds", n => { ProgramIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdType>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionOperator>("operator", Operator);
             writer.WriteCollectionOfPrimitiveValues<string>("programIds", ProgramIds);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

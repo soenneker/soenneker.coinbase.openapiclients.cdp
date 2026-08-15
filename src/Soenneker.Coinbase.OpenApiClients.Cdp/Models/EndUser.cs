@@ -33,7 +33,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount> EvmAccountObjects { get; set; }
 #endif
-        /// <summary>&quot;**DEPRECATED**: Use `evmAccountObjects` instead for richer account information. The list of EVM account addresses associated with the end user. End users can have up to 10 EVM accounts.&quot;</summary>
+        /// <summary>**DEPRECATED**: Use `evmAccountObjects` instead for richer account information. The list of EVM account addresses associated with the end user. End users can have up to 10 EVM accounts.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount> EvmSmartAccountObjects { get; set; }
 #endif
-        /// <summary>&quot;**DEPRECATED**: Use `evmSmartAccountObjects` instead for richer account information including owner relationships. The list of EVM smart account addresses associated with the end user. Each EVM EOA can own one smart account.&quot;</summary>
+        /// <summary>**DEPRECATED**: Use `evmSmartAccountObjects` instead for richer account information including owner relationships. The list of EVM smart account addresses associated with the end user. Each EVM EOA can own one smart account.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,7 +75,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount> SolanaAccountObjects { get; set; }
 #endif
-        /// <summary>&quot;**DEPRECATED**: Use `solanaAccountObjects` instead for richer account information. The list of Solana account addresses associated with the end user. End users can have up to 10 Solana accounts.&quot;</summary>
+        /// <summary>**DEPRECATED**: Use `solanaAccountObjects` instead for richer account information. The list of Solana account addresses associated with the end user. End users can have up to 10 Solana accounts.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

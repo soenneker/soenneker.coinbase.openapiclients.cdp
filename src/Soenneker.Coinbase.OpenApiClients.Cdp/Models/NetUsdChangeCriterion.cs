@@ -20,7 +20,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The operator to use for the comparison. The total value of a transaction&apos;s asset transfer will be on the left-hand side of the operator, and the `changeCents` field will be on the right-hand side.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionOperator? Operator { get; set; }
         /// <summary>The type of criterion to use. This should be `netUSDChange`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterion"/> and sets the default values.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "changeCents", n => { ChangeCents = n.GetIntValue(); } },
                 { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionOperator>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType>(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("changeCents", ChangeCents);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionOperator>("operator", Operator);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>&quot;The x402 v2 network identifier in CAIP-2 format. x402 v2 identifies networks by their CAIP-2 chain ID (e.g. `eip155:&lt;chainId&gt;` for EVM networks, `solana:&lt;genesisHash&gt;` for Solana). Supported networks: Base, Polygon, Arbitrum One, World Chain (EVM), and Solana.&quot;</summary>
+    /// <summary>The x402 v2 network identifier in CAIP-2 format. x402 v2 identifies networks by their CAIP-2 chain ID (e.g. `eip155:&lt;chainId&gt;` for EVM networks, `solana:&lt;genesisHash&gt;` for Solana). Supported networks: Base, Polygon, Arbitrum One, World Chain (EVM), and Solana.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum X402V2Network
     {

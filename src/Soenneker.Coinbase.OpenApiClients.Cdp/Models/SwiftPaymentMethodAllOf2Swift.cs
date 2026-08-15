@@ -47,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Bic { get; set; }
 #endif
-        /// <summary>&quot;Deprecated: use `accountLast4` instead. The last 4 characters of the account identifier.&quot;</summary>
+        /// <summary>Deprecated: use `accountLast4` instead. The last 4 characters of the account identifier.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

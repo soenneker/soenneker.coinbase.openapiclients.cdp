@@ -32,7 +32,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string Sub { get; set; }
 #endif
         /// <summary>The type of authentication information.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthenticationType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.JwtType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "kid", n => { Kid = n.GetStringValue(); } },
                 { "sub", n => { Sub = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthenticationType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.JwtType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("kid", Kid);
             writer.WriteStringValue("sub", Sub);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthenticationType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.JwtType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

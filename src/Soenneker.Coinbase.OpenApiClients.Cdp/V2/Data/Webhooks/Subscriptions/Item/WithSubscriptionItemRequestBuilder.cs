@@ -42,7 +42,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Webhooks.Subscriptions.I
         /// <summary>
         /// Permanently delete a webhook subscription and stop all event deliveries.This action cannot be undone.### Important Notes- All webhook deliveries will cease immediately- Subscription cannot be recovered after deletion- Consider disabling instead of deleting for temporary pauses
         /// </summary>
-        /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 401 status code</exception>
@@ -51,11 +50,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Webhooks.Subscriptions.I
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Stream> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -66,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data.Webhooks.Subscriptions.I
                 { "429", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
+            await RequestAdapter.SendNoContentAsync(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Retrieve detailed information about a specific webhook subscription includingconfiguration, status, creation timestamp, and webhook signature secret.### Response Includes- Subscription configuration and filters- Target URL and custom headers- Webhook signature secret for verification- Creation timestamp and status

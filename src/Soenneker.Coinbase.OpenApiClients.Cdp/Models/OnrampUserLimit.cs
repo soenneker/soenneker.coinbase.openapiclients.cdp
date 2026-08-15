@@ -31,7 +31,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Limit { get; set; }
 #endif
-        /// <summary>&quot;The type of limit:- `weekly_spending`: Rolling 7-day spending limit. The limit applies to the sum of all completed transactions   within a sliding 168-hour (7-day) window. As time passes, older transactions naturally expire from the window.   $500 is the default limit.- `lifetime_transactions`: All-time transaction count limit. Tracks the total number of completed transactions   across the user&apos;s entire history with no time-based expiration. Once the limit is reached, no further   transactions are allowed. 15 is the default limit.&quot;</summary>
+        /// <summary>The type of limit:- `weekly_spending`: Rolling 7-day spending limit. The limit applies to the sum of all completed transactions   within a sliding 168-hour (7-day) window. As time passes, older transactions naturally expire from the window.   $500 is the default limit.- `lifetime_transactions`: All-time transaction count limit. Tracks the total number of completed transactions   across the user&apos;s entire history with no time-based expiration. Once the limit is reached, no further   transactions are allowed. 15 is the default limit.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitType? LimitType { get; set; }
         /// <summary>The remaining amount or count available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

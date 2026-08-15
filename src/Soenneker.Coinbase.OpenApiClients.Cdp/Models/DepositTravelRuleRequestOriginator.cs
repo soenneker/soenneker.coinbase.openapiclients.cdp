@@ -39,7 +39,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>&quot;Personal identifier for travel rule compliance. For individuals: passport number, national ID, or driver&apos;s license. For institutions: LEI (Legal Entity Identifier).&quot;</summary>
+        /// <summary>Personal identifier for travel rule compliance. For individuals: passport number, national ID, or driver&apos;s license. For institutions: LEI (Legal Entity Identifier).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PersonalId { get; set; }

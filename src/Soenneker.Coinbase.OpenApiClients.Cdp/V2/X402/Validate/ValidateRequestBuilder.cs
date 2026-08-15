@@ -34,7 +34,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Validate
         {
         }
         /// <summary>
-        /// &quot;Validates an x402 endpoint&apos;s bazaar-discovery configuration by probing the seller&apos;s URL live.Returns a uniform array of preflight check results (reachable, returns402, hasBazaarExtension, parse) and a simulated facilitator accept/reject decision so sellers and agents can confirm their endpoint is ready to be discovered before going live.This operation is read-only: it performs no payment and does not index the resource.&quot;
+        /// Validates an x402 endpoint&apos;s bazaar-discovery configuration by probing the seller&apos;s URL live.Returns a uniform array of preflight check results (reachable, returns402, hasBazaarExtension, parse) and a simulated facilitator accept/reject decision so sellers and agents can confirm their endpoint is ready to be discovered before going live.This operation is read-only: it performs no payment and does not index the resource.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponse"/></returns>
         /// <param name="body">Request to validate an x402 endpoint&apos;s bazaar-discovery configuration.</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Validate
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponse>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Validates an x402 endpoint&apos;s bazaar-discovery configuration by probing the seller&apos;s URL live.Returns a uniform array of preflight check results (reachable, returns402, hasBazaarExtension, parse) and a simulated facilitator accept/reject decision so sellers and agents can confirm their endpoint is ready to be discovered before going live.This operation is read-only: it performs no payment and does not index the resource.&quot;
+        /// Validates an x402 endpoint&apos;s bazaar-discovery configuration by probing the seller&apos;s URL live.Returns a uniform array of preflight check results (reachable, returns402, hasBazaarExtension, parse) and a simulated facilitator accept/reject decision so sellers and agents can confirm their endpoint is ready to be discovered before going live.This operation is read-only: it performs no payment and does not index the resource.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Request to validate an x402 endpoint&apos;s bazaar-discovery configuration.</param>

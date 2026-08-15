@@ -47,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods
         {
         }
         /// <summary>
-        /// &quot;List payment methods linked to your entity. Payment methods represent external financial instruments that can be used as a target for transfers. The list will not include disabled or deleted payment methods.**Currently Supported Types:**- `fedwire`: Domestic USD wire transfers- `swift`: International wire transfers- `sepa`: SEPA EUR transfers**Note:** Payment methods are created and verified through your linked CDP entity. Currently, fetching payment methods is only supported for Prime investment vehicles linked to CDP.&quot;
+        /// List payment methods linked to your entity. Payment methods represent external financial instruments that can be used as a target for transfers. The list will not include disabled or deleted payment methods.**Currently Supported Types:**- `fedwire`: Domestic USD wire transfers- `swift`: International wire transfers- `sepa`: SEPA EUR transfers**Note:** Payment methods are created and verified through your linked CDP entity. Currently, fetching payment methods is only supported for Prime investment vehicles linked to CDP.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPaymentMethods200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -74,7 +74,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPaymentMethods200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPaymentMethods200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;List payment methods linked to your entity. Payment methods represent external financial instruments that can be used as a target for transfers. The list will not include disabled or deleted payment methods.**Currently Supported Types:**- `fedwire`: Domestic USD wire transfers- `swift`: International wire transfers- `sepa`: SEPA EUR transfers**Note:** Payment methods are created and verified through your linked CDP entity. Currently, fetching payment methods is only supported for Prime investment vehicles linked to CDP.&quot;
+        /// List payment methods linked to your entity. Payment methods represent external financial instruments that can be used as a target for transfers. The list will not include disabled or deleted payment methods.**Currently Supported Types:**- `fedwire`: Domestic USD wire transfers- `swift`: International wire transfers- `sepa`: SEPA EUR transfers**Note:** Payment methods are created and verified through your linked CDP entity. Currently, fetching payment methods is only supported for Prime investment vehicles linked to CDP.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -102,7 +102,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods.PaymentMethodsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;List payment methods linked to your entity. Payment methods represent external financial instruments that can be used as a target for transfers. The list will not include disabled or deleted payment methods.**Currently Supported Types:**- `fedwire`: Domestic USD wire transfers- `swift`: International wire transfers- `sepa`: SEPA EUR transfers**Note:** Payment methods are created and verified through your linked CDP entity. Currently, fetching payment methods is only supported for Prime investment vehicles linked to CDP.&quot;
+        /// List payment methods linked to your entity. Payment methods represent external financial instruments that can be used as a target for transfers. The list will not include disabled or deleted payment methods.**Currently Supported Types:**- `fedwire`: Domestic USD wire transfers- `swift`: International wire transfers- `sepa`: SEPA EUR transfers**Note:** Payment methods are created and verified through your linked CDP entity. Currently, fetching payment methods is only supported for Prime investment vehicles linked to CDP.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PaymentMethodsRequestBuilderGetQueryParameters 

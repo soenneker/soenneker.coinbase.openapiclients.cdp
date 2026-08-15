@@ -32,7 +32,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCondition> Conditions { get; set; }
 #endif
         /// <summary>The type of criterion to use. This should be `evmData`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion"/> and sets the default values.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "abi", n => { Abi = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi.CreateFromDiscriminatorValue); } },
                 { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCondition>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCondition.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataType>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi>("abi", Abi);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCondition>("conditions", Conditions);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
