@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The `extensions.bazaar` block from the endpoint&apos;s discovery metadata, or `null` if the bazaar extension was absent or the endpoint was not reachable. Lets sellers verify the discovery configuration their endpoint is advertising.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension? BazaarExtension { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty? BazaarExtension { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension BazaarExtension { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty BazaarExtension { get; set; }
 #endif
         /// <summary>Bazaar index status for the endpoint, or `null` if the endpoint is not yet indexed. Present on every response regardless of simulation outcome.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,7 +86,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "bazaarExtension", n => { BazaarExtension = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension.CreateFromDiscriminatorValue); } },
+                { "bazaarExtension", n => { BazaarExtension = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty.CreateFromDiscriminatorValue); } },
                 { "index", n => { Index = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex.CreateFromDiscriminatorValue); } },
                 { "paymentRequirements", n => { PaymentRequirements = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements.CreateFromDiscriminatorValue); } },
                 { "preflight", n => { Preflight = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -103,7 +103,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtension>("bazaarExtension", BazaarExtension);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty>("bazaarExtension", BazaarExtension);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex>("index", Index);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements>("paymentRequirements", PaymentRequirements);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck>("preflight", Preflight);

@@ -24189,7 +24189,7 @@
             "$ref": "#/components/schemas/X402ValidateResponsePaymentRequirements"
           },
           "bazaarExtension": {
-            "$ref": "#/components/schemas/X402ValidateResponseBazaarExtension"
+            "$ref": "#/components/schemas/X402ValidateResponseBazaarExtensionProperty"
           },
           "simulation": {
             "$ref": "#/components/schemas/X402ValidateSimulation"
@@ -33132,6 +33132,10 @@
       "X402McpResponseResultProperty": {
         "type": "object",
         "description": "The result of the method call (present on success)."
+      },
+      "X402ValidateResponseBazaarExtensionProperty": {
+        "type": "object",
+        "description": "The \u0060extensions.bazaar\u0060 block from the endpoint\u0027s discovery metadata, or \u0060null\u0060 if the bazaar extension was absent or the endpoint was not reachable. Lets sellers verify the discovery configuration their endpoint is advertising."
       },
       "X402SupportedPaymentKindsResponseResponseSignersProperty": {
         "type": "object",
