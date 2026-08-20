@@ -22,7 +22,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Search
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/x402/discovery/search{?asset*,extensions*,limit*,maxUsdPrice*,network*,payTo*,query*,scheme*,urlSubstring*}", pathParameters)
+        public SearchRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/x402/discovery/search{?asset*,bundleSlugs*,curatedOnly*,extensions*,limit*,maxUsdPrice*,network*,payTo*,query*,scheme*,tags*,urlSubstring*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Search
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/x402/discovery/search{?asset*,extensions*,limit*,maxUsdPrice*,network*,payTo*,query*,scheme*,urlSubstring*}", rawUrl)
+        public SearchRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/x402/discovery/search{?asset*,bundleSlugs*,curatedOnly*,extensions*,limit*,maxUsdPrice*,network*,payTo*,query*,scheme*,tags*,urlSubstring*}", rawUrl)
         {
         }
         /// <summary>
@@ -106,6 +106,19 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Search
             [QueryParameter("asset")]
             public string Asset { get; set; }
 #endif
+            /// <summary>Filter results to resources that belong to any of the specified curated bundles (by bundle slug). Can be specified multiple times to filter by multiple bundles; a resource matches if it belongs to at least one of the supplied bundles (OR).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("bundleSlugs")]
+            public string[]? BundleSlugs { get; set; }
+#nullable restore
+#else
+            [QueryParameter("bundleSlugs")]
+            public string[] BundleSlugs { get; set; }
+#endif
+            /// <summary>When `true`, restrict results to Coinbase-curated resources (those with `curated: true`). When `false` or omitted, both curated and non-curated resources are returned.</summary>
+            [QueryParameter("curatedOnly")]
+            public bool? CuratedOnly { get; set; }
             /// <summary>Filter results to resources that support the specified protocol extensions. Can be specified multiple times to filter by multiple extensions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -168,6 +181,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Search
 #else
             [QueryParameter("scheme")]
             public string Scheme { get; set; }
+#endif
+            /// <summary>Filter results to resources published with any of the specified provider tags (case-sensitive exact match). Can be specified multiple times to filter by multiple tags; a resource matches if it carries at least one of the supplied tags (OR).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("tags")]
+            public string[]? Tags { get; set; }
+#nullable restore
+#else
+            [QueryParameter("tags")]
+            public string[] Tags { get; set; }
 #endif
             /// <summary>Filter results to resources whose URL contains this value (case-insensitive substring match against the resource URL).Useful for narrowing results to a specific domain, subdomain, or path segment. Combine with `query` to perform semantic search restricted to a URL subset.Tip: include enough of the URL to disambiguate (e.g. `api.example.com` rather than `example`) — a short substring may also match resources whose path contains the same string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

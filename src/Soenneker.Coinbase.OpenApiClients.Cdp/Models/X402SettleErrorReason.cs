@@ -195,6 +195,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         SettleExactSvmTransactionConfirmationTimedOut,
         #pragma warning restore CS1591
+        [EnumMember(Value = "settlement_pending")]
+        #pragma warning disable CS1591
+        SettlementPending,
+        #pragma warning restore CS1591
         [EnumMember(Value = "invalid_batch_settlement_evm_unknown_settle_action")]
         #pragma warning disable CS1591
         InvalidBatchSettlementEvmUnknownSettleAction,

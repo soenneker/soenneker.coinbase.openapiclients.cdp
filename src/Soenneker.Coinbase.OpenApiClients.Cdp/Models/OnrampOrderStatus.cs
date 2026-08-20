@@ -11,6 +11,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         OnrampOrderStatusPendingAuth,
         #pragma warning restore CS1591
+        [EnumMember(Value = "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION")]
+        #pragma warning disable CS1591
+        OnrampOrderStatusPendingVerification,
+        #pragma warning restore CS1591
         [EnumMember(Value = "ONRAMP_ORDER_STATUS_PENDING_PAYMENT")]
         #pragma warning disable CS1591
         OnrampOrderStatusPendingPayment,

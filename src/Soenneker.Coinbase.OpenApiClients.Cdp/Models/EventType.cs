@@ -67,6 +67,34 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         WalletHashSigned,
         #pragma warning restore CS1591
+        [EnumMember(Value = "payments.transfers.quoted")]
+        #pragma warning disable CS1591
+        PaymentsTransfersQuoted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payments.transfers.processing")]
+        #pragma warning disable CS1591
+        PaymentsTransfersProcessing,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payments.transfers.completed")]
+        #pragma warning disable CS1591
+        PaymentsTransfersCompleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payments.transfers.failed")]
+        #pragma warning disable CS1591
+        PaymentsTransfersFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payments.transfers.expired")]
+        #pragma warning disable CS1591
+        PaymentsTransfersExpired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payments.transfers.travel_rule_incomplete")]
+        #pragma warning disable CS1591
+        PaymentsTransfersTravelRuleIncomplete,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "payments.transfers.travel_rule_completed")]
+        #pragma warning disable CS1591
+        PaymentsTransfersTravelRuleCompleted,
+        #pragma warning restore CS1591
         [EnumMember(Value = "onramp.transaction.created")]
         #pragma warning disable CS1591
         OnrampTransactionCreated,
@@ -98,6 +126,82 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "offramp.transaction.failed")]
         #pragma warning disable CS1591
         OfframpTransactionFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.created")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.canceled")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionCanceled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.authorization_pending")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionAuthorizationPending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.authorization_succeeded")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionAuthorizationSucceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.authorization_failed")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionAuthorizationFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.capture_pending")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionCapturePending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.capture_succeeded")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionCaptureSucceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.capture_failed")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionCaptureFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.refund_pending")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionRefundPending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.refund_succeeded")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionRefundSucceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.refund_failed")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionRefundFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.void_pending")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionVoidPending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.void_succeeded")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionVoidSucceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.payment_session.void_failed")]
+        #pragma warning disable CS1591
+        AcceptancePaymentSessionVoidFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.disbursement.pending")]
+        #pragma warning disable CS1591
+        AcceptanceDisbursementPending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.disbursement.succeeded")]
+        #pragma warning disable CS1591
+        AcceptanceDisbursementSucceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.disbursement.failed")]
+        #pragma warning disable CS1591
+        AcceptanceDisbursementFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "customers.capability.changed")]
+        #pragma warning disable CS1591
+        CustomersCapabilityChanged,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "customers.customer.deleted")]
+        #pragma warning disable CS1591
+        CustomersCustomerDeleted,
         #pragma warning restore CS1591
     }
 }

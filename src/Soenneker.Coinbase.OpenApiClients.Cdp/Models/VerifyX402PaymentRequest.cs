@@ -14,7 +14,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the X-PAYMENT header.For EVM networks, smart account signatures can be longer than 65 bytes.</summary>
+        /// <summary>The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the PAYMENT-SIGNATURE header.For EVM networks, smart account signatures can be longer than 65 bytes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload? PaymentPayload { get; set; }

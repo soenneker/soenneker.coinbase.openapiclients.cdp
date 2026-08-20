@@ -15,13 +15,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`. These fields are required; a request without them is rejected.</summary>
+        /// <summary>Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`. Required in `api` mode. Omit in `embedded` mode — the user enters their identity information on the Coinbase-hosted upgrade page (see `interactionMode`), so any value sent here is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields? Fields { get; set; }
 #nullable restore
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields Fields { get; set; }
+#endif
+        /// <summary>The interaction mode for the limit upgrade request. Defaults to `api`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode? InteractionMode { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode InteractionMode { get; set; }
 #endif
         /// <summary>The user identifier value. For `phone_number` type, this must be in E.164 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,6 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields.CreateFromDiscriminatorValue); } },
+                { "interactionMode", n => { InteractionMode = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode.CreateFromDiscriminatorValue); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userIdType", n => { UserIdType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType>(); } },
             };
@@ -71,6 +80,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields>("fields", Fields);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode>("interactionMode", InteractionMode);
             writer.WriteStringValue("userId", UserId);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType>("userIdType", UserIdType);
             writer.WriteAdditionalData(AdditionalData);

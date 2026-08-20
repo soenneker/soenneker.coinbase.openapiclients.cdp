@@ -30,6 +30,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink PaymentLink { get; set; }
 #endif
+        /// <summary>A reusable, PII-free token issued after a user completes verification in the embedded onramp flow. It encodes only the underlying verification IDs, no personal information. Pass it on subsequent orders to take a returning user straight to the pay button, skipping OTP when checking out to the same wallet.In the embedded flow, `phoneNumber`, `email`, `phoneNumberVerifiedAt`, and `agreementAcceptedAt` are handled by Coinbase in the hosted popup and may be omitted from the request even though they are required for the standard partner-verified flow. Reuse is best-effort: an invalid, expired, or different-wallet token still requires the user to verify. Valid for 60 days.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserAuthToken { get; set; }
+#nullable restore
+#else
+        public string UserAuthToken { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampOrder201Response"/> and sets the default values.
         /// </summary>
@@ -57,6 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "order", n => { Order = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder.CreateFromDiscriminatorValue); } },
                 { "paymentLink", n => { PaymentLink = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink.CreateFromDiscriminatorValue); } },
+                { "userAuthToken", n => { UserAuthToken = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,6 +77,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder>("order", Order);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink>("paymentLink", PaymentLink);
+            writer.WriteStringValue("userAuthToken", UserAuthToken);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

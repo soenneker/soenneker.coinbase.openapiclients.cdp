@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The blockchain network for the payment. Supported networks depend on the account type. See [API and Network Support](https://docs.cdp.coinbase.com/api-reference/payment-apis/supported-networks-assets#by-asset-and-network) for more details.</summary>
+    /// <summary>The blockchain network for the payment. Supported networks depend on the account type.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum Network
     {

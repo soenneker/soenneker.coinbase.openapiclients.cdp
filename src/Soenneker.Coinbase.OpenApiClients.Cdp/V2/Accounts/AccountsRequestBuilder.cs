@@ -35,7 +35,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/accounts{?pageSize*,pageToken*,type*}", pathParameters)
+        public AccountsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/accounts{?owner,pageSize*,pageToken*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AccountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/accounts{?pageSize*,pageToken*,type*}", rawUrl)
+        public AccountsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/accounts{?owner,pageSize*,pageToken*,type*}", rawUrl)
         {
         }
         /// <summary>
@@ -70,13 +70,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListFoundationAccounts200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListFoundationAccounts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create an account for your Entity. Support for creating Customer-owned accounts is in development.
+        /// Create an account. Two ownership modes are supported:- **Entity-owned**: when `owner` is omitted, the account is owned by the  Entity making the request. Returns an account with `owner: entity_&lt;uuid&gt;`.- **Customer-owned**: pass a Customer ID as `owner`  (e.g. `customer_af2937b0-9846-4fe7-bfe9-ccc22d935114`). The Customer  must have the `custodyCrypto`, `custodyFiat`, and `custodyStablecoin`  capabilities enabled, otherwise the request is rejected with  `customer_not_authorized` (HTTP 403).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Account"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,6 +94,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
@@ -118,7 +120,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
             return requestInfo;
         }
         /// <summary>
-        /// Create an account for your Entity. Support for creating Customer-owned accounts is in development.
+        /// Create an account. Two ownership modes are supported:- **Entity-owned**: when `owner` is omitted, the account is owned by the  Entity making the request. Returns an account with `owner: entity_&lt;uuid&gt;`.- **Customer-owned**: pass a Customer ID as `owner`  (e.g. `customer_af2937b0-9846-4fe7-bfe9-ccc22d935114`). The Customer  must have the `custodyCrypto`, `custodyFiat`, and `custodyStablecoin`  capabilities enabled, otherwise the request is rejected with  `customer_not_authorized` (HTTP 403).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -154,6 +156,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class AccountsRequestBuilderGetQueryParameters 
         {
+            /// <summary>Filter accounts by owner. Values can be specific Owner IDs or owner type wildcards. Multiple values can be combined as a comma-separated list.**Specific Owner IDs:*** `entity_&lt;uuid&gt;` - Accounts owned by a specific entity* `customer_&lt;uuid&gt;` - Accounts owned by a specific customer**Owner type wildcards:*** `entity` - All entity-owned accounts* `customer` - All customer-owned accounts**Examples:*** `owner=customer_af29...` - A specific customer&apos;s accounts* `owner=customer` - All customer accounts* `owner=entity,customer_af29...` - Entity accounts and a specific customer&apos;s accounts* When omitted, accounts with any owner are returned.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("owner")]
+            public string[]? Owner { get; set; }
+#nullable restore
+#else
+            [QueryParameter("owner")]
+            public string[] Owner { get; set; }
+#endif
             /// <summary>The number of resources to return per page.</summary>
             [QueryParameter("pageSize")]
             public int? PageSize { get; set; }

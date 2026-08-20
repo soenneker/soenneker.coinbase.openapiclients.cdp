@@ -3,17 +3,17 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The type of the beneficiary&apos;s wallet.</summary>
+    /// <summary>A payment rail supported by a fiat deposit destination.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TravelRuleBeneficiaryAllOf2WalletType
+    public enum DepositDestinationPaymentRail
     {
-        [EnumMember(Value = "custodial")]
+        [EnumMember(Value = "ach")]
         #pragma warning disable CS1591
-        Custodial,
+        Ach,
         #pragma warning restore CS1591
-        [EnumMember(Value = "self_custody")]
+        [EnumMember(Value = "fedwire")]
         #pragma warning disable CS1591
-        SelfCustody,
+        Fedwire,
         #pragma warning restore CS1591
     }
 }

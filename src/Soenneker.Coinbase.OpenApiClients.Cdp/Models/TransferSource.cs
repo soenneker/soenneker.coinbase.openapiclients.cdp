@@ -8,11 +8,27 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AchDepositSource"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwireDepositSource"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferSource : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AchDepositSource"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AchDepositSource? AchDepositSource { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AchDepositSource AchDepositSource { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwireDepositSource"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwireDepositSource? FedwireDepositSource { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwireDepositSource FedwireDepositSource { get; set; }
+#endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,14 +36,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress OnchainAddress { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs? OriginatingBankAccountUs { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs OriginatingBankAccountUs { get; set; }
 #endif
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,13 +63,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferSource();
-            if("OnchainAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("AchDepositSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.AchDepositSource = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AchDepositSource();
+            }
+            else if("FedwireDepositSource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.FedwireDepositSource = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwireDepositSource();
+            }
+            else if("OnchainAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.OnchainAddress = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress();
-            }
-            else if("OriginatingBankAccountUs".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.OriginatingBankAccountUs = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs();
             }
             else if("PaymentMethod".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
@@ -79,13 +91,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(OnchainAddress != null)
+            if(AchDepositSource != null)
+            {
+                return AchDepositSource.GetFieldDeserializers();
+            }
+            else if(FedwireDepositSource != null)
+            {
+                return FedwireDepositSource.GetFieldDeserializers();
+            }
+            else if(OnchainAddress != null)
             {
                 return OnchainAddress.GetFieldDeserializers();
-            }
-            else if(OriginatingBankAccountUs != null)
-            {
-                return OriginatingBankAccountUs.GetFieldDeserializers();
             }
             else if(PaymentMethod != null)
             {
@@ -104,13 +120,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(OnchainAddress != null)
+            if(AchDepositSource != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AchDepositSource>(null, AchDepositSource);
+            }
+            else if(FedwireDepositSource != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwireDepositSource>(null, FedwireDepositSource);
+            }
+            else if(OnchainAddress != null)
             {
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress>(null, OnchainAddress);
-            }
-            else if(OriginatingBankAccountUs != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs>(null, OriginatingBankAccountUs);
             }
             else if(PaymentMethod != null)
             {

@@ -39,8 +39,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string DestinationTag { get; set; }
 #endif
-        /// <summary>The blockchain network for the payment. Supported networks depend on the account type. See [API and Network Support](https://docs.cdp.coinbase.com/api-reference/payment-apis/supported-networks-assets#by-asset-and-network) for more details.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Network? Network { get; set; }
+        /// <summary>The blockchain network for crypto payments, transfers, and deposit destinations.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentNetwork? Network { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress"/> and sets the default values.
         /// </summary>
@@ -69,7 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "asset", n => { Asset = n.GetStringValue(); } },
                 { "destinationTag", n => { DestinationTag = n.GetStringValue(); } },
-                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Network>(); } },
+                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentNetwork>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("address", Address);
             writer.WriteStringValue("asset", Asset);
             writer.WriteStringValue("destinationTag", DestinationTag);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Network>("network", Network);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentNetwork>("network", Network);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

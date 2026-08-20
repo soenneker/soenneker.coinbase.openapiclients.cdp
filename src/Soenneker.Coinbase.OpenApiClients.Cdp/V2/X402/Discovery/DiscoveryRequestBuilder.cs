@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Bundles;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Mcp;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Merchant;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Resources;
@@ -18,6 +19,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DiscoveryRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The bundles property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Bundles.BundlesRequestBuilder Bundles
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Bundles.BundlesRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The mcp property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402.Discovery.Mcp.McpRequestBuilder Mcp
         {

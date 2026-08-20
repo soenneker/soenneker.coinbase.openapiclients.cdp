@@ -11,5 +11,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         PaymentLinkTypeApplePayButton,
         #pragma warning restore CS1591
+        [EnumMember(Value = "PAYMENT_LINK_TYPE_GOOGLE_PAY_BUTTON")]
+        #pragma warning disable CS1591
+        PaymentLinkTypeGooglePayButton,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "PAYMENT_LINK_TYPE_EMBEDDED_ORDER")]
+        #pragma warning disable CS1591
+        PaymentLinkTypeEmbeddedOrder,
+        #pragma warning restore CS1591
     }
 }

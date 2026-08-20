@@ -23,7 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Asset { get; set; }
 #endif
-        /// <summary>The ID of the Payment Method.</summary>
+        /// <summary>The ID of the Payment Method, which is a UUID prefixed by the string `paymentMethod_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PaymentMethodId { get; set; }

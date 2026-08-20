@@ -8,36 +8,27 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// The approval object which contains the necessary fields to submit an approval for this transaction. Null if the `fromToken` is the native token or the transaction is a native token wrap / unwrap.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2Member1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateSwapQuoteResponseAllOf1Permit2 : IAdditionalDataHolder, IParsable
+    public partial class CreateSwapQuoteResponseAllOf1Permit2 : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The message to sign using EIP-712.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2Member1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Message? Eip712 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2Member1? CreateSwapQuoteResponseAllOf1Permit2Member1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Message Eip712 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2Member1 CreateSwapQuoteResponseAllOf1Permit2Member1 { get; set; }
 #endif
-        /// <summary>The hash for the approval according to [EIP-712](https://eips.ethereum.org/EIPS/eip-712). Computing the hash of the `eip712` field should match the value of this field.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Hash { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval? SwapPermit2Approval { get; set; }
 #nullable restore
 #else
-        public string Hash { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval SwapPermit2Approval { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2"/> and sets the default values.
-        /// </summary>
-        public CreateSwapQuoteResponseAllOf1Permit2()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -46,7 +37,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2();
+            if("SwapPermit2Approval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.SwapPermit2Approval = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,11 +51,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CreateSwapQuoteResponseAllOf1Permit2Member1 != null)
             {
-                { "eip712", n => { Eip712 = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Message>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Message.CreateFromDiscriminatorValue); } },
-                { "hash", n => { Hash = n.GetStringValue(); } },
-            };
+                return CreateSwapQuoteResponseAllOf1Permit2Member1.GetFieldDeserializers();
+            }
+            else if(SwapPermit2Approval != null)
+            {
+                return SwapPermit2Approval.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -67,9 +68,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Message>("eip712", Eip712);
-            writer.WriteStringValue("hash", Hash);
-            writer.WriteAdditionalData(AdditionalData);
+            if(CreateSwapQuoteResponseAllOf1Permit2Member1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2Member1>(null, CreateSwapQuoteResponseAllOf1Permit2Member1);
+            }
+            else if(SwapPermit2Approval != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval>(null, SwapPermit2Approval);
+            }
         }
     }
 }

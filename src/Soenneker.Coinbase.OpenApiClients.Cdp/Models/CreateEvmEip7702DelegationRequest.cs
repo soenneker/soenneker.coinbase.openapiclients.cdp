@@ -24,7 +24,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public CreateEvmEip7702DelegationRequest()
         {
             AdditionalData = new Dictionary<string, object>();
-            EnableSpendPermissions = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

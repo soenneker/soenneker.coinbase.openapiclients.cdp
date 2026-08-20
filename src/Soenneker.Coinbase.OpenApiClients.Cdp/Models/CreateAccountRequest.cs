@@ -14,6 +14,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Compliance context for a request. Carries per-request compliance signals,such as the IP address of the individual (i.e., end-customer) thatinitiated the request.This object is request-only — it is never echoed back in responses.Inner fields are write-only.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance? Compliance { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance Compliance { get; set; }
+#endif
         /// <summary>An optional name for the account. Must be 1-64 characters and can only contain alphanumeric characters, hyphens, and spaces.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,6 +29,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>The Owner ID of the Account.Owner IDs are UUIDs prefixed with the Owner Type as follows:* **Entity**: `entity_` - If the Owner is your Entity, e.g. `entity_af2937b0-9846-4fe7-bfe9-ccc22d935114`.* **Customer**: `customer_` - If the Owner is one of your Customers,  e.g. `customer_af2937b0-9846-4fe7-bfe9-ccc22d935114`. Customer ownership requires the  Customer to have the `custodyCrypto`, `custodyFiat`, and `custodyStablecoin`  capabilities enabled.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Owner { get; set; }
+#nullable restore
+#else
+        public string Owner { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateAccountRequest"/> and sets the default values.
@@ -47,7 +63,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "compliance", n => { Compliance = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "owner", n => { Owner = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +75,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance>("compliance", Compliance);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("owner", Owner);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

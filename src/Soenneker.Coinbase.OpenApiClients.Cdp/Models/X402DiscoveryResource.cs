@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// A single discovered x402 resource.
+    /// A single discovered x402 resource. Its fields come from three sources:- **x402 protocol** — negotiated from the resource&apos;s payment-required response: `resource`,  `type`, `x402Version`, `accepts`, `extensions`.- **Provider-supplied** — metadata published by the resource owner: `description`,  `serviceName`, `tags`.- **Coinbase-derived** — added during ingestion and curation: `iconUrl`, `quality`,  `lastUpdated`, and (for Coinbase-curated endpoints only) `curated`, `skillUrl` (a  Coinbase-authored SKILL.md), and `bundleSlugs`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402DiscoveryResource : IAdditionalDataHolder, IParsable
@@ -23,6 +23,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Slugs of the curated x402 bundles this resource belongs to. A bundle is an ordered, named grouping of curated resources covering a common agent workflow. Present only for Coinbase-curated resources (`curated: true`); omitted when the resource is not curated or is not a member of any bundle.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? BundleSlugs { get; set; }
+#nullable restore
+#else
+        public List<string> BundleSlugs { get; set; }
+#endif
+        /// <summary>Whether this resource is a Coinbase-curated endpoint. Curated endpoints have passed thepartner-admission and verification bar and surface higher in search and listing results.Omitted (treated as `false`) when the resource is not curated.</summary>
+        public bool? Curated { get; set; }
         /// <summary>A human-readable description of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,7 +75,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Resource { get; set; }
 #endif
-        /// <summary>Provider-supplied display name of the service this resource belongs to. This is a free-formlabel for grouping and presentation only — it is not a stable identifier, and two resourcessharing the same `serviceName` are not guaranteed to belong to the same logical service.</summary>
+        /// <summary>Display name of the service this resource belongs to. This is a free-formlabel for grouping and presentation only — it is not a stable identifier, and two resourcessharing the same `serviceName` are not guaranteed to belong to the same logical service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ServiceName { get; set; }
@@ -73,7 +83,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string ServiceName { get; set; }
 #endif
-        /// <summary>Provider-supplied, low-cardinality string labels associated with the resource for client-sidefiltering and display. Values are free-form (no controlled vocabulary) and case-sensitive.Order is not significant and duplicates are not expected.</summary>
+        /// <summary>A valid HTTP or HTTPS URL.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SkillUrl { get; set; }
+#nullable restore
+#else
+        public string SkillUrl { get; set; }
+#endif
+        /// <summary>Low-cardinality string labels associated with the resource for client-sidefiltering and display. Values are free-form (no controlled vocabulary) and case-sensitive.Order is not significant and duplicates are not expected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? Tags { get; set; }
@@ -111,6 +129,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accepts", n => { Accepts = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "bundleSlugs", n => { BundleSlugs = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "curated", n => { Curated = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "extensions", n => { Extensions = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty.CreateFromDiscriminatorValue); } },
                 { "iconUrl", n => { IconUrl = n.GetStringValue(); } },
@@ -118,6 +138,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "quality", n => { Quality = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality.CreateFromDiscriminatorValue); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
                 { "serviceName", n => { ServiceName = n.GetStringValue(); } },
+                { "skillUrl", n => { SkillUrl = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceType>(); } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
@@ -131,6 +152,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>("accepts", Accepts);
+            writer.WriteCollectionOfPrimitiveValues<string>("bundleSlugs", BundleSlugs);
+            writer.WriteBoolValue("curated", Curated);
             writer.WriteStringValue("description", Description);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty>("extensions", Extensions);
             writer.WriteStringValue("iconUrl", IconUrl);
@@ -138,6 +161,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality>("quality", Quality);
             writer.WriteStringValue("resource", Resource);
             writer.WriteStringValue("serviceName", ServiceName);
+            writer.WriteStringValue("skillUrl", SkillUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceType>("type", Type);
             writer.WriteIntValue("x402Version", X402Version);

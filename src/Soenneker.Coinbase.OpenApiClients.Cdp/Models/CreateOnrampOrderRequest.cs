@@ -14,7 +14,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The timestamp of when the user acknowledged that by using Coinbase Onramp they are accepting the Coinbase Terms  (https://www.coinbase.com/legal/guest-checkout/us), User Agreement (https://www.coinbase.com/legal/user_agreement),  and Privacy Policy (https://www.coinbase.com/legal/privacy).</summary>
+        /// <summary>The timestamp of when the user acknowledged that by using Coinbase Onramp they are accepting the Coinbase Terms (https://www.coinbase.com/legal/guest-checkout/us), User Agreement (https://www.coinbase.com/legal/user_agreement),  and Privacy Policy (https://www.coinbase.com/legal/privacy).</summary>
         public DateTimeOffset? AgreementAcceptedAt { get; set; }
         /// <summary>The IP address of the end user requesting the onramp transaction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string DestinationNetwork { get; set; }
 #endif
-        /// <summary>The domain that the Apple Pay button will be rendered on. Required when using the `GUEST_CHECKOUT_APPLE_PAY`  payment method and embedding the payment link in an iframe.</summary>
+        /// <summary>The domain that the Apple Pay or Google Pay button will be rendered on. Required when using the `GUEST_CHECKOUT_APPLE_PAY` or `GUEST_CHECKOUT_GOOGLE_PAY` payment method and embedding the payment link in an iframe. Omit this field entirely for mobile iOS Apple Pay via WebView integration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Domain { get; set; }
@@ -66,6 +66,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>If true, this API will return a quote without creating any transaction.</summary>
         public bool? IsQuote { get; set; }
+        /// <summary>Optional [BCP-47](https://www.rfc-editor.org/info/bcp47) locale tag (e.g. `es-ES`, `pt-BR`, `en`) used to localize the hosted payment page. When provided, it is appended to the returned `paymentLink` URL and mapped to the closest locale supported by the Apple Pay and Google Pay buttons; unsupported locales fall back to the user&apos;s browser language. Any well-formed BCP-47 tag is accepted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Locale { get; set; }
+#nullable restore
+#else
+        public string Locale { get; set; }
+#endif
         /// <summary>Optional partner order reference ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -100,7 +108,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The type of payment method to be used to complete an onramp order.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderPaymentMethodTypeId? PaymentMethod { get; set; }
-        /// <summary>The phone number of the user requesting the onramp transaction in E.164 format. This phone number must  be verified by your app (via OTP) before being used with the Onramp API.Please refer to the [Onramp docs](https://docs.cdp.coinbase.com/onramp-&amp;-offramp/onramp-apis/apple-pay-onramp-api) for more details on phone number verification requirements and best practices.</summary>
+        /// <summary>The phone number of the user requesting the onramp transaction in E.164 format. This phone number must  be verified by your app (via OTP) before being used with the Onramp API.Please refer to the [Onramp docs](https://docs.cdp.coinbase.com/onramp/headless-onramp/overview) for more details on phone number verification requirements and best practices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PhoneNumber { get; set; }
@@ -108,7 +116,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PhoneNumber { get; set; }
 #endif
-        /// <summary>Timestamp of when the user&apos;s phone number was verified via OTP. User phone number must be verified  every 60 days. If this timestamp is older than 60 days, an error will be returned.</summary>
+        /// <summary>Timestamp of when the user&apos;s phone number was verified via OTP. User phone number must be verified every 60 days. If this timestamp is older than 60 days, an error will be returned.</summary>
         public DateTimeOffset? PhoneNumberVerifiedAt { get; set; }
         /// <summary>A string representing the amount of crypto the user wishes to purchase. When using this parameter the  returned quote will be exclusive of fees i.e. the user will receive this exact amount of the purchase  currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -133,6 +141,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public string SmsVerificationId { get; set; }
+#endif
+        /// <summary>A reusable, PII-free token issued after a user completes verification in the embedded onramp flow. It encodes only the underlying verification IDs, no personal information. Pass it on subsequent orders to take a returning user straight to the pay button, skipping OTP when checking out to the same wallet.In the embedded flow, `phoneNumber`, `email`, `phoneNumberVerifiedAt`, and `agreementAcceptedAt` are handled by Coinbase in the hosted popup and may be omitted from the request even though they are required for the standard partner-verified flow. Reuse is best-effort: an invalid, expired, or different-wallet token still requires the user to verify. Valid for 60 days.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UserAuthToken { get; set; }
+#nullable restore
+#else
+        public string UserAuthToken { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateOnrampOrderRequest"/> and sets the default values.
@@ -168,6 +184,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "emailVerificationId", n => { EmailVerificationId = n.GetStringValue(); } },
                 { "isQuote", n => { IsQuote = n.GetBoolValue(); } },
+                { "locale", n => { Locale = n.GetStringValue(); } },
                 { "partnerOrderRef", n => { PartnerOrderRef = n.GetStringValue(); } },
                 { "partnerUserRef", n => { PartnerUserRef = n.GetStringValue(); } },
                 { "paymentAmount", n => { PaymentAmount = n.GetStringValue(); } },
@@ -178,6 +195,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "purchaseAmount", n => { PurchaseAmount = n.GetStringValue(); } },
                 { "purchaseCurrency", n => { PurchaseCurrency = n.GetStringValue(); } },
                 { "smsVerificationId", n => { SmsVerificationId = n.GetStringValue(); } },
+                { "userAuthToken", n => { UserAuthToken = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -195,6 +213,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("emailVerificationId", EmailVerificationId);
             writer.WriteBoolValue("isQuote", IsQuote);
+            writer.WriteStringValue("locale", Locale);
             writer.WriteStringValue("partnerOrderRef", PartnerOrderRef);
             writer.WriteStringValue("partnerUserRef", PartnerUserRef);
             writer.WriteStringValue("paymentAmount", PaymentAmount);
@@ -205,6 +224,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("purchaseAmount", PurchaseAmount);
             writer.WriteStringValue("purchaseCurrency", PurchaseCurrency);
             writer.WriteStringValue("smsVerificationId", SmsVerificationId);
+            writer.WriteStringValue("userAuthToken", UserAuthToken);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

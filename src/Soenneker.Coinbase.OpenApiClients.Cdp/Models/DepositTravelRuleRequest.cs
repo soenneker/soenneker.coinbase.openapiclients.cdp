@@ -15,6 +15,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>When `true`, you attest that the originating wallet&apos;s ownership has been verified out-of-band. Instructs Coinbase to skip the wallet verification check for this travel-rule submission.**Only valid when `isIntermediary` is `true`.** You can only attest to the originating wallet&apos;s ownership when your organization is acting as the originating VASP on behalf of your end customer, and Coinbase is acting as the intermediary VASP. Returns a `400` error if set to `true` when `isIntermediary` is `false` or omitted.</summary>
+        public bool? AttestVerifiedWalletOwnership { get; set; }
         /// <summary>Beneficiary information for the travel rule submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,6 +25,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary Beneficiary { get; set; }
 #endif
+        /// <summary>Indicates whether **Coinbase is acting as the intermediary Virtual Asset Service Provider (VASP)**, and your organization is acting as an originating VASP on behalf of your own end customer.**Background:**The Travel Rule (FATF Recommendation 16) requires VASPs to collect and share certain information about virtual asset transfers. If your organization is a VASP, and you are acting on behalf of your end customer, you must provide additional Travel Rule data to satisfy compliance requirements.**Set to `true` when** your organization is itself a VASP acting on behalf of your own end customer (the true originator).**Set to `false` (or omit) when** your organization is not itself a VASP acting on behalf of an end customer — for example, if the virtual assets involved are your organization&apos;s own funds.**Impact on required fields:**When `isIntermediary` is `true`, you must provide the `originator` object with the following details:- The originator&apos;s (i.e. your end customer&apos;s) name- The originator&apos;s address- Your organization&apos;s VASP information (`virtualAssetServiceProvider` object with `identifier`, `name`, and `address`)In certain jurisdictions, `personalId` and `dateOfBirth` must also reflect the **original sender&apos;s** identity — not your organization&apos;s. These fields will not be auto-populated from any internal KYC data when `isIntermediary` is `true`.</summary>
+        public bool? IsIntermediary { get; set; }
         /// <summary>Indicates whether the user attests that the originating wallet belongs to them.</summary>
         public bool? IsSelf { get; set; }
         /// <summary>Originator information for the travel rule submission.</summary>
@@ -58,7 +62,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "attestVerifiedWalletOwnership", n => { AttestVerifiedWalletOwnership = n.GetBoolValue(); } },
                 { "beneficiary", n => { Beneficiary = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary.CreateFromDiscriminatorValue); } },
+                { "isIntermediary", n => { IsIntermediary = n.GetBoolValue(); } },
                 { "isSelf", n => { IsSelf = n.GetBoolValue(); } },
                 { "originator", n => { Originator = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator.CreateFromDiscriminatorValue); } },
             };
@@ -70,7 +76,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("attestVerifiedWalletOwnership", AttestVerifiedWalletOwnership);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary>("beneficiary", Beneficiary);
+            writer.WriteBoolValue("isIntermediary", IsIntermediary);
             writer.WriteBoolValue("isSelf", IsSelf);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator>("originator", Originator);
             writer.WriteAdditionalData(AdditionalData);

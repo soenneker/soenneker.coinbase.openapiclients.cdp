@@ -25,6 +25,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The date and time when the account was created, in ISO 8601 format.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The date and time when the account&apos;s key was ejected (marked for deletion), in ISO 8601 format. Populated when the account has been ejected. The account record remains queryable after this timestamp is set; it reflects when ejection was requested, not when the key material is purged.</summary>
+        public DateTimeOffset? EjectedAt { get; set; }
+        /// <summary>The date and time when the account&apos;s private key was first exported, in ISO 8601 format. This is set on the first export and preserved on subsequent exports; it is not updated on re-export.</summary>
+        public DateTimeOffset? ExportedAt { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount"/> and sets the default values.
         /// </summary>
@@ -52,6 +56,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "ejectedAt", n => { EjectedAt = n.GetDateTimeOffsetValue(); } },
+                { "exportedAt", n => { ExportedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -63,6 +69,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("ejectedAt", EjectedAt);
+            writer.WriteDateTimeOffsetValue("exportedAt", ExportedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

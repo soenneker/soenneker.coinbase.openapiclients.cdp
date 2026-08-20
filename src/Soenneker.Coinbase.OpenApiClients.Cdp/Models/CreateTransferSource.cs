@@ -8,27 +8,36 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount"/>
+    /// The source of the transfer.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateTransferSource : IComposedTypeWrapper, IParsable
+    public partial class CreateTransferSource : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod"/></summary>
+        /// <summary>The ID of the Account, which is a UUID prefixed by the string `account_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod? PaymentMethod { get; set; }
+        public string? AccountId { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod PaymentMethod { get; set; }
+        public string AccountId { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount"/></summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount? TransfersAccount { get; set; }
+        public string? Asset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount TransfersAccount { get; set; }
+        public string Asset { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource"/> and sets the default values.
+        /// </summary>
+        public CreateTransferSource()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,17 +46,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource();
-            if("PaymentMethod".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.PaymentMethod = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod();
-            }
-            else if("TransfersAccount".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.TransfersAccount = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount();
-            }
-            return result;
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,15 +54,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PaymentMethod != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return PaymentMethod.GetFieldDeserializers();
-            }
-            else if(TransfersAccount != null)
-            {
-                return TransfersAccount.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "accountId", n => { AccountId = n.GetStringValue(); } },
+                { "asset", n => { Asset = n.GetStringValue(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -72,14 +67,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(PaymentMethod != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod>(null, PaymentMethod);
-            }
-            else if(TransfersAccount != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount>(null, TransfersAccount);
-            }
+            writer.WriteStringValue("accountId", AccountId);
+            writer.WriteStringValue("asset", Asset);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

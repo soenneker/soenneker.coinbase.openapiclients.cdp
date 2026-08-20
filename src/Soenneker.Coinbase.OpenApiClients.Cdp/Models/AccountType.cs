@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>The type of the Account.</summary>
+    /// <summary>The type of the Account.- `prime`: a linked Coinbase Prime account.- `business`: a linked Coinbase Business account.- `cdp`: a CDP-native account created via this API. Used for accounts created on  behalf of an Entity and for Customer-owned accounts.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AccountType
     {

@@ -8,36 +8,27 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// The estimated gas fee for the swap.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFeeMember1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CommonSwapResponseFeesGasFee : IAdditionalDataHolder, IParsable
+    public partial class CommonSwapResponseFeesGasFee : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The estimated amount of the fee in atomic units of the `token`. For example, `1000000000000000` if the fee is in ETH equates to 0.001 ETH, `10000` if the fee is in USDC equates to 0.01 USDC, etc.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFeeMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Amount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFeeMember1? CommonSwapResponseFeesGasFeeMember1 { get; set; }
 #nullable restore
 #else
-        public string Amount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFeeMember1 CommonSwapResponseFeesGasFeeMember1 { get; set; }
 #endif
-        /// <summary>The contract address of the token that the fee is paid in. The address `0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE` is used for the native token of the network (e.g. ETH).</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee? TokenFee { get; set; }
 #nullable restore
 #else
-        public string Token { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee TokenFee { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee"/> and sets the default values.
-        /// </summary>
-        public CommonSwapResponseFeesGasFee()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -46,7 +37,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFee();
+            if("TokenFee".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.TokenFee = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,11 +51,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CommonSwapResponseFeesGasFeeMember1 != null)
             {
-                { "amount", n => { Amount = n.GetStringValue(); } },
-                { "token", n => { Token = n.GetStringValue(); } },
-            };
+                return CommonSwapResponseFeesGasFeeMember1.GetFieldDeserializers();
+            }
+            else if(TokenFee != null)
+            {
+                return TokenFee.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -67,9 +68,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("amount", Amount);
-            writer.WriteStringValue("token", Token);
-            writer.WriteAdditionalData(AdditionalData);
+            if(CommonSwapResponseFeesGasFeeMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFeesGasFeeMember1>(null, CommonSwapResponseFeesGasFeeMember1);
+            }
+            else if(TokenFee != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee>(null, TokenFee);
+            }
         }
     }
 }

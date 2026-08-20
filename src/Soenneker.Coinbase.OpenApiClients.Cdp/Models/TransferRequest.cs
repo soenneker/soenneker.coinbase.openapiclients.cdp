@@ -15,7 +15,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The amount of the transfer, as a decimal string in standard unit denomination of the asset specified by `asset` (e.g., &quot;100.00&quot; for 100 USD, &quot;0.05&quot; for 0.05 ETH).</summary>
+        /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Amount { get; set; }

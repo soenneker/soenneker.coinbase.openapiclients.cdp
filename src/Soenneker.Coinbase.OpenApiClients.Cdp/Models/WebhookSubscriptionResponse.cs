@@ -17,7 +17,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When the subscription was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>A human-readable description.</summary>
+        /// <summary>A human-readable description of the webhook subscription.Must be at most 100 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Description { get; set; }

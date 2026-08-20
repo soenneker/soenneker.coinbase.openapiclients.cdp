@@ -7,11 +7,10 @@ using System.IO;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
-    /// <summary>
-    /// Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    #pragma warning disable CS1591
     public partial class CommonSwapResponseIssuesAllowance : IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }

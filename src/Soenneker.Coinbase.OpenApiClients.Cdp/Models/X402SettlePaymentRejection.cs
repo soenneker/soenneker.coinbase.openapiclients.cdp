@@ -46,7 +46,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>Indicates whether the payment settlement is successful.</summary>
         public bool? Success { get; set; }
-        /// <summary>The transaction of the settlement.For EVM networks, the transaction will be a 0x-prefixed, EVM transaction hash.For Solana-based networks, the transaction will be a base58-encoded Solana signature.</summary>
+        /// <summary>The transaction of the settlement.For EVM networks, the transaction will be a 0x-prefixed, EVM transaction hash.For Solana-based networks, the transaction will be a base58-encoded Solana signature.Populated even though `success` is `false` when `errorReason` is `settlement_pending`: the transaction broadcast successfully but its receipt could not be retrieved, so the hash is returned for the caller to reconcile before retrying.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Transaction { get; set; }

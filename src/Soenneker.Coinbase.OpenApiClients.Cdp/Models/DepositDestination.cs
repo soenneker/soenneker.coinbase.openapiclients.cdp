@@ -8,68 +8,27 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// A deposit destination for receiving funds to an account.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestination"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FiatDepositDestination"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class DepositDestination : IAdditionalDataHolder, IParsable
+    public partial class DepositDestination : IComposedTypeWrapper, IParsable
     {
-        /// <summary>The ID of the Account, which is a UUID prefixed by the string `account_`.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestination"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountId { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestination? CryptoDepositDestination { get; set; }
 #nullable restore
 #else
-        public string AccountId { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestination CryptoDepositDestination { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The timestamp when the deposit destination was created.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>Crypto-specific details for this deposit destination. Always populated in responses. Contains the network and address.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FiatDepositDestination"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto? Crypto { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FiatDepositDestination? FiatDepositDestination { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto Crypto { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FiatDepositDestination FiatDepositDestination { get; set; }
 #endif
-        /// <summary>The ID of the Deposit Destination, which is a UUID prefixed by the string `depositDestination_`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DepositDestinationId { get; set; }
-#nullable restore
-#else
-        public string DepositDestinationId { get; set; }
-#endif
-        /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata? Metadata { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata Metadata { get; set; }
-#endif
-        /// <summary>The status of the deposit destination.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationStatus? Status { get; set; }
-        /// <summary>The intended target for deposited funds.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget? Target { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget Target { get; set; }
-#endif
-        /// <summary>The type of deposit destination.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoType? Type { get; set; }
-        /// <summary>The timestamp when the deposit destination was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination"/> and sets the default values.
-        /// </summary>
-        public DepositDestination()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -78,7 +37,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination();
+            if("crypto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CryptoDepositDestination = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestination();
+            }
+            else if("fiat".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.FiatDepositDestination = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FiatDepositDestination();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,18 +55,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CryptoDepositDestination != null)
             {
-                { "accountId", n => { AccountId = n.GetStringValue(); } },
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "crypto", n => { Crypto = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto.CreateFromDiscriminatorValue); } },
-                { "depositDestinationId", n => { DepositDestinationId = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationStatus>(); } },
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoType>(); } },
-                { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
-            };
+                return CryptoDepositDestination.GetFieldDeserializers();
+            }
+            else if(FiatDepositDestination != null)
+            {
+                return FiatDepositDestination.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -106,16 +72,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("accountId", AccountId);
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationCrypto>("crypto", Crypto);
-            writer.WriteStringValue("depositDestinationId", DepositDestinationId);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestinationMetadata>("metadata", Metadata);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationStatus>("status", Status);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>("target", Target);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoType>("type", Type);
-            writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
-            writer.WriteAdditionalData(AdditionalData);
+            if(CryptoDepositDestination != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CryptoDepositDestination>(null, CryptoDepositDestination);
+            }
+            else if(FiatDepositDestination != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FiatDepositDestination>(null, FiatDepositDestination);
+            }
         }
     }
 }

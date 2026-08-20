@@ -8,54 +8,27 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Request to create a new deposit destination. Provide the type-specific details matching the chosen `type`.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequest"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequest"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CreateDepositDestinationRequest : IAdditionalDataHolder, IParsable
+    public partial class CreateDepositDestinationRequest : IComposedTypeWrapper, IParsable
     {
-        /// <summary>The ID of the Account, which is a UUID prefixed by the string `account_`.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountId { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequest? CreateCryptoDepositDestinationRequest { get; set; }
 #nullable restore
 #else
-        public string AccountId { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequest CreateCryptoDepositDestinationRequest { get; set; }
 #endif
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Crypto-specific details. Required when `type` is `crypto`.</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequest"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto? Crypto { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequest? CreateFiatDepositDestinationRequest { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto Crypto { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequest CreateFiatDepositDestinationRequest { get; set; }
 #endif
-        /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata? Metadata { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata Metadata { get; set; }
-#endif
-        /// <summary>The intended target for deposited funds.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget? Target { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget Target { get; set; }
-#endif
-        /// <summary>The type of deposit destination.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTypeOneOf1? Type { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationRequest"/> and sets the default values.
-        /// </summary>
-        public CreateDepositDestinationRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -64,7 +37,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationRequest();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationRequest();
+            if("CreateCryptoDepositDestinationRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateCryptoDepositDestinationRequest = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequest();
+            }
+            else if("CreateFiatDepositDestinationRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                result.CreateFiatDepositDestinationRequest = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequest();
+            }
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,14 +55,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(CreateCryptoDepositDestinationRequest != null)
             {
-                { "accountId", n => { AccountId = n.GetStringValue(); } },
-                { "crypto", n => { Crypto = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto.CreateFromDiscriminatorValue); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata.CreateFromDiscriminatorValue); } },
-                { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTypeOneOf1>(); } },
-            };
+                return CreateCryptoDepositDestinationRequest.GetFieldDeserializers();
+            }
+            else if(CreateFiatDepositDestinationRequest != null)
+            {
+                return CreateFiatDepositDestinationRequest.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -88,12 +72,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("accountId", AccountId);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto>("crypto", Crypto);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata>("metadata", Metadata);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>("target", Target);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTypeOneOf1>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            if(CreateCryptoDepositDestinationRequest != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequest>(null, CreateCryptoDepositDestinationRequest);
+            }
+            else if(CreateFiatDepositDestinationRequest != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequest>(null, CreateFiatDepositDestinationRequest);
+            }
         }
     }
 }

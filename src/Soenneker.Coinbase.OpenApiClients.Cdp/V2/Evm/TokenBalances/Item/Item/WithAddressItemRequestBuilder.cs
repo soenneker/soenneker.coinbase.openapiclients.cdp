@@ -34,7 +34,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.TokenBalances.Item.Item
         {
         }
         /// <summary>
-        /// Lists the token balances of an EVM address on a given network. The balances include ERC-20 tokens and the native gas token (usually ETH). The response is paginated, and by default, returns 20 balances per page.**Note:** This endpoint is still under development and does not yet provide strong freshness guarantees. Specifically, balances of new tokens can, on occasion, take up to ~30 seconds to appear, while balances of tokens already belonging to an address will generally be close to chain tip. Freshness of new token balances will improve over the coming weeks.
+        /// Lists the token balances of an EVM address on a given network. The balances include ERC-20 tokens and the native gas token (usually ETH). The response is paginated, and by default, returns 20 balances per page.Calls to the `base` and `base-sepolia` networks offer:  * 99.5% &lt; 2 second freshness from chain tip for new tokens on an address.  * 99.5% &lt; 2 second freshness from chain tip for balance data.Calls to the `ethereum` network offer:  * 99% &lt; 30 second freshness from chain tip for new tokens on an address.  * 99% &lt; 2 second freshness from chain tip for balance data.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEvmTokenBalances200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -65,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.TokenBalances.Item.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEvmTokenBalances200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListEvmTokenBalances200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Lists the token balances of an EVM address on a given network. The balances include ERC-20 tokens and the native gas token (usually ETH). The response is paginated, and by default, returns 20 balances per page.**Note:** This endpoint is still under development and does not yet provide strong freshness guarantees. Specifically, balances of new tokens can, on occasion, take up to ~30 seconds to appear, while balances of tokens already belonging to an address will generally be close to chain tip. Freshness of new token balances will improve over the coming weeks.
+        /// Lists the token balances of an EVM address on a given network. The balances include ERC-20 tokens and the native gas token (usually ETH). The response is paginated, and by default, returns 20 balances per page.Calls to the `base` and `base-sepolia` networks offer:  * 99.5% &lt; 2 second freshness from chain tip for new tokens on an address.  * 99.5% &lt; 2 second freshness from chain tip for balance data.Calls to the `ethereum` network offer:  * 99% &lt; 30 second freshness from chain tip for new tokens on an address.  * 99% &lt; 2 second freshness from chain tip for balance data.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.TokenBalances.Item.Item
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.TokenBalances.Item.Item.WithAddressItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Lists the token balances of an EVM address on a given network. The balances include ERC-20 tokens and the native gas token (usually ETH). The response is paginated, and by default, returns 20 balances per page.**Note:** This endpoint is still under development and does not yet provide strong freshness guarantees. Specifically, balances of new tokens can, on occasion, take up to ~30 seconds to appear, while balances of tokens already belonging to an address will generally be close to chain tip. Freshness of new token balances will improve over the coming weeks.
+        /// Lists the token balances of an EVM address on a given network. The balances include ERC-20 tokens and the native gas token (usually ETH). The response is paginated, and by default, returns 20 balances per page.Calls to the `base` and `base-sepolia` networks offer:  * 99.5% &lt; 2 second freshness from chain tip for new tokens on an address.  * 99.5% &lt; 2 second freshness from chain tip for balance data.Calls to the `ethereum` network offer:  * 99% &lt; 30 second freshness from chain tip for new tokens on an address.  * 99% &lt; 2 second freshness from chain tip for balance data.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithAddressItemRequestBuilderGetQueryParameters 

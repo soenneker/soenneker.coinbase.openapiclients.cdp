@@ -22,6 +22,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit> Limits { get; set; }
 #endif
+        /// <summary>The user&apos;s limit upgrade status and associated upgrade details. Omitted when limit upgrades are not available for the calling app or user. Use the [Request Limit Upgrade](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/onramp/request-limits-upgrade) endpoint to request a limit upgrade.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption>? LimitUpgradeOptions { get; set; }
+#nullable restore
+#else
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption> LimitUpgradeOptions { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetOnrampUserLimits200Response"/> and sets the default values.
         /// </summary>
@@ -47,6 +55,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "limitUpgradeOptions", n => { LimitUpgradeOptions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "limits", n => { Limits = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -58,6 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit>("limits", Limits);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption>("limitUpgradeOptions", LimitUpgradeOptions);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -13,7 +13,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransfersAccount : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The ID of the Account.</summary>
+        /// <summary>The ID of the Account, which is a UUID prefixed by the string `account_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AccountId { get; set; }

@@ -32,7 +32,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The Owner ID of the Account.Owner IDs are UUIDs prefixed with the Owner Type as follows:* **Entity**: `entity_` - If the Owner is your Entity, e.g. `entity_af2937b0-9846-4fe7-bfe9-ccc22d935114`.Support for Customer-owned accounts (`customer_` prefix) is in development.</summary>
+        /// <summary>The Owner ID of the Account.Owner IDs are UUIDs prefixed with the Owner Type as follows:* **Entity**: `entity_` - If the Owner is your Entity, e.g. `entity_af2937b0-9846-4fe7-bfe9-ccc22d935114`.* **Customer**: `customer_` - If the Owner is one of your Customers,  e.g. `customer_af2937b0-9846-4fe7-bfe9-ccc22d935114`. Customer ownership requires the  Customer to have the `custodyCrypto`, `custodyFiat`, and `custodyStablecoin`  capabilities enabled.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Owner { get; set; }
@@ -40,7 +40,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Owner { get; set; }
 #endif
-        /// <summary>The type of the Account.</summary>
+        /// <summary>The type of the Account.- `prime`: a linked Coinbase Prime account.- `business`: a linked Coinbase Business account.- `cdp`: a CDP-native account created via this API. Used for accounts created on  behalf of an Entity and for Customer-owned accounts.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AccountType? Type { get; set; }
         /// <summary>The timestamp when the account was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }

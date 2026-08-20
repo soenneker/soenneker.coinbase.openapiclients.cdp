@@ -8,53 +8,37 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// The originating US bank account details for the transfer source. Present when funds were deposited from an external bank account into a deposit destination. Only the last 4 digits of the account number are exposed.
+    /// A request to create a void for a payment session. A void releases all remaining capturable funds back to the payer, including after partial refunds as long as a capturableAmount remains.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class OriginatingBankAccountUs : IAdditionalDataHolder, IParsable
+    public partial class CreateVoidRequest : IAdditionalDataHolder, IParsable
     {
-        /// <summary>The last 4 digits of the originating bank account number.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AccountLast4 { get; set; }
-#nullable restore
-#else
-        public string AccountLast4 { get; set; }
-#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The name of the bank that originated the deposit.</summary>
+        /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BankName { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequestMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public string BankName { get; set; }
-#endif
-        /// <summary>The fiat currency of the deposit (e.g., `usd`).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Currency { get; set; }
-#nullable restore
-#else
-        public string Currency { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequestMetadata Metadata { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequest"/> and sets the default values.
         /// </summary>
-        public OriginatingBankAccountUs()
+        public CreateVoidRequest()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OriginatingBankAccountUs();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,9 +48,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accountLast4", n => { AccountLast4 = n.GetStringValue(); } },
-                { "bankName", n => { BankName = n.GetStringValue(); } },
-                { "currency", n => { Currency = n.GetStringValue(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequestMetadata.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,9 +58,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("accountLast4", AccountLast4);
-            writer.WriteStringValue("bankName", BankName);
-            writer.WriteStringValue("currency", Currency);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateVoidRequestMetadata>("metadata", Metadata);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

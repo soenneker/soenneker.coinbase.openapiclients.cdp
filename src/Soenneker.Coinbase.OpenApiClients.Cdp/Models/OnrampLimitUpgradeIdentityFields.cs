@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`. These fields are required; a request without them is rejected.
+    /// Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`. Required in `api` mode. Omit in `embedded` mode — the user enters their identity information on the Coinbase-hosted upgrade page (see `interactionMode`), so any value sent here is rejected.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnrampLimitUpgradeIdentityFields : IAdditionalDataHolder, IParsable
