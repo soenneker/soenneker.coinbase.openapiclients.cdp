@@ -5,7 +5,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>Expected annual volume of activity on the account, expressed as adollar range. Use the dollar-honest ids below:- `under_1k`: $0 – $1,000- `1k_to_10k`: $1,000 – $10,000- `10k_to_100k`: $10,000 – $100,000- `100k_to_250k`: $100,000 – $250,000- `250k_to_750k`: $250,000 – $750,000- `750k_to_1_5m`: $750,000 – $1.5M- `1_5m_plus`: $1.5M+</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum IndividualInputExpectedVolume
+    public enum CustomerWriteBaseIndividualExpectedVolume
     {
         [EnumMember(Value = "under_1k")]
         #pragma warning disable CS1591

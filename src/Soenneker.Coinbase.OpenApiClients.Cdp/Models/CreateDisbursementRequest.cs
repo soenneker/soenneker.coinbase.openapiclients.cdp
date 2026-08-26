@@ -39,6 +39,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance Compliance { get; set; }
 #endif
+        /// <summary>Optional customer-facing display data for this disbursement, shown to the payer. If `referenceCode` is omitted, one is auto-generated — disbursements have no payment session to fall back to, unlike every other action type.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCustomerDisplay? CustomerDisplay { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCustomerDisplay CustomerDisplay { get; set; }
+#endif
         /// <summary>A merchant-provided internal identifier for this disbursement, from the merchant&apos;s own system—not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,6 +115,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "amount", n => { Amount = n.GetStringValue(); } },
                 { "asset", n => { Asset = n.GetStringValue(); } },
                 { "compliance", n => { Compliance = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance.CreateFromDiscriminatorValue); } },
+                { "customerDisplay", n => { CustomerDisplay = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCustomerDisplay>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCustomerDisplay.CreateFromDiscriminatorValue); } },
                 { "externalReferenceId", n => { ExternalReferenceId = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
@@ -124,6 +133,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("asset", Asset);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance>("compliance", Compliance);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCustomerDisplay>("customerDisplay", CustomerDisplay);
             writer.WriteStringValue("externalReferenceId", ExternalReferenceId);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestMetadata>("metadata", Metadata);
             writer.WriteStringValue("reason", Reason);

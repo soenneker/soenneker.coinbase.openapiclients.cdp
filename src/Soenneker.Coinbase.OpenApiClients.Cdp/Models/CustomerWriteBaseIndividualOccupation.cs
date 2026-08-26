@@ -5,7 +5,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>Industry or occupation.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum IndividualInputOccupation
+    public enum CustomerWriteBaseIndividualOccupation
     {
         [EnumMember(Value = "agriculture")]
         #pragma warning disable CS1591

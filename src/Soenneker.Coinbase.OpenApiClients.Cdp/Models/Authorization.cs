@@ -33,6 +33,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which the authorization was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Customer-facing display data for this authorization, shown to the payer. Present when supplied on the authorization request or when the session&apos;s `orderCode` fallback applies; otherwise omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationCustomerDisplay? CustomerDisplay { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationCustomerDisplay CustomerDisplay { get; set; }
+#endif
         /// <summary>An error that occurred during a payment operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,6 +48,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError Error { get; set; }
+#endif
+        /// <summary>A merchant-provided internal identifier for a resource from the merchant&apos;s own system—not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalReferenceId { get; set; }
+#nullable restore
+#else
+        public string ExternalReferenceId { get; set; }
 #endif
         /// <summary>A human-readable message describing the outcome or status for display. Returned for x402 authorizations; omitted for other authorization flows unless documented otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,7 +135,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "amount", n => { Amount = n.GetStringValue(); } },
                 { "authorizationId", n => { AuthorizationId = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "customerDisplay", n => { CustomerDisplay = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationCustomerDisplay>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationCustomerDisplay.CreateFromDiscriminatorValue); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError.CreateFromDiscriminatorValue); } },
+                { "externalReferenceId", n => { ExternalReferenceId = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationMetadata.CreateFromDiscriminatorValue); } },
                 { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -139,7 +157,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("authorizationId", AuthorizationId);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationCustomerDisplay>("customerDisplay", CustomerDisplay);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError>("error", Error);
+            writer.WriteStringValue("externalReferenceId", ExternalReferenceId);
             writer.WriteStringValue("message", Message);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>("onchainTransactions", OnchainTransactions);

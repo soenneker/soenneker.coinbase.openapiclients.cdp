@@ -5,7 +5,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>Primary source of funds for the account.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum IndividualInputSourceOfFunds
+    public enum CustomerWriteBaseIndividualSourceOfFunds
     {
         [EnumMember(Value = "salary")]
         #pragma warning disable CS1591

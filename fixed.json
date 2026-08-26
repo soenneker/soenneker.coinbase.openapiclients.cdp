@@ -4306,6 +4306,30 @@
             "example": "eyJ4NDAyVmVyc2lvbiI6MiwicmVzb3VyY2UiOnsidXJsIjoiaHR0cHM6Ly9hcGkuZXhhbXBsZS5jb20vcHJlbWl1bS1kYXRhIiwiZGVzY3JpcHRpb24iOiJBY2Nlc3MgdG8gcHJlbWl1bSBtYXJrZXQgZGF0YSIsIm1pbWVUeXBlIjoiYXBwbGljYXRpb24vanNvbiJ9LCJhY2NlcHRlZCI6eyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6ODQ1MzIiLCJhbW91bnQiOiIxMDAwMCIsImFzc2V0IjoiMHgwMzZDYkQ1Mzg0MmM1NDI2NjM0ZTc5Mjk1NDFlQzIzMThmM2RDRjdlIiwicGF5VG8iOiIweDIwOTY5M0JjNmFmYzBDNTMyOGJBMzZGYUYwM0M1MTRFRjMxMjI4N0MiLCJtYXhUaW1lb3V0U2Vjb25kcyI6NjAsImV4dHJhIjp7Im5hbWUiOiJVU0RDIiwidmVyc2lvbiI6IjIifX0sInBheWxvYWQiOnsic2lnbmF0dXJlIjoiMHgyZDZhNzU4OGQ2YWNjYTUwNWNiZjBkOWE0YTIyN2UwYzUyYzZjMzQwMDhjOGU4OTg2YTEyODMyNTk3NjQxNzM2MDhhMmNlNjQ5NjY0MmUzNzdkNmRhOGRiYmY1ODM2ZTliZDE1MDkyZjllY2FiMDVkZWQzZDYyOTNhZjE0OGI1NzFjIiwiYXV0aG9yaXphdGlvbiI6eyJmcm9tIjoiMHg4NTdiMDY1MTlFOTFlM0E1NDUzODc5MWJEYmIwRTIyMzczZTM2YjY2IiwidG8iOiIweDIwOTY5M0JjNmFmYzBDNTMyOGJBMzZGYUYwM0M1MTRFRjMxMjI4N0MiLCJ2YWx1ZSI6IjEwMDAwIiwidmFsaWRBZnRlciI6IjE3NDA2NzIwODkiLCJ2YWxpZEJlZm9yZSI6IjE3NDA2NzIxNTQiLCJub25jZSI6IjB4ZjM3NDY2MTNjMmQ5MjBiNWZkYWJjMDg1NmYyYWViMmQ0Zjg4ZWU2MDM3YjhjYzVkMDRhNzFhNDQ2MmYxMzQ4MCJ9fX0="
           },
           {
+            "name": "X-External-Reference-Id",
+            "in": "header",
+            "description": "An optional merchant-provided internal identifier for this x402 authorization, from the merchant\u0027s own system\u2014not visible to the payer.",
+            "schema": {
+              "maxLength": 256,
+              "type": "string",
+              "additionalProperties": false,
+              "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+            },
+            "example": "merchant-authorization-x402abc"
+          },
+          {
+            "name": "X-Customer-Display-Reference-Code",
+            "in": "header",
+            "description": "A short customer-facing reference code for this x402 authorization, visible to the payer. Equivalent to \u0060customerDisplay.referenceCode\u0060 on JSON authorization requests. Falls back to the session\u0027s \u0060orderCode\u0060 when omitted.",
+            "schema": {
+              "maxLength": 128,
+              "type": "string",
+              "additionalProperties": false,
+              "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+            },
+            "example": "REF-ABC123"
+          },
+          {
             "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
             "$ref": "#/components/parameters/IdempotencyKey"
           }
@@ -18552,6 +18576,85 @@
           ]
         }
       },
+      "DepositDestinationTargetAccountAccountId": {
+        "pattern": "^account_[a-f0-9\\-]{36}$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
+      },
+      "CustomerWriteBaseIndividual": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "First name (given name).",
+            "example": "Jane"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last name (family name/surname).",
+            "example": "Doe"
+          },
+          "address": {
+            "$ref": "#/components/schemas/IndividualInputAddress"
+          },
+          "ssnLast4": {
+            "maxLength": 4,
+            "minLength": 4,
+            "pattern": "^[0-9]{4}$",
+            "type": "string",
+            "description": "Last 4 digits of the Social Security Number (US only).\nUsed for identity verification.\n",
+            "example": "6789"
+          },
+          "dateOfBirth": {
+            "$ref": "#/components/schemas/IndividualInputDateOfBirth"
+          },
+          "fullSsn": {
+            "pattern": "^([0-9]{3}-[0-9]{2}-[0-9]{4}|\\*\\*\\*-\\*\\*-[0-9]{4})$",
+            "type": "string",
+            "description": "Full Social Security Number (US only).\n",
+            "example": "***-**-6789"
+          },
+          "citizenship": {
+            "maxLength": 2,
+            "pattern": "^[A-Z]{2}$",
+            "type": "string",
+            "description": "An ISO 3166-1 alpha-2 country code."
+          },
+          "email": {
+            "maxLength": 254,
+            "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+            "type": "string",
+            "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
+            "format": "email"
+          },
+          "phoneNumber": {
+            "pattern": "^\\\u002B[1-9]\\d{1,14}$",
+            "type": "string",
+            "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
+          },
+          "purposeOfAccount": {
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualPurposeOfAccount"
+          },
+          "sourceOfFunds": {
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualSourceOfFunds"
+          },
+          "employmentStatus": {
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualEmploymentStatus"
+          },
+          "occupation": {
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualOccupation"
+          },
+          "expectedVolume": {
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualExpectedVolume"
+          }
+        },
+        "description": "Information about an Individual customer. Not all fields are required\nfor all customers; the requirements depend on which capabilities are\nrequested. Submit only fields that are required by the capabilities\nthat have been requested.\n",
+        "example": {
+          "firstName": "Jane",
+          "lastName": "Doe"
+        }
+      },
       "CustomerWriteBaseCapabilities": {
         "type": "object",
         "properties": {
@@ -18581,26 +18684,6 @@
           }
         },
         "description": "Capabilities to request for the customer."
-      },
-      "CustomerWriteBaseType": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/CustomerType"
-          }
-        },
-        "description": "The type of the customer. Required on create; accepted but ignored on\nupdate.\n",
-        "example": "individual"
-      },
-      "IndividualInputPhoneNumber": {
-        "pattern": "^\\\u002B[1-9]\\d{1,14}$",
-        "type": "string",
-        "additionalProperties": false,
-        "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.",
-        "example": "\u002B15551234567"
       },
       "Account": {
         "required": [
@@ -19222,14 +19305,18 @@
           ]
         }
       },
-      "IndividualInputEmail": {
-        "maxLength": 254,
-        "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
-        "type": "string",
-        "additionalProperties": false,
-        "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
-        "format": "email",
-        "example": "jane.doe@example.com"
+      "CustomerWriteBaseType": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CustomerType"
+          }
+        },
+        "description": "The type of the customer. Required on create; accepted but ignored on\nupdate.\n",
+        "example": "individual"
       },
       "CapabilityName": {
         "enum": [
@@ -19375,12 +19462,12 @@
           }
         }
       },
-      "IndividualInputCitizenship": {
-        "maxLength": 2,
-        "pattern": "^[A-Z]{2}$",
+      "IndividualInputPhoneNumber": {
+        "pattern": "^\\\u002B[1-9]\\d{1,14}$",
         "type": "string",
         "additionalProperties": false,
-        "description": "An ISO 3166-1 alpha-2 country code."
+        "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.",
+        "example": "\u002B15551234567"
       },
       "AssetType": {
         "enum": [
@@ -19547,35 +19634,14 @@
           ]
         }
       },
-      "IndividualInputDateOfBirth": {
-        "type": "object",
-        "properties": {
-          "day": {
-            "maxLength": 2,
-            "minLength": 1,
-            "pattern": "^(?:0?[1-9]|[12][0-9]|3[01])$",
-            "type": "string",
-            "description": "Day of birth (1-31). Both single-digit (\u00227\u0022) and zero-padded (\u002207\u0022) formats are accepted.",
-            "example": "15"
-          },
-          "month": {
-            "maxLength": 2,
-            "minLength": 1,
-            "pattern": "^(?:0?[1-9]|1[0-2])$",
-            "type": "string",
-            "description": "Month of birth (1-12). Both single-digit (\u00224\u0022) and zero-padded (\u002204\u0022) formats are accepted.",
-            "example": "08"
-          },
-          "year": {
-            "maxLength": 4,
-            "minLength": 4,
-            "pattern": "^[0-9]{4}$",
-            "type": "string",
-            "description": "Year of birth (four digits).",
-            "example": "1990"
-          }
-        },
-        "description": "Date of birth."
+      "IndividualInputEmail": {
+        "maxLength": 254,
+        "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
+        "format": "email",
+        "example": "jane.doe@example.com"
       },
       "CustomerType": {
         "enum": [
@@ -19744,43 +19810,12 @@
           ]
         }
       },
-      "IndividualInputAddress": {
-        "type": "object",
-        "properties": {
-          "line1": {
-            "type": "string",
-            "description": "Primary street address.",
-            "example": "123 Market St"
-          },
-          "line2": {
-            "type": "string",
-            "description": "Secondary address information.",
-            "example": "Suite 400"
-          },
-          "city": {
-            "type": "string",
-            "description": "City or locality.",
-            "example": "San Francisco"
-          },
-          "state": {
-            "type": "string",
-            "description": "State, province, or region.",
-            "example": "CA"
-          },
-          "postCode": {
-            "type": "string",
-            "description": "Postal or ZIP code.",
-            "example": "94105"
-          },
-          "countryCode": {
-            "maxLength": 2,
-            "minLength": 2,
-            "type": "string",
-            "description": "ISO 3166-1 alpha-2 country code (2 characters). See https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes.",
-            "example": "US"
-          }
-        },
-        "description": "Primary residential address. Only US addresses are currently\nsupported. Non-US \u0060countryCode\u0060 values are rejected with a 400.\n"
+      "IndividualInputCitizenship": {
+        "maxLength": 2,
+        "pattern": "^[A-Z]{2}$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "An ISO 3166-1 alpha-2 country code."
       },
       "TermsOfService": {
         "required": [
@@ -19944,19 +19979,35 @@
           }
         }
       },
-      "CapabilitiesMapInputTransferStablecoin": {
-        "required": [
-          "requested"
-        ],
+      "IndividualInputDateOfBirth": {
         "type": "object",
         "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
+          "day": {
+            "maxLength": 2,
+            "minLength": 1,
+            "pattern": "^(?:0?[1-9]|[12][0-9]|3[01])$",
+            "type": "string",
+            "description": "Day of birth (1-31). Both single-digit (\u00227\u0022) and zero-padded (\u002207\u0022) formats are accepted.",
+            "example": "15"
+          },
+          "month": {
+            "maxLength": 2,
+            "minLength": 1,
+            "pattern": "^(?:0?[1-9]|1[0-2])$",
+            "type": "string",
+            "description": "Month of birth (1-12). Both single-digit (\u00224\u0022) and zero-padded (\u002204\u0022) formats are accepted.",
+            "example": "08"
+          },
+          "year": {
+            "maxLength": 4,
+            "minLength": 4,
+            "pattern": "^[0-9]{4}$",
+            "type": "string",
+            "description": "Year of birth (four digits).",
+            "example": "1990"
           }
         },
-        "description": "Transfer stablecoin to another party."
+        "description": "Date of birth."
       },
       "Individual": {
         "type": "object",
@@ -19986,19 +20037,43 @@
           "email": "jane.doe@example.com"
         }
       },
-      "CapabilitiesMapInputTransferFiat": {
-        "required": [
-          "requested"
-        ],
+      "IndividualInputAddress": {
         "type": "object",
         "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
+          "line1": {
+            "type": "string",
+            "description": "Primary street address.",
+            "example": "123 Market St"
+          },
+          "line2": {
+            "type": "string",
+            "description": "Secondary address information.",
+            "example": "Suite 400"
+          },
+          "city": {
+            "type": "string",
+            "description": "City or locality.",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "description": "State, province, or region.",
+            "example": "CA"
+          },
+          "postCode": {
+            "type": "string",
+            "description": "Postal or ZIP code.",
+            "example": "94105"
+          },
+          "countryCode": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code (2 characters). See https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes.",
+            "example": "US"
           }
         },
-        "description": "Transfer fiat currency to another party."
+        "description": "Primary residential address. Only US addresses are currently\nsupported. Non-US \u0060countryCode\u0060 values are rejected with a 400.\n"
       },
       "TosAcceptance": {
         "required": [
@@ -20224,7 +20299,7 @@
           "year": "1990"
         }
       },
-      "CapabilitiesMapInputTransferCrypto": {
+      "CapabilitiesMapInputTransferStablecoin": {
         "required": [
           "requested"
         ],
@@ -20236,9 +20311,9 @@
             "example": true
           }
         },
-        "description": "Transfer cryptocurrency to another party."
+        "description": "Transfer stablecoin to another party."
       },
-      "CapabilitiesMapInputTradeStablecoin": {
+      "CapabilitiesMapInputTransferFiat": {
         "required": [
           "requested"
         ],
@@ -20250,7 +20325,7 @@
             "example": true
           }
         },
-        "description": "Trade stablecoin."
+        "description": "Transfer fiat currency to another party."
       },
       "IndividualInput": {
         "type": "object",
@@ -20304,19 +20379,19 @@
             "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
           },
           "purposeOfAccount": {
-            "$ref": "#/components/schemas/IndividualInputPurposeOfAccount"
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualPurposeOfAccount"
           },
           "sourceOfFunds": {
-            "$ref": "#/components/schemas/IndividualInputSourceOfFunds"
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualSourceOfFunds"
           },
           "employmentStatus": {
-            "$ref": "#/components/schemas/IndividualInputEmploymentStatus"
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualEmploymentStatus"
           },
           "occupation": {
-            "$ref": "#/components/schemas/IndividualInputOccupation"
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualOccupation"
           },
           "expectedVolume": {
-            "$ref": "#/components/schemas/IndividualInputExpectedVolume"
+            "$ref": "#/components/schemas/CustomerWriteBaseIndividualExpectedVolume"
           }
         },
         "additionalProperties": false,
@@ -20567,7 +20642,7 @@
         "description": "The type of deposit destination.",
         "example": "crypto"
       },
-      "CapabilitiesMapInputTradeCrypto": {
+      "CapabilitiesMapInputTransferCrypto": {
         "required": [
           "requested"
         ],
@@ -20579,7 +20654,7 @@
             "example": true
           }
         },
-        "description": "Trade cryptocurrency."
+        "description": "Transfer cryptocurrency to another party."
       },
       "PaymentNetwork": {
         "enum": [
@@ -20635,7 +20710,7 @@
           ]
         }
       },
-      "CapabilitiesMapInputCustodyStablecoin": {
+      "CapabilitiesMapInputTradeStablecoin": {
         "required": [
           "requested"
         ],
@@ -20647,7 +20722,7 @@
             "example": true
           }
         },
-        "description": "Hold stablecoin in a Coinbase custodial account."
+        "description": "Trade stablecoin."
       },
       "DepositDestinationCrypto": {
         "required": [
@@ -21516,7 +21591,7 @@
           "asset": "usdc"
         }
       },
-      "CapabilitiesMapInputCustodyFiat": {
+      "CapabilitiesMapInputTradeCrypto": {
         "required": [
           "requested"
         ],
@@ -21528,7 +21603,7 @@
             "example": true
           }
         },
-        "description": "Hold fiat currency in a Coinbase custodial account."
+        "description": "Trade cryptocurrency."
       },
       "PaymentMethod": {
         "title": "Payment Method",
@@ -22196,7 +22271,7 @@
         },
         "description": "The source of the transfer."
       },
-      "CapabilitiesMapInputCustodyCrypto": {
+      "CapabilitiesMapInputCustodyStablecoin": {
         "required": [
           "requested"
         ],
@@ -22208,21 +22283,21 @@
             "example": true
           }
         },
-        "description": "Hold cryptocurrency in a Coinbase custodial account."
+        "description": "Hold stablecoin in a Coinbase custodial account."
       },
-      "CustomerRequirements": {
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Requirement"
-            },
-            "description": "Map of requirements to be submitted. Each key is the field name\n(e.g., \u0022ssnLast4\u0022), with values to describe its state. Requirements\nare only shown for requested capabilities. When a requirement is\nverified, it disappears from this map.\n\nWhen comparing deadlines across keys, note that \u0060requirements.tos.deadline\u0060\nis an aggregate: the earliest deadline among unaccepted required Terms of\nService versions listed in \u0060requirements.tos.tosVersions[]\u0060 (not a separate\nclock from those version rows).\n"
-          }
+      "CapabilitiesMapInputCustodyFiat": {
+        "required": [
+          "requested"
         ],
-        "description": "Map of requirements to be submitted. Each key is the field name, with\nvalues to describe its state. Requirements are only shown for requested\ncapabilities. When a requirement is fulfilled, it disappears from this map.\n",
-        "readOnly": true
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Hold fiat currency in a Coinbase custodial account."
       },
       "TravelRuleParty": {
         "type": "object",
@@ -22647,36 +22722,19 @@
           ]
         }
       },
-      "CustomerCapabilities": {
+      "CapabilitiesMapInputCustodyCrypto": {
+        "required": [
+          "requested"
+        ],
         "type": "object",
         "properties": {
-          "custodyCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapCustodyCrypto"
-          },
-          "custodyFiat": {
-            "$ref": "#/components/schemas/CapabilitiesMapCustodyFiat"
-          },
-          "custodyStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapCustodyStablecoin"
-          },
-          "tradeCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapTradeCrypto"
-          },
-          "tradeStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapTradeStablecoin"
-          },
-          "transferCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapTransferCrypto"
-          },
-          "transferFiat": {
-            "$ref": "#/components/schemas/CapabilitiesMapTransferFiat"
-          },
-          "transferStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapTransferStablecoin"
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
           }
         },
-        "description": "Current state of each capability for this customer. Each capability\nshows whether it has been requested and its current status.\n",
-        "readOnly": true
+        "description": "Hold cryptocurrency in a Coinbase custodial account."
       },
       "PaymentTargetNetwork": {
         "enum": [
@@ -23061,11 +23119,19 @@
           "refunded": "0"
         }
       },
-      "TosAcceptanceVersionId": {
-        "maxLength": 64,
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Stable, opaque identifier for a specific Terms of Service version\n(for example, \u0060us_individual_2026-05-29\u0060). The same identifier is\nsurfaced on \u0060Customer.requirements.tos.tosVersions[].versionId\u0060 (the\nversions a Customer still needs to accept) and on\n\u0060Customer.tosAcceptances[].versionId\u0060 (the versions the Customer has\naccepted). Treat the value as opaque and submit it verbatim; the\nidentifier format is stable across API versions, but the set of\nvalid values grows over time as new Terms of Service versions are\npublished.\n"
+      "CustomerRequirements": {
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Requirement"
+            },
+            "description": "Map of requirements to be submitted. Each key is the field name\n(e.g., \u0022ssnLast4\u0022), with values to describe its state. Requirements\nare only shown for requested capabilities. When a requirement is\nverified, it disappears from this map.\n\nWhen comparing deadlines across keys, note that \u0060requirements.tos.deadline\u0060\nis an aggregate: the earliest deadline among unaccepted required Terms of\nService versions listed in \u0060requirements.tos.tosVersions[]\u0060 (not a separate\nclock from those version rows).\n"
+          }
+        ],
+        "description": "Map of requirements to be submitted. Each key is the field name, with\nvalues to describe its state. Requirements are only shown for requested\ncapabilities. When a requirement is fulfilled, it disappears from this map.\n",
+        "readOnly": true
       },
       "PaymentActionStatus": {
         "enum": [
@@ -23123,6 +23189,58 @@
           "occurredAt": "2025-06-15T12:00:00.000Z"
         }
       },
+      "CustomerCapabilities": {
+        "type": "object",
+        "properties": {
+          "custodyCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapCustodyCrypto"
+          },
+          "custodyFiat": {
+            "$ref": "#/components/schemas/CapabilitiesMapCustodyFiat"
+          },
+          "custodyStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapCustodyStablecoin"
+          },
+          "tradeCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapTradeCrypto"
+          },
+          "tradeStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapTradeStablecoin"
+          },
+          "transferCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapTransferCrypto"
+          },
+          "transferFiat": {
+            "$ref": "#/components/schemas/CapabilitiesMapTransferFiat"
+          },
+          "transferStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapTransferStablecoin"
+          }
+        },
+        "description": "Current state of each capability for this customer. Each capability\nshows whether it has been requested and its current status.\n",
+        "readOnly": true
+      },
+      "TosAcceptanceVersionId": {
+        "maxLength": 64,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Stable, opaque identifier for a specific Terms of Service version\n(for example, \u0060us_individual_2026-05-29\u0060). The same identifier is\nsurfaced on \u0060Customer.requirements.tos.tosVersions[].versionId\u0060 (the\nversions a Customer still needs to accept) and on\n\u0060Customer.tosAcceptances[].versionId\u0060 (the versions the Customer has\naccepted). Treat the value as opaque and submit it verbatim; the\nidentifier format is stable across API versions, but the set of\nvalid values grows over time as new Terms of Service versions are\npublished.\n"
+      },
+      "OperationCustomerDisplay": {
+        "title": "Operation Customer Display",
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for a payment operation, shown to the payer.",
+        "example": {
+          "referenceCode": "REF-ABC123"
+        }
+      },
       "OnchainTransaction": {
         "required": [
           "transactionHash",
@@ -23173,6 +23291,14 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/AuthorizationMetadata"
+          },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/AuthorizationCustomerDisplay"
           },
           "source": {
             "$ref": "#/components/schemas/AuthorizationSource"
@@ -23266,6 +23392,14 @@
           "metadata": {
             "$ref": "#/components/schemas/CaptureMetadata"
           },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/CaptureCustomerDisplay"
+          },
           "onchainTransactions": {
             "type": "array",
             "items": {
@@ -23342,6 +23476,14 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/VoidTypeMetadata"
+          },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/VoidTypeCustomerDisplay"
           },
           "onchainTransactions": {
             "type": "array",
@@ -23468,6 +23610,14 @@
           "metadata": {
             "$ref": "#/components/schemas/RefundMetadata"
           },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/RefundCustomerDisplay"
+          },
           "onchainTransactions": {
             "type": "array",
             "items": {
@@ -23548,6 +23698,12 @@
           },
           "displayAmount": {
             "$ref": "#/components/schemas/CustomerDisplayDisplayAmount"
+          },
+          "orderCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A customer-visible code for the overall order. When omitted, CDP generates one and returns it. It must not contain personally identifiable information (PII) or payment credentials.",
+            "example": "ORDER-ABC123"
           }
         },
         "description": "Merchant-provided display data shown to the payer during checkout. All fields are informational only \u2014 stored and returned as-is, with no effect on payment processing, settlement, or validation.",
@@ -24642,6 +24798,14 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/WalletAuthorizationRequestMetadata"
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/WalletAuthorizationRequestCustomerDisplay"
+          },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
           }
         },
         "description": "A request to authorize a payment session using a wallet. The payer selects one of the options returned by the wallet authorization options endpoint and submits the signed payloads.",
@@ -24660,6 +24824,14 @@
         "properties": {
           "metadata": {
             "$ref": "#/components/schemas/CoinbaseAuthorizationRequestMetadata"
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/CoinbaseAuthorizationRequestCustomerDisplay"
+          },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
           }
         },
         "description": "A request to authorize a payment session using the payer\u0027s Coinbase account authenticated via OAuth."
@@ -24682,6 +24854,14 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/CreateCaptureRequestMetadata"
+          },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/CreateCaptureRequestCustomerDisplay"
           }
         },
         "description": "A request to create a capture for a payment session.",
@@ -24695,6 +24875,14 @@
         "properties": {
           "metadata": {
             "$ref": "#/components/schemas/CreateVoidRequestMetadata"
+          },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/CreateVoidRequestCustomerDisplay"
           }
         },
         "description": "A request to create a void for a payment session. A void releases all remaining capturable funds back to the payer, including after partial refunds as long as a capturableAmount remains."
@@ -24720,6 +24908,14 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/CreateRefundRequestMetadata"
+          },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/CreateRefundRequestCustomerDisplay"
           }
         },
         "description": "A request to create a refund for a payment session.",
@@ -24958,6 +25154,9 @@
             "description": "A merchant-provided internal identifier for this disbursement, from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
             "example": "disbursement-2026-04-1234"
           },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/DisbursementCustomerDisplay"
+          },
           "metadata": {
             "$ref": "#/components/schemas/DisbursementMetadata"
           },
@@ -25069,6 +25268,9 @@
             "type": "string",
             "description": "A merchant-provided internal identifier for this disbursement, from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
             "example": "disbursement-2026-04-1234"
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/CreateDisbursementRequestCustomerDisplay"
           },
           "metadata": {
             "$ref": "#/components/schemas/CreateDisbursementRequestMetadata"
@@ -25899,7 +26101,8 @@
             "format": "date-time",
             "example": "2025-03-25T12:00:00Z"
           }
-        }
+        },
+        "description": "A smart account operation response."
       },
       "X402Version": {
         "enum": [
@@ -27606,6 +27809,15 @@
           "fromToken"
         ],
         "type": "object",
+        "not": {
+          "properties": {
+            "liquidityAvailable": {
+              "enum": [
+                false
+              ]
+            }
+          }
+        },
         "properties": {
           "blockNumber": {
             "pattern": "^[1-9]\\d*$",
@@ -27632,7 +27844,9 @@
             "$ref": "#/components/schemas/CommonSwapResponseIssues"
           },
           "liquidityAvailable": {
-            "$ref": "#/components/schemas/CommonSwapResponseLiquidityAvailable"
+            "type": "boolean",
+            "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
+            "example": true
           },
           "minToAmount": {
             "pattern": "^(0|[1-9]\\d*)$",
@@ -27727,7 +27941,9 @@
             "$ref": "#/components/schemas/CommonSwapResponseIssues"
           },
           "liquidityAvailable": {
-            "$ref": "#/components/schemas/CommonSwapResponseLiquidityAvailable"
+            "type": "boolean",
+            "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
+            "example": true
           },
           "minToAmount": {
             "pattern": "^(0|[1-9]\\d*)$",
@@ -27771,11 +27987,23 @@
           "liquidityAvailable"
         ],
         "type": "object",
-        "properties": {
-          "liquidityAvailable": {
-            "$ref": "#/components/schemas/SwapUnavailableResponseLiquidityAvailable"
+        "not": {
+          "properties": {
+            "liquidityAvailable": {
+              "enum": [
+                true
+              ]
+            }
           }
         },
+        "properties": {
+          "liquidityAvailable": {
+            "type": "boolean",
+            "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
+            "example": false
+          }
+        },
+        "additionalProperties": false,
         "example": {
           "liquidityAvailable": false
         }
@@ -27814,6 +28042,11 @@
           },
           "issues": {
             "$ref": "#/components/schemas/CommonSwapResponseIssues"
+          },
+          "liquidityAvailable": {
+            "type": "boolean",
+            "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
+            "example": true
           },
           "minToAmount": {
             "pattern": "^(0|[1-9]\\d*)$",
@@ -27918,7 +28151,9 @@
             "$ref": "#/components/schemas/CommonSwapResponseIssues"
           },
           "liquidityAvailable": {
-            "$ref": "#/components/schemas/CommonSwapResponseLiquidityAvailable"
+            "type": "boolean",
+            "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
+            "example": true
           },
           "minToAmount": {
             "pattern": "^(0|[1-9]\\d*)$",
@@ -27980,6 +28215,11 @@
           },
           "issues": {
             "$ref": "#/components/schemas/CommonSwapResponseIssues"
+          },
+          "liquidityAvailable": {
+            "type": "boolean",
+            "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
+            "example": true
           },
           "minToAmount": {
             "pattern": "^(0|[1-9]\\d*)$",
@@ -38884,85 +39124,6 @@
         },
         "x-event-type": "customers.customer.deleted"
       },
-      "CustomerWriteBaseIndividual": {
-        "type": "object",
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "description": "First name (given name).",
-            "example": "Jane"
-          },
-          "lastName": {
-            "type": "string",
-            "description": "Last name (family name/surname).",
-            "example": "Doe"
-          },
-          "address": {
-            "$ref": "#/components/schemas/IndividualInputAddress"
-          },
-          "ssnLast4": {
-            "maxLength": 4,
-            "minLength": 4,
-            "pattern": "^[0-9]{4}$",
-            "type": "string",
-            "description": "Last 4 digits of the Social Security Number (US only).\nUsed for identity verification.\n",
-            "example": "6789"
-          },
-          "dateOfBirth": {
-            "$ref": "#/components/schemas/IndividualInputDateOfBirth"
-          },
-          "fullSsn": {
-            "pattern": "^([0-9]{3}-[0-9]{2}-[0-9]{4}|\\*\\*\\*-\\*\\*-[0-9]{4})$",
-            "type": "string",
-            "description": "Full Social Security Number (US only).\n",
-            "example": "***-**-6789"
-          },
-          "citizenship": {
-            "maxLength": 2,
-            "pattern": "^[A-Z]{2}$",
-            "type": "string",
-            "description": "An ISO 3166-1 alpha-2 country code."
-          },
-          "email": {
-            "maxLength": 254,
-            "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
-            "type": "string",
-            "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
-            "format": "email"
-          },
-          "phoneNumber": {
-            "pattern": "^\\\u002B[1-9]\\d{1,14}$",
-            "type": "string",
-            "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
-          },
-          "purposeOfAccount": {
-            "$ref": "#/components/schemas/IndividualInputPurposeOfAccount"
-          },
-          "sourceOfFunds": {
-            "$ref": "#/components/schemas/IndividualInputSourceOfFunds"
-          },
-          "employmentStatus": {
-            "$ref": "#/components/schemas/IndividualInputEmploymentStatus"
-          },
-          "occupation": {
-            "$ref": "#/components/schemas/IndividualInputOccupation"
-          },
-          "expectedVolume": {
-            "$ref": "#/components/schemas/IndividualInputExpectedVolume"
-          }
-        },
-        "description": "Information about an Individual customer. Not all fields are required\nfor all customers; the requirements depend on which capabilities are\nrequested. Submit only fields that are required by the capabilities\nthat have been requested.\n",
-        "example": {
-          "firstName": "Jane",
-          "lastName": "Doe"
-        }
-      },
-      "DepositDestinationTargetAccountAccountId": {
-        "pattern": "^account_[a-f0-9\\-]{36}$",
-        "type": "string",
-        "additionalProperties": false,
-        "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
-      },
       "DepositDestinationTargetAccountAsset": {
         "maxLength": 42,
         "type": "string",
@@ -39354,6 +39515,13 @@
         "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
         "example": "usdc"
       },
+      "OperationCustomerDisplayReferenceCode": {
+        "maxLength": 128,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "REF-ABC123"
+      },
       "OnchainTransactionNetwork": {
         "required": [
           "value"
@@ -39393,6 +39561,24 @@
         },
         "description": "The current status of the authorization.",
         "example": "pending"
+      },
+      "AuthorizationExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-authorization-abc123"
+      },
+      "AuthorizationCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this authorization, shown to the payer. Present when supplied on the authorization request or when the session\u0027s \u0060orderCode\u0060 fallback applies; otherwise omitted."
       },
       "AuthorizationSource": {
         "type": "object",
@@ -39435,6 +39621,24 @@
         "description": "The current status of the capture.",
         "example": "pending"
       },
+      "CaptureExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-capture-abc123"
+      },
+      "CaptureCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this capture, shown to the payer. A manual capture falls back to the session\u0027s \u0060orderCode\u0060 when \u0060referenceCode\u0060 is omitted; an auto-capture reuses the authorization\u0027s \u0060referenceCode\u0060."
+      },
       "VoidTypeVoidId": {
         "pattern": "^void_[a-f0-9\\-]{36}$",
         "type": "string",
@@ -39461,6 +39665,24 @@
         },
         "description": "The current status of the void.",
         "example": "pending"
+      },
+      "VoidTypeExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-void-abc123"
+      },
+      "VoidTypeCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this void, shown to the payer. Present when supplied on the create void request or when the session\u0027s \u0060orderCode\u0060 fallback applies; otherwise omitted."
       },
       "RefundWalletAddress": {
         "maxLength": 128,
@@ -39508,6 +39730,24 @@
         },
         "description": "The current status of the refund.",
         "example": "pending"
+      },
+      "RefundExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-refund-abc123"
+      },
+      "RefundCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this refund, shown to the payer. Present when supplied on the create refund request or when the session\u0027s \u0060orderCode\u0060 fallback applies; otherwise omitted."
       },
       "PaymentRedirectFailureUrl": {
         "maxLength": 2048,
@@ -40053,6 +40293,90 @@
         "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
         "example": "0xDeF9876543210FeDcBa9876543210FedcBa987654"
       },
+      "WalletAuthorizationRequestCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Optional customer-facing display data for this authorization, shown to the payer. Falls back to the session\u0027s \u0060orderCode\u0060 when \u0060referenceCode\u0060 is omitted.",
+        "example": {
+          "referenceCode": "REF-ABC123"
+        }
+      },
+      "WalletAuthorizationRequestExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-authorization-abc123"
+      },
+      "CoinbaseAuthorizationRequestCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Optional customer-facing display data for this authorization, shown to the payer. Falls back to the session\u0027s \u0060orderCode\u0060 when \u0060referenceCode\u0060 is omitted.",
+        "example": {
+          "referenceCode": "REF-ABC123"
+        }
+      },
+      "CoinbaseAuthorizationRequestExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-authorization-abc123"
+      },
+      "CreateCaptureRequestExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-capture-abc123"
+      },
+      "CreateCaptureRequestCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Optional customer-facing display data for this manual capture, shown to the payer. Falls back to the session\u0027s \u0060orderCode\u0060 when \u0060referenceCode\u0060 is omitted.",
+        "example": {
+          "referenceCode": "REF-ABC123"
+        }
+      },
+      "CreateVoidRequestExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-void-abc123"
+      },
+      "CreateVoidRequestCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Optional customer-facing display data for this void, shown to the payer. Falls back to the session\u0027s \u0060orderCode\u0060 when \u0060referenceCode\u0060 is omitted.",
+        "example": {
+          "referenceCode": "REF-ABC123"
+        }
+      },
       "CreateRefundRequestSource": {
         "type": "object",
         "allOf": [
@@ -40064,6 +40388,27 @@
         "example": {
           "accountId": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114",
           "asset": "usdc"
+        }
+      },
+      "CreateRefundRequestExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-refund-abc123"
+      },
+      "CreateRefundRequestCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Optional customer-facing display data for this refund, shown to the payer. Falls back to the session\u0027s \u0060orderCode\u0060 when \u0060referenceCode\u0060 is omitted.",
+        "example": {
+          "referenceCode": "REF-ABC123"
         }
       },
       "DisbursementWalletTargetAddress": {
@@ -40138,6 +40483,17 @@
         "description": "The current status of the disbursement.",
         "example": "pending"
       },
+      "DisbursementCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this disbursement, shown to the payer. Always present: if the create request omits \u0060referenceCode\u0060, one is auto-generated, since disbursements have no payment session to fall back to."
+      },
       "DisbursementError": {
         "type": "object",
         "properties": {
@@ -40204,6 +40560,17 @@
         "additionalProperties": false,
         "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
         "example": "usdc"
+      },
+      "CreateDisbursementRequestCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Optional customer-facing display data for this disbursement, shown to the payer. If \u0060referenceCode\u0060 is omitted, one is auto-generated \u2014 disbursements have no payment session to fall back to, unlike every other action type."
       },
       "CreateDisbursementRequestCompliance": {
         "type": "object",
@@ -42715,6 +43082,24 @@
         "description": "The current status of the authorization.",
         "example": "succeeded"
       },
+      "PaymentSessionEventDataAuthorizationExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-authorization-abc123"
+      },
+      "PaymentSessionEventDataAuthorizationCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this authorization, shown to the payer. Present when supplied on the authorization request or when the session\u0027s \u0060orderCode\u0060 fallback applies; otherwise omitted."
+      },
       "PaymentSessionEventDataAuthorizationError": {
         "type": "object",
         "properties": {
@@ -42776,6 +43161,24 @@
         "description": "The current status of the capture.",
         "example": "succeeded"
       },
+      "PaymentSessionEventDataCaptureExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-capture-abc123"
+      },
+      "PaymentSessionEventDataCaptureCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this capture, shown to the payer. An auto-capture reuses the authorization\u0027s \u0060referenceCode\u0060."
+      },
       "PaymentSessionEventDataCaptureError": {
         "type": "object",
         "properties": {
@@ -42823,6 +43226,24 @@
         "description": "The current status of the void.",
         "example": "succeeded"
       },
+      "PaymentSessionEventDataVoidExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-void-abc123"
+      },
+      "PaymentSessionEventDataVoidCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this void, shown to the payer. Present when supplied on the create void request or when the session\u0027s \u0060orderCode\u0060 fallback applies; otherwise omitted."
+      },
       "PaymentSessionEventDataVoidError": {
         "type": "object",
         "properties": {
@@ -42869,6 +43290,24 @@
         },
         "description": "The current status of the refund.",
         "example": "succeeded"
+      },
+      "PaymentSessionEventDataRefundExternalReferenceId": {
+        "maxLength": 256,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-refund-abc123"
+      },
+      "PaymentSessionEventDataRefundCustomerDisplay": {
+        "type": "object",
+        "properties": {
+          "referenceCode": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          }
+        },
+        "description": "Customer-facing display data for this refund, shown to the payer. Present when supplied on the create refund request or when the session\u0027s \u0060orderCode\u0060 fallback applies; otherwise omitted."
       },
       "PaymentSessionEventDataRefundError": {
         "type": "object",
@@ -44322,6 +44761,14 @@
             "description": "A decimal representation of the authorized amount, denominated in the session\u0027s \u0060asset\u0060.",
             "example": "1.00"
           },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/PaymentSessionEventDataAuthorizationCustomerDisplay"
+          },
           "error": {
             "$ref": "#/components/schemas/PaymentSessionEventDataAuthorizationError"
           },
@@ -44395,6 +44842,14 @@
             "description": "A decimal representation of the captured amount, denominated in the session\u0027s \u0060asset\u0060.",
             "example": "1.00"
           },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/PaymentSessionEventDataCaptureCustomerDisplay"
+          },
           "finalCapture": {
             "type": "boolean",
             "description": "When \u0060true\u0060, this capture is treated as the final one for the authorization. Any remaining capturable balance is released back to the payer immediately after the capture settles. When \u0060false\u0060, the remaining capturable balance stays held and is available for subsequent partial captures (subject to \u0060captureExpiresAt\u0060). Has no effect if \u0060amount\u0060 equals the full capturable balance, since no remaining balance exists to release.",
@@ -44465,6 +44920,14 @@
             "description": "A decimal representation of the voided amount, denominated in the session\u0027s \u0060asset\u0060.",
             "example": "1.00"
           },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/PaymentSessionEventDataVoidCustomerDisplay"
+          },
           "error": {
             "$ref": "#/components/schemas/PaymentSessionEventDataVoidError"
           },
@@ -44528,6 +44991,14 @@
             "type": "string",
             "description": "A decimal representation of the refunded amount, denominated in the session\u0027s \u0060asset\u0060.",
             "example": "0.50"
+          },
+          "externalReferenceId": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials."
+          },
+          "customerDisplay": {
+            "$ref": "#/components/schemas/PaymentSessionEventDataRefundCustomerDisplay"
           },
           "reason": {
             "type": "string",
@@ -48478,7 +48949,7 @@
         "type": "object",
         "description": "Optional protocol extensions. Unknown keys are forwarded as-is into the signed payment payload."
       },
-      "IndividualInputPurposeOfAccount": {
+      "CustomerWriteBaseIndividualPurposeOfAccount": {
         "enum": [
           "investing",
           "long_term_investment",
@@ -48502,7 +48973,7 @@
         "description": "Primary purpose for using Coinbase services.\n",
         "example": "investing",
         "x-ms-enum": {
-          "name": "IndividualInputPurposeOfAccount",
+          "name": "CustomerWriteBaseIndividualPurposeOfAccount",
           "modelAsString": false,
           "values": [
             {
@@ -48572,7 +49043,7 @@
           ]
         }
       },
-      "IndividualInputSourceOfFunds": {
+      "CustomerWriteBaseIndividualSourceOfFunds": {
         "enum": [
           "salary",
           "employment_business_income",
@@ -48599,7 +49070,7 @@
         "description": "Primary source of funds for the account.\n",
         "example": "salary",
         "x-ms-enum": {
-          "name": "IndividualInputSourceOfFunds",
+          "name": "CustomerWriteBaseIndividualSourceOfFunds",
           "modelAsString": false,
           "values": [
             {
@@ -48681,7 +49152,7 @@
           ]
         }
       },
-      "IndividualInputEmploymentStatus": {
+      "CustomerWriteBaseIndividualEmploymentStatus": {
         "enum": [
           "employed_fulltime",
           "employed_parttime",
@@ -48702,7 +49173,7 @@
         "description": "Current employment status.\n",
         "example": "employed_fulltime",
         "x-ms-enum": {
-          "name": "IndividualInputEmploymentStatus",
+          "name": "CustomerWriteBaseIndividualEmploymentStatus",
           "modelAsString": false,
           "values": [
             {
@@ -48760,7 +49231,7 @@
           ]
         }
       },
-      "IndividualInputOccupation": {
+      "CustomerWriteBaseIndividualOccupation": {
         "enum": [
           "agriculture",
           "arts_and_media",
@@ -48810,7 +49281,7 @@
         "description": "Industry or occupation.\n",
         "example": "technology",
         "x-ms-enum": {
-          "name": "IndividualInputOccupation",
+          "name": "CustomerWriteBaseIndividualOccupation",
           "modelAsString": false,
           "values": [
             {
@@ -48984,7 +49455,7 @@
           ]
         }
       },
-      "IndividualInputExpectedVolume": {
+      "CustomerWriteBaseIndividualExpectedVolume": {
         "enum": [
           "under_1k",
           "1k_to_10k",
@@ -48999,7 +49470,7 @@
         "description": "Expected annual volume of activity on the account, expressed as a\ndollar range. Use the dollar-honest ids below:\n\n- \u0060under_1k\u0060: $0 \u2013 $1,000\n- \u00601k_to_10k\u0060: $1,000 \u2013 $10,000\n- \u006010k_to_100k\u0060: $10,000 \u2013 $100,000\n- \u0060100k_to_250k\u0060: $100,000 \u2013 $250,000\n- \u0060250k_to_750k\u0060: $250,000 \u2013 $750,000\n- \u0060750k_to_1_5m\u0060: $750,000 \u2013 $1.5M\n- \u00601_5m_plus\u0060: $1.5M\u002B\n",
         "example": "under_1k",
         "x-ms-enum": {
-          "name": "IndividualInputExpectedVolume",
+          "name": "CustomerWriteBaseIndividualExpectedVolume",
           "modelAsString": false,
           "values": [
             {
@@ -49680,24 +50151,6 @@
             }
           ]
         }
-      },
-      "CommonSwapResponseLiquidityAvailable": {
-        "enum": [
-          true
-        ],
-        "type": "boolean",
-        "additionalProperties": false,
-        "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
-        "example": true
-      },
-      "SwapUnavailableResponseLiquidityAvailable": {
-        "enum": [
-          false
-        ],
-        "type": "boolean",
-        "additionalProperties": false,
-        "description": "Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.",
-        "example": false
       },
       "EthValueType": {
         "enum": [

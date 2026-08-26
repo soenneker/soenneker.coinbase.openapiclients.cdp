@@ -33,6 +33,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which the disbursement was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Customer-facing display data for this disbursement, shown to the payer. Always present: if the create request omits `referenceCode`, one is auto-generated, since disbursements have no payment session to fall back to.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementCustomerDisplay? CustomerDisplay { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementCustomerDisplay CustomerDisplay { get; set; }
+#endif
         /// <summary>The ID of the disbursement, a UUID prefixed by `disbursement_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,6 +143,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "amount", n => { Amount = n.GetStringValue(); } },
                 { "asset", n => { Asset = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "customerDisplay", n => { CustomerDisplay = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementCustomerDisplay>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementCustomerDisplay.CreateFromDiscriminatorValue); } },
                 { "disbursementId", n => { DisbursementId = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementError>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementError.CreateFromDiscriminatorValue); } },
                 { "externalReferenceId", n => { ExternalReferenceId = n.GetStringValue(); } },
@@ -157,6 +166,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("asset", Asset);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementCustomerDisplay>("customerDisplay", CustomerDisplay);
             writer.WriteStringValue("disbursementId", DisbursementId);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementError>("error", Error);
             writer.WriteStringValue("externalReferenceId", ExternalReferenceId);

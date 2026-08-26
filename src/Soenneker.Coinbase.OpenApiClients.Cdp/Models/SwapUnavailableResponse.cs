@@ -9,20 +9,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SwapUnavailableResponse : IAdditionalDataHolder, IParsable
+    public partial class SwapUnavailableResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.</summary>
         public bool? LiquidityAvailable { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapUnavailableResponse"/> and sets the default values.
-        /// </summary>
-        public SwapUnavailableResponse()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -52,7 +43,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("liquidityAvailable", LiquidityAvailable);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

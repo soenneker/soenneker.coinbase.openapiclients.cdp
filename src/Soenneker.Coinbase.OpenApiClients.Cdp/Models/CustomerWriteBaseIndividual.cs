@@ -48,9 +48,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string Email { get; set; }
 #endif
         /// <summary>Current employment status.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputEmploymentStatus? EmploymentStatus { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualEmploymentStatus? EmploymentStatus { get; set; }
         /// <summary>Expected annual volume of activity on the account, expressed as adollar range. Use the dollar-honest ids below:- `under_1k`: $0 – $1,000- `1k_to_10k`: $1,000 – $10,000- `10k_to_100k`: $10,000 – $100,000- `100k_to_250k`: $100,000 – $250,000- `250k_to_750k`: $250,000 – $750,000- `750k_to_1_5m`: $750,000 – $1.5M- `1_5m_plus`: $1.5M+</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputExpectedVolume? ExpectedVolume { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualExpectedVolume? ExpectedVolume { get; set; }
         /// <summary>First name (given name).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,7 +76,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string LastName { get; set; }
 #endif
         /// <summary>Industry or occupation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputOccupation? Occupation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualOccupation? Occupation { get; set; }
         /// <summary>A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,9 +86,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>Primary purpose for using Coinbase services.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputPurposeOfAccount? PurposeOfAccount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualPurposeOfAccount? PurposeOfAccount { get; set; }
         /// <summary>Primary source of funds for the account.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputSourceOfFunds? SourceOfFunds { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualSourceOfFunds? SourceOfFunds { get; set; }
         /// <summary>Last 4 digits of the Social Security Number (US only).Used for identity verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -126,15 +126,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "citizenship", n => { Citizenship = n.GetStringValue(); } },
                 { "dateOfBirth", n => { DateOfBirth = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth.CreateFromDiscriminatorValue); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "employmentStatus", n => { EmploymentStatus = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputEmploymentStatus>(); } },
-                { "expectedVolume", n => { ExpectedVolume = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputExpectedVolume>(); } },
+                { "employmentStatus", n => { EmploymentStatus = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualEmploymentStatus>(); } },
+                { "expectedVolume", n => { ExpectedVolume = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualExpectedVolume>(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "fullSsn", n => { FullSsn = n.GetStringValue(); } },
                 { "lastName", n => { LastName = n.GetStringValue(); } },
-                { "occupation", n => { Occupation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputOccupation>(); } },
+                { "occupation", n => { Occupation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualOccupation>(); } },
                 { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
-                { "purposeOfAccount", n => { PurposeOfAccount = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputPurposeOfAccount>(); } },
-                { "sourceOfFunds", n => { SourceOfFunds = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputSourceOfFunds>(); } },
+                { "purposeOfAccount", n => { PurposeOfAccount = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualPurposeOfAccount>(); } },
+                { "sourceOfFunds", n => { SourceOfFunds = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualSourceOfFunds>(); } },
                 { "ssnLast4", n => { SsnLast4 = n.GetStringValue(); } },
             };
         }
@@ -149,15 +149,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("citizenship", Citizenship);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth>("dateOfBirth", DateOfBirth);
             writer.WriteStringValue("email", Email);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputEmploymentStatus>("employmentStatus", EmploymentStatus);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputExpectedVolume>("expectedVolume", ExpectedVolume);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualEmploymentStatus>("employmentStatus", EmploymentStatus);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualExpectedVolume>("expectedVolume", ExpectedVolume);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("fullSsn", FullSsn);
             writer.WriteStringValue("lastName", LastName);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputOccupation>("occupation", Occupation);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualOccupation>("occupation", Occupation);
             writer.WriteStringValue("phoneNumber", PhoneNumber);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputPurposeOfAccount>("purposeOfAccount", PurposeOfAccount);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputSourceOfFunds>("sourceOfFunds", SourceOfFunds);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualPurposeOfAccount>("purposeOfAccount", PurposeOfAccount);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividualSourceOfFunds>("sourceOfFunds", SourceOfFunds);
             writer.WriteStringValue("ssnLast4", SsnLast4);
             writer.WriteAdditionalData(AdditionalData);
         }

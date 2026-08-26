@@ -5,7 +5,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>Primary purpose for using Coinbase services.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum IndividualInputPurposeOfAccount
+    public enum CustomerWriteBaseIndividualPurposeOfAccount
     {
         [EnumMember(Value = "investing")]
         #pragma warning disable CS1591

@@ -23,6 +23,22 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Amount { get; set; }
 #endif
+        /// <summary>Optional customer-facing display data for this refund, shown to the payer. Falls back to the session&apos;s `orderCode` when `referenceCode` is omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestCustomerDisplay? CustomerDisplay { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestCustomerDisplay CustomerDisplay { get; set; }
+#endif
+        /// <summary>A merchant-provided internal identifier for a resource from the merchant&apos;s own system—not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalReferenceId { get; set; }
+#nullable restore
+#else
+        public string ExternalReferenceId { get; set; }
+#endif
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,6 +89,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
+                { "customerDisplay", n => { CustomerDisplay = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestCustomerDisplay>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestCustomerDisplay.CreateFromDiscriminatorValue); } },
+                { "externalReferenceId", n => { ExternalReferenceId = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSource.CreateFromDiscriminatorValue); } },
@@ -86,6 +104,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestCustomerDisplay>("customerDisplay", CustomerDisplay);
+            writer.WriteStringValue("externalReferenceId", ExternalReferenceId);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestMetadata>("metadata", Metadata);
             writer.WriteStringValue("reason", Reason);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSource>("source", Source);

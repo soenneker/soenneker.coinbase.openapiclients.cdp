@@ -31,6 +31,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string MerchantName { get; set; }
 #endif
+        /// <summary>A customer-visible code for the overall order. When omitted, CDP generates one and returns it. It must not contain personally identifiable information (PII) or payment credentials.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrderCode { get; set; }
+#nullable restore
+#else
+        public string OrderCode { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay"/> and sets the default values.
         /// </summary>
@@ -58,6 +66,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "displayAmount", n => { DisplayAmount = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount.CreateFromDiscriminatorValue); } },
                 { "merchantName", n => { MerchantName = n.GetStringValue(); } },
+                { "orderCode", n => { OrderCode = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount>("displayAmount", DisplayAmount);
             writer.WriteStringValue("merchantName", MerchantName);
+            writer.WriteStringValue("orderCode", OrderCode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

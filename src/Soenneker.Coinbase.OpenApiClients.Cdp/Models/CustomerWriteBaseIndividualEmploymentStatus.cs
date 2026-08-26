@@ -5,7 +5,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>Current employment status.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum IndividualInputEmploymentStatus
+    public enum CustomerWriteBaseIndividualEmploymentStatus
     {
         [EnumMember(Value = "employed_fulltime")]
         #pragma warning disable CS1591

@@ -33,6 +33,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which the capture was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>Customer-facing display data for this capture, shown to the payer. A manual capture falls back to the session&apos;s `orderCode` when `referenceCode` is omitted; an auto-capture reuses the authorization&apos;s `referenceCode`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay? CustomerDisplay { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay CustomerDisplay { get; set; }
+#endif
         /// <summary>An error that occurred during a payment operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,6 +48,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #nullable restore
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError Error { get; set; }
+#endif
+        /// <summary>A merchant-provided internal identifier for a resource from the merchant&apos;s own system—not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalReferenceId { get; set; }
+#nullable restore
+#else
+        public string ExternalReferenceId { get; set; }
 #endif
         /// <summary>When `true`, this capture is treated as the final one for the authorization. Any remaining capturable balance is released back to the payer immediately after the capture settles. When `false`, the remaining capturable balance stays held and is available for subsequent partial captures (subject to `captureExpiresAt`). Has no effect if `amount` equals the full capturable balance, since no remaining balance exists to release.</summary>
         public bool? FinalCapture { get; set; }
@@ -105,7 +121,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "amount", n => { Amount = n.GetStringValue(); } },
                 { "captureId", n => { CaptureId = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "customerDisplay", n => { CustomerDisplay = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay.CreateFromDiscriminatorValue); } },
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError.CreateFromDiscriminatorValue); } },
+                { "externalReferenceId", n => { ExternalReferenceId = n.GetStringValue(); } },
                 { "finalCapture", n => { FinalCapture = n.GetBoolValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata.CreateFromDiscriminatorValue); } },
                 { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -124,7 +142,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("captureId", CaptureId);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay>("customerDisplay", CustomerDisplay);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError>("error", Error);
+            writer.WriteStringValue("externalReferenceId", ExternalReferenceId);
             writer.WriteBoolValue("finalCapture", FinalCapture);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>("onchainTransactions", OnchainTransactions);

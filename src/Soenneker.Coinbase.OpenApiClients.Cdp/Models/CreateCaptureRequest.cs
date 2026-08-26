@@ -23,6 +23,22 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Amount { get; set; }
 #endif
+        /// <summary>Optional customer-facing display data for this manual capture, shown to the payer. Falls back to the session&apos;s `orderCode` when `referenceCode` is omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCaptureRequestCustomerDisplay? CustomerDisplay { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCaptureRequestCustomerDisplay CustomerDisplay { get; set; }
+#endif
+        /// <summary>A merchant-provided internal identifier for a resource from the merchant&apos;s own system—not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExternalReferenceId { get; set; }
+#nullable restore
+#else
+        public string ExternalReferenceId { get; set; }
+#endif
         /// <summary>When `true`, this capture is treated as the final one for the authorization. Any remaining capturable balance is released back to the payer immediately after the capture settles. When `false`, the remaining capturable balance stays held and is available for subsequent partial captures (subject to `captureExpiresAt`). Has no effect if `amount` equals the full capturable balance, since no remaining balance exists to release.</summary>
         public bool? FinalCapture { get; set; }
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
@@ -59,6 +75,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
+                { "customerDisplay", n => { CustomerDisplay = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCaptureRequestCustomerDisplay>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCaptureRequestCustomerDisplay.CreateFromDiscriminatorValue); } },
+                { "externalReferenceId", n => { ExternalReferenceId = n.GetStringValue(); } },
                 { "finalCapture", n => { FinalCapture = n.GetBoolValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCaptureRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCaptureRequestMetadata.CreateFromDiscriminatorValue); } },
             };
@@ -71,6 +89,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCaptureRequestCustomerDisplay>("customerDisplay", CustomerDisplay);
+            writer.WriteStringValue("externalReferenceId", ExternalReferenceId);
             writer.WriteBoolValue("finalCapture", FinalCapture);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCaptureRequestMetadata>("metadata", Metadata);
             writer.WriteAdditionalData(AdditionalData);
