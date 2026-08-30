@@ -42363,25 +42363,20 @@
         "example": 1
       },
       "X402McpResponseId": {
-        "type": "object",
-        "anyOf": [
+        "type": [
+          "null",
+          "object"
+        ],
+        "oneOf": [
           {
-            "type": "object",
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "integer"
-              }
-            ],
-            "description": "Request identifier (matches the request ID, null for notifications).",
-            "example": 1
+            "type": "string"
           },
           {
-            "type": "null"
+            "type": "integer"
           }
-        ]
+        ],
+        "description": "Request identifier (matches the request ID, null for notifications).",
+        "example": 1
       },
       "X402BundleResponseAllOf2": {
         "required": [
