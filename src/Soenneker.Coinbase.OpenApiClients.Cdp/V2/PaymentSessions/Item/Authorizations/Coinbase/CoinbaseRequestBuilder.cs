@@ -34,7 +34,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authoriz
         {
         }
         /// <summary>
-        /// Authorizes a payment session using the payer&apos;s Coinbase account authenticated via OAuth. The session must be in `created` status.**Authentication:** Requires a Coinbase OAuth Bearer token with the `coinbase:stablecoins:payment-create` scope.On authorization, a hold is placed on the payer&apos;s funds. The authorization is returned in `pending` status and transitions asynchronously to `succeeded` or `failed`.If `autoCapture` is enabled on the session, a capture is automatically created after a successful authorization.
+        /// **Merchant-initiated.** The merchant charges the payer&apos;s Coinbase account using an OAuth grant the payer authorized earlier, so the payer does not need to be present at payment time. The session must be in `created` status.**Authentication:** Requires a Coinbase OAuth Bearer token with the `coinbase:stablecoins:payment-create` scope.On authorization, a hold is placed on the payer&apos;s funds. The authorization is returned in `pending` status and transitions asynchronously to `succeeded` or `failed`.If `autoCapture` is enabled on the session, a capture is automatically created after a successful authorization.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Authorization"/></returns>
         /// <param name="body">A request to authorize a payment session using the payer&apos;s Coinbase account authenticated via OAuth.</param>
@@ -71,7 +71,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authoriz
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Authorization>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Authorization.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Authorizes a payment session using the payer&apos;s Coinbase account authenticated via OAuth. The session must be in `created` status.**Authentication:** Requires a Coinbase OAuth Bearer token with the `coinbase:stablecoins:payment-create` scope.On authorization, a hold is placed on the payer&apos;s funds. The authorization is returned in `pending` status and transitions asynchronously to `succeeded` or `failed`.If `autoCapture` is enabled on the session, a capture is automatically created after a successful authorization.
+        /// **Merchant-initiated.** The merchant charges the payer&apos;s Coinbase account using an OAuth grant the payer authorized earlier, so the payer does not need to be present at payment time. The session must be in `created` status.**Authentication:** Requires a Coinbase OAuth Bearer token with the `coinbase:stablecoins:payment-create` scope.On authorization, a hold is placed on the payer&apos;s funds. The authorization is returned in `pending` status and transitions asynchronously to `succeeded` or `failed`.If `autoCapture` is enabled on the session, a capture is automatically created after a successful authorization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">A request to authorize a payment session using the payer&apos;s Coinbase account authenticated via OAuth.</param>

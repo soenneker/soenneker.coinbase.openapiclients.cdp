@@ -195,6 +195,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         AcceptanceDisbursementFailed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "health.status.updated")]
+        #pragma warning disable CS1591
+        HealthStatusUpdated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "health.maintenance.scheduled")]
+        #pragma warning disable CS1591
+        HealthMaintenanceScheduled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "health.maintenance.started")]
+        #pragma warning disable CS1591
+        HealthMaintenanceStarted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "health.maintenance.completed")]
+        #pragma warning disable CS1591
+        HealthMaintenanceCompleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "health.maintenance.canceled")]
+        #pragma warning disable CS1591
+        HealthMaintenanceCanceled,
+        #pragma warning restore CS1591
         [EnumMember(Value = "customers.capability.changed")]
         #pragma warning disable CS1591
         CustomersCapabilityChanged,

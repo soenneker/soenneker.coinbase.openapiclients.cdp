@@ -4151,7 +4151,7 @@
           "Payment Sessions"
         ],
         "summary": "Authorize a payment session with a wallet",
-        "description": "Authorizes a payment session using the payer\u0027s wallet. The session must be in \u0060created\u0060 status.\n\nThe \u0060optionId\u0060 must match one of the options returned by the **Get Wallet Authorization Options** endpoint. Include the signed payloads for the selected option.\n\nOn authorization, a hold is placed on the payer\u0027s funds. The authorization is returned in \u0060pending\u0060 status and transitions asynchronously to \u0060succeeded\u0060 or \u0060failed\u0060.\n\nIf \u0060autoCapture\u0060 is enabled on the session, a capture is automatically created after a successful authorization.",
+        "description": "**Customer-initiated.** Authorizes a payment session using the payer\u0027s wallet. The payer signs the payloads themselves, so this call is unauthenticated. The session must be in \u0060created\u0060 status.\n\nThe \u0060optionId\u0060 must match one of the options returned by the **Get Wallet Authorization Options** endpoint. Include the signed payloads for the selected option.\n\nOn authorization, a hold is placed on the payer\u0027s funds. The authorization is returned in \u0060pending\u0060 status and transitions asynchronously to \u0060succeeded\u0060 or \u0060failed\u0060.\n\nIf \u0060autoCapture\u0060 is enabled on the session, a capture is automatically created after a successful authorization.",
         "operationId": "AuthorizeWalletPaymentSession",
         "parameters": [
           {
@@ -4284,7 +4284,7 @@
           "Payment Sessions"
         ],
         "summary": "Authorize a payment session with x402",
-        "description": "Authorizes a payment session using x402. The session must be in \u0060created\u0060 status.\n\nThe client sends no request body. You may supply the base64-encoded x402-compliant payment payload in the optional **\u0060PAYMENT-SIGNATURE\u0060** header.\n\nOn authorization, a hold is placed on the payer\u0027s funds. The authorization is returned in \u0060pending\u0060 status and transitions asynchronously to \u0060succeeded\u0060 or \u0060failed\u0060.\n\n**402 Payment Required** may be returned when payment must be supplied before authorization can proceed. The **402** response uses the standard CDP **\u0060Error\u0060** JSON body and may include a **\u0060PAYMENT-REQUIRED\u0060** header (see the **402** response) describing accepted networks, assets, and amounts.\n\nIf \u0060autoCapture\u0060 is enabled on the session, a capture is automatically created after a successful authorization.",
+        "description": "**Customer-initiated.** Authorizes a payment session using x402. The payer supplies the payment payload, so this call is unauthenticated. The session must be in \u0060created\u0060 status.\n\nThe client sends no request body. You may supply the base64-encoded x402-compliant payment payload in the optional **\u0060PAYMENT-SIGNATURE\u0060** header.\n\nOn authorization, a hold is placed on the payer\u0027s funds. The authorization is returned in \u0060pending\u0060 status and transitions asynchronously to \u0060succeeded\u0060 or \u0060failed\u0060.\n\n**402 Payment Required** may be returned when payment must be supplied before authorization can proceed. The **402** response uses the standard CDP **\u0060Error\u0060** JSON body and may include a **\u0060PAYMENT-REQUIRED\u0060** header (see the **402** response) describing accepted networks, assets, and amounts.\n\nIf \u0060autoCapture\u0060 is enabled on the session, a capture is automatically created after a successful authorization.",
         "operationId": "AuthorizeX402PaymentSession",
         "parameters": [
           {
@@ -4438,7 +4438,7 @@
           "Payment Sessions"
         ],
         "summary": "Authorize a payment session with a Coinbase account",
-        "description": "Authorizes a payment session using the payer\u0027s Coinbase account authenticated via OAuth. The session must be in \u0060created\u0060 status.\n\n**Authentication:** Requires a Coinbase OAuth Bearer token with the \u0060coinbase:stablecoins:payment-create\u0060 scope.\n\nOn authorization, a hold is placed on the payer\u0027s funds. The authorization is returned in \u0060pending\u0060 status and transitions asynchronously to \u0060succeeded\u0060 or \u0060failed\u0060.\n\nIf \u0060autoCapture\u0060 is enabled on the session, a capture is automatically created after a successful authorization.",
+        "description": "**Merchant-initiated.** The merchant charges the payer\u0027s Coinbase account using an OAuth grant the payer authorized earlier, so the payer does not need to be present at payment time. The session must be in \u0060created\u0060 status.\n\n**Authentication:** Requires a Coinbase OAuth Bearer token with the \u0060coinbase:stablecoins:payment-create\u0060 scope.\n\nOn authorization, a hold is placed on the payer\u0027s funds. The authorization is returned in \u0060pending\u0060 status and transitions asynchronously to \u0060succeeded\u0060 or \u0060failed\u0060.\n\nIf \u0060autoCapture\u0060 is enabled on the session, a capture is automatically created after a successful authorization.",
         "operationId": "AuthorizeCoinbasePaymentSession",
         "parameters": [
           {
@@ -7996,7 +7996,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Invalid amount format. Amount must be a valid decimal string.",
-                      "errorParam": "amount",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -8004,7 +8003,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Unsupported network for USDC transfers.",
-                      "errorParam": "network",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -8012,7 +8010,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Unsupported asset. Currently only \u0027usdc\u0027 is supported.",
-                      "errorParam": "asset",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -8020,7 +8017,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Account has insufficient USDC balance to complete the transfer.",
-                      "errorParam": "amount",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -8035,7 +8031,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "paymasterContext requires a paymaster: set paymasterUrl or useCdpPaymaster.",
-                      "errorParam": "paymasterContext",
                       "errorLink": "https://docs.cdp.coinbase.com/embedded-wallets/evm-features/smart-accounts#gas-sponsorship-with-paymaster"
                     }
                   }
@@ -8067,7 +8062,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "EVM account with the given address not found.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -8407,7 +8401,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "No active delegation found for the specified end user.",
-                      "errorParam": "userId",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -8506,7 +8499,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "No active delegation found for the specified end user.",
-                      "errorParam": "userId",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -8620,7 +8612,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Field \u0027expiresAt\u0027 is required.",
-                      "errorParam": "expiresAt",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -8628,7 +8619,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Field \u0027expiresAt\u0027 must be a valid ISO 8601 string.",
-                      "errorParam": "expiresAt",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   }
@@ -8656,7 +8646,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "No account with the given address exists for this end user.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -8683,7 +8672,6 @@
                     "value": {
                       "errorType": "already_exists",
                       "errorMessage": "An account-scoped delegation is already active for this address.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#already-exists"
                     }
                   }
@@ -8797,7 +8785,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "No active account-scoped delegation found for the specified address.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -8906,7 +8893,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "No active account-scoped delegation found for the specified address.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -9007,7 +8993,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Field \u0027network\u0027 is required.",
-                      "errorParam": "network",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -9015,7 +9000,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Network \u0027gnosis\u0027 is not supported for EIP-7702.",
-                      "errorParam": "network",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   }
@@ -9047,7 +9031,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "EVM account with the given address not found.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -9067,7 +9050,6 @@
                     "value": {
                       "errorType": "already_exists",
                       "errorMessage": "Account already has an active EIP-7702 delegation on the given network.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#already-exists"
                     }
                   }
@@ -10115,7 +10097,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Invalid amount format. Amount must be a valid decimal string.",
-                      "errorParam": "amount",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -10123,7 +10104,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Unsupported network for USDC transfers.",
-                      "errorParam": "network",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -10131,7 +10111,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Unsupported asset. Currently only \u0027usdc\u0027 is supported.",
-                      "errorParam": "asset",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -10139,7 +10118,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Account has insufficient USDC balance to complete the transfer.",
-                      "errorParam": "amount",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -10154,7 +10132,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Recipient does not have a USDC Associated Token Account. Set \u0027createRecipientAta: true\u0027 to create one automatically.",
-                      "errorParam": "to",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   }
@@ -10186,7 +10163,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "Solana account with the given address not found.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -11403,7 +11379,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Field \u0027network\u0027 is required.",
-                      "errorParam": "network",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   },
@@ -11411,7 +11386,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Network \u0027gnosis\u0027 is not supported for EIP-7702.",
-                      "errorParam": "network",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   }
@@ -11439,7 +11413,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "EVM account with the given address not found.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -11459,7 +11432,6 @@
                     "value": {
                       "errorType": "already_exists",
                       "errorMessage": "Account already has an active EIP-7702 delegation on the given network.",
-                      "errorParam": "address",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#already-exists"
                     }
                   }
@@ -11536,7 +11508,6 @@
                     "value": {
                       "errorType": "invalid_request",
                       "errorMessage": "Invalid delegation operation ID format.",
-                      "errorParam": "delegationOperationId",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
                     }
                   }
@@ -11556,7 +11527,6 @@
                     "value": {
                       "errorType": "not_found",
                       "errorMessage": "Delegation operation not found.",
-                      "errorParam": "delegationOperationId",
                       "errorLink": "https://docs.cdp.coinbase.com/api-reference/v2/errors#not-found"
                     }
                   }
@@ -19784,12 +19754,13 @@
       "RequirementStatus": {
         "enum": [
           "due",
+          "past_due",
           "pending",
           "rejected"
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "The current status of a requirement:\n- \u0060due\u0060: Must be submitted\n- \u0060pending\u0060: Submitted, awaiting verification\n- \u0060rejected\u0060: Verification failed - customer must resubmit\n\nWhen verification passes, the requirement disappears from the response entirely.\n",
+        "description": "The current status of a requirement:\n- \u0060due\u0060: Must be submitted and no set deadline has passed\n- \u0060past_due\u0060: Must be submitted and a set deadline has passed\n- \u0060pending\u0060: Submitted, awaiting verification\n- \u0060rejected\u0060: Verification failed - customer must resubmit\n\nFor a Terms of Service requirement, \u0060past_due\u0060 applies if any unaccepted\nversion has a deadline set in the past. Otherwise the status is \u0060due\u0060,\nincluding when a version has no deadline and requires immediate acceptance,\nor when every set deadline is in the future and acceptance is in grace.\n\nWhen verification passes, the requirement disappears from the response entirely.\n",
         "example": "due",
         "x-ms-enum": {
           "name": "RequirementStatus",
@@ -19798,6 +19769,10 @@
             {
               "value": "due",
               "name": "Due"
+            },
+            {
+              "value": "past_due",
+              "name": "PastDue"
             },
             {
               "value": "pending",
@@ -19830,6 +19805,12 @@
             "type": "string",
             "description": "Stable, opaque identifier for a specific Terms of Service version\n(for example, \u0060us_individual_2026-05-29\u0060). The same identifier is\nsurfaced on \u0060Customer.requirements.tos.tosVersions[].versionId\u0060 (the\nversions a Customer still needs to accept) and on\n\u0060Customer.tosAcceptances[].versionId\u0060 (the versions the Customer has\naccepted). Treat the value as opaque and submit it verbatim; the\nidentifier format is stable across API versions, but the set of\nvalid values grows over time as new Terms of Service versions are\npublished.\n"
           },
+          "deadline": {
+            "type": "string",
+            "description": "Optional deadline by which the Customer must accept this Terms of\nService version, in ISO 8601 / RFC 3339 format. A future deadline is\nnon-blocking grace with requirement status \u0060due\u0060; an elapsed deadline\nproduces \u0060past_due\u0060. When omitted, acceptance is required immediately\nand the requirement status remains \u0060due\u0060.\n",
+            "format": "date-time",
+            "example": "2026-06-30T23:59:59Z"
+          },
           "languages": {
             "minItems": 1,
             "type": "array",
@@ -19847,7 +19828,7 @@
             "format": "uri"
           }
         },
-        "description": "Metadata for one Terms of Service document a Customer may need to\naccept. Each entry represents one logical document (identified by\n\u0060versionId\u0060) that may be published in multiple languages \u2014\n\u0060languages\u0060 lists the BCP 47 language tags the document is available\nto view and accept in. \u0060url\u0060 is the canonical, language-agnostic\ndocument URL; partners append \u0060?lang=\u003Ctag\u003E\u0060 (where \u0060\u003Ctag\u003E\u0060 is one of\n\u0060languages\u0060) to retrieve a specific translation, and omit the\nparameter to let the documentation site choose a default. This API\ndoes not serve Terms of Service body content; this schema describes\nmetadata only.\n",
+        "description": "Metadata for one Terms of Service document a Customer may need to\naccept. Each entry represents one logical document (identified by\n\u0060versionId\u0060) that may be published in multiple languages \u2014\n\u0060languages\u0060 lists the BCP 47 language tags the document is available\nto view and accept in. An optional \u0060deadline\u0060 records the end of a grace\nperiod: a future deadline is non-blocking \u0060due\u0060, an elapsed deadline is\n\u0060past_due\u0060, and no deadline means acceptance is required immediately with\nstatus \u0060due\u0060. \u0060url\u0060 is the canonical, language-agnostic document URL;\npartners append \u0060?lang=\u003Ctag\u003E\u0060 (where \u0060\u003Ctag\u003E\u0060 is one of \u0060languages\u0060) to\nretrieve a specific translation, and omit the parameter to let the\ndocumentation site choose a default. This API does not serve Terms of\nService body content; this schema describes metadata only.\n",
         "example": {
           "versionId": "us_individual_2026-05-29",
           "languages": [
@@ -19882,12 +19863,12 @@
         "type": "object",
         "properties": {
           "status": {
-            "description": "The current status of a requirement:\n- \u0060due\u0060: Must be submitted\n- \u0060pending\u0060: Submitted, awaiting verification\n- \u0060rejected\u0060: Verification failed - customer must resubmit\n\nWhen verification passes, the requirement disappears from the response entirely.\n",
+            "description": "The current status of a requirement:\n- \u0060due\u0060: Must be submitted and no set deadline has passed\n- \u0060past_due\u0060: Must be submitted and a set deadline has passed\n- \u0060pending\u0060: Submitted, awaiting verification\n- \u0060rejected\u0060: Verification failed - customer must resubmit\n\nFor a Terms of Service requirement, \u0060past_due\u0060 applies if any unaccepted\nversion has a deadline set in the past. Otherwise the status is \u0060due\u0060,\nincluding when a version has no deadline and requires immediate acceptance,\nor when every set deadline is in the future and acceptance is in grace.\n\nWhen verification passes, the requirement disappears from the response entirely.\n",
             "$ref": "#/components/schemas/RequirementStatus"
           },
           "deadline": {
             "type": "string",
-            "description": "Optional deadline by which this requirement must be satisfied.\n\nFor the \u0060tos\u0060 requirement, when present, \u0060deadline\u0060 is the earliest\ndeadline among the unaccepted required Terms of Service versions.\n",
+            "description": "Optional aggregate deadline by which this requirement must be satisfied.\n\nFor the \u0060tos\u0060 requirement, this is the earliest set deadline among the\nunaccepted required Terms of Service versions listed in \u0060tosVersions\u0060.\nIt is omitted only when none of the unaccepted versions has a deadline.\nDo not infer \u0060past_due\u0060 or whether the requirement blocks from this\naggregate field alone; inspect each version\u0027s deadline.\n",
             "format": "date-time"
           },
           "impact": {
@@ -19895,14 +19876,14 @@
             "items": {
               "$ref": "#/components/schemas/CapabilityName"
             },
-            "description": "List of capabilities affected by this requirement, sorted alphabetically.\nOnly present for \u0060due\u0060, \u0060pending\u0060, or \u0060rejected\u0060 statuses.\n"
+            "description": "List of capabilities affected by this requirement, sorted alphabetically.\nOnly present for \u0060due\u0060, \u0060past_due\u0060, \u0060pending\u0060, or \u0060rejected\u0060 statuses.\n"
           },
           "tosVersions": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TermsOfService"
             },
-            "description": "Required Terms of Service versions the Customer has not yet\naccepted, with the metadata needed to render an acceptance UI\n(each entry carries a stable \u0060versionId\u0060, the BCP 47\n\u0060languages\u0060 the version is published in, and a\nlanguage-agnostic \u0060url\u0060). This field appears only under the\nrequirement key \u0060tos\u0060; do not infer meaning from \u0060tosVersions\u0060\non other requirement keys. Only populated for the \u0060tos\u0060\nrequirement; omitted on every other requirement key. Submit each\n\u0060versionId\u0060 back via \u0060tosAcceptances[].versionId\u0060 on \u0060Update Customer\u0060 (or\n\u0060Create Customer\u0060) together with \u0060language\u0060 and \u0060acceptedAt\u0060 to clear the requirement.\n"
+            "description": "Required Terms of Service versions the Customer has not yet\naccepted, with the metadata needed to render an acceptance UI\n(each entry carries a stable \u0060versionId\u0060, the BCP 47\n\u0060languages\u0060 the version is published in, an optional per-version\n\u0060deadline\u0060, and a language-agnostic \u0060url\u0060). A missing deadline means\nacceptance is required immediately while the requirement status remains\n\u0060due\u0060; only a set deadline in the past produces \u0060past_due\u0060. This field\nappears only under the requirement key \u0060tos\u0060; do not infer meaning from\n\u0060tosVersions\u0060 on other requirement keys. Only populated for the \u0060tos\u0060\nrequirement; omitted on every other requirement key. Submit each\n\u0060versionId\u0060 back via \u0060tosAcceptances[].versionId\u0060 on \u0060Update Customer\u0060\n(or \u0060Create Customer\u0060) together with \u0060language\u0060 and \u0060acceptedAt\u0060 to\nclear the requirement.\n"
           },
           "taxForms": {
             "type": "array",
@@ -19926,7 +19907,7 @@
         "additionalProperties": {
           "$ref": "#/components/schemas/Requirement"
         },
-        "description": "Map of requirements to be submitted. Each key is the field name\n(e.g., \u0022ssnLast4\u0022), with values to describe its state. Requirements\nare only shown for requested capabilities. When a requirement is\nverified, it disappears from this map.\n\nWhen comparing deadlines across keys, note that \u0060requirements.tos.deadline\u0060\nis an aggregate: the earliest deadline among unaccepted required Terms of\nService versions listed in \u0060requirements.tos.tosVersions[]\u0060 (not a separate\nclock from those version rows).\n",
+        "description": "Map of requirements to be submitted. Each key is the field name\n(e.g., \u0022ssnLast4\u0022), with values to describe its state. Requirements\nare only shown for requested capabilities. When a requirement is\nverified, it disappears from this map.\n\nFor the \u0060tos\u0060 key, each entry in \u0060tosVersions[]\u0060 has its own optional\ndeadline. The requirement-level \u0060deadline\u0060 is an aggregate of those rows:\nthe earliest set deadline among unaccepted versions, not a separate clock.\nA version with no deadline requires immediate acceptance but keeps the\naggregate status \u0060due\u0060. A future deadline is also \u0060due\u0060 and represents\nnon-blocking grace. The aggregate status is \u0060past_due\u0060 only when at least\none unaccepted version has a deadline set in the past. Do not infer status\nor blocking behavior from omission of the aggregate deadline.\n",
         "example": {
           "firstName": {
             "status": "due",
@@ -20665,7 +20646,8 @@
           "optimism",
           "monad",
           "sui",
-          "avacchain"
+          "avacchain",
+          "tempo"
         ],
         "type": "string",
         "additionalProperties": false,
@@ -20706,6 +20688,10 @@
             {
               "value": "avacchain",
               "name": "Avacchain"
+            },
+            {
+              "value": "tempo",
+              "name": "Tempo"
             }
           ]
         }
@@ -22847,6 +22833,7 @@
         "enum": [
           "arbitrum",
           "arbitrum-sepolia",
+          "avalanche",
           "base",
           "base-sepolia",
           "ethereum",
@@ -22871,6 +22858,10 @@
             {
               "value": "arbitrum-sepolia",
               "name": "ArbitrumSepolia"
+            },
+            {
+              "value": "avalanche",
+              "name": "Avalanche"
             },
             {
               "value": "base",
@@ -23127,7 +23118,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/Requirement"
             },
-            "description": "Map of requirements to be submitted. Each key is the field name\n(e.g., \u0022ssnLast4\u0022), with values to describe its state. Requirements\nare only shown for requested capabilities. When a requirement is\nverified, it disappears from this map.\n\nWhen comparing deadlines across keys, note that \u0060requirements.tos.deadline\u0060\nis an aggregate: the earliest deadline among unaccepted required Terms of\nService versions listed in \u0060requirements.tos.tosVersions[]\u0060 (not a separate\nclock from those version rows).\n"
+            "description": "Map of requirements to be submitted. Each key is the field name\n(e.g., \u0022ssnLast4\u0022), with values to describe its state. Requirements\nare only shown for requested capabilities. When a requirement is\nverified, it disappears from this map.\n\nFor the \u0060tos\u0060 key, each entry in \u0060tosVersions[]\u0060 has its own optional\ndeadline. The requirement-level \u0060deadline\u0060 is an aggregate of those rows:\nthe earliest set deadline among unaccepted versions, not a separate clock.\nA version with no deadline requires immediate acceptance but keeps the\naggregate status \u0060due\u0060. A future deadline is also \u0060due\u0060 and represents\nnon-blocking grace. The aggregate status is \u0060past_due\u0060 only when at least\none unaccepted version has a deadline set in the past. Do not infer status\nor blocking behavior from omission of the aggregate deadline.\n"
           }
         ],
         "description": "Map of requirements to be submitted. Each key is the field name, with\nvalues to describe its state. Requirements are only shown for requested\ncapabilities. When a requirement is fulfilled, it disappears from this map.\n",
@@ -30472,6 +30463,11 @@
           "acceptance.disbursement.pending",
           "acceptance.disbursement.succeeded",
           "acceptance.disbursement.failed",
+          "health.status.updated",
+          "health.maintenance.scheduled",
+          "health.maintenance.started",
+          "health.maintenance.completed",
+          "health.maintenance.canceled",
           "customers.capability.changed",
           "customers.customer.deleted"
         ],
@@ -30670,6 +30666,26 @@
             {
               "value": "acceptance.disbursement.failed",
               "name": "AcceptanceDisbursementFailed"
+            },
+            {
+              "value": "health.status.updated",
+              "name": "HealthStatusUpdated"
+            },
+            {
+              "value": "health.maintenance.scheduled",
+              "name": "HealthMaintenanceScheduled"
+            },
+            {
+              "value": "health.maintenance.started",
+              "name": "HealthMaintenanceStarted"
+            },
+            {
+              "value": "health.maintenance.completed",
+              "name": "HealthMaintenanceCompleted"
+            },
+            {
+              "value": "health.maintenance.canceled",
+              "name": "HealthMaintenanceCanceled"
             },
             {
               "value": "customers.capability.changed",
@@ -39032,6 +39048,502 @@
         },
         "x-event-type": "acceptance.disbursement.failed"
       },
+      "HealthService": {
+        "enum": [
+          "payments_acceptance",
+          "webhooks"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A CDP service whose health and maintenance status are tracked here.",
+        "example": "payments_acceptance",
+        "x-enum-descriptions": [
+          "Payment Acceptance \u2014 accepting and processing payments on behalf of merchants.",
+          "CDP\u0027s webhook delivery infrastructure."
+        ],
+        "x-ms-enum": {
+          "name": "HealthService",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "payments_acceptance",
+              "name": "PaymentsAcceptance"
+            },
+            {
+              "value": "webhooks",
+              "name": "Webhooks"
+            }
+          ]
+        }
+      },
+      "HealthOperation": {
+        "enum": [
+          "payment_session_authorize_wallet",
+          "payment_session_authorize_coinbase",
+          "payment_session_authorize_x402",
+          "payment_session_capture",
+          "payment_session_void",
+          "payment_session_refund",
+          "disbursement",
+          "account_linking"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A finer-grained operation within a service. Optional \u2014 omitted when a health status or maintenance window applies to the service as a whole.",
+        "example": "payment_session_capture",
+        "x-enum-descriptions": [
+          "Authorizing a payment session funded by the customer\u0027s onchain wallet.",
+          "Authorizing a payment session funded by the customer\u0027s Coinbase account.",
+          "Authorizing a payment session funded via the x402 payment protocol.",
+          "Capturing funds for a previously authorized payment session.",
+          "Voiding a previously authorized payment session.",
+          "Refunding a previously captured payment session.",
+          "Disbursing funds to a payee.",
+          "Linking a customer\u0027s external account to Payment Acceptance."
+        ],
+        "x-ms-enum": {
+          "name": "HealthOperation",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "payment_session_authorize_wallet",
+              "name": "PaymentSessionAuthorizeWallet"
+            },
+            {
+              "value": "payment_session_authorize_coinbase",
+              "name": "PaymentSessionAuthorizeCoinbase"
+            },
+            {
+              "value": "payment_session_authorize_x402",
+              "name": "PaymentSessionAuthorizeX402"
+            },
+            {
+              "value": "payment_session_capture",
+              "name": "PaymentSessionCapture"
+            },
+            {
+              "value": "payment_session_void",
+              "name": "PaymentSessionVoid"
+            },
+            {
+              "value": "payment_session_refund",
+              "name": "PaymentSessionRefund"
+            },
+            {
+              "value": "disbursement",
+              "name": "Disbursement"
+            },
+            {
+              "value": "account_linking",
+              "name": "AccountLinking"
+            }
+          ]
+        }
+      },
+      "HealthStatusValue": {
+        "enum": [
+          "operational",
+          "degraded_performance",
+          "partial_outage",
+          "major_outage",
+          "under_maintenance"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The operational status of a service or operation. \u0060operational\u0060, \u0060degraded_performance\u0060, \u0060partial_outage\u0060, and \u0060major_outage\u0060 form a severity ladder that can move up or down between adjacent levels as an organic issue develops or recovers.",
+        "example": "major_outage",
+        "x-enum-descriptions": [
+          "Working normally.",
+          "Elevated latency or reduced capacity, with no significant failure rate.",
+          "A subset of requests or users are failing; still functional for most.",
+          "A significant portion of requests are failing; most users are impacted.",
+          "A planned maintenance window is active \u2014 not a failure. Computed, not caller-settable: returned when there is an active maintenance window and no organic outage is currently declared."
+        ],
+        "x-ms-enum": {
+          "name": "HealthStatusValue",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "operational",
+              "name": "Operational"
+            },
+            {
+              "value": "degraded_performance",
+              "name": "DegradedPerformance"
+            },
+            {
+              "value": "partial_outage",
+              "name": "PartialOutage"
+            },
+            {
+              "value": "major_outage",
+              "name": "MajorOutage"
+            },
+            {
+              "value": "under_maintenance",
+              "name": "UnderMaintenance"
+            }
+          ]
+        }
+      },
+      "HealthStatus": {
+        "required": [
+          "service",
+          "status",
+          "startedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "service": {
+            "$ref": "#/components/schemas/HealthStatusService"
+          },
+          "operation": {
+            "$ref": "#/components/schemas/HealthStatusOperation"
+          },
+          "status": {
+            "$ref": "#/components/schemas/HealthStatusStatus"
+          },
+          "startedAt": {
+            "type": "string",
+            "description": "The time this status took effect.",
+            "format": "date-time",
+            "example": "2026-04-21T14:30:00.000Z"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of the status.",
+            "example": "Elevated error rates observed."
+          }
+        },
+        "description": "The health status of a service or operation. See \u0060HealthStatusValue\u0060 for the severity ladder this moves along, and \u0060under_maintenance\u0060\u0027s special computed-status behavior.",
+        "example": {
+          "service": "payments_acceptance",
+          "operation": "payment_session_capture",
+          "status": "major_outage",
+          "startedAt": "2026-04-21T14:30:00.000Z",
+          "message": "Elevated error rates observed."
+        }
+      },
+      "HealthStatusUpdatedEvent": {
+        "required": [
+          "eventId",
+          "timestamp",
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "description": "Unique identifier for this logical webhook event. Webhooks are delivered at least once, so your endpoint may receive duplicate deliveries for the same event. Use this \u0060eventId\u0060 as the idempotency/deduplication key.",
+            "format": "uuid",
+            "example": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which this event\u0027s transition occurred, not the time at which this webhook was delivered.",
+            "format": "date-time",
+            "example": "2026-04-21T14:32:00.000Z"
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/HealthStatusUpdatedEventType"
+          },
+          "data": {
+            "description": "The health status of a service or operation. See \u0060HealthStatusValue\u0060 for the severity ladder this moves along, and \u0060under_maintenance\u0060\u0027s special computed-status behavior.",
+            "$ref": "#/components/schemas/HealthStatus"
+          }
+        },
+        "example": {
+          "eventType": "health.status.updated",
+          "eventId": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60",
+          "timestamp": "2026-04-21T14:32:00.000Z",
+          "data": {
+            "service": "payments_acceptance",
+            "operation": "payment_session_capture",
+            "status": "major_outage",
+            "startedAt": "2026-04-21T14:30:00.000Z",
+            "message": "Elevated error rates observed."
+          }
+        },
+        "x-event-type": "health.status.updated"
+      },
+      "MaintenanceEventBase": {
+        "required": [
+          "eventId",
+          "timestamp"
+        ],
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "description": "Unique identifier for this logical webhook event. Webhooks are delivered at least once, so your endpoint may receive duplicate deliveries for the same event. Use this \u0060eventId\u0060 as the idempotency/deduplication key.",
+            "format": "uuid",
+            "example": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which this event\u0027s transition occurred, not the time at which this webhook was delivered.",
+            "format": "date-time",
+            "example": "2026-04-21T14:32:00.000Z"
+          }
+        },
+        "description": "Common fields included in every maintenance event payload."
+      },
+      "MaintenanceStatus": {
+        "enum": [
+          "scheduled",
+          "started",
+          "completed",
+          "canceled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The lifecycle status of a maintenance window: \u0060scheduled\u0060 \u2192 \u0060started\u0060 \u2192 \u0060completed\u0060, or \u0060scheduled\u0060 \u2192 \u0060canceled\u0060. \u0060completed\u0060 and \u0060canceled\u0060 are terminal.",
+        "example": "scheduled",
+        "x-enum-descriptions": [
+          "The maintenance window has been scheduled but has not started yet.",
+          "The maintenance window is currently in progress.",
+          "The maintenance window has finished.",
+          "The maintenance window was canceled before starting."
+        ],
+        "x-ms-enum": {
+          "name": "MaintenanceStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "scheduled",
+              "name": "Scheduled"
+            },
+            {
+              "value": "started",
+              "name": "Started"
+            },
+            {
+              "value": "completed",
+              "name": "Completed"
+            },
+            {
+              "value": "canceled",
+              "name": "Canceled"
+            }
+          ]
+        }
+      },
+      "MaintenanceWindow": {
+        "required": [
+          "service",
+          "startsAt",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "service": {
+            "$ref": "#/components/schemas/MaintenanceWindowService"
+          },
+          "operation": {
+            "$ref": "#/components/schemas/MaintenanceWindowOperation"
+          },
+          "startsAt": {
+            "type": "string",
+            "description": "The start time of the maintenance window: in the future for a \u0060scheduled\u0060 window, in the past for one that has already \u0060started\u0060.",
+            "format": "date-time",
+            "example": "2026-04-22T02:00:00.000Z"
+          },
+          "expectedDurationSeconds": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The expected duration of the maintenance window, in seconds.",
+            "example": 7200
+          },
+          "status": {
+            "$ref": "#/components/schemas/MaintenanceWindowStatus"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of the maintenance window.",
+            "example": "Scheduled maintenance window."
+          }
+        },
+        "description": "A maintenance window for a service or operation, moving through \u0060scheduled\u0060 \u2192 \u0060started\u0060 \u2192 \u0060completed\u0060, or \u0060scheduled\u0060 \u2192 \u0060canceled\u0060. While \u0060started\u0060, it moves the affected service or operation\u0027s effective \u0060HealthStatus\u0060 to \u0060under_maintenance\u0060.",
+        "example": {
+          "service": "payments_acceptance",
+          "operation": "account_linking",
+          "startsAt": "2026-04-22T02:00:00.000Z",
+          "expectedDurationSeconds": 7200,
+          "status": "scheduled",
+          "message": "Scheduled maintenance window."
+        }
+      },
+      "HealthMaintenanceScheduledEvent": {
+        "required": [
+          "eventId",
+          "timestamp",
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "description": "Unique identifier for this logical webhook event. Webhooks are delivered at least once, so your endpoint may receive duplicate deliveries for the same event. Use this \u0060eventId\u0060 as the idempotency/deduplication key.",
+            "format": "uuid",
+            "example": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which this event\u0027s transition occurred, not the time at which this webhook was delivered.",
+            "format": "date-time",
+            "example": "2026-04-21T14:32:00.000Z"
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/HealthMaintenanceScheduledEventType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthMaintenanceScheduledEventAllOf2Data"
+          }
+        },
+        "example": {
+          "eventType": "health.maintenance.scheduled",
+          "eventId": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60",
+          "timestamp": "2026-04-21T14:32:00.000Z",
+          "data": {
+            "service": "payments_acceptance",
+            "operation": "account_linking",
+            "startsAt": "2026-04-22T02:00:00.000Z",
+            "expectedDurationSeconds": 7200,
+            "status": "scheduled",
+            "message": "Scheduled maintenance window."
+          }
+        },
+        "x-event-type": "health.maintenance.scheduled"
+      },
+      "HealthMaintenanceStartedEvent": {
+        "required": [
+          "eventId",
+          "timestamp",
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "description": "Unique identifier for this logical webhook event. Webhooks are delivered at least once, so your endpoint may receive duplicate deliveries for the same event. Use this \u0060eventId\u0060 as the idempotency/deduplication key.",
+            "format": "uuid",
+            "example": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which this event\u0027s transition occurred, not the time at which this webhook was delivered.",
+            "format": "date-time",
+            "example": "2026-04-21T14:32:00.000Z"
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/HealthMaintenanceStartedEventType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthMaintenanceStartedEventAllOf2Data"
+          }
+        },
+        "example": {
+          "eventType": "health.maintenance.started",
+          "eventId": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60",
+          "timestamp": "2026-04-22T02:00:00.000Z",
+          "data": {
+            "service": "payments_acceptance",
+            "operation": "account_linking",
+            "startsAt": "2026-04-22T02:00:00.000Z",
+            "expectedDurationSeconds": 7200,
+            "status": "started",
+            "message": "Maintenance window has begun."
+          }
+        },
+        "x-event-type": "health.maintenance.started"
+      },
+      "HealthMaintenanceCompletedEvent": {
+        "required": [
+          "eventId",
+          "timestamp",
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "description": "Unique identifier for this logical webhook event. Webhooks are delivered at least once, so your endpoint may receive duplicate deliveries for the same event. Use this \u0060eventId\u0060 as the idempotency/deduplication key.",
+            "format": "uuid",
+            "example": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which this event\u0027s transition occurred, not the time at which this webhook was delivered.",
+            "format": "date-time",
+            "example": "2026-04-21T14:32:00.000Z"
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/HealthMaintenanceCompletedEventType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthMaintenanceCompletedEventAllOf2Data"
+          }
+        },
+        "example": {
+          "eventType": "health.maintenance.completed",
+          "eventId": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60",
+          "timestamp": "2026-04-22T04:00:00.000Z",
+          "data": {
+            "service": "payments_acceptance",
+            "operation": "account_linking",
+            "startsAt": "2026-04-22T02:00:00.000Z",
+            "status": "completed",
+            "message": "Maintenance window has completed."
+          }
+        },
+        "x-event-type": "health.maintenance.completed"
+      },
+      "HealthMaintenanceCanceledEvent": {
+        "required": [
+          "eventId",
+          "timestamp",
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "description": "Unique identifier for this logical webhook event. Webhooks are delivered at least once, so your endpoint may receive duplicate deliveries for the same event. Use this \u0060eventId\u0060 as the idempotency/deduplication key.",
+            "format": "uuid",
+            "example": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60"
+          },
+          "timestamp": {
+            "type": "string",
+            "description": "The UTC ISO 8601 timestamp at which this event\u0027s transition occurred, not the time at which this webhook was delivered.",
+            "format": "date-time",
+            "example": "2026-04-21T14:32:00.000Z"
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/HealthMaintenanceCanceledEventType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthMaintenanceCanceledEventAllOf2Data"
+          }
+        },
+        "example": {
+          "eventType": "health.maintenance.canceled",
+          "eventId": "9d3f2b1a-6e4c-4a8b-9f1d-2c7a5e8b4f60",
+          "timestamp": "2026-04-21T18:00:00.000Z",
+          "data": {
+            "service": "payments_acceptance",
+            "operation": "account_linking",
+            "startsAt": "2026-04-22T02:00:00.000Z",
+            "status": "canceled",
+            "message": "Maintenance window canceled ahead of schedule."
+          }
+        },
+        "x-event-type": "health.maintenance.canceled"
+      },
       "CustomersEventBase": {
         "required": [
           "eventId",
@@ -40826,7 +41338,8 @@
             "validBefore": "1716150000",
             "nonce": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           }
-        }
+        },
+        "x-oneof-no-discriminator": "Branches are third-party x402 protocol payload shapes (per scheme/network), not a Coinbase-controlled tag; clients select a branch by field presence as described above, matching the upstream x402 wire format."
       },
       "X402V1PaymentPayloadX402Version": {
         "required": [
@@ -43518,6 +44031,138 @@
           }
         }
       },
+      "HealthStatusService": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthService"
+          }
+        },
+        "description": "The service this status applies to."
+      },
+      "HealthStatusOperation": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthOperation"
+          }
+        },
+        "description": "The operation this status applies to. Omitted when the status applies to the service as a whole."
+      },
+      "HealthStatusStatus": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthStatusValue"
+          }
+        },
+        "description": "The current health status."
+      },
+      "MaintenanceWindowService": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthService"
+          }
+        },
+        "description": "The service this maintenance window applies to."
+      },
+      "MaintenanceWindowOperation": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthOperation"
+          }
+        },
+        "description": "The operation this maintenance window applies to. Omitted when the maintenance window applies to the service as a whole."
+      },
+      "MaintenanceWindowStatus": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/MaintenanceStatus"
+          }
+        },
+        "description": "The current status of the maintenance window."
+      },
+      "HealthMaintenanceScheduledEventAllOf2": {
+        "required": [
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "$ref": "#/components/schemas/HealthMaintenanceScheduledEventType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthMaintenanceScheduledEventAllOf2Data"
+          }
+        }
+      },
+      "HealthMaintenanceStartedEventAllOf2": {
+        "required": [
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "$ref": "#/components/schemas/HealthMaintenanceStartedEventType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthMaintenanceStartedEventAllOf2Data"
+          }
+        }
+      },
+      "HealthMaintenanceCompletedEventAllOf2": {
+        "required": [
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "$ref": "#/components/schemas/HealthMaintenanceCompletedEventType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthMaintenanceCompletedEventAllOf2Data"
+          }
+        }
+      },
+      "HealthMaintenanceCanceledEventAllOf2": {
+        "required": [
+          "eventType",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "$ref": "#/components/schemas/HealthMaintenanceCanceledEventType"
+          },
+          "data": {
+            "$ref": "#/components/schemas/HealthMaintenanceCanceledEventAllOf2Data"
+          }
+        }
+      },
       "CustomersCapabilityChangedEventAllOf2": {
         "required": [
           "eventType",
@@ -43800,6 +44445,156 @@
         },
         "description": "SEPA (Single Euro Payments Area) details."
       },
+      "HealthMaintenanceScheduledEventAllOf2Data": {
+        "required": [
+          "service",
+          "startsAt",
+          "status",
+          "expectedDurationSeconds"
+        ],
+        "type": "object",
+        "properties": {
+          "service": {
+            "$ref": "#/components/schemas/MaintenanceWindowService"
+          },
+          "operation": {
+            "$ref": "#/components/schemas/MaintenanceWindowOperation"
+          },
+          "startsAt": {
+            "type": "string",
+            "description": "The start time of the maintenance window: in the future for a \u0060scheduled\u0060 window, in the past for one that has already \u0060started\u0060.",
+            "format": "date-time",
+            "example": "2026-04-22T02:00:00.000Z"
+          },
+          "expectedDurationSeconds": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The expected duration of the maintenance window, in seconds.",
+            "example": 7200
+          },
+          "status": {
+            "$ref": "#/components/schemas/MaintenanceWindowStatus"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of the maintenance window.",
+            "example": "Scheduled maintenance window."
+          }
+        },
+        "description": "Announces a future maintenance window. Does not change the affected service\u0027s or operation\u0027s current recorded status."
+      },
+      "HealthMaintenanceStartedEventAllOf2Data": {
+        "required": [
+          "service",
+          "startsAt",
+          "status",
+          "expectedDurationSeconds"
+        ],
+        "type": "object",
+        "properties": {
+          "service": {
+            "$ref": "#/components/schemas/MaintenanceWindowService"
+          },
+          "operation": {
+            "$ref": "#/components/schemas/MaintenanceWindowOperation"
+          },
+          "startsAt": {
+            "type": "string",
+            "description": "The start time of the maintenance window: in the future for a \u0060scheduled\u0060 window, in the past for one that has already \u0060started\u0060.",
+            "format": "date-time",
+            "example": "2026-04-22T02:00:00.000Z"
+          },
+          "expectedDurationSeconds": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The expected duration of the maintenance window, in seconds.",
+            "example": 7200
+          },
+          "status": {
+            "$ref": "#/components/schemas/MaintenanceWindowStatus"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of the maintenance window.",
+            "example": "Scheduled maintenance window."
+          }
+        },
+        "description": "Fired when a previously scheduled maintenance window begins. The affected service\u0027s or operation\u0027s effective health status is recomputed and reports \u0060under_maintenance\u0060, unless an organic outage is already in progress, which continues to take priority."
+      },
+      "HealthMaintenanceCompletedEventAllOf2Data": {
+        "required": [
+          "service",
+          "startsAt",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "service": {
+            "$ref": "#/components/schemas/MaintenanceWindowService"
+          },
+          "operation": {
+            "$ref": "#/components/schemas/MaintenanceWindowOperation"
+          },
+          "startsAt": {
+            "type": "string",
+            "description": "The start time of the maintenance window: in the future for a \u0060scheduled\u0060 window, in the past for one that has already \u0060started\u0060.",
+            "format": "date-time",
+            "example": "2026-04-22T02:00:00.000Z"
+          },
+          "expectedDurationSeconds": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The expected duration of the maintenance window, in seconds.",
+            "example": 7200
+          },
+          "status": {
+            "$ref": "#/components/schemas/MaintenanceWindowStatus"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of the maintenance window.",
+            "example": "Scheduled maintenance window."
+          }
+        },
+        "description": "Fired when a maintenance window ends normally. The affected service\u0027s or operation\u0027s effective health status is recomputed and returns to \u0060operational\u0060, unless an organic outage remains in progress, which continues to take priority."
+      },
+      "HealthMaintenanceCanceledEventAllOf2Data": {
+        "required": [
+          "service",
+          "startsAt",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "service": {
+            "$ref": "#/components/schemas/MaintenanceWindowService"
+          },
+          "operation": {
+            "$ref": "#/components/schemas/MaintenanceWindowOperation"
+          },
+          "startsAt": {
+            "type": "string",
+            "description": "The start time of the maintenance window: in the future for a \u0060scheduled\u0060 window, in the past for one that has already \u0060started\u0060.",
+            "format": "date-time",
+            "example": "2026-04-22T02:00:00.000Z"
+          },
+          "expectedDurationSeconds": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "The expected duration of the maintenance window, in seconds.",
+            "example": 7200
+          },
+          "status": {
+            "$ref": "#/components/schemas/MaintenanceWindowStatus"
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of the maintenance window.",
+            "example": "Scheduled maintenance window."
+          }
+        },
+        "description": "Fired when a previously scheduled maintenance window is canceled before it starts."
+      },
       "CustomersCapabilityChangedEventAllOf2DataCustomerId": {
         "pattern": "^customer_[a-f0-9\\-]{36}$",
         "type": "string",
@@ -43839,6 +44634,44 @@
         "additionalProperties": false,
         "description": "The ID of the Customer, which is a UUID prefixed by \u0060customer_\u0060.",
         "example": "customer_38d54acb-0868-431c-a88e-1ffcb62655eb"
+      },
+      "HealthMaintenanceScheduledEventAllOf2DataAllOf2": {
+        "required": [
+          "expectedDurationSeconds"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ScheduledStatus"
+          }
+        }
+      },
+      "HealthMaintenanceStartedEventAllOf2DataAllOf2": {
+        "required": [
+          "expectedDurationSeconds"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/StartedStatus"
+          }
+        }
+      },
+      "HealthMaintenanceCompletedEventAllOf2DataAllOf2": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CompletedStatus"
+          }
+        }
+      },
+      "HealthMaintenanceCanceledEventAllOf2DataAllOf2": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CanceledStatus"
+          }
+        }
       },
       "BalanceAmount": {
         "type": "object",
@@ -48314,6 +49147,72 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/PaymentActionStatus"
+          }
+        }
+      },
+      "HealthServiceWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthService"
+          }
+        }
+      },
+      "HealthOperationWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthOperation"
+          }
+        }
+      },
+      "HealthStatusValueWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthStatusValue"
+          }
+        }
+      },
+      "HealthServiceWrapper2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthService"
+          }
+        }
+      },
+      "HealthOperationWrapper2": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/HealthOperation"
+          }
+        }
+      },
+      "MaintenanceStatusWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/MaintenanceStatus"
           }
         }
       },
@@ -53389,6 +54288,101 @@
           ]
         }
       },
+      "HealthStatusUpdatedEventType": {
+        "enum": [
+          "health.status.updated"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of webhook event.",
+        "example": "health.status.updated",
+        "x-ms-enum": {
+          "name": "HealthStatusUpdatedEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "health.status.updated",
+              "name": "HealthStatusUpdated"
+            }
+          ]
+        }
+      },
+      "HealthMaintenanceScheduledEventType": {
+        "enum": [
+          "health.maintenance.scheduled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of webhook event.",
+        "example": "health.maintenance.scheduled",
+        "x-ms-enum": {
+          "name": "HealthMaintenanceScheduledEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "health.maintenance.scheduled",
+              "name": "HealthMaintenanceScheduled"
+            }
+          ]
+        }
+      },
+      "HealthMaintenanceStartedEventType": {
+        "enum": [
+          "health.maintenance.started"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of webhook event.",
+        "example": "health.maintenance.started",
+        "x-ms-enum": {
+          "name": "HealthMaintenanceStartedEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "health.maintenance.started",
+              "name": "HealthMaintenanceStarted"
+            }
+          ]
+        }
+      },
+      "HealthMaintenanceCompletedEventType": {
+        "enum": [
+          "health.maintenance.completed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of webhook event.",
+        "example": "health.maintenance.completed",
+        "x-ms-enum": {
+          "name": "HealthMaintenanceCompletedEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "health.maintenance.completed",
+              "name": "HealthMaintenanceCompleted"
+            }
+          ]
+        }
+      },
+      "HealthMaintenanceCanceledEventType": {
+        "enum": [
+          "health.maintenance.canceled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The type of webhook event.",
+        "example": "health.maintenance.canceled",
+        "x-ms-enum": {
+          "name": "HealthMaintenanceCanceledEventType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "health.maintenance.canceled",
+              "name": "HealthMaintenanceCanceled"
+            }
+          ]
+        }
+      },
       "PaymentsTransfersQuotedEventType": {
         "enum": [
           "payments.transfers.quoted"
@@ -53574,6 +54568,74 @@
             {
               "value": "US",
               "name": "Us"
+            }
+          ]
+        }
+      },
+      "ScheduledStatus": {
+        "enum": [
+          "scheduled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "ScheduledStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "scheduled",
+              "name": "Scheduled"
+            }
+          ]
+        }
+      },
+      "StartedStatus": {
+        "enum": [
+          "started"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "StartedStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "started",
+              "name": "Started"
+            }
+          ]
+        }
+      },
+      "CompletedStatus": {
+        "enum": [
+          "completed"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CompletedStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "completed",
+              "name": "Completed"
+            }
+          ]
+        }
+      },
+      "CanceledStatus": {
+        "enum": [
+          "canceled"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "CanceledStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "canceled",
+              "name": "Canceled"
             }
           ]
         }
@@ -54987,6 +56049,14 @@
       }
     },
     {
+      "name": "Health",
+      "description": "The \u0060health.*\u0060 webhook payloads describe health status changes and maintenance window events for a CDP service or operation.",
+      "x-audience": "public",
+      "x-slo-tier": {
+        "tier": "beta"
+      }
+    },
+    {
       "name": "Onchain Data",
       "description": "Query and analyze blockchain data with high performance and reliability. Features include real-time token balances, token discovery, and transaction history with freshness, accuracy, and completeness like never before.",
       "x-audience": "public",
@@ -55012,7 +56082,7 @@
     },
     {
       "name": "Payment Sessions",
-      "description": "Payment Sessions track the full lifecycle of a merchant payment \u2014 from authorization through capture, void, or refund. Each session records every operation and balance change across its lifecycle.",
+      "description": "Payment Sessions track the full lifecycle of a merchant payment, from authorization through capture, void, or refund. Each session records every operation and balance change across its lifecycle.\n\n**Who initiates an authorization.** A session can be authorized in four ways, split by who acts:\n\n- **Customer-initiated:** the payer authorizes at payment time by signing. Use **Authorize a payment session with a wallet** or **Authorize a payment session with x402**. These calls are unauthenticated because the payer\u0027s signature is the authorization.\n\n- **Merchant-initiated:** the merchant charges against an authorization the payer granted earlier, with the payer no longer present. Use **Authorize a payment session with a mandate** (draws on a mandate\u0027s standing spending allowance) or **Authorize a payment session with a Coinbase account** (charges a Coinbase account the payer linked over OAuth).\n\nCreating, listing, canceling, capturing, voiding, and refunding a session are merchant actions authenticated with your API key.",
       "x-audience": "public",
       "x-slo-tier": {
         "tier": "ga"
@@ -57013,6 +58083,176 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AcceptanceDisbursementFailedEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received and processed successfully."
+          },
+          "401": {
+            "description": "Invalid signature."
+          }
+        },
+        "security": [
+          {
+            "webhookSignature": []
+          }
+        ]
+      }
+    },
+    "healthStatusUpdated": {
+      "post": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Service health updated",
+        "description": "Fires whenever the operational status of a CDP service or operation changes \u2014 an outage begins, its severity changes, or it recovers to \u0060operational\u0060. Subscribe to react to CDP disruptions in real time.",
+        "operationId": "HealthStatusUpdatedWebhook",
+        "requestBody": {
+          "description": "The \u0060health.status.updated\u0060 webhook event payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HealthStatusUpdatedEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received and processed successfully."
+          },
+          "401": {
+            "description": "Invalid signature."
+          }
+        },
+        "security": [
+          {
+            "webhookSignature": []
+          }
+        ]
+      }
+    },
+    "healthMaintenanceScheduled": {
+      "post": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Maintenance scheduled",
+        "description": "Fires when a maintenance window is scheduled for a CDP service or operation, ahead of it starting. Subscribe for advance notice to plan around planned downtime.",
+        "operationId": "HealthMaintenanceScheduledWebhook",
+        "requestBody": {
+          "description": "The \u0060health.maintenance.scheduled\u0060 webhook event payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HealthMaintenanceScheduledEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received and processed successfully."
+          },
+          "401": {
+            "description": "Invalid signature."
+          }
+        },
+        "security": [
+          {
+            "webhookSignature": []
+          }
+        ]
+      }
+    },
+    "healthMaintenanceStarted": {
+      "post": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Maintenance started",
+        "description": "Fires when a previously scheduled maintenance window begins; the affected service\u0027s or operation\u0027s effective status is recomputed and reports \u0060under_maintenance\u0060, unless an organic outage is already in progress, which continues to take priority. Subscribe to react in real time when a dependency enters maintenance.",
+        "operationId": "HealthMaintenanceStartedWebhook",
+        "requestBody": {
+          "description": "The \u0060health.maintenance.started\u0060 webhook event payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HealthMaintenanceStartedEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received and processed successfully."
+          },
+          "401": {
+            "description": "Invalid signature."
+          }
+        },
+        "security": [
+          {
+            "webhookSignature": []
+          }
+        ]
+      }
+    },
+    "healthMaintenanceCompleted": {
+      "post": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Maintenance completed",
+        "description": "Fires when a maintenance window ends normally; the affected service\u0027s or operation\u0027s effective status is recomputed and returns to \u0060operational\u0060, unless an organic outage remains in progress, which continues to take priority.",
+        "operationId": "HealthMaintenanceCompletedWebhook",
+        "requestBody": {
+          "description": "The \u0060health.maintenance.completed\u0060 webhook event payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HealthMaintenanceCompletedEvent"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook received and processed successfully."
+          },
+          "401": {
+            "description": "Invalid signature."
+          }
+        },
+        "security": [
+          {
+            "webhookSignature": []
+          }
+        ]
+      }
+    },
+    "healthMaintenanceCanceled": {
+      "post": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "Maintenance canceled",
+        "description": "Fires when a previously scheduled maintenance window is canceled before it starts.",
+        "operationId": "HealthMaintenanceCanceledWebhook",
+        "requestBody": {
+          "description": "The \u0060health.maintenance.canceled\u0060 webhook event payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HealthMaintenanceCanceledEvent"
               }
             }
           },
