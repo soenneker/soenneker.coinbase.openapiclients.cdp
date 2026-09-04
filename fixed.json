@@ -20437,6 +20437,9 @@
         }
       },
       "TaxAttestation": {
+        "required": [
+          "form"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -21081,6 +21084,9 @@
         }
       },
       "DepositDestinationFiat": {
+        "required": [
+          "accountType"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -21230,6 +21236,9 @@
         "x-audience": "public"
       },
       "DepositDestination": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -21276,6 +21285,9 @@
           "fiat": {
             "description": "Fiat bank account details for a deposit destination. The \u0060accountType\u0060 field indicates the account identification scheme and determines which fields are present.",
             "$ref": "#/components/schemas/DepositDestinationFiat"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "description": "A deposit destination for receiving funds to an account.",
@@ -21466,6 +21478,9 @@
         "x-audience": "public"
       },
       "CreateDepositDestinationRequest": {
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -26941,6 +26956,9 @@
       },
       "X402BatchSettlementEvmPayload": {
         "title": "x402BatchSettlementEvmPayload",
+        "required": [
+          "type"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -27009,6 +27027,9 @@
             "type": "string",
             "description": "The 0x-prefixed, checksum EVM address of the token to settle.",
             "example": "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+          },
+          "type": {
+            "type": "string"
           }
         },
         "description": "The x402 protocol batch-settlement scheme payload for EVM networks. The \u0060batch-settlement\u0060 scheme uses pre-funded payment channels with off-chain cumulative-ceiling vouchers, allowing servers to batch-claim accumulated value in a single on-chain transaction. The payload is a discriminated union on the \u0060type\u0060 field with five variants:\n\n  - \u0060deposit\u0060: client-initiated channel funding via ERC-3009.\n  - \u0060voucher\u0060: client-side cumulative voucher against an already-funded channel.\n  - \u0060refund\u0060: cooperative refund request. The client emits a minimal shape (just channelConfig \u002B voucher, with an optional \u0060amount\u0060); a mediating server enriches it with \u0060amount\u0060, \u0060refundNonce\u0060, and \u0060claims\u0060 before forwarding to the facilitator. Authorizer signatures are optional \u2014 the facilitator auto-signs when absent.\n  - \u0060claim\u0060: server-to-facilitator request to batch on-chain voucher claims.\n  - \u0060settle\u0060: server-to-facilitator request to transfer claimed funds to the receiver.\n\nFor more details, see [batch-settlement specs](https://github.com/x402-foundation/x402/tree/main/specs/schemes/batch-settlement).",
@@ -35084,6 +35105,9 @@
         }
       },
       "PaymentMethodsPaymentMethod": {
+        "required": [
+          "paymentRail"
+        ],
         "type": "object",
         "oneOf": [
           {
@@ -35127,6 +35151,9 @@
           },
           "sepa": {
             "$ref": "#/components/schemas/SepaPaymentMethodAllOf2Sepa"
+          },
+          "paymentRail": {
+            "type": "string"
           }
         },
         "description": "A payment method linked to your entity. Payment methods represent external financial instruments that can be used as a target for transfers.\n\nThe \u0060paymentRail\u0060 field indicates which type-specific details object is present. Type-specific fields are nested under a key matching the rail name (e.g., \u0060fedwire\u0060, \u0060swift\u0060).",

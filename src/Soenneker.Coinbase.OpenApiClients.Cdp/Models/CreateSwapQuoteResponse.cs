@@ -67,10 +67,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The approval object which contains the necessary fields to submit an approval for this transaction. Null if the `fromToken` is the native token or the transaction is a native token wrap / unwrap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2? Permit2 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval? Permit2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2 Permit2 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval Permit2 { get; set; }
 #endif
         /// <summary>The amount of the `toToken` that will be received in atomic units of the `toToken`. For example, `1000000000000000000` when receiving ETH equates to 1 ETH, `1000000` when receiving USDC equates to 1 USDC, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -128,7 +128,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "issues", n => { Issues = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues.CreateFromDiscriminatorValue); } },
                 { "liquidityAvailable", n => { LiquidityAvailable = n.GetBoolValue(); } },
                 { "minToAmount", n => { MinToAmount = n.GetStringValue(); } },
-                { "permit2", n => { Permit2 = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2.CreateFromDiscriminatorValue); } },
+                { "permit2", n => { Permit2 = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval.CreateFromDiscriminatorValue); } },
                 { "toAmount", n => { ToAmount = n.GetStringValue(); } },
                 { "toToken", n => { ToToken = n.GetStringValue(); } },
                 { "transaction", n => { Transaction = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Transaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Transaction.CreateFromDiscriminatorValue); } },
@@ -148,7 +148,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues>("issues", Issues);
             writer.WriteBoolValue("liquidityAvailable", LiquidityAvailable);
             writer.WriteStringValue("minToAmount", MinToAmount);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2>("permit2", Permit2);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval>("permit2", Permit2);
             writer.WriteStringValue("toAmount", ToAmount);
             writer.WriteStringValue("toToken", ToToken);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Transaction>("transaction", Transaction);

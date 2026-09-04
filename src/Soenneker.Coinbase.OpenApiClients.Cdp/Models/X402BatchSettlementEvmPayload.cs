@@ -87,8 +87,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Token { get; set; }
 #endif
-        /// <summary>The payload-type discriminator. Must be `&quot;deposit&quot;` for a channel-funding deposit payload.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositType? Type { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>A signed cumulative-ceiling voucher for an x402 batch-settlement channel. `maxClaimableAmount` is monotonically increasing across requests in the same channel; the receiver may claim any amount up to this ceiling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -131,7 +137,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "refundAuthorizerSignature", n => { RefundAuthorizerSignature = n.GetStringValue(); } },
                 { "refundNonce", n => { RefundNonce = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
                 { "voucher", n => { Voucher = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher.CreateFromDiscriminatorValue); } },
             };
         }
@@ -151,7 +157,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("refundAuthorizerSignature", RefundAuthorizerSignature);
             writer.WriteStringValue("refundNonce", RefundNonce);
             writer.WriteStringValue("token", Token);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher>("voucher", Voucher);
             writer.WriteAdditionalData(AdditionalData);
         }
