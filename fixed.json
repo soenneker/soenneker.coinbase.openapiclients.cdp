@@ -158,7 +158,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       },
       "post": {
         "tags": [
@@ -288,7 +295,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:write@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/accounts/{accountId}": {
@@ -387,7 +401,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/accounts/{accountId}/balances": {
@@ -547,7 +568,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/accounts/{accountId}/balances/{asset}": {
@@ -690,7 +718,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/coinbase-accounts/balances": {
@@ -799,7 +834,8 @@
             "$ref": "#/components/responses/ServiceUnavailableError"
           }
         },
-        "security": []
+        "security": [],
+        "x-audience": "public"
       }
     },
     "/v2/customers": {
@@ -1043,7 +1079,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "customers:write@entity"
+          ],
+          "enforcement": "any"
+        }
       },
       "get": {
         "tags": [
@@ -1192,7 +1235,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "customers:read@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/customers/{customerId}": {
@@ -1358,7 +1408,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "customers:read@entity"
+          ],
+          "enforcement": "any"
+        }
       },
       "delete": {
         "tags": [
@@ -1444,7 +1501,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "customers:write@entity"
+          ],
+          "enforcement": "any"
+        }
       },
       "put": {
         "tags": [
@@ -1696,7 +1760,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "customers:write@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/deposit-destinations": {
@@ -1891,7 +1962,15 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity",
+            "accounts:read@project"
+          ],
+          "enforcement": "any"
+        }
       },
       "post": {
         "tags": [
@@ -2133,7 +2212,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:write@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/deposit-destinations/{depositDestinationId}": {
@@ -2302,7 +2388,15 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity",
+            "accounts:read@project"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/transfers": {
@@ -2463,7 +2557,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "transfers:write@entity"
+          ],
+          "enforcement": "any"
+        }
       },
       "get": {
         "tags": [
@@ -2652,7 +2753,15 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "transfers:read@entity",
+            "transfers:read@project"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/transfers/{transferId}": {
@@ -2722,7 +2831,15 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "transfers:read@entity",
+            "transfers:read@project"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/transfers/{transferId}/execute": {
@@ -2919,7 +3036,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "transfers:write@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/transfers/{transferId}/travel-rule": {
@@ -3059,7 +3183,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "transfers:write@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/payment-sessions": {
@@ -3292,7 +3423,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "get": {
         "tags": [
@@ -3357,7 +3489,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}": {
@@ -3564,7 +3697,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/cancel": {
@@ -3751,7 +3885,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/authorizations/wallet/options": {
@@ -4142,7 +4277,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/authorizations/wallet": {
@@ -4275,7 +4411,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/authorizations/x402": {
@@ -4429,7 +4566,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/authorizations/coinbase": {
@@ -4589,7 +4727,8 @@
             "$ref": "#/components/responses/ServiceUnavailableError"
           }
         },
-        "security": []
+        "security": [],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/authorizations": {
@@ -4683,7 +4822,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/authorizations/{authorizationId}": {
@@ -4783,7 +4923,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/captures": {
@@ -4907,7 +5048,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "get": {
         "tags": [
@@ -4999,7 +5141,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/captures/{captureId}": {
@@ -5095,7 +5238,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/voids": {
@@ -5216,7 +5360,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "get": {
         "tags": [
@@ -5308,7 +5453,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/voids/{voidId}": {
@@ -5403,7 +5549,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/refunds": {
@@ -5535,7 +5682,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "get": {
         "tags": [
@@ -5627,7 +5775,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-sessions/{paymentSessionId}/refunds/{refundId}": {
@@ -5727,7 +5876,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/disbursements": {
@@ -5867,7 +6017,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "get": {
         "tags": [
@@ -5959,7 +6110,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/disbursements/{disbursementId}": {
@@ -6054,7 +6206,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/end-users": {
@@ -6399,7 +6552,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "get": {
         "tags": [
@@ -6496,7 +6650,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/end-users/auth/validate-token": {
@@ -6590,7 +6745,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/end-users/{userId}": {
@@ -6652,7 +6808,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/end-users/lookup": {
@@ -6908,7 +7065,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/end-users/{userId}/evm": {
@@ -7049,7 +7207,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/end-users/{userId}/evm-smart-account": {
@@ -7206,7 +7365,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/end-users/{userId}/solana": {
@@ -7347,7 +7507,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/end-users/import": {
@@ -7578,7 +7739,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/evm/sign/transaction": {
@@ -7714,7 +7876,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/evm/send/transaction": {
@@ -7850,7 +8013,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/evm/{address}/send/{asset}": {
@@ -8093,7 +8257,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/evm/sign/message": {
@@ -8211,7 +8376,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/evm/sign/typed-data": {
@@ -8343,7 +8509,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/delegation": {
@@ -8428,7 +8595,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "delete": {
         "tags": [
@@ -8526,7 +8694,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/address/{address}/delegation": {
@@ -8719,7 +8888,8 @@
           {
             "endUserAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "get": {
         "tags": [
@@ -8812,7 +8982,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "delete": {
         "tags": [
@@ -8920,7 +9091,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/evm/eip7702/delegation": {
@@ -9100,7 +9272,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/evm/smart-accounts/{address}/send": {
@@ -9269,7 +9442,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/solana/sign/message": {
@@ -9405,7 +9579,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/solana/sign/transaction": {
@@ -9541,7 +9716,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/solana/sign/x402-payment": {
@@ -9806,7 +9982,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/solana/send/transaction": {
@@ -9959,7 +10136,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/embedded-wallet-api/end-users/{userId}/solana/{address}/send/{asset}": {
@@ -10194,7 +10372,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts": {
@@ -10243,7 +10422,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "post": {
         "tags": [
@@ -10361,7 +10541,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/{address}": {
@@ -10449,7 +10630,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "put": {
         "tags": [
@@ -10556,7 +10738,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/by-name/{name}": {
@@ -10643,7 +10826,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/{address}/send/transaction": {
@@ -10796,7 +10980,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/{address}/sign/transaction": {
@@ -10949,7 +11134,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/{address}/sign": {
@@ -11066,7 +11252,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/{address}/sign/message": {
@@ -11183,7 +11370,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/{address}/sign/typed-data": {
@@ -11314,7 +11502,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/{address}/eip7702/delegation": {
@@ -11460,7 +11649,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/eip7702/delegation-operations/{delegationOperationId}": {
@@ -11551,7 +11741,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/smart-accounts": {
@@ -11779,7 +11970,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/import": {
@@ -11899,7 +12091,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/accounts/{address}/export": {
@@ -12030,6 +12223,10 @@
           {
             "apiKeyAuth": []
           }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "accounts#export"
         ]
       }
     },
@@ -12160,6 +12357,10 @@
           {
             "apiKeyAuth": []
           }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "accounts#export"
         ]
       }
     },
@@ -12351,7 +12552,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/smart-accounts/{address}/user-operations": {
@@ -12633,7 +12835,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/smart-accounts/{address}/user-operations/{userOpHash}": {
@@ -12990,7 +13193,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/smart-accounts/{address}/spend-permissions/list": {
@@ -13097,7 +13301,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/smart-accounts/{address}/spend-permissions/revoke": {
@@ -13207,7 +13412,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/swaps/quote": {
@@ -13389,7 +13595,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/swaps": {
@@ -13593,7 +13800,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/token-balances/{network}/{address}": {
@@ -13699,7 +13907,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/evm/faucet": {
@@ -13801,7 +14010,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/policy-engine/policies": {
@@ -13859,7 +14069,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "post": {
         "tags": [
@@ -13938,6 +14149,10 @@
           {
             "apiKeyAuth": []
           }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "policies#manage"
         ]
       }
     },
@@ -14008,7 +14223,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "delete": {
         "tags": [
@@ -14099,6 +14315,10 @@
           {
             "apiKeyAuth": []
           }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "policies#manage"
         ]
       },
       "put": {
@@ -14207,6 +14427,10 @@
           {
             "apiKeyAuth": []
           }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "policies#manage"
         ]
       }
     },
@@ -14256,7 +14480,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "post": {
         "tags": [
@@ -14374,7 +14599,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/solana/accounts/{address}": {
@@ -14462,7 +14688,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       },
       "put": {
         "tags": [
@@ -14569,7 +14796,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/solana/accounts/by-name/{name}": {
@@ -14656,7 +14884,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/solana/accounts/import": {
@@ -14776,7 +15005,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/solana/accounts/{address}/export": {
@@ -14907,6 +15137,10 @@
           {
             "apiKeyAuth": []
           }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "accounts#export"
         ]
       }
     },
@@ -15037,6 +15271,10 @@
           {
             "apiKeyAuth": []
           }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "accounts#export"
         ]
       }
     },
@@ -15190,7 +15428,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/solana/accounts/{address}/sign/message": {
@@ -15325,7 +15564,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/solana/accounts/send/transaction": {
@@ -15480,7 +15720,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/solana/faucet": {
@@ -15588,7 +15829,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/solana/token-balances/{network}/{address}": {
@@ -15705,7 +15947,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/data/query/run": {
@@ -15802,7 +16045,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/data/query/grammar": {
@@ -15859,7 +16103,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/data/query/schema": {
@@ -15914,7 +16159,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/data/evm/token-ownership/{network}/{address}": {
@@ -16008,7 +16254,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/data/evm/token-balances/{network}/{address}": {
@@ -16114,7 +16361,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/data/webhooks/subscriptions": {
@@ -16214,7 +16462,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       },
       "post": {
         "tags": [
@@ -16336,7 +16591,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:write@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/data/webhooks/subscriptions/{subscriptionId}": {
@@ -16421,7 +16683,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       },
       "put": {
         "tags": [
@@ -16538,7 +16807,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:write@entity"
+          ],
+          "enforcement": "any"
+        }
       },
       "delete": {
         "tags": [
@@ -16614,7 +16890,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:write@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/data/webhooks/subscriptions/{subscriptionId}/events": {
@@ -16768,7 +17051,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/x402/verify": {
@@ -16815,7 +17105,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/settle": {
@@ -16866,7 +17157,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/supported": {
@@ -16899,7 +17191,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/discovery/resources": {
@@ -16987,7 +17280,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/discovery/merchant": {
@@ -17076,7 +17370,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/discovery/search": {
@@ -17316,7 +17611,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/discovery/mcp": {
@@ -17375,7 +17671,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/discovery/bundles": {
@@ -17432,7 +17729,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/discovery/bundles/{bundleSlug}": {
@@ -17521,7 +17819,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/x402/validate": {
@@ -17588,7 +17887,8 @@
           {
             "unauthenticated": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/onramp/verifications": {
@@ -17668,7 +17968,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/onramp/verifications/{verificationId}/submit": {
@@ -17788,7 +18089,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/onramp/orders": {
@@ -17946,7 +18248,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/onramp/orders/{orderId}": {
@@ -18012,7 +18315,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/onramp/sessions": {
@@ -18084,7 +18388,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/onramp/limits": {
@@ -18188,7 +18493,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/onramp/limits/upgrade": {
@@ -18269,7 +18575,8 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "/v2/payment-methods": {
@@ -18377,7 +18684,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     },
     "/v2/payment-methods/{paymentMethodId}": {
@@ -18511,7 +18825,14 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "x-audience": "public",
+        "x-required-permissions": {
+          "permissions": [
+            "accounts:read@entity"
+          ],
+          "enforcement": "any"
+        }
       }
     }
   },
@@ -56180,6 +56501,117 @@
       }
     }
   ],
+  "x-tagGroups": [
+    {
+      "name": "Wallets",
+      "x-groups": [
+        {
+          "name": "Custodial",
+          "tags": [
+            "Accounts"
+          ]
+        },
+        {
+          "name": "Non-custodial",
+          "x-groups": [
+            {
+              "name": "User Wallets",
+              "tags": [
+                "End User Account Management",
+                "End User Accounts"
+              ]
+            },
+            {
+              "name": "API Key Wallets",
+              "tags": [
+                "EVM Accounts",
+                "EVM Smart Accounts",
+                "Solana Accounts"
+              ]
+            }
+          ],
+          "tags": [
+            "Policy Engine",
+            "Wallet Webhooks"
+          ]
+        }
+      ],
+      "tags": [
+        "Accounts",
+        "End User Account Management",
+        "End User Accounts",
+        "EVM Accounts",
+        "EVM Smart Accounts",
+        "Solana Accounts",
+        "Policy Engine",
+        "Wallet Webhooks"
+      ]
+    },
+    {
+      "name": "Payments",
+      "x-groups": [
+        {
+          "name": "Acceptance",
+          "tags": [
+            "Payment Sessions",
+            "Disbursements"
+          ]
+        },
+        {
+          "tags": [
+            "Deposit Destinations",
+            "Payment Methods",
+            "Transfers",
+            "Onramp",
+            "x402 Facilitator"
+          ]
+        }
+      ],
+      "tags": [
+        "Payment Sessions",
+        "Disbursements",
+        "Deposit Destinations",
+        "Payment Methods",
+        "Transfers",
+        "Onramp",
+        "x402 Facilitator"
+      ]
+    },
+    {
+      "name": "Trading",
+      "tags": [
+        "EVM Swaps"
+      ]
+    },
+    {
+      "name": "Onchain Tools",
+      "tags": [
+        "EVM Token Balances",
+        "Faucets",
+        "Onchain Data",
+        "Solana Token Balances",
+        "SQL API"
+      ]
+    },
+    {
+      "name": "Customers",
+      "tags": [
+        "Customers"
+      ]
+    },
+    {
+      "name": "Health",
+      "tags": [
+        "Health"
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "tags": [
+        "Webhooks"
+      ]
+    }
+  ],
   "webhooks": {
     "onchainActivityDetected": {
       "post": {
@@ -56234,7 +56666,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletActivityDetected": {
@@ -56268,7 +56701,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletActivityMulti": {
@@ -56302,7 +56736,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletTransactionCreated": {
@@ -56336,7 +56771,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletTransactionSigned": {
@@ -56370,7 +56806,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletTransactionBroadcast": {
@@ -56404,7 +56841,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletTransactionReplaced": {
@@ -56438,7 +56876,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletTransactionPending": {
@@ -56472,7 +56911,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletTransactionConfirmed": {
@@ -56506,7 +56946,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletTransactionFailed": {
@@ -56540,7 +56981,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletDelegationCreated": {
@@ -56574,7 +57016,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletDelegationRevoked": {
@@ -56608,7 +57051,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletTypedDataSigned": {
@@ -56642,7 +57086,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletMessageSigned": {
@@ -56676,7 +57121,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "walletHashSigned": {
@@ -56710,7 +57156,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "paymentsTransfersQuoted": {
@@ -56800,7 +57247,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "paymentsTransfersProcessing": {
@@ -56923,7 +57371,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "paymentsTransfersCompleted": {
@@ -57049,7 +57498,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "paymentsTransfersFailed": {
@@ -57175,7 +57625,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "paymentsTransfersExpired": {
@@ -57209,7 +57660,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "paymentsTransfersTravelRuleIncomplete": {
@@ -57243,7 +57695,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "paymentsTransfersTravelRuleCompleted": {
@@ -57277,7 +57730,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "onrampTransactionCreated": {
@@ -57311,7 +57765,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "onrampTransactionUpdated": {
@@ -57345,7 +57800,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "onrampTransactionSuccess": {
@@ -57379,7 +57835,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "onrampTransactionFailed": {
@@ -57413,7 +57870,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "offrampTransactionCreated": {
@@ -57447,7 +57905,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "offrampTransactionUpdated": {
@@ -57481,7 +57940,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "offrampTransactionSuccess": {
@@ -57515,7 +57975,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "offrampTransactionFailed": {
@@ -57549,7 +58010,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionCreated": {
@@ -57583,7 +58045,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionCanceled": {
@@ -57617,7 +58080,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionAuthorizationPending": {
@@ -57651,7 +58115,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionAuthorizationSucceeded": {
@@ -57685,7 +58150,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionAuthorizationFailed": {
@@ -57719,7 +58185,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionCapturePending": {
@@ -57753,7 +58220,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionCaptureSucceeded": {
@@ -57787,7 +58255,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionCaptureFailed": {
@@ -57821,7 +58290,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionRefundPending": {
@@ -57855,7 +58325,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionRefundSucceeded": {
@@ -57889,7 +58360,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionRefundFailed": {
@@ -57923,7 +58395,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionVoidPending": {
@@ -57957,7 +58430,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionVoidSucceeded": {
@@ -57991,7 +58465,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptancePaymentSessionVoidFailed": {
@@ -58025,7 +58500,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptanceDisbursementPending": {
@@ -58059,7 +58535,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptanceDisbursementSucceeded": {
@@ -58093,7 +58570,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "acceptanceDisbursementFailed": {
@@ -58127,7 +58605,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "healthStatusUpdated": {
@@ -58161,7 +58640,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "healthMaintenanceScheduled": {
@@ -58195,7 +58675,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "healthMaintenanceStarted": {
@@ -58229,7 +58710,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "healthMaintenanceCompleted": {
@@ -58263,7 +58745,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "healthMaintenanceCanceled": {
@@ -58297,7 +58780,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "customersCapabilityChanged": {
@@ -58331,7 +58815,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     },
     "customersCustomerDeleted": {
@@ -58365,7 +58850,8 @@
           {
             "webhookSignature": []
           }
-        ]
+        ],
+        "x-audience": "public"
       }
     }
   }
