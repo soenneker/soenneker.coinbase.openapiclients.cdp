@@ -320,7 +320,9 @@
             "description": "The ID of the account to retrieve.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^account_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
             },
             "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           }
@@ -426,7 +428,9 @@
             "description": "The unique identifier of the account.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^account_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
             },
             "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           },
@@ -593,7 +597,9 @@
             "description": "The unique identifier of the account.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^account_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
             },
             "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           },
@@ -603,7 +609,10 @@
             "description": "The symbol of the asset.",
             "required": true,
             "schema": {
-              "type": "string"
+              "maxLength": 42,
+              "minLength": 1,
+              "type": "string",
+              "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt)."
             },
             "example": "btc"
           }
@@ -1260,7 +1269,9 @@
             "description": "The ID of the customer.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^customer_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Customer, which is a UUID prefixed by \u0060customer_\u0060."
             },
             "example": "customer_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           }
@@ -1435,7 +1446,9 @@
             "description": "The ID of the customer.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^customer_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Customer, which is a UUID prefixed by \u0060customer_\u0060."
             },
             "example": "customer_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           }
@@ -1524,7 +1537,9 @@
             "description": "The ID of the customer.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^customer_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Customer, which is a UUID prefixed by \u0060customer_\u0060."
             },
             "example": "customer_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           },
@@ -1784,7 +1799,9 @@
             "in": "query",
             "description": "Filter deposit destinations by account ID.",
             "schema": {
-              "type": "string"
+              "pattern": "^account_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
             },
             "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           },
@@ -2237,7 +2254,9 @@
             "description": "The ID of the deposit address to retrieve.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^depositDestination_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Deposit Destination, which is a UUID prefixed by the string \u0060depositDestination_\u0060."
             },
             "example": "depositDestination_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           }
@@ -2588,7 +2607,9 @@
             "in": "query",
             "description": "Filter transfers by account ID. Returns transfers where the specified account is either the source or target (OR semantics). Cannot be combined with \u0060sourceAccountId\u0060 or \u0060targetAccountId\u0060.",
             "schema": {
-              "type": "string"
+              "pattern": "^account_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
             },
             "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           },
@@ -2597,7 +2618,9 @@
             "in": "query",
             "description": "Filter transfers by source account ID. Returns only transfers where the specified account is the source. Cannot be combined with \u0060accountId\u0060.",
             "schema": {
-              "type": "string"
+              "pattern": "^account_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
             },
             "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           },
@@ -2606,7 +2629,9 @@
             "in": "query",
             "description": "Filter transfers by target account ID. Returns only transfers where the specified account is the target. Cannot be combined with \u0060accountId\u0060.",
             "schema": {
-              "type": "string"
+              "pattern": "^account_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
             },
             "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
           },
@@ -2673,7 +2698,10 @@
             "in": "query",
             "description": "Filter transfers by the on-chain address of the source.",
             "schema": {
-              "type": "string"
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string",
+              "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
             },
             "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
@@ -2682,7 +2710,10 @@
             "in": "query",
             "description": "Filter transfers by the on-chain destination address of the target.",
             "schema": {
-              "type": "string"
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string",
+              "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
             },
             "example": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
           },
@@ -2691,7 +2722,11 @@
             "in": "query",
             "description": "Filter transfers by the email address of the target recipient.",
             "schema": {
-              "type": "string"
+              "maxLength": 254,
+              "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+              "type": "string",
+              "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
+              "format": "email"
             },
             "example": "recipient@example.com"
           },
@@ -3508,7 +3543,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           }
         ],
@@ -3716,7 +3753,9 @@
             "description": "The unique identifier of the payment session to cancel.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -3904,7 +3943,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -3943,7 +3984,10 @@
             "in": "query",
             "description": "Optional filter to restrict options to a specific asset.",
             "schema": {
-              "type": "string"
+              "maxLength": 42,
+              "minLength": 1,
+              "type": "string",
+              "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt)."
             },
             "example": "usdc"
           }
@@ -4296,7 +4340,9 @@
             "description": "The unique identifier of the payment session to authorize.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -4430,7 +4476,9 @@
             "description": "The unique identifier of the payment session to authorize with x402.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -4585,7 +4633,9 @@
             "description": "The unique identifier of the payment session to authorize via Coinbase.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -4746,7 +4796,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -4841,7 +4893,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -4850,7 +4904,9 @@
             "description": "The unique identifier of the authorization.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^authorization_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the authorization, a UUID prefixed by \u0060authorization_\u0060."
             }
           }
         ],
@@ -4942,7 +4998,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5065,7 +5123,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5160,7 +5220,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5169,7 +5231,9 @@
             "description": "The unique identifier of the capture.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^capture_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the capture, a UUID prefixed by \u0060capture_\u0060."
             }
           }
         ],
@@ -5257,7 +5321,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5377,7 +5443,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5472,7 +5540,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5481,7 +5551,9 @@
             "description": "The unique identifier of the void.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^void_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the void, a UUID prefixed by \u0060void_\u0060."
             }
           }
         ],
@@ -5568,7 +5640,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5699,7 +5773,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5794,7 +5870,9 @@
             "description": "The unique identifier of the payment session.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060."
             }
           },
           {
@@ -5803,7 +5881,9 @@
             "description": "The unique identifier of the refund.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^refund_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the refund, a UUID prefixed by \u0060refund_\u0060."
             }
           }
         ],
@@ -6129,7 +6209,9 @@
             "description": "The unique identifier of the disbursement.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^disbursement_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the disbursement, a UUID prefixed by \u0060disbursement_\u0060."
             }
           }
         ],
@@ -6826,7 +6908,11 @@
             "in": "query",
             "description": "The email address to search for across all email-based authentication methods.",
             "schema": {
-              "type": "string"
+              "maxLength": 254,
+              "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+              "type": "string",
+              "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
+              "format": "email"
             },
             "example": "user@example.com"
           },
@@ -6853,7 +6939,9 @@
             "in": "query",
             "description": "The E.164-formatted phone number to search for. Must be URL-encoded when passed as a query parameter (e.g. \u0060\u002B14155552671\u0060 \u2192 \u0060%2B14155552671\u0060).",
             "schema": {
-              "type": "string"
+              "pattern": "^\\\u002B[1-9]\\d{1,14}$",
+              "type": "string",
+              "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
             },
             "example": "\u002B14155552671"
           },
@@ -6862,7 +6950,10 @@
             "in": "query",
             "description": "The ERC-55 checksummed Ethereum address to search for. Looks up a user by the address they authenticated with via Sign In With Ethereum (EIP-4361).",
             "schema": {
-              "type": "string"
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string",
+              "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
             },
             "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
           }
@@ -8732,7 +8823,10 @@
             "description": "The blockchain address of the end user account to scope this delegation to. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana). For EVM addresses, matching is case-insensitive.",
             "required": true,
             "schema": {
-              "type": "string"
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string",
+              "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
             },
             "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
@@ -8916,7 +9010,10 @@
             "description": "The blockchain address of the end user account to query. For EVM addresses, matching is case-insensitive.",
             "required": true,
             "schema": {
-              "type": "string"
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string",
+              "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
             },
             "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
@@ -9022,7 +9119,10 @@
             "description": "The blockchain address of the end user account whose delegation should be revoked. For EVM addresses, matching is case-insensitive.",
             "required": true,
             "schema": {
-              "type": "string"
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string",
+              "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
             },
             "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
@@ -13438,7 +13538,9 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string",
+              "description": "The 0x-prefixed contract address of the token to receive."
             }
           },
           {
@@ -13446,7 +13548,9 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string",
+              "description": "The 0x-prefixed contract address of the token to send."
             }
           },
           {
@@ -13454,7 +13558,9 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^\\d\u002B$",
+              "type": "string",
+              "description": "The amount of the \u0060fromToken\u0060 to send in atomic units of the token. For example, \u00601000000000000000000\u0060 when sending ETH equates to 1 ETH, \u00601000000\u0060 when sending USDC equates to 1 USDC, etc."
             }
           },
           {
@@ -13462,28 +13568,37 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string",
+              "description": "The 0x-prefixed address that holds the \u0060fromToken\u0060 balance and has the \u0060Permit2\u0060 allowance set for the swap."
             }
           },
           {
             "name": "signerAddress",
             "in": "query",
             "schema": {
-              "type": "string"
+              "pattern": "^0x[a-fA-F0-9]{40}$",
+              "type": "string",
+              "description": "The 0x-prefixed Externally Owned Account (EOA) address that will sign the \u0060Permit2\u0060 EIP-712 permit message. This is only needed if \u0060taker\u0060 is a smart contract."
             }
           },
           {
             "name": "gasPrice",
             "in": "query",
             "schema": {
-              "type": "string"
+              "pattern": "^\\d\u002B$",
+              "type": "string",
+              "description": "The target gas price for the swap transaction, in Wei. For EIP-1559 transactions, this value should be seen as the \u0060maxFeePerGas\u0060 value. If not provided, the API will use an estimate based on the current network conditions."
             }
           },
           {
             "name": "slippageBps",
             "in": "query",
             "schema": {
-              "type": "string"
+              "maximum": 10000,
+              "minimum": 0,
+              "type": "integer",
+              "description": "The maximum acceptable slippage of the \u0060toToken\u0060 in basis points. If this parameter is set to 0, no slippage will be tolerated. If not provided, the default slippage tolerance is 100 bps (i.e., 1%)."
             }
           }
         ],
@@ -17299,7 +17414,10 @@
             "description": "The merchant\u0027s payment address to look up.\nThis is the onchain address that payment requirements route funds to.",
             "required": true,
             "schema": {
-              "type": "string"
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string",
+              "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
             },
             "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
           },
@@ -17425,7 +17543,10 @@
             "in": "query",
             "description": "Filter results by the merchant\u0027s payment address.\nFor EVM networks, provide a 0x-prefixed EVM address. For Solana networks, provide a base58-encoded address.",
             "schema": {
-              "type": "string"
+              "maxLength": 128,
+              "minLength": 1,
+              "type": "string",
+              "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
             }
           },
           {
@@ -17987,7 +18108,9 @@
             "description": "The verification ID returned by the Initiate Onramp Verification endpoint.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^onramp_verification_[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+              "type": "string",
+              "description": "A unique identifier for an onramp verification record, in the format \u0060onramp_verification_\u003Cuuid\u003E\u0060."
             },
             "example": "onramp_verification_a1b2c3d4-e5f6-7890-abcd-ef1234567890"
           },
@@ -18709,7 +18832,9 @@
             "description": "The unique identifier of the payment method.",
             "required": true,
             "schema": {
-              "type": "string"
+              "pattern": "^paymentMethod_[a-f0-9\\-]{36}$",
+              "type": "string",
+              "description": "The ID of the Payment Method, which is a UUID prefixed by the string \u0060paymentMethod_\u0060."
             },
             "example": "paymentMethod_8e03978e-40d5-43e8-bc93-6894a57f9324"
           }
@@ -18867,114 +18992,24 @@
           ]
         }
       },
-      "DepositDestinationTargetAccountAccountId": {
+      "AccountId": {
         "pattern": "^account_[a-f0-9\\-]{36}$",
         "type": "string",
-        "additionalProperties": false,
-        "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
+        "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
+        "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
       },
-      "CustomerWriteBaseIndividual": {
-        "type": "object",
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "description": "First name (given name).",
-            "example": "Jane"
-          },
-          "lastName": {
-            "type": "string",
-            "description": "Last name (family name/surname).",
-            "example": "Doe"
-          },
-          "address": {
-            "$ref": "#/components/schemas/IndividualInputAddress"
-          },
-          "ssnLast4": {
-            "maxLength": 4,
-            "minLength": 4,
-            "pattern": "^[0-9]{4}$",
-            "type": "string",
-            "description": "Last 4 digits of the Social Security Number (US only).\nUsed for identity verification.\n",
-            "example": "6789"
-          },
-          "dateOfBirth": {
-            "$ref": "#/components/schemas/IndividualInputDateOfBirth"
-          },
-          "fullSsn": {
-            "pattern": "^([0-9]{3}-[0-9]{2}-[0-9]{4}|\\*\\*\\*-\\*\\*-[0-9]{4})$",
-            "type": "string",
-            "description": "Full Social Security Number (US only).\n",
-            "example": "***-**-6789"
-          },
-          "citizenship": {
-            "maxLength": 2,
-            "pattern": "^[A-Z]{2}$",
-            "type": "string",
-            "description": "An ISO 3166-1 alpha-2 country code."
-          },
-          "email": {
-            "maxLength": 254,
-            "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
-            "type": "string",
-            "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
-            "format": "email"
-          },
-          "phoneNumber": {
-            "pattern": "^\\\u002B[1-9]\\d{1,14}$",
-            "type": "string",
-            "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
-          },
-          "purposeOfAccount": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualPurposeOfAccount"
-          },
-          "sourceOfFunds": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualSourceOfFunds"
-          },
-          "employmentStatus": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualEmploymentStatus"
-          },
-          "occupation": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualOccupation"
-          },
-          "expectedVolume": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualExpectedVolume"
-          }
-        },
-        "description": "Information about an Individual customer. Not all fields are required\nfor all customers; the requirements depend on which capabilities are\nrequested. Submit only fields that are required by the capabilities\nthat have been requested.\n",
-        "example": {
-          "firstName": "Jane",
-          "lastName": "Doe"
-        }
+      "Owner": {
+        "pattern": "^(entity|customer)_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+        "type": "string",
+        "description": "The Owner ID of the Account.\n\nOwner IDs are UUIDs prefixed with the Owner Type as follows:\n\n* **Entity**: \u0060entity_\u0060 - If the Owner is your Entity, e.g. \u0060entity_af2937b0-9846-4fe7-bfe9-ccc22d935114\u0060.\n\n* **Customer**: \u0060customer_\u0060 - If the Owner is one of your Customers,\n  e.g. \u0060customer_af2937b0-9846-4fe7-bfe9-ccc22d935114\u0060. Customer ownership requires the\n  Customer to have the \u0060custodyCrypto\u0060, \u0060custodyFiat\u0060, and \u0060custodyStablecoin\u0060\n  capabilities enabled.",
+        "example": "entity_af2937b0-9846-4fe7-bfe9-ccc22d935114"
       },
-      "CustomerWriteBaseCapabilities": {
-        "type": "object",
-        "properties": {
-          "custodyCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapInputCustodyCrypto"
-          },
-          "custodyFiat": {
-            "$ref": "#/components/schemas/CapabilitiesMapInputCustodyFiat"
-          },
-          "custodyStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapInputCustodyStablecoin"
-          },
-          "tradeCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapInputTradeCrypto"
-          },
-          "tradeStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapInputTradeStablecoin"
-          },
-          "transferCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapInputTransferCrypto"
-          },
-          "transferFiat": {
-            "$ref": "#/components/schemas/CapabilitiesMapInputTransferFiat"
-          },
-          "transferStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapInputTransferStablecoin"
-          }
-        },
-        "description": "Capabilities to request for the customer."
+      "AccountName": {
+        "maxLength": 64,
+        "pattern": "^[a-zA-Z0-9 -]{1,64}$",
+        "type": "string",
+        "description": "An optional name for the account. Must be 1-64 characters and can only contain alphanumeric characters, hyphens, and spaces.",
+        "example": "My Business Account"
       },
       "Account": {
         "required": [
@@ -19596,18 +19631,14 @@
           ]
         }
       },
-      "CustomerWriteBaseType": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/CustomerType"
-          }
-        },
-        "description": "The type of the customer. Required on create; accepted but ignored on\nupdate.\n",
-        "example": "individual"
+      "Url": {
+        "maxLength": 2048,
+        "minLength": 11,
+        "pattern": "^https?://.*$",
+        "type": "string",
+        "description": "A valid HTTP or HTTPS URL.",
+        "format": "uri",
+        "example": "https://example.com"
       },
       "CapabilityName": {
         "enum": [
@@ -19753,12 +19784,12 @@
           }
         }
       },
-      "IndividualInputPhoneNumber": {
-        "pattern": "^\\\u002B[1-9]\\d{1,14}$",
+      "Asset": {
+        "maxLength": 42,
+        "minLength": 1,
         "type": "string",
-        "additionalProperties": false,
-        "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.",
-        "example": "\u002B15551234567"
+        "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+        "example": "usd"
       },
       "AssetType": {
         "enum": [
@@ -19925,14 +19956,11 @@
           ]
         }
       },
-      "IndividualInputEmail": {
-        "maxLength": 254,
-        "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+      "CustomerId": {
+        "pattern": "^customer_[a-f0-9\\-]{36}$",
         "type": "string",
-        "additionalProperties": false,
-        "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
-        "format": "email",
-        "example": "jane.doe@example.com"
+        "description": "The ID of the Customer, which is a UUID prefixed by \u0060customer_\u0060.",
+        "example": "customer_af2937b0-9846-4fe7-bfe9-ccc22d935114"
       },
       "CustomerType": {
         "enum": [
@@ -20106,12 +20134,12 @@
           ]
         }
       },
-      "IndividualInputCitizenship": {
-        "maxLength": 2,
-        "pattern": "^[A-Z]{2}$",
+      "TosVersionId": {
+        "maxLength": 64,
+        "minLength": 1,
         "type": "string",
-        "additionalProperties": false,
-        "description": "An ISO 3166-1 alpha-2 country code."
+        "description": "Stable, opaque identifier for a specific Terms of Service version\n(for example, \u0060us_individual_2026-05-29\u0060). The same identifier is\nsurfaced on \u0060Customer.requirements.tos.tosVersions[].versionId\u0060 (the\nversions a Customer still needs to accept) and on\n\u0060Customer.tosAcceptances[].versionId\u0060 (the versions the Customer has\naccepted). Treat the value as opaque and submit it verbatim; the\nidentifier format is stable across API versions, but the set of\nvalid values grows over time as new Terms of Service versions are\npublished.\n",
+        "example": "us_individual_2026-05-29"
       },
       "TermsOfService": {
         "required": [
@@ -20281,35 +20309,13 @@
           }
         }
       },
-      "IndividualInputDateOfBirth": {
-        "type": "object",
-        "properties": {
-          "day": {
-            "maxLength": 2,
-            "minLength": 1,
-            "pattern": "^(?:0?[1-9]|[12][0-9]|3[01])$",
-            "type": "string",
-            "description": "Day of birth (1-31). Both single-digit (\u00227\u0022) and zero-padded (\u002207\u0022) formats are accepted.",
-            "example": "15"
-          },
-          "month": {
-            "maxLength": 2,
-            "minLength": 1,
-            "pattern": "^(?:0?[1-9]|1[0-2])$",
-            "type": "string",
-            "description": "Month of birth (1-12). Both single-digit (\u00224\u0022) and zero-padded (\u002204\u0022) formats are accepted.",
-            "example": "08"
-          },
-          "year": {
-            "maxLength": 4,
-            "minLength": 4,
-            "pattern": "^[0-9]{4}$",
-            "type": "string",
-            "description": "Year of birth (four digits).",
-            "example": "1990"
-          }
-        },
-        "description": "Date of birth."
+      "Email": {
+        "maxLength": 254,
+        "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+        "type": "string",
+        "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
+        "format": "email",
+        "example": "user@example.com"
       },
       "Individual": {
         "type": "object",
@@ -20339,43 +20345,12 @@
           "email": "jane.doe@example.com"
         }
       },
-      "IndividualInputAddress": {
-        "type": "object",
-        "properties": {
-          "line1": {
-            "type": "string",
-            "description": "Primary street address.",
-            "example": "123 Market St"
-          },
-          "line2": {
-            "type": "string",
-            "description": "Secondary address information.",
-            "example": "Suite 400"
-          },
-          "city": {
-            "type": "string",
-            "description": "City or locality.",
-            "example": "San Francisco"
-          },
-          "state": {
-            "type": "string",
-            "description": "State, province, or region.",
-            "example": "CA"
-          },
-          "postCode": {
-            "type": "string",
-            "description": "Postal or ZIP code.",
-            "example": "94105"
-          },
-          "countryCode": {
-            "maxLength": 2,
-            "minLength": 2,
-            "type": "string",
-            "description": "ISO 3166-1 alpha-2 country code (2 characters). See https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes.",
-            "example": "US"
-          }
-        },
-        "description": "Primary residential address. Only US addresses are currently\nsupported. Non-US \u0060countryCode\u0060 values are rejected with a 400.\n"
+      "ProjectId": {
+        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+        "type": "string",
+        "description": "The ID of the Project, a UUID v4.",
+        "format": "uuid",
+        "example": "af2937b0-9846-4fe7-bfe9-ccc22d935114"
       },
       "TosAcceptance": {
         "required": [
@@ -20601,33 +20576,19 @@
           "year": "1990"
         }
       },
-      "CapabilitiesMapInputTransferStablecoin": {
-        "required": [
-          "requested"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
-          }
-        },
-        "description": "Transfer stablecoin to another party."
+      "CountryCode": {
+        "maxLength": 2,
+        "minLength": 2,
+        "pattern": "^[A-Z]{2}$",
+        "type": "string",
+        "description": "An ISO 3166-1 alpha-2 country code.",
+        "example": "US"
       },
-      "CapabilitiesMapInputTransferFiat": {
-        "required": [
-          "requested"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
-          }
-        },
-        "description": "Transfer fiat currency to another party."
+      "PhoneNumber": {
+        "pattern": "^\\\u002B[1-9]\\d{1,14}$",
+        "type": "string",
+        "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.",
+        "example": "\u002B12055555555"
       },
       "IndividualInput": {
         "type": "object",
@@ -20681,19 +20642,19 @@
             "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
           },
           "purposeOfAccount": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualPurposeOfAccount"
+            "$ref": "#/components/schemas/IndividualInputPurposeOfAccount"
           },
           "sourceOfFunds": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualSourceOfFunds"
+            "$ref": "#/components/schemas/IndividualInputSourceOfFunds"
           },
           "employmentStatus": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualEmploymentStatus"
+            "$ref": "#/components/schemas/IndividualInputEmploymentStatus"
           },
           "occupation": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualOccupation"
+            "$ref": "#/components/schemas/IndividualInputOccupation"
           },
           "expectedVolume": {
-            "$ref": "#/components/schemas/CustomerWriteBaseIndividualExpectedVolume"
+            "$ref": "#/components/schemas/IndividualInputExpectedVolume"
           }
         },
         "additionalProperties": false,
@@ -20947,19 +20908,11 @@
         "description": "The type of deposit destination.",
         "example": "crypto"
       },
-      "CapabilitiesMapInputTransferCrypto": {
-        "required": [
-          "requested"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
-          }
-        },
-        "description": "Transfer cryptocurrency to another party."
+      "DepositDestinationId": {
+        "pattern": "^depositDestination_[a-f0-9\\-]{36}$",
+        "type": "string",
+        "description": "The ID of the Deposit Destination, which is a UUID prefixed by the string \u0060depositDestination_\u0060.",
+        "example": "depositDestination_af2937b0-9846-4fe7-bfe9-ccc22d935114"
       },
       "PaymentNetwork": {
         "enum": [
@@ -21020,19 +20973,12 @@
           ]
         }
       },
-      "CapabilitiesMapInputTradeStablecoin": {
-        "required": [
-          "requested"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
-          }
-        },
-        "description": "Trade stablecoin."
+      "BlockchainAddress": {
+        "maxLength": 128,
+        "minLength": 1,
+        "type": "string",
+        "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+        "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
       },
       "DepositDestinationCrypto": {
         "required": [
@@ -21913,19 +21859,11 @@
           "asset": "usdc"
         }
       },
-      "CapabilitiesMapInputTradeCrypto": {
-        "required": [
-          "requested"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
-          }
-        },
-        "description": "Trade cryptocurrency."
+      "PaymentMethodId": {
+        "pattern": "^paymentMethod_[a-f0-9\\-]{36}$",
+        "type": "string",
+        "description": "The ID of the Payment Method, which is a UUID prefixed by the string \u0060paymentMethod_\u0060.",
+        "example": "paymentMethod_8e03978e-40d5-43e8-bc93-6894a57f9324"
       },
       "PaymentMethod": {
         "title": "Payment Method",
@@ -22593,33 +22531,16 @@
         },
         "description": "The source of the transfer."
       },
-      "CapabilitiesMapInputCustodyStablecoin": {
-        "required": [
-          "requested"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
-          }
-        },
-        "description": "Hold stablecoin in a Coinbase custodial account."
+      "PositiveDecimal": {
+        "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+        "type": "string",
+        "description": "A positive decimal string without scientific notation or whitespace.",
+        "example": "100.00"
       },
-      "CapabilitiesMapInputCustodyFiat": {
-        "required": [
-          "requested"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
-          }
-        },
-        "description": "Hold fiat currency in a Coinbase custodial account."
+      "IsIntermediary": {
+        "type": "boolean",
+        "description": "Indicates whether **Coinbase is acting as the intermediary Virtual Asset Service Provider (VASP)**, and your organization is acting as an originating VASP on behalf of your own end customer.\n\n**Background:**\n\nThe Travel Rule (FATF Recommendation 16) requires VASPs to collect and share certain information about virtual asset transfers. If your organization is a VASP, and you are acting on behalf of your end customer, you must provide additional Travel Rule data to satisfy compliance requirements.\n\n**Set to \u0060true\u0060 when** your organization is itself a VASP acting on behalf of your own end customer (the true originator).\n\n**Set to \u0060false\u0060 (or omit) when** your organization is not itself a VASP acting on behalf of an end customer \u2014 for example, if the virtual assets involved are your organization\u0027s own funds.\n\n**Impact on required fields:**\n\nWhen \u0060isIntermediary\u0060 is \u0060true\u0060, you must provide the \u0060originator\u0060 object with the following details:\n- The originator\u0027s (i.e. your end customer\u0027s) name\n- The originator\u0027s address\n- Your organization\u0027s VASP information (\u0060virtualAssetServiceProvider\u0060 object with \u0060identifier\u0060, \u0060name\u0060, and \u0060address\u0060)\n\nIn certain jurisdictions, \u0060personalId\u0060 and \u0060dateOfBirth\u0060 must also reflect the **original sender\u0027s** identity \u2014 not your organization\u0027s. These fields will not be auto-populated from any internal KYC data when \u0060isIntermediary\u0060 is \u0060true\u0060.\n",
+        "example": true
       },
       "TravelRuleParty": {
         "type": "object",
@@ -23044,19 +22965,11 @@
           ]
         }
       },
-      "CapabilitiesMapInputCustodyCrypto": {
-        "required": [
-          "requested"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether to request this capability.",
-            "example": true
-          }
-        },
-        "description": "Hold cryptocurrency in a Coinbase custodial account."
+      "PaymentSessionId": {
+        "pattern": "^paymentSession_[a-f0-9\\-]{36}$",
+        "type": "string",
+        "description": "The ID of the payment session, a UUID prefixed by \u0060paymentSession_\u0060.",
+        "example": "paymentSession_82c879c1-84e1-44ed-a8c2-1ac239cf09ad"
       },
       "PaymentTargetNetwork": {
         "enum": [
@@ -23446,19 +23359,11 @@
           "refunded": "0"
         }
       },
-      "CustomerRequirements": {
-        "type": "object",
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "$ref": "#/components/schemas/Requirement"
-            },
-            "description": "Map of requirements to be submitted. Each key is the field name\n(e.g., \u0022ssnLast4\u0022), with values to describe its state. Requirements\nare only shown for requested capabilities. When a requirement is\nverified, it disappears from this map.\n\nFor the \u0060tos\u0060 key, each entry in \u0060tosVersions[]\u0060 has its own optional\ndeadline. The requirement-level \u0060deadline\u0060 is an aggregate of those rows:\nthe earliest set deadline among unaccepted versions, not a separate clock.\nA version with no deadline requires immediate acceptance but keeps the\naggregate status \u0060due\u0060. A future deadline is also \u0060due\u0060 and represents\nnon-blocking grace. The aggregate status is \u0060past_due\u0060 only when at least\none unaccepted version has a deadline set in the past. Do not infer status\nor blocking behavior from omission of the aggregate deadline.\n"
-          }
-        ],
-        "description": "Map of requirements to be submitted. Each key is the field name, with\nvalues to describe its state. Requirements are only shown for requested\ncapabilities. When a requirement is fulfilled, it disappears from this map.\n",
-        "readOnly": true
+      "AuthorizationId": {
+        "pattern": "^authorization_[a-f0-9\\-]{36}$",
+        "type": "string",
+        "description": "The ID of the authorization, a UUID prefixed by \u0060authorization_\u0060.",
+        "example": "authorization_82c879c1-84e1-44ed-a8c2-1ac239cf09ad"
       },
       "PaymentActionStatus": {
         "enum": [
@@ -23516,42 +23421,17 @@
           "occurredAt": "2025-06-15T12:00:00.000Z"
         }
       },
-      "CustomerCapabilities": {
-        "type": "object",
-        "properties": {
-          "custodyCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapCustodyCrypto"
-          },
-          "custodyFiat": {
-            "$ref": "#/components/schemas/CapabilitiesMapCustodyFiat"
-          },
-          "custodyStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapCustodyStablecoin"
-          },
-          "tradeCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapTradeCrypto"
-          },
-          "tradeStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapTradeStablecoin"
-          },
-          "transferCrypto": {
-            "$ref": "#/components/schemas/CapabilitiesMapTransferCrypto"
-          },
-          "transferFiat": {
-            "$ref": "#/components/schemas/CapabilitiesMapTransferFiat"
-          },
-          "transferStablecoin": {
-            "$ref": "#/components/schemas/CapabilitiesMapTransferStablecoin"
-          }
-        },
-        "description": "Current state of each capability for this customer. Each capability\nshows whether it has been requested and its current status.\n",
-        "readOnly": true
-      },
-      "TosAcceptanceVersionId": {
-        "maxLength": 64,
+      "ExternalReferenceId": {
+        "maxLength": 256,
         "type": "string",
-        "additionalProperties": false,
-        "description": "Stable, opaque identifier for a specific Terms of Service version\n(for example, \u0060us_individual_2026-05-29\u0060). The same identifier is\nsurfaced on \u0060Customer.requirements.tos.tosVersions[].versionId\u0060 (the\nversions a Customer still needs to accept) and on\n\u0060Customer.tosAcceptances[].versionId\u0060 (the versions the Customer has\naccepted). Treat the value as opaque and submit it verbatim; the\nidentifier format is stable across API versions, but the set of\nvalid values grows over time as new Terms of Service versions are\npublished.\n"
+        "description": "A merchant-provided internal identifier for a resource from the merchant\u0027s own system\u2014not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "merchant-reference-abc123"
+      },
+      "CustomerReferenceCode": {
+        "maxLength": 128,
+        "type": "string",
+        "description": "A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.",
+        "example": "REF-ABC123"
       },
       "OperationCustomerDisplay": {
         "title": "Operation Customer Display",
@@ -23674,14 +23554,11 @@
           "updatedAt": "2025-06-15T12:01:00.000Z"
         }
       },
-      "IndividualEmail": {
-        "maxLength": 254,
-        "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+      "CaptureId": {
+        "pattern": "^capture_[a-f0-9\\-]{36}$",
         "type": "string",
-        "additionalProperties": false,
-        "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
-        "format": "email",
-        "example": "jane.doe@example.com"
+        "description": "The ID of the capture, a UUID prefixed by \u0060capture_\u0060.",
+        "example": "capture_82c879c1-84e1-44ed-a8c2-1ac239cf09ad"
       },
       "Capture": {
         "required": [
@@ -23767,14 +23644,11 @@
           "updatedAt": "2025-06-15T12:21:00.000Z"
         }
       },
-      "TermsOfServiceUrl": {
-        "maxLength": 2048,
-        "pattern": "^https?://.*$",
+      "VoidId": {
+        "pattern": "^void_[a-f0-9\\-]{36}$",
         "type": "string",
-        "additionalProperties": false,
-        "description": "A valid HTTP or HTTPS URL.",
-        "format": "uri",
-        "example": "https://docs.cdp.coinbase.com/legal/terms/us_individual"
+        "description": "The ID of the void, a UUID prefixed by \u0060void_\u0060.",
+        "example": "void_82c879c1-84e1-44ed-a8c2-1ac239cf09ad"
       },
       "VoidType": {
         "type": "object",
@@ -23851,11 +23725,11 @@
           "updatedAt": "2025-06-15T12:31:00.000Z"
         }
       },
-      "TermsOfServiceVersionId": {
-        "maxLength": 64,
+      "RefundId": {
+        "pattern": "^refund_[a-f0-9\\-]{36}$",
         "type": "string",
-        "additionalProperties": false,
-        "description": "Stable, opaque identifier for a specific Terms of Service version\n(for example, \u0060us_individual_2026-05-29\u0060). The same identifier is\nsurfaced on \u0060Customer.requirements.tos.tosVersions[].versionId\u0060 (the\nversions a Customer still needs to accept) and on\n\u0060Customer.tosAcceptances[].versionId\u0060 (the versions the Customer has\naccepted). Treat the value as opaque and submit it verbatim; the\nidentifier format is stable across API versions, but the set of\nvalid values grows over time as new Terms of Service versions are\npublished.\n"
+        "description": "The ID of the refund, a UUID prefixed by \u0060refund_\u0060.",
+        "example": "refund_82c879c1-84e1-44ed-a8c2-1ac239cf09ad"
       },
       "RefundWallet": {
         "title": "Refund Wallet",
@@ -25255,23 +25129,11 @@
           "reason": "Customer returned the item."
         }
       },
-      "CapabilitiesMapTransferStablecoin": {
-        "required": [
-          "requested",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether the customer has explicitly requested this capability.",
-            "example": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/CapabilityStatusComposed"
-          }
-        },
-        "description": "Transfer stablecoin to another party."
+      "DisbursementId": {
+        "pattern": "^disbursement_[a-f0-9\\-]{36}$",
+        "type": "string",
+        "description": "The ID of the disbursement, a UUID prefixed by \u0060disbursement_\u0060.",
+        "example": "disbursement_82c879c1-84e1-44ed-a8c2-1ac239cf09ad"
       },
       "DisbursementSource": {
         "type": "object",
@@ -26573,23 +26435,12 @@
           ]
         }
       },
-      "CapabilitiesMapTransferFiat": {
-        "required": [
-          "requested",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether the customer has explicitly requested this capability.",
-            "example": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/CapabilityStatusComposed"
-          }
-        },
-        "description": "Transfer fiat currency to another party."
+      "Description": {
+        "maxLength": 500,
+        "minLength": 0,
+        "type": "string",
+        "description": "A human-readable description.",
+        "example": "A description of the resource."
       },
       "X402V1PaymentRequirements": {
         "title": "x402V1PaymentRequirements",
@@ -27930,126 +27781,49 @@
           ]
         }
       },
-      "CapabilitiesMapTransferCrypto": {
-        "required": [
-          "requested",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether the customer has explicitly requested this capability.",
-            "example": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/CapabilityStatusComposed"
-          }
-        },
-        "description": "Transfer cryptocurrency to another party."
+      "ToToken": {
+        "pattern": "^0x[a-fA-F0-9]{40}$",
+        "type": "string",
+        "description": "The 0x-prefixed contract address of the token to receive.",
+        "example": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
       },
-      "CapabilitiesMapTradeStablecoin": {
-        "required": [
-          "requested",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether the customer has explicitly requested this capability.",
-            "example": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/CapabilityStatusComposed"
-          }
-        },
-        "description": "Trade stablecoin."
+      "FromToken": {
+        "pattern": "^0x[a-fA-F0-9]{40}$",
+        "type": "string",
+        "description": "The 0x-prefixed contract address of the token to send.",
+        "example": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
       },
-      "CapabilitiesMapTradeCrypto": {
-        "required": [
-          "requested",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether the customer has explicitly requested this capability.",
-            "example": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/CapabilityStatusComposed"
-          }
-        },
-        "description": "Trade cryptocurrency."
+      "FromAmount": {
+        "pattern": "^\\d\u002B$",
+        "type": "string",
+        "description": "The amount of the \u0060fromToken\u0060 to send in atomic units of the token. For example, \u00601000000000000000000\u0060 when sending ETH equates to 1 ETH, \u00601000000\u0060 when sending USDC equates to 1 USDC, etc.",
+        "example": "1000000000000000000"
       },
-      "CapabilitiesMapCustodyStablecoin": {
-        "required": [
-          "requested",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether the customer has explicitly requested this capability.",
-            "example": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/CapabilityStatusComposed"
-          }
-        },
-        "description": "Hold stablecoin in a Coinbase custodial account."
+      "Taker": {
+        "pattern": "^0x[a-fA-F0-9]{40}$",
+        "type": "string",
+        "description": "The 0x-prefixed address that holds the \u0060fromToken\u0060 balance and has the \u0060Permit2\u0060 allowance set for the swap.",
+        "example": "0xAc0974bec39a17e36ba4a6b4d238ff944bacb478"
       },
-      "CapabilitiesMapCustodyFiat": {
-        "required": [
-          "requested",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether the customer has explicitly requested this capability.",
-            "example": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/CapabilityStatusComposed"
-          }
-        },
-        "description": "Hold fiat currency in a Coinbase custodial account."
+      "SignerAddress": {
+        "pattern": "^0x[a-fA-F0-9]{40}$",
+        "type": "string",
+        "description": "The 0x-prefixed Externally Owned Account (EOA) address that will sign the \u0060Permit2\u0060 EIP-712 permit message. This is only needed if \u0060taker\u0060 is a smart contract.",
+        "example": "0x922f49447d8a07e3bd95bd0d56f35241523fbab8"
       },
-      "CapabilitiesMapCustodyCrypto": {
-        "required": [
-          "requested",
-          "status"
-        ],
-        "type": "object",
-        "properties": {
-          "requested": {
-            "type": "boolean",
-            "description": "Whether the customer has explicitly requested this capability.",
-            "example": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/CapabilityStatusComposed"
-          }
-        },
-        "description": "Hold cryptocurrency in a Coinbase custodial account."
+      "GasPrice": {
+        "pattern": "^\\d\u002B$",
+        "type": "string",
+        "description": "The target gas price for the swap transaction, in Wei. For EIP-1559 transactions, this value should be seen as the \u0060maxFeePerGas\u0060 value. If not provided, the API will use an estimate based on the current network conditions.",
+        "example": "1000000000"
       },
-      "CapabilityStatusComposed": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/CapabilityStatus"
-          }
-        },
-        "description": "Current status of the capability. When \u0060requested\u0060 is \u0060false\u0060, status is \u0060unrequested\u0060.\nWhen \u0060requested\u0060 is \u0060true\u0060, status is one of \u0060pending\u0060, \u0060active\u0060, or \u0060inactive\u0060.\n",
-        "example": "active"
+      "SlippageBps": {
+        "maximum": 10000,
+        "minimum": 0,
+        "type": "integer",
+        "description": "The maximum acceptable slippage of the \u0060toToken\u0060 in basis points. If this parameter is set to 0, no slippage will be tolerated. If not provided, the default slippage tolerance is 100 bps (i.e., 1%).",
+        "default": 100,
+        "example": 100
       },
       "TokenFee": {
         "required": [
@@ -30749,12 +30523,12 @@
         },
         "description": "Response containing token addresses that an account has received."
       },
-      "CreateAccountRequestOwner": {
-        "pattern": "^(entity|customer)_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "WebhookDescription": {
+        "maxLength": 100,
+        "minLength": 0,
         "type": "string",
-        "additionalProperties": false,
-        "description": "The Owner ID of the Account.\n\nOwner IDs are UUIDs prefixed with the Owner Type as follows:\n\n* **Entity**: \u0060entity_\u0060 - If the Owner is your Entity, e.g. \u0060entity_af2937b0-9846-4fe7-bfe9-ccc22d935114\u0060.\n\n* **Customer**: \u0060customer_\u0060 - If the Owner is one of your Customers,\n  e.g. \u0060customer_af2937b0-9846-4fe7-bfe9-ccc22d935114\u0060. Customer ownership requires the\n  Customer to have the \u0060custodyCrypto\u0060, \u0060custodyFiat\u0060, and \u0060custodyStablecoin\u0060\n  capabilities enabled.",
-        "example": "customer_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+        "description": "A human-readable description of the webhook subscription.\nMust be at most 100 characters.\n",
+        "example": "Subscription for token transfer events"
       },
       "EventType": {
         "enum": [
@@ -33908,14 +33682,14 @@
         },
         "description": "Response containing a single curated bundle\u0027s metadata and its ordered member resources. Members are the bundle\u0027s curated endpoints joined to their full discovery metadata, in bundle-defined order. Unlike x402 protocol discovery and search responses, bundle responses omit \u0060x402Version\u0060 because bundles are CDP-curated metadata, not protocol negotiation payloads."
       },
-      "ErrorErrorLink": {
+      "HttpsUrl": {
         "maxLength": 2048,
-        "pattern": "^https?://.*$",
+        "minLength": 12,
+        "pattern": "^https://.*$",
         "type": "string",
-        "additionalProperties": false,
-        "description": "A valid HTTP or HTTPS URL.",
+        "description": "A valid HTTPS URL.",
         "format": "uri",
-        "example": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+        "example": "https://example.com"
       },
       "X402ValidateRequest": {
         "required": [
@@ -34179,32 +33953,11 @@
         },
         "description": "Request body for initiating an onramp OTP verification."
       },
-      "X402SupportedPaymentKindsResponseResponse": {
-        "required": [
-          "kinds",
-          "extensions",
-          "signers"
-        ],
-        "type": "object",
-        "properties": {
-          "kinds": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/X402SupportedPaymentKind"
-            },
-            "description": "The list of supported payment kinds."
-          },
-          "extensions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The list of supported x402 extensions."
-          },
-          "signers": {
-            "$ref": "#/components/schemas/X402SupportedPaymentKindsResponseResponseSignersProperty"
-          }
-        }
+      "OnrampVerificationId": {
+        "pattern": "^onramp_verification_[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+        "type": "string",
+        "description": "A unique identifier for an onramp verification record, in the format \u0060onramp_verification_\u003Cuuid\u003E\u0060.",
+        "example": "onramp_verification_a1b2c3d4-e5f6-7890-abcd-ef1234567890"
       },
       "OnrampVerificationInitiation": {
         "required": [
@@ -34287,53 +34040,10 @@
           ]
         }
       },
-      "X402SettleResponseResponse": {
-        "required": [
-          "success",
-          "payer",
-          "transaction",
-          "network"
-        ],
-        "type": "object",
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Indicates whether the payment settlement is successful.",
-            "example": false
-          },
-          "errorReason": {
-            "$ref": "#/components/schemas/X402SettleErrorReason"
-          },
-          "errorMessage": {
-            "type": "string",
-            "description": "The message describing the error reason.",
-            "example": "Insufficient funds"
-          },
-          "payer": {
-            "maxLength": 128,
-            "type": "string",
-            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
-          },
-          "transaction": {
-            "pattern": "^(0x[a-fA-F0-9]{64}|[1-9A-HJ-NP-Za-km-z]{87,88})$",
-            "type": "string",
-            "description": "The transaction of the settlement.\nFor EVM networks, the transaction will be a 0x-prefixed, EVM transaction hash.\nFor Solana-based networks, the transaction will be a base58-encoded Solana signature.",
-            "example": "0x89c91c789e57059b17285e7ba1716a1f5ff4c5dace0ea5a5135f26158d0421b9"
-          },
-          "network": {
-            "type": "string",
-            "description": "The network where the settlement occurred.",
-            "example": "base"
-          },
-          "amount": {
-            "type": "string",
-            "description": "The amount that was settled, in atomic units.",
-            "example": "1000000"
-          },
-          "extra": {
-            "$ref": "#/components/schemas/X402SettleResponseResponseExtraProperty"
-          }
-        }
+      "OnrampUserAuthToken": {
+        "type": "string",
+        "description": "A reusable, PII-free token issued after a user completes verification in the embedded onramp flow. It encodes only the underlying verification IDs, no personal information. Pass it on subsequent orders to take a returning user straight to the pay button, skipping OTP when checking out to the same wallet.\n\nIn the embedded flow, \u0060phoneNumber\u0060, \u0060email\u0060, \u0060phoneNumberVerifiedAt\u0060, and \u0060agreementAcceptedAt\u0060 are handled by Coinbase in the hosted popup and may be omitted from the request even though they are required for the standard partner-verified flow. Reuse is best-effort: an invalid, expired, or different-wallet token still requires the user to verify. Valid for 60 days.",
+        "example": "eyJ2ZXJpZmljYXRpb25JZHMiOlsidl9hYmMxMjMiLCJ2X2RlZjQ1NiJdfQ=="
       },
       "OnrampOrderFee": {
         "required": [
@@ -34599,35 +34309,14 @@
           ]
         }
       },
-      "X402VerifyResponseResponse": {
-        "required": [
-          "isValid",
-          "payer"
-        ],
-        "type": "object",
-        "properties": {
-          "isValid": {
-            "type": "boolean",
-            "description": "Indicates whether the payment is valid.",
-            "example": false
-          },
-          "invalidReason": {
-            "$ref": "#/components/schemas/X402VerifyInvalidReason"
-          },
-          "invalidMessage": {
-            "type": "string",
-            "description": "The message describing the invalid reason.",
-            "example": "Insufficient funds"
-          },
-          "payer": {
-            "maxLength": 128,
-            "type": "string",
-            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
-          },
-          "extra": {
-            "$ref": "#/components/schemas/X402VerifyResponseResponseExtraProperty"
-          }
-        }
+      "Uri": {
+        "maxLength": 2048,
+        "minLength": 5,
+        "pattern": "^.*://.*$",
+        "type": "string",
+        "description": "A valid URI.",
+        "format": "uri",
+        "example": "foo://bar"
       },
       "OnrampSessionRequest": {
         "required": [
@@ -39984,6 +39673,684 @@
         },
         "x-event-type": "customers.customer.deleted"
       },
+      "X402VerifyResponseResponse": {
+        "required": [
+          "isValid",
+          "payer"
+        ],
+        "type": "object",
+        "properties": {
+          "isValid": {
+            "type": "boolean",
+            "description": "Indicates whether the payment is valid.",
+            "example": false
+          },
+          "invalidReason": {
+            "$ref": "#/components/schemas/X402VerifyInvalidReason"
+          },
+          "invalidMessage": {
+            "type": "string",
+            "description": "The message describing the invalid reason.",
+            "example": "Insufficient funds"
+          },
+          "payer": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+          },
+          "extra": {
+            "$ref": "#/components/schemas/X402VerifyResponseResponseExtraProperty"
+          }
+        }
+      },
+      "X402SettleResponseResponse": {
+        "required": [
+          "success",
+          "payer",
+          "transaction",
+          "network"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Indicates whether the payment settlement is successful.",
+            "example": false
+          },
+          "errorReason": {
+            "$ref": "#/components/schemas/X402SettleErrorReason"
+          },
+          "errorMessage": {
+            "type": "string",
+            "description": "The message describing the error reason.",
+            "example": "Insufficient funds"
+          },
+          "payer": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+          },
+          "transaction": {
+            "pattern": "^(0x[a-fA-F0-9]{64}|[1-9A-HJ-NP-Za-km-z]{87,88})$",
+            "type": "string",
+            "description": "The transaction of the settlement.\nFor EVM networks, the transaction will be a 0x-prefixed, EVM transaction hash.\nFor Solana-based networks, the transaction will be a base58-encoded Solana signature.",
+            "example": "0x89c91c789e57059b17285e7ba1716a1f5ff4c5dace0ea5a5135f26158d0421b9"
+          },
+          "network": {
+            "type": "string",
+            "description": "The network where the settlement occurred.",
+            "example": "base"
+          },
+          "amount": {
+            "type": "string",
+            "description": "The amount that was settled, in atomic units.",
+            "example": "1000000"
+          },
+          "extra": {
+            "$ref": "#/components/schemas/X402SettleResponseResponseExtraProperty"
+          }
+        }
+      },
+      "X402SupportedPaymentKindsResponseResponse": {
+        "required": [
+          "kinds",
+          "extensions",
+          "signers"
+        ],
+        "type": "object",
+        "properties": {
+          "kinds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/X402SupportedPaymentKind"
+            },
+            "description": "The list of supported payment kinds."
+          },
+          "extensions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of supported x402 extensions."
+          },
+          "signers": {
+            "$ref": "#/components/schemas/X402SupportedPaymentKindsResponseResponseSignersProperty"
+          }
+        }
+      },
+      "ErrorErrorLink": {
+        "maxLength": 2048,
+        "pattern": "^https?://.*$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A valid HTTP or HTTPS URL.",
+        "format": "uri",
+        "example": "https://docs.cdp.coinbase.com/api-reference/v2/errors#invalid-request"
+      },
+      "CreateAccountRequestOwner": {
+        "pattern": "^(entity|customer)_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The Owner ID of the Account.\n\nOwner IDs are UUIDs prefixed with the Owner Type as follows:\n\n* **Entity**: \u0060entity_\u0060 - If the Owner is your Entity, e.g. \u0060entity_af2937b0-9846-4fe7-bfe9-ccc22d935114\u0060.\n\n* **Customer**: \u0060customer_\u0060 - If the Owner is one of your Customers,\n  e.g. \u0060customer_af2937b0-9846-4fe7-bfe9-ccc22d935114\u0060. Customer ownership requires the\n  Customer to have the \u0060custodyCrypto\u0060, \u0060custodyFiat\u0060, and \u0060custodyStablecoin\u0060\n  capabilities enabled.",
+        "example": "customer_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+      },
+      "CapabilityStatusComposed": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CapabilityStatus"
+          }
+        },
+        "description": "Current status of the capability. When \u0060requested\u0060 is \u0060false\u0060, status is \u0060unrequested\u0060.\nWhen \u0060requested\u0060 is \u0060true\u0060, status is one of \u0060pending\u0060, \u0060active\u0060, or \u0060inactive\u0060.\n",
+        "example": "active"
+      },
+      "CapabilitiesMapCustodyCrypto": {
+        "required": [
+          "requested",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether the customer has explicitly requested this capability.",
+            "example": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CapabilityStatusComposed"
+          }
+        },
+        "description": "Hold cryptocurrency in a Coinbase custodial account."
+      },
+      "CapabilitiesMapCustodyFiat": {
+        "required": [
+          "requested",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether the customer has explicitly requested this capability.",
+            "example": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CapabilityStatusComposed"
+          }
+        },
+        "description": "Hold fiat currency in a Coinbase custodial account."
+      },
+      "CapabilitiesMapCustodyStablecoin": {
+        "required": [
+          "requested",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether the customer has explicitly requested this capability.",
+            "example": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CapabilityStatusComposed"
+          }
+        },
+        "description": "Hold stablecoin in a Coinbase custodial account."
+      },
+      "CapabilitiesMapTradeCrypto": {
+        "required": [
+          "requested",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether the customer has explicitly requested this capability.",
+            "example": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CapabilityStatusComposed"
+          }
+        },
+        "description": "Trade cryptocurrency."
+      },
+      "CapabilitiesMapTradeStablecoin": {
+        "required": [
+          "requested",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether the customer has explicitly requested this capability.",
+            "example": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CapabilityStatusComposed"
+          }
+        },
+        "description": "Trade stablecoin."
+      },
+      "CapabilitiesMapTransferCrypto": {
+        "required": [
+          "requested",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether the customer has explicitly requested this capability.",
+            "example": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CapabilityStatusComposed"
+          }
+        },
+        "description": "Transfer cryptocurrency to another party."
+      },
+      "CapabilitiesMapTransferFiat": {
+        "required": [
+          "requested",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether the customer has explicitly requested this capability.",
+            "example": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CapabilityStatusComposed"
+          }
+        },
+        "description": "Transfer fiat currency to another party."
+      },
+      "CapabilitiesMapTransferStablecoin": {
+        "required": [
+          "requested",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether the customer has explicitly requested this capability.",
+            "example": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/CapabilityStatusComposed"
+          }
+        },
+        "description": "Transfer stablecoin to another party."
+      },
+      "TermsOfServiceVersionId": {
+        "maxLength": 64,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Stable, opaque identifier for a specific Terms of Service version\n(for example, \u0060us_individual_2026-05-29\u0060). The same identifier is\nsurfaced on \u0060Customer.requirements.tos.tosVersions[].versionId\u0060 (the\nversions a Customer still needs to accept) and on\n\u0060Customer.tosAcceptances[].versionId\u0060 (the versions the Customer has\naccepted). Treat the value as opaque and submit it verbatim; the\nidentifier format is stable across API versions, but the set of\nvalid values grows over time as new Terms of Service versions are\npublished.\n"
+      },
+      "TermsOfServiceUrl": {
+        "maxLength": 2048,
+        "pattern": "^https?://.*$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A valid HTTP or HTTPS URL.",
+        "format": "uri",
+        "example": "https://docs.cdp.coinbase.com/legal/terms/us_individual"
+      },
+      "IndividualEmail": {
+        "maxLength": 254,
+        "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
+        "format": "email",
+        "example": "jane.doe@example.com"
+      },
+      "TosAcceptanceVersionId": {
+        "maxLength": 64,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Stable, opaque identifier for a specific Terms of Service version\n(for example, \u0060us_individual_2026-05-29\u0060). The same identifier is\nsurfaced on \u0060Customer.requirements.tos.tosVersions[].versionId\u0060 (the\nversions a Customer still needs to accept) and on\n\u0060Customer.tosAcceptances[].versionId\u0060 (the versions the Customer has\naccepted). Treat the value as opaque and submit it verbatim; the\nidentifier format is stable across API versions, but the set of\nvalid values grows over time as new Terms of Service versions are\npublished.\n"
+      },
+      "CustomerCapabilities": {
+        "type": "object",
+        "properties": {
+          "custodyCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapCustodyCrypto"
+          },
+          "custodyFiat": {
+            "$ref": "#/components/schemas/CapabilitiesMapCustodyFiat"
+          },
+          "custodyStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapCustodyStablecoin"
+          },
+          "tradeCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapTradeCrypto"
+          },
+          "tradeStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapTradeStablecoin"
+          },
+          "transferCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapTransferCrypto"
+          },
+          "transferFiat": {
+            "$ref": "#/components/schemas/CapabilitiesMapTransferFiat"
+          },
+          "transferStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapTransferStablecoin"
+          }
+        },
+        "description": "Current state of each capability for this customer. Each capability\nshows whether it has been requested and its current status.\n",
+        "readOnly": true
+      },
+      "CustomerRequirements": {
+        "type": "object",
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Requirement"
+            },
+            "description": "Map of requirements to be submitted. Each key is the field name\n(e.g., \u0022ssnLast4\u0022), with values to describe its state. Requirements\nare only shown for requested capabilities. When a requirement is\nverified, it disappears from this map.\n\nFor the \u0060tos\u0060 key, each entry in \u0060tosVersions[]\u0060 has its own optional\ndeadline. The requirement-level \u0060deadline\u0060 is an aggregate of those rows:\nthe earliest set deadline among unaccepted versions, not a separate clock.\nA version with no deadline requires immediate acceptance but keeps the\naggregate status \u0060due\u0060. A future deadline is also \u0060due\u0060 and represents\nnon-blocking grace. The aggregate status is \u0060past_due\u0060 only when at least\none unaccepted version has a deadline set in the past. Do not infer status\nor blocking behavior from omission of the aggregate deadline.\n"
+          }
+        ],
+        "description": "Map of requirements to be submitted. Each key is the field name, with\nvalues to describe its state. Requirements are only shown for requested\ncapabilities. When a requirement is fulfilled, it disappears from this map.\n",
+        "readOnly": true
+      },
+      "CapabilitiesMapInputCustodyCrypto": {
+        "required": [
+          "requested"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Hold cryptocurrency in a Coinbase custodial account."
+      },
+      "CapabilitiesMapInputCustodyFiat": {
+        "required": [
+          "requested"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Hold fiat currency in a Coinbase custodial account."
+      },
+      "CapabilitiesMapInputCustodyStablecoin": {
+        "required": [
+          "requested"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Hold stablecoin in a Coinbase custodial account."
+      },
+      "CapabilitiesMapInputTradeCrypto": {
+        "required": [
+          "requested"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Trade cryptocurrency."
+      },
+      "CapabilitiesMapInputTradeStablecoin": {
+        "required": [
+          "requested"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Trade stablecoin."
+      },
+      "CapabilitiesMapInputTransferCrypto": {
+        "required": [
+          "requested"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Transfer cryptocurrency to another party."
+      },
+      "CapabilitiesMapInputTransferFiat": {
+        "required": [
+          "requested"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Transfer fiat currency to another party."
+      },
+      "CapabilitiesMapInputTransferStablecoin": {
+        "required": [
+          "requested"
+        ],
+        "type": "object",
+        "properties": {
+          "requested": {
+            "type": "boolean",
+            "description": "Whether to request this capability.",
+            "example": true
+          }
+        },
+        "description": "Transfer stablecoin to another party."
+      },
+      "IndividualInputAddress": {
+        "type": "object",
+        "properties": {
+          "line1": {
+            "type": "string",
+            "description": "Primary street address.",
+            "example": "123 Market St"
+          },
+          "line2": {
+            "type": "string",
+            "description": "Secondary address information.",
+            "example": "Suite 400"
+          },
+          "city": {
+            "type": "string",
+            "description": "City or locality.",
+            "example": "San Francisco"
+          },
+          "state": {
+            "type": "string",
+            "description": "State, province, or region.",
+            "example": "CA"
+          },
+          "postCode": {
+            "type": "string",
+            "description": "Postal or ZIP code.",
+            "example": "94105"
+          },
+          "countryCode": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 country code (2 characters). See https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes.",
+            "example": "US"
+          }
+        },
+        "description": "Primary residential address. Only US addresses are currently\nsupported. Non-US \u0060countryCode\u0060 values are rejected with a 400.\n"
+      },
+      "IndividualInputDateOfBirth": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "maxLength": 2,
+            "minLength": 1,
+            "pattern": "^(?:0?[1-9]|[12][0-9]|3[01])$",
+            "type": "string",
+            "description": "Day of birth (1-31). Both single-digit (\u00227\u0022) and zero-padded (\u002207\u0022) formats are accepted.",
+            "example": "15"
+          },
+          "month": {
+            "maxLength": 2,
+            "minLength": 1,
+            "pattern": "^(?:0?[1-9]|1[0-2])$",
+            "type": "string",
+            "description": "Month of birth (1-12). Both single-digit (\u00224\u0022) and zero-padded (\u002204\u0022) formats are accepted.",
+            "example": "08"
+          },
+          "year": {
+            "maxLength": 4,
+            "minLength": 4,
+            "pattern": "^[0-9]{4}$",
+            "type": "string",
+            "description": "Year of birth (four digits).",
+            "example": "1990"
+          }
+        },
+        "description": "Date of birth."
+      },
+      "IndividualInputCitizenship": {
+        "maxLength": 2,
+        "pattern": "^[A-Z]{2}$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "An ISO 3166-1 alpha-2 country code."
+      },
+      "IndividualInputEmail": {
+        "maxLength": 254,
+        "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
+        "format": "email",
+        "example": "jane.doe@example.com"
+      },
+      "IndividualInputPhoneNumber": {
+        "pattern": "^\\\u002B[1-9]\\d{1,14}$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.",
+        "example": "\u002B15551234567"
+      },
+      "CustomerWriteBaseType": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CustomerType"
+          }
+        },
+        "description": "The type of the customer. Required on create; accepted but ignored on\nupdate.\n",
+        "example": "individual"
+      },
+      "CustomerWriteBaseCapabilities": {
+        "type": "object",
+        "properties": {
+          "custodyCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapInputCustodyCrypto"
+          },
+          "custodyFiat": {
+            "$ref": "#/components/schemas/CapabilitiesMapInputCustodyFiat"
+          },
+          "custodyStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapInputCustodyStablecoin"
+          },
+          "tradeCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapInputTradeCrypto"
+          },
+          "tradeStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapInputTradeStablecoin"
+          },
+          "transferCrypto": {
+            "$ref": "#/components/schemas/CapabilitiesMapInputTransferCrypto"
+          },
+          "transferFiat": {
+            "$ref": "#/components/schemas/CapabilitiesMapInputTransferFiat"
+          },
+          "transferStablecoin": {
+            "$ref": "#/components/schemas/CapabilitiesMapInputTransferStablecoin"
+          }
+        },
+        "description": "Capabilities to request for the customer."
+      },
+      "CustomerWriteBaseIndividual": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "First name (given name).",
+            "example": "Jane"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last name (family name/surname).",
+            "example": "Doe"
+          },
+          "address": {
+            "$ref": "#/components/schemas/IndividualInputAddress"
+          },
+          "ssnLast4": {
+            "maxLength": 4,
+            "minLength": 4,
+            "pattern": "^[0-9]{4}$",
+            "type": "string",
+            "description": "Last 4 digits of the Social Security Number (US only).\nUsed for identity verification.\n",
+            "example": "6789"
+          },
+          "dateOfBirth": {
+            "$ref": "#/components/schemas/IndividualInputDateOfBirth"
+          },
+          "fullSsn": {
+            "pattern": "^([0-9]{3}-[0-9]{2}-[0-9]{4}|\\*\\*\\*-\\*\\*-[0-9]{4})$",
+            "type": "string",
+            "description": "Full Social Security Number (US only).\n",
+            "example": "***-**-6789"
+          },
+          "citizenship": {
+            "maxLength": 2,
+            "pattern": "^[A-Z]{2}$",
+            "type": "string",
+            "description": "An ISO 3166-1 alpha-2 country code."
+          },
+          "email": {
+            "maxLength": 254,
+            "pattern": "^[a-zA-Z0-9.!#$%\u0026\u0027*\u002B/=?^_\u0060{|}/-]\u002B@[a-zA-Z0-9-]\u002B(?:\\.[a-zA-Z0-9-]\u002B)*$",
+            "type": "string",
+            "description": "An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).",
+            "format": "email"
+          },
+          "phoneNumber": {
+            "pattern": "^\\\u002B[1-9]\\d{1,14}$",
+            "type": "string",
+            "description": "A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format."
+          },
+          "purposeOfAccount": {
+            "$ref": "#/components/schemas/IndividualInputPurposeOfAccount"
+          },
+          "sourceOfFunds": {
+            "$ref": "#/components/schemas/IndividualInputSourceOfFunds"
+          },
+          "employmentStatus": {
+            "$ref": "#/components/schemas/IndividualInputEmploymentStatus"
+          },
+          "occupation": {
+            "$ref": "#/components/schemas/IndividualInputOccupation"
+          },
+          "expectedVolume": {
+            "$ref": "#/components/schemas/IndividualInputExpectedVolume"
+          }
+        },
+        "description": "Information about an Individual customer. Not all fields are required\nfor all customers; the requirements depend on which capabilities are\nrequested. Submit only fields that are required by the capabilities\nthat have been requested.\n",
+        "example": {
+          "firstName": "Jane",
+          "lastName": "Doe"
+        }
+      },
+      "DepositDestinationTargetAccountAccountId": {
+        "pattern": "^account_[a-f0-9\\-]{36}$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060."
+      },
       "DepositDestinationTargetAccountAsset": {
         "maxLength": 42,
         "type": "string",
@@ -43358,13 +43725,6 @@
         "description": "A unique identifier for an onramp verification record, in the format \u0060onramp_verification_\u003Cuuid\u003E\u0060.",
         "example": "onramp_verification_a1b2c3d4-e5f6-7890-abcd-ef1234567890"
       },
-      "X402SettleResponseResponsePayer": {
-        "maxLength": 128,
-        "type": "string",
-        "additionalProperties": false,
-        "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-        "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-      },
       "OnrampOrderDestinationAddress": {
         "maxLength": 128,
         "type": "string",
@@ -43380,13 +43740,6 @@
         "description": "A valid HTTP or HTTPS URL.",
         "format": "uri",
         "example": "https://pay.coinbase.com/v2/api-onramp/apple-pay?sessionToken=MWYwNWQwODktZTZlYy02OTdlLTgzZTYtMTI3NzcyOWJhNjM3"
-      },
-      "X402VerifyResponseResponsePayer": {
-        "maxLength": 128,
-        "type": "string",
-        "additionalProperties": false,
-        "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-        "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
       },
       "OnrampSessionRequestDestinationAddress": {
         "maxLength": 128,
@@ -44540,6 +44893,20 @@
             "$ref": "#/components/schemas/CustomersCustomerDeletedEventAllOf2Data"
           }
         }
+      },
+      "X402VerifyResponseResponsePayer": {
+        "maxLength": 128,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+        "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+      },
+      "X402SettleResponseResponsePayer": {
+        "maxLength": 128,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+        "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
       },
       "IndividualInputAddressAllOf2": {
         "type": "object",
@@ -45866,54 +46233,6 @@
           "schema": {}
         }
       },
-      "X402SupportedPaymentKindsResponseResponseSigners": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "description": "A map of CAIP-2 network or protocol family patterns to their supported signer addresses.",
-        "example": {
-          "eip155:*": [
-            "0x8f5cb67b49555e614892b7233cfddebfb746e531",
-            "0x67b9ce703d9ce658d7c4ac3c289cea112fe662af",
-            "0x68a96f41ff1e9f2e7b591a931a4ad224e7c07863",
-            "0x97acce27d5069544480bde0f04d9f47d7422a016",
-            "0xa32ccda98ba7529705a059bd2d213da8de10d101"
-          ],
-          "solana:*": [
-            "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP",
-            "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F",
-            "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM",
-            "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb",
-            "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
-          ]
-        }
-      },
-      "X402SettleResponseResponseExtra": {
-        "type": "object",
-        "description": "Optional scheme-specific success metadata returned by the facilitator.",
-        "example": {
-          "chargedAmount": "1000000",
-          "channelState": {
-            "channelId": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
-            "balance": "9000000",
-            "totalClaimed": "1000000",
-            "withdrawRequestedAt": 0,
-            "refundNonce": "0"
-          },
-          "voucherState": {
-            "signedMaxClaimable": "1000000",
-            "signature": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
-          }
-        }
-      },
-      "X402VerifyResponseResponseExtra": {
-        "type": "object",
-        "description": "Optional scheme-specific verify metadata returned by the facilitator."
-      },
       "PaymentSessionEventDataAuthorization": {
         "required": [
           "authorizationId",
@@ -46221,6 +46540,54 @@
           ],
           "createdAt": "2025-06-15T12:14:30.000Z",
           "updatedAt": "2025-06-15T12:15:00.000Z"
+        }
+      },
+      "X402VerifyResponseResponseExtra": {
+        "type": "object",
+        "description": "Optional scheme-specific verify metadata returned by the facilitator."
+      },
+      "X402SettleResponseResponseExtra": {
+        "type": "object",
+        "description": "Optional scheme-specific success metadata returned by the facilitator.",
+        "example": {
+          "chargedAmount": "1000000",
+          "channelState": {
+            "channelId": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+            "balance": "9000000",
+            "totalClaimed": "1000000",
+            "withdrawRequestedAt": 0,
+            "refundNonce": "0"
+          },
+          "voucherState": {
+            "signedMaxClaimable": "1000000",
+            "signature": "0xf3746613c2d920b5fdabc0856f2aeb2d4f88ee6037b8cc5d04a71a4462f134801234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1b"
+          }
+        }
+      },
+      "X402SupportedPaymentKindsResponseResponseSigners": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": "A map of CAIP-2 network or protocol family patterns to their supported signer addresses.",
+        "example": {
+          "eip155:*": [
+            "0x8f5cb67b49555e614892b7233cfddebfb746e531",
+            "0x67b9ce703d9ce658d7c4ac3c289cea112fe662af",
+            "0x68a96f41ff1e9f2e7b591a931a4ad224e7c07863",
+            "0x97acce27d5069544480bde0f04d9f47d7422a016",
+            "0xa32ccda98ba7529705a059bd2d213da8de10d101"
+          ],
+          "solana:*": [
+            "BENrLoUbndxoNMUS5JXApGMtNykLjFXXixMtpDwDR9SP",
+            "BFK9TLC3edb13K6v4YyH3DwPb5DSUpkWvb7XnqCL9b4F",
+            "D6ZhtNQ5nT9ZnTHUbqXZsTx5MH2rPFiBBggX4hY1WePM",
+            "GVJJ7rdGiXr5xaYbRwRbjfaJL7fmwRygFi1H6aGqDveb",
+            "Hc3sdEAsCGQcpgfivywog9uwtk8gUBUZgsxdME1EJy88"
+          ]
         }
       },
       "TravelRuleOriginatorAllOf2VirtualAssetServiceProvider": {
@@ -49069,17 +49436,6 @@
           }
         }
       },
-      "CustomerTypeWrapper": {
-        "required": [
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "$ref": "#/components/schemas/CustomerType"
-          }
-        }
-      },
       "CapabilityStatusWrapper": {
         "required": [
           "value"
@@ -49088,6 +49444,17 @@
         "properties": {
           "value": {
             "$ref": "#/components/schemas/CapabilityStatus"
+          }
+        }
+      },
+      "CustomerTypeWrapper": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CustomerType"
           }
         }
       },
@@ -49994,24 +50361,6 @@
         "type": "object",
         "description": "The \u0060extensions.bazaar\u0060 block from the endpoint\u0027s discovery metadata, or \u0060null\u0060 if the bazaar extension was absent or the endpoint was not reachable. Lets sellers verify the discovery configuration their endpoint is advertising."
       },
-      "X402SupportedPaymentKindsResponseResponseSignersProperty": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "description": "A map of CAIP-2 network or protocol family patterns to their supported signer addresses."
-      },
-      "X402SettleResponseResponseExtraProperty": {
-        "type": "object",
-        "description": "Optional scheme-specific success metadata returned by the facilitator."
-      },
-      "X402VerifyResponseResponseExtraProperty": {
-        "type": "object",
-        "description": "Optional scheme-specific verify metadata returned by the facilitator."
-      },
       "OnchainActivityDetectedEventParameters": {
         "type": "object",
         "additionalProperties": {
@@ -50027,6 +50376,24 @@
           "type": "string"
         },
         "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
+      },
+      "X402VerifyResponseResponseExtraProperty": {
+        "type": "object",
+        "description": "Optional scheme-specific verify metadata returned by the facilitator."
+      },
+      "X402SettleResponseResponseExtraProperty": {
+        "type": "object",
+        "description": "Optional scheme-specific success metadata returned by the facilitator."
+      },
+      "X402SupportedPaymentKindsResponseResponseSignersProperty": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": "A map of CAIP-2 network or protocol family patterns to their supported signer addresses."
       },
       "Eip3009PayloadDataTypes": {
         "type": "object",
@@ -50191,7 +50558,7 @@
         "type": "object",
         "description": "Optional protocol extensions. Unknown keys are forwarded as-is into the signed payment payload."
       },
-      "CustomerWriteBaseIndividualPurposeOfAccount": {
+      "IndividualInputPurposeOfAccount": {
         "enum": [
           "investing",
           "long_term_investment",
@@ -50215,7 +50582,7 @@
         "description": "Primary purpose for using Coinbase services.\n",
         "example": "investing",
         "x-ms-enum": {
-          "name": "CustomerWriteBaseIndividualPurposeOfAccount",
+          "name": "IndividualInputPurposeOfAccount",
           "modelAsString": false,
           "values": [
             {
@@ -50285,7 +50652,7 @@
           ]
         }
       },
-      "CustomerWriteBaseIndividualSourceOfFunds": {
+      "IndividualInputSourceOfFunds": {
         "enum": [
           "salary",
           "employment_business_income",
@@ -50312,7 +50679,7 @@
         "description": "Primary source of funds for the account.\n",
         "example": "salary",
         "x-ms-enum": {
-          "name": "CustomerWriteBaseIndividualSourceOfFunds",
+          "name": "IndividualInputSourceOfFunds",
           "modelAsString": false,
           "values": [
             {
@@ -50394,7 +50761,7 @@
           ]
         }
       },
-      "CustomerWriteBaseIndividualEmploymentStatus": {
+      "IndividualInputEmploymentStatus": {
         "enum": [
           "employed_fulltime",
           "employed_parttime",
@@ -50415,7 +50782,7 @@
         "description": "Current employment status.\n",
         "example": "employed_fulltime",
         "x-ms-enum": {
-          "name": "CustomerWriteBaseIndividualEmploymentStatus",
+          "name": "IndividualInputEmploymentStatus",
           "modelAsString": false,
           "values": [
             {
@@ -50473,7 +50840,7 @@
           ]
         }
       },
-      "CustomerWriteBaseIndividualOccupation": {
+      "IndividualInputOccupation": {
         "enum": [
           "agriculture",
           "arts_and_media",
@@ -50523,7 +50890,7 @@
         "description": "Industry or occupation.\n",
         "example": "technology",
         "x-ms-enum": {
-          "name": "CustomerWriteBaseIndividualOccupation",
+          "name": "IndividualInputOccupation",
           "modelAsString": false,
           "values": [
             {
@@ -50697,7 +51064,7 @@
           ]
         }
       },
-      "CustomerWriteBaseIndividualExpectedVolume": {
+      "IndividualInputExpectedVolume": {
         "enum": [
           "under_1k",
           "1k_to_10k",
@@ -50712,7 +51079,7 @@
         "description": "Expected annual volume of activity on the account, expressed as a\ndollar range. Use the dollar-honest ids below:\n\n- \u0060under_1k\u0060: $0 \u2013 $1,000\n- \u00601k_to_10k\u0060: $1,000 \u2013 $10,000\n- \u006010k_to_100k\u0060: $10,000 \u2013 $100,000\n- \u0060100k_to_250k\u0060: $100,000 \u2013 $250,000\n- \u0060250k_to_750k\u0060: $250,000 \u2013 $750,000\n- \u0060750k_to_1_5m\u0060: $750,000 \u2013 $1.5M\n- \u00601_5m_plus\u0060: $1.5M\u002B\n",
         "example": "under_1k",
         "x-ms-enum": {
-          "name": "CustomerWriteBaseIndividualExpectedVolume",
+          "name": "IndividualInputExpectedVolume",
           "modelAsString": false,
           "values": [
             {

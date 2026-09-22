@@ -154,19 +154,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Swaps.Quote
             public string SignerAddress { get; set; }
             #pragma warning restore CS1591
 #endif
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             #pragma warning disable CS1591
             [QueryParameter("slippageBps")]
-            public string? SlippageBps { get; set; }
+            public int? SlippageBps { get; set; }
             #pragma warning restore CS1591
-#nullable restore
-#else
-            #pragma warning disable CS1591
-            [QueryParameter("slippageBps")]
-            public string SlippageBps { get; set; }
-            #pragma warning restore CS1591
-#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             #pragma warning disable CS1591
