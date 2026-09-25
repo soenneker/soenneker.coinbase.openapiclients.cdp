@@ -14,6 +14,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The encoding of the message. Use `utf8` to sign the literal UTF-8 bytes of the message, or `base64` to decode an RFC 4648 standard Base64 string before signing. Base64 input must use the standard `+` and `/` alphabet with `=` padding where required. If omitted, the message is interpreted as UTF-8.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaMessageRequestEncoding? Encoding { get; set; }
         /// <summary>The arbitrary message to sign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,6 +49,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "encoding", n => { Encoding = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaMessageRequestEncoding>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
             };
         }
@@ -57,6 +60,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaMessageRequestEncoding>("encoding", Encoding);
             writer.WriteStringValue("message", Message);
             writer.WriteAdditionalData(AdditionalData);
         }

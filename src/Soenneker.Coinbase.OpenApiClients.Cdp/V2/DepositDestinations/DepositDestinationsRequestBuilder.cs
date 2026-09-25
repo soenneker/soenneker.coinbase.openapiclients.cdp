@@ -84,6 +84,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 401 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 409 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
@@ -104,6 +105,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
                 { "401", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "403", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
+                { "409", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },

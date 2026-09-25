@@ -35,13 +35,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>Whether the subscription is enabled.</summary>
         public bool? IsEnabled { get; set; }
-        /// <summary>Multi-label filters using total overlap logic. Total overlap means the subscription only triggers when events contain ALL these key-value pairs.Present when subscription uses multi-label format.</summary>
+        /// <summary>Effective filters stored on the webhook subscription. The response includesclient-supplied labels plus labels defaulted or injected by the server.* `onchain.activity.detected`, `wallet.activity.detected`, and `wallet.activity.multi`  include `network`. It defaults to `base-mainnet` when omitted from the request.* `wallet.activity.multi` includes the requested comma-separated `wallet_addresses`.* `health.*` includes the requested `service`.* Project-scoped events include the authenticated `project`.* Entity-scoped events include the authenticated `entity`.* User-scoped events include the authenticated `user_uuid` and a `sandbox` value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty? Labels { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels? Labels { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty Labels { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels Labels { get; set; }
 #endif
         /// <summary>Additional metadata for the subscription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -94,7 +94,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "eventTypes", n => { EventTypes = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EventType>()?.AsList(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                { "labels", n => { Labels = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty.CreateFromDiscriminatorValue); } },
+                { "labels", n => { Labels = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseMetadata.CreateFromDiscriminatorValue); } },
                 { "secret", n => { Secret = n.GetGuidValue(); } },
                 { "subscriptionId", n => { SubscriptionId = n.GetGuidValue(); } },
@@ -113,7 +113,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EventType>("eventTypes", EventTypes);
             writer.WriteBoolValue("isEnabled", IsEnabled);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty>("labels", Labels);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseMetadata>("metadata", Metadata);
             writer.WriteGuidValue("secret", Secret);
             writer.WriteGuidValue("subscriptionId", SubscriptionId);

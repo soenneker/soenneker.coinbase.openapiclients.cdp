@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Optional. Multi-label filters using total overlap logic. Total overlap means the subscription will only trigger whenan event contains ALL the key-value pairs specified here. Additional labels onthe event are allowed and will not prevent matching. Omit to receive all events for the selected event types.**Note:** Currently, labels are supported for onchain webhooks only (max 20 labels per subscription).**Allowed labels for `onchain.activity.detected`** (all in snake_case format):- `network` (required) — Blockchain network- `contract_address` — Smart contract address- `event_name` — Event name (e.g., &quot;Transfer&quot;, &quot;Burn&quot;)- `event_signature` — Event signature hash- `transaction_from` — Transaction sender address- `transaction_to` — Transaction recipient address- `params.*` — Any event parameter (e.g., `params.from`, `params.to`, `params.sender`, `params.tokenId`)
+    /// Optional paymaster metadata forwarded to the configured paymaster service. Valid only when a paymaster is configured via `useCdpPaymaster: true` or a `paymasterUrl`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebhookSubscriptionRequestLabelsProperty : IAdditionalDataHolder, IParsable
+    public partial class CreateBorrowPositionRequestPaymasterContext : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestLabelsProperty"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateBorrowPositionRequestPaymasterContext"/> and sets the default values.
         /// </summary>
-        public WebhookSubscriptionRequestLabelsProperty()
+        public CreateBorrowPositionRequestPaymasterContext()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestLabelsProperty"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateBorrowPositionRequestPaymasterContext"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestLabelsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateBorrowPositionRequestPaymasterContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionRequestLabelsProperty();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateBorrowPositionRequestPaymasterContext();
         }
         /// <summary>
         /// The deserialization information for the current model

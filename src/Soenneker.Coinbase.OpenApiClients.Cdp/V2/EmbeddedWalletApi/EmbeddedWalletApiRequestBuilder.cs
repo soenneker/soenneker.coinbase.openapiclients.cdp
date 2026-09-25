@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.Evm;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.EndUsersRequestBuilder EndUsers
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.EndUsersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The evm property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.Evm.EvmRequestBuilder Evm
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.Evm.EvmRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EmbeddedWalletApiRequestBuilder"/> and sets the default values.

@@ -16,7 +16,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
     public partial class SmartAccountsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Soenneker.Coinbase.OpenApiClients.Cdp.v2.embeddedWalletApi.endUsers.item.evm.smartAccounts.item collection</summary>
-        /// <param name="position">The address of the EVM Smart Account to execute the user operation from.</param>
+        /// <param name="position">The address of the Smart Account the user operation belongs to.</param>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.WithAddressItemRequestBuilder"/></returns>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.WithAddressItemRequestBuilder this[string position]
         {

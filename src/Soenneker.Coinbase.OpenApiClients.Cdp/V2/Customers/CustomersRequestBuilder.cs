@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers.Item;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers.Requirements;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -18,6 +19,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomersRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The requirements property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers.Requirements.RequirementsRequestBuilder Requirements
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers.Requirements.RequirementsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Soenneker.Coinbase.OpenApiClients.Cdp.v2.customers.item collection</summary>
         /// <param name="position">The ID of the customer.</param>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers.Item.WithCustomerItemRequestBuilder"/></returns>

@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Optional. Multi-label filters that trigger only when an event contains ALL of these key-value pairs.Omit to receive all events for the selected event types.**Note:** Currently, labels are supported for onchain webhooks only (max 20 labels per subscription).**Allowed labels for `onchain.activity.detected`** (all in snake_case format):- `network` (required) — Blockchain network- `contract_address` — Smart contract address- `event_name` — Event name (e.g., &quot;Transfer&quot;, &quot;Burn&quot;)- `event_signature` — Event signature hash- `transaction_from` — Transaction sender address- `transaction_to` — Transaction recipient address- `params.*` — Any event parameter (e.g., `params.from`, `params.to`, `params.sender`, `params.tokenId`)
+    /// Effective filters stored on the webhook subscription. The response includesclient-supplied labels plus labels defaulted or injected by the server.* `onchain.activity.detected`, `wallet.activity.detected`, and `wallet.activity.multi`  include `network`. It defaults to `base-mainnet` when omitted from the request.* `wallet.activity.multi` includes the requested comma-separated `wallet_addresses`.* `health.*` includes the requested `service`.* Project-scoped events include the authenticated `project`.* Entity-scoped events include the authenticated `entity`.* User-scoped events include the authenticated `user_uuid` and a `sandbox` value.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebhookSubscriptionUpdateRequestLabelsProperty : IAdditionalDataHolder, IParsable
+    public partial class WebhookSubscriptionResponseLabels : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels"/> and sets the default values.
         /// </summary>
-        public WebhookSubscriptionUpdateRequestLabelsProperty()
+        public WebhookSubscriptionResponseLabels()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabels();
         }
         /// <summary>
         /// The deserialization information for the current model

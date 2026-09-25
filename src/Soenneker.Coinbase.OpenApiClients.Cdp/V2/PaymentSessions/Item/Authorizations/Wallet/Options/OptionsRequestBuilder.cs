@@ -108,7 +108,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authoriz
             [QueryParameter("addresses")]
             public string[] Addresses { get; set; }
 #endif
-            /// <summary>Optional filter to restrict options to a specific asset.</summary>
+            /// <summary>Filter options by asset. Currently, only `usdc` and `usdt` return results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("asset")]

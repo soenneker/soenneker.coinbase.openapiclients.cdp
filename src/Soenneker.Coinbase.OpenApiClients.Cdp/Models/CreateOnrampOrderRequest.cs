@@ -82,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PartnerOrderRef { get; set; }
 #endif
-        /// <summary>A unique string that represents the user in your app. This can be used to link individual transactions  together so you can retrieve the transaction history for your users. Prefix this string with “sandbox-”  (e.g. &quot;sandbox-user-1234&quot;) to perform a sandbox transaction which will allow you to test your integration  without any real transfer of funds.This value can be used with with [Onramp User Transactions API](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-onramp-transactions-by-id) to retrieve all transactions created by the user.</summary>
+        /// <summary>A unique string that represents the user in your app. This can be used to link individual transactions together so you can retrieve the transaction history for your users. Prefix this string with &quot;sandbox-&quot; (e.g. &quot;sandbox-user-1234&quot;) to perform a sandbox transaction which will allow you to test your integration without any real transfer of funds.This value can be used with the [Onramp User Transactions API](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-onramp-transactions-by-id) to retrieve all transactions created by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PartnerUserRef { get; set; }

@@ -71,6 +71,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         NotFound,
         #pragma warning restore CS1591
+        [EnumMember(Value = "operation_in_progress")]
+        #pragma warning disable CS1591
+        OperationInProgress,
+        #pragma warning restore CS1591
         [EnumMember(Value = "payment_method_required")]
         #pragma warning disable CS1591
         PaymentMethodRequired,
@@ -262,6 +266,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "mfa_invalid_code")]
         #pragma warning disable CS1591
         MfaInvalidCode,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mfa_challenge_not_found")]
+        #pragma warning disable CS1591
+        MfaChallengeNotFound,
         #pragma warning restore CS1591
         [EnumMember(Value = "mfa_flow_expired")]
         #pragma warning disable CS1591

@@ -33,15 +33,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>Whether the subscription is enabled.</summary>
         public bool? IsEnabled { get; set; }
-        /// <summary>Optional. Multi-label filters that trigger only when an event contains ALL of these key-value pairs.Omit to receive all events for the selected event types.**Note:** Currently, labels are supported for onchain webhooks only (max 20 labels per subscription).**Allowed labels for `onchain.activity.detected`** (all in snake_case format):- `network` (required) — Blockchain network- `contract_address` — Smart contract address- `event_name` — Event name (e.g., &quot;Transfer&quot;, &quot;Burn&quot;)- `event_signature` — Event signature hash- `transaction_from` — Transaction sender address- `transaction_to` — Transaction recipient address- `params.*` — Any event parameter (e.g., `params.from`, `params.to`, `params.sender`, `params.tokenId`)</summary>
+        /// <summary>String-valued filters supplied when creating or updating a webhook subscription.The subscription&apos;s `eventTypes` determine whether labels are required and whichlabel keys are accepted. A subscription accepts at most 20 client-supplied labels.#### Label BehaviorAn event must match ALL labels to fire to your subscription `targetURL`. When multiple labels are supplied, the event must match ALL labels to fire to your subscription `targetURL`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty? Labels { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabels? Labels { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty Labels { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabels Labels { get; set; }
 #endif
-        /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
+        /// <summary>Optional subscription metadata. Up to 10 key/value pairs may be provided. Keys and values must each contain between 1 and 50 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestMetadata? Metadata { get; set; }
@@ -85,7 +85,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "eventTypes", n => { EventTypes = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EventType>()?.AsList(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                { "labels", n => { Labels = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty.CreateFromDiscriminatorValue); } },
+                { "labels", n => { Labels = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabels>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabels.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget.CreateFromDiscriminatorValue); } },
             };
@@ -100,7 +100,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EventType>("eventTypes", EventTypes);
             writer.WriteBoolValue("isEnabled", IsEnabled);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabelsProperty>("labels", Labels);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestLabels>("labels", Labels);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionUpdateRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookTarget>("target", Target);
             writer.WriteAdditionalData(AdditionalData);

@@ -2,7 +2,9 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.BorrowPositions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.Send;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.UserOperations;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,10 +17,20 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithAddressItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The borrowPositions property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.BorrowPositions.BorrowPositionsRequestBuilder BorrowPositions
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.BorrowPositions.BorrowPositionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The send property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.Send.SendRequestBuilder Send
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.Send.SendRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The userOperations property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.UserOperations.UserOperationsRequestBuilder UserOperations
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.UserOperations.UserOperationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Evm.SmartAccounts.Item.WithAddressItemRequestBuilder"/> and sets the default values.

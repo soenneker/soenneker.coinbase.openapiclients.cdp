@@ -38,7 +38,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>A list of rules that comprise the policy.</summary>
+        /// <summary>A list of rules that comprise the policy. Each policy is limited to 100 rules and a total serialized size of 8 MiB.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule>? Rules { get; set; }

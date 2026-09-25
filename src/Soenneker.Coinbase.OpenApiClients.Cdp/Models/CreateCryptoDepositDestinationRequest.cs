@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
+    /// <summary>
+    /// Request to create a new crypto deposit destination. Provide the crypto-specific details.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class CreateCryptoDepositDestinationRequest : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>The ID of the Account, which is a UUID prefixed by the string `account_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

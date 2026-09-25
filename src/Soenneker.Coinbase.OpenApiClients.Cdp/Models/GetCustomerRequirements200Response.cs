@@ -8,29 +8,29 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Multi-label filters using total overlap logic. Total overlap means the subscription only triggers when events contain ALL these key-value pairs.Present when subscription uses multi-label format.
+    /// Map of requirements to be submitted. Each key is the field name(e.g., &quot;ssnLast4&quot;), with values to describe its state. Requirementsare only shown for requested capabilities. When a requirement isverified, it disappears from this map.For the `tos` key, each entry in `tosVersions[]` has its own optionaldeadline. The requirement-level `deadline` is an aggregate of those rows:the earliest set deadline among unaccepted versions, not a separate clock.A version with no deadline requires immediate acceptance but keeps theaggregate status `due`. A future deadline is also `due` and representsnon-blocking grace. The aggregate status is `past_due` only when at leastone unaccepted version has a deadline set in the past. Do not infer statusor blocking behavior from omission of the aggregate deadline.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WebhookSubscriptionResponseLabelsProperty : IAdditionalDataHolder, IParsable
+    public partial class GetCustomerRequirements200Response : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetCustomerRequirements200Response"/> and sets the default values.
         /// </summary>
-        public WebhookSubscriptionResponseLabelsProperty()
+        public GetCustomerRequirements200Response()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetCustomerRequirements200Response"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetCustomerRequirements200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookSubscriptionResponseLabelsProperty();
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetCustomerRequirements200Response();
         }
         /// <summary>
         /// The deserialization information for the current model
