@@ -51,5 +51,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         PolygonAmoy,
         #pragma warning restore CS1591
+        [EnumMember(Value = "solana")]
+        #pragma warning disable CS1591
+        Solana,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "solana-devnet")]
+        #pragma warning disable CS1591
+        SolanaDevnet,
+        #pragma warning restore CS1591
     }
 }

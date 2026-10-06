@@ -14,7 +14,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Compliance context for a request. Carries per-request compliance signals,such as the IP address of the individual (i.e., end-customer) thatinitiated the request.This object is request-only — it is never echoed back in responses.Inner fields are write-only.</summary>
+        /// <summary>Required when `owner` is a Customer ID; omit for Entity-owned accounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance? Compliance { get; set; }

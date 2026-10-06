@@ -70,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListFoundationAccounts200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListFoundationAccounts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create an account. Two ownership modes are supported:- **Entity-owned**: when `owner` is omitted, the account is owned by the  Entity making the request. Returns an account with `owner: entity_&lt;uuid&gt;`.- **Customer-owned**: pass a Customer ID as `owner`  (e.g. `customer_af2937b0-9846-4fe7-bfe9-ccc22d935114`). The Customer  must have the `custodyCrypto`, `custodyFiat`, and `custodyStablecoin`  capabilities enabled, otherwise the request is rejected with  `customer_not_authorized` (HTTP 403).
+        /// Create an account. Two ownership modes are supported:- **Entity-owned**: when `owner` is omitted, the account is owned by the  Entity making the request. Returns an account with `owner: entity_&lt;uuid&gt;`.  Omit `compliance`; it has no effect for Entity-owned accounts.- **Customer-owned**: pass a Customer ID as `owner`  (e.g. `customer_af2937b0-9846-4fe7-bfe9-ccc22d935114`). The Customer  must have the `custodyCrypto`, `custodyFiat`, and `custodyStablecoin`  capabilities enabled, otherwise the request is rejected with  `customer_not_authorized` (HTTP 403). `compliance.requesterIpAddress`  is required; use the IP address of the end-customer who initiated the  request (not the partner server&apos;s IP).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Account"/></returns>
         /// <param name="body">The request body</param>
@@ -120,7 +120,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
             return requestInfo;
         }
         /// <summary>
-        /// Create an account. Two ownership modes are supported:- **Entity-owned**: when `owner` is omitted, the account is owned by the  Entity making the request. Returns an account with `owner: entity_&lt;uuid&gt;`.- **Customer-owned**: pass a Customer ID as `owner`  (e.g. `customer_af2937b0-9846-4fe7-bfe9-ccc22d935114`). The Customer  must have the `custodyCrypto`, `custodyFiat`, and `custodyStablecoin`  capabilities enabled, otherwise the request is rejected with  `customer_not_authorized` (HTTP 403).
+        /// Create an account. Two ownership modes are supported:- **Entity-owned**: when `owner` is omitted, the account is owned by the  Entity making the request. Returns an account with `owner: entity_&lt;uuid&gt;`.  Omit `compliance`; it has no effect for Entity-owned accounts.- **Customer-owned**: pass a Customer ID as `owner`  (e.g. `customer_af2937b0-9846-4fe7-bfe9-ccc22d935114`). The Customer  must have the `custodyCrypto`, `custodyFiat`, and `custodyStablecoin`  capabilities enabled, otherwise the request is rejected with  `customer_not_authorized` (HTTP 403). `compliance.requesterIpAddress`  is required; use the IP address of the end-customer who initiated the  request (not the partner server&apos;s IP).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

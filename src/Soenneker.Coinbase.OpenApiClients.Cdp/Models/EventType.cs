@@ -183,6 +183,38 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         AcceptancePaymentSessionVoidFailed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.mandate.created")]
+        #pragma warning disable CS1591
+        AcceptanceMandateCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.mandate.canceled")]
+        #pragma warning disable CS1591
+        AcceptanceMandateCanceled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.mandate.approval_initiated")]
+        #pragma warning disable CS1591
+        AcceptanceMandateApprovalInitiated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.mandate.approval_succeeded")]
+        #pragma warning disable CS1591
+        AcceptanceMandateApprovalSucceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.mandate.approval_failed")]
+        #pragma warning disable CS1591
+        AcceptanceMandateApprovalFailed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.mandate.revocation_initiated")]
+        #pragma warning disable CS1591
+        AcceptanceMandateRevocationInitiated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.mandate.revocation_succeeded")]
+        #pragma warning disable CS1591
+        AcceptanceMandateRevocationSucceeded,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.mandate.revocation_failed")]
+        #pragma warning disable CS1591
+        AcceptanceMandateRevocationFailed,
+        #pragma warning restore CS1591
         [EnumMember(Value = "acceptance.disbursement.pending")]
         #pragma warning disable CS1591
         AcceptanceDisbursementPending,

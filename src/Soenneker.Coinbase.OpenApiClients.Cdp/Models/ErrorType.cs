@@ -47,6 +47,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         IdempotencyError,
         #pragma warning restore CS1591
+        [EnumMember(Value = "incompatible_event_types")]
+        #pragma warning disable CS1591
+        IncompatibleEventTypes,
+        #pragma warning restore CS1591
         [EnumMember(Value = "internal_server_error")]
         #pragma warning disable CS1591
         InternalServerError,
@@ -54,6 +58,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "invalid_request")]
         #pragma warning disable CS1591
         InvalidRequest,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_webhook_headers")]
+        #pragma warning disable CS1591
+        InvalidWebhookHeaders,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "invalid_webhook_url")]
+        #pragma warning disable CS1591
+        InvalidWebhookUrl,
         #pragma warning restore CS1591
         [EnumMember(Value = "invalid_sql_query")]
         #pragma warning disable CS1591
@@ -98,6 +110,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "service_unavailable")]
         #pragma warning disable CS1591
         ServiceUnavailable,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "subscription_limit_exceeded")]
+        #pragma warning disable CS1591
+        SubscriptionLimitExceeded,
         #pragma warning restore CS1591
         [EnumMember(Value = "timed_out")]
         #pragma warning disable CS1591
@@ -382,6 +398,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "moderation_rejected")]
         #pragma warning disable CS1591
         ModerationRejected,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mandate_action_pending")]
+        #pragma warning disable CS1591
+        MandateActionPending,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mandate_policy_violation")]
+        #pragma warning disable CS1591
+        MandatePolicyViolation,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mandate_expired")]
+        #pragma warning disable CS1591
+        MandateExpired,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mandate_canceled")]
+        #pragma warning disable CS1591
+        MandateCanceled,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mandate_revoked")]
+        #pragma warning disable CS1591
+        MandateRevoked,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mandate_invalid_status")]
+        #pragma warning disable CS1591
+        MandateInvalidStatus,
         #pragma warning restore CS1591
     }
 }

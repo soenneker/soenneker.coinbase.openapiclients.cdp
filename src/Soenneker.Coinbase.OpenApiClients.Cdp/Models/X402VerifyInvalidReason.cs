@@ -783,6 +783,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         InvalidBazaarExtension,
         #pragma warning restore CS1591
+        [EnumMember(Value = "node_failure")]
+        #pragma warning disable CS1591
+        NodeFailure,
+        #pragma warning restore CS1591
         [EnumMember(Value = "unknown_error")]
         #pragma warning disable CS1591
         UnknownError,

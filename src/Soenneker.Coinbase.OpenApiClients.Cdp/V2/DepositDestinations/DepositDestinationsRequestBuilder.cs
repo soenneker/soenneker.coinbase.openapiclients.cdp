@@ -35,7 +35,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DepositDestinationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/deposit-destinations{?accountId*,address*,network*,pageSize*,pageToken*,type*}", pathParameters)
+        public DepositDestinationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/deposit-destinations{?accountId*,address*,network*,pageSize*,pageToken*,status*,type*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DepositDestinationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/deposit-destinations{?accountId*,address*,network*,pageSize*,pageToken*,type*}", rawUrl)
+        public DepositDestinationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/v2/deposit-destinations{?accountId*,address*,network*,pageSize*,pageToken*,status*,type*}", rawUrl)
         {
         }
         /// <summary>
-        /// List deposit destinations. You can optionally filter the results by type, account ID, network, or cryptocurrency address. Results are sorted by creation date in descending order (newest first).
+        /// List deposit destinations. You can optionally filter the results by type, account ID, network, cryptocurrency address, or status. Results are sorted by creation date in descending order (newest first).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDepositDestinations200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -113,7 +113,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestination.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List deposit destinations. You can optionally filter the results by type, account ID, network, or cryptocurrency address. Results are sorted by creation date in descending order (newest first).
+        /// List deposit destinations. You can optionally filter the results by type, account ID, network, cryptocurrency address, or status. Results are sorted by creation date in descending order (newest first).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -163,7 +163,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations.DepositDestinationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List deposit destinations. You can optionally filter the results by type, account ID, network, or cryptocurrency address. Results are sorted by creation date in descending order (newest first).
+        /// List deposit destinations. You can optionally filter the results by type, account ID, network, cryptocurrency address, or status. Results are sorted by creation date in descending order (newest first).
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DepositDestinationsRequestBuilderGetQueryParameters 
@@ -211,6 +211,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
             [QueryParameter("pageToken")]
             public string PageToken { get; set; }
 #endif
+            /// <summary>Filter deposit destinations by status.</summary>
+            [QueryParameter("status")]
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationStatus? Status { get; set; }
             /// <summary>Filter deposit destinations by type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

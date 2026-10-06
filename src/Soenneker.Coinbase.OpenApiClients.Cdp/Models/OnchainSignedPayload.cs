@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// A processed onchain payload containing the payload ID and the payer&apos;s signature or transaction hash. The `signature` value depends on the original payload `type`:- `eip3009` / `permit2` / `spend_permission` — a hex-encoded signature from `eth_signTypedData_v4`.- `erc20_approval` — a hex-encoded transaction hash from `eth_sendTransaction`.
+    /// A processed onchain payload containing the payload ID and the payer&apos;s signature or transaction hash. The `signature` value depends on the original payload `type`:- `eip3009` / `permit2` / `spend_permission` — a hex-encoded signature from `eth_signTypedData_v4`.- `erc20_approval` — a hex-encoded transaction hash from `eth_sendTransaction`.- `solana_subscription` — the 64-byte ed25519 signature for the payer that  signed, extracted from the signed Solana transaction and base58-encoded.  Not the signed transaction bytes, and not `0x`-prefixed hex.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnchainSignedPayload : IAdditionalDataHolder, IParsable
@@ -23,7 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PayloadId { get; set; }
 #endif
-        /// <summary>The hex-encoded output from processing the payload. For `eip3009`, `permit2`, and `spend_permission` types, this is the cryptographic signature returned by `eth_signTypedData_v4`. For `erc20_approval` types, this is the transaction hash returned by `eth_sendTransaction`.</summary>
+        /// <summary>The output from processing the payload. For `eip3009`, `permit2`, and `spend_permission` types, this is the cryptographic signature returned by `eth_signTypedData_v4`. For `erc20_approval` types, this is the transaction hash returned by `eth_sendTransaction`. For `solana_subscription`, this is the payer&apos;s 64-byte ed25519 signature extracted from the signed Solana transaction and base58-encoded, not the signed transaction bytes or `0x`-prefixed hex.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Signature { get; set; }

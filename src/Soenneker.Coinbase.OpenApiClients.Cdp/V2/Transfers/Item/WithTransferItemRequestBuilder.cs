@@ -51,6 +51,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.Item
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 400 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 404 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,6 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);

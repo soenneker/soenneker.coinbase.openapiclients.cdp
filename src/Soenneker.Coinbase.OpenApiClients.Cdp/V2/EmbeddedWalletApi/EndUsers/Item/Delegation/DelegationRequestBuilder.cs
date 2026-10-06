@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.Revoke;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DelegationRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The revoke property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.Revoke.RevokeRequestBuilder Revoke
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.Revoke.RevokeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -34,9 +40,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         {
         }
         /// <summary>
-        /// Revokes all active delegations for the specified end user. This operation can be performed by the end user themselves or by a developer using their API key.
+        /// &gt; **Deprecation Notice:** Prefer&gt; [Revoke delegation for end user](#operation/revokeDelegationForEndUser)&gt; (`POST /v2/embedded-wallet-api/end-users/{userId}/delegation/revoke`), which takes the&gt; same request body. This `DELETE` path will be removed on **2026-10-22**.Revokes all active delegations for the specified end user. This operationcan be performed by the end user themselves or by a developer using theirAPI key.
         /// </summary>
-        /// <param name="body">The request body</param>
+        /// <param name="body">The request body for revoking a user-scoped or account-scoped delegation.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 401 status code</exception>
@@ -44,13 +50,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 502 status code</exception>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 503 status code</exception>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUserRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUserRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -97,18 +104,19 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetDelegationForEndUser200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetDelegationForEndUser200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Revokes all active delegations for the specified end user. This operation can be performed by the end user themselves or by a developer using their API key.
+        /// &gt; **Deprecation Notice:** Prefer&gt; [Revoke delegation for end user](#operation/revokeDelegationForEndUser)&gt; (`POST /v2/embedded-wallet-api/end-users/{userId}/delegation/revoke`), which takes the&gt; same request body. This `DELETE` path will be removed on **2026-10-22**.Revokes all active delegations for the specified end user. This operationcan be performed by the end user themselves or by a developer using theirAPI key.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">The request body for revoking a user-scoped or account-scoped delegation.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUserRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationForEndUserRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeDelegationRequest body, Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder.DelegationRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -147,7 +155,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.It
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi.EndUsers.Item.Delegation.DelegationRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Revokes all active delegations for the specified end user. This operation can be performed by the end user themselves or by a developer using their API key.
+        /// &gt; **Deprecation Notice:** Prefer&gt; [Revoke delegation for end user](#operation/revokeDelegationForEndUser)&gt; (`POST /v2/embedded-wallet-api/end-users/{userId}/delegation/revoke`), which takes the&gt; same request body. This `DELETE` path will be removed on **2026-10-22**.Revokes all active delegations for the specified end user. This operationcan be performed by the end user themselves or by a developer using theirAPI key.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DelegationRequestBuilderDeleteQueryParameters 

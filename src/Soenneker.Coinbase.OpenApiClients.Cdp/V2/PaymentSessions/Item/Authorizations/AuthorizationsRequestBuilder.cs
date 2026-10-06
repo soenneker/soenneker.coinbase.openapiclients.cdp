@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Coinbase;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Item;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Mandate;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Wallet;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.X402;
 using System.Collections.Generic;
@@ -25,6 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authoriz
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Coinbase.CoinbaseRequestBuilder Coinbase
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Coinbase.CoinbaseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mandate property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Mandate.MandateRequestBuilder Mandate
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Mandate.MandateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The wallet property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions.Item.Authorizations.Wallet.WalletRequestBuilder Wallet
