@@ -111,6 +111,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>Unique order identifier.</summary>
         public Guid? OrderId { get; set; }
+        /// <summary>The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PartnerId { get; set; }
+#nullable restore
+#else
+        public string PartnerId { get; set; }
+#endif
         /// <summary>The partnerUserId provided when initializing the onramp session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -257,6 +265,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "fees", n => { Fees = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFee>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFee.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "networkFee", n => { NetworkFee = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount.CreateFromDiscriminatorValue); } },
                 { "orderId", n => { OrderId = n.GetGuidValue(); } },
+                { "partnerId", n => { PartnerId = n.GetStringValue(); } },
                 { "partnerUserRef", n => { PartnerUserRef = n.GetStringValue(); } },
                 { "paymentCurrency", n => { PaymentCurrency = n.GetStringValue(); } },
                 { "paymentMethod", n => { PaymentMethod = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampTransactionPayloadPaymentMethod>(); } },
@@ -298,6 +307,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFee>("fees", Fees);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount>("networkFee", NetworkFee);
             writer.WriteGuidValue("orderId", OrderId);
+            writer.WriteStringValue("partnerId", PartnerId);
             writer.WriteStringValue("partnerUserRef", PartnerUserRef);
             writer.WriteStringValue("paymentCurrency", PaymentCurrency);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampTransactionPayloadPaymentMethod>("paymentMethod", PaymentMethod);

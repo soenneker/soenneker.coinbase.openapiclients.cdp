@@ -39,6 +39,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Eip155Colon42161,
         #pragma warning restore CS1591
+        [EnumMember(Value = "eip155:143")]
+        #pragma warning disable CS1591
+        Eip155Colon143,
+        #pragma warning restore CS1591
         [EnumMember(Value = "eip155:480")]
         #pragma warning disable CS1591
         Eip155Colon480,

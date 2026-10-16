@@ -227,6 +227,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         AcceptanceDisbursementFailed,
         #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.top_up_link.created")]
+        #pragma warning disable CS1591
+        AcceptanceTopUpLinkCreated,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "acceptance.top_up_link.funds_added")]
+        #pragma warning disable CS1591
+        AcceptanceTopUpLinkFundsAdded,
+        #pragma warning restore CS1591
         [EnumMember(Value = "health.status.updated")]
         #pragma warning disable CS1591
         HealthStatusUpdated,
@@ -254,6 +262,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         [EnumMember(Value = "customers.customer.deleted")]
         #pragma warning disable CS1591
         CustomersCustomerDeleted,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "customers.requirement.changed")]
+        #pragma warning disable CS1591
+        CustomersRequirementChanged,
         #pragma warning restore CS1591
     }
 }

@@ -34,7 +34,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements.Item
         {
         }
         /// <summary>
-        /// Retrieves a single disbursement by its ID, including source, target, status, amount, associated onchain transactions, error details (if failed), and timestamps. Only returns the disbursement if the API key has permission to access it.
+        /// Returns the disbursement identified by `disbursementId`. Your API key must have permission to access the disbursement.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -63,7 +63,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements.Item
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Retrieves a single disbursement by its ID, including source, target, status, amount, associated onchain transactions, error details (if failed), and timestamps. Only returns the disbursement if the API key has permission to access it.
+        /// Returns the disbursement identified by `disbursementId`. Your API key must have permission to access the disbursement.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

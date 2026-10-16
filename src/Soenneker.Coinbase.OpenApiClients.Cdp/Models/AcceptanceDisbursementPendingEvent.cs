@@ -14,7 +14,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A Disbursement represents a merchant-initiated payment of funds from a CDP account they own to a Coinbase account or onchain address. Used for standalone refunds, goodwill disbursements, rebates, and other merchant-driven payouts that are not tied to a specific payment session.Disbursements are asynchronous: the resource is returned in `pending` status and transitions to `succeeded` (with associated `onchainTransactions`) or `failed` (with `error`).</summary>
+        /// <summary>A payment from a CDP account you own to a Coinbase user account or an onchain address, independent of a payment session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement? Data { get; set; }
@@ -22,11 +22,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement Data { get; set; }
 #endif
-        /// <summary>Unique identifier for this webhook event. Use this for idempotency.</summary>
+        /// <summary>The unique identifier for this webhook event. Use it to deduplicate deliveries.</summary>
         public Guid? EventId { get; set; }
         /// <summary>The type of webhook event.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AcceptanceDisbursementPendingEventType? EventType { get; set; }
-        /// <summary>When this event occurred (ISO 8601 format).</summary>
+        /// <summary>The UTC ISO 8601 timestamp when the event occurred.</summary>
         public DateTimeOffset? Timestamp { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AcceptanceDisbursementPendingEvent"/> and sets the default values.

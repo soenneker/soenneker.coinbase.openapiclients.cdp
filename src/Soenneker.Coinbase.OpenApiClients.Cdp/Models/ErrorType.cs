@@ -383,6 +383,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         EntityNotConfiguredForPaymentAcceptance,
         #pragma warning restore CS1591
+        [EnumMember(Value = "entity_not_configured_for_top_up")]
+        #pragma warning disable CS1591
+        EntityNotConfiguredForTopUp,
+        #pragma warning restore CS1591
         [EnumMember(Value = "daily_transaction_limit_exceeded")]
         #pragma warning disable CS1591
         DailyTransactionLimitExceeded,

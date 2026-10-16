@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts;
-using Soenneker.Coinbase.OpenApiClients.Cdp.V2.CoinbaseAccounts;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Data;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations;
@@ -17,6 +16,7 @@ using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentSessions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.TopUpLinks;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.X402;
 using System.Collections.Generic;
@@ -35,11 +35,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts.AccountsRequestBuilder Accounts
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts.AccountsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The coinbaseAccounts property</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.CoinbaseAccounts.CoinbaseAccountsRequestBuilder CoinbaseAccounts
-        {
-            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.CoinbaseAccounts.CoinbaseAccountsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The customers property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers.CustomersRequestBuilder Customers
@@ -105,6 +100,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.SolanaRequestBuilder Solana
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.SolanaRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The topUpLinks property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.TopUpLinks.TopUpLinksRequestBuilder TopUpLinks
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.TopUpLinks.TopUpLinksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The transfers property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Transfers.TransfersRequestBuilder Transfers

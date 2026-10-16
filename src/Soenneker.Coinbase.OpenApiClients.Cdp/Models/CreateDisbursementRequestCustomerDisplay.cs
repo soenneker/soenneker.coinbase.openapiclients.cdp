@@ -8,14 +8,22 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Optional customer-facing display data for this disbursement, shown to the payer. If `referenceCode` is omitted, one is auto-generated — disbursements have no payment session to fall back to, unlike every other action type.
+    /// Display information shown to the recipient for this disbursement. If `referenceCode` is omitted, one is generated.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateDisbursementRequestCustomerDisplay : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A short customer-facing reference for an operation, visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
+        /// <summary>The merchant name to display to the recipient. When provided, this overrides the default merchant name configured for your entity. If omitted or empty, the default name is used. Useful when a merchant operates multiple storefronts or brands under a single entity.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? MerchantName { get; set; }
+#nullable restore
+#else
+        public string MerchantName { get; set; }
+#endif
+        /// <summary>A short customer-facing reference for an operation. It must not contain personally identifiable information (PII) or payment credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ReferenceCode { get; set; }
@@ -48,6 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "merchantName", n => { MerchantName = n.GetStringValue(); } },
                 { "referenceCode", n => { ReferenceCode = n.GetStringValue(); } },
             };
         }
@@ -58,6 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("merchantName", MerchantName);
             writer.WriteStringValue("referenceCode", ReferenceCode);
             writer.WriteAdditionalData(AdditionalData);
         }

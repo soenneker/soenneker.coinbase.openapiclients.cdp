@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// The target of the disbursement. Can be either a Coinbase user account or an onchain blockchain address.
+    /// The recipient of the disbursement: a Coinbase user account or an onchain address.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateDisbursementRequestTarget : IAdditionalDataHolder, IParsable

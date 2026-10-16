@@ -47,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements
         {
         }
         /// <summary>
-        /// Returns a paginated list of disbursements created by the merchant. Each disbursement includes its source, target, status, amount, and timestamps. Only disbursements accessible by the current API key are returned.
+        /// Returns a paginated list of disbursements accessible to your API key. Filter by `status`, `sourceAccountId`, or `externalReferenceId`.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDisbursements200Response"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -76,7 +76,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDisbursements200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListDisbursements200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a merchant-initiated payment of funds from a CDP account owned by the merchant to a Coinbase user account or onchain address. Used for standalone refunds, goodwill disbursements, rebates, and other merchant-driven payouts that are not tied to a specific payment session.This is an asynchronous operation. The disbursement is returned in `pending` status and transitions to `succeeded` (with associated `onchainTransactions`) or `failed` (with `error`).
+        /// Creates a disbursement from a CDP account you own to a Coinbase user account or an onchain address. Returns the disbursement with `pending` status while processing continues asynchronously.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement"/></returns>
         /// <param name="body">A request to create a disbursement.</param>
@@ -109,7 +109,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a paginated list of disbursements created by the merchant. Each disbursement includes its source, target, status, amount, and timestamps. Only disbursements accessible by the current API key are returned.
+        /// Returns a paginated list of disbursements accessible to your API key. Filter by `status`, `sourceAccountId`, or `externalReferenceId`.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -128,7 +128,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements
             return requestInfo;
         }
         /// <summary>
-        /// Creates a merchant-initiated payment of funds from a CDP account owned by the merchant to a Coinbase user account or onchain address. Used for standalone refunds, goodwill disbursements, rebates, and other merchant-driven payouts that are not tied to a specific payment session.This is an asynchronous operation. The disbursement is returned in `pending` status and transitions to `succeeded` (with associated `onchainTransactions`) or `failed` (with `error`).
+        /// Creates a disbursement from a CDP account you own to a Coinbase user account or an onchain address. Returns the disbursement with `pending` status while processing continues asynchronously.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">A request to create a disbursement.</param>
@@ -159,7 +159,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements
             return new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements.DisbursementsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a paginated list of disbursements created by the merchant. Each disbursement includes its source, target, status, amount, and timestamps. Only disbursements accessible by the current API key are returned.
+        /// Returns a paginated list of disbursements accessible to your API key. Filter by `status`, `sourceAccountId`, or `externalReferenceId`.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DisbursementsRequestBuilderGetQueryParameters 

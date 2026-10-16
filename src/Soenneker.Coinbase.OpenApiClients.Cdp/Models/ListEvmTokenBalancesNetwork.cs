@@ -19,5 +19,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         #pragma warning disable CS1591
         Ethereum,
         #pragma warning restore CS1591
+        [EnumMember(Value = "arbitrum")]
+        #pragma warning disable CS1591
+        Arbitrum,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "polygon")]
+        #pragma warning disable CS1591
+        Polygon,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "optimism")]
+        #pragma warning disable CS1591
+        Optimism,
+        #pragma warning restore CS1591
     }
 }

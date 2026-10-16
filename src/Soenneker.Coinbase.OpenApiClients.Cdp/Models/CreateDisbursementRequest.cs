@@ -39,7 +39,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance Compliance { get; set; }
 #endif
-        /// <summary>Optional customer-facing display data for this disbursement, shown to the payer. If `referenceCode` is omitted, one is auto-generated — disbursements have no payment session to fall back to, unlike every other action type.</summary>
+        /// <summary>Display information shown to the recipient for this disbursement. If `referenceCode` is omitted, one is generated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCustomerDisplay? CustomerDisplay { get; set; }
@@ -47,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCustomerDisplay CustomerDisplay { get; set; }
 #endif
-        /// <summary>A merchant-provided internal identifier for this disbursement, from the merchant&apos;s own system—not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
+        /// <summary>An identifier from your system for tracking this disbursement. Not shown to the recipient. Must not contain personally identifiable information (PII) or payment credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ExternalReferenceId { get; set; }

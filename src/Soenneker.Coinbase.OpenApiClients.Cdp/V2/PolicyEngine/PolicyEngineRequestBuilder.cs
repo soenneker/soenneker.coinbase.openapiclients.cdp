@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Simulate;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.PoliciesRequestBuilder Policies
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.PoliciesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The simulate property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Simulate.SimulateRequestBuilder Simulate
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Simulate.SimulateRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.PolicyEngineRequestBuilder"/> and sets the default values.
