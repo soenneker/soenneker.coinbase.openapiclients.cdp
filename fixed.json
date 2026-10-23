@@ -17241,6 +17241,370 @@
         "x-audience": "public"
       }
     },
+    "/v2/evm/accounts/{address}/lend/redeem-fees": {
+      "post": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "Redeem vault fees with an EVM account",
+        "description": "Redeems every vault share held by the vault\u0027s fee recipient EVM account for the vault\u0027s underlying asset (e.g. USDC). The account must be the vault\u0027s fee recipient.\nCDP periodically distributes each vault\u0027s accrued fees to its fee recipient as vault shares. This API redeems the account\u0027s full share balance, including any shares from the account\u0027s own deposits into the vault, so use a dedicated fee recipient account.\nThe account signs an EIP-2612 permit over its vault shares, and the share approval and redemption are executed in a single transaction.\nFor fee recipients that are EVM Smart Accounts, use \u0060redeemVaultFeesWithEvmSmartAccount\u0060 instead.",
+        "operationId": "RedeemVaultFeesWithEvmAccount",
+        "parameters": [
+          {
+            "description": "A JWT signed using your Wallet Secret, encoded in base64. Refer to the\n[Generate Wallet Token](https://docs.cdp.coinbase.com/api-reference/v2/authentication#2-generate-wallet-token)\nsection of our Authentication docs for more details on how to generate your Wallet Token.\n",
+            "$ref": "#/components/parameters/XWalletAuth"
+          },
+          {
+            "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The 0x-prefixed address of the EVM account that is the vault\u0027s fee recipient.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EoaVaultRedeemFeesRequest"
+              },
+              "examples": {
+                "redeem_fees": {
+                  "summary": "Redeem vault fees",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "maxSlippageBps": 100
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully broadcast the fee redemption.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EoaVaultRedeemFeesResponse"
+                },
+                "examples": {
+                  "redeem_fees": {
+                    "summary": "Fee redemption response",
+                    "value": {
+                      "transactionHash": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "no_fee_shares": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "No fee shares to redeem. Fees are distributed to the fee recipient periodically."
+                    }
+                  },
+                  "not_fee_recipient": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "The account is not the fee recipient of the vault."
+                    }
+                  },
+                  "vault_not_active": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Vault \u0027vault_019f5f10-096a-7a23-86df-f479650d813f\u0027 is not active."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "description": "A payment method is required to complete this operation.",
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "User forbidden from performing the action.",
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "vault_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Vault not found."
+                    }
+                  },
+                  "account_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A fee redemption or another lend operation for this account is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "operation_in_progress": {
+                    "value": {
+                      "errorType": "operation_in_progress",
+                      "errorMessage": "A lend operation for this account and vault is already in progress. In-progress operations typically complete in under 30 seconds. Please wait for it to complete before retrying."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency key conflict.",
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "development"
+      }
+    },
+    "/v2/evm/smart-accounts/{address}/lend/redeem-fees": {
+      "post": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "Redeem vault fees with an EVM Smart Account",
+        "description": "Redeems every vault share held by the vault\u0027s fee recipient EVM Smart Account for the vault\u0027s underlying asset (e.g. USDC). The Smart Account must be the vault\u0027s fee recipient, and its owner must be a CDP EVM account.\nCDP periodically distributes each vault\u0027s accrued fees to its fee recipient as vault shares. This API redeems the Smart Account\u0027s full share balance, including any shares from the Smart Account\u0027s own deposits into the vault, so use a dedicated fee recipient Smart Account.\nThe share approval and redemption are batched into a single user operation.\nFor fee recipients that are EVM accounts, use \u0060redeemVaultFeesWithEvmAccount\u0060 instead.",
+        "operationId": "RedeemVaultFeesWithEvmSmartAccount",
+        "parameters": [
+          {
+            "description": "A JWT signed using your Wallet Secret, encoded in base64. Refer to the\n[Generate Wallet Token](https://docs.cdp.coinbase.com/api-reference/v2/authentication#2-generate-wallet-token)\nsection of our Authentication docs for more details on how to generate your Wallet Token.\n",
+            "$ref": "#/components/parameters/XWalletAuth"
+          },
+          {
+            "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The 0x-prefixed address of the EVM Smart Account that is the vault\u0027s fee recipient.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SmartAccountVaultRedeemFeesRequest"
+              },
+              "examples": {
+                "redeem_fees_cdp_paymaster": {
+                  "summary": "Redeem vault fees with CDP Paymaster",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "useCdpPaymaster": true
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully broadcast the fee redemption user operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SmartAccountVaultRedeemFeesResponse"
+                },
+                "examples": {
+                  "redeem_fees": {
+                    "summary": "Fee redemption response",
+                    "value": {
+                      "userOpHash": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "no_fee_shares": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "No fee shares to redeem. Fees are distributed to the fee recipient periodically."
+                    }
+                  },
+                  "not_fee_recipient": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "The account is not the fee recipient of the vault."
+                    }
+                  },
+                  "vault_not_active": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Vault \u0027vault_019f5f10-096a-7a23-86df-f479650d813f\u0027 is not active."
+                    }
+                  },
+                  "conflicting_paymaster": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Cannot specify both \u0027useCdpPaymaster\u0027 and \u0027paymasterUrl\u0027. Please use only one."
+                    }
+                  },
+                  "paymaster_context_without_paymaster": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "paymasterContext requires a paymaster: set paymasterUrl or useCdpPaymaster."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "description": "A payment method is required to complete this operation.",
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "User forbidden from performing the action.",
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "vault_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Vault not found."
+                    }
+                  },
+                  "account_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM Smart Account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A fee redemption or another lend operation for this account is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "operation_in_progress": {
+                    "value": {
+                      "errorType": "operation_in_progress",
+                      "errorMessage": "A lend operation for this account and vault is already in progress. In-progress operations typically complete in under 30 seconds. Please wait for it to complete before retrying."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency key conflict.",
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "development"
+      }
+    },
     "/v2/evm/swaps/quote": {
       "get": {
         "tags": [
@@ -18586,6 +18950,267 @@
           "409": {
             "description": "The resource already exists.",
             "$ref": "#/components/responses/AlreadyExistsError"
+          },
+          "422": {
+            "description": "Idempotency key conflict.",
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "policies#manage"
+        ]
+      }
+    },
+    "/v2/policy-engine/policies/{policyId}/pause": {
+      "post": {
+        "tags": [
+          "Policy Engine"
+        ],
+        "summary": "Pause policy",
+        "description": "Pause a policy so it is skipped during evaluation as if it were not attached. The policy keeps its ID, scope, and rules. If already paused, this returns the policy with the original pausedAt and replaces resumeAt with the requested time, or clears resumeAt if no time is supplied.",
+        "operationId": "PausePolicy",
+        "parameters": [
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "The ID of the policy to pause.",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          {
+            "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PausePolicyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully paused policy.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Policy"
+                },
+                "examples": {
+                  "paused": {
+                    "value": {
+                      "id": "123e4567-e89b-12d3-a456-426614174000",
+                      "description": "Default policy.",
+                      "scope": "project",
+                      "status": "paused",
+                      "pausedAt": "2026-09-29T12:00:00Z",
+                      "resumeAt": "2026-09-30T12:00:00Z",
+                      "rules": [
+                        {
+                          "action": "accept",
+                          "operation": "signEvmTransaction",
+                          "criteria": [
+                            {
+                              "type": "ethValue",
+                              "ethValue": "1000000000000000000",
+                              "operator": "\u003C="
+                            }
+                          ]
+                        }
+                      ],
+                      "createdAt": "2026-09-25T12:00:00Z",
+                      "updatedAt": "2026-09-29T12:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid pause request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_resume_at": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "resumeAt must be in the future and at most 30 days out."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Policy not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Policy not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency key conflict.",
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "public",
+        "x-required-api-auth-scopes": [
+          "policies#manage"
+        ]
+      }
+    },
+    "/v2/policy-engine/policies/{policyId}/resume": {
+      "post": {
+        "tags": [
+          "Policy Engine"
+        ],
+        "summary": "Resume policy",
+        "description": "Resume a paused policy so its existing ID, scope, and rules are immediately enforced again. Resuming an active policy returns it unchanged.",
+        "operationId": "ResumePolicy",
+        "parameters": [
+          {
+            "name": "policyId",
+            "in": "path",
+            "description": "The ID of the policy to resume.",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+              "type": "string"
+            },
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          {
+            "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully resumed policy.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Policy"
+                },
+                "examples": {
+                  "active": {
+                    "value": {
+                      "id": "123e4567-e89b-12d3-a456-426614174000",
+                      "description": "Default policy.",
+                      "scope": "project",
+                      "status": "active",
+                      "rules": [
+                        {
+                          "action": "accept",
+                          "operation": "signEvmTransaction",
+                          "criteria": [
+                            {
+                              "type": "ethValue",
+                              "ethValue": "1000000000000000000",
+                              "operator": "\u003C="
+                            }
+                          ]
+                        }
+                      ],
+                      "createdAt": "2026-09-25T12:00:00Z",
+                      "updatedAt": "2026-09-29T12:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid resume request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_policy_id": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "policyId must be a valid UUID."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Policy not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Policy not found."
+                    }
+                  }
+                }
+              }
+            }
           },
           "422": {
             "description": "Idempotency key conflict.",
@@ -22880,6 +23505,339 @@
         "x-audience": "public"
       }
     },
+    "/v2/onramp/mobile/sessions/challenges": {
+      "post": {
+        "tags": [
+          "Onramp (App2App)"
+        ],
+        "summary": "Create an onramp mobile challenge",
+        "description": "Issues a challenge for initiating an onramp flow from a partner mobile app. Authenticate this request from the partner backend with a CDP API key; do not embed the API key in the mobile client. The project is identified by the API key JWT.\n\nPass the challenge to the mobile app. The app signs it using platform attestation (iOS App Attest or Android Play Integrity) and submits it to the [Create Onramp Mobile Session](#operation/createOnrampMobileSession) endpoint without CDP API key authentication to obtain a ready-to-use onramp URL. The \u0060redirectUrl\u0060 is required so the Coinbase app knows where to return the user after completing or dismissing the transaction.",
+        "operationId": "CreateOnrampMobileChallenge",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOnrampMobileChallengeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Onramp mobile challenge created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnrampMobileChallenge"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_request": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Missing required parameters."
+                    }
+                  },
+                  "invalid_destination_address": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "The destination address is not valid for the specified network."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "description": "App not permitted to initiate a mobile handoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "app_not_allowed": {
+                    "value": {
+                      "errorType": "forbidden",
+                      "errorMessage": "App is not enabled for mobile deep-linking."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "$ref": "#/components/responses/RateLimitExceeded"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "public"
+      }
+    },
+    "/v2/onramp/mobile/sessions": {
+      "post": {
+        "tags": [
+          "Onramp (App2App)"
+        ],
+        "summary": "Create an onramp mobile session",
+        "description": "Verifies the platform attestation for a challenge issued by [Create Onramp Mobile Challenge](#operation/createOnrampMobileChallenge) and returns a ready-to-use onramp URL. The URL embeds the session token as a query parameter so the Coinbase app can populate the handoff screen immediately on launch.\n\nThis endpoint is idempotent on the challenge token: if the same challenge is submitted again (e.g. due to a lost response), the server returns the original session URL rather than an error.\n\nProvide exactly one platform payload: \u0060ios\u0060 (App Attest assertion) or \u0060android\u0060 (Play Integrity token).",
+        "operationId": "CreateOnrampMobileSession",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOnrampMobileSessionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Onramp mobile session created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOnrampMobileSession201Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_challenge": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "The provided challenge is invalid or has expired."
+                    }
+                  },
+                  "invalid_signature": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "The attestation signature could not be verified."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "App not permitted to initiate a mobile handoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "app_not_allowed": {
+                    "value": {
+                      "errorType": "forbidden",
+                      "errorMessage": "App is not enabled for mobile deep-linking."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Attestation is stale or too old.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "stale_attestation": {
+                    "value": {
+                      "errorType": "stale_attestation",
+                      "errorMessage": "Attestation is too old. Please generate a fresh challenge and re-attest."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "$ref": "#/components/responses/RateLimitExceeded"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "unauthenticated": []
+          }
+        ],
+        "x-audience": "public"
+      }
+    },
+    "/v2/onramp/mobile/attestation/challenges": {
+      "post": {
+        "tags": [
+          "Onramp (App2App)"
+        ],
+        "summary": "Create an onramp iOS attestation challenge",
+        "description": "Issues a one-time challenge for the iOS App Attest device-key **registration** step. Authenticate with a CDP API key. Call this from the partner backend and pass the challenge to the mobile app; do not embed the API key in the client. The project is identified by the API key JWT. The partner app then passes the challenge to \u0060DCAppAttestService.attestKey(keyId, clientDataHash: SHA256(challenge))\u0060 and submits the resulting attestation to [Register Onramp iOS Attestation](#operation/registerOnrampIosAttestation).\n\nThis is distinct from [Create Onramp Mobile Challenge](#operation/createOnrampMobileChallenge), which issues the per-transaction session challenge. Registration is a one-time, per-device-install operation; iOS-only (Android validates Play Integrity inline per request and has no registration step).",
+        "operationId": "CreateOnrampIosAttestationChallenge",
+        "responses": {
+          "201": {
+            "description": "Attestation challenge created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IosAttestationChallenge"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "description": "User forbidden from performing the action.",
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "$ref": "#/components/responses/RateLimitExceeded"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "public"
+      }
+    },
+    "/v2/onramp/mobile/attestation/registrations": {
+      "post": {
+        "tags": [
+          "Onramp (App2App)"
+        ],
+        "summary": "Register a device key for iOS App Attest",
+        "description": "Verifies an iOS App Attest attestation payload and registers the device\u0027s public key for future assertion validation. The server checks that the attestation is genuine and signed by Apple, that the bundle ID is in the partner\u0027s allowed mobile clients list, and that the challenge issued by [Create Onramp iOS Attestation Challenge](#operation/createOnrampIosAttestationChallenge) is fresh and unused.\n\nThis is a one-time, per-device-install operation; iOS-only (Android validates Play Integrity inline per request and has no registration step). For security, all client-side verification failures are returned as an opaque \u0060400 invalid_request\u0060 \u2014 the response never reveals which specific check failed.\n\nThe Apple App Attest \u0060keyId\u0060 is supplied only in the request body (\u0060ios.keyId\u0060). Do not put \u0060keyId\u0060 in the URL \u2014 App Attest key IDs are standard base64 and frequently contain \u0060/\u0060, which breaks path routing at the edge.\n\nIdempotency is provided by \u0060ios.keyId\u0060 itself: the server upserts the device public key on \u0060(app, keyId)\u0060, so repeating registration for the same key replaces the stored public key rather than creating a duplicate. This endpoint does not accept \u0060X-Idempotency-Key\u0060 \u2014 \u0060ios.keyId\u0060 is the natural idempotency key for the registration resource. The challenge remains single-use and is claimed on first receipt. The challenge identifies the project; the device does not supply a CDP project ID.",
+        "operationId": "RegisterOnrampIosAttestation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IosAttestationRegistrationRequest"
+              },
+              "examples": {
+                "ios_example": {
+                  "summary": "iOS App Attest registration",
+                  "value": {
+                    "challenge": "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY=",
+                    "ios": {
+                      "keyId": "abc123def456",
+                      "attestation": "b2F1dGhEYXRhQUFDSmdhVWRpY0FBQ1VqZw==",
+                      "bundleId": "com.coinbase.cdp-onramp"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Attestation verified successfully. Device public key registered for assertion validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IosAttestationRegistrationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request, or the attestation could not be verified. All client-side rejections (unknown bundle ID, bad certificate chain, consumed or expired challenge, unregistered client) collapse into this single opaque error so no detail about the failed check is leaked.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_request": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "ios attestation payload is required."
+                    }
+                  },
+                  "verification_failed": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "The attestation could not be verified."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "$ref": "#/components/responses/RateLimitExceeded"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          }
+        },
+        "security": [
+          {
+            "unauthenticated": []
+          }
+        ],
+        "x-audience": "public"
+      }
+    },
     "/v2/onramp/limits": {
       "post": {
         "tags": [
@@ -22938,6 +23896,30 @@
                               "maxUpgrade": "2147483647"
                             }
                           ]
+                        }
+                      ]
+                    }
+                  },
+                  "active": {
+                    "value": {
+                      "limits": [
+                        {
+                          "limitType": "weekly_spending",
+                          "currency": "USD",
+                          "limit": "2500",
+                          "remaining": "2000"
+                        },
+                        {
+                          "limitType": "lifetime_transactions",
+                          "limit": "2147483647",
+                          "remaining": "2147483647"
+                        }
+                      ],
+                      "limitUpgradeOptions": [
+                        {
+                          "status": "active",
+                          "fields": [],
+                          "limitUpgrades": []
                         }
                       ]
                     }
@@ -37139,6 +38121,21 @@
           "scope": {
             "$ref": "#/components/schemas/PolicyScope"
           },
+          "status": {
+            "$ref": "#/components/schemas/PolicyStatus"
+          },
+          "pausedAt": {
+            "type": "string",
+            "description": "When the policy was paused. Present only when status is paused.",
+            "format": "date-time",
+            "example": "2026-09-29T12:00:00Z"
+          },
+          "resumeAt": {
+            "type": "string",
+            "description": "When a paused policy resumes automatically. Absent for an indefinite pause.",
+            "format": "date-time",
+            "example": "2026-09-30T12:00:00Z"
+          },
           "rules": {
             "type": "array",
             "items": {
@@ -39971,6 +40968,17 @@
               "updatedAt": "2026-09-01T12:00:00Z"
             }
           ]
+        }
+      },
+      "PausePolicyRequest": {
+        "type": "object",
+        "properties": {
+          "resumeAt": {
+            "type": "string",
+            "description": "Optional future time at which the policy resumes automatically, at most 30 days from the request. If omitted, the policy stays paused until resumed.",
+            "format": "date-time",
+            "example": "2026-09-30T12:00:00Z"
+          }
         }
       },
       "SolanaAccount": {
@@ -45002,6 +46010,225 @@
           ],
           "exchangeRate": "1"
         }
+      },
+      "OnrampMobileChallengeToken": {
+        "maxLength": 2048,
+        "minLength": 16,
+        "type": "string",
+        "description": "An opaque server-issued token used in the App2App onramp handoff. Treat it as an opaque string \u2014 do not attempt to parse or decode its contents.",
+        "example": "MWYwNWQwODktZTZlYy02OTdlLTgzZTYtMTI3NzcyOWJhNjM3"
+      },
+      "OnrampMobileChallenge": {
+        "required": [
+          "challenge",
+          "expiresAt"
+        ],
+        "type": "object",
+        "properties": {
+          "challenge": {
+            "maxLength": 2048,
+            "type": "string",
+            "description": "An opaque server-issued token used in the App2App onramp handoff. Treat it as an opaque string \u2014 do not attempt to parse or decode its contents."
+          },
+          "expiresAt": {
+            "type": "string",
+            "description": "The time at which the challenge expires. Challenges are short-lived; submit the attestation to [Create Onramp Mobile Session](#operation/createOnrampMobileSession) before this time or request a new challenge.",
+            "format": "date-time",
+            "example": "2025-04-24T00:05:00Z"
+          }
+        },
+        "description": "A server-issued challenge for platform attestation in an App2App onramp handoff."
+      },
+      "IosAssertionPayload": {
+        "required": [
+          "keyId",
+          "assertion"
+        ],
+        "type": "object",
+        "properties": {
+          "keyId": {
+            "type": "string",
+            "description": "The key identifier of the iOS App Attest key previously registered via the attestation registration endpoint. This is the \u0060keyId\u0060 returned by \u0060DCAppAttestService.generateKey()\u0060.",
+            "example": "abc123def456"
+          },
+          "assertion": {
+            "type": "string",
+            "description": "Base64-encoded App Attest assertion generated by \u0060DCAppAttestService.generateAssertion(keyId, clientDataHash: SHA256(challenge))\u0060.",
+            "example": "eyJhbGci..."
+          }
+        },
+        "description": "iOS App Attest assertion payload for verifying a signed challenge.",
+        "x-audience": "public"
+      },
+      "AndroidIntegrityPayload": {
+        "required": [
+          "integrityToken"
+        ],
+        "type": "object",
+        "properties": {
+          "integrityToken": {
+            "type": "string",
+            "description": "Play Integrity token (JWT) obtained from \u0060StandardIntegrityManager.requestToken()\u0060, proving this request originates from a genuine, unmodified installation of the partner app. The token must have been requested with \u0060requestHash = base64url(SHA256(challenge))\u0060, where \u0060challenge\u0060 is the opaque token issued by the [Create Onramp Mobile Challenge](#operation/createOnrampMobileChallenge) endpoint.",
+            "example": "eyJhbGci..."
+          }
+        },
+        "description": "Android Play Integrity Standard API payload for verifying a signed challenge.",
+        "x-audience": "public"
+      },
+      "CreateOnrampMobileSessionRequest": {
+        "required": [
+          "challenge"
+        ],
+        "type": "object",
+        "oneOf": [
+          {
+            "title": "iOS",
+            "required": [
+              "ios"
+            ],
+            "type": "object"
+          },
+          {
+            "title": "Android",
+            "required": [
+              "android"
+            ],
+            "type": "object"
+          }
+        ],
+        "properties": {
+          "challenge": {
+            "maxLength": 2048,
+            "type": "string",
+            "description": "An opaque server-issued token used in the App2App onramp handoff. Treat it as an opaque string \u2014 do not attempt to parse or decode its contents."
+          },
+          "ios": {
+            "description": "iOS App Attest assertion payload for verifying a signed challenge.",
+            "$ref": "#/components/schemas/IosAssertionPayload"
+          },
+          "android": {
+            "description": "Android Play Integrity Standard API payload for verifying a signed challenge.",
+            "$ref": "#/components/schemas/AndroidIntegrityPayload"
+          }
+        },
+        "description": "Request body for creating an onramp mobile session."
+      },
+      "IosAttestationChallenge": {
+        "required": [
+          "challenge",
+          "expiresAt"
+        ],
+        "type": "object",
+        "properties": {
+          "challenge": {
+            "maxLength": 44,
+            "minLength": 44,
+            "pattern": "^[A-Za-z0-9\u002B/]\u002B=*$",
+            "type": "string",
+            "description": "Base64-encoded cryptographically secure random challenge (32 bytes). This challenge is one-time use and must be included in the iOS attestation request.",
+            "example": "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY="
+          },
+          "expiresAt": {
+            "type": "string",
+            "description": "Timestamp when the challenge expires. Challenges are valid for 5 minutes.",
+            "format": "date-time",
+            "example": "2026-02-03T10:35:00Z"
+          }
+        },
+        "description": "A cryptographic challenge for iOS App Attest attestation. Used only by iOS clients - Android uses a different flow with Play Integrity Standard API tokens.",
+        "x-audience": "public"
+      },
+      "IosBundleId": {
+        "pattern": "^[a-zA-Z0-9.-]\u002B$",
+        "type": "string",
+        "description": "iOS application bundle identifier (\u0060CFBundleIdentifier\u0060), as configured in the app\u0027s Xcode project / Info.plist, or shown for the App ID in Apple Developer. Must contain only alphanumeric characters (A\u2013Z, a\u2013z, 0\u20139), hyphens (-), and periods (.), typically in reverse-DNS form (e.g. \u0060com.example.app\u0060). Underscores are not permitted.",
+        "example": "com.example.app"
+      },
+      "IosAttestationPayload": {
+        "required": [
+          "keyId",
+          "attestation",
+          "bundleId"
+        ],
+        "type": "object",
+        "properties": {
+          "keyId": {
+            "type": "string",
+            "description": "The key identifier generated by DCAppAttestService.",
+            "example": "abc123def456"
+          },
+          "attestation": {
+            "pattern": "^[A-Za-z0-9\u002B/]\u002B=*$",
+            "type": "string",
+            "description": "Base64-encoded attestation object from DCAppAttestService.attestKey().",
+            "example": "b2F1dGhEYXRhQUFDSmdhVWRpY0FBQ1VqZw=="
+          },
+          "bundleId": {
+            "pattern": "^[a-zA-Z0-9.-]\u002B$",
+            "type": "string",
+            "description": "iOS application bundle identifier (\u0060CFBundleIdentifier\u0060), as configured in the app\u0027s Xcode project / Info.plist, or shown for the App ID in Apple Developer. Must contain only alphanumeric characters (A\u2013Z, a\u2013z, 0\u20139), hyphens (-), and periods (.), typically in reverse-DNS form (e.g. \u0060com.example.app\u0060). Underscores are not permitted."
+          }
+        },
+        "description": "iOS App Attest payload for verification.",
+        "example": {
+          "keyId": "abc123def456",
+          "attestation": "b2F1dGhEYXRhQUFDSmdhVWRpY0FBQ1VqZw==",
+          "bundleId": "com.example.myapp"
+        },
+        "x-audience": "public"
+      },
+      "IosAttestationRegistrationRequest": {
+        "required": [
+          "challenge",
+          "ios"
+        ],
+        "type": "object",
+        "properties": {
+          "challenge": {
+            "pattern": "^[A-Za-z0-9\u002B/]\u002B=*$",
+            "type": "string",
+            "description": "The challenge received from the challenge endpoint.",
+            "example": "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY="
+          },
+          "ios": {
+            "description": "iOS App Attest payload for verification.",
+            "$ref": "#/components/schemas/IosAttestationPayload"
+          }
+        },
+        "description": "Request to register device public key for iOS App Attest attestation. This endpoint is iOS-only. Android devices use Play Integrity Standard API tokens sent directly in request headers instead.",
+        "x-audience": "public"
+      },
+      "IosAttestationRegistrationResponse": {
+        "required": [
+          "keyId",
+          "platform",
+          "appId",
+          "attestedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "keyId": {
+            "type": "string",
+            "description": "The key identifier that was registered. Include this value in subsequent [Create Onramp Mobile Session](#operation/createOnrampMobileSession) requests as \u0060ios.keyId\u0060.",
+            "example": "abc123def456"
+          },
+          "platform": {
+            "$ref": "#/components/schemas/IosPlatform"
+          },
+          "appId": {
+            "type": "string",
+            "description": "The verified Apple application identifier in \u0060teamID.bundleID\u0060 format. This is not a CDP project ID.",
+            "example": "ABCDE12345.com.example.myapp"
+          },
+          "attestedAt": {
+            "type": "string",
+            "description": "Timestamp when the attestation was performed.",
+            "format": "date-time",
+            "example": "2026-02-03T10:30:00Z"
+          }
+        },
+        "description": "Response confirming successful attestation verification and device key registration. The device public key is now stored for validating future assertion signatures.",
+        "x-audience": "public"
       },
       "OnrampUserIdType": {
         "enum": [
@@ -51153,6 +52380,123 @@
         },
         "x-event-type": "customers.requirement.changed"
       },
+      "VaultId": {
+        "pattern": "^vault_[a-f0-9-]{36}$",
+        "type": "string",
+        "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+        "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+      },
+      "VaultRedeemFeesRequest": {
+        "required": [
+          "vaultId"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060."
+          },
+          "maxSlippageBps": {
+            "maximum": 9999,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.",
+            "example": 100
+          }
+        },
+        "description": "Fields shared by vault fee redemption requests. Composed into \u0060EoaVaultRedeemFeesRequest\u0060 and \u0060SmartAccountVaultRedeemFeesRequest\u0060, which add their account-specific fields on top."
+      },
+      "EoaVaultRedeemFeesRequest": {
+        "required": [
+          "vaultId"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060."
+          },
+          "maxSlippageBps": {
+            "maximum": 9999,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.",
+            "example": 100
+          }
+        },
+        "description": "A request to redeem the fee shares held by the vault\u0027s fee recipient EVM account for the vault\u0027s underlying asset (e.g. USDC). The account signs an EIP-2612 permit over its vault shares, and the share approval and redemption are executed in a single transaction.",
+        "example": {
+          "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+          "maxSlippageBps": 100
+        }
+      },
+      "SmartAccountVaultRedeemFeesRequest": {
+        "required": [
+          "vaultId"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060."
+          },
+          "maxSlippageBps": {
+            "maximum": 9999,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.",
+            "example": 100
+          },
+          "useCdpPaymaster": {
+            "type": "boolean",
+            "description": "Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to redeem fees without holding native gas tokens. Cannot be used together with \u0060paymasterUrl\u0060.",
+            "example": true
+          },
+          "paymasterUrl": {
+            "maxLength": 2048,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "format": "uri"
+          },
+          "paymasterContext": {
+            "$ref": "#/components/schemas/SmartAccountVaultRedeemFeesRequestPaymasterContext"
+          }
+        }
+      },
+      "EoaVaultRedeemFeesResponse": {
+        "required": [
+          "transactionHash"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionHash": {
+            "pattern": "^0x[0-9a-fA-F]{64}$",
+            "type": "string",
+            "description": "The hash of the broadcast fee redemption transaction, as a 0x-prefixed hex string.",
+            "example": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+          }
+        },
+        "description": "The result of a vault fee redemption from an EVM account after broadcast."
+      },
+      "SmartAccountVaultRedeemFeesResponse": {
+        "required": [
+          "userOpHash"
+        ],
+        "type": "object",
+        "properties": {
+          "userOpHash": {
+            "pattern": "^0x[0-9a-fA-F]{64}$",
+            "type": "string",
+            "description": "The hash of the user operation executing the fee redemption, as a 0x-prefixed hex string. Poll \u0060getUserOperation\u0060 for the operation\u0027s status.",
+            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          }
+        },
+        "description": "The result of a vault fee redemption from an EVM Smart Account after broadcast."
+      },
       "X402VerifyResponseResponse": {
         "required": [
           "isValid",
@@ -56198,6 +57542,19 @@
         "format": "uri",
         "example": "https://pay.coinbase.com/buy?sessionToken=abc123F"
       },
+      "OnrampMobileChallengeChallenge": {
+        "maxLength": 2048,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "An opaque server-issued token used in the App2App onramp handoff. Treat it as an opaque string \u2014 do not attempt to parse or decode its contents.",
+        "example": "MWYwNWQwODktZTZlYy02OTdlLTgzZTYtMTI3NzcyOWJhNjM3"
+      },
+      "CreateOnrampMobileSessionRequestChallenge": {
+        "maxLength": 2048,
+        "type": "string",
+        "additionalProperties": false,
+        "description": "An opaque server-issued token used in the App2App onramp handoff. Treat it as an opaque string \u2014 do not attempt to parse or decode its contents."
+      },
       "OnrampLimitUpgradeIdentityFieldsDateOfBirth": {
         "type": "object",
         "properties": {
@@ -57610,6 +58967,31 @@
           }
         }
       },
+      "SmartAccountVaultRedeemFeesRequestAllOf2": {
+        "type": "object",
+        "properties": {
+          "useCdpPaymaster": {
+            "type": "boolean",
+            "description": "Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to redeem fees without holding native gas tokens. Cannot be used together with \u0060paymasterUrl\u0060.",
+            "example": true
+          },
+          "paymasterUrl": {
+            "maxLength": 2048,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "format": "uri"
+          },
+          "paymasterContext": {
+            "$ref": "#/components/schemas/SmartAccountVaultRedeemFeesRequestAllOf2PaymasterContext"
+          }
+        },
+        "description": "A request to redeem the fee shares held by the vault\u0027s fee recipient EVM Smart Account for the vault\u0027s underlying asset (e.g. USDC). The share approval and redemption are batched into a single user operation.",
+        "example": {
+          "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+          "useCdpPaymaster": true
+        }
+      },
       "X402VerifyResponseResponsePayer": {
         "maxLength": 128,
         "type": "string",
@@ -58117,6 +59499,15 @@
         },
         "description": "The requirement that changed. Identical to the corresponding key of \u0060requirements\u0060 on \u0060GET /v2/customers/{customerId}\u0060.",
         "example": "fullSsn"
+      },
+      "SmartAccountVaultRedeemFeesRequestAllOf2PaymasterUrl": {
+        "maxLength": 2048,
+        "pattern": "^https?://.*$",
+        "type": "string",
+        "additionalProperties": false,
+        "description": "A valid HTTP or HTTPS URL.",
+        "format": "uri",
+        "example": "https://api.developer.coinbase.com/rpc/v1/base/AbCdEf123456"
       },
       "HealthMaintenanceScheduledEventAllOf2DataAllOf2": {
         "required": [
@@ -62318,6 +63709,78 @@
           }
         }
       },
+      "CreateOnrampMobileChallengeRequest": {
+        "required": [
+          "destinationAddress",
+          "purchaseCurrency",
+          "destinationNetwork",
+          "redirectUrl"
+        ],
+        "type": "object",
+        "properties": {
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The ticker (e.g. \u0060BTC\u0060, \u0060USDC\u0060, \u0060SOL\u0060) or the Coinbase UUID (e.g. \u0060d85dce9b-5b73-5c3c-8978-522ce1d1c1b4\u0060) of the crypto asset to be purchased.\n\nUse the [Onramp Buy Options API](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-buy-options) to discover the supported purchase currencies for your user\u0027s location.",
+            "example": "USDC"
+          },
+          "destinationNetwork": {
+            "type": "string",
+            "description": "The name of the crypto network the purchased currency will be sent on.\n\nUse the [Onramp Buy Options API](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-buy-options) to discover the supported networks for your user\u0027s location.",
+            "example": "base"
+          },
+          "destinationAddress": {
+            "maxLength": 128,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana)."
+          },
+          "paymentAmount": {
+            "type": "string",
+            "description": "A string representing the amount of fiat the user wishes to pay in exchange for crypto. When using this parameter, the returned quote will be inclusive of fees i.e. the user will pay this exact amount of the payment currency.",
+            "example": "100.00"
+          },
+          "purchaseAmount": {
+            "type": "string",
+            "description": "A string representing the amount of crypto the user wishes to purchase. When using this parameter, the returned quote will be exclusive of fees i.e. the user will receive this exact amount of the purchase currency.",
+            "example": "10.000000"
+          },
+          "paymentCurrency": {
+            "type": "string",
+            "description": "The fiat currency to be converted to crypto.",
+            "example": "USD"
+          },
+          "paymentMethod": {
+            "description": "The type of payment method used to generate the onramp quote.",
+            "$ref": "#/components/schemas/OnrampQuotePaymentMethodTypeId"
+          },
+          "country": {
+            "type": "string",
+            "description": "The ISO 3166-1 two letter country code (e.g. US).",
+            "example": "US"
+          },
+          "subdivision": {
+            "type": "string",
+            "description": "The ISO 3166-2 two letter state code (e.g. NY). Only required for US.",
+            "example": "NY"
+          },
+          "redirectUrl": {
+            "maxLength": 2048,
+            "pattern": "^.*://.*$",
+            "type": "string",
+            "description": "A valid URI.",
+            "format": "uri"
+          },
+          "clientIp": {
+            "type": "string",
+            "description": "The IP address of the end user requesting the onramp transaction.",
+            "example": "127.0.0.1"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "A unique string that represents the user in your app. This can be used to link individual transactions together so you can retrieve the transaction history for your users. Prefix this string with \u0022sandbox-\u0022 (e.g. \u0022sandbox-user-1234\u0022) to perform a sandbox transaction which will allow you to test your integration without any real transfer of funds.\n\nThis value can be used with the [Onramp User Transactions API](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-onramp-transactions-by-id) to retrieve all transactions created by the user.",
+            "example": "user-1234"
+          }
+        }
+      },
       "GetOnrampUserLimitsRequest": {
         "required": [
           "paymentMethodType",
@@ -63098,6 +64561,18 @@
           }
         }
       },
+      "CreateOnrampMobileSession201Response": {
+        "required": [
+          "session"
+        ],
+        "type": "object",
+        "properties": {
+          "session": {
+            "description": "An onramp session containing a ready-to-use onramp URL.",
+            "$ref": "#/components/schemas/OnrampSession"
+          }
+        }
+      },
       "SignSolanaX402PaymentWithEndUserAccount200ResponsePaymentPayload": {
         "type": "object",
         "allOf": [
@@ -63513,6 +64988,10 @@
         },
         "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
       },
+      "SmartAccountVaultRedeemFeesRequestPaymasterContext": {
+        "type": "object",
+        "description": "The ERC-7677 \u0060context\u0060 object forwarded to the paymaster service as part of the \u0060paymasterService\u0060 capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing \u0060paymasterContext\u0060 without a paymaster configured results in an \u0060invalid_request\u0060 error."
+      },
       "X402VerifyResponseResponseExtraProperty": {
         "type": "object",
         "description": "Optional scheme-specific verify metadata returned by the facilitator."
@@ -63588,6 +65067,10 @@
           "type": "string"
         },
         "description": "Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be \u2264 40 characters; values must be \u2264 500 characters."
+      },
+      "SmartAccountVaultRedeemFeesRequestAllOf2PaymasterContext": {
+        "type": "object",
+        "description": "The ERC-7677 \u0060context\u0060 object forwarded to the paymaster service as part of the \u0060paymasterService\u0060 capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing \u0060paymasterContext\u0060 without a paymaster configured results in an \u0060invalid_request\u0060 error."
       },
       "SignEvmTypedDataFieldCriterionTypesTypesProperty": {
         "type": "object",
@@ -67031,6 +68514,38 @@
           ]
         }
       },
+      "PolicyStatus": {
+        "enum": [
+          "active",
+          "paused"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The current evaluation status of the policy.",
+        "example": "active",
+        "x-enum-varnames": [
+          "PolicyStatusActive",
+          "PolicyStatusPaused"
+        ],
+        "x-enum-descriptions": [
+          "The policy is evaluated.",
+          "The policy is skipped during evaluation, as if it were not attached."
+        ],
+        "x-ms-enum": {
+          "name": "PolicyStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "paused",
+              "name": "Paused"
+            }
+          ]
+        }
+      },
       "SendEvmTransactionSimulationInputNetwork": {
         "enum": [
           "base",
@@ -68089,6 +69604,25 @@
             {
               "value": "FEE_TYPE_EXCHANGE",
               "name": "FeeTypeExchange"
+            }
+          ]
+        }
+      },
+      "IosPlatform": {
+        "enum": [
+          "ios"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The mobile platform that was attested (iOS only).",
+        "example": "ios",
+        "x-ms-enum": {
+          "name": "IosPlatform",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ios",
+              "name": "Ios"
             }
           ]
         }
@@ -71213,6 +72747,11 @@
       }
     },
     {
+      "name": "Lend",
+      "description": "The Lend APIs enable you to deploy and manage vaults on top of existing catalog vaults, such as Morpho\u0027s Steakhouse USDC vault.",
+      "x-audience": "development"
+    },
+    {
       "name": "Mandates",
       "description": "A mandate is a durable, revocable standing authorization to debit a funding \u0060source\u0060. It lets a merchant debit the same source repeatedly without the customer present, which suits recurring payments and usage-based billing. A mandate does not move funds itself; a payment session authorizes against it via **Authorize a payment session with a mandate**, and capture, void, and refund then work as they do for any other session. For the full flow, spending limits, and integration options, see the [Recurring Payments guide](https://docs.cdp.coinbase.com/payments/payment-acceptance/recurring-payments).\n\nAccess to the Mandates APIs requires enablement by Coinbase.\n\n**Who does what.** Approving a mandate and revoking its on-chain spending allowance are customer-initiated: the customer signs the payload, so **Approve a mandate with a wallet** and **Revoke a mandate with a wallet** are unauthenticated. Creating, canceling, and reading mandates are merchant actions authenticated with your API key.\n\n**Canceling vs. revoking.** These are independent. **Cancel a mandate** is an off-chain merchant action and does not touch the on-chain allowance (\u0060canceledAt\u0060 is set). **Revoke a mandate with a wallet** removes the on-chain allowance (\u0060revokedAt\u0060 is set). A \u0060canceled\u0060 mandate can still have a live allowance until the customer revokes it. \u0060status\u0060 records only the most recent transition; the timestamps are the durable record.",
       "x-audience": "public",
@@ -71230,7 +72769,15 @@
     },
     {
       "name": "Onramp",
-      "description": "The v2 Onramp APIs are an evolution of our [v1 APIs](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/), designed to make the fiat-to-crypto experience feel native to your applications for higher conversion and less friction. These APIs only cover a subset of Coinbase Onramp functionality as described below, for all other use cases please refer to our [v1 APIs](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/).\n\n## Supported Use Cases\n\n#### Guest Checkout Onramp (Apple Pay \u0026 Google Pay)\n\nThis use case allows you to offer an Apple Pay or Google Pay onramp experience with debit cards in your app without users needing to create or log into a Coinbase account. Our API returns a \u0060paymentLink\u0060 URL that renders an Apple Pay or Google Pay button for you to load in a webview or iframe in your app, making the onramp experience feel native to your application.\n\nRefer to our [detailed integration guide](https://docs.cdp.coinbase.com/onramp/headless-onramp/overview) for more information on the limitations and requirements of this use case. See our [onramp mobile demo app](https://github.com/coinbase/onramp-demo-mobile) for a reference implementation.\n\n#### Hosted UI Onramp\n\nThis use case enables you to offer a full-featured onramp experience by redirecting users to a Coinbase-hosted page where they can choose to log into their existing Coinbase account or proceed as a guest. The Onramp Session API generates secure, single-use Onramp URLs with customizable parameters, allowing you to control available payment methods, preset transaction amounts, and cryptocurrencies for a tailored user experience.\n\nRefer to our [guide](https://docs.cdp.coinbase.com/onramp-\u0026-offramp/onramp-apis/generating-onramp-url) for implementation details and customization options for this use case.",
+      "description": "The v2 Onramp APIs are an evolution of our [v1 APIs](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/), designed to make the fiat-to-crypto experience feel native to your applications for higher conversion and less friction. These APIs only cover a subset of Coinbase Onramp functionality as described below, for all other use cases please refer to our [v1 APIs](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/).\n\n## Supported Use Cases\n\n#### Guest Checkout Onramp (Apple Pay \u0026 Google Pay)\n\nThis use case allows you to offer an Apple Pay or Google Pay onramp experience with debit cards in your app without users needing to create or log into a Coinbase account. Our API returns a \u0060paymentLink\u0060 URL that renders an Apple Pay or Google Pay button for you to load in a webview or iframe in your app, making the onramp experience feel native to your application.\n\nRefer to our [detailed integration guide](https://docs.cdp.coinbase.com/onramp/headless-onramp/overview) for more information on the limitations and requirements of this use case. See our [onramp mobile demo app](https://github.com/coinbase/onramp-demo-mobile) for a reference implementation.\n\n#### Hosted UI Onramp\n\nThis use case enables you to offer a full-featured onramp experience by redirecting users to a Coinbase-hosted page where they can choose to log into their existing Coinbase account or proceed as a guest. The Onramp Session API generates secure, single-use Onramp URLs with customizable parameters, allowing you to control available payment methods, preset transaction amounts, and cryptocurrencies for a tailored user experience.\n\nRefer to our [guide](https://docs.cdp.coinbase.com/onramp-\u0026-offramp/onramp-apis/generating-onramp-url) for implementation details and customization options for this use case.\n\n#### App2App Onramp\n\nThis use case lets a partner mobile app hand the user off into the Coinbase retail app to complete an onramp, then return them to the partner app. Your backend mints a short-lived challenge with a CDP API key; the mobile app submits that challenge with platform attestation (iOS App Attest or Android Play Integrity) and receives a ready-to-use onramp URL.\n\nSee the Onramp (App2App) APIs for the registration and session handoff endpoints, starting with [Create Onramp Mobile Challenge](#operation/createOnrampMobileChallenge). These APIs are consumed by the CDP React Native SDK.",
+      "x-audience": "public",
+      "x-slo-tier": {
+        "tier": "ga"
+      }
+    },
+    {
+      "name": "Onramp (App2App)",
+      "description": "Onramp APIs used by partner mobile apps for the app-to-app handoff into the Coinbase retail app.\n\nBoth flows have the same shape: your backend mints a short-lived challenge with a CDP API key (\u0060apiKeyAuth\u0060), then the mobile app submits that challenge back with platform attestation and no API key.\n\n**Device registration** runs once per app install, before the first handoff. Mint a challenge with \u0060POST /v2/onramp/mobile/attestation/challenges\u0060, then register the device key with \u0060POST /v2/onramp/mobile/attestation/registrations\u0060. iOS only; Android validates Play Integrity inline and has no registration step.\n\n**Session handoff** runs once per onramp transaction. Mint a challenge with \u0060POST /v2/onramp/mobile/sessions/challenges\u0060, then exchange it for a ready-to-use onramp URL with \u0060POST /v2/onramp/mobile/sessions\u0060.\n\nNever ship a CDP API key in the mobile app: mint the challenge on your backend and pass it to the device.\n\nThese APIs are consumed by the CDP React Native SDK.",
       "x-audience": "public",
       "x-slo-tier": {
         "tier": "ga"
@@ -71389,6 +72936,7 @@
             "Payment Methods",
             "Transfers",
             "Onramp",
+            "Onramp (App2App)",
             "x402 Facilitator"
           ]
         }
@@ -71402,13 +72950,15 @@
         "Payment Methods",
         "Transfers",
         "Onramp",
+        "Onramp (App2App)",
         "x402 Facilitator"
       ]
     },
     {
       "name": "Trading",
       "tags": [
-        "EVM Swaps"
+        "EVM Swaps",
+        "Lend"
       ]
     },
     {

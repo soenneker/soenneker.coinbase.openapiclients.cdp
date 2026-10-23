@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Mobile;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Orders;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Sessions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Verifications;
@@ -22,6 +23,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.LimitsRequestBuilder Limits
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Limits.LimitsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The mobile property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Mobile.MobileRequestBuilder Mobile
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Mobile.MobileRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The orders property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp.Orders.OrdersRequestBuilder Orders

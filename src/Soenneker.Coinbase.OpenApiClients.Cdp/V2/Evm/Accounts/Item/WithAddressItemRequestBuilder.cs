@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Eip7702;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Export;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Send;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Sign;
 using System.Collections.Generic;
@@ -30,6 +31,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Export.ExportRequestBuilder Export
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Export.ExportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The lend property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.LendRequestBuilder Lend
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.LendRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The send property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Send.SendRequestBuilder Send

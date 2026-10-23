@@ -4,6 +4,8 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.Item.Pause;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.Item.Resume;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,6 +19,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithPolicyItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The pause property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.Item.Pause.PauseRequestBuilder Pause
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.Item.Pause.PauseRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The resume property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.Item.Resume.ResumeRequestBuilder Resume
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.Item.Resume.ResumeRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies.Item.WithPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>

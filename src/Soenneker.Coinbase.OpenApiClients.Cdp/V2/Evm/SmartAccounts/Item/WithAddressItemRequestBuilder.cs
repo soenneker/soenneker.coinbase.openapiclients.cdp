@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.Models;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item.Lend;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item.SpendPermissions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item.UserOperations;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithAddressItemRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The lend property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item.Lend.LendRequestBuilder Lend
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item.Lend.LendRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The spendPermissions property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.SmartAccounts.Item.SpendPermissions.SpendPermissionsRequestBuilder SpendPermissions
         {

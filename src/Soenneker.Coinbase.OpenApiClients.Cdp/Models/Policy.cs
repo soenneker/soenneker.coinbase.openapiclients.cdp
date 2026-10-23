@@ -38,6 +38,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>When the policy was paused. Present only when status is paused.</summary>
+        public DateTimeOffset? PausedAt { get; set; }
+        /// <summary>When a paused policy resumes automatically. Absent for an indefinite pause.</summary>
+        public DateTimeOffset? ResumeAt { get; set; }
         /// <summary>A list of rules that comprise the policy. Each policy is limited to 100 rules and a total serialized size of 8 MiB.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,6 +52,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The scope of the policy. Only one project-level policy can exist at any time.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyScope? Scope { get; set; }
+        /// <summary>The current evaluation status of the policy.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyStatus? Status { get; set; }
         /// <summary>The ISO 8601 timestamp at which the Policy was last updated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,8 +90,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "pausedAt", n => { PausedAt = n.GetDateTimeOffsetValue(); } },
+                { "resumeAt", n => { ResumeAt = n.GetDateTimeOffsetValue(); } },
                 { "rules", n => { Rules = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "scope", n => { Scope = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyScope>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyStatus>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetStringValue(); } },
             };
         }
@@ -99,8 +108,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("createdAt", CreatedAt);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
+            writer.WriteDateTimeOffsetValue("pausedAt", PausedAt);
+            writer.WriteDateTimeOffsetValue("resumeAt", ResumeAt);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule>("rules", Rules);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyScope>("scope", Scope);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyStatus>("status", Status);
             writer.WriteStringValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }
