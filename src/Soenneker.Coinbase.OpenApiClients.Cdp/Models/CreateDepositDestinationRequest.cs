@@ -39,11 +39,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationRequest();
-            if("CreateCryptoDepositDestinationRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("crypto".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateCryptoDepositDestinationRequest = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequest();
             }
-            else if("CreateFiatDepositDestinationRequest".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("fiat".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateFiatDepositDestinationRequest = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequest();
             }

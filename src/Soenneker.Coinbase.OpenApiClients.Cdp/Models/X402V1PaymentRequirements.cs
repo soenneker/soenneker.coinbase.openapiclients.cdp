@@ -57,14 +57,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string MimeType { get; set; }
 #endif
-        /// <summary>The network of the blockchain to send payment on.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The x402 v1 network identifier. x402 v1 uses human-readable network names. Supported networks: Base mainnet and testnet, Solana mainnet and devnet.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork? Network { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork Network { get; set; }
-#endif
         /// <summary>The optional JSON schema describing the resource output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,7 +116,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "maxAmountRequired", n => { MaxAmountRequired = n.GetStringValue(); } },
                 { "maxTimeoutSeconds", n => { MaxTimeoutSeconds = n.GetIntValue(); } },
                 { "mimeType", n => { MimeType = n.GetStringValue(); } },
-                { "network", n => { Network = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork.CreateFromDiscriminatorValue); } },
+                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork>(); } },
                 { "outputSchema", n => { OutputSchema = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty.CreateFromDiscriminatorValue); } },
                 { "payTo", n => { PayTo = n.GetStringValue(); } },
                 { "resource", n => { Resource = n.GetStringValue(); } },
@@ -142,7 +136,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("maxAmountRequired", MaxAmountRequired);
             writer.WriteIntValue("maxTimeoutSeconds", MaxTimeoutSeconds);
             writer.WriteStringValue("mimeType", MimeType);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork>("network", Network);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork>("network", Network);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty>("outputSchema", OutputSchema);
             writer.WriteStringValue("payTo", PayTo);
             writer.WriteStringValue("resource", Resource);

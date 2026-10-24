@@ -82,10 +82,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RevocationUrl { get; set; }
+        public string? RevocationUrl { get; private set; }
 #nullable restore
 #else
-        public string RevocationUrl { get; set; }
+        public string RevocationUrl { get; private set; }
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which the spending allowance was removed on-chain by a wallet revocation. Present only once that has happened. Its presence is the single signal that the allowance is gone, independent of `status` (for example, it can be set on a `canceled` mandate whose allowance was later cleaned up).</summary>
         public DateTimeOffset? RevokedAt { get; set; }
@@ -97,23 +97,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed Source { get; set; }
 #endif
-        /// <summary>The current status of the mandate.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The most recent action on the mandate. `status` is an informational indicator of the latest transition; it is not the source of truth for what has durably happened. Read the timestamps for that: `approvedAt`, `canceledAt`, and `revokedAt` each record a durable milestone independently of `status`.- `created`: the mandate exists but no approval has been attempted. No  source attached. Not usable.- `approval_pending`: an approval is in flight. Not usable. Emits  `acceptance.mandate.approval_initiated`.- `approval_succeeded`: the mandate has a source and is usable.- `approval_failed`: the last approval attempt failed. Not usable. Submit  a new approval to retry.- `revocation_pending`: a wallet revocation is being confirmed on the  network. Emits `acceptance.mandate.revocation_initiated`. Resolves to  `revocation_succeeded` on success or `revocation_failed` on failure.- `revocation_succeeded`: a wallet revocation removed the spending allowance  on-chain (`revokedAt` is set). Terminal.- `revocation_failed`: the last wallet revocation attempt did not complete.  The spending allowance was not removed, so the mandate remains usable if it  was usable before. Submit a new revocation to retry.- `canceled`: the merchant ended the mandate off-chain (`canceledAt` is set).  The on-chain spending allowance may still be live; a later wallet  revocation can still move `status` through the `revocation_*` values and  set `revokedAt`.**Usable when** `approvedAt` is set, `canceledAt` is null, `revokedAt` is null, and `expiresAt` is null or in the future. Usability is derived from these timestamps, not from `status`: a failed revocation, for example, leaves `status` at `revocation_failed` but the mandate stays usable because the allowance was never removed. Authorization checks the durable conditions in order, and the first match wins: an in-flight approval or revocation returns `409` (`mandate_action_pending`); `revokedAt` set returns `422` (`mandate_revoked`); `canceledAt` set returns `422` (`mandate_canceled`); a past `expiresAt` returns `400` (`mandate_expired`); any other status returns `422` (`mandate_invalid_status`). Approve a mandate and get wallet approval options use that same order for the in-flight, revoked, canceled, and expired checks. Any other status except `created` or `approval_failed` returns `422` (`mandate_invalid_status`). Those rejections do not change the timestamps. Debit limits are enforced at authorization time.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed Status { get; set; }
-#endif
         /// <summary>The UTC ISO 8601 timestamp at which the mandate was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get; private set; }
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get; private set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate"/> and sets the default values.
@@ -154,7 +148,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "revocationUrl", n => { RevocationUrl = n.GetStringValue(); } },
                 { "revokedAt", n => { RevokedAt = n.GetDateTimeOffsetValue(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
@@ -177,12 +171,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed>("policy", Policy);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateRevocationRedirect>("revocationRedirect", RevocationRedirect);
-            writer.WriteStringValue("revocationUrl", RevocationUrl);
             writer.WriteDateTimeOffsetValue("revokedAt", RevokedAt);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
-            writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

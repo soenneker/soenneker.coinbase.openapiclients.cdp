@@ -54,13 +54,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget Target { get; set; }
 #endif
-        /// <summary>The type of deposit destination.</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestType? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestType Type { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequest"/> and sets the default values.
@@ -92,7 +92,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "fiat", n => { Fiat = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestType>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestType.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -107,7 +107,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat>("fiat", Fiat);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>("target", Target);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

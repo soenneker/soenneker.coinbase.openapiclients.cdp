@@ -21,8 +21,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string AccountNumber { get; set; }
 #endif
-        /// <summary>The type of bank account, based on the account identification scheme (e.g., `us_bank`).</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsBankAccountType? AccountType { get; set; }
+        /// <summary>The accountType property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AccountType { get; set; }
+#nullable restore
+#else
+        public string AccountType { get; set; }
+#endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The address of the bank. Present when required by the receiving institution.</summary>
@@ -101,7 +107,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accountNumber", n => { AccountNumber = n.GetStringValue(); } },
-                { "accountType", n => { AccountType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsBankAccountType>(); } },
+                { "accountType", n => { AccountType = n.GetStringValue(); } },
                 { "bankAddress", n => { BankAddress = n.GetStringValue(); } },
                 { "bankName", n => { BankName = n.GetStringValue(); } },
                 { "beneficiaryName", n => { BeneficiaryName = n.GetStringValue(); } },
@@ -119,7 +125,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("accountNumber", AccountNumber);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsBankAccountType>("accountType", AccountType);
+            writer.WriteStringValue("accountType", AccountType);
             writer.WriteStringValue("bankAddress", BankAddress);
             writer.WriteStringValue("bankName", BankName);
             writer.WriteStringValue("beneficiaryName", BeneficiaryName);

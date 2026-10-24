@@ -26,7 +26,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public bool? CreateRecipientAta { get; set; }
         /// <summary>The Solana network to send USDC on.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequestNetwork? Network { get; set; }
-        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
+        /// <summary>The base58 encoded address of the recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? To { get; set; }

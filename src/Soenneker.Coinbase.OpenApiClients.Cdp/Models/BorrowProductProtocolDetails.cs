@@ -23,8 +23,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams MarketParams { get; set; }
 #endif
-        /// <summary>The protocol type, used to discriminate the protocol details schema.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueType? Type { get; set; }
+        /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Type { get; set; }
+#nullable restore
+#else
+        public string Type { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails"/> and sets the default values.
         /// </summary>
@@ -51,7 +57,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "marketParams", n => { MarketParams = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueType>(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams>("marketParams", MarketParams);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

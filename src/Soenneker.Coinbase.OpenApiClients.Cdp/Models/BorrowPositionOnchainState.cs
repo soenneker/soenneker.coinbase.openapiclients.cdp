@@ -45,13 +45,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus? HealthStatus { get; set; }
         /// <summary>The loan-to-value at which the position becomes eligible for liquidation, expressed in basis points. For example, `8250` represents 82.5%. Omitted when the position has no debt.</summary>
         public int? LiquidationThresholdBps { get; set; }
-        /// <summary>The protocol type, used to discriminate the onchain state schema.</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType? Type { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType Type { get; set; }
+        public string Type { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionOnchainState"/> and sets the default values.
@@ -84,7 +84,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "healthFactor", n => { HealthFactor = n.GetStringValue(); } },
                 { "healthStatus", n => { HealthStatus = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus>(); } },
                 { "liquidationThresholdBps", n => { LiquidationThresholdBps = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -100,7 +100,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("healthFactor", HealthFactor);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus>("healthStatus", HealthStatus);
             writer.WriteIntValue("liquidationThresholdBps", LiquidationThresholdBps);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType>("type", Type);
+            writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

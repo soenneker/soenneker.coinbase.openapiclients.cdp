@@ -17,14 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the customer has explicitly requested this capability.</summary>
         public bool? Requested { get; set; }
-        /// <summary>Current status of the capability. When `requested` is `false`, status is `unrequested`.When `requested` is `true`, status is one of `pending`, `active`, or `inactive`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The status of a capability. Based on recoverability:- `unrequested`: Capability has not been requested by the customer- `pending`: Customer can take action to resolve (requirements `due` or `rejected`)- `active`: Capability is enabled and can be used- `inactive`: Permanently blocked - no customer action possible</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityStatusComposed? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityStatusComposed Status { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferStablecoin"/> and sets the default values.
         /// </summary>
@@ -51,7 +45,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "requested", n => { Requested = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityStatusComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityStatusComposed.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityStatusComposed>(); } },
             };
         }
         /// <summary>
@@ -62,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("requested", Requested);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityStatusComposed>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityStatusComposed>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,7 +12,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     public partial class SendEndUserEvmAssetSimulationInput : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
+        /// <summary>The EVM account address to send USDC from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Address { get; set; }
@@ -28,14 +28,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Amount { get; set; }
 #endif
-        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Asset { get; set; }
-#nullable restore
-#else
-        public string Asset { get; set; }
-#endif
+        /// <summary>The asset to send.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputAsset? Asset { get; set; }
         /// <summary>The EVM network to send USDC on.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputNetwork? Network { get; set; }
         /// <summary>The operation to which the rule applies. Every element of the `criteria` array must match the specified operation.</summary>
@@ -56,7 +50,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PaymasterUrl { get; set; }
 #endif
-        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
+        /// <summary>The 0x-prefixed address of the recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? To { get; set; }
@@ -94,7 +88,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "amount", n => { Amount = n.GetStringValue(); } },
-                { "asset", n => { Asset = n.GetStringValue(); } },
+                { "asset", n => { Asset = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputAsset>(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputNetwork>(); } },
                 { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetOperation>(); } },
                 { "paymasterContext", n => { PaymasterContext = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputPaymasterContext>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputPaymasterContext.CreateFromDiscriminatorValue); } },
@@ -113,7 +107,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
             writer.WriteStringValue("amount", Amount);
-            writer.WriteStringValue("asset", Asset);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputAsset>("asset", Asset);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputNetwork>("network", Network);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetOperation>("operation", Operation);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetSimulationInputPaymasterContext>("paymasterContext", PaymasterContext);

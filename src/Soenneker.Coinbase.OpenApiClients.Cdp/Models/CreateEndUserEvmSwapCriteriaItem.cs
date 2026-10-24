@@ -45,17 +45,17 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapCriteriaItem();
-            if("EvmDataCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("evmData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvmDataCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion();
             }
-            else if("EvmNetworkCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("evmNetwork".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvmNetworkCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion();
             }
-            else if("NetUsdChangeCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("netUSDChange".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NetUsdChangeCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterion();
             }

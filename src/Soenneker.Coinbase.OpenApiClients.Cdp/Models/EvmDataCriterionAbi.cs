@@ -8,27 +8,21 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiWrapper"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiTypeWrapper"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType"/>, List&lt;global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem&gt;
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvmDataCriterionAbi : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiWrapper"/></summary>
+        /// <summary>Composed type representation for type List&lt;global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem&gt;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiWrapper? AbiWrapper { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem>? AbiItem { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiWrapper AbiWrapper { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem> AbiItem { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiTypeWrapper"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiTypeWrapper? KnownAbiTypeWrapper { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiTypeWrapper KnownAbiTypeWrapper { get; set; }
-#endif
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType"/></summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType? KnownAbiType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,13 +33,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterionAbi();
-            if("AbiWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if(parseNode.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType>() is global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType knownAbiTypeValue)
             {
-                result.AbiWrapper = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiWrapper();
+                result.KnownAbiType = knownAbiTypeValue;
             }
-            else if("KnownAbiTypeWrapper".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem> abiItemValue)
             {
-                result.KnownAbiTypeWrapper = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiTypeWrapper();
+                result.AbiItem = abiItemValue;
             }
             return result;
         }
@@ -55,14 +49,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AbiWrapper != null)
-            {
-                return AbiWrapper.GetFieldDeserializers();
-            }
-            else if(KnownAbiTypeWrapper != null)
-            {
-                return KnownAbiTypeWrapper.GetFieldDeserializers();
-            }
             return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
@@ -72,13 +58,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(AbiWrapper != null)
+            if(KnownAbiType != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiWrapper>(null, AbiWrapper);
+                writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiType>(null, KnownAbiType);
             }
-            else if(KnownAbiTypeWrapper != null)
+            else if(AbiItem != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.KnownAbiTypeWrapper>(null, KnownAbiTypeWrapper);
+                writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem>(null, AbiItem);
             }
         }
     }

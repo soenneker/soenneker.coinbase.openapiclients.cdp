@@ -37,13 +37,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTypedDataCriteriaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTypedDataCriteriaItem();
-            if("SignEvmTypedDataFieldCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("evmTypedDataField".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEvmTypedDataFieldCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterion();
             }
-            else if("SignEvmTypedDataVerifyingContractCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("evmTypedDataVerifyingContract".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEvmTypedDataVerifyingContractCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataVerifyingContractCriterion();
             }

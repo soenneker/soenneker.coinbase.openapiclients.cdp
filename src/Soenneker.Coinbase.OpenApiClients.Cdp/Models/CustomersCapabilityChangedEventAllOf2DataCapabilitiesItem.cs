@@ -15,22 +15,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The capability whose status changed.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The name of a capability. Capabilities represent granular functional permissionsthat determine what actions a customer can perform. Each capability must beexplicitly requested before use.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode? Code { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode Code { get; set; }
-#endif
-        /// <summary>The new status of the capability after the change.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The status of a capability. Based on recoverability:- `unrequested`: Capability has not been requested by the customer- `pending`: Customer can take action to resolve (requirements `due` or `rejected`)- `active`: Capability is enabled and can be used- `inactive`: Permanently blocked - no customer action possible</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus Status { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItem"/> and sets the default values.
         /// </summary>
@@ -56,8 +44,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus.CreateFromDiscriminatorValue); } },
+                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus>(); } },
             };
         }
         /// <summary>
@@ -67,8 +55,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode>("code", Code);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode>("code", Code);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

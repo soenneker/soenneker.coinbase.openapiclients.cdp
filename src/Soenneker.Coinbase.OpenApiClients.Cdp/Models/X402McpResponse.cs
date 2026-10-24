@@ -23,13 +23,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError Error { get; set; }
 #endif
-        /// <summary>Request identifier (matches the request ID, null for notifications).</summary>
+        /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId? Id { get; set; }
+        public UntypedNode? Id { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId Id { get; set; }
+        public UntypedNode Id { get; set; }
 #endif
         /// <summary>JSON-RPC version, must be &quot;2.0&quot;.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Value20Jsonrpc? Jsonrpc { get; set; }
@@ -67,7 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "jsonrpc", n => { Jsonrpc = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Value20Jsonrpc>(); } },
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty.CreateFromDiscriminatorValue); } },
             };
@@ -80,7 +80,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError>("error", Error);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseId>("id", Id);
+            writer.WriteObjectValue<UntypedNode>("id", Id);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Value20Jsonrpc>("jsonrpc", Jsonrpc);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty>("result", Result);
             writer.WriteAdditionalData(AdditionalData);

@@ -57,14 +57,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalSource Source { get; set; }
 #endif
-        /// <summary>The current status of the approval attempt.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The status of an approval attempt:- `pending`: the submitted source is being bound and verified.- `succeeded`: the mandate&apos;s `source` is attached and its status becomes  `approval_succeeded`.- `failed`: the attempt could not be completed (see `error`). The mandate&apos;s  status becomes `approval_failed`; submit a new approval to retry (which  moves it back to `approval_pending`).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalStatusComposed? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalStatusComposed Status { get; set; }
-#endif
         /// <summary>The UTC ISO 8601 timestamp at which the approval was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -98,7 +92,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalMetadata.CreateFromDiscriminatorValue); } },
                 { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalSource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalSource.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalStatusComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalStatusComposed.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalStatusComposed>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -115,7 +109,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>("onchainTransactions", OnchainTransactions);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalSource>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalStatusComposed>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalStatusComposed>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

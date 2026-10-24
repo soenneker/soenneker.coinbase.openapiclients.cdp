@@ -23,7 +23,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string City { get; set; }
 #endif
-        /// <summary>ISO 3166-1 alpha-2 country code (2 characters). See https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes.</summary>
+        /// <summary>The countryCode property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CountryCode { get; set; }
@@ -55,7 +55,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PostCode { get; set; }
 #endif
-        /// <summary>State, province, or region.</summary>
+        /// <summary>Two-letter US state or territory code (`CA`, `DC`, `PR`),without a country prefix.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? State { get; set; }

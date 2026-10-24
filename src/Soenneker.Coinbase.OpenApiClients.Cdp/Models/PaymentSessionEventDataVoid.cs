@@ -65,14 +65,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction> OnchainTransactions { get; set; }
 #endif
-        /// <summary>The current status of the void.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The current status of a payment action (authorization, capture, void, or refund).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidStatus Status { get; set; }
-#endif
         /// <summary>The UTC ISO 8601 timestamp at which the void was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The ID of the void, a UUID prefixed by `void_`.</summary>
@@ -115,7 +109,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "externalReferenceId", n => { ExternalReferenceId = n.GetStringValue(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidMetadata.CreateFromDiscriminatorValue); } },
                 { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidStatus>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidStatus>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "voidId", n => { VoidId = n.GetStringValue(); } },
             };
@@ -134,7 +128,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("externalReferenceId", ExternalReferenceId);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>("onchainTransactions", OnchainTransactions);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataVoidStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteStringValue("voidId", VoidId);
             writer.WriteAdditionalData(AdditionalData);

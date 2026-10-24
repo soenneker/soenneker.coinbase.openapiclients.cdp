@@ -11,19 +11,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// Hold stablecoin in a Coinbase custodial account.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CapabilitiesMapInputCustodyStablecoin : IAdditionalDataHolder, IParsable
+    public partial class CapabilitiesMapInputCustodyStablecoin : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether to request this capability.</summary>
         public bool? Requested { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapInputCustodyStablecoin"/> and sets the default values.
-        /// </summary>
-        public CapabilitiesMapInputCustodyStablecoin()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -53,7 +44,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("requested", Requested);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

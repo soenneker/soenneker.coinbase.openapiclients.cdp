@@ -18,10 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The asset credited by the Top-Up Link. Currently, only `usdc` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkAssetComposed? Asset { get; set; }
+        public string? Asset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkAssetComposed Asset { get; set; }
+        public string Asset { get; set; }
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which the Top-Up Link was created.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
@@ -35,13 +35,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The UTC ISO 8601 timestamp after which the link can no longer be used, 24 hours after creation. A link that has already funded a purchase is spent before this time.</summary>
         public DateTimeOffset? ExpiresAt { get; set; }
-        /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
+        /// <summary>The total balance, denominated in `asset`, that the merchant expects the payer to need to complete the order, as supplied at creation. When present, the hosted Top-Up page shows the order total and the payer&apos;s current available balance, and computes the remaining shortfall from those values. This live shortfall is separate from `topUpAmount` and does not replace or change that fixed suggestion. It does not limit the amount the payer can add. Omitted when not supplied at creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrderTotalAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkOrderTotalAmount? OrderTotalAmount { get; set; }
 #nullable restore
 #else
-        public string OrderTotalAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkOrderTotalAmount OrderTotalAmount { get; set; }
 #endif
         /// <summary>A valid HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,13 +51,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string RedirectUrl { get; set; }
 #endif
-        /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
+        /// <summary>The merchant-provided initial suggested net amount to add for the link&apos;s single purchase, denominated in `asset`. The suggestion remains fixed on the link and is not recomputed from `orderTotalAmount` or the payer&apos;s current available balance. The payer can adjust the amount they add in the hosted flow. Fiat fees are outside this value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TopUpAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkTopUpAmount? TopUpAmount { get; set; }
 #nullable restore
 #else
-        public string TopUpAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkTopUpAmount TopUpAmount { get; set; }
 #endif
         /// <summary>The ID of the Top-Up Link, a UUID prefixed by `topUpLink_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,13 +100,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "asset", n => { Asset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkAssetComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkAssetComposed.CreateFromDiscriminatorValue); } },
+                { "asset", n => { Asset = n.GetStringValue(); } },
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "customerDisplay", n => { CustomerDisplay = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplay>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplay.CreateFromDiscriminatorValue); } },
                 { "expiresAt", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
-                { "orderTotalAmount", n => { OrderTotalAmount = n.GetStringValue(); } },
+                { "orderTotalAmount", n => { OrderTotalAmount = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkOrderTotalAmount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkOrderTotalAmount.CreateFromDiscriminatorValue); } },
                 { "redirectUrl", n => { RedirectUrl = n.GetStringValue(); } },
-                { "topUpAmount", n => { TopUpAmount = n.GetStringValue(); } },
+                { "topUpAmount", n => { TopUpAmount = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkTopUpAmount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkTopUpAmount.CreateFromDiscriminatorValue); } },
                 { "topUpLinkId", n => { TopUpLinkId = n.GetStringValue(); } },
                 { "topUpUrl", n => { TopUpUrl = n.GetStringValue(); } },
             };
@@ -118,13 +118,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkAssetComposed>("asset", Asset);
+            writer.WriteStringValue("asset", Asset);
             writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplay>("customerDisplay", CustomerDisplay);
             writer.WriteDateTimeOffsetValue("expiresAt", ExpiresAt);
-            writer.WriteStringValue("orderTotalAmount", OrderTotalAmount);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkOrderTotalAmount>("orderTotalAmount", OrderTotalAmount);
             writer.WriteStringValue("redirectUrl", RedirectUrl);
-            writer.WriteStringValue("topUpAmount", TopUpAmount);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkTopUpAmount>("topUpAmount", TopUpAmount);
             writer.WriteStringValue("topUpLinkId", TopUpLinkId);
             writer.WriteStringValue("topUpUrl", TopUpUrl);
             writer.WriteAdditionalData(AdditionalData);

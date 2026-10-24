@@ -8,52 +8,27 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// The source of the payment. Can be either an onchain wallet address or a Coinbase account authenticated via OAuth.
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AuthorizationSource : IAdditionalDataHolder, IParsable
+    public partial class AuthorizationSource : IComposedTypeWrapper, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Address { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember1? AuthorizationSourceMember1 { get; set; }
 #nullable restore
 #else
-        public string Address { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember1 AuthorizationSourceMember1 { get; set; }
 #endif
-        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember2? AuthorizationSourceMember2 { get; set; }
 #nullable restore
 #else
-        public string Asset { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember2 AuthorizationSourceMember2 { get; set; }
 #endif
-        /// <summary>The unique identifier of the payer within Coinbase.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? CoinbaseUserId { get; set; }
-#nullable restore
-#else
-        public string CoinbaseUserId { get; set; }
-#endif
-        /// <summary>The blockchain network for the payment.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork? Network { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork Network { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSource"/> and sets the default values.
-        /// </summary>
-        public AuthorizationSource()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -62,7 +37,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSource();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSource();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,13 +47,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(AuthorizationSourceMember1 != null)
             {
-                { "address", n => { Address = n.GetStringValue(); } },
-                { "asset", n => { Asset = n.GetStringValue(); } },
-                { "coinbaseUserId", n => { CoinbaseUserId = n.GetStringValue(); } },
-                { "network", n => { Network = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork.CreateFromDiscriminatorValue); } },
-            };
+                return AuthorizationSourceMember1.GetFieldDeserializers();
+            }
+            else if(AuthorizationSourceMember2 != null)
+            {
+                return AuthorizationSourceMember2.GetFieldDeserializers();
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -85,11 +64,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("address", Address);
-            writer.WriteStringValue("asset", Asset);
-            writer.WriteStringValue("coinbaseUserId", CoinbaseUserId);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork>("network", Network);
-            writer.WriteAdditionalData(AdditionalData);
+            if(AuthorizationSourceMember1 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember1>(null, AuthorizationSourceMember1);
+            }
+            else if(AuthorizationSourceMember2 != null)
+            {
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthorizationSourceMember2>(null, AuthorizationSourceMember2);
+            }
         }
     }
 }

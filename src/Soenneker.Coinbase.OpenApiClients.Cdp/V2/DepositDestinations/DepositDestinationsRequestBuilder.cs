@@ -215,15 +215,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.DepositDestinations
             [QueryParameter("status")]
             public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationStatus? Status { get; set; }
             /// <summary>Filter deposit destinations by type.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("type")]
-            public string? Type { get; set; }
-#nullable restore
-#else
-            [QueryParameter("type")]
-            public string Type { get; set; }
-#endif
+            public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType? Type { get; set; }
         }
     }
 }

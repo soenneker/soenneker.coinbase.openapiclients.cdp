@@ -18,18 +18,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The asset credited by this purchase. Currently, only `usdc` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataAsset? Asset { get; set; }
+        public string? Asset { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataAsset Asset { get; set; }
+        public string Asset { get; set; }
 #endif
-        /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
+        /// <summary>The actual net amount credited by this purchase, denominated in `asset`. Never cumulative and independent of the link&apos;s suggested amounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToppedUpAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount? ToppedUpAmount { get; set; }
 #nullable restore
 #else
-        public string ToppedUpAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount ToppedUpAmount { get; set; }
 #endif
         /// <summary>The ID of the Top-Up Link, a UUID prefixed by `topUpLink_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,9 +64,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "asset", n => { Asset = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataAsset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataAsset.CreateFromDiscriminatorValue); } },
+                { "asset", n => { Asset = n.GetStringValue(); } },
                 { "topUpLinkId", n => { TopUpLinkId = n.GetStringValue(); } },
-                { "toppedUpAmount", n => { ToppedUpAmount = n.GetStringValue(); } },
+                { "toppedUpAmount", n => { ToppedUpAmount = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,8 +76,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataAsset>("asset", Asset);
-            writer.WriteStringValue("toppedUpAmount", ToppedUpAmount);
+            writer.WriteStringValue("asset", Asset);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount>("toppedUpAmount", ToppedUpAmount);
             writer.WriteStringValue("topUpLinkId", TopUpLinkId);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -23,32 +23,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The operation this status applies to. Omitted when the status applies to the service as a whole.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>A finer-grained operation within a service. Optional — omitted when a health status or maintenance window applies to the service as a whole.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusOperation? Operation { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusOperation Operation { get; set; }
-#endif
-        /// <summary>The service this status applies to.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>A CDP service whose health and maintenance status are tracked here.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusService? Service { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusService Service { get; set; }
-#endif
         /// <summary>The time this status took effect.</summary>
         public DateTimeOffset? StartedAt { get; set; }
-        /// <summary>The current health status.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The operational status of a service or operation. `operational`, `degraded_performance`, `partial_outage`, and `major_outage` form a severity ladder that can move up or down between adjacent levels as an organic issue develops or recovers.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusStatus Status { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatus"/> and sets the default values.
         /// </summary>
@@ -75,10 +57,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "operation", n => { Operation = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusOperation>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusOperation.CreateFromDiscriminatorValue); } },
-                { "service", n => { Service = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusService>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusService.CreateFromDiscriminatorValue); } },
+                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusOperation>(); } },
+                { "service", n => { Service = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusService>(); } },
                 { "startedAt", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusStatus>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusStatus>(); } },
             };
         }
         /// <summary>
@@ -89,10 +71,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("message", Message);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusOperation>("operation", Operation);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusService>("service", Service);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusOperation>("operation", Operation);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusService>("service", Service);
             writer.WriteDateTimeOffsetValue("startedAt", StartedAt);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthStatusStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

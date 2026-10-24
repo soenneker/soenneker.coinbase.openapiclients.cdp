@@ -59,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 result.Eip2612Payload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip2612Payload();
             }
-            else if("Erc20ApprovalPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("erc20_approval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Erc20ApprovalPayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayload();
             }
@@ -67,7 +67,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 result.Permit2AllowancePayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Permit2AllowancePayload();
             }
-            else if("SolanaSubscriptionPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("solana_subscription".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SolanaSubscriptionPayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolanaSubscriptionPayload();
             }

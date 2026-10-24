@@ -81,14 +81,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string RefundId { get; set; }
 #endif
-        /// <summary>The current status of the refund.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The current status of a payment action (authorization, capture, void, or refund).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataRefundStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataRefundStatus Status { get; set; }
-#endif
         /// <summary>The UTC ISO 8601 timestamp at which the refund was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -125,7 +119,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "refundId", n => { RefundId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataRefundStatus>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataRefundStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataRefundStatus>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -145,7 +139,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>("onchainTransactions", OnchainTransactions);
             writer.WriteStringValue("reason", Reason);
             writer.WriteStringValue("refundId", RefundId);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataRefundStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataRefundStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

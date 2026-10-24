@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// The CDP account used to fund the disbursement. The account must be owned by your entity.
+    /// The source from which to fund the disbursement.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateDisbursementRequestSource : IAdditionalDataHolder, IParsable

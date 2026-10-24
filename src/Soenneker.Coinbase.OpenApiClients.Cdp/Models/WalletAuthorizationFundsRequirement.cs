@@ -31,14 +31,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string CurrentBalance { get; set; }
 #endif
-        /// <summary>The blockchain network this funding requirement applies to.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The blockchain network supported for payment session sources. Testnet networks are only available in sandbox environments.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationFundsRequirementNetwork? Network { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationFundsRequirementNetwork Network { get; set; }
-#endif
         /// <summary>A decimal representation of the balance of `asset` the payer must hold on this `network` to become eligible to authorize the payment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,7 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "asset", n => { Asset = n.GetStringValue(); } },
                 { "currentBalance", n => { CurrentBalance = n.GetStringValue(); } },
-                { "network", n => { Network = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationFundsRequirementNetwork>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationFundsRequirementNetwork.CreateFromDiscriminatorValue); } },
+                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationFundsRequirementNetwork>(); } },
                 { "requiredBalance", n => { RequiredBalance = n.GetStringValue(); } },
             };
         }
@@ -87,7 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("asset", Asset);
             writer.WriteStringValue("currentBalance", CurrentBalance);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationFundsRequirementNetwork>("network", Network);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationFundsRequirementNetwork>("network", Network);
             writer.WriteStringValue("requiredBalance", RequiredBalance);
             writer.WriteAdditionalData(AdditionalData);
         }

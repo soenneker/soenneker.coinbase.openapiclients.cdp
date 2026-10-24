@@ -197,93 +197,93 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("operation")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Rule();
-            if("CreateEndUserEvmSwapRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("createEndUserEvmSwap".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.CreateEndUserEvmSwapRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserEvmSwapRule();
             }
-            else if("PrepareUserOperationRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("prepareUserOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.PrepareUserOperationRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRule();
             }
-            else if("SendEndUserEvmAssetRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendEndUserEvmAsset".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendEndUserEvmAssetRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmAssetRule();
             }
-            else if("SendEndUserEvmTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendEndUserEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendEndUserEvmTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserEvmTransactionRule();
             }
-            else if("SendEndUserOperationRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendEndUserOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendEndUserOperationRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserOperationRule();
             }
-            else if("SendEndUserSolAssetRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendEndUserSolAsset".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendEndUserSolAssetRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetRule();
             }
-            else if("SendEndUserSolTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendEndUserSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendEndUserSolTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolTransactionRule();
             }
-            else if("SendEvmTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendEvmTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmTransactionRule();
             }
-            else if("SendSolTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendSolTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolTransactionRule();
             }
-            else if("SendUserOperationRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendUserOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SendUserOperationRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendUserOperationRule();
             }
-            else if("SignEndUserEvmHashRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEndUserEvmHash".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEndUserEvmHashRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmHashRule();
             }
-            else if("SignEndUserEvmMessageRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEndUserEvmMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEndUserEvmMessageRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmMessageRule();
             }
-            else if("SignEndUserEvmTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEndUserEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEndUserEvmTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTransactionRule();
             }
-            else if("SignEndUserEvmTypedDataRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEndUserEvmTypedData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEndUserEvmTypedDataRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserEvmTypedDataRule();
             }
-            else if("SignEndUserSolMessageRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEndUserSolMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEndUserSolMessageRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolMessageRule();
             }
-            else if("SignEndUserSolTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEndUserSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEndUserSolTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEndUserSolTransactionRule();
             }
-            else if("SignEvmHashRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEvmHash".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEvmHashRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmHashRule();
             }
-            else if("SignEvmMessageRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEvmMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEvmMessageRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmMessageRule();
             }
-            else if("SignEvmTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEvmTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTransactionRule();
             }
-            else if("SignEvmTypedDataRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEvmTypedData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignEvmTypedDataRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataRule();
             }
-            else if("SignSolMessageRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signSolMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignSolMessageRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolMessageRule();
             }
-            else if("SignSolTransactionRule".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SignSolTransactionRule = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolTransactionRule();
             }

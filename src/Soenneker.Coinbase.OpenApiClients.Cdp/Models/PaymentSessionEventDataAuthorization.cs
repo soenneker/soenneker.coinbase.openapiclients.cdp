@@ -81,14 +81,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationSource Source { get; set; }
 #endif
-        /// <summary>The current status of the authorization.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The current status of a payment action (authorization, capture, void, or refund).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationStatus Status { get; set; }
-#endif
         /// <summary>The UTC ISO 8601 timestamp at which the authorization was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -125,7 +119,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationMetadata.CreateFromDiscriminatorValue); } },
                 { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationSource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationSource.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationStatus>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationStatus>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -145,7 +139,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>("onchainTransactions", OnchainTransactions);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationSource>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionEventDataAuthorizationStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -97,14 +97,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementSourceComposed Source { get; set; }
 #endif
-        /// <summary>The current status of the disbursement.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The current status of a payment action (authorization, capture, void, or refund).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementStatus Status { get; set; }
-#endif
         /// <summary>The target receiving the disbursement.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -151,7 +145,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementSourceComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementSourceComposed.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementStatus>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementStatus>(); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementTargetComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementTargetComposed.CreateFromDiscriminatorValue); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
@@ -174,7 +168,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>("onchainTransactions", OnchainTransactions);
             writer.WriteStringValue("reason", Reason);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementSourceComposed>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementStatus>("status", Status);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementTargetComposed>("target", Target);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);

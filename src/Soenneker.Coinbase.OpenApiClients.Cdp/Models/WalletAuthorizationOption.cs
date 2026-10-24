@@ -31,14 +31,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Asset { get; set; }
 #endif
-        /// <summary>The blockchain network the transaction will occur on for this option.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The blockchain network supported for payment session sources. Testnet networks are only available in sandbox environments.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionNetwork? Network { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionNetwork Network { get; set; }
-#endif
         /// <summary>The unique identifier of the authorization option.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,7 +84,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
                 { "asset", n => { Asset = n.GetStringValue(); } },
-                { "network", n => { Network = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionNetwork>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionNetwork.CreateFromDiscriminatorValue); } },
+                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionNetwork>(); } },
                 { "optionId", n => { OptionId = n.GetStringValue(); } },
                 { "payloads", n => { Payloads = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignaturePayload>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignaturePayload.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionSource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionSource.CreateFromDiscriminatorValue); } },
@@ -105,7 +99,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
             writer.WriteStringValue("asset", Asset);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionNetwork>("network", Network);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionNetwork>("network", Network);
             writer.WriteStringValue("optionId", OptionId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignaturePayload>("payloads", Payloads);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionSource>("source", Source);

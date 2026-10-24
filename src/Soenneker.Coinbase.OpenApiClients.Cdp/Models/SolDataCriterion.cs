@@ -26,10 +26,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>List of IDL specifications. Can contain known program names (strings) or custom IDL objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCriterionIdlsItem>? Idls { get; set; }
+        public List<string>? Idls { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCriterionIdlsItem> Idls { get; set; }
+        public List<string> Idls { get; set; }
 #endif
         /// <summary>The type of criterion to use. This should be `solData`.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataType? Type { get; set; }
@@ -59,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCondition>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCondition.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "idls", n => { Idls = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCriterionIdlsItem>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCriterionIdlsItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "idls", n => { Idls = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataType>(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCondition>("conditions", Conditions);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCriterionIdlsItem>("idls", Idls);
+            writer.WriteCollectionOfPrimitiveValues<string>("idls", Idls);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

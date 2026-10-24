@@ -77,33 +77,33 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolTransactionCriteriaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolTransactionCriteriaItem();
-            if("MintAddressCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("mintAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.MintAddressCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MintAddressCriterion();
             }
-            else if("ProgramIdCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("programId".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.ProgramIdCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ProgramIdCriterion();
             }
-            else if("SolAddressCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("solAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SolAddressCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolAddressCriterion();
             }
-            else if("SolDataCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("solData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SolDataCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolDataCriterion();
             }
-            else if("SolValueCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("solValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SolValueCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolValueCriterion();
             }
-            else if("SplAddressCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("splAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SplAddressCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplAddressCriterion();
             }
-            else if("SplValueCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("splValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SplValueCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SplValueCriterion();
             }

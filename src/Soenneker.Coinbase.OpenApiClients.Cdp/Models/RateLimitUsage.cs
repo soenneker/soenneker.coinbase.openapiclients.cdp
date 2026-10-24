@@ -43,7 +43,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 result.RateLimitCountUsage = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RateLimitCountUsage();
             }
-            else if("RateLimitValueUsage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("value".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.RateLimitValueUsage = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RateLimitValueUsage();
             }

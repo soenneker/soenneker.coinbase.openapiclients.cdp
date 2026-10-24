@@ -47,14 +47,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredResource Resource { get; set; }
 #endif
-        /// <summary>The x402 protocol version.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredX402Version? X402Version { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredX402Version X402Version { get; set; }
-#endif
+        /// <summary>The version of the x402 protocol.</summary>
+        public int? X402Version { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequired"/> and sets the default values.
         /// </summary>
@@ -84,7 +78,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "extensions", n => { Extensions = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequiredExtensions>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequiredExtensions.CreateFromDiscriminatorValue); } },
                 { "resource", n => { Resource = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredResource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredResource.CreateFromDiscriminatorValue); } },
-                { "x402Version", n => { X402Version = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredX402Version>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredX402Version.CreateFromDiscriminatorValue); } },
+                { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -98,7 +92,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("error", Error);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequiredExtensions>("extensions", Extensions);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredResource>("resource", Resource);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequiredX402Version>("x402Version", X402Version);
+            writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

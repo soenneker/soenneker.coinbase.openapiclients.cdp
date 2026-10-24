@@ -8,27 +8,20 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput"/>
+    /// Contract ABI Specification following Solidity&apos;s external JSON interface format.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AbiItem : IComposedTypeWrapper, IParsable
+    public partial class AbiItem : IAdditionalDataHolder, IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction? AbiFunction { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction AbiFunction { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput? AbiInput { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput AbiInput { get; set; }
-#endif
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>
+        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem"/> and sets the default values.
+        /// </summary>
+        public AbiItem()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,17 +30,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
-            var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem();
-            if("AbiFunction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.AbiFunction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction();
-            }
-            else if("AbiInput".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.AbiInput = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput();
-            }
-            return result;
+            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,15 +38,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AbiFunction != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return AbiFunction.GetFieldDeserializers();
-            }
-            else if(AbiInput != null)
-            {
-                return AbiInput.GetFieldDeserializers();
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -72,14 +49,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(AbiFunction != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiFunction>(null, AbiFunction);
-            }
-            else if(AbiInput != null)
-            {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiInput>(null, AbiInput);
-            }
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

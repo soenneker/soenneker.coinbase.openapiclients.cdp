@@ -40,7 +40,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string PaymasterUrl { get; set; }
 #endif
-        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
+        /// <summary>The 0x-prefixed address of the recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? To { get; set; }

@@ -15,14 +15,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The network of the blockchain to send payment on.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The x402 v1 network identifier. x402 v1 uses human-readable network names. Supported networks: Base mainnet and testnet, Solana mainnet and devnet.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadNetwork? Network { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadNetwork Network { get; set; }
-#endif
         /// <summary>The payload of the payment depending on the x402Version, scheme, and network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,14 +27,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #endif
         /// <summary>The scheme of the payment protocol to use. Currently, the only supported scheme is `exact`.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme? Scheme { get; set; }
-        /// <summary>The x402 protocol version. Must be `1` for this payload shape.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadX402Version? X402Version { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadX402Version X402Version { get; set; }
-#endif
+        /// <summary>The version of the x402 protocol.</summary>
+        public int? X402Version { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayload"/> and sets the default values.
         /// </summary>
@@ -66,10 +54,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "network", n => { Network = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadNetwork>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadNetwork.CreateFromDiscriminatorValue); } },
+                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadNetwork>(); } },
                 { "payload", n => { Payload = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadPayload>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadPayload.CreateFromDiscriminatorValue); } },
                 { "scheme", n => { Scheme = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme>(); } },
-                { "x402Version", n => { X402Version = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadX402Version>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadX402Version.CreateFromDiscriminatorValue); } },
+                { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -79,10 +67,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadNetwork>("network", Network);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadNetwork>("network", Network);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadPayload>("payload", Payload);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme>("scheme", Scheme);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentPayloadX402Version>("x402Version", X402Version);
+            writer.WriteIntValue("x402Version", X402Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

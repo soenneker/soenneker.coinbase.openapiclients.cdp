@@ -11,10 +11,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// Information about an Individual customer. Not all fields are requiredfor all customers; the requirements depend on which capabilities arerequested. Submit only fields that are required by the capabilitiesthat have been requested.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class CustomerWriteBaseIndividual : IAdditionalDataHolder, IParsable
+    public partial class CustomerWriteBaseIndividual : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Primary residential address. Only US addresses are currentlysupported. Non-US `countryCode` values are rejected with a 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,13 +96,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string SsnLast4 { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual"/> and sets the default values.
-        /// </summary>
-        public CustomerWriteBaseIndividual()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual"/></returns>
@@ -159,7 +150,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputPurposeOfAccount>("purposeOfAccount", PurposeOfAccount);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputSourceOfFunds>("sourceOfFunds", SourceOfFunds);
             writer.WriteStringValue("ssnLast4", SsnLast4);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

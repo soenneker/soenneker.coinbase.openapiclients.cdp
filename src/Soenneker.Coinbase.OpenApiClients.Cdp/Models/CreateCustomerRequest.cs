@@ -7,13 +7,12 @@ using System.IO;
 using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
+    /// <summary>
+    /// Fields accepted on customer create and update requests. Shared by`CreateCustomerRequest` and `UpdateCustomerRequest`; excludes theserver-managed response-only fields that appear on `Customer`.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class CreateCustomerRequest : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class CreateCustomerRequest : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Capabilities to request for the customer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,21 +61,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance> TosAcceptances { get; set; }
 #endif
-        /// <summary>The type of the customer. Required on create; accepted but ignored onupdate.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The type of the customer. Required on create; accepted but ignored on update.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType? Type { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType Type { get; set; }
-#endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCustomerRequest"/> and sets the default values.
-        /// </summary>
-        public CreateCustomerRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -101,7 +87,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "projectIds", n => { ProjectIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.AsList(); } },
                 { "taxAttestations", n => { TaxAttestations = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "tosAcceptances", n => { TosAcceptances = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType>(); } },
             };
         }
         /// <summary>
@@ -117,8 +103,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfPrimitiveValues<Guid?>("projectIds", ProjectIds);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation>("taxAttestations", TaxAttestations);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance>("tosAcceptances", TosAcceptances);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType>("type", Type);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType>("type", Type);
         }
     }
 }

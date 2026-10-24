@@ -55,13 +55,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget Target { get; set; }
 #endif
-        /// <summary>The type of deposit destination.</summary>
+        /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestType? Type { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestType Type { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequest"/> and sets the default values.
@@ -93,7 +93,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "crypto", n => { Crypto = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto.CreateFromDiscriminatorValue); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata.CreateFromDiscriminatorValue); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestType>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestType.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -108,7 +108,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestAllOf2Crypto>("crypto", Crypto);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationTarget>("target", Target);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationType>("type", Type);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCryptoDepositDestinationRequestType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

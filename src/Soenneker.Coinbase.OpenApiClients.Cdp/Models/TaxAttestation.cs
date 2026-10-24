@@ -19,8 +19,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the Customer consents to electronic delivery (e-delivery) oftax documents. Both `true` and `false` are recorded as submitted.</summary>
         public bool? EdeliveryConsent { get; set; }
-        /// <summary>The tax form being attested to, as listed in`Customer.requirements.taxAttestation.taxForms[]`. Must be `us_w9`for this variant.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsW9Form? Form { get; set; }
+        /// <summary>The form property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Form { get; set; }
+#nullable restore
+#else
+        public string Form { get; set; }
+#endif
         /// <summary>Whether the Customer is exempt from backup withholding, as certifiedon IRS Form W-9.</summary>
         public bool? IsExemptBackupWithholding { get; set; }
         /// <summary>
@@ -50,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "acceptedAt", n => { AcceptedAt = n.GetDateTimeOffsetValue(); } },
                 { "edeliveryConsent", n => { EdeliveryConsent = n.GetBoolValue(); } },
-                { "form", n => { Form = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsW9Form>(); } },
+                { "form", n => { Form = n.GetStringValue(); } },
                 { "isExemptBackupWithholding", n => { IsExemptBackupWithholding = n.GetBoolValue(); } },
             };
         }
@@ -63,7 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("acceptedAt", AcceptedAt);
             writer.WriteBoolValue("edeliveryConsent", EdeliveryConsent);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsW9Form>("form", Form);
+            writer.WriteStringValue("form", Form);
             writer.WriteBoolValue("isExemptBackupWithholding", IsExemptBackupWithholding);
             writer.WriteAdditionalData(AdditionalData);
         }

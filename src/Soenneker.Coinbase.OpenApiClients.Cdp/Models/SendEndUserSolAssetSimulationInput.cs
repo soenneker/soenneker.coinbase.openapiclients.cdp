@@ -12,7 +12,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     public partial class SendEndUserSolAssetSimulationInput : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
+        /// <summary>The Solana account address to send USDC from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Address { get; set; }
@@ -28,21 +28,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Amount { get; set; }
 #endif
-        /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Asset { get; set; }
-#nullable restore
-#else
-        public string Asset { get; set; }
-#endif
+        /// <summary>The asset to send.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetSimulationInputAsset? Asset { get; set; }
         /// <summary>Whether to automatically create an Associated Token Account (ATA) for the recipient if it doesn&apos;t exist. When true, the sender pays the rent-exempt minimum to create the recipient&apos;s USDC ATA. When false, the transaction will fail if the recipient doesn&apos;t have a USDC ATA.</summary>
         public bool? CreateRecipientAta { get; set; }
         /// <summary>The Solana network to send USDC on.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetSimulationInputNetwork? Network { get; set; }
         /// <summary>The operation to which the rule applies. Every element of the `criteria` array must match the specified operation.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetOperation? Operation { get; set; }
-        /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
+        /// <summary>The base58 encoded address of the recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? To { get; set; }
@@ -80,7 +74,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "amount", n => { Amount = n.GetStringValue(); } },
-                { "asset", n => { Asset = n.GetStringValue(); } },
+                { "asset", n => { Asset = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetSimulationInputAsset>(); } },
                 { "createRecipientAta", n => { CreateRecipientAta = n.GetBoolValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetSimulationInputNetwork>(); } },
                 { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetOperation>(); } },
@@ -98,7 +92,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
             writer.WriteStringValue("amount", Amount);
-            writer.WriteStringValue("asset", Asset);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetSimulationInputAsset>("asset", Asset);
             writer.WriteBoolValue("createRecipientAta", CreateRecipientAta);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetSimulationInputNetwork>("network", Network);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserSolAssetOperation>("operation", Operation);

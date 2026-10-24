@@ -139,14 +139,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionSourceComposed Source { get; set; }
 #endif
-        /// <summary>The most recent meaningful event on the payment session.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The most recent meaningful event on the payment session.For session-level milestones the value is one of `created` or `canceled`. For action outcomes the value follows the pattern `{action}_{result}` — e.g. `authorization_succeeded`, `capture_pending`, `refund_failed`.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionStatusComposed? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionStatusComposed Status { get; set; }
-#endif
         /// <summary>The target of the payment session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -160,10 +154,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Url { get; set; }
+        public string? Url { get; private set; }
 #nullable restore
 #else
-        public string Url { get; set; }
+        public string Url { get; private set; }
 #endif
         /// <summary>The voids for this payment session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -176,10 +170,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? X402Url { get; set; }
+        public string? X402Url { get; private set; }
 #nullable restore
 #else
-        public string X402Url { get; set; }
+        public string X402Url { get; private set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSession"/> and sets the default values.
@@ -224,7 +218,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "redirect", n => { Redirect = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect.CreateFromDiscriminatorValue); } },
                 { "refunds", n => { Refunds = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Refund>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Refund.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "source", n => { Source = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionSourceComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionSourceComposed.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionStatusComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionStatusComposed.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionStatusComposed>(); } },
                 { "target", n => { Target = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionTargetComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionTargetComposed.CreateFromDiscriminatorValue); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -256,12 +250,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect>("redirect", Redirect);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Refund>("refunds", Refunds);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionSourceComposed>("source", Source);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionStatusComposed>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionStatusComposed>("status", Status);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSessionTargetComposed>("target", Target);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
-            writer.WriteStringValue("url", Url);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.VoidType>("voids", Voids);
-            writer.WriteStringValue("x402Url", X402Url);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -31,14 +31,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Asset { get; set; }
 #endif
-        /// <summary>The blockchain network for the payment.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The blockchain network supported for payment session sources. Testnet networks are only available in sandbox environments.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork? Network { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork Network { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletMandateRevocationOptionSource"/> and sets the default values.
         /// </summary>
@@ -66,7 +60,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "asset", n => { Asset = n.GetStringValue(); } },
-                { "network", n => { Network = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork.CreateFromDiscriminatorValue); } },
+                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork>(); } },
             };
         }
         /// <summary>
@@ -78,7 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("address", Address);
             writer.WriteStringValue("asset", Asset);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork>("network", Network);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentSourceWalletNetwork>("network", Network);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

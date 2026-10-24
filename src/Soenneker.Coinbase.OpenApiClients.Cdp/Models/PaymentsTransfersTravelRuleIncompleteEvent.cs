@@ -25,13 +25,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Unique identifier for this webhook event. Use this for idempotency.</summary>
         public Guid? EventID { get; set; }
         /// <summary>The type of webhook event.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? EventType { get; set; }
-#nullable restore
-#else
-        public string EventType { get; set; }
-#endif
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentsTransfersTravelRuleIncompleteEventType? EventType { get; set; }
         /// <summary>The UTC ISO 8601 timestamp at which the underlying state change occurred, not the time at which this webhook was delivered.</summary>
         public DateTimeOffset? Timestamp { get; set; }
         /// <summary>
@@ -61,7 +55,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "data", n => { Data = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer.CreateFromDiscriminatorValue); } },
                 { "eventID", n => { EventID = n.GetGuidValue(); } },
-                { "eventType", n => { EventType = n.GetStringValue(); } },
+                { "eventType", n => { EventType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentsTransfersTravelRuleIncompleteEventType>(); } },
                 { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -74,7 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Transfer>("data", Data);
             writer.WriteGuidValue("eventID", EventID);
-            writer.WriteStringValue("eventType", EventType);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentsTransfersTravelRuleIncompleteEventType>("eventType", EventType);
             writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
             writer.WriteAdditionalData(AdditionalData);
         }

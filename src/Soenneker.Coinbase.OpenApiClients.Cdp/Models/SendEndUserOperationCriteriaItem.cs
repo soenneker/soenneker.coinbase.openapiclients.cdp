@@ -61,25 +61,25 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserOperationCriteriaItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEndUserOperationCriteriaItem();
-            if("EthValueCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("ethValue".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EthValueCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EthValueCriterion();
             }
-            else if("EvmAddressCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("evmAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvmAddressCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmAddressCriterion();
             }
-            else if("EvmDataCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("evmData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvmDataCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmDataCriterion();
             }
-            else if("EvmNetworkCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("evmNetwork".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.EvmNetworkCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion();
             }
-            else if("NetUsdChangeCriterion".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("netUSDChange".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.NetUsdChangeCriterion = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterion();
             }

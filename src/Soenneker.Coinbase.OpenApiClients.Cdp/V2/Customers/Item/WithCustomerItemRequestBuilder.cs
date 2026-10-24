@@ -102,7 +102,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers.Item
         /// Update customer information and/or request capability changes.This endpoint supports partial updates. Provide only the fields you wish to change.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Customer"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Fields accepted on customer create and update requests. Shared by`CreateCustomerRequest` and `UpdateCustomerRequest`; excludes theserver-managed response-only fields that appear on `Customer`.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error">When receiving a 400 status code</exception>
@@ -181,7 +181,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Customers.Item
         /// Update customer information and/or request capability changes.This endpoint supports partial updates. Provide only the fields you wish to change.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Fields accepted on customer create and update requests. Shared by`CreateCustomerRequest` and `UpdateCustomerRequest`; excludes theserver-managed response-only fields that appear on `Customer`.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

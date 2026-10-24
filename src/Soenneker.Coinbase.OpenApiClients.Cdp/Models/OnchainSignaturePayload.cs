@@ -53,21 +53,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignaturePayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignaturePayload();
-            if("Eip3009Payload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("eip3009".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Eip3009Payload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip3009Payload();
             }
-            else if("Erc20ApprovalPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("erc20_approval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Erc20ApprovalPayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayload();
             }
-            else if("Permit2Payload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("permit2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.Permit2Payload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Permit2Payload();
             }
-            else if("SpendPermissionPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("spend_permission".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
                 result.SpendPermissionPayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionPayload();
             }

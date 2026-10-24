@@ -57,14 +57,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string RevocationId { get; set; }
 #endif
-        /// <summary>The current status of the revocation attempt.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>The status of a wallet revocation attempt:- `pending`: awaiting network confirmation.- `succeeded`: the spending allowance has been removed on-chain.- `failed`: the revocation did not complete (see `error`).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevocationStatusComposed? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevocationStatusComposed Status { get; set; }
-#endif
         /// <summary>The UTC ISO 8601 timestamp at which the revocation was last updated.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
@@ -98,7 +92,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocationMetadata>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocationMetadata.CreateFromDiscriminatorValue); } },
                 { "onchainTransactions", n => { OnchainTransactions = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "revocationId", n => { RevocationId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevocationStatusComposed>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevocationStatusComposed.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevocationStatusComposed>(); } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -115,7 +109,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocationMetadata>("metadata", Metadata);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>("onchainTransactions", OnchainTransactions);
             writer.WriteStringValue("revocationId", RevocationId);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevocationStatusComposed>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevocationStatusComposed>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
             writer.WriteAdditionalData(AdditionalData);
         }

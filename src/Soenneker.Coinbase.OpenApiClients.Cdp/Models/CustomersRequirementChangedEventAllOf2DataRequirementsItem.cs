@@ -15,14 +15,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The requirement that changed. Identical to the corresponding key of `requirements` on `GET /v2/customers/{customerId}`.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>Flat camelCase field name of a customer data requirement(e.g., `ssnLast4`, `addressCity`).</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField? Field { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField Field { get; set; }
-#endif
         /// <summary>Capability codes gated by this requirement, sorted alphabetically. Matches `impact` on the corresponding `GET /v2/customers/{customerId}` requirement entry. Omit when `status` is `cleared`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +52,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "field", n => { Field = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField.CreateFromDiscriminatorValue); } },
+                { "field", n => { Field = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField>(); } },
                 { "impact", n => { Impact = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName>()?.AsList(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemStatus>(); } },
             };
@@ -70,7 +64,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField>("field", Field);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField>("field", Field);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName>("impact", Impact);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);

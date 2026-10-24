@@ -25,32 +25,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The operation this maintenance window applies to. Omitted when the maintenance window applies to the service as a whole.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>A finer-grained operation within a service. Optional — omitted when a health status or maintenance window applies to the service as a whole.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowOperation? Operation { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowOperation Operation { get; set; }
-#endif
-        /// <summary>The service this maintenance window applies to.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>A CDP service whose health and maintenance status are tracked here.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowService? Service { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowService Service { get; set; }
-#endif
         /// <summary>The start time of the maintenance window: in the future for a `scheduled` window, in the past for one that has already `started`.</summary>
         public DateTimeOffset? StartsAt { get; set; }
-        /// <summary>The current status of the maintenance window.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowStatus? Status { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowStatus Status { get; set; }
-#endif
+        /// <summary>The lifecycle status of a maintenance window: `scheduled` → `started` → `completed`, or `scheduled` → `canceled`. `completed` and `canceled` are terminal.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthMaintenanceScheduledEventAllOf2DataStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthMaintenanceScheduledEventAllOf2Data"/> and sets the default values.
         /// </summary>
@@ -78,10 +60,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "expectedDurationSeconds", n => { ExpectedDurationSeconds = n.GetIntValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "operation", n => { Operation = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowOperation>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowOperation.CreateFromDiscriminatorValue); } },
-                { "service", n => { Service = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowService>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowService.CreateFromDiscriminatorValue); } },
+                { "operation", n => { Operation = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowOperation>(); } },
+                { "service", n => { Service = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowService>(); } },
                 { "startsAt", n => { StartsAt = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowStatus>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthMaintenanceScheduledEventAllOf2DataStatus>(); } },
             };
         }
         /// <summary>
@@ -93,10 +75,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("expectedDurationSeconds", ExpectedDurationSeconds);
             writer.WriteStringValue("message", Message);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowOperation>("operation", Operation);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowService>("service", Service);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowOperation>("operation", Operation);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowService>("service", Service);
             writer.WriteDateTimeOffsetValue("startsAt", StartsAt);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MaintenanceWindowStatus>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.HealthMaintenanceScheduledEventAllOf2DataStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

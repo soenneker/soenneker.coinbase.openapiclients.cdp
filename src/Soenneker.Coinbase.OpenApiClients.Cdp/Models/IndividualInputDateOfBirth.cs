@@ -11,10 +11,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// Date of birth.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class IndividualInputDateOfBirth : IAdditionalDataHolder, IParsable
+    public partial class IndividualInputDateOfBirth : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Day of birth (1-31). Both single-digit (&quot;7&quot;) and zero-padded (&quot;07&quot;) formats are accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +37,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 #else
         public string Year { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth"/> and sets the default values.
-        /// </summary>
-        public IndividualInputDateOfBirth()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -79,7 +70,6 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("day", Day);
             writer.WriteStringValue("month", Month);
             writer.WriteStringValue("year", Year);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

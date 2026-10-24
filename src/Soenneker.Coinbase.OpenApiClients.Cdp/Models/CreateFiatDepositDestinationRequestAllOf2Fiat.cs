@@ -17,14 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fiat currency for the deposit destination.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? Currency { get; set; }
-        /// <summary>Optional. The desired payment rail. When omitted, the server provisions the default banking partner and returns all rails the account supports. When specified, the server selects a banking partner that supports the requested rail.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+        /// <summary>A payment rail supported by a fiat deposit destination.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail? PaymentRail { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail PaymentRail { get; set; }
-#endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat"/> and sets the default values.
         /// </summary>
@@ -51,7 +45,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency>(); } },
-                { "paymentRail", n => { PaymentRail = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail.CreateFromDiscriminatorValue); } },
+                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail>(); } },
             };
         }
         /// <summary>
@@ -62,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency>("currency", Currency);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail>("paymentRail", PaymentRail);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail>("paymentRail", PaymentRail);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
