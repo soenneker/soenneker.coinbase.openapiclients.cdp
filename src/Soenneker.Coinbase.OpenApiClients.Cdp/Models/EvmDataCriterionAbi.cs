@@ -37,7 +37,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 result.KnownAbiType = knownAbiTypeValue;
             }
-            else if(parseNode.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem> abiItemValue)
+            else if(parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedArray && parseNode.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem.CreateFromDiscriminatorValue)?.AsList() is List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AbiItem> abiItemValue)
             {
                 result.AbiItem = abiItemValue;
             }
