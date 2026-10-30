@@ -18,7 +18,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("otpCode") is { } nullNodeOtpCode && nullNodeOtpCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtpCode = null;
+            if (parseNode.GetChildNode("otpCode") is null) { _explicitNullValueOtpCode = default!; _explicitNullProperties?.Remove("otpCode"); }
+            else if (parseNode.GetChildNode("otpCode") is { } nullNodeOtpCode && nullNodeOtpCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtpCode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The 6-digit OTP code the user received.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OtpCode { get => _explicitNullValueOtpCode; set { _explicitNullValueOtpCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpCode"); else _explicitNullProperties?.Remove("otpCode"); } }
+        public string? OtpCode { get => _explicitNullValueOtpCode; set { _explicitNullValueOtpCode = value; AdditionalData?.Remove("otpCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpCode"); else _explicitNullProperties?.Remove("otpCode"); } }
         private string? _explicitNullValueOtpCode = default!;
 #nullable restore
 #else
-        public string OtpCode { get => _explicitNullValueOtpCode; set { _explicitNullValueOtpCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpCode"); else _explicitNullProperties?.Remove("otpCode"); } }
+        public string OtpCode { get => _explicitNullValueOtpCode; set { _explicitNullValueOtpCode = value; AdditionalData?.Remove("otpCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpCode"); else _explicitNullProperties?.Remove("otpCode"); } }
         private string _explicitNullValueOtpCode = default!;
 #endif
         /// <summary>

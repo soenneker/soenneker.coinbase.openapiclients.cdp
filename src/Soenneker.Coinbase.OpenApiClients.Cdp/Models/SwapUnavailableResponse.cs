@@ -17,7 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("liquidityAvailable") is { } nullNodeLiquidityAvailable && nullNodeLiquidityAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiquidityAvailable = null;
+            if (parseNode.GetChildNode("liquidityAvailable") is null) { _explicitNullValueLiquidityAvailable = default!; _explicitNullProperties?.Remove("liquidityAvailable"); }
+            else if (parseNode.GetChildNode("liquidityAvailable") is { } nullNodeLiquidityAvailable && nullNodeLiquidityAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiquidityAvailable = null;
         }
 
         /// <summary>Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.</summary>

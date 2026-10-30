@@ -17,8 +17,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("disbursements") is { } nullNodeDisbursements && nullNodeDisbursements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disbursements = null;
-            if (parseNode.GetChildNode("nextPageToken") is { } nullNodeNextPageToken && nullNodeNextPageToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPageToken = null;
+            if (parseNode.GetChildNode("disbursements") is null) { _explicitNullValueDisbursements = default!; _explicitNullProperties?.Remove("disbursements"); }
+            else if (parseNode.GetChildNode("disbursements") is { } nullNodeDisbursements && nullNodeDisbursements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Disbursements = null;
+            if (parseNode.GetChildNode("nextPageToken") is null) { _explicitNullValueNextPageToken = default!; _explicitNullProperties?.Remove("nextPageToken"); }
+            else if (parseNode.GetChildNode("nextPageToken") is { } nullNodeNextPageToken && nullNodeNextPageToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPageToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The list of disbursements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement>? Disbursements { get => _explicitNullValueDisbursements; set { _explicitNullValueDisbursements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disbursements"); else _explicitNullProperties?.Remove("disbursements"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement>? Disbursements { get => _explicitNullValueDisbursements; set { _explicitNullValueDisbursements = value; AdditionalData?.Remove("disbursements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disbursements"); else _explicitNullProperties?.Remove("disbursements"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement>? _explicitNullValueDisbursements = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement> Disbursements { get => _explicitNullValueDisbursements; set { _explicitNullValueDisbursements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disbursements"); else _explicitNullProperties?.Remove("disbursements"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement> Disbursements { get => _explicitNullValueDisbursements; set { _explicitNullValueDisbursements = value; AdditionalData?.Remove("disbursements"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disbursements"); else _explicitNullProperties?.Remove("disbursements"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Disbursement> _explicitNullValueDisbursements = default!;
 #endif
         /// <summary>The token for the next page of items, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextPageToken"); else _explicitNullProperties?.Remove("nextPageToken"); } }
+        public string? NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; AdditionalData?.Remove("nextPageToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextPageToken"); else _explicitNullProperties?.Remove("nextPageToken"); } }
         private string? _explicitNullValueNextPageToken = default!;
 #nullable restore
 #else
-        public string NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextPageToken"); else _explicitNullProperties?.Remove("nextPageToken"); } }
+        public string NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; AdditionalData?.Remove("nextPageToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextPageToken"); else _explicitNullProperties?.Remove("nextPageToken"); } }
         private string _explicitNullValueNextPageToken = default!;
 #endif
         /// <summary>

@@ -18,7 +18,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("requested") is { } nullNodeRequested && nullNodeRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Requested = null;
+            if (parseNode.GetChildNode("requested") is null) { _explicitNullValueRequested = default!; _explicitNullProperties?.Remove("requested"); }
+            else if (parseNode.GetChildNode("requested") is { } nullNodeRequested && nullNodeRequested.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Requested = null;
         }
 
         /// <summary>Whether to request this capability.</summary>

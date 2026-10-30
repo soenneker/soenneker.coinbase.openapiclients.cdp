@@ -18,10 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("capturable") is { } nullNodeCapturable && nullNodeCapturable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Capturable = null;
-            if (parseNode.GetChildNode("captured") is { } nullNodeCaptured && nullNodeCaptured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Captured = null;
-            if (parseNode.GetChildNode("refundable") is { } nullNodeRefundable && nullNodeRefundable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refundable = null;
-            if (parseNode.GetChildNode("refunded") is { } nullNodeRefunded && nullNodeRefunded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refunded = null;
+            if (parseNode.GetChildNode("capturable") is null) { _explicitNullValueCapturable = default!; _explicitNullProperties?.Remove("capturable"); }
+            else if (parseNode.GetChildNode("capturable") is { } nullNodeCapturable && nullNodeCapturable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Capturable = null;
+            if (parseNode.GetChildNode("captured") is null) { _explicitNullValueCaptured = default!; _explicitNullProperties?.Remove("captured"); }
+            else if (parseNode.GetChildNode("captured") is { } nullNodeCaptured && nullNodeCaptured.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Captured = null;
+            if (parseNode.GetChildNode("refundable") is null) { _explicitNullValueRefundable = default!; _explicitNullProperties?.Remove("refundable"); }
+            else if (parseNode.GetChildNode("refundable") is { } nullNodeRefundable && nullNodeRefundable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refundable = null;
+            if (parseNode.GetChildNode("refunded") is null) { _explicitNullValueRefunded = default!; _explicitNullProperties?.Remove("refunded"); }
+            else if (parseNode.GetChildNode("refunded") is { } nullNodeRefunded && nullNodeRefunded.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Refunded = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,41 +33,41 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Authorized funds not yet captured or voided. Decreases with each capture or void.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Capturable { get => _explicitNullValueCapturable; set { _explicitNullValueCapturable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capturable"); else _explicitNullProperties?.Remove("capturable"); } }
+        public string? Capturable { get => _explicitNullValueCapturable; set { _explicitNullValueCapturable = value; AdditionalData?.Remove("capturable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capturable"); else _explicitNullProperties?.Remove("capturable"); } }
         private string? _explicitNullValueCapturable = default!;
 #nullable restore
 #else
-        public string Capturable { get => _explicitNullValueCapturable; set { _explicitNullValueCapturable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capturable"); else _explicitNullProperties?.Remove("capturable"); } }
+        public string Capturable { get => _explicitNullValueCapturable; set { _explicitNullValueCapturable = value; AdditionalData?.Remove("capturable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capturable"); else _explicitNullProperties?.Remove("capturable"); } }
         private string _explicitNullValueCapturable = default!;
 #endif
         /// <summary>Total funds captured across all captures.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Captured { get => _explicitNullValueCaptured; set { _explicitNullValueCaptured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("captured"); else _explicitNullProperties?.Remove("captured"); } }
+        public string? Captured { get => _explicitNullValueCaptured; set { _explicitNullValueCaptured = value; AdditionalData?.Remove("captured"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("captured"); else _explicitNullProperties?.Remove("captured"); } }
         private string? _explicitNullValueCaptured = default!;
 #nullable restore
 #else
-        public string Captured { get => _explicitNullValueCaptured; set { _explicitNullValueCaptured = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("captured"); else _explicitNullProperties?.Remove("captured"); } }
+        public string Captured { get => _explicitNullValueCaptured; set { _explicitNullValueCaptured = value; AdditionalData?.Remove("captured"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("captured"); else _explicitNullProperties?.Remove("captured"); } }
         private string _explicitNullValueCaptured = default!;
 #endif
         /// <summary>Captured funds not yet refunded. Equals `captured` minus `refunded`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Refundable { get => _explicitNullValueRefundable; set { _explicitNullValueRefundable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundable"); else _explicitNullProperties?.Remove("refundable"); } }
+        public string? Refundable { get => _explicitNullValueRefundable; set { _explicitNullValueRefundable = value; AdditionalData?.Remove("refundable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundable"); else _explicitNullProperties?.Remove("refundable"); } }
         private string? _explicitNullValueRefundable = default!;
 #nullable restore
 #else
-        public string Refundable { get => _explicitNullValueRefundable; set { _explicitNullValueRefundable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundable"); else _explicitNullProperties?.Remove("refundable"); } }
+        public string Refundable { get => _explicitNullValueRefundable; set { _explicitNullValueRefundable = value; AdditionalData?.Remove("refundable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundable"); else _explicitNullProperties?.Remove("refundable"); } }
         private string _explicitNullValueRefundable = default!;
 #endif
         /// <summary>Total funds refunded across all refunds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Refunded { get => _explicitNullValueRefunded; set { _explicitNullValueRefunded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refunded"); else _explicitNullProperties?.Remove("refunded"); } }
+        public string? Refunded { get => _explicitNullValueRefunded; set { _explicitNullValueRefunded = value; AdditionalData?.Remove("refunded"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refunded"); else _explicitNullProperties?.Remove("refunded"); } }
         private string? _explicitNullValueRefunded = default!;
 #nullable restore
 #else
-        public string Refunded { get => _explicitNullValueRefunded; set { _explicitNullValueRefunded = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refunded"); else _explicitNullProperties?.Remove("refunded"); } }
+        public string Refunded { get => _explicitNullValueRefunded; set { _explicitNullValueRefunded = value; AdditionalData?.Remove("refunded"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refunded"); else _explicitNullProperties?.Remove("refunded"); } }
         private string _explicitNullValueRefunded = default!;
 #endif
         /// <summary>

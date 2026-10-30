@@ -18,8 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("ineligibleAddresses") is { } nullNodeIneligibleAddresses && nullNodeIneligibleAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IneligibleAddresses = null;
-            if (parseNode.GetChildNode("options") is { } nullNodeOptions && nullNodeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Options = null;
+            if (parseNode.GetChildNode("ineligibleAddresses") is null) { _explicitNullValueIneligibleAddresses = default!; _explicitNullProperties?.Remove("ineligibleAddresses"); }
+            else if (parseNode.GetChildNode("ineligibleAddresses") is { } nullNodeIneligibleAddresses && nullNodeIneligibleAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IneligibleAddresses = null;
+            if (parseNode.GetChildNode("options") is null) { _explicitNullValueOptions = default!; _explicitNullProperties?.Remove("options"); }
+            else if (parseNode.GetChildNode("options") is { } nullNodeOptions && nullNodeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Options = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Requested customer addresses that have no eligible mandate approval option, each with a `code` explaining why. Empty when every requested address can approve the mandate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletMandateApprovalAddresses>? IneligibleAddresses { get => _explicitNullValueIneligibleAddresses; set { _explicitNullValueIneligibleAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligibleAddresses"); else _explicitNullProperties?.Remove("ineligibleAddresses"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletMandateApprovalAddresses>? IneligibleAddresses { get => _explicitNullValueIneligibleAddresses; set { _explicitNullValueIneligibleAddresses = value; AdditionalData?.Remove("ineligibleAddresses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligibleAddresses"); else _explicitNullProperties?.Remove("ineligibleAddresses"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletMandateApprovalAddresses>? _explicitNullValueIneligibleAddresses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletMandateApprovalAddresses> IneligibleAddresses { get => _explicitNullValueIneligibleAddresses; set { _explicitNullValueIneligibleAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligibleAddresses"); else _explicitNullProperties?.Remove("ineligibleAddresses"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletMandateApprovalAddresses> IneligibleAddresses { get => _explicitNullValueIneligibleAddresses; set { _explicitNullValueIneligibleAddresses = value; AdditionalData?.Remove("ineligibleAddresses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligibleAddresses"); else _explicitNullProperties?.Remove("ineligibleAddresses"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletMandateApprovalAddresses> _explicitNullValueIneligibleAddresses = default!;
 #endif
         /// <summary>The available wallet mandate approval options.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletMandateApprovalOption>? Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletMandateApprovalOption>? Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; AdditionalData?.Remove("options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletMandateApprovalOption>? _explicitNullValueOptions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletMandateApprovalOption> Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletMandateApprovalOption> Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; AdditionalData?.Remove("options"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletMandateApprovalOption> _explicitNullValueOptions = default!;
 #endif
         /// <summary>

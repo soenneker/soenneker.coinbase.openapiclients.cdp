@@ -18,11 +18,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("delegateAddress") is { } nullNodeDelegateAddress && nullNodeDelegateAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegateAddress = null;
-            if (parseNode.GetChildNode("delegationOperationId") is { } nullNodeDelegationOperationId && nullNodeDelegationOperationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegationOperationId = null;
-            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("transactionHash") is { } nullNodeTransactionHash && nullNodeTransactionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionHash = null;
+            if (parseNode.GetChildNode("delegateAddress") is null) { _explicitNullValueDelegateAddress = default!; _explicitNullProperties?.Remove("delegateAddress"); }
+            else if (parseNode.GetChildNode("delegateAddress") is { } nullNodeDelegateAddress && nullNodeDelegateAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegateAddress = null;
+            if (parseNode.GetChildNode("delegationOperationId") is null) { _explicitNullValueDelegationOperationId = default!; _explicitNullProperties?.Remove("delegationOperationId"); }
+            else if (parseNode.GetChildNode("delegationOperationId") is { } nullNodeDelegationOperationId && nullNodeDelegationOperationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegationOperationId = null;
+            if (parseNode.GetChildNode("network") is null) { _explicitNullValueNetwork = default!; _explicitNullProperties?.Remove("network"); }
+            else if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("transactionHash") is null) { _explicitNullValueTransactionHash = default!; _explicitNullProperties?.Remove("transactionHash"); }
+            else if (parseNode.GetChildNode("transactionHash") is { } nullNodeTransactionHash && nullNodeTransactionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionHash = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,30 +35,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The address the account has delegated to, if any. Only present when the account has an active delegation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DelegateAddress { get => _explicitNullValueDelegateAddress; set { _explicitNullValueDelegateAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegateAddress"); else _explicitNullProperties?.Remove("delegateAddress"); } }
+        public string? DelegateAddress { get => _explicitNullValueDelegateAddress; set { _explicitNullValueDelegateAddress = value; AdditionalData?.Remove("delegateAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegateAddress"); else _explicitNullProperties?.Remove("delegateAddress"); } }
         private string? _explicitNullValueDelegateAddress = default!;
 #nullable restore
 #else
-        public string DelegateAddress { get => _explicitNullValueDelegateAddress; set { _explicitNullValueDelegateAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegateAddress"); else _explicitNullProperties?.Remove("delegateAddress"); } }
+        public string DelegateAddress { get => _explicitNullValueDelegateAddress; set { _explicitNullValueDelegateAddress = value; AdditionalData?.Remove("delegateAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegateAddress"); else _explicitNullProperties?.Remove("delegateAddress"); } }
         private string _explicitNullValueDelegateAddress = default!;
 #endif
         /// <summary>The unique identifier for the delegation operation.</summary>
-        public Guid? DelegationOperationId { get => _explicitNullValueDelegationOperationId; set { _explicitNullValueDelegationOperationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationOperationId"); else _explicitNullProperties?.Remove("delegationOperationId"); } }
+        public Guid? DelegationOperationId { get => _explicitNullValueDelegationOperationId; set { _explicitNullValueDelegationOperationId = value; AdditionalData?.Remove("delegationOperationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegationOperationId"); else _explicitNullProperties?.Remove("delegationOperationId"); } }
         private Guid? _explicitNullValueDelegationOperationId = default!;
         /// <summary>The network for the EIP-7702 delegation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; AdditionalData?.Remove("network"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The current status of the delegation operation.UNSPECIFIED means the status has not been set. PENDING means the operation has been created but not yet submitted. SUBMITTED means the operation has been submitted to the network. COMPLETED means the operation has completed successfully. FAILED means the operation has failed.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperationStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperationStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperationStatus? _explicitNullValueStatus = default!;
         /// <summary>The hash of the delegation transaction, if available. Present once the transaction has been submitted to the network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
+        public string? TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; AdditionalData?.Remove("transactionHash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
         private string? _explicitNullValueTransactionHash = default!;
 #nullable restore
 #else
-        public string TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
+        public string TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; AdditionalData?.Remove("transactionHash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
         private string _explicitNullValueTransactionHash = default!;
 #endif
         /// <summary>
@@ -83,8 +88,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "delegateAddress", n => { DelegateAddress = n.GetStringValue(); } },
                 { "delegationOperationId", n => { DelegationOperationId = n.GetGuidValue(); } },
-                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationNetwork>(); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperationStatus>(); } },
+                { "network", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationNetwork>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNetwork = default; _explicitNullProperties?.Remove("network"); AdditionalData["network"] = unknown; } else { Network = parsed; AdditionalData.Remove("network"); } } },
+                { "status", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmEip7702DelegationOperationStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueStatus = default; _explicitNullProperties?.Remove("status"); AdditionalData["status"] = unknown; } else { Status = parsed; AdditionalData.Remove("status"); } } },
                 { "transactionHash", n => { TransactionHash = n.GetStringValue(); } },
             };
         }

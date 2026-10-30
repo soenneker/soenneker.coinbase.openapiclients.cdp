@@ -18,9 +18,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("signature") is { } nullNodeSignature && nullNodeSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signature = null;
-            if (parseNode.GetChildNode("totalClaimed") is { } nullNodeTotalClaimed && nullNodeTotalClaimed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalClaimed = null;
-            if (parseNode.GetChildNode("voucher") is { } nullNodeVoucher && nullNodeVoucher.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voucher = null;
+            if (parseNode.GetChildNode("signature") is null) { _explicitNullValueSignature = default!; _explicitNullProperties?.Remove("signature"); }
+            else if (parseNode.GetChildNode("signature") is { } nullNodeSignature && nullNodeSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signature = null;
+            if (parseNode.GetChildNode("totalClaimed") is null) { _explicitNullValueTotalClaimed = default!; _explicitNullProperties?.Remove("totalClaimed"); }
+            else if (parseNode.GetChildNode("totalClaimed") is { } nullNodeTotalClaimed && nullNodeTotalClaimed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalClaimed = null;
+            if (parseNode.GetChildNode("voucher") is null) { _explicitNullValueVoucher = default!; _explicitNullProperties?.Remove("voucher"); }
+            else if (parseNode.GetChildNode("voucher") is { } nullNodeVoucher && nullNodeVoucher.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voucher = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The voucher signature from `payerAuthorizer`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        public string? Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; AdditionalData?.Remove("signature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
         private string? _explicitNullValueSignature = default!;
 #nullable restore
 #else
-        public string Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        public string Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; AdditionalData?.Remove("signature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
         private string _explicitNullValueSignature = default!;
 #endif
         /// <summary>The cumulative amount already claimed from this channel as of this claim.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TotalClaimed { get => _explicitNullValueTotalClaimed; set { _explicitNullValueTotalClaimed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalClaimed"); else _explicitNullProperties?.Remove("totalClaimed"); } }
+        public string? TotalClaimed { get => _explicitNullValueTotalClaimed; set { _explicitNullValueTotalClaimed = value; AdditionalData?.Remove("totalClaimed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalClaimed"); else _explicitNullProperties?.Remove("totalClaimed"); } }
         private string? _explicitNullValueTotalClaimed = default!;
 #nullable restore
 #else
-        public string TotalClaimed { get => _explicitNullValueTotalClaimed; set { _explicitNullValueTotalClaimed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalClaimed"); else _explicitNullProperties?.Remove("totalClaimed"); } }
+        public string TotalClaimed { get => _explicitNullValueTotalClaimed; set { _explicitNullValueTotalClaimed = value; AdditionalData?.Remove("totalClaimed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalClaimed"); else _explicitNullProperties?.Remove("totalClaimed"); } }
         private string _explicitNullValueTotalClaimed = default!;
 #endif
         /// <summary>The voucher to claim, identified by the channel config it was signed against and its cumulative ceiling. Field shape mirrors the on-chain claim struct.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher? Voucher { get => _explicitNullValueVoucher; set { _explicitNullValueVoucher = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voucher"); else _explicitNullProperties?.Remove("voucher"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher? Voucher { get => _explicitNullValueVoucher; set { _explicitNullValueVoucher = value; AdditionalData?.Remove("voucher"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voucher"); else _explicitNullProperties?.Remove("voucher"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher? _explicitNullValueVoucher = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher Voucher { get => _explicitNullValueVoucher; set { _explicitNullValueVoucher = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voucher"); else _explicitNullProperties?.Remove("voucher"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher Voucher { get => _explicitNullValueVoucher; set { _explicitNullValueVoucher = value; AdditionalData?.Remove("voucher"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voucher"); else _explicitNullProperties?.Remove("voucher"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher _explicitNullValueVoucher = default!;
 #endif
         /// <summary>

@@ -19,11 +19,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("correlationId") is { } nullNodeCorrelationId && nullNodeCorrelationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CorrelationId = null;
-            if (parseNode.GetChildNode("errorLink") is { } nullNodeErrorLink && nullNodeErrorLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorLink = null;
-            if (parseNode.GetChildNode("errorMessage") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
-            if (parseNode.GetChildNode("errorType") is { } nullNodeErrorType && nullNodeErrorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorType = null;
-            if (parseNode.GetChildNode("unauthorizedCapabilities") is { } nullNodeUnauthorizedCapabilities && nullNodeUnauthorizedCapabilities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnauthorizedCapabilities = null;
+            if (parseNode.GetChildNode("correlationId") is null) { _explicitNullValueCorrelationId = default!; _explicitNullProperties?.Remove("correlationId"); }
+            else if (parseNode.GetChildNode("correlationId") is { } nullNodeCorrelationId && nullNodeCorrelationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CorrelationId = null;
+            if (parseNode.GetChildNode("errorLink") is null) { _explicitNullValueErrorLink = default!; _explicitNullProperties?.Remove("errorLink"); }
+            else if (parseNode.GetChildNode("errorLink") is { } nullNodeErrorLink && nullNodeErrorLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorLink = null;
+            if (parseNode.GetChildNode("errorMessage") is null) { _explicitNullValueErrorMessage = default!; _explicitNullProperties?.Remove("errorMessage"); }
+            else if (parseNode.GetChildNode("errorMessage") is { } nullNodeErrorMessage && nullNodeErrorMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorMessage = null;
+            if (parseNode.GetChildNode("errorType") is null) { _explicitNullValueErrorType = default!; _explicitNullProperties?.Remove("errorType"); }
+            else if (parseNode.GetChildNode("errorType") is { } nullNodeErrorType && nullNodeErrorType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorType = null;
+            if (parseNode.GetChildNode("unauthorizedCapabilities") is null) { _explicitNullValueUnauthorizedCapabilities = default!; _explicitNullProperties?.Remove("unauthorizedCapabilities"); }
+            else if (parseNode.GetChildNode("unauthorizedCapabilities") is { } nullNodeUnauthorizedCapabilities && nullNodeUnauthorizedCapabilities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnauthorizedCapabilities = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,46 +36,46 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A unique identifier for the request that generated the error. This can be used to help debug issues with the API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CorrelationId { get => _explicitNullValueCorrelationId; set { _explicitNullValueCorrelationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("correlationId"); else _explicitNullProperties?.Remove("correlationId"); } }
+        public string? CorrelationId { get => _explicitNullValueCorrelationId; set { _explicitNullValueCorrelationId = value; AdditionalData?.Remove("correlationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("correlationId"); else _explicitNullProperties?.Remove("correlationId"); } }
         private string? _explicitNullValueCorrelationId = default!;
 #nullable restore
 #else
-        public string CorrelationId { get => _explicitNullValueCorrelationId; set { _explicitNullValueCorrelationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("correlationId"); else _explicitNullProperties?.Remove("correlationId"); } }
+        public string CorrelationId { get => _explicitNullValueCorrelationId; set { _explicitNullValueCorrelationId = value; AdditionalData?.Remove("correlationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("correlationId"); else _explicitNullProperties?.Remove("correlationId"); } }
         private string _explicitNullValueCorrelationId = default!;
 #endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorLink { get => _explicitNullValueErrorLink; set { _explicitNullValueErrorLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorLink"); else _explicitNullProperties?.Remove("errorLink"); } }
+        public string? ErrorLink { get => _explicitNullValueErrorLink; set { _explicitNullValueErrorLink = value; AdditionalData?.Remove("errorLink"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorLink"); else _explicitNullProperties?.Remove("errorLink"); } }
         private string? _explicitNullValueErrorLink = default!;
 #nullable restore
 #else
-        public string ErrorLink { get => _explicitNullValueErrorLink; set { _explicitNullValueErrorLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorLink"); else _explicitNullProperties?.Remove("errorLink"); } }
+        public string ErrorLink { get => _explicitNullValueErrorLink; set { _explicitNullValueErrorLink = value; AdditionalData?.Remove("errorLink"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorLink"); else _explicitNullProperties?.Remove("errorLink"); } }
         private string _explicitNullValueErrorLink = default!;
 #endif
         /// <summary>The error message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorMessage"); else _explicitNullProperties?.Remove("errorMessage"); } }
+        public string? ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; AdditionalData?.Remove("errorMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorMessage"); else _explicitNullProperties?.Remove("errorMessage"); } }
         private string? _explicitNullValueErrorMessage = default!;
 #nullable restore
 #else
-        public string ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorMessage"); else _explicitNullProperties?.Remove("errorMessage"); } }
+        public string ErrorMessage { get => _explicitNullValueErrorMessage; set { _explicitNullValueErrorMessage = value; AdditionalData?.Remove("errorMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorMessage"); else _explicitNullProperties?.Remove("errorMessage"); } }
         private string _explicitNullValueErrorMessage = default!;
 #endif
         /// <summary>The code that indicates the type of error that occurred. These error codes can be used to determine how to handle the error.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType? ErrorType { get => _explicitNullValueErrorType; set { _explicitNullValueErrorType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorType"); else _explicitNullProperties?.Remove("errorType"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType? ErrorType { get => _explicitNullValueErrorType; set { _explicitNullValueErrorType = value; AdditionalData?.Remove("errorType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorType"); else _explicitNullProperties?.Remove("errorType"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType? _explicitNullValueErrorType = default!;
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
         /// <summary>The capability code(s) that were not authorized for the customer onthis request. Present only when `errorType` is`customer_not_authorized`; absent for every other error type.Use this list to render onboarding UX for the listed capabilities, orfetch `GET /v2/customers/{customerId}` and inspect each entry&apos;s`status` / `requirements` to discover what (if anything) can besubmitted to resolve the block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?>? UnauthorizedCapabilities { get => _explicitNullValueUnauthorizedCapabilities; set { _explicitNullValueUnauthorizedCapabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unauthorizedCapabilities"); else _explicitNullProperties?.Remove("unauthorizedCapabilities"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?>? UnauthorizedCapabilities { get => _explicitNullValueUnauthorizedCapabilities; set { _explicitNullValueUnauthorizedCapabilities = value; AdditionalData?.Remove("unauthorizedCapabilities"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unauthorizedCapabilities"); else _explicitNullProperties?.Remove("unauthorizedCapabilities"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?>? _explicitNullValueUnauthorizedCapabilities = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?> UnauthorizedCapabilities { get => _explicitNullValueUnauthorizedCapabilities; set { _explicitNullValueUnauthorizedCapabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unauthorizedCapabilities"); else _explicitNullProperties?.Remove("unauthorizedCapabilities"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?> UnauthorizedCapabilities { get => _explicitNullValueUnauthorizedCapabilities; set { _explicitNullValueUnauthorizedCapabilities = value; AdditionalData?.Remove("unauthorizedCapabilities"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unauthorizedCapabilities"); else _explicitNullProperties?.Remove("unauthorizedCapabilities"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?> _explicitNullValueUnauthorizedCapabilities = default!;
 #endif
         /// <summary>
@@ -101,7 +106,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
                 { "errorLink", n => { ErrorLink = n.GetStringValue(); } },
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
-                { "errorType", n => { ErrorType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType>(); } },
+                { "errorType", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ErrorType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueErrorType = default; _explicitNullProperties?.Remove("errorType"); AdditionalData["errorType"] = unknown; } else { ErrorType = parsed; AdditionalData.Remove("errorType"); } } },
                 { "unauthorizedCapabilities", n => { UnauthorizedCapabilities = n.GetCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName>()?.AsList(); } },
             };
         }

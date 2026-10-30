@@ -17,8 +17,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("encryptedPrivateKey") is { } nullNodeEncryptedPrivateKey && nullNodeEncryptedPrivateKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedPrivateKey = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("encryptedPrivateKey") is null) { _explicitNullValueEncryptedPrivateKey = default!; _explicitNullProperties?.Remove("encryptedPrivateKey"); }
+            else if (parseNode.GetChildNode("encryptedPrivateKey") is { } nullNodeEncryptedPrivateKey && nullNodeEncryptedPrivateKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedPrivateKey = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The base64-encoded, encrypted 32-byte private key of the Solana account. The private key must be encrypted using the CDP SDK&apos;s encryption scheme.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
+        public string? EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; AdditionalData?.Remove("encryptedPrivateKey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
         private string? _explicitNullValueEncryptedPrivateKey = default!;
 #nullable restore
 #else
-        public string EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
+        public string EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; AdditionalData?.Remove("encryptedPrivateKey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
         private string _explicitNullValueEncryptedPrivateKey = default!;
 #endif
         /// <summary>An optional name for the account.Account names can consist of alphanumeric characters and hyphens, and be between 2 and 36 characters long.Account names must be unique across all EVM accounts in the developer&apos;s CDP Project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>

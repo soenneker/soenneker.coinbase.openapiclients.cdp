@@ -18,10 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blockHash") is { } nullNodeBlockHash && nullNodeBlockHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockHash = null;
-            if (parseNode.GetChildNode("blockNumber") is { } nullNodeBlockNumber && nullNodeBlockNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockNumber = null;
-            if (parseNode.GetChildNode("blockTimestamp") is { } nullNodeBlockTimestamp && nullNodeBlockTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockTimestamp = null;
-            if (parseNode.GetChildNode("observedAt") is { } nullNodeObservedAt && nullNodeObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObservedAt = null;
+            if (parseNode.GetChildNode("blockHash") is null) { _explicitNullValueBlockHash = default!; _explicitNullProperties?.Remove("blockHash"); }
+            else if (parseNode.GetChildNode("blockHash") is { } nullNodeBlockHash && nullNodeBlockHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockHash = null;
+            if (parseNode.GetChildNode("blockNumber") is null) { _explicitNullValueBlockNumber = default!; _explicitNullProperties?.Remove("blockNumber"); }
+            else if (parseNode.GetChildNode("blockNumber") is { } nullNodeBlockNumber && nullNodeBlockNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockNumber = null;
+            if (parseNode.GetChildNode("blockTimestamp") is null) { _explicitNullValueBlockTimestamp = default!; _explicitNullProperties?.Remove("blockTimestamp"); }
+            else if (parseNode.GetChildNode("blockTimestamp") is { } nullNodeBlockTimestamp && nullNodeBlockTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockTimestamp = null;
+            if (parseNode.GetChildNode("observedAt") is null) { _explicitNullValueObservedAt = default!; _explicitNullProperties?.Remove("observedAt"); }
+            else if (parseNode.GetChildNode("observedAt") is { } nullNodeObservedAt && nullNodeObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObservedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,21 +33,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The hash of the block at which the state was observed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlockHash { get => _explicitNullValueBlockHash; set { _explicitNullValueBlockHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockHash"); else _explicitNullProperties?.Remove("blockHash"); } }
+        public string? BlockHash { get => _explicitNullValueBlockHash; set { _explicitNullValueBlockHash = value; AdditionalData?.Remove("blockHash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockHash"); else _explicitNullProperties?.Remove("blockHash"); } }
         private string? _explicitNullValueBlockHash = default!;
 #nullable restore
 #else
-        public string BlockHash { get => _explicitNullValueBlockHash; set { _explicitNullValueBlockHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockHash"); else _explicitNullProperties?.Remove("blockHash"); } }
+        public string BlockHash { get => _explicitNullValueBlockHash; set { _explicitNullValueBlockHash = value; AdditionalData?.Remove("blockHash"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockHash"); else _explicitNullProperties?.Remove("blockHash"); } }
         private string _explicitNullValueBlockHash = default!;
 #endif
         /// <summary>The block number at which the state was observed.</summary>
-        public long? BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockNumber"); else _explicitNullProperties?.Remove("blockNumber"); } }
+        public long? BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; AdditionalData?.Remove("blockNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockNumber"); else _explicitNullProperties?.Remove("blockNumber"); } }
         private long? _explicitNullValueBlockNumber = default!;
         /// <summary>The onchain block timestamp at which the state was observed in Unix seconds.</summary>
-        public long? BlockTimestamp { get => _explicitNullValueBlockTimestamp; set { _explicitNullValueBlockTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockTimestamp"); else _explicitNullProperties?.Remove("blockTimestamp"); } }
+        public long? BlockTimestamp { get => _explicitNullValueBlockTimestamp; set { _explicitNullValueBlockTimestamp = value; AdditionalData?.Remove("blockTimestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockTimestamp"); else _explicitNullProperties?.Remove("blockTimestamp"); } }
         private long? _explicitNullValueBlockTimestamp = default!;
         /// <summary>The timestamp at which the state was observed.</summary>
-        public DateTimeOffset? ObservedAt { get => _explicitNullValueObservedAt; set { _explicitNullValueObservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observedAt"); else _explicitNullProperties?.Remove("observedAt"); } }
+        public DateTimeOffset? ObservedAt { get => _explicitNullValueObservedAt; set { _explicitNullValueObservedAt = value; AdditionalData?.Remove("observedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observedAt"); else _explicitNullProperties?.Remove("observedAt"); } }
         private DateTimeOffset? _explicitNullValueObservedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot"/> and sets the default values.

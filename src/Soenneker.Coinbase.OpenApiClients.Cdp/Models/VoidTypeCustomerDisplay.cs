@@ -18,7 +18,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("referenceCode") is { } nullNodeReferenceCode && nullNodeReferenceCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceCode = null;
+            if (parseNode.GetChildNode("referenceCode") is null) { _explicitNullValueReferenceCode = default!; _explicitNullProperties?.Remove("referenceCode"); }
+            else if (parseNode.GetChildNode("referenceCode") is { } nullNodeReferenceCode && nullNodeReferenceCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceCode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A short customer-facing reference for an operation. It must not contain personally identifiable information (PII) or payment credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReferenceCode { get => _explicitNullValueReferenceCode; set { _explicitNullValueReferenceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCode"); else _explicitNullProperties?.Remove("referenceCode"); } }
+        public string? ReferenceCode { get => _explicitNullValueReferenceCode; set { _explicitNullValueReferenceCode = value; AdditionalData?.Remove("referenceCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCode"); else _explicitNullProperties?.Remove("referenceCode"); } }
         private string? _explicitNullValueReferenceCode = default!;
 #nullable restore
 #else
-        public string ReferenceCode { get => _explicitNullValueReferenceCode; set { _explicitNullValueReferenceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCode"); else _explicitNullProperties?.Remove("referenceCode"); } }
+        public string ReferenceCode { get => _explicitNullValueReferenceCode; set { _explicitNullValueReferenceCode = value; AdditionalData?.Remove("referenceCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCode"); else _explicitNullProperties?.Remove("referenceCode"); } }
         private string _explicitNullValueReferenceCode = default!;
 #endif
         /// <summary>

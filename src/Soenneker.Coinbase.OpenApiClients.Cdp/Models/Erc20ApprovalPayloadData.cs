@@ -18,78 +18,85 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("chainId") is { } nullNodeChainId && nullNodeChainId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChainId = null;
-            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
-            if (parseNode.GetChildNode("gas") is { } nullNodeGas && nullNodeGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gas = null;
-            if (parseNode.GetChildNode("maxFeePerGas") is { } nullNodeMaxFeePerGas && nullNodeMaxFeePerGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFeePerGas = null;
-            if (parseNode.GetChildNode("maxPriorityFeePerGas") is { } nullNodeMaxPriorityFeePerGas && nullNodeMaxPriorityFeePerGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPriorityFeePerGas = null;
-            if (parseNode.GetChildNode("to") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
-            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+            if (parseNode.GetChildNode("chainId") is null) { _explicitNullValueChainId = default!; _explicitNullProperties?.Remove("chainId"); }
+            else if (parseNode.GetChildNode("chainId") is { } nullNodeChainId && nullNodeChainId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChainId = null;
+            if (parseNode.GetChildNode("data") is null) { _explicitNullValueData = default!; _explicitNullProperties?.Remove("data"); }
+            else if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+            if (parseNode.GetChildNode("gas") is null) { _explicitNullValueGas = default!; _explicitNullProperties?.Remove("gas"); }
+            else if (parseNode.GetChildNode("gas") is { } nullNodeGas && nullNodeGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gas = null;
+            if (parseNode.GetChildNode("maxFeePerGas") is null) { _explicitNullValueMaxFeePerGas = default!; _explicitNullProperties?.Remove("maxFeePerGas"); }
+            else if (parseNode.GetChildNode("maxFeePerGas") is { } nullNodeMaxFeePerGas && nullNodeMaxFeePerGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFeePerGas = null;
+            if (parseNode.GetChildNode("maxPriorityFeePerGas") is null) { _explicitNullValueMaxPriorityFeePerGas = default!; _explicitNullProperties?.Remove("maxPriorityFeePerGas"); }
+            else if (parseNode.GetChildNode("maxPriorityFeePerGas") is { } nullNodeMaxPriorityFeePerGas && nullNodeMaxPriorityFeePerGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPriorityFeePerGas = null;
+            if (parseNode.GetChildNode("to") is null) { _explicitNullValueTo = default!; _explicitNullProperties?.Remove("to"); }
+            else if (parseNode.GetChildNode("to") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
+            if (parseNode.GetChildNode("value") is null) { _explicitNullValueValue = default!; _explicitNullProperties?.Remove("value"); }
+            else if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The EVM chain ID for the transaction.</summary>
-        public int? ChainId { get => _explicitNullValueChainId; set { _explicitNullValueChainId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chainId"); else _explicitNullProperties?.Remove("chainId"); } }
+        public int? ChainId { get => _explicitNullValueChainId; set { _explicitNullValueChainId = value; AdditionalData?.Remove("chainId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chainId"); else _explicitNullProperties?.Remove("chainId"); } }
         private int? _explicitNullValueChainId = default!;
         /// <summary>The ABI-encoded `approve()` calldata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        public string? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
         private string? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public string Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        public string Data { get => _explicitNullValueData; set { _explicitNullValueData = value; AdditionalData?.Remove("data"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
         private string _explicitNullValueData = default!;
 #endif
         /// <summary>The estimated gas limit for the transaction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Gas { get => _explicitNullValueGas; set { _explicitNullValueGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gas"); else _explicitNullProperties?.Remove("gas"); } }
+        public string? Gas { get => _explicitNullValueGas; set { _explicitNullValueGas = value; AdditionalData?.Remove("gas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gas"); else _explicitNullProperties?.Remove("gas"); } }
         private string? _explicitNullValueGas = default!;
 #nullable restore
 #else
-        public string Gas { get => _explicitNullValueGas; set { _explicitNullValueGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gas"); else _explicitNullProperties?.Remove("gas"); } }
+        public string Gas { get => _explicitNullValueGas; set { _explicitNullValueGas = value; AdditionalData?.Remove("gas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gas"); else _explicitNullProperties?.Remove("gas"); } }
         private string _explicitNullValueGas = default!;
 #endif
         /// <summary>The maximum fee per gas unit (EIP-1559).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxFeePerGas { get => _explicitNullValueMaxFeePerGas; set { _explicitNullValueMaxFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxFeePerGas"); else _explicitNullProperties?.Remove("maxFeePerGas"); } }
+        public string? MaxFeePerGas { get => _explicitNullValueMaxFeePerGas; set { _explicitNullValueMaxFeePerGas = value; AdditionalData?.Remove("maxFeePerGas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxFeePerGas"); else _explicitNullProperties?.Remove("maxFeePerGas"); } }
         private string? _explicitNullValueMaxFeePerGas = default!;
 #nullable restore
 #else
-        public string MaxFeePerGas { get => _explicitNullValueMaxFeePerGas; set { _explicitNullValueMaxFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxFeePerGas"); else _explicitNullProperties?.Remove("maxFeePerGas"); } }
+        public string MaxFeePerGas { get => _explicitNullValueMaxFeePerGas; set { _explicitNullValueMaxFeePerGas = value; AdditionalData?.Remove("maxFeePerGas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxFeePerGas"); else _explicitNullProperties?.Remove("maxFeePerGas"); } }
         private string _explicitNullValueMaxFeePerGas = default!;
 #endif
         /// <summary>The maximum priority fee per gas unit (EIP-1559).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxPriorityFeePerGas { get => _explicitNullValueMaxPriorityFeePerGas; set { _explicitNullValueMaxPriorityFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPriorityFeePerGas"); else _explicitNullProperties?.Remove("maxPriorityFeePerGas"); } }
+        public string? MaxPriorityFeePerGas { get => _explicitNullValueMaxPriorityFeePerGas; set { _explicitNullValueMaxPriorityFeePerGas = value; AdditionalData?.Remove("maxPriorityFeePerGas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPriorityFeePerGas"); else _explicitNullProperties?.Remove("maxPriorityFeePerGas"); } }
         private string? _explicitNullValueMaxPriorityFeePerGas = default!;
 #nullable restore
 #else
-        public string MaxPriorityFeePerGas { get => _explicitNullValueMaxPriorityFeePerGas; set { _explicitNullValueMaxPriorityFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPriorityFeePerGas"); else _explicitNullProperties?.Remove("maxPriorityFeePerGas"); } }
+        public string MaxPriorityFeePerGas { get => _explicitNullValueMaxPriorityFeePerGas; set { _explicitNullValueMaxPriorityFeePerGas = value; AdditionalData?.Remove("maxPriorityFeePerGas"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPriorityFeePerGas"); else _explicitNullProperties?.Remove("maxPriorityFeePerGas"); } }
         private string _explicitNullValueMaxPriorityFeePerGas = default!;
 #endif
         /// <summary>The 0x-prefixed address of the ERC-20 token contract to approve.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        public string? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; AdditionalData?.Remove("to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
         private string? _explicitNullValueTo = default!;
 #nullable restore
 #else
-        public string To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        public string To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; AdditionalData?.Remove("to"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
         private string _explicitNullValueTo = default!;
 #endif
         /// <summary>The native token value to send (always `&quot;0&quot;` for approvals).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public string? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private string? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public string Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        public string Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; AdditionalData?.Remove("value"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
         private string _explicitNullValueValue = default!;
 #endif
         /// <summary>

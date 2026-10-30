@@ -17,8 +17,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("currentAllowance") is { } nullNodeCurrentAllowance && nullNodeCurrentAllowance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentAllowance = null;
-            if (parseNode.GetChildNode("spender") is { } nullNodeSpender && nullNodeSpender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spender = null;
+            if (parseNode.GetChildNode("currentAllowance") is null) { _explicitNullValueCurrentAllowance = default!; _explicitNullProperties?.Remove("currentAllowance"); }
+            else if (parseNode.GetChildNode("currentAllowance") is { } nullNodeCurrentAllowance && nullNodeCurrentAllowance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentAllowance = null;
+            if (parseNode.GetChildNode("spender") is null) { _explicitNullValueSpender = default!; _explicitNullProperties?.Remove("spender"); }
+            else if (parseNode.GetChildNode("spender") is { } nullNodeSpender && nullNodeSpender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spender = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The current allowance of the `fromToken` by the `taker`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentAllowance { get => _explicitNullValueCurrentAllowance; set { _explicitNullValueCurrentAllowance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currentAllowance"); else _explicitNullProperties?.Remove("currentAllowance"); } }
+        public string? CurrentAllowance { get => _explicitNullValueCurrentAllowance; set { _explicitNullValueCurrentAllowance = value; AdditionalData?.Remove("currentAllowance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currentAllowance"); else _explicitNullProperties?.Remove("currentAllowance"); } }
         private string? _explicitNullValueCurrentAllowance = default!;
 #nullable restore
 #else
-        public string CurrentAllowance { get => _explicitNullValueCurrentAllowance; set { _explicitNullValueCurrentAllowance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currentAllowance"); else _explicitNullProperties?.Remove("currentAllowance"); } }
+        public string CurrentAllowance { get => _explicitNullValueCurrentAllowance; set { _explicitNullValueCurrentAllowance = value; AdditionalData?.Remove("currentAllowance"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currentAllowance"); else _explicitNullProperties?.Remove("currentAllowance"); } }
         private string _explicitNullValueCurrentAllowance = default!;
 #endif
         /// <summary>The 0x-prefixed address of to set the allowance on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Spender { get => _explicitNullValueSpender; set { _explicitNullValueSpender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spender"); else _explicitNullProperties?.Remove("spender"); } }
+        public string? Spender { get => _explicitNullValueSpender; set { _explicitNullValueSpender = value; AdditionalData?.Remove("spender"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spender"); else _explicitNullProperties?.Remove("spender"); } }
         private string? _explicitNullValueSpender = default!;
 #nullable restore
 #else
-        public string Spender { get => _explicitNullValueSpender; set { _explicitNullValueSpender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spender"); else _explicitNullProperties?.Remove("spender"); } }
+        public string Spender { get => _explicitNullValueSpender; set { _explicitNullValueSpender = value; AdditionalData?.Remove("spender"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spender"); else _explicitNullProperties?.Remove("spender"); } }
         private string _explicitNullValueSpender = default!;
 #endif
         /// <summary>

@@ -18,21 +18,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accountNumber") is { } nullNodeAccountNumber && nullNodeAccountNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountNumber = null;
-            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
-            if (parseNode.GetChildNode("omad") is { } nullNodeOmad && nullNodeOmad.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Omad = null;
-            if (parseNode.GetChildNode("originatorName") is { } nullNodeOriginatorName && nullNodeOriginatorName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginatorName = null;
-            if (parseNode.GetChildNode("originatorToBeneficiary") is { } nullNodeOriginatorToBeneficiary && nullNodeOriginatorToBeneficiary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginatorToBeneficiary = null;
+            if (parseNode.GetChildNode("accountNumber") is null) { _explicitNullValueAccountNumber = default!; _explicitNullProperties?.Remove("accountNumber"); }
+            else if (parseNode.GetChildNode("accountNumber") is { } nullNodeAccountNumber && nullNodeAccountNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountNumber = null;
+            if (parseNode.GetChildNode("currency") is null) { _explicitNullValueCurrency = default!; _explicitNullProperties?.Remove("currency"); }
+            else if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("omad") is null) { _explicitNullValueOmad = default!; _explicitNullProperties?.Remove("omad"); }
+            else if (parseNode.GetChildNode("omad") is { } nullNodeOmad && nullNodeOmad.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Omad = null;
+            if (parseNode.GetChildNode("originatorName") is null) { _explicitNullValueOriginatorName = default!; _explicitNullProperties?.Remove("originatorName"); }
+            else if (parseNode.GetChildNode("originatorName") is { } nullNodeOriginatorName && nullNodeOriginatorName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginatorName = null;
+            if (parseNode.GetChildNode("originatorToBeneficiary") is null) { _explicitNullValueOriginatorToBeneficiary = default!; _explicitNullProperties?.Remove("originatorToBeneficiary"); }
+            else if (parseNode.GetChildNode("originatorToBeneficiary") is { } nullNodeOriginatorToBeneficiary && nullNodeOriginatorToBeneficiary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OriginatorToBeneficiary = null;
         }
 
         /// <summary>The originator&apos;s bank account number. Masked on webhook payloads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountNumber { get => _explicitNullValueAccountNumber; set { _explicitNullValueAccountNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountNumber"); else _explicitNullProperties?.Remove("accountNumber"); } }
+        public string? AccountNumber { get => _explicitNullValueAccountNumber; set { _explicitNullValueAccountNumber = value; AdditionalData?.Remove("accountNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountNumber"); else _explicitNullProperties?.Remove("accountNumber"); } }
         private string? _explicitNullValueAccountNumber = default!;
 #nullable restore
 #else
-        public string AccountNumber { get => _explicitNullValueAccountNumber; set { _explicitNullValueAccountNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountNumber"); else _explicitNullProperties?.Remove("accountNumber"); } }
+        public string AccountNumber { get => _explicitNullValueAccountNumber; set { _explicitNullValueAccountNumber = value; AdditionalData?.Remove("accountNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountNumber"); else _explicitNullProperties?.Remove("accountNumber"); } }
         private string _explicitNullValueAccountNumber = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -40,41 +45,41 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        public string? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
         private string? _explicitNullValueCurrency = default!;
 #nullable restore
 #else
-        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        public string Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
         private string _explicitNullValueCurrency = default!;
 #endif
         /// <summary>The Output Message Accountability Data (OMAD), a unique identifier assigned by the Fedwire network to the wire transfer message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Omad { get => _explicitNullValueOmad; set { _explicitNullValueOmad = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("omad"); else _explicitNullProperties?.Remove("omad"); } }
+        public string? Omad { get => _explicitNullValueOmad; set { _explicitNullValueOmad = value; AdditionalData?.Remove("omad"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("omad"); else _explicitNullProperties?.Remove("omad"); } }
         private string? _explicitNullValueOmad = default!;
 #nullable restore
 #else
-        public string Omad { get => _explicitNullValueOmad; set { _explicitNullValueOmad = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("omad"); else _explicitNullProperties?.Remove("omad"); } }
+        public string Omad { get => _explicitNullValueOmad; set { _explicitNullValueOmad = value; AdditionalData?.Remove("omad"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("omad"); else _explicitNullProperties?.Remove("omad"); } }
         private string _explicitNullValueOmad = default!;
 #endif
         /// <summary>The name of the originator. Masked on webhook payloads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OriginatorName { get => _explicitNullValueOriginatorName; set { _explicitNullValueOriginatorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originatorName"); else _explicitNullProperties?.Remove("originatorName"); } }
+        public string? OriginatorName { get => _explicitNullValueOriginatorName; set { _explicitNullValueOriginatorName = value; AdditionalData?.Remove("originatorName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originatorName"); else _explicitNullProperties?.Remove("originatorName"); } }
         private string? _explicitNullValueOriginatorName = default!;
 #nullable restore
 #else
-        public string OriginatorName { get => _explicitNullValueOriginatorName; set { _explicitNullValueOriginatorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originatorName"); else _explicitNullProperties?.Remove("originatorName"); } }
+        public string OriginatorName { get => _explicitNullValueOriginatorName; set { _explicitNullValueOriginatorName = value; AdditionalData?.Remove("originatorName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originatorName"); else _explicitNullProperties?.Remove("originatorName"); } }
         private string _explicitNullValueOriginatorName = default!;
 #endif
         /// <summary>The Originator to Beneficiary Information (OBI) lines from the Fedwire message. Up to 4 lines, each up to 35 characters. Free-form and may contain identifying information about the originator. Masked on webhook payloads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? OriginatorToBeneficiary { get => _explicitNullValueOriginatorToBeneficiary; set { _explicitNullValueOriginatorToBeneficiary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originatorToBeneficiary"); else _explicitNullProperties?.Remove("originatorToBeneficiary"); } }
+        public List<string>? OriginatorToBeneficiary { get => _explicitNullValueOriginatorToBeneficiary; set { _explicitNullValueOriginatorToBeneficiary = value; AdditionalData?.Remove("originatorToBeneficiary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originatorToBeneficiary"); else _explicitNullProperties?.Remove("originatorToBeneficiary"); } }
         private List<string>? _explicitNullValueOriginatorToBeneficiary = default!;
 #nullable restore
 #else
-        public List<string> OriginatorToBeneficiary { get => _explicitNullValueOriginatorToBeneficiary; set { _explicitNullValueOriginatorToBeneficiary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originatorToBeneficiary"); else _explicitNullProperties?.Remove("originatorToBeneficiary"); } }
+        public List<string> OriginatorToBeneficiary { get => _explicitNullValueOriginatorToBeneficiary; set { _explicitNullValueOriginatorToBeneficiary = value; AdditionalData?.Remove("originatorToBeneficiary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originatorToBeneficiary"); else _explicitNullProperties?.Remove("originatorToBeneficiary"); } }
         private List<string> _explicitNullValueOriginatorToBeneficiary = default!;
 #endif
         /// <summary>

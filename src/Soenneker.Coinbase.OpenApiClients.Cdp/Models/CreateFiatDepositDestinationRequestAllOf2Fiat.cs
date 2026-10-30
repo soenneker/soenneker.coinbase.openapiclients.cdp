@@ -18,17 +18,19 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
-            if (parseNode.GetChildNode("paymentRail") is { } nullNodePaymentRail && nullNodePaymentRail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRail = null;
+            if (parseNode.GetChildNode("currency") is null) { _explicitNullValueCurrency = default!; _explicitNullProperties?.Remove("currency"); }
+            else if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("paymentRail") is null) { _explicitNullValuePaymentRail = default!; _explicitNullProperties?.Remove("paymentRail"); }
+            else if (parseNode.GetChildNode("paymentRail") is { } nullNodePaymentRail && nullNodePaymentRail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRail = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fiat currency for the deposit destination.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; AdditionalData?.Remove("currency"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? _explicitNullValueCurrency = default!;
         /// <summary>A payment rail supported by a fiat deposit destination.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail? PaymentRail { get => _explicitNullValuePaymentRail; set { _explicitNullValuePaymentRail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRail"); else _explicitNullProperties?.Remove("paymentRail"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail? PaymentRail { get => _explicitNullValuePaymentRail; set { _explicitNullValuePaymentRail = value; AdditionalData?.Remove("paymentRail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRail"); else _explicitNullProperties?.Remove("paymentRail"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail? _explicitNullValuePaymentRail = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat"/> and sets the default values.
@@ -55,8 +57,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency>(); } },
-                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail>(); } },
+                { "currency", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCurrency = default; _explicitNullProperties?.Remove("currency"); AdditionalData["currency"] = unknown; } else { Currency = parsed; AdditionalData.Remove("currency"); } } },
+                { "paymentRail", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePaymentRail = default; _explicitNullProperties?.Remove("paymentRail"); AdditionalData["paymentRail"] = unknown; } else { PaymentRail = parsed; AdditionalData.Remove("paymentRail"); } } },
             };
         }
         /// <summary>

@@ -18,9 +18,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
-            if (parseNode.GetChildNode("toppedUpAmount") is { } nullNodeToppedUpAmount && nullNodeToppedUpAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToppedUpAmount = null;
-            if (parseNode.GetChildNode("topUpLinkId") is { } nullNodeTopUpLinkId && nullNodeTopUpLinkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpLinkId = null;
+            if (parseNode.GetChildNode("asset") is null) { _explicitNullValueAsset = default!; _explicitNullProperties?.Remove("asset"); }
+            else if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("toppedUpAmount") is null) { _explicitNullValueToppedUpAmount = default!; _explicitNullProperties?.Remove("toppedUpAmount"); }
+            else if (parseNode.GetChildNode("toppedUpAmount") is { } nullNodeToppedUpAmount && nullNodeToppedUpAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToppedUpAmount = null;
+            if (parseNode.GetChildNode("topUpLinkId") is null) { _explicitNullValueTopUpLinkId = default!; _explicitNullProperties?.Remove("topUpLinkId"); }
+            else if (parseNode.GetChildNode("topUpLinkId") is { } nullNodeTopUpLinkId && nullNodeTopUpLinkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpLinkId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The asset credited by this purchase. Currently, only `usdc` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; AdditionalData?.Remove("asset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
         private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; AdditionalData?.Remove("asset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
         private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>The actual net amount credited by this purchase, denominated in `asset`. Never cumulative and independent of the link&apos;s suggested amounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount? ToppedUpAmount { get => _explicitNullValueToppedUpAmount; set { _explicitNullValueToppedUpAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toppedUpAmount"); else _explicitNullProperties?.Remove("toppedUpAmount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount? ToppedUpAmount { get => _explicitNullValueToppedUpAmount; set { _explicitNullValueToppedUpAmount = value; AdditionalData?.Remove("toppedUpAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toppedUpAmount"); else _explicitNullProperties?.Remove("toppedUpAmount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount? _explicitNullValueToppedUpAmount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount ToppedUpAmount { get => _explicitNullValueToppedUpAmount; set { _explicitNullValueToppedUpAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toppedUpAmount"); else _explicitNullProperties?.Remove("toppedUpAmount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount ToppedUpAmount { get => _explicitNullValueToppedUpAmount; set { _explicitNullValueToppedUpAmount = value; AdditionalData?.Remove("toppedUpAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toppedUpAmount"); else _explicitNullProperties?.Remove("toppedUpAmount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount _explicitNullValueToppedUpAmount = default!;
 #endif
         /// <summary>The ID of the Top-Up Link, a UUID prefixed by `topUpLink_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TopUpLinkId { get => _explicitNullValueTopUpLinkId; set { _explicitNullValueTopUpLinkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLinkId"); else _explicitNullProperties?.Remove("topUpLinkId"); } }
+        public string? TopUpLinkId { get => _explicitNullValueTopUpLinkId; set { _explicitNullValueTopUpLinkId = value; AdditionalData?.Remove("topUpLinkId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLinkId"); else _explicitNullProperties?.Remove("topUpLinkId"); } }
         private string? _explicitNullValueTopUpLinkId = default!;
 #nullable restore
 #else
-        public string TopUpLinkId { get => _explicitNullValueTopUpLinkId; set { _explicitNullValueTopUpLinkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLinkId"); else _explicitNullProperties?.Remove("topUpLinkId"); } }
+        public string TopUpLinkId { get => _explicitNullValueTopUpLinkId; set { _explicitNullValueTopUpLinkId = value; AdditionalData?.Remove("topUpLinkId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLinkId"); else _explicitNullProperties?.Remove("topUpLinkId"); } }
         private string _explicitNullValueTopUpLinkId = default!;
 #endif
         /// <summary>

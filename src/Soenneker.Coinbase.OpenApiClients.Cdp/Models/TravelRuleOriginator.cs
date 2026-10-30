@@ -18,12 +18,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
-            if (parseNode.GetChildNode("dateOfBirth") is { } nullNodeDateOfBirth && nullNodeDateOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateOfBirth = null;
-            if (parseNode.GetChildNode("financialInstitution") is { } nullNodeFinancialInstitution && nullNodeFinancialInstitution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinancialInstitution = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("personalId") is { } nullNodePersonalId && nullNodePersonalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PersonalId = null;
-            if (parseNode.GetChildNode("virtualAssetServiceProvider") is { } nullNodeVirtualAssetServiceProvider && nullNodeVirtualAssetServiceProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VirtualAssetServiceProvider = null;
+            if (parseNode.GetChildNode("address") is null) { _explicitNullValueAddress = default!; _explicitNullProperties?.Remove("address"); }
+            else if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("dateOfBirth") is null) { _explicitNullValueDateOfBirth = default!; _explicitNullProperties?.Remove("dateOfBirth"); }
+            else if (parseNode.GetChildNode("dateOfBirth") is { } nullNodeDateOfBirth && nullNodeDateOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateOfBirth = null;
+            if (parseNode.GetChildNode("financialInstitution") is null) { _explicitNullValueFinancialInstitution = default!; _explicitNullProperties?.Remove("financialInstitution"); }
+            else if (parseNode.GetChildNode("financialInstitution") is { } nullNodeFinancialInstitution && nullNodeFinancialInstitution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinancialInstitution = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("personalId") is null) { _explicitNullValuePersonalId = default!; _explicitNullProperties?.Remove("personalId"); }
+            else if (parseNode.GetChildNode("personalId") is { } nullNodePersonalId && nullNodePersonalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PersonalId = null;
+            if (parseNode.GetChildNode("virtualAssetServiceProvider") is null) { _explicitNullValueVirtualAssetServiceProvider = default!; _explicitNullProperties?.Remove("virtualAssetServiceProvider"); }
+            else if (parseNode.GetChildNode("virtualAssetServiceProvider") is { } nullNodeVirtualAssetServiceProvider && nullNodeVirtualAssetServiceProvider.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VirtualAssetServiceProvider = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,61 +37,61 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A physical address with standard address components including street, city, state/province, postal code, and country.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; AdditionalData?.Remove("address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; AdditionalData?.Remove("address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress _explicitNullValueAddress = default!;
 #endif
         /// <summary>Date of birth of the originator. Required by certain jurisdictions (such as Coinbase Luxembourg) to satisfy Travel Rule reporting obligations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth? DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth? DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; AdditionalData?.Remove("dateOfBirth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth? _explicitNullValueDateOfBirth = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; AdditionalData?.Remove("dateOfBirth"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2DateOfBirth _explicitNullValueDateOfBirth = default!;
 #endif
         /// <summary>Name of the financial institution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FinancialInstitution { get => _explicitNullValueFinancialInstitution; set { _explicitNullValueFinancialInstitution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financialInstitution"); else _explicitNullProperties?.Remove("financialInstitution"); } }
+        public string? FinancialInstitution { get => _explicitNullValueFinancialInstitution; set { _explicitNullValueFinancialInstitution = value; AdditionalData?.Remove("financialInstitution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financialInstitution"); else _explicitNullProperties?.Remove("financialInstitution"); } }
         private string? _explicitNullValueFinancialInstitution = default!;
 #nullable restore
 #else
-        public string FinancialInstitution { get => _explicitNullValueFinancialInstitution; set { _explicitNullValueFinancialInstitution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financialInstitution"); else _explicitNullProperties?.Remove("financialInstitution"); } }
+        public string FinancialInstitution { get => _explicitNullValueFinancialInstitution; set { _explicitNullValueFinancialInstitution = value; AdditionalData?.Remove("financialInstitution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financialInstitution"); else _explicitNullProperties?.Remove("financialInstitution"); } }
         private string _explicitNullValueFinancialInstitution = default!;
 #endif
         /// <summary>Full name of the party.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>Personal identifier for travel rule compliance. For individuals: passport number, national ID, or driver&apos;s license. For institutions: LEI (Legal Entity Identifier).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PersonalId { get => _explicitNullValuePersonalId; set { _explicitNullValuePersonalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalId"); else _explicitNullProperties?.Remove("personalId"); } }
+        public string? PersonalId { get => _explicitNullValuePersonalId; set { _explicitNullValuePersonalId = value; AdditionalData?.Remove("personalId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalId"); else _explicitNullProperties?.Remove("personalId"); } }
         private string? _explicitNullValuePersonalId = default!;
 #nullable restore
 #else
-        public string PersonalId { get => _explicitNullValuePersonalId; set { _explicitNullValuePersonalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalId"); else _explicitNullProperties?.Remove("personalId"); } }
+        public string PersonalId { get => _explicitNullValuePersonalId; set { _explicitNullValuePersonalId = value; AdditionalData?.Remove("personalId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("personalId"); else _explicitNullProperties?.Remove("personalId"); } }
         private string _explicitNullValuePersonalId = default!;
 #endif
         /// <summary>Information about the originating Virtual Asset Service Provider (VASP) that handles cryptocurrency or other virtual assets on behalf of customers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider? VirtualAssetServiceProvider { get => _explicitNullValueVirtualAssetServiceProvider; set { _explicitNullValueVirtualAssetServiceProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("virtualAssetServiceProvider"); else _explicitNullProperties?.Remove("virtualAssetServiceProvider"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider? VirtualAssetServiceProvider { get => _explicitNullValueVirtualAssetServiceProvider; set { _explicitNullValueVirtualAssetServiceProvider = value; AdditionalData?.Remove("virtualAssetServiceProvider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("virtualAssetServiceProvider"); else _explicitNullProperties?.Remove("virtualAssetServiceProvider"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider? _explicitNullValueVirtualAssetServiceProvider = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider VirtualAssetServiceProvider { get => _explicitNullValueVirtualAssetServiceProvider; set { _explicitNullValueVirtualAssetServiceProvider = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("virtualAssetServiceProvider"); else _explicitNullProperties?.Remove("virtualAssetServiceProvider"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider VirtualAssetServiceProvider { get => _explicitNullValueVirtualAssetServiceProvider; set { _explicitNullValueVirtualAssetServiceProvider = value; AdditionalData?.Remove("virtualAssetServiceProvider"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("virtualAssetServiceProvider"); else _explicitNullProperties?.Remove("virtualAssetServiceProvider"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleOriginatorAllOf2VirtualAssetServiceProvider _explicitNullValueVirtualAssetServiceProvider = default!;
 #endif
         /// <summary>

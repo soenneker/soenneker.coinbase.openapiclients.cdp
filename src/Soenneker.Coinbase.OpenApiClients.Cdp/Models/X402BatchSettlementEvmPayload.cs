@@ -18,17 +18,28 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("amount") is { } nullNodeAmount && nullNodeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Amount = null;
-            if (parseNode.GetChildNode("channelConfig") is { } nullNodeChannelConfig && nullNodeChannelConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelConfig = null;
-            if (parseNode.GetChildNode("claimAuthorizerSignature") is { } nullNodeClaimAuthorizerSignature && nullNodeClaimAuthorizerSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimAuthorizerSignature = null;
-            if (parseNode.GetChildNode("claims") is { } nullNodeClaims && nullNodeClaims.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Claims = null;
-            if (parseNode.GetChildNode("deposit") is { } nullNodeDeposit && nullNodeDeposit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deposit = null;
-            if (parseNode.GetChildNode("receiver") is { } nullNodeReceiver && nullNodeReceiver.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Receiver = null;
-            if (parseNode.GetChildNode("refundAuthorizerSignature") is { } nullNodeRefundAuthorizerSignature && nullNodeRefundAuthorizerSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefundAuthorizerSignature = null;
-            if (parseNode.GetChildNode("refundNonce") is { } nullNodeRefundNonce && nullNodeRefundNonce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefundNonce = null;
-            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("voucher") is { } nullNodeVoucher && nullNodeVoucher.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voucher = null;
+            if (parseNode.GetChildNode("amount") is null) { _explicitNullValueAmount = default!; _explicitNullProperties?.Remove("amount"); }
+            else if (parseNode.GetChildNode("amount") is { } nullNodeAmount && nullNodeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Amount = null;
+            if (parseNode.GetChildNode("channelConfig") is null) { _explicitNullValueChannelConfig = default!; _explicitNullProperties?.Remove("channelConfig"); }
+            else if (parseNode.GetChildNode("channelConfig") is { } nullNodeChannelConfig && nullNodeChannelConfig.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChannelConfig = null;
+            if (parseNode.GetChildNode("claimAuthorizerSignature") is null) { _explicitNullValueClaimAuthorizerSignature = default!; _explicitNullProperties?.Remove("claimAuthorizerSignature"); }
+            else if (parseNode.GetChildNode("claimAuthorizerSignature") is { } nullNodeClaimAuthorizerSignature && nullNodeClaimAuthorizerSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClaimAuthorizerSignature = null;
+            if (parseNode.GetChildNode("claims") is null) { _explicitNullValueClaims = default!; _explicitNullProperties?.Remove("claims"); }
+            else if (parseNode.GetChildNode("claims") is { } nullNodeClaims && nullNodeClaims.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Claims = null;
+            if (parseNode.GetChildNode("deposit") is null) { _explicitNullValueDeposit = default!; _explicitNullProperties?.Remove("deposit"); }
+            else if (parseNode.GetChildNode("deposit") is { } nullNodeDeposit && nullNodeDeposit.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deposit = null;
+            if (parseNode.GetChildNode("receiver") is null) { _explicitNullValueReceiver = default!; _explicitNullProperties?.Remove("receiver"); }
+            else if (parseNode.GetChildNode("receiver") is { } nullNodeReceiver && nullNodeReceiver.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Receiver = null;
+            if (parseNode.GetChildNode("refundAuthorizerSignature") is null) { _explicitNullValueRefundAuthorizerSignature = default!; _explicitNullProperties?.Remove("refundAuthorizerSignature"); }
+            else if (parseNode.GetChildNode("refundAuthorizerSignature") is { } nullNodeRefundAuthorizerSignature && nullNodeRefundAuthorizerSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefundAuthorizerSignature = null;
+            if (parseNode.GetChildNode("refundNonce") is null) { _explicitNullValueRefundNonce = default!; _explicitNullProperties?.Remove("refundNonce"); }
+            else if (parseNode.GetChildNode("refundNonce") is { } nullNodeRefundNonce && nullNodeRefundNonce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefundNonce = null;
+            if (parseNode.GetChildNode("token") is null) { _explicitNullValueToken = default!; _explicitNullProperties?.Remove("token"); }
+            else if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("voucher") is null) { _explicitNullValueVoucher = default!; _explicitNullProperties?.Remove("voucher"); }
+            else if (parseNode.GetChildNode("voucher") is { } nullNodeVoucher && nullNodeVoucher.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Voucher = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -36,106 +47,106 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The refund amount in atomic units of `channelConfig.token`. Optional in the client-emitted shape (defaults to the full remaining channel balance). Required when the payload is enriched by a mediating server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        public string? Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; AdditionalData?.Remove("amount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
         private string? _explicitNullValueAmount = default!;
 #nullable restore
 #else
-        public string Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        public string Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; AdditionalData?.Remove("amount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
         private string _explicitNullValueAmount = default!;
 #endif
         /// <summary>Immutable configuration for an x402 batch-settlement payment channel. The EIP-712 hash of this struct produces the `channelId` used by all batch-settlement payloads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? ChannelConfig { get => _explicitNullValueChannelConfig; set { _explicitNullValueChannelConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channelConfig"); else _explicitNullProperties?.Remove("channelConfig"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? ChannelConfig { get => _explicitNullValueChannelConfig; set { _explicitNullValueChannelConfig = value; AdditionalData?.Remove("channelConfig"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channelConfig"); else _explicitNullProperties?.Remove("channelConfig"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? _explicitNullValueChannelConfig = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig ChannelConfig { get => _explicitNullValueChannelConfig; set { _explicitNullValueChannelConfig = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channelConfig"); else _explicitNullProperties?.Remove("channelConfig"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig ChannelConfig { get => _explicitNullValueChannelConfig; set { _explicitNullValueChannelConfig = value; AdditionalData?.Remove("channelConfig"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channelConfig"); else _explicitNullProperties?.Remove("channelConfig"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig _explicitNullValueChannelConfig = default!;
 #endif
         /// <summary>Optional EIP-712 signature from the receiver authorizer over the included claims. When omitted, the facilitator auto-signs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClaimAuthorizerSignature { get => _explicitNullValueClaimAuthorizerSignature; set { _explicitNullValueClaimAuthorizerSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimAuthorizerSignature"); else _explicitNullProperties?.Remove("claimAuthorizerSignature"); } }
+        public string? ClaimAuthorizerSignature { get => _explicitNullValueClaimAuthorizerSignature; set { _explicitNullValueClaimAuthorizerSignature = value; AdditionalData?.Remove("claimAuthorizerSignature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimAuthorizerSignature"); else _explicitNullProperties?.Remove("claimAuthorizerSignature"); } }
         private string? _explicitNullValueClaimAuthorizerSignature = default!;
 #nullable restore
 #else
-        public string ClaimAuthorizerSignature { get => _explicitNullValueClaimAuthorizerSignature; set { _explicitNullValueClaimAuthorizerSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimAuthorizerSignature"); else _explicitNullProperties?.Remove("claimAuthorizerSignature"); } }
+        public string ClaimAuthorizerSignature { get => _explicitNullValueClaimAuthorizerSignature; set { _explicitNullValueClaimAuthorizerSignature = value; AdditionalData?.Remove("claimAuthorizerSignature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claimAuthorizerSignature"); else _explicitNullProperties?.Remove("claimAuthorizerSignature"); } }
         private string _explicitNullValueClaimAuthorizerSignature = default!;
 #endif
         /// <summary>Voucher claims to include atomically with the refund. Only present on the server-enriched shape.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaim>? Claims { get => _explicitNullValueClaims; set { _explicitNullValueClaims = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claims"); else _explicitNullProperties?.Remove("claims"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaim>? Claims { get => _explicitNullValueClaims; set { _explicitNullValueClaims = value; AdditionalData?.Remove("claims"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claims"); else _explicitNullProperties?.Remove("claims"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaim>? _explicitNullValueClaims = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaim> Claims { get => _explicitNullValueClaims; set { _explicitNullValueClaims = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claims"); else _explicitNullProperties?.Remove("claims"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaim> Claims { get => _explicitNullValueClaims; set { _explicitNullValueClaims = value; AdditionalData?.Remove("claims"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("claims"); else _explicitNullProperties?.Remove("claims"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaim> _explicitNullValueClaims = default!;
 #endif
         /// <summary>The deposit amount and asset-transfer authorization that funds the channel.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDeposit? Deposit { get => _explicitNullValueDeposit; set { _explicitNullValueDeposit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deposit"); else _explicitNullProperties?.Remove("deposit"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDeposit? Deposit { get => _explicitNullValueDeposit; set { _explicitNullValueDeposit = value; AdditionalData?.Remove("deposit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deposit"); else _explicitNullProperties?.Remove("deposit"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDeposit? _explicitNullValueDeposit = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDeposit Deposit { get => _explicitNullValueDeposit; set { _explicitNullValueDeposit = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deposit"); else _explicitNullProperties?.Remove("deposit"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDeposit Deposit { get => _explicitNullValueDeposit; set { _explicitNullValueDeposit = value; AdditionalData?.Remove("deposit"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deposit"); else _explicitNullProperties?.Remove("deposit"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDeposit _explicitNullValueDeposit = default!;
 #endif
         /// <summary>The 0x-prefixed, checksum EVM address of the receiver to settle to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Receiver { get => _explicitNullValueReceiver; set { _explicitNullValueReceiver = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiver"); else _explicitNullProperties?.Remove("receiver"); } }
+        public string? Receiver { get => _explicitNullValueReceiver; set { _explicitNullValueReceiver = value; AdditionalData?.Remove("receiver"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiver"); else _explicitNullProperties?.Remove("receiver"); } }
         private string? _explicitNullValueReceiver = default!;
 #nullable restore
 #else
-        public string Receiver { get => _explicitNullValueReceiver; set { _explicitNullValueReceiver = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiver"); else _explicitNullProperties?.Remove("receiver"); } }
+        public string Receiver { get => _explicitNullValueReceiver; set { _explicitNullValueReceiver = value; AdditionalData?.Remove("receiver"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiver"); else _explicitNullProperties?.Remove("receiver"); } }
         private string _explicitNullValueReceiver = default!;
 #endif
         /// <summary>Optional EIP-712 signature from the receiver authorizer over the refund. When omitted, the facilitator auto-signs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefundAuthorizerSignature { get => _explicitNullValueRefundAuthorizerSignature; set { _explicitNullValueRefundAuthorizerSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundAuthorizerSignature"); else _explicitNullProperties?.Remove("refundAuthorizerSignature"); } }
+        public string? RefundAuthorizerSignature { get => _explicitNullValueRefundAuthorizerSignature; set { _explicitNullValueRefundAuthorizerSignature = value; AdditionalData?.Remove("refundAuthorizerSignature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundAuthorizerSignature"); else _explicitNullProperties?.Remove("refundAuthorizerSignature"); } }
         private string? _explicitNullValueRefundAuthorizerSignature = default!;
 #nullable restore
 #else
-        public string RefundAuthorizerSignature { get => _explicitNullValueRefundAuthorizerSignature; set { _explicitNullValueRefundAuthorizerSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundAuthorizerSignature"); else _explicitNullProperties?.Remove("refundAuthorizerSignature"); } }
+        public string RefundAuthorizerSignature { get => _explicitNullValueRefundAuthorizerSignature; set { _explicitNullValueRefundAuthorizerSignature = value; AdditionalData?.Remove("refundAuthorizerSignature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundAuthorizerSignature"); else _explicitNullProperties?.Remove("refundAuthorizerSignature"); } }
         private string _explicitNullValueRefundAuthorizerSignature = default!;
 #endif
         /// <summary>The on-chain refund nonce for replay protection (uint256 as decimal string). Only present on the server-enriched shape.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RefundNonce { get => _explicitNullValueRefundNonce; set { _explicitNullValueRefundNonce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundNonce"); else _explicitNullProperties?.Remove("refundNonce"); } }
+        public string? RefundNonce { get => _explicitNullValueRefundNonce; set { _explicitNullValueRefundNonce = value; AdditionalData?.Remove("refundNonce"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundNonce"); else _explicitNullProperties?.Remove("refundNonce"); } }
         private string? _explicitNullValueRefundNonce = default!;
 #nullable restore
 #else
-        public string RefundNonce { get => _explicitNullValueRefundNonce; set { _explicitNullValueRefundNonce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundNonce"); else _explicitNullProperties?.Remove("refundNonce"); } }
+        public string RefundNonce { get => _explicitNullValueRefundNonce; set { _explicitNullValueRefundNonce = value; AdditionalData?.Remove("refundNonce"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundNonce"); else _explicitNullProperties?.Remove("refundNonce"); } }
         private string _explicitNullValueRefundNonce = default!;
 #endif
         /// <summary>The 0x-prefixed, checksum EVM address of the token to settle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        public string? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; AdditionalData?.Remove("token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
         private string? _explicitNullValueToken = default!;
 #nullable restore
 #else
-        public string Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        public string Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; AdditionalData?.Remove("token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
         private string _explicitNullValueToken = default!;
 #endif
         /// <summary>The payload-type discriminator. Must be `&quot;deposit&quot;` for a channel-funding deposit payload.</summary>
 #nullable enable
-        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public string? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private string? _explicitNullValueType = default!;
 #nullable restore
         /// <summary>A signed cumulative-ceiling voucher for an x402 batch-settlement channel. `maxClaimableAmount` is monotonically increasing across requests in the same channel; the receiver may claim any amount up to this ceiling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher? Voucher { get => _explicitNullValueVoucher; set { _explicitNullValueVoucher = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voucher"); else _explicitNullProperties?.Remove("voucher"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher? Voucher { get => _explicitNullValueVoucher; set { _explicitNullValueVoucher = value; AdditionalData?.Remove("voucher"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voucher"); else _explicitNullProperties?.Remove("voucher"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher? _explicitNullValueVoucher = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher Voucher { get => _explicitNullValueVoucher; set { _explicitNullValueVoucher = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voucher"); else _explicitNullProperties?.Remove("voucher"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher Voucher { get => _explicitNullValueVoucher; set { _explicitNullValueVoucher = value; AdditionalData?.Remove("voucher"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("voucher"); else _explicitNullProperties?.Remove("voucher"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementVoucher _explicitNullValueVoucher = default!;
 #endif
         /// <summary>

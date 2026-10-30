@@ -18,8 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("channel") is { } nullNodeChannel && nullNodeChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Channel = null;
-            if (parseNode.GetChildNode("maxClaimableAmount") is { } nullNodeMaxClaimableAmount && nullNodeMaxClaimableAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxClaimableAmount = null;
+            if (parseNode.GetChildNode("channel") is null) { _explicitNullValueChannel = default!; _explicitNullProperties?.Remove("channel"); }
+            else if (parseNode.GetChildNode("channel") is { } nullNodeChannel && nullNodeChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Channel = null;
+            if (parseNode.GetChildNode("maxClaimableAmount") is null) { _explicitNullValueMaxClaimableAmount = default!; _explicitNullProperties?.Remove("maxClaimableAmount"); }
+            else if (parseNode.GetChildNode("maxClaimableAmount") is { } nullNodeMaxClaimableAmount && nullNodeMaxClaimableAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxClaimableAmount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Immutable configuration for an x402 batch-settlement payment channel. The EIP-712 hash of this struct produces the `channelId` used by all batch-settlement payloads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? Channel { get => _explicitNullValueChannel; set { _explicitNullValueChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel"); else _explicitNullProperties?.Remove("channel"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? Channel { get => _explicitNullValueChannel; set { _explicitNullValueChannel = value; AdditionalData?.Remove("channel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel"); else _explicitNullProperties?.Remove("channel"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? _explicitNullValueChannel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig Channel { get => _explicitNullValueChannel; set { _explicitNullValueChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel"); else _explicitNullProperties?.Remove("channel"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig Channel { get => _explicitNullValueChannel; set { _explicitNullValueChannel = value; AdditionalData?.Remove("channel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel"); else _explicitNullProperties?.Remove("channel"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig _explicitNullValueChannel = default!;
 #endif
         /// <summary>The cumulative maximum claimable amount (uint128 as decimal string) signed by the payer authorizer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxClaimableAmount { get => _explicitNullValueMaxClaimableAmount; set { _explicitNullValueMaxClaimableAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxClaimableAmount"); else _explicitNullProperties?.Remove("maxClaimableAmount"); } }
+        public string? MaxClaimableAmount { get => _explicitNullValueMaxClaimableAmount; set { _explicitNullValueMaxClaimableAmount = value; AdditionalData?.Remove("maxClaimableAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxClaimableAmount"); else _explicitNullProperties?.Remove("maxClaimableAmount"); } }
         private string? _explicitNullValueMaxClaimableAmount = default!;
 #nullable restore
 #else
-        public string MaxClaimableAmount { get => _explicitNullValueMaxClaimableAmount; set { _explicitNullValueMaxClaimableAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxClaimableAmount"); else _explicitNullProperties?.Remove("maxClaimableAmount"); } }
+        public string MaxClaimableAmount { get => _explicitNullValueMaxClaimableAmount; set { _explicitNullValueMaxClaimableAmount = value; AdditionalData?.Remove("maxClaimableAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxClaimableAmount"); else _explicitNullProperties?.Remove("maxClaimableAmount"); } }
         private string _explicitNullValueMaxClaimableAmount = default!;
 #endif
         /// <summary>

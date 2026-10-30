@@ -17,28 +17,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("paymentMethodType") is { } nullNodePaymentMethodType && nullNodePaymentMethodType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethodType = null;
-            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
-            if (parseNode.GetChildNode("userIdType") is { } nullNodeUserIdType && nullNodeUserIdType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserIdType = null;
+            if (parseNode.GetChildNode("paymentMethodType") is null) { _explicitNullValuePaymentMethodType = default!; _explicitNullProperties?.Remove("paymentMethodType"); }
+            else if (parseNode.GetChildNode("paymentMethodType") is { } nullNodePaymentMethodType && nullNodePaymentMethodType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethodType = null;
+            if (parseNode.GetChildNode("userId") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("userId"); }
+            else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("userIdType") is null) { _explicitNullValueUserIdType = default!; _explicitNullProperties?.Remove("userIdType"); }
+            else if (parseNode.GetChildNode("userIdType") is { } nullNodeUserIdType && nullNodeUserIdType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserIdType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of payment method to be used to complete an onramp order.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderPaymentMethodTypeId? PaymentMethodType { get => _explicitNullValuePaymentMethodType; set { _explicitNullValuePaymentMethodType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentMethodType"); else _explicitNullProperties?.Remove("paymentMethodType"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderPaymentMethodTypeId? PaymentMethodType { get => _explicitNullValuePaymentMethodType; set { _explicitNullValuePaymentMethodType = value; AdditionalData?.Remove("paymentMethodType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentMethodType"); else _explicitNullProperties?.Remove("paymentMethodType"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderPaymentMethodTypeId? _explicitNullValuePaymentMethodType = default!;
         /// <summary>The user identifier value. For `phone_number` type, this must be in E.164 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>The type of user identifier:- `phone_number`: A phone number in E.164 format associated with an onramp user.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType? UserIdType { get => _explicitNullValueUserIdType; set { _explicitNullValueUserIdType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userIdType"); else _explicitNullProperties?.Remove("userIdType"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType? UserIdType { get => _explicitNullValueUserIdType; set { _explicitNullValueUserIdType = value; AdditionalData?.Remove("userIdType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userIdType"); else _explicitNullProperties?.Remove("userIdType"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType? _explicitNullValueUserIdType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetOnrampUserLimitsRequest"/> and sets the default values.
@@ -65,9 +68,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "paymentMethodType", n => { PaymentMethodType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderPaymentMethodTypeId>(); } },
+                { "paymentMethodType", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderPaymentMethodTypeId>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePaymentMethodType = default; _explicitNullProperties?.Remove("paymentMethodType"); AdditionalData["paymentMethodType"] = unknown; } else { PaymentMethodType = parsed; AdditionalData.Remove("paymentMethodType"); } } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
-                { "userIdType", n => { UserIdType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType>(); } },
+                { "userIdType", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueUserIdType = default; _explicitNullProperties?.Remove("userIdType"); AdditionalData["userIdType"] = unknown; } else { UserIdType = parsed; AdditionalData.Remove("userIdType"); } } },
             };
         }
         /// <summary>

@@ -17,14 +17,22 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fromAmount") is { } nullNodeFromAmount && nullNodeFromAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromAmount = null;
-            if (parseNode.GetChildNode("fromToken") is { } nullNodeFromToken && nullNodeFromToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromToken = null;
-            if (parseNode.GetChildNode("gasPrice") is { } nullNodeGasPrice && nullNodeGasPrice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GasPrice = null;
-            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
-            if (parseNode.GetChildNode("signerAddress") is { } nullNodeSignerAddress && nullNodeSignerAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignerAddress = null;
-            if (parseNode.GetChildNode("slippageBps") is { } nullNodeSlippageBps && nullNodeSlippageBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlippageBps = null;
-            if (parseNode.GetChildNode("taker") is { } nullNodeTaker && nullNodeTaker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Taker = null;
-            if (parseNode.GetChildNode("toToken") is { } nullNodeToToken && nullNodeToToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToToken = null;
+            if (parseNode.GetChildNode("fromAmount") is null) { _explicitNullValueFromAmount = default!; _explicitNullProperties?.Remove("fromAmount"); }
+            else if (parseNode.GetChildNode("fromAmount") is { } nullNodeFromAmount && nullNodeFromAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromAmount = null;
+            if (parseNode.GetChildNode("fromToken") is null) { _explicitNullValueFromToken = default!; _explicitNullProperties?.Remove("fromToken"); }
+            else if (parseNode.GetChildNode("fromToken") is { } nullNodeFromToken && nullNodeFromToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromToken = null;
+            if (parseNode.GetChildNode("gasPrice") is null) { _explicitNullValueGasPrice = default!; _explicitNullProperties?.Remove("gasPrice"); }
+            else if (parseNode.GetChildNode("gasPrice") is { } nullNodeGasPrice && nullNodeGasPrice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GasPrice = null;
+            if (parseNode.GetChildNode("network") is null) { _explicitNullValueNetwork = default!; _explicitNullProperties?.Remove("network"); }
+            else if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("signerAddress") is null) { _explicitNullValueSignerAddress = default!; _explicitNullProperties?.Remove("signerAddress"); }
+            else if (parseNode.GetChildNode("signerAddress") is { } nullNodeSignerAddress && nullNodeSignerAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignerAddress = null;
+            if (parseNode.GetChildNode("slippageBps") is null) { _explicitNullValueSlippageBps = default!; _explicitNullProperties?.Remove("slippageBps"); }
+            else if (parseNode.GetChildNode("slippageBps") is { } nullNodeSlippageBps && nullNodeSlippageBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SlippageBps = null;
+            if (parseNode.GetChildNode("taker") is null) { _explicitNullValueTaker = default!; _explicitNullProperties?.Remove("taker"); }
+            else if (parseNode.GetChildNode("taker") is { } nullNodeTaker && nullNodeTaker.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Taker = null;
+            if (parseNode.GetChildNode("toToken") is null) { _explicitNullValueToToken = default!; _explicitNullProperties?.Remove("toToken"); }
+            else if (parseNode.GetChildNode("toToken") is { } nullNodeToToken && nullNodeToToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,67 +40,67 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The amount of the `fromToken` to send in atomic units of the token. For example, `1000000000000000000` when sending ETH equates to 1 ETH, `1000000` when sending USDC equates to 1 USDC, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromAmount { get => _explicitNullValueFromAmount; set { _explicitNullValueFromAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAmount"); else _explicitNullProperties?.Remove("fromAmount"); } }
+        public string? FromAmount { get => _explicitNullValueFromAmount; set { _explicitNullValueFromAmount = value; AdditionalData?.Remove("fromAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAmount"); else _explicitNullProperties?.Remove("fromAmount"); } }
         private string? _explicitNullValueFromAmount = default!;
 #nullable restore
 #else
-        public string FromAmount { get => _explicitNullValueFromAmount; set { _explicitNullValueFromAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAmount"); else _explicitNullProperties?.Remove("fromAmount"); } }
+        public string FromAmount { get => _explicitNullValueFromAmount; set { _explicitNullValueFromAmount = value; AdditionalData?.Remove("fromAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAmount"); else _explicitNullProperties?.Remove("fromAmount"); } }
         private string _explicitNullValueFromAmount = default!;
 #endif
         /// <summary>The 0x-prefixed contract address of the token to send.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromToken { get => _explicitNullValueFromToken; set { _explicitNullValueFromToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromToken"); else _explicitNullProperties?.Remove("fromToken"); } }
+        public string? FromToken { get => _explicitNullValueFromToken; set { _explicitNullValueFromToken = value; AdditionalData?.Remove("fromToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromToken"); else _explicitNullProperties?.Remove("fromToken"); } }
         private string? _explicitNullValueFromToken = default!;
 #nullable restore
 #else
-        public string FromToken { get => _explicitNullValueFromToken; set { _explicitNullValueFromToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromToken"); else _explicitNullProperties?.Remove("fromToken"); } }
+        public string FromToken { get => _explicitNullValueFromToken; set { _explicitNullValueFromToken = value; AdditionalData?.Remove("fromToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromToken"); else _explicitNullProperties?.Remove("fromToken"); } }
         private string _explicitNullValueFromToken = default!;
 #endif
         /// <summary>The target gas price for the swap transaction, in Wei. For EIP-1559 transactions, this value should be seen as the `maxFeePerGas` value. If not provided, the API will use an estimate based on the current network conditions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GasPrice { get => _explicitNullValueGasPrice; set { _explicitNullValueGasPrice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasPrice"); else _explicitNullProperties?.Remove("gasPrice"); } }
+        public string? GasPrice { get => _explicitNullValueGasPrice; set { _explicitNullValueGasPrice = value; AdditionalData?.Remove("gasPrice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasPrice"); else _explicitNullProperties?.Remove("gasPrice"); } }
         private string? _explicitNullValueGasPrice = default!;
 #nullable restore
 #else
-        public string GasPrice { get => _explicitNullValueGasPrice; set { _explicitNullValueGasPrice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasPrice"); else _explicitNullProperties?.Remove("gasPrice"); } }
+        public string GasPrice { get => _explicitNullValueGasPrice; set { _explicitNullValueGasPrice = value; AdditionalData?.Remove("gasPrice"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasPrice"); else _explicitNullProperties?.Remove("gasPrice"); } }
         private string _explicitNullValueGasPrice = default!;
 #endif
         /// <summary>The network on which to perform the swap.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmSwapsNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmSwapsNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; AdditionalData?.Remove("network"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmSwapsNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The 0x-prefixed Externally Owned Account (EOA) address that will sign the `Permit2` EIP-712 permit message. This is only needed if `taker` is a smart contract.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SignerAddress { get => _explicitNullValueSignerAddress; set { _explicitNullValueSignerAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signerAddress"); else _explicitNullProperties?.Remove("signerAddress"); } }
+        public string? SignerAddress { get => _explicitNullValueSignerAddress; set { _explicitNullValueSignerAddress = value; AdditionalData?.Remove("signerAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signerAddress"); else _explicitNullProperties?.Remove("signerAddress"); } }
         private string? _explicitNullValueSignerAddress = default!;
 #nullable restore
 #else
-        public string SignerAddress { get => _explicitNullValueSignerAddress; set { _explicitNullValueSignerAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signerAddress"); else _explicitNullProperties?.Remove("signerAddress"); } }
+        public string SignerAddress { get => _explicitNullValueSignerAddress; set { _explicitNullValueSignerAddress = value; AdditionalData?.Remove("signerAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signerAddress"); else _explicitNullProperties?.Remove("signerAddress"); } }
         private string _explicitNullValueSignerAddress = default!;
 #endif
         /// <summary>The maximum acceptable slippage of the `toToken` in basis points. If this parameter is set to 0, no slippage will be tolerated. If not provided, the default slippage tolerance is 100 bps (i.e., 1%).</summary>
-        public int? SlippageBps { get => _explicitNullValueSlippageBps; set { _explicitNullValueSlippageBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slippageBps"); else _explicitNullProperties?.Remove("slippageBps"); } }
+        public int? SlippageBps { get => _explicitNullValueSlippageBps; set { _explicitNullValueSlippageBps = value; AdditionalData?.Remove("slippageBps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("slippageBps"); else _explicitNullProperties?.Remove("slippageBps"); } }
         private int? _explicitNullValueSlippageBps = default!;
         /// <summary>The 0x-prefixed address that holds the `fromToken` balance and has the `Permit2` allowance set for the swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Taker { get => _explicitNullValueTaker; set { _explicitNullValueTaker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taker"); else _explicitNullProperties?.Remove("taker"); } }
+        public string? Taker { get => _explicitNullValueTaker; set { _explicitNullValueTaker = value; AdditionalData?.Remove("taker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taker"); else _explicitNullProperties?.Remove("taker"); } }
         private string? _explicitNullValueTaker = default!;
 #nullable restore
 #else
-        public string Taker { get => _explicitNullValueTaker; set { _explicitNullValueTaker = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taker"); else _explicitNullProperties?.Remove("taker"); } }
+        public string Taker { get => _explicitNullValueTaker; set { _explicitNullValueTaker = value; AdditionalData?.Remove("taker"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taker"); else _explicitNullProperties?.Remove("taker"); } }
         private string _explicitNullValueTaker = default!;
 #endif
         /// <summary>The 0x-prefixed contract address of the token to receive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToToken { get => _explicitNullValueToToken; set { _explicitNullValueToToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toToken"); else _explicitNullProperties?.Remove("toToken"); } }
+        public string? ToToken { get => _explicitNullValueToToken; set { _explicitNullValueToToken = value; AdditionalData?.Remove("toToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toToken"); else _explicitNullProperties?.Remove("toToken"); } }
         private string? _explicitNullValueToToken = default!;
 #nullable restore
 #else
-        public string ToToken { get => _explicitNullValueToToken; set { _explicitNullValueToToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toToken"); else _explicitNullProperties?.Remove("toToken"); } }
+        public string ToToken { get => _explicitNullValueToToken; set { _explicitNullValueToToken = value; AdditionalData?.Remove("toToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toToken"); else _explicitNullProperties?.Remove("toToken"); } }
         private string _explicitNullValueToToken = default!;
 #endif
         /// <summary>
@@ -124,7 +132,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "fromAmount", n => { FromAmount = n.GetStringValue(); } },
                 { "fromToken", n => { FromToken = n.GetStringValue(); } },
                 { "gasPrice", n => { GasPrice = n.GetStringValue(); } },
-                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmSwapsNetwork>(); } },
+                { "network", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmSwapsNetwork>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNetwork = default; _explicitNullProperties?.Remove("network"); AdditionalData["network"] = unknown; } else { Network = parsed; AdditionalData.Remove("network"); } } },
                 { "signerAddress", n => { SignerAddress = n.GetStringValue(); } },
                 { "slippageBps", n => { SlippageBps = n.GetIntValue(); } },
                 { "taker", n => { Taker = n.GetStringValue(); } },

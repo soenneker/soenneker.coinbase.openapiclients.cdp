@@ -18,47 +18,53 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
-            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("fedwire") is { } nullNodeFedwire && nullNodeFedwire.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fedwire = null;
-            if (parseNode.GetChildNode("paymentMethodId") is { } nullNodePaymentMethodId && nullNodePaymentMethodId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethodId = null;
-            if (parseNode.GetChildNode("paymentRail") is { } nullNodePaymentRail && nullNodePaymentRail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRail = null;
-            if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("active") is null) { _explicitNullValueActive = default!; _explicitNullProperties?.Remove("active"); }
+            else if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
+            if (parseNode.GetChildNode("createdAt") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("createdAt"); }
+            else if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("fedwire") is null) { _explicitNullValueFedwire = default!; _explicitNullProperties?.Remove("fedwire"); }
+            else if (parseNode.GetChildNode("fedwire") is { } nullNodeFedwire && nullNodeFedwire.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fedwire = null;
+            if (parseNode.GetChildNode("paymentMethodId") is null) { _explicitNullValuePaymentMethodId = default!; _explicitNullProperties?.Remove("paymentMethodId"); }
+            else if (parseNode.GetChildNode("paymentMethodId") is { } nullNodePaymentMethodId && nullNodePaymentMethodId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethodId = null;
+            if (parseNode.GetChildNode("paymentRail") is null) { _explicitNullValuePaymentRail = default!; _explicitNullProperties?.Remove("paymentRail"); }
+            else if (parseNode.GetChildNode("paymentRail") is { } nullNodePaymentRail && nullNodePaymentRail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRail = null;
+            if (parseNode.GetChildNode("updatedAt") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updatedAt"); }
+            else if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
 
         /// <summary>Whether the payment method is active and can be used in transfers. A payment method may be inactive due to verification requirements or entity-level restrictions.</summary>
-        public bool? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
+        public bool? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; AdditionalData?.Remove("active"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
         private bool? _explicitNullValueActive = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The timestamp when the payment method was created.</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("createdAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Fedwire (domestic USD wire) details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire? Fedwire { get => _explicitNullValueFedwire; set { _explicitNullValueFedwire = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fedwire"); else _explicitNullProperties?.Remove("fedwire"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire? Fedwire { get => _explicitNullValueFedwire; set { _explicitNullValueFedwire = value; AdditionalData?.Remove("fedwire"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fedwire"); else _explicitNullProperties?.Remove("fedwire"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire? _explicitNullValueFedwire = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire Fedwire { get => _explicitNullValueFedwire; set { _explicitNullValueFedwire = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fedwire"); else _explicitNullProperties?.Remove("fedwire"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire Fedwire { get => _explicitNullValueFedwire; set { _explicitNullValueFedwire = value; AdditionalData?.Remove("fedwire"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fedwire"); else _explicitNullProperties?.Remove("fedwire"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire _explicitNullValueFedwire = default!;
 #endif
         /// <summary>The ID of the Payment Method, which is a UUID prefixed by the string `paymentMethod_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentMethodId { get => _explicitNullValuePaymentMethodId; set { _explicitNullValuePaymentMethodId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentMethodId"); else _explicitNullProperties?.Remove("paymentMethodId"); } }
+        public string? PaymentMethodId { get => _explicitNullValuePaymentMethodId; set { _explicitNullValuePaymentMethodId = value; AdditionalData?.Remove("paymentMethodId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentMethodId"); else _explicitNullProperties?.Remove("paymentMethodId"); } }
         private string? _explicitNullValuePaymentMethodId = default!;
 #nullable restore
 #else
-        public string PaymentMethodId { get => _explicitNullValuePaymentMethodId; set { _explicitNullValuePaymentMethodId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentMethodId"); else _explicitNullProperties?.Remove("paymentMethodId"); } }
+        public string PaymentMethodId { get => _explicitNullValuePaymentMethodId; set { _explicitNullValuePaymentMethodId = value; AdditionalData?.Remove("paymentMethodId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentMethodId"); else _explicitNullProperties?.Remove("paymentMethodId"); } }
         private string _explicitNullValuePaymentMethodId = default!;
 #endif
         /// <summary>The payment rail for this payment method.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentRail? PaymentRail { get => _explicitNullValuePaymentRail; set { _explicitNullValuePaymentRail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRail"); else _explicitNullProperties?.Remove("paymentRail"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentRail? PaymentRail { get => _explicitNullValuePaymentRail; set { _explicitNullValuePaymentRail = value; AdditionalData?.Remove("paymentRail"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRail"); else _explicitNullProperties?.Remove("paymentRail"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentRail? _explicitNullValuePaymentRail = default!;
         /// <summary>The timestamp when the payment method was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updatedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethod"/> and sets the default values.
@@ -89,7 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "fedwire", n => { Fedwire = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentMethodAllOf2Fedwire.CreateFromDiscriminatorValue); } },
                 { "paymentMethodId", n => { PaymentMethodId = n.GetStringValue(); } },
-                { "paymentRail", n => { PaymentRail = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentRail>(); } },
+                { "paymentRail", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.FedwirePaymentRail>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValuePaymentRail = default; _explicitNullProperties?.Remove("paymentRail"); AdditionalData["paymentRail"] = unknown; } else { PaymentRail = parsed; AdditionalData.Remove("paymentRail"); } } },
                 { "updatedAt", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
         }

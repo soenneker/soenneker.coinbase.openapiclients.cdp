@@ -18,9 +18,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
-            if (parseNode.GetChildNode("optionId") is { } nullNodeOptionId && nullNodeOptionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptionId = null;
-            if (parseNode.GetChildNode("signedPayloads") is { } nullNodeSignedPayloads && nullNodeSignedPayloads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignedPayloads = null;
+            if (parseNode.GetChildNode("metadata") is null) { _explicitNullValueMetadata = default!; _explicitNullProperties?.Remove("metadata"); }
+            else if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("optionId") is null) { _explicitNullValueOptionId = default!; _explicitNullProperties?.Remove("optionId"); }
+            else if (parseNode.GetChildNode("optionId") is { } nullNodeOptionId && nullNodeOptionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OptionId = null;
+            if (parseNode.GetChildNode("signedPayloads") is null) { _explicitNullValueSignedPayloads = default!; _explicitNullProperties?.Remove("signedPayloads"); }
+            else if (parseNode.GetChildNode("signedPayloads") is { } nullNodeSignedPayloads && nullNodeSignedPayloads.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SignedPayloads = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletApprovalRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletApprovalRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletApprovalRequestMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletApprovalRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletApprovalRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; AdditionalData?.Remove("metadata"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletApprovalRequestMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The identifier of the chosen option. Must match an `optionId` from the **Get wallet approval options** response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OptionId { get => _explicitNullValueOptionId; set { _explicitNullValueOptionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optionId"); else _explicitNullProperties?.Remove("optionId"); } }
+        public string? OptionId { get => _explicitNullValueOptionId; set { _explicitNullValueOptionId = value; AdditionalData?.Remove("optionId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optionId"); else _explicitNullProperties?.Remove("optionId"); } }
         private string? _explicitNullValueOptionId = default!;
 #nullable restore
 #else
-        public string OptionId { get => _explicitNullValueOptionId; set { _explicitNullValueOptionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optionId"); else _explicitNullProperties?.Remove("optionId"); } }
+        public string OptionId { get => _explicitNullValueOptionId; set { _explicitNullValueOptionId = value; AdditionalData?.Remove("optionId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("optionId"); else _explicitNullProperties?.Remove("optionId"); } }
         private string _explicitNullValueOptionId = default!;
 #endif
         /// <summary>The processed payloads from the customer, corresponding to the payloads in the selected option.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignedPayload>? SignedPayloads { get => _explicitNullValueSignedPayloads; set { _explicitNullValueSignedPayloads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signedPayloads"); else _explicitNullProperties?.Remove("signedPayloads"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignedPayload>? SignedPayloads { get => _explicitNullValueSignedPayloads; set { _explicitNullValueSignedPayloads = value; AdditionalData?.Remove("signedPayloads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signedPayloads"); else _explicitNullProperties?.Remove("signedPayloads"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignedPayload>? _explicitNullValueSignedPayloads = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignedPayload> SignedPayloads { get => _explicitNullValueSignedPayloads; set { _explicitNullValueSignedPayloads = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signedPayloads"); else _explicitNullProperties?.Remove("signedPayloads"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignedPayload> SignedPayloads { get => _explicitNullValueSignedPayloads; set { _explicitNullValueSignedPayloads = value; AdditionalData?.Remove("signedPayloads"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signedPayloads"); else _explicitNullProperties?.Remove("signedPayloads"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainSignedPayload> _explicitNullValueSignedPayloads = default!;
 #endif
         /// <summary>

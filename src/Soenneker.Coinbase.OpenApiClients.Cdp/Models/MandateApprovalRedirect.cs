@@ -18,8 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("failureUrl") is { } nullNodeFailureUrl && nullNodeFailureUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureUrl = null;
-            if (parseNode.GetChildNode("successUrl") is { } nullNodeSuccessUrl && nullNodeSuccessUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessUrl = null;
+            if (parseNode.GetChildNode("failureUrl") is null) { _explicitNullValueFailureUrl = default!; _explicitNullProperties?.Remove("failureUrl"); }
+            else if (parseNode.GetChildNode("failureUrl") is { } nullNodeFailureUrl && nullNodeFailureUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailureUrl = null;
+            if (parseNode.GetChildNode("successUrl") is null) { _explicitNullValueSuccessUrl = default!; _explicitNullProperties?.Remove("successUrl"); }
+            else if (parseNode.GetChildNode("successUrl") is { } nullNodeSuccessUrl && nullNodeSuccessUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SuccessUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FailureUrl { get => _explicitNullValueFailureUrl; set { _explicitNullValueFailureUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failureUrl"); else _explicitNullProperties?.Remove("failureUrl"); } }
+        public string? FailureUrl { get => _explicitNullValueFailureUrl; set { _explicitNullValueFailureUrl = value; AdditionalData?.Remove("failureUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failureUrl"); else _explicitNullProperties?.Remove("failureUrl"); } }
         private string? _explicitNullValueFailureUrl = default!;
 #nullable restore
 #else
-        public string FailureUrl { get => _explicitNullValueFailureUrl; set { _explicitNullValueFailureUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failureUrl"); else _explicitNullProperties?.Remove("failureUrl"); } }
+        public string FailureUrl { get => _explicitNullValueFailureUrl; set { _explicitNullValueFailureUrl = value; AdditionalData?.Remove("failureUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failureUrl"); else _explicitNullProperties?.Remove("failureUrl"); } }
         private string _explicitNullValueFailureUrl = default!;
 #endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SuccessUrl { get => _explicitNullValueSuccessUrl; set { _explicitNullValueSuccessUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successUrl"); else _explicitNullProperties?.Remove("successUrl"); } }
+        public string? SuccessUrl { get => _explicitNullValueSuccessUrl; set { _explicitNullValueSuccessUrl = value; AdditionalData?.Remove("successUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successUrl"); else _explicitNullProperties?.Remove("successUrl"); } }
         private string? _explicitNullValueSuccessUrl = default!;
 #nullable restore
 #else
-        public string SuccessUrl { get => _explicitNullValueSuccessUrl; set { _explicitNullValueSuccessUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successUrl"); else _explicitNullProperties?.Remove("successUrl"); } }
+        public string SuccessUrl { get => _explicitNullValueSuccessUrl; set { _explicitNullValueSuccessUrl = value; AdditionalData?.Remove("successUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("successUrl"); else _explicitNullProperties?.Remove("successUrl"); } }
         private string _explicitNullValueSuccessUrl = default!;
 #endif
         /// <summary>

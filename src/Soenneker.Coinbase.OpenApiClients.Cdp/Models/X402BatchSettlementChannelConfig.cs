@@ -18,13 +18,20 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("payer") is { } nullNodePayer && nullNodePayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payer = null;
-            if (parseNode.GetChildNode("payerAuthorizer") is { } nullNodePayerAuthorizer && nullNodePayerAuthorizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayerAuthorizer = null;
-            if (parseNode.GetChildNode("receiver") is { } nullNodeReceiver && nullNodeReceiver.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Receiver = null;
-            if (parseNode.GetChildNode("receiverAuthorizer") is { } nullNodeReceiverAuthorizer && nullNodeReceiverAuthorizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReceiverAuthorizer = null;
-            if (parseNode.GetChildNode("salt") is { } nullNodeSalt && nullNodeSalt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Salt = null;
-            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
-            if (parseNode.GetChildNode("withdrawDelay") is { } nullNodeWithdrawDelay && nullNodeWithdrawDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WithdrawDelay = null;
+            if (parseNode.GetChildNode("payer") is null) { _explicitNullValuePayer = default!; _explicitNullProperties?.Remove("payer"); }
+            else if (parseNode.GetChildNode("payer") is { } nullNodePayer && nullNodePayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payer = null;
+            if (parseNode.GetChildNode("payerAuthorizer") is null) { _explicitNullValuePayerAuthorizer = default!; _explicitNullProperties?.Remove("payerAuthorizer"); }
+            else if (parseNode.GetChildNode("payerAuthorizer") is { } nullNodePayerAuthorizer && nullNodePayerAuthorizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayerAuthorizer = null;
+            if (parseNode.GetChildNode("receiver") is null) { _explicitNullValueReceiver = default!; _explicitNullProperties?.Remove("receiver"); }
+            else if (parseNode.GetChildNode("receiver") is { } nullNodeReceiver && nullNodeReceiver.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Receiver = null;
+            if (parseNode.GetChildNode("receiverAuthorizer") is null) { _explicitNullValueReceiverAuthorizer = default!; _explicitNullProperties?.Remove("receiverAuthorizer"); }
+            else if (parseNode.GetChildNode("receiverAuthorizer") is { } nullNodeReceiverAuthorizer && nullNodeReceiverAuthorizer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReceiverAuthorizer = null;
+            if (parseNode.GetChildNode("salt") is null) { _explicitNullValueSalt = default!; _explicitNullProperties?.Remove("salt"); }
+            else if (parseNode.GetChildNode("salt") is { } nullNodeSalt && nullNodeSalt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Salt = null;
+            if (parseNode.GetChildNode("token") is null) { _explicitNullValueToken = default!; _explicitNullProperties?.Remove("token"); }
+            else if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+            if (parseNode.GetChildNode("withdrawDelay") is null) { _explicitNullValueWithdrawDelay = default!; _explicitNullProperties?.Remove("withdrawDelay"); }
+            else if (parseNode.GetChildNode("withdrawDelay") is { } nullNodeWithdrawDelay && nullNodeWithdrawDelay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WithdrawDelay = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,65 +39,65 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The 0x-prefixed, checksum EVM address of the payer (channel funder).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
+        public string? Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; AdditionalData?.Remove("payer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
         private string? _explicitNullValuePayer = default!;
 #nullable restore
 #else
-        public string Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
+        public string Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; AdditionalData?.Remove("payer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
         private string _explicitNullValuePayer = default!;
 #endif
         /// <summary>The 0x-prefixed, checksum EVM address authorized to sign vouchers on behalf of the payer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PayerAuthorizer { get => _explicitNullValuePayerAuthorizer; set { _explicitNullValuePayerAuthorizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payerAuthorizer"); else _explicitNullProperties?.Remove("payerAuthorizer"); } }
+        public string? PayerAuthorizer { get => _explicitNullValuePayerAuthorizer; set { _explicitNullValuePayerAuthorizer = value; AdditionalData?.Remove("payerAuthorizer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payerAuthorizer"); else _explicitNullProperties?.Remove("payerAuthorizer"); } }
         private string? _explicitNullValuePayerAuthorizer = default!;
 #nullable restore
 #else
-        public string PayerAuthorizer { get => _explicitNullValuePayerAuthorizer; set { _explicitNullValuePayerAuthorizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payerAuthorizer"); else _explicitNullProperties?.Remove("payerAuthorizer"); } }
+        public string PayerAuthorizer { get => _explicitNullValuePayerAuthorizer; set { _explicitNullValuePayerAuthorizer = value; AdditionalData?.Remove("payerAuthorizer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payerAuthorizer"); else _explicitNullProperties?.Remove("payerAuthorizer"); } }
         private string _explicitNullValuePayerAuthorizer = default!;
 #endif
         /// <summary>The 0x-prefixed, checksum EVM address of the receiver (resource server / merchant).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Receiver { get => _explicitNullValueReceiver; set { _explicitNullValueReceiver = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiver"); else _explicitNullProperties?.Remove("receiver"); } }
+        public string? Receiver { get => _explicitNullValueReceiver; set { _explicitNullValueReceiver = value; AdditionalData?.Remove("receiver"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiver"); else _explicitNullProperties?.Remove("receiver"); } }
         private string? _explicitNullValueReceiver = default!;
 #nullable restore
 #else
-        public string Receiver { get => _explicitNullValueReceiver; set { _explicitNullValueReceiver = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiver"); else _explicitNullProperties?.Remove("receiver"); } }
+        public string Receiver { get => _explicitNullValueReceiver; set { _explicitNullValueReceiver = value; AdditionalData?.Remove("receiver"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiver"); else _explicitNullProperties?.Remove("receiver"); } }
         private string _explicitNullValueReceiver = default!;
 #endif
         /// <summary>The 0x-prefixed, checksum EVM address authorized to sign claim batches on behalf of the receiver (typically the facilitator).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReceiverAuthorizer { get => _explicitNullValueReceiverAuthorizer; set { _explicitNullValueReceiverAuthorizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiverAuthorizer"); else _explicitNullProperties?.Remove("receiverAuthorizer"); } }
+        public string? ReceiverAuthorizer { get => _explicitNullValueReceiverAuthorizer; set { _explicitNullValueReceiverAuthorizer = value; AdditionalData?.Remove("receiverAuthorizer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiverAuthorizer"); else _explicitNullProperties?.Remove("receiverAuthorizer"); } }
         private string? _explicitNullValueReceiverAuthorizer = default!;
 #nullable restore
 #else
-        public string ReceiverAuthorizer { get => _explicitNullValueReceiverAuthorizer; set { _explicitNullValueReceiverAuthorizer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiverAuthorizer"); else _explicitNullProperties?.Remove("receiverAuthorizer"); } }
+        public string ReceiverAuthorizer { get => _explicitNullValueReceiverAuthorizer; set { _explicitNullValueReceiverAuthorizer = value; AdditionalData?.Remove("receiverAuthorizer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receiverAuthorizer"); else _explicitNullProperties?.Remove("receiverAuthorizer"); } }
         private string _explicitNullValueReceiverAuthorizer = default!;
 #endif
         /// <summary>A 32-byte salt used to differentiate channels between the same payer/receiver pair.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Salt { get => _explicitNullValueSalt; set { _explicitNullValueSalt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salt"); else _explicitNullProperties?.Remove("salt"); } }
+        public string? Salt { get => _explicitNullValueSalt; set { _explicitNullValueSalt = value; AdditionalData?.Remove("salt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salt"); else _explicitNullProperties?.Remove("salt"); } }
         private string? _explicitNullValueSalt = default!;
 #nullable restore
 #else
-        public string Salt { get => _explicitNullValueSalt; set { _explicitNullValueSalt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salt"); else _explicitNullProperties?.Remove("salt"); } }
+        public string Salt { get => _explicitNullValueSalt; set { _explicitNullValueSalt = value; AdditionalData?.Remove("salt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salt"); else _explicitNullProperties?.Remove("salt"); } }
         private string _explicitNullValueSalt = default!;
 #endif
         /// <summary>The 0x-prefixed, checksum EVM address of the ERC-20 payment token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        public string? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; AdditionalData?.Remove("token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
         private string? _explicitNullValueToken = default!;
 #nullable restore
 #else
-        public string Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        public string Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; AdditionalData?.Remove("token"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
         private string _explicitNullValueToken = default!;
 #endif
         /// <summary>The non-cooperative withdraw delay in seconds. Must be between 900 (15 minutes) and 2,592,000 (30 days).</summary>
-        public int? WithdrawDelay { get => _explicitNullValueWithdrawDelay; set { _explicitNullValueWithdrawDelay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("withdrawDelay"); else _explicitNullProperties?.Remove("withdrawDelay"); } }
+        public int? WithdrawDelay { get => _explicitNullValueWithdrawDelay; set { _explicitNullValueWithdrawDelay = value; AdditionalData?.Remove("withdrawDelay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("withdrawDelay"); else _explicitNullProperties?.Remove("withdrawDelay"); } }
         private int? _explicitNullValueWithdrawDelay = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig"/> and sets the default values.

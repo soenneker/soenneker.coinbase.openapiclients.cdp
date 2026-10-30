@@ -18,13 +18,20 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("collateral") is { } nullNodeCollateral && nullNodeCollateral.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collateral = null;
-            if (parseNode.GetChildNode("currentLtvBps") is { } nullNodeCurrentLtvBps && nullNodeCurrentLtvBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentLtvBps = null;
-            if (parseNode.GetChildNode("debt") is { } nullNodeDebt && nullNodeDebt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Debt = null;
-            if (parseNode.GetChildNode("healthFactor") is { } nullNodeHealthFactor && nullNodeHealthFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthFactor = null;
-            if (parseNode.GetChildNode("healthStatus") is { } nullNodeHealthStatus && nullNodeHealthStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthStatus = null;
-            if (parseNode.GetChildNode("liquidationThresholdBps") is { } nullNodeLiquidationThresholdBps && nullNodeLiquidationThresholdBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiquidationThresholdBps = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("collateral") is null) { _explicitNullValueCollateral = default!; _explicitNullProperties?.Remove("collateral"); }
+            else if (parseNode.GetChildNode("collateral") is { } nullNodeCollateral && nullNodeCollateral.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collateral = null;
+            if (parseNode.GetChildNode("currentLtvBps") is null) { _explicitNullValueCurrentLtvBps = default!; _explicitNullProperties?.Remove("currentLtvBps"); }
+            else if (parseNode.GetChildNode("currentLtvBps") is { } nullNodeCurrentLtvBps && nullNodeCurrentLtvBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentLtvBps = null;
+            if (parseNode.GetChildNode("debt") is null) { _explicitNullValueDebt = default!; _explicitNullProperties?.Remove("debt"); }
+            else if (parseNode.GetChildNode("debt") is { } nullNodeDebt && nullNodeDebt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Debt = null;
+            if (parseNode.GetChildNode("healthFactor") is null) { _explicitNullValueHealthFactor = default!; _explicitNullProperties?.Remove("healthFactor"); }
+            else if (parseNode.GetChildNode("healthFactor") is { } nullNodeHealthFactor && nullNodeHealthFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthFactor = null;
+            if (parseNode.GetChildNode("healthStatus") is null) { _explicitNullValueHealthStatus = default!; _explicitNullProperties?.Remove("healthStatus"); }
+            else if (parseNode.GetChildNode("healthStatus") is { } nullNodeHealthStatus && nullNodeHealthStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthStatus = null;
+            if (parseNode.GetChildNode("liquidationThresholdBps") is null) { _explicitNullValueLiquidationThresholdBps = default!; _explicitNullProperties?.Remove("liquidationThresholdBps"); }
+            else if (parseNode.GetChildNode("liquidationThresholdBps") is { } nullNodeLiquidationThresholdBps && nullNodeLiquidationThresholdBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiquidationThresholdBps = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -32,44 +39,44 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The non-zero collateral balances securing the position.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount>? Collateral { get => _explicitNullValueCollateral; set { _explicitNullValueCollateral = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateral"); else _explicitNullProperties?.Remove("collateral"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount>? Collateral { get => _explicitNullValueCollateral; set { _explicitNullValueCollateral = value; AdditionalData?.Remove("collateral"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateral"); else _explicitNullProperties?.Remove("collateral"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount>? _explicitNullValueCollateral = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount> Collateral { get => _explicitNullValueCollateral; set { _explicitNullValueCollateral = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateral"); else _explicitNullProperties?.Remove("collateral"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount> Collateral { get => _explicitNullValueCollateral; set { _explicitNullValueCollateral = value; AdditionalData?.Remove("collateral"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateral"); else _explicitNullProperties?.Remove("collateral"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount> _explicitNullValueCollateral = default!;
 #endif
         /// <summary>The position&apos;s current loan-to-value, expressed in basis points. For example, `5000` represents a current LTV of 50%. Omitted when the position has no debt.</summary>
-        public int? CurrentLtvBps { get => _explicitNullValueCurrentLtvBps; set { _explicitNullValueCurrentLtvBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currentLtvBps"); else _explicitNullProperties?.Remove("currentLtvBps"); } }
+        public int? CurrentLtvBps { get => _explicitNullValueCurrentLtvBps; set { _explicitNullValueCurrentLtvBps = value; AdditionalData?.Remove("currentLtvBps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currentLtvBps"); else _explicitNullProperties?.Remove("currentLtvBps"); } }
         private int? _explicitNullValueCurrentLtvBps = default!;
         /// <summary>The non-zero debt balances owed by the position.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt>? Debt { get => _explicitNullValueDebt; set { _explicitNullValueDebt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debt"); else _explicitNullProperties?.Remove("debt"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt>? Debt { get => _explicitNullValueDebt; set { _explicitNullValueDebt = value; AdditionalData?.Remove("debt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debt"); else _explicitNullProperties?.Remove("debt"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt>? _explicitNullValueDebt = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt> Debt { get => _explicitNullValueDebt; set { _explicitNullValueDebt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debt"); else _explicitNullProperties?.Remove("debt"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt> Debt { get => _explicitNullValueDebt; set { _explicitNullValueDebt = value; AdditionalData?.Remove("debt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debt"); else _explicitNullProperties?.Remove("debt"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt> _explicitNullValueDebt = default!;
 #endif
         /// <summary>The position&apos;s liquidation headroom as a decimal string, where `1.0` is the liquidation boundary and higher is safer. For example, `1.79` means the position&apos;s weighted collateral is 1.79x its debt. Omitted when the position has no debt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HealthFactor { get => _explicitNullValueHealthFactor; set { _explicitNullValueHealthFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthFactor"); else _explicitNullProperties?.Remove("healthFactor"); } }
+        public string? HealthFactor { get => _explicitNullValueHealthFactor; set { _explicitNullValueHealthFactor = value; AdditionalData?.Remove("healthFactor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthFactor"); else _explicitNullProperties?.Remove("healthFactor"); } }
         private string? _explicitNullValueHealthFactor = default!;
 #nullable restore
 #else
-        public string HealthFactor { get => _explicitNullValueHealthFactor; set { _explicitNullValueHealthFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthFactor"); else _explicitNullProperties?.Remove("healthFactor"); } }
+        public string HealthFactor { get => _explicitNullValueHealthFactor; set { _explicitNullValueHealthFactor = value; AdditionalData?.Remove("healthFactor"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthFactor"); else _explicitNullProperties?.Remove("healthFactor"); } }
         private string _explicitNullValueHealthFactor = default!;
 #endif
         /// <summary>The aggregate health of a borrow position.- `no_debt`: the position has no outstanding debt.- `healthy`: the position has debt and is above its liquidation threshold.- `undercollateralized`: the position is at or below its liquidation threshold and may be eligible for liquidation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus? HealthStatus { get => _explicitNullValueHealthStatus; set { _explicitNullValueHealthStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthStatus"); else _explicitNullProperties?.Remove("healthStatus"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus? HealthStatus { get => _explicitNullValueHealthStatus; set { _explicitNullValueHealthStatus = value; AdditionalData?.Remove("healthStatus"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthStatus"); else _explicitNullProperties?.Remove("healthStatus"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus? _explicitNullValueHealthStatus = default!;
         /// <summary>The loan-to-value at which the position becomes eligible for liquidation, expressed in basis points. For example, `8250` represents 82.5%. Omitted when the position has no debt.</summary>
-        public int? LiquidationThresholdBps { get => _explicitNullValueLiquidationThresholdBps; set { _explicitNullValueLiquidationThresholdBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("liquidationThresholdBps"); else _explicitNullProperties?.Remove("liquidationThresholdBps"); } }
+        public int? LiquidationThresholdBps { get => _explicitNullValueLiquidationThresholdBps; set { _explicitNullValueLiquidationThresholdBps = value; AdditionalData?.Remove("liquidationThresholdBps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("liquidationThresholdBps"); else _explicitNullProperties?.Remove("liquidationThresholdBps"); } }
         private int? _explicitNullValueLiquidationThresholdBps = default!;
         /// <summary>The lending protocol that operates the borrow product.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionOnchainState"/> and sets the default values.
@@ -100,9 +107,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "currentLtvBps", n => { CurrentLtvBps = n.GetIntValue(); } },
                 { "debt", n => { Debt = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "healthFactor", n => { HealthFactor = n.GetStringValue(); } },
-                { "healthStatus", n => { HealthStatus = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus>(); } },
+                { "healthStatus", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueHealthStatus = default; _explicitNullProperties?.Remove("healthStatus"); AdditionalData["healthStatus"] = unknown; } else { HealthStatus = parsed; AdditionalData.Remove("healthStatus"); } } },
                 { "liquidationThresholdBps", n => { LiquidationThresholdBps = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
             };
         }
         /// <summary>

@@ -18,10 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
-            if (parseNode.GetChildNode("financialInstitution") is { } nullNodeFinancialInstitution && nullNodeFinancialInstitution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinancialInstitution = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("walletType") is { } nullNodeWalletType && nullNodeWalletType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WalletType = null;
+            if (parseNode.GetChildNode("address") is null) { _explicitNullValueAddress = default!; _explicitNullProperties?.Remove("address"); }
+            else if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("financialInstitution") is null) { _explicitNullValueFinancialInstitution = default!; _explicitNullProperties?.Remove("financialInstitution"); }
+            else if (parseNode.GetChildNode("financialInstitution") is { } nullNodeFinancialInstitution && nullNodeFinancialInstitution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinancialInstitution = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("walletType") is null) { _explicitNullValueWalletType = default!; _explicitNullProperties?.Remove("walletType"); }
+            else if (parseNode.GetChildNode("walletType") is { } nullNodeWalletType && nullNodeWalletType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WalletType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,35 +33,35 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A physical address with standard address components including street, city, state/province, postal code, and country.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; AdditionalData?.Remove("address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; AdditionalData?.Remove("address"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress _explicitNullValueAddress = default!;
 #endif
         /// <summary>Name of the financial institution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FinancialInstitution { get => _explicitNullValueFinancialInstitution; set { _explicitNullValueFinancialInstitution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financialInstitution"); else _explicitNullProperties?.Remove("financialInstitution"); } }
+        public string? FinancialInstitution { get => _explicitNullValueFinancialInstitution; set { _explicitNullValueFinancialInstitution = value; AdditionalData?.Remove("financialInstitution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financialInstitution"); else _explicitNullProperties?.Remove("financialInstitution"); } }
         private string? _explicitNullValueFinancialInstitution = default!;
 #nullable restore
 #else
-        public string FinancialInstitution { get => _explicitNullValueFinancialInstitution; set { _explicitNullValueFinancialInstitution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financialInstitution"); else _explicitNullProperties?.Remove("financialInstitution"); } }
+        public string FinancialInstitution { get => _explicitNullValueFinancialInstitution; set { _explicitNullValueFinancialInstitution = value; AdditionalData?.Remove("financialInstitution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("financialInstitution"); else _explicitNullProperties?.Remove("financialInstitution"); } }
         private string _explicitNullValueFinancialInstitution = default!;
 #endif
         /// <summary>Full name of the party.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>The type of the beneficiary&apos;s wallet.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryWalletType? WalletType { get => _explicitNullValueWalletType; set { _explicitNullValueWalletType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("walletType"); else _explicitNullProperties?.Remove("walletType"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryWalletType? WalletType { get => _explicitNullValueWalletType; set { _explicitNullValueWalletType = value; AdditionalData?.Remove("walletType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("walletType"); else _explicitNullProperties?.Remove("walletType"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryWalletType? _explicitNullValueWalletType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiary"/> and sets the default values.
@@ -87,7 +91,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "address", n => { Address = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
                 { "financialInstitution", n => { FinancialInstitution = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "walletType", n => { WalletType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryWalletType>(); } },
+                { "walletType", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TravelRuleBeneficiaryWalletType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueWalletType = default; _explicitNullProperties?.Remove("walletType"); AdditionalData["walletType"] = unknown; } else { WalletType = parsed; AdditionalData.Remove("walletType"); } } },
             };
         }
         /// <summary>

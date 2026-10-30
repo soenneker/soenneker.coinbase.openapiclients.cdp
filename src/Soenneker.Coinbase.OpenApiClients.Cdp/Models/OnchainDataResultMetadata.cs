@@ -18,25 +18,29 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cached") is { } nullNodeCached && nullNodeCached.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cached = null;
-            if (parseNode.GetChildNode("executionTimeMs") is { } nullNodeExecutionTimeMs && nullNodeExecutionTimeMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionTimeMs = null;
-            if (parseNode.GetChildNode("executionTimestamp") is { } nullNodeExecutionTimestamp && nullNodeExecutionTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionTimestamp = null;
-            if (parseNode.GetChildNode("rowCount") is { } nullNodeRowCount && nullNodeRowCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowCount = null;
+            if (parseNode.GetChildNode("cached") is null) { _explicitNullValueCached = default!; _explicitNullProperties?.Remove("cached"); }
+            else if (parseNode.GetChildNode("cached") is { } nullNodeCached && nullNodeCached.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cached = null;
+            if (parseNode.GetChildNode("executionTimeMs") is null) { _explicitNullValueExecutionTimeMs = default!; _explicitNullProperties?.Remove("executionTimeMs"); }
+            else if (parseNode.GetChildNode("executionTimeMs") is { } nullNodeExecutionTimeMs && nullNodeExecutionTimeMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionTimeMs = null;
+            if (parseNode.GetChildNode("executionTimestamp") is null) { _explicitNullValueExecutionTimestamp = default!; _explicitNullProperties?.Remove("executionTimestamp"); }
+            else if (parseNode.GetChildNode("executionTimestamp") is { } nullNodeExecutionTimestamp && nullNodeExecutionTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionTimestamp = null;
+            if (parseNode.GetChildNode("rowCount") is null) { _explicitNullValueRowCount = default!; _explicitNullProperties?.Remove("rowCount"); }
+            else if (parseNode.GetChildNode("rowCount") is { } nullNodeRowCount && nullNodeRowCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the result was served from the query result cache.</summary>
-        public bool? Cached { get => _explicitNullValueCached; set { _explicitNullValueCached = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached"); else _explicitNullProperties?.Remove("cached"); } }
+        public bool? Cached { get => _explicitNullValueCached; set { _explicitNullValueCached = value; AdditionalData?.Remove("cached"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached"); else _explicitNullProperties?.Remove("cached"); } }
         private bool? _explicitNullValueCached = default!;
         /// <summary>Query execution time in milliseconds.</summary>
-        public int? ExecutionTimeMs { get => _explicitNullValueExecutionTimeMs; set { _explicitNullValueExecutionTimeMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executionTimeMs"); else _explicitNullProperties?.Remove("executionTimeMs"); } }
+        public int? ExecutionTimeMs { get => _explicitNullValueExecutionTimeMs; set { _explicitNullValueExecutionTimeMs = value; AdditionalData?.Remove("executionTimeMs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executionTimeMs"); else _explicitNullProperties?.Remove("executionTimeMs"); } }
         private int? _explicitNullValueExecutionTimeMs = default!;
         /// <summary>When the query result was executed against the backing store in RFC 3339 format.</summary>
-        public DateTimeOffset? ExecutionTimestamp { get => _explicitNullValueExecutionTimestamp; set { _explicitNullValueExecutionTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executionTimestamp"); else _explicitNullProperties?.Remove("executionTimestamp"); } }
+        public DateTimeOffset? ExecutionTimestamp { get => _explicitNullValueExecutionTimestamp; set { _explicitNullValueExecutionTimestamp = value; AdditionalData?.Remove("executionTimestamp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executionTimestamp"); else _explicitNullProperties?.Remove("executionTimestamp"); } }
         private DateTimeOffset? _explicitNullValueExecutionTimestamp = default!;
         /// <summary>Number of rows returned.</summary>
-        public int? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rowCount"); else _explicitNullProperties?.Remove("rowCount"); } }
+        public int? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; AdditionalData?.Remove("rowCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rowCount"); else _explicitNullProperties?.Remove("rowCount"); } }
         private int? _explicitNullValueRowCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata"/> and sets the default values.

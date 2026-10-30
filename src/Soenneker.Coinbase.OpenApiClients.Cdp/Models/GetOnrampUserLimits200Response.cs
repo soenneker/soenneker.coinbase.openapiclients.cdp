@@ -17,8 +17,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("limits") is { } nullNodeLimits && nullNodeLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limits = null;
-            if (parseNode.GetChildNode("limitUpgradeOptions") is { } nullNodeLimitUpgradeOptions && nullNodeLimitUpgradeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitUpgradeOptions = null;
+            if (parseNode.GetChildNode("limits") is null) { _explicitNullValueLimits = default!; _explicitNullProperties?.Remove("limits"); }
+            else if (parseNode.GetChildNode("limits") is { } nullNodeLimits && nullNodeLimits.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Limits = null;
+            if (parseNode.GetChildNode("limitUpgradeOptions") is null) { _explicitNullValueLimitUpgradeOptions = default!; _explicitNullProperties?.Remove("limitUpgradeOptions"); }
+            else if (parseNode.GetChildNode("limitUpgradeOptions") is { } nullNodeLimitUpgradeOptions && nullNodeLimitUpgradeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitUpgradeOptions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The list of limits applicable to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit>? Limits { get => _explicitNullValueLimits; set { _explicitNullValueLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limits"); else _explicitNullProperties?.Remove("limits"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit>? Limits { get => _explicitNullValueLimits; set { _explicitNullValueLimits = value; AdditionalData?.Remove("limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limits"); else _explicitNullProperties?.Remove("limits"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit>? _explicitNullValueLimits = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit> Limits { get => _explicitNullValueLimits; set { _explicitNullValueLimits = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limits"); else _explicitNullProperties?.Remove("limits"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit> Limits { get => _explicitNullValueLimits; set { _explicitNullValueLimits = value; AdditionalData?.Remove("limits"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limits"); else _explicitNullProperties?.Remove("limits"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserLimit> _explicitNullValueLimits = default!;
 #endif
         /// <summary>The user&apos;s limit upgrade status and associated upgrade details. Omitted when limit upgrades are not available for the calling app or user. Use the [Request Limit Upgrade](https://docs.cdp.coinbase.com/api-reference/v2/rest-api/onramp/request-limits-upgrade) endpoint to request a limit upgrade.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption>? LimitUpgradeOptions { get => _explicitNullValueLimitUpgradeOptions; set { _explicitNullValueLimitUpgradeOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitUpgradeOptions"); else _explicitNullProperties?.Remove("limitUpgradeOptions"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption>? LimitUpgradeOptions { get => _explicitNullValueLimitUpgradeOptions; set { _explicitNullValueLimitUpgradeOptions = value; AdditionalData?.Remove("limitUpgradeOptions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitUpgradeOptions"); else _explicitNullProperties?.Remove("limitUpgradeOptions"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption>? _explicitNullValueLimitUpgradeOptions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption> LimitUpgradeOptions { get => _explicitNullValueLimitUpgradeOptions; set { _explicitNullValueLimitUpgradeOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitUpgradeOptions"); else _explicitNullProperties?.Remove("limitUpgradeOptions"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption> LimitUpgradeOptions { get => _explicitNullValueLimitUpgradeOptions; set { _explicitNullValueLimitUpgradeOptions = value; AdditionalData?.Remove("limitUpgradeOptions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitUpgradeOptions"); else _explicitNullProperties?.Remove("limitUpgradeOptions"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption> _explicitNullValueLimitUpgradeOptions = default!;
 #endif
         /// <summary>

@@ -18,8 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cache") is { } nullNodeCache && nullNodeCache.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cache = null;
-            if (parseNode.GetChildNode("sql") is { } nullNodeSql && nullNodeSql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sql = null;
+            if (parseNode.GetChildNode("cache") is null) { _explicitNullValueCache = default!; _explicitNullProperties?.Remove("cache"); }
+            else if (parseNode.GetChildNode("cache") is { } nullNodeCache && nullNodeCache.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cache = null;
+            if (parseNode.GetChildNode("sql") is null) { _explicitNullValueSql = default!; _explicitNullProperties?.Remove("sql"); }
+            else if (parseNode.GetChildNode("sql") is { } nullNodeSql && nullNodeSql.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sql = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Enables control over how often queries need to be fully re-executed on the backing store.This can be useful in scenarios where API calls might be made frequently, API latency is critical, and some freshness lag (ex: 750ms, 2s, 5s) is tolerable.By default, each query result is returned from cache so long as the result is from an identical query and less than 500ms old. This freshness tolerance can be modified upwards, to a maximum of 900000ms (i.e. 900s, 15m).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache? Cache { get => _explicitNullValueCache; set { _explicitNullValueCache = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache"); else _explicitNullProperties?.Remove("cache"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache? Cache { get => _explicitNullValueCache; set { _explicitNullValueCache = value; AdditionalData?.Remove("cache"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache"); else _explicitNullProperties?.Remove("cache"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache? _explicitNullValueCache = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache Cache { get => _explicitNullValueCache; set { _explicitNullValueCache = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache"); else _explicitNullProperties?.Remove("cache"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache Cache { get => _explicitNullValueCache; set { _explicitNullValueCache = value; AdditionalData?.Remove("cache"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cache"); else _explicitNullProperties?.Remove("cache"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache _explicitNullValueCache = default!;
 #endif
         /// <summary>SQL query to execute against the indexed blockchain data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Sql { get => _explicitNullValueSql; set { _explicitNullValueSql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql"); else _explicitNullProperties?.Remove("sql"); } }
+        public string? Sql { get => _explicitNullValueSql; set { _explicitNullValueSql = value; AdditionalData?.Remove("sql"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql"); else _explicitNullProperties?.Remove("sql"); } }
         private string? _explicitNullValueSql = default!;
 #nullable restore
 #else
-        public string Sql { get => _explicitNullValueSql; set { _explicitNullValueSql = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql"); else _explicitNullProperties?.Remove("sql"); } }
+        public string Sql { get => _explicitNullValueSql; set { _explicitNullValueSql = value; AdditionalData?.Remove("sql"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sql"); else _explicitNullProperties?.Remove("sql"); } }
         private string _explicitNullValueSql = default!;
 #endif
         /// <summary>

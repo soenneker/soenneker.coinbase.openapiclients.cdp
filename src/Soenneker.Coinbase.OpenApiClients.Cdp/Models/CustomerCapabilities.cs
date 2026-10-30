@@ -18,14 +18,22 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("custodyCrypto") is { } nullNodeCustodyCrypto && nullNodeCustodyCrypto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustodyCrypto = null;
-            if (parseNode.GetChildNode("custodyFiat") is { } nullNodeCustodyFiat && nullNodeCustodyFiat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustodyFiat = null;
-            if (parseNode.GetChildNode("custodyStablecoin") is { } nullNodeCustodyStablecoin && nullNodeCustodyStablecoin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustodyStablecoin = null;
-            if (parseNode.GetChildNode("tradeCrypto") is { } nullNodeTradeCrypto && nullNodeTradeCrypto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TradeCrypto = null;
-            if (parseNode.GetChildNode("tradeStablecoin") is { } nullNodeTradeStablecoin && nullNodeTradeStablecoin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TradeStablecoin = null;
-            if (parseNode.GetChildNode("transferCrypto") is { } nullNodeTransferCrypto && nullNodeTransferCrypto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransferCrypto = null;
-            if (parseNode.GetChildNode("transferFiat") is { } nullNodeTransferFiat && nullNodeTransferFiat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransferFiat = null;
-            if (parseNode.GetChildNode("transferStablecoin") is { } nullNodeTransferStablecoin && nullNodeTransferStablecoin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransferStablecoin = null;
+            if (parseNode.GetChildNode("custodyCrypto") is null) { _explicitNullValueCustodyCrypto = default!; _explicitNullProperties?.Remove("custodyCrypto"); }
+            else if (parseNode.GetChildNode("custodyCrypto") is { } nullNodeCustodyCrypto && nullNodeCustodyCrypto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustodyCrypto = null;
+            if (parseNode.GetChildNode("custodyFiat") is null) { _explicitNullValueCustodyFiat = default!; _explicitNullProperties?.Remove("custodyFiat"); }
+            else if (parseNode.GetChildNode("custodyFiat") is { } nullNodeCustodyFiat && nullNodeCustodyFiat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustodyFiat = null;
+            if (parseNode.GetChildNode("custodyStablecoin") is null) { _explicitNullValueCustodyStablecoin = default!; _explicitNullProperties?.Remove("custodyStablecoin"); }
+            else if (parseNode.GetChildNode("custodyStablecoin") is { } nullNodeCustodyStablecoin && nullNodeCustodyStablecoin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustodyStablecoin = null;
+            if (parseNode.GetChildNode("tradeCrypto") is null) { _explicitNullValueTradeCrypto = default!; _explicitNullProperties?.Remove("tradeCrypto"); }
+            else if (parseNode.GetChildNode("tradeCrypto") is { } nullNodeTradeCrypto && nullNodeTradeCrypto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TradeCrypto = null;
+            if (parseNode.GetChildNode("tradeStablecoin") is null) { _explicitNullValueTradeStablecoin = default!; _explicitNullProperties?.Remove("tradeStablecoin"); }
+            else if (parseNode.GetChildNode("tradeStablecoin") is { } nullNodeTradeStablecoin && nullNodeTradeStablecoin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TradeStablecoin = null;
+            if (parseNode.GetChildNode("transferCrypto") is null) { _explicitNullValueTransferCrypto = default!; _explicitNullProperties?.Remove("transferCrypto"); }
+            else if (parseNode.GetChildNode("transferCrypto") is { } nullNodeTransferCrypto && nullNodeTransferCrypto.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransferCrypto = null;
+            if (parseNode.GetChildNode("transferFiat") is null) { _explicitNullValueTransferFiat = default!; _explicitNullProperties?.Remove("transferFiat"); }
+            else if (parseNode.GetChildNode("transferFiat") is { } nullNodeTransferFiat && nullNodeTransferFiat.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransferFiat = null;
+            if (parseNode.GetChildNode("transferStablecoin") is null) { _explicitNullValueTransferStablecoin = default!; _explicitNullProperties?.Remove("transferStablecoin"); }
+            else if (parseNode.GetChildNode("transferStablecoin") is { } nullNodeTransferStablecoin && nullNodeTransferStablecoin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransferStablecoin = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,81 +41,81 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Hold cryptocurrency in a Coinbase custodial account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyCrypto? CustodyCrypto { get => _explicitNullValueCustodyCrypto; set { _explicitNullValueCustodyCrypto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyCrypto"); else _explicitNullProperties?.Remove("custodyCrypto"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyCrypto? CustodyCrypto { get => _explicitNullValueCustodyCrypto; set { _explicitNullValueCustodyCrypto = value; AdditionalData?.Remove("custodyCrypto"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyCrypto"); else _explicitNullProperties?.Remove("custodyCrypto"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyCrypto? _explicitNullValueCustodyCrypto = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyCrypto CustodyCrypto { get => _explicitNullValueCustodyCrypto; set { _explicitNullValueCustodyCrypto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyCrypto"); else _explicitNullProperties?.Remove("custodyCrypto"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyCrypto CustodyCrypto { get => _explicitNullValueCustodyCrypto; set { _explicitNullValueCustodyCrypto = value; AdditionalData?.Remove("custodyCrypto"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyCrypto"); else _explicitNullProperties?.Remove("custodyCrypto"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyCrypto _explicitNullValueCustodyCrypto = default!;
 #endif
         /// <summary>Hold fiat currency in a Coinbase custodial account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyFiat? CustodyFiat { get => _explicitNullValueCustodyFiat; set { _explicitNullValueCustodyFiat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyFiat"); else _explicitNullProperties?.Remove("custodyFiat"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyFiat? CustodyFiat { get => _explicitNullValueCustodyFiat; set { _explicitNullValueCustodyFiat = value; AdditionalData?.Remove("custodyFiat"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyFiat"); else _explicitNullProperties?.Remove("custodyFiat"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyFiat? _explicitNullValueCustodyFiat = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyFiat CustodyFiat { get => _explicitNullValueCustodyFiat; set { _explicitNullValueCustodyFiat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyFiat"); else _explicitNullProperties?.Remove("custodyFiat"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyFiat CustodyFiat { get => _explicitNullValueCustodyFiat; set { _explicitNullValueCustodyFiat = value; AdditionalData?.Remove("custodyFiat"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyFiat"); else _explicitNullProperties?.Remove("custodyFiat"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyFiat _explicitNullValueCustodyFiat = default!;
 #endif
         /// <summary>Hold stablecoin in a Coinbase custodial account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyStablecoin? CustodyStablecoin { get => _explicitNullValueCustodyStablecoin; set { _explicitNullValueCustodyStablecoin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyStablecoin"); else _explicitNullProperties?.Remove("custodyStablecoin"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyStablecoin? CustodyStablecoin { get => _explicitNullValueCustodyStablecoin; set { _explicitNullValueCustodyStablecoin = value; AdditionalData?.Remove("custodyStablecoin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyStablecoin"); else _explicitNullProperties?.Remove("custodyStablecoin"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyStablecoin? _explicitNullValueCustodyStablecoin = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyStablecoin CustodyStablecoin { get => _explicitNullValueCustodyStablecoin; set { _explicitNullValueCustodyStablecoin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyStablecoin"); else _explicitNullProperties?.Remove("custodyStablecoin"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyStablecoin CustodyStablecoin { get => _explicitNullValueCustodyStablecoin; set { _explicitNullValueCustodyStablecoin = value; AdditionalData?.Remove("custodyStablecoin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("custodyStablecoin"); else _explicitNullProperties?.Remove("custodyStablecoin"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapCustodyStablecoin _explicitNullValueCustodyStablecoin = default!;
 #endif
         /// <summary>Trade cryptocurrency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeCrypto? TradeCrypto { get => _explicitNullValueTradeCrypto; set { _explicitNullValueTradeCrypto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tradeCrypto"); else _explicitNullProperties?.Remove("tradeCrypto"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeCrypto? TradeCrypto { get => _explicitNullValueTradeCrypto; set { _explicitNullValueTradeCrypto = value; AdditionalData?.Remove("tradeCrypto"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tradeCrypto"); else _explicitNullProperties?.Remove("tradeCrypto"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeCrypto? _explicitNullValueTradeCrypto = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeCrypto TradeCrypto { get => _explicitNullValueTradeCrypto; set { _explicitNullValueTradeCrypto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tradeCrypto"); else _explicitNullProperties?.Remove("tradeCrypto"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeCrypto TradeCrypto { get => _explicitNullValueTradeCrypto; set { _explicitNullValueTradeCrypto = value; AdditionalData?.Remove("tradeCrypto"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tradeCrypto"); else _explicitNullProperties?.Remove("tradeCrypto"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeCrypto _explicitNullValueTradeCrypto = default!;
 #endif
         /// <summary>Trade stablecoin.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeStablecoin? TradeStablecoin { get => _explicitNullValueTradeStablecoin; set { _explicitNullValueTradeStablecoin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tradeStablecoin"); else _explicitNullProperties?.Remove("tradeStablecoin"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeStablecoin? TradeStablecoin { get => _explicitNullValueTradeStablecoin; set { _explicitNullValueTradeStablecoin = value; AdditionalData?.Remove("tradeStablecoin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tradeStablecoin"); else _explicitNullProperties?.Remove("tradeStablecoin"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeStablecoin? _explicitNullValueTradeStablecoin = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeStablecoin TradeStablecoin { get => _explicitNullValueTradeStablecoin; set { _explicitNullValueTradeStablecoin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tradeStablecoin"); else _explicitNullProperties?.Remove("tradeStablecoin"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeStablecoin TradeStablecoin { get => _explicitNullValueTradeStablecoin; set { _explicitNullValueTradeStablecoin = value; AdditionalData?.Remove("tradeStablecoin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tradeStablecoin"); else _explicitNullProperties?.Remove("tradeStablecoin"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTradeStablecoin _explicitNullValueTradeStablecoin = default!;
 #endif
         /// <summary>Transfer cryptocurrency to another party.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferCrypto? TransferCrypto { get => _explicitNullValueTransferCrypto; set { _explicitNullValueTransferCrypto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferCrypto"); else _explicitNullProperties?.Remove("transferCrypto"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferCrypto? TransferCrypto { get => _explicitNullValueTransferCrypto; set { _explicitNullValueTransferCrypto = value; AdditionalData?.Remove("transferCrypto"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferCrypto"); else _explicitNullProperties?.Remove("transferCrypto"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferCrypto? _explicitNullValueTransferCrypto = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferCrypto TransferCrypto { get => _explicitNullValueTransferCrypto; set { _explicitNullValueTransferCrypto = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferCrypto"); else _explicitNullProperties?.Remove("transferCrypto"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferCrypto TransferCrypto { get => _explicitNullValueTransferCrypto; set { _explicitNullValueTransferCrypto = value; AdditionalData?.Remove("transferCrypto"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferCrypto"); else _explicitNullProperties?.Remove("transferCrypto"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferCrypto _explicitNullValueTransferCrypto = default!;
 #endif
         /// <summary>Transfer fiat currency to another party.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferFiat? TransferFiat { get => _explicitNullValueTransferFiat; set { _explicitNullValueTransferFiat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferFiat"); else _explicitNullProperties?.Remove("transferFiat"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferFiat? TransferFiat { get => _explicitNullValueTransferFiat; set { _explicitNullValueTransferFiat = value; AdditionalData?.Remove("transferFiat"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferFiat"); else _explicitNullProperties?.Remove("transferFiat"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferFiat? _explicitNullValueTransferFiat = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferFiat TransferFiat { get => _explicitNullValueTransferFiat; set { _explicitNullValueTransferFiat = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferFiat"); else _explicitNullProperties?.Remove("transferFiat"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferFiat TransferFiat { get => _explicitNullValueTransferFiat; set { _explicitNullValueTransferFiat = value; AdditionalData?.Remove("transferFiat"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferFiat"); else _explicitNullProperties?.Remove("transferFiat"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferFiat _explicitNullValueTransferFiat = default!;
 #endif
         /// <summary>Transfer stablecoin to another party.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferStablecoin? TransferStablecoin { get => _explicitNullValueTransferStablecoin; set { _explicitNullValueTransferStablecoin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferStablecoin"); else _explicitNullProperties?.Remove("transferStablecoin"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferStablecoin? TransferStablecoin { get => _explicitNullValueTransferStablecoin; set { _explicitNullValueTransferStablecoin = value; AdditionalData?.Remove("transferStablecoin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferStablecoin"); else _explicitNullProperties?.Remove("transferStablecoin"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferStablecoin? _explicitNullValueTransferStablecoin = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferStablecoin TransferStablecoin { get => _explicitNullValueTransferStablecoin; set { _explicitNullValueTransferStablecoin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferStablecoin"); else _explicitNullProperties?.Remove("transferStablecoin"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferStablecoin TransferStablecoin { get => _explicitNullValueTransferStablecoin; set { _explicitNullValueTransferStablecoin = value; AdditionalData?.Remove("transferStablecoin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transferStablecoin"); else _explicitNullProperties?.Remove("transferStablecoin"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapTransferStablecoin _explicitNullValueTransferStablecoin = default!;
 #endif
         /// <summary>

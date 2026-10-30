@@ -17,7 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("transactionSignature") is { } nullNodeTransactionSignature && nullNodeTransactionSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionSignature = null;
+            if (parseNode.GetChildNode("transactionSignature") is null) { _explicitNullValueTransactionSignature = default!; _explicitNullProperties?.Remove("transactionSignature"); }
+            else if (parseNode.GetChildNode("transactionSignature") is { } nullNodeTransactionSignature && nullNodeTransactionSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionSignature = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The signature identifying the transaction that requested the funds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionSignature { get => _explicitNullValueTransactionSignature; set { _explicitNullValueTransactionSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionSignature"); else _explicitNullProperties?.Remove("transactionSignature"); } }
+        public string? TransactionSignature { get => _explicitNullValueTransactionSignature; set { _explicitNullValueTransactionSignature = value; AdditionalData?.Remove("transactionSignature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionSignature"); else _explicitNullProperties?.Remove("transactionSignature"); } }
         private string? _explicitNullValueTransactionSignature = default!;
 #nullable restore
 #else
-        public string TransactionSignature { get => _explicitNullValueTransactionSignature; set { _explicitNullValueTransactionSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionSignature"); else _explicitNullProperties?.Remove("transactionSignature"); } }
+        public string TransactionSignature { get => _explicitNullValueTransactionSignature; set { _explicitNullValueTransactionSignature = value; AdditionalData?.Remove("transactionSignature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionSignature"); else _explicitNullProperties?.Remove("transactionSignature"); } }
         private string _explicitNullValueTransactionSignature = default!;
 #endif
         /// <summary>

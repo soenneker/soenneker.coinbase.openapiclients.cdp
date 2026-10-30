@@ -18,9 +18,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("attestation") is { } nullNodeAttestation && nullNodeAttestation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attestation = null;
-            if (parseNode.GetChildNode("bundleId") is { } nullNodeBundleId && nullNodeBundleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BundleId = null;
-            if (parseNode.GetChildNode("keyId") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
+            if (parseNode.GetChildNode("attestation") is null) { _explicitNullValueAttestation = default!; _explicitNullProperties?.Remove("attestation"); }
+            else if (parseNode.GetChildNode("attestation") is { } nullNodeAttestation && nullNodeAttestation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Attestation = null;
+            if (parseNode.GetChildNode("bundleId") is null) { _explicitNullValueBundleId = default!; _explicitNullProperties?.Remove("bundleId"); }
+            else if (parseNode.GetChildNode("bundleId") is { } nullNodeBundleId && nullNodeBundleId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BundleId = null;
+            if (parseNode.GetChildNode("keyId") is null) { _explicitNullValueKeyId = default!; _explicitNullProperties?.Remove("keyId"); }
+            else if (parseNode.GetChildNode("keyId") is { } nullNodeKeyId && nullNodeKeyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Base64-encoded attestation object from DCAppAttestService.attestKey().</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Attestation { get => _explicitNullValueAttestation; set { _explicitNullValueAttestation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestation"); else _explicitNullProperties?.Remove("attestation"); } }
+        public string? Attestation { get => _explicitNullValueAttestation; set { _explicitNullValueAttestation = value; AdditionalData?.Remove("attestation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestation"); else _explicitNullProperties?.Remove("attestation"); } }
         private string? _explicitNullValueAttestation = default!;
 #nullable restore
 #else
-        public string Attestation { get => _explicitNullValueAttestation; set { _explicitNullValueAttestation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestation"); else _explicitNullProperties?.Remove("attestation"); } }
+        public string Attestation { get => _explicitNullValueAttestation; set { _explicitNullValueAttestation = value; AdditionalData?.Remove("attestation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestation"); else _explicitNullProperties?.Remove("attestation"); } }
         private string _explicitNullValueAttestation = default!;
 #endif
         /// <summary>iOS application bundle identifier (`CFBundleIdentifier`), as configured in the app&apos;s Xcode project / Info.plist, or shown for the App ID in Apple Developer. Must contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), and periods (.), typically in reverse-DNS form (e.g. `com.example.app`). Underscores are not permitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BundleId { get => _explicitNullValueBundleId; set { _explicitNullValueBundleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundleId"); else _explicitNullProperties?.Remove("bundleId"); } }
+        public string? BundleId { get => _explicitNullValueBundleId; set { _explicitNullValueBundleId = value; AdditionalData?.Remove("bundleId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundleId"); else _explicitNullProperties?.Remove("bundleId"); } }
         private string? _explicitNullValueBundleId = default!;
 #nullable restore
 #else
-        public string BundleId { get => _explicitNullValueBundleId; set { _explicitNullValueBundleId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundleId"); else _explicitNullProperties?.Remove("bundleId"); } }
+        public string BundleId { get => _explicitNullValueBundleId; set { _explicitNullValueBundleId = value; AdditionalData?.Remove("bundleId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundleId"); else _explicitNullProperties?.Remove("bundleId"); } }
         private string _explicitNullValueBundleId = default!;
 #endif
         /// <summary>The key identifier generated by DCAppAttestService.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyId"); else _explicitNullProperties?.Remove("keyId"); } }
+        public string? KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; AdditionalData?.Remove("keyId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyId"); else _explicitNullProperties?.Remove("keyId"); } }
         private string? _explicitNullValueKeyId = default!;
 #nullable restore
 #else
-        public string KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyId"); else _explicitNullProperties?.Remove("keyId"); } }
+        public string KeyId { get => _explicitNullValueKeyId; set { _explicitNullValueKeyId = value; AdditionalData?.Remove("keyId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyId"); else _explicitNullProperties?.Remove("keyId"); } }
         private string _explicitNullValueKeyId = default!;
 #endif
         /// <summary>

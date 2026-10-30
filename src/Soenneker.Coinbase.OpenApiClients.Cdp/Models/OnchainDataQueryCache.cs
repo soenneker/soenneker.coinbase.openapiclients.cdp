@@ -18,13 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("maxAgeMs") is { } nullNodeMaxAgeMs && nullNodeMaxAgeMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAgeMs = null;
+            if (parseNode.GetChildNode("maxAgeMs") is null) { _explicitNullValueMaxAgeMs = default!; _explicitNullProperties?.Remove("maxAgeMs"); }
+            else if (parseNode.GetChildNode("maxAgeMs") is { } nullNodeMaxAgeMs && nullNodeMaxAgeMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAgeMs = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum tolerable staleness of the query result cache in milliseconds. If a previous execution result of an identical query is older than this age, the query will be re-executed. If the data is less than this age, the result will be returned from cache.</summary>
-        public int? MaxAgeMs { get => _explicitNullValueMaxAgeMs; set { _explicitNullValueMaxAgeMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxAgeMs"); else _explicitNullProperties?.Remove("maxAgeMs"); } }
+        public int? MaxAgeMs { get => _explicitNullValueMaxAgeMs; set { _explicitNullValueMaxAgeMs = value; AdditionalData?.Remove("maxAgeMs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxAgeMs"); else _explicitNullProperties?.Remove("maxAgeMs"); } }
         private int? _explicitNullValueMaxAgeMs = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataQueryCache"/> and sets the default values.

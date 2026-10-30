@@ -18,8 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("recipient") is { } nullNodeRecipient && nullNodeRecipient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recipient = null;
-            if (parseNode.GetChildNode("requesterIpAddress") is { } nullNodeRequesterIpAddress && nullNodeRequesterIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequesterIpAddress = null;
+            if (parseNode.GetChildNode("recipient") is null) { _explicitNullValueRecipient = default!; _explicitNullProperties?.Remove("recipient"); }
+            else if (parseNode.GetChildNode("recipient") is { } nullNodeRecipient && nullNodeRecipient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recipient = null;
+            if (parseNode.GetChildNode("requesterIpAddress") is null) { _explicitNullValueRequesterIpAddress = default!; _explicitNullProperties?.Remove("requesterIpAddress"); }
+            else if (parseNode.GetChildNode("requesterIpAddress") is { } nullNodeRequesterIpAddress && nullNodeRequesterIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequesterIpAddress = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Information about the person receiving this disbursement. Required by some entity configurations to meet regulatory requirements for fund transfers. When required, omitting this field or leaving required sub-fields empty returns a 400 listing the specific fields needed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient? Recipient { get => _explicitNullValueRecipient; set { _explicitNullValueRecipient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient"); else _explicitNullProperties?.Remove("recipient"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient? Recipient { get => _explicitNullValueRecipient; set { _explicitNullValueRecipient = value; AdditionalData?.Remove("recipient"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient"); else _explicitNullProperties?.Remove("recipient"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient? _explicitNullValueRecipient = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient Recipient { get => _explicitNullValueRecipient; set { _explicitNullValueRecipient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient"); else _explicitNullProperties?.Remove("recipient"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient Recipient { get => _explicitNullValueRecipient; set { _explicitNullValueRecipient = value; AdditionalData?.Remove("recipient"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient"); else _explicitNullProperties?.Remove("recipient"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient _explicitNullValueRecipient = default!;
 #endif
         /// <summary>IPv4 or IPv6 address of the individual (i.e., end-customer) thatinitiated this request. NOT the IP of the partner server making theAPI call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequesterIpAddress { get => _explicitNullValueRequesterIpAddress; set { _explicitNullValueRequesterIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requesterIpAddress"); else _explicitNullProperties?.Remove("requesterIpAddress"); } }
+        public string? RequesterIpAddress { get => _explicitNullValueRequesterIpAddress; set { _explicitNullValueRequesterIpAddress = value; AdditionalData?.Remove("requesterIpAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requesterIpAddress"); else _explicitNullProperties?.Remove("requesterIpAddress"); } }
         private string? _explicitNullValueRequesterIpAddress = default!;
 #nullable restore
 #else
-        public string RequesterIpAddress { get => _explicitNullValueRequesterIpAddress; set { _explicitNullValueRequesterIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requesterIpAddress"); else _explicitNullProperties?.Remove("requesterIpAddress"); } }
+        public string RequesterIpAddress { get => _explicitNullValueRequesterIpAddress; set { _explicitNullValueRequesterIpAddress = value; AdditionalData?.Remove("requesterIpAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requesterIpAddress"); else _explicitNullProperties?.Remove("requesterIpAddress"); } }
         private string _explicitNullValueRequesterIpAddress = default!;
 #endif
         /// <summary>

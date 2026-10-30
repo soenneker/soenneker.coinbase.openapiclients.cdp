@@ -18,7 +18,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("bundles") is { } nullNodeBundles && nullNodeBundles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundles = null;
+            if (parseNode.GetChildNode("bundles") is null) { _explicitNullValueBundles = default!; _explicitNullProperties?.Remove("bundles"); }
+            else if (parseNode.GetChildNode("bundles") is { } nullNodeBundles && nullNodeBundles.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Bundles = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The list of available curated bundles. This list is empty when no bundles are defined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Bundle>? Bundles { get => _explicitNullValueBundles; set { _explicitNullValueBundles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundles"); else _explicitNullProperties?.Remove("bundles"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Bundle>? Bundles { get => _explicitNullValueBundles; set { _explicitNullValueBundles = value; AdditionalData?.Remove("bundles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundles"); else _explicitNullProperties?.Remove("bundles"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Bundle>? _explicitNullValueBundles = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Bundle> Bundles { get => _explicitNullValueBundles; set { _explicitNullValueBundles = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundles"); else _explicitNullProperties?.Remove("bundles"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Bundle> Bundles { get => _explicitNullValueBundles; set { _explicitNullValueBundles = value; AdditionalData?.Remove("bundles"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundles"); else _explicitNullProperties?.Remove("bundles"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402Bundle> _explicitNullValueBundles = default!;
 #endif
         /// <summary>

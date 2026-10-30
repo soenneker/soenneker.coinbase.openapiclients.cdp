@@ -18,7 +18,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("erc3009Authorization") is { } nullNodeErc3009Authorization && nullNodeErc3009Authorization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Erc3009Authorization = null;
+            if (parseNode.GetChildNode("erc3009Authorization") is null) { _explicitNullValueErc3009Authorization = default!; _explicitNullProperties?.Remove("erc3009Authorization"); }
+            else if (parseNode.GetChildNode("erc3009Authorization") is { } nullNodeErc3009Authorization && nullNodeErc3009Authorization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Erc3009Authorization = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>An ERC-3009 receiveWithAuthorization message authorizing the channel-funding transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization? Erc3009Authorization { get => _explicitNullValueErc3009Authorization; set { _explicitNullValueErc3009Authorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("erc3009Authorization"); else _explicitNullProperties?.Remove("erc3009Authorization"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization? Erc3009Authorization { get => _explicitNullValueErc3009Authorization; set { _explicitNullValueErc3009Authorization = value; AdditionalData?.Remove("erc3009Authorization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("erc3009Authorization"); else _explicitNullProperties?.Remove("erc3009Authorization"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization? _explicitNullValueErc3009Authorization = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization Erc3009Authorization { get => _explicitNullValueErc3009Authorization; set { _explicitNullValueErc3009Authorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("erc3009Authorization"); else _explicitNullProperties?.Remove("erc3009Authorization"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization Erc3009Authorization { get => _explicitNullValueErc3009Authorization; set { _explicitNullValueErc3009Authorization = value; AdditionalData?.Remove("erc3009Authorization"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("erc3009Authorization"); else _explicitNullProperties?.Remove("erc3009Authorization"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization _explicitNullValueErc3009Authorization = default!;
 #endif
         /// <summary>

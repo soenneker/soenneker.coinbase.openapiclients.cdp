@@ -18,8 +18,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("primaryType") is { } nullNodePrimaryType && nullNodePrimaryType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryType = null;
-            if (parseNode.GetChildNode("types") is { } nullNodeTypes && nullNodeTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Types = null;
+            if (parseNode.GetChildNode("primaryType") is null) { _explicitNullValuePrimaryType = default!; _explicitNullProperties?.Remove("primaryType"); }
+            else if (parseNode.GetChildNode("primaryType") is { } nullNodePrimaryType && nullNodePrimaryType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryType = null;
+            if (parseNode.GetChildNode("types") is null) { _explicitNullValueTypes = default!; _explicitNullProperties?.Remove("types"); }
+            else if (parseNode.GetChildNode("types") is { } nullNodeTypes && nullNodeTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Types = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The name of the root EIP-712 type. This value must be included in the `types` object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryType { get => _explicitNullValuePrimaryType; set { _explicitNullValuePrimaryType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primaryType"); else _explicitNullProperties?.Remove("primaryType"); } }
+        public string? PrimaryType { get => _explicitNullValuePrimaryType; set { _explicitNullValuePrimaryType = value; AdditionalData?.Remove("primaryType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primaryType"); else _explicitNullProperties?.Remove("primaryType"); } }
         private string? _explicitNullValuePrimaryType = default!;
 #nullable restore
 #else
-        public string PrimaryType { get => _explicitNullValuePrimaryType; set { _explicitNullValuePrimaryType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primaryType"); else _explicitNullProperties?.Remove("primaryType"); } }
+        public string PrimaryType { get => _explicitNullValuePrimaryType; set { _explicitNullValuePrimaryType = value; AdditionalData?.Remove("primaryType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primaryType"); else _explicitNullProperties?.Remove("primaryType"); } }
         private string _explicitNullValuePrimaryType = default!;
 #endif
         /// <summary>EIP-712 compliant map of model names to model definitions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypesTypesProperty? Types { get => _explicitNullValueTypes; set { _explicitNullValueTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("types"); else _explicitNullProperties?.Remove("types"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypesTypesProperty? Types { get => _explicitNullValueTypes; set { _explicitNullValueTypes = value; AdditionalData?.Remove("types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("types"); else _explicitNullProperties?.Remove("types"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypesTypesProperty? _explicitNullValueTypes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypesTypesProperty Types { get => _explicitNullValueTypes; set { _explicitNullValueTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("types"); else _explicitNullProperties?.Remove("types"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypesTypesProperty Types { get => _explicitNullValueTypes; set { _explicitNullValueTypes = value; AdditionalData?.Remove("types"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("types"); else _explicitNullProperties?.Remove("types"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionTypesTypesProperty _explicitNullValueTypes = default!;
 #endif
         /// <summary>

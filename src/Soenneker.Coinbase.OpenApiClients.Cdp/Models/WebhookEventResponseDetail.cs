@@ -18,10 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
-            if (parseNode.GetChildNode("elapsedTimeMs") is { } nullNodeElapsedTimeMs && nullNodeElapsedTimeMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ElapsedTimeMs = null;
-            if (parseNode.GetChildNode("errorName") is { } nullNodeErrorName && nullNodeErrorName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorName = null;
-            if (parseNode.GetChildNode("httpCode") is { } nullNodeHttpCode && nullNodeHttpCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpCode = null;
+            if (parseNode.GetChildNode("body") is null) { _explicitNullValueBody = default!; _explicitNullProperties?.Remove("body"); }
+            else if (parseNode.GetChildNode("body") is { } nullNodeBody && nullNodeBody.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Body = null;
+            if (parseNode.GetChildNode("elapsedTimeMs") is null) { _explicitNullValueElapsedTimeMs = default!; _explicitNullProperties?.Remove("elapsedTimeMs"); }
+            else if (parseNode.GetChildNode("elapsedTimeMs") is { } nullNodeElapsedTimeMs && nullNodeElapsedTimeMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ElapsedTimeMs = null;
+            if (parseNode.GetChildNode("errorName") is null) { _explicitNullValueErrorName = default!; _explicitNullProperties?.Remove("errorName"); }
+            else if (parseNode.GetChildNode("errorName") is { } nullNodeErrorName && nullNodeErrorName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ErrorName = null;
+            if (parseNode.GetChildNode("httpCode") is null) { _explicitNullValueHttpCode = default!; _explicitNullProperties?.Remove("httpCode"); }
+            else if (parseNode.GetChildNode("httpCode") is { } nullNodeHttpCode && nullNodeHttpCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HttpCode = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,28 +33,28 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Response body returned by the webhook target.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public string? Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private string? _explicitNullValueBody = default!;
 #nullable restore
 #else
-        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
+        public string Body { get => _explicitNullValueBody; set { _explicitNullValueBody = value; AdditionalData?.Remove("body"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("body"); else _explicitNullProperties?.Remove("body"); } }
         private string _explicitNullValueBody = default!;
 #endif
         /// <summary>Round-trip time of the webhook delivery in milliseconds.</summary>
-        public int? ElapsedTimeMs { get => _explicitNullValueElapsedTimeMs; set { _explicitNullValueElapsedTimeMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("elapsedTimeMs"); else _explicitNullProperties?.Remove("elapsedTimeMs"); } }
+        public int? ElapsedTimeMs { get => _explicitNullValueElapsedTimeMs; set { _explicitNullValueElapsedTimeMs = value; AdditionalData?.Remove("elapsedTimeMs"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("elapsedTimeMs"); else _explicitNullProperties?.Remove("elapsedTimeMs"); } }
         private int? _explicitNullValueElapsedTimeMs = default!;
         /// <summary>Error name if the delivery failed (e.g., timeout, connection_refused).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ErrorName { get => _explicitNullValueErrorName; set { _explicitNullValueErrorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorName"); else _explicitNullProperties?.Remove("errorName"); } }
+        public string? ErrorName { get => _explicitNullValueErrorName; set { _explicitNullValueErrorName = value; AdditionalData?.Remove("errorName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorName"); else _explicitNullProperties?.Remove("errorName"); } }
         private string? _explicitNullValueErrorName = default!;
 #nullable restore
 #else
-        public string ErrorName { get => _explicitNullValueErrorName; set { _explicitNullValueErrorName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorName"); else _explicitNullProperties?.Remove("errorName"); } }
+        public string ErrorName { get => _explicitNullValueErrorName; set { _explicitNullValueErrorName = value; AdditionalData?.Remove("errorName"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errorName"); else _explicitNullProperties?.Remove("errorName"); } }
         private string _explicitNullValueErrorName = default!;
 #endif
         /// <summary>HTTP status code returned by the webhook target.</summary>
-        public int? HttpCode { get => _explicitNullValueHttpCode; set { _explicitNullValueHttpCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("httpCode"); else _explicitNullProperties?.Remove("httpCode"); } }
+        public int? HttpCode { get => _explicitNullValueHttpCode; set { _explicitNullValueHttpCode = value; AdditionalData?.Remove("httpCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("httpCode"); else _explicitNullProperties?.Remove("httpCode"); } }
         private int? _explicitNullValueHttpCode = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WebhookEventResponseDetail"/> and sets the default values.

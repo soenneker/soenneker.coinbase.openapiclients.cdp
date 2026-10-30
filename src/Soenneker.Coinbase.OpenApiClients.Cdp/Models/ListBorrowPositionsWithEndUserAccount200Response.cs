@@ -17,8 +17,10 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("borrowPositions") is { } nullNodeBorrowPositions && nullNodeBorrowPositions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorrowPositions = null;
-            if (parseNode.GetChildNode("nextPageToken") is { } nullNodeNextPageToken && nullNodeNextPageToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPageToken = null;
+            if (parseNode.GetChildNode("borrowPositions") is null) { _explicitNullValueBorrowPositions = default!; _explicitNullProperties?.Remove("borrowPositions"); }
+            else if (parseNode.GetChildNode("borrowPositions") is { } nullNodeBorrowPositions && nullNodeBorrowPositions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorrowPositions = null;
+            if (parseNode.GetChildNode("nextPageToken") is null) { _explicitNullValueNextPageToken = default!; _explicitNullProperties?.Remove("nextPageToken"); }
+            else if (parseNode.GetChildNode("nextPageToken") is { } nullNodeNextPageToken && nullNodeNextPageToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextPageToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The borrow positions held by the smart account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPosition>? BorrowPositions { get => _explicitNullValueBorrowPositions; set { _explicitNullValueBorrowPositions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowPositions"); else _explicitNullProperties?.Remove("borrowPositions"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPosition>? BorrowPositions { get => _explicitNullValueBorrowPositions; set { _explicitNullValueBorrowPositions = value; AdditionalData?.Remove("borrowPositions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowPositions"); else _explicitNullProperties?.Remove("borrowPositions"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPosition>? _explicitNullValueBorrowPositions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPosition> BorrowPositions { get => _explicitNullValueBorrowPositions; set { _explicitNullValueBorrowPositions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowPositions"); else _explicitNullProperties?.Remove("borrowPositions"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPosition> BorrowPositions { get => _explicitNullValueBorrowPositions; set { _explicitNullValueBorrowPositions = value; AdditionalData?.Remove("borrowPositions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowPositions"); else _explicitNullProperties?.Remove("borrowPositions"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPosition> _explicitNullValueBorrowPositions = default!;
 #endif
         /// <summary>The token for the next page of items, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextPageToken"); else _explicitNullProperties?.Remove("nextPageToken"); } }
+        public string? NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; AdditionalData?.Remove("nextPageToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextPageToken"); else _explicitNullProperties?.Remove("nextPageToken"); } }
         private string? _explicitNullValueNextPageToken = default!;
 #nullable restore
 #else
-        public string NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextPageToken"); else _explicitNullProperties?.Remove("nextPageToken"); } }
+        public string NextPageToken { get => _explicitNullValueNextPageToken; set { _explicitNullValueNextPageToken = value; AdditionalData?.Remove("nextPageToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nextPageToken"); else _explicitNullProperties?.Remove("nextPageToken"); } }
         private string _explicitNullValueNextPageToken = default!;
 #endif
         /// <summary>

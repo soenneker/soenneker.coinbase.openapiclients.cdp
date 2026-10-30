@@ -18,9 +18,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("rate") is { } nullNodeRate && nullNodeRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rate = null;
-            if (parseNode.GetChildNode("sourceAsset") is { } nullNodeSourceAsset && nullNodeSourceAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceAsset = null;
-            if (parseNode.GetChildNode("targetAsset") is { } nullNodeTargetAsset && nullNodeTargetAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetAsset = null;
+            if (parseNode.GetChildNode("rate") is null) { _explicitNullValueRate = default!; _explicitNullProperties?.Remove("rate"); }
+            else if (parseNode.GetChildNode("rate") is { } nullNodeRate && nullNodeRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rate = null;
+            if (parseNode.GetChildNode("sourceAsset") is null) { _explicitNullValueSourceAsset = default!; _explicitNullProperties?.Remove("sourceAsset"); }
+            else if (parseNode.GetChildNode("sourceAsset") is { } nullNodeSourceAsset && nullNodeSourceAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceAsset = null;
+            if (parseNode.GetChildNode("targetAsset") is null) { _explicitNullValueTargetAsset = default!; _explicitNullProperties?.Remove("targetAsset"); }
+            else if (parseNode.GetChildNode("targetAsset") is { } nullNodeTargetAsset && nullNodeTargetAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetAsset = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The exchange rate value as a decimal string. Indicates how many units of the target asset equal one unit of the source asset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
+        public string? Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; AdditionalData?.Remove("rate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
         private string? _explicitNullValueRate = default!;
 #nullable restore
 #else
-        public string Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
+        public string Rate { get => _explicitNullValueRate; set { _explicitNullValueRate = value; AdditionalData?.Remove("rate"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rate"); else _explicitNullProperties?.Remove("rate"); } }
         private string _explicitNullValueRate = default!;
 #endif
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SourceAsset { get => _explicitNullValueSourceAsset; set { _explicitNullValueSourceAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourceAsset"); else _explicitNullProperties?.Remove("sourceAsset"); } }
+        public string? SourceAsset { get => _explicitNullValueSourceAsset; set { _explicitNullValueSourceAsset = value; AdditionalData?.Remove("sourceAsset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourceAsset"); else _explicitNullProperties?.Remove("sourceAsset"); } }
         private string? _explicitNullValueSourceAsset = default!;
 #nullable restore
 #else
-        public string SourceAsset { get => _explicitNullValueSourceAsset; set { _explicitNullValueSourceAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourceAsset"); else _explicitNullProperties?.Remove("sourceAsset"); } }
+        public string SourceAsset { get => _explicitNullValueSourceAsset; set { _explicitNullValueSourceAsset = value; AdditionalData?.Remove("sourceAsset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourceAsset"); else _explicitNullProperties?.Remove("sourceAsset"); } }
         private string _explicitNullValueSourceAsset = default!;
 #endif
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetAsset { get => _explicitNullValueTargetAsset; set { _explicitNullValueTargetAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetAsset"); else _explicitNullProperties?.Remove("targetAsset"); } }
+        public string? TargetAsset { get => _explicitNullValueTargetAsset; set { _explicitNullValueTargetAsset = value; AdditionalData?.Remove("targetAsset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetAsset"); else _explicitNullProperties?.Remove("targetAsset"); } }
         private string? _explicitNullValueTargetAsset = default!;
 #nullable restore
 #else
-        public string TargetAsset { get => _explicitNullValueTargetAsset; set { _explicitNullValueTargetAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetAsset"); else _explicitNullProperties?.Remove("targetAsset"); } }
+        public string TargetAsset { get => _explicitNullValueTargetAsset; set { _explicitNullValueTargetAsset = value; AdditionalData?.Remove("targetAsset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetAsset"); else _explicitNullProperties?.Remove("targetAsset"); } }
         private string _explicitNullValueTargetAsset = default!;
 #endif
         /// <summary>

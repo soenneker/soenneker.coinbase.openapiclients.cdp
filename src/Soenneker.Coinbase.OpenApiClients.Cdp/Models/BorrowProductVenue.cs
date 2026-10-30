@@ -18,9 +18,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("entrypointAddress") is { } nullNodeEntrypointAddress && nullNodeEntrypointAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntrypointAddress = null;
-            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
-            if (parseNode.GetChildNode("venueId") is { } nullNodeVenueId && nullNodeVenueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VenueId = null;
+            if (parseNode.GetChildNode("entrypointAddress") is null) { _explicitNullValueEntrypointAddress = default!; _explicitNullProperties?.Remove("entrypointAddress"); }
+            else if (parseNode.GetChildNode("entrypointAddress") is { } nullNodeEntrypointAddress && nullNodeEntrypointAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EntrypointAddress = null;
+            if (parseNode.GetChildNode("name") is null) { _explicitNullValueName = default!; _explicitNullProperties?.Remove("name"); }
+            else if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("venueId") is null) { _explicitNullValueVenueId = default!; _explicitNullProperties?.Remove("venueId"); }
+            else if (parseNode.GetChildNode("venueId") is { } nullNodeVenueId && nullNodeVenueId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VenueId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The contract address of the venue&apos;s entrypoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EntrypointAddress { get => _explicitNullValueEntrypointAddress; set { _explicitNullValueEntrypointAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entrypointAddress"); else _explicitNullProperties?.Remove("entrypointAddress"); } }
+        public string? EntrypointAddress { get => _explicitNullValueEntrypointAddress; set { _explicitNullValueEntrypointAddress = value; AdditionalData?.Remove("entrypointAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entrypointAddress"); else _explicitNullProperties?.Remove("entrypointAddress"); } }
         private string? _explicitNullValueEntrypointAddress = default!;
 #nullable restore
 #else
-        public string EntrypointAddress { get => _explicitNullValueEntrypointAddress; set { _explicitNullValueEntrypointAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entrypointAddress"); else _explicitNullProperties?.Remove("entrypointAddress"); } }
+        public string EntrypointAddress { get => _explicitNullValueEntrypointAddress; set { _explicitNullValueEntrypointAddress = value; AdditionalData?.Remove("entrypointAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("entrypointAddress"); else _explicitNullProperties?.Remove("entrypointAddress"); } }
         private string _explicitNullValueEntrypointAddress = default!;
 #endif
         /// <summary>A human-readable name for the venue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; AdditionalData?.Remove("name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
         private string _explicitNullValueName = default!;
 #endif
         /// <summary>A stable identifier for the venue, which is a UUID prefixed with the string `bp_venue_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VenueId { get => _explicitNullValueVenueId; set { _explicitNullValueVenueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("venueId"); else _explicitNullProperties?.Remove("venueId"); } }
+        public string? VenueId { get => _explicitNullValueVenueId; set { _explicitNullValueVenueId = value; AdditionalData?.Remove("venueId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("venueId"); else _explicitNullProperties?.Remove("venueId"); } }
         private string? _explicitNullValueVenueId = default!;
 #nullable restore
 #else
-        public string VenueId { get => _explicitNullValueVenueId; set { _explicitNullValueVenueId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("venueId"); else _explicitNullProperties?.Remove("venueId"); } }
+        public string VenueId { get => _explicitNullValueVenueId; set { _explicitNullValueVenueId = value; AdditionalData?.Remove("venueId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("venueId"); else _explicitNullProperties?.Remove("venueId"); } }
         private string _explicitNullValueVenueId = default!;
 #endif
         /// <summary>

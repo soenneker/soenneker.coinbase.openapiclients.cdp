@@ -18,7 +18,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("topUpLink") is { } nullNodeTopUpLink && nullNodeTopUpLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpLink = null;
+            if (parseNode.GetChildNode("topUpLink") is null) { _explicitNullValueTopUpLink = default!; _explicitNullProperties?.Remove("topUpLink"); }
+            else if (parseNode.GetChildNode("topUpLink") is { } nullNodeTopUpLink && nullNodeTopUpLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpLink = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A shareable link that lets a payer add funds to their balance through a hosted Top-Up flow. The resource is immutable once created. The link expires 24 hours after creation and funds a single purchase: once a purchase succeeds, the link is spent and cannot be used again. A purchase that fails does not consume the link, so the payer can retry until it expires. A link is not bound to a specific payer. `orderTotalAmount` and `redirectUrl` are omitted from the response when they were not supplied at creation; they are never returned as null. `customerDisplay` contains the resolved merchant name stored at creation, including the entity&apos;s profile name when no nonempty override was supplied. The response and creation webhook always include `customerDisplay` and its `merchantName`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink? TopUpLink { get => _explicitNullValueTopUpLink; set { _explicitNullValueTopUpLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLink"); else _explicitNullProperties?.Remove("topUpLink"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink? TopUpLink { get => _explicitNullValueTopUpLink; set { _explicitNullValueTopUpLink = value; AdditionalData?.Remove("topUpLink"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLink"); else _explicitNullProperties?.Remove("topUpLink"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink? _explicitNullValueTopUpLink = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink TopUpLink { get => _explicitNullValueTopUpLink; set { _explicitNullValueTopUpLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLink"); else _explicitNullProperties?.Remove("topUpLink"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink TopUpLink { get => _explicitNullValueTopUpLink; set { _explicitNullValueTopUpLink = value; AdditionalData?.Remove("topUpLink"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLink"); else _explicitNullProperties?.Remove("topUpLink"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink _explicitNullValueTopUpLink = default!;
 #endif
         /// <summary>

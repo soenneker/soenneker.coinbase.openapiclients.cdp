@@ -17,7 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("endUsers") is { } nullNodeEndUsers && nullNodeEndUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndUsers = null;
+            if (parseNode.GetChildNode("endUsers") is null) { _explicitNullValueEndUsers = default!; _explicitNullProperties?.Remove("endUsers"); }
+            else if (parseNode.GetChildNode("endUsers") is { } nullNodeEndUsers && nullNodeEndUsers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EndUsers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The list of end users matching the lookup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUser>? EndUsers { get => _explicitNullValueEndUsers; set { _explicitNullValueEndUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endUsers"); else _explicitNullProperties?.Remove("endUsers"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUser>? EndUsers { get => _explicitNullValueEndUsers; set { _explicitNullValueEndUsers = value; AdditionalData?.Remove("endUsers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endUsers"); else _explicitNullProperties?.Remove("endUsers"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUser>? _explicitNullValueEndUsers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUser> EndUsers { get => _explicitNullValueEndUsers; set { _explicitNullValueEndUsers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endUsers"); else _explicitNullProperties?.Remove("endUsers"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUser> EndUsers { get => _explicitNullValueEndUsers; set { _explicitNullValueEndUsers = value; AdditionalData?.Remove("endUsers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endUsers"); else _explicitNullProperties?.Remove("endUsers"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUser> _explicitNullValueEndUsers = default!;
 #endif
         /// <summary>

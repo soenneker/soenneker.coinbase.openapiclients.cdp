@@ -18,7 +18,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("onrampUrl") is { } nullNodeOnrampUrl && nullNodeOnrampUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnrampUrl = null;
+            if (parseNode.GetChildNode("onrampUrl") is null) { _explicitNullValueOnrampUrl = default!; _explicitNullProperties?.Remove("onrampUrl"); }
+            else if (parseNode.GetChildNode("onrampUrl") is { } nullNodeOnrampUrl && nullNodeOnrampUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnrampUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnrampUrl { get => _explicitNullValueOnrampUrl; set { _explicitNullValueOnrampUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onrampUrl"); else _explicitNullProperties?.Remove("onrampUrl"); } }
+        public string? OnrampUrl { get => _explicitNullValueOnrampUrl; set { _explicitNullValueOnrampUrl = value; AdditionalData?.Remove("onrampUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onrampUrl"); else _explicitNullProperties?.Remove("onrampUrl"); } }
         private string? _explicitNullValueOnrampUrl = default!;
 #nullable restore
 #else
-        public string OnrampUrl { get => _explicitNullValueOnrampUrl; set { _explicitNullValueOnrampUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onrampUrl"); else _explicitNullProperties?.Remove("onrampUrl"); } }
+        public string OnrampUrl { get => _explicitNullValueOnrampUrl; set { _explicitNullValueOnrampUrl = value; AdditionalData?.Remove("onrampUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onrampUrl"); else _explicitNullProperties?.Remove("onrampUrl"); } }
         private string _explicitNullValueOnrampUrl = default!;
 #endif
         /// <summary>

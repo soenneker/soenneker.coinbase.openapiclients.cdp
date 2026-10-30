@@ -17,9 +17,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("extensions") is { } nullNodeExtensions && nullNodeExtensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Extensions = null;
-            if (parseNode.GetChildNode("kinds") is { } nullNodeKinds && nullNodeKinds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kinds = null;
-            if (parseNode.GetChildNode("signers") is { } nullNodeSigners && nullNodeSigners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signers = null;
+            if (parseNode.GetChildNode("extensions") is null) { _explicitNullValueExtensions = default!; _explicitNullProperties?.Remove("extensions"); }
+            else if (parseNode.GetChildNode("extensions") is { } nullNodeExtensions && nullNodeExtensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Extensions = null;
+            if (parseNode.GetChildNode("kinds") is null) { _explicitNullValueKinds = default!; _explicitNullProperties?.Remove("kinds"); }
+            else if (parseNode.GetChildNode("kinds") is { } nullNodeKinds && nullNodeKinds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Kinds = null;
+            if (parseNode.GetChildNode("signers") is null) { _explicitNullValueSigners = default!; _explicitNullProperties?.Remove("signers"); }
+            else if (parseNode.GetChildNode("signers") is { } nullNodeSigners && nullNodeSigners.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The list of supported x402 extensions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Extensions { get => _explicitNullValueExtensions; set { _explicitNullValueExtensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extensions"); else _explicitNullProperties?.Remove("extensions"); } }
+        public List<string>? Extensions { get => _explicitNullValueExtensions; set { _explicitNullValueExtensions = value; AdditionalData?.Remove("extensions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extensions"); else _explicitNullProperties?.Remove("extensions"); } }
         private List<string>? _explicitNullValueExtensions = default!;
 #nullable restore
 #else
-        public List<string> Extensions { get => _explicitNullValueExtensions; set { _explicitNullValueExtensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extensions"); else _explicitNullProperties?.Remove("extensions"); } }
+        public List<string> Extensions { get => _explicitNullValueExtensions; set { _explicitNullValueExtensions = value; AdditionalData?.Remove("extensions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extensions"); else _explicitNullProperties?.Remove("extensions"); } }
         private List<string> _explicitNullValueExtensions = default!;
 #endif
         /// <summary>The list of supported payment kinds.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind>? Kinds { get => _explicitNullValueKinds; set { _explicitNullValueKinds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kinds"); else _explicitNullProperties?.Remove("kinds"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind>? Kinds { get => _explicitNullValueKinds; set { _explicitNullValueKinds = value; AdditionalData?.Remove("kinds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kinds"); else _explicitNullProperties?.Remove("kinds"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind>? _explicitNullValueKinds = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind> Kinds { get => _explicitNullValueKinds; set { _explicitNullValueKinds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kinds"); else _explicitNullProperties?.Remove("kinds"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind> Kinds { get => _explicitNullValueKinds; set { _explicitNullValueKinds = value; AdditionalData?.Remove("kinds"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("kinds"); else _explicitNullProperties?.Remove("kinds"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind> _explicitNullValueKinds = default!;
 #endif
         /// <summary>A map of CAIP-2 network or protocol family patterns to their supported signer addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindsResponseResponseSignersProperty? Signers { get => _explicitNullValueSigners; set { _explicitNullValueSigners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signers"); else _explicitNullProperties?.Remove("signers"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindsResponseResponseSignersProperty? Signers { get => _explicitNullValueSigners; set { _explicitNullValueSigners = value; AdditionalData?.Remove("signers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signers"); else _explicitNullProperties?.Remove("signers"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindsResponseResponseSignersProperty? _explicitNullValueSigners = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindsResponseResponseSignersProperty Signers { get => _explicitNullValueSigners; set { _explicitNullValueSigners = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signers"); else _explicitNullProperties?.Remove("signers"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindsResponseResponseSignersProperty Signers { get => _explicitNullValueSigners; set { _explicitNullValueSigners = value; AdditionalData?.Remove("signers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signers"); else _explicitNullProperties?.Remove("signers"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindsResponseResponseSignersProperty _explicitNullValueSigners = default!;
 #endif
         /// <summary>

@@ -18,10 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
-            if (parseNode.GetChildNode("interactionMode") is { } nullNodeInteractionMode && nullNodeInteractionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InteractionMode = null;
-            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
-            if (parseNode.GetChildNode("userIdType") is { } nullNodeUserIdType && nullNodeUserIdType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserIdType = null;
+            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
+            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("interactionMode") is null) { _explicitNullValueInteractionMode = default!; _explicitNullProperties?.Remove("interactionMode"); }
+            else if (parseNode.GetChildNode("interactionMode") is { } nullNodeInteractionMode && nullNodeInteractionMode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InteractionMode = null;
+            if (parseNode.GetChildNode("userId") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("userId"); }
+            else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("userIdType") is null) { _explicitNullValueUserIdType = default!; _explicitNullProperties?.Remove("userIdType"); }
+            else if (parseNode.GetChildNode("userIdType") is { } nullNodeUserIdType && nullNodeUserIdType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserIdType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,28 +33,28 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Populate the properties that correspond to the `fields` array from the user&apos;s `OnrampLimitUpgradeOption`. Required in `api` mode. Omit in `embedded` mode — the user enters their identity information on the Coinbase-hosted upgrade page (see `interactionMode`), so any value sent here is rejected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields _explicitNullValueFields = default!;
 #endif
         /// <summary>The interaction mode for the limit upgrade request:- `api`: Submit identity fields directly in the API request.- `embedded`: Return a Coinbase-hosted URL where the user enters identity fields.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode? InteractionMode { get => _explicitNullValueInteractionMode; set { _explicitNullValueInteractionMode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interactionMode"); else _explicitNullProperties?.Remove("interactionMode"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode? InteractionMode { get => _explicitNullValueInteractionMode; set { _explicitNullValueInteractionMode = value; AdditionalData?.Remove("interactionMode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interactionMode"); else _explicitNullProperties?.Remove("interactionMode"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode? _explicitNullValueInteractionMode = default!;
         /// <summary>The user identifier value. For `phone_number` type, this must be in E.164 format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>The type of user identifier:- `phone_number`: A phone number in E.164 format associated with an onramp user.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType? UserIdType { get => _explicitNullValueUserIdType; set { _explicitNullValueUserIdType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userIdType"); else _explicitNullProperties?.Remove("userIdType"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType? UserIdType { get => _explicitNullValueUserIdType; set { _explicitNullValueUserIdType = value; AdditionalData?.Remove("userIdType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userIdType"); else _explicitNullProperties?.Remove("userIdType"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType? _explicitNullValueUserIdType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequest"/> and sets the default values.
@@ -78,9 +82,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields.CreateFromDiscriminatorValue); } },
-                { "interactionMode", n => { InteractionMode = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode>(); } },
+                { "interactionMode", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInteractionMode = default; _explicitNullProperties?.Remove("interactionMode"); AdditionalData["interactionMode"] = unknown; } else { InteractionMode = parsed; AdditionalData.Remove("interactionMode"); } } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
-                { "userIdType", n => { UserIdType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType>(); } },
+                { "userIdType", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampUserIdType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueUserIdType = default; _explicitNullProperties?.Remove("userIdType"); AdditionalData["userIdType"] = unknown; } else { UserIdType = parsed; AdditionalData.Remove("userIdType"); } } },
             };
         }
         /// <summary>

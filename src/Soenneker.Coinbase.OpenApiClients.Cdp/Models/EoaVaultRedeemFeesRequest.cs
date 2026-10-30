@@ -18,23 +18,25 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("maxSlippageBps") is { } nullNodeMaxSlippageBps && nullNodeMaxSlippageBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSlippageBps = null;
-            if (parseNode.GetChildNode("vaultId") is { } nullNodeVaultId && nullNodeVaultId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VaultId = null;
+            if (parseNode.GetChildNode("maxSlippageBps") is null) { _explicitNullValueMaxSlippageBps = default!; _explicitNullProperties?.Remove("maxSlippageBps"); }
+            else if (parseNode.GetChildNode("maxSlippageBps") is { } nullNodeMaxSlippageBps && nullNodeMaxSlippageBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSlippageBps = null;
+            if (parseNode.GetChildNode("vaultId") is null) { _explicitNullValueVaultId = default!; _explicitNullProperties?.Remove("vaultId"); }
+            else if (parseNode.GetChildNode("vaultId") is { } nullNodeVaultId && nullNodeVaultId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VaultId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.</summary>
-        public int? MaxSlippageBps { get => _explicitNullValueMaxSlippageBps; set { _explicitNullValueMaxSlippageBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxSlippageBps"); else _explicitNullProperties?.Remove("maxSlippageBps"); } }
+        public int? MaxSlippageBps { get => _explicitNullValueMaxSlippageBps; set { _explicitNullValueMaxSlippageBps = value; AdditionalData?.Remove("maxSlippageBps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxSlippageBps"); else _explicitNullProperties?.Remove("maxSlippageBps"); } }
         private int? _explicitNullValueMaxSlippageBps = default!;
         /// <summary>The globally unique ID of the vault, which is a UUID prefixed with the string `vault_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VaultId { get => _explicitNullValueVaultId; set { _explicitNullValueVaultId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vaultId"); else _explicitNullProperties?.Remove("vaultId"); } }
+        public string? VaultId { get => _explicitNullValueVaultId; set { _explicitNullValueVaultId = value; AdditionalData?.Remove("vaultId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vaultId"); else _explicitNullProperties?.Remove("vaultId"); } }
         private string? _explicitNullValueVaultId = default!;
 #nullable restore
 #else
-        public string VaultId { get => _explicitNullValueVaultId; set { _explicitNullValueVaultId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vaultId"); else _explicitNullProperties?.Remove("vaultId"); } }
+        public string VaultId { get => _explicitNullValueVaultId; set { _explicitNullValueVaultId = value; AdditionalData?.Remove("vaultId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vaultId"); else _explicitNullProperties?.Remove("vaultId"); } }
         private string _explicitNullValueVaultId = default!;
 #endif
         /// <summary>

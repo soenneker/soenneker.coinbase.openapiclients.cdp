@@ -18,34 +18,37 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enrollmentPromptedAt") is { } nullNodeEnrollmentPromptedAt && nullNodeEnrollmentPromptedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrollmentPromptedAt = null;
-            if (parseNode.GetChildNode("sms") is { } nullNodeSms && nullNodeSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sms = null;
-            if (parseNode.GetChildNode("totp") is { } nullNodeTotp && nullNodeTotp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Totp = null;
+            if (parseNode.GetChildNode("enrollmentPromptedAt") is null) { _explicitNullValueEnrollmentPromptedAt = default!; _explicitNullProperties?.Remove("enrollmentPromptedAt"); }
+            else if (parseNode.GetChildNode("enrollmentPromptedAt") is { } nullNodeEnrollmentPromptedAt && nullNodeEnrollmentPromptedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrollmentPromptedAt = null;
+            if (parseNode.GetChildNode("sms") is null) { _explicitNullValueSms = default!; _explicitNullProperties?.Remove("sms"); }
+            else if (parseNode.GetChildNode("sms") is { } nullNodeSms && nullNodeSms.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Sms = null;
+            if (parseNode.GetChildNode("totp") is null) { _explicitNullValueTotp = default!; _explicitNullProperties?.Remove("totp"); }
+            else if (parseNode.GetChildNode("totp") is { } nullNodeTotp && nullNodeTotp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Totp = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time when the end user was prompted for MFA enrollment, in ISO 8601 format. If the this field exists, and the user has no other enrolled MFA methods, then the user skipped MFA enrollment.</summary>
-        public DateTimeOffset? EnrollmentPromptedAt { get => _explicitNullValueEnrollmentPromptedAt; set { _explicitNullValueEnrollmentPromptedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrollmentPromptedAt"); else _explicitNullProperties?.Remove("enrollmentPromptedAt"); } }
+        public DateTimeOffset? EnrollmentPromptedAt { get => _explicitNullValueEnrollmentPromptedAt; set { _explicitNullValueEnrollmentPromptedAt = value; AdditionalData?.Remove("enrollmentPromptedAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrollmentPromptedAt"); else _explicitNullProperties?.Remove("enrollmentPromptedAt"); } }
         private DateTimeOffset? _explicitNullValueEnrollmentPromptedAt = default!;
         /// <summary>An object containing information about the end user&apos;s SMS MFA enrollment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsSms? Sms { get => _explicitNullValueSms; set { _explicitNullValueSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sms"); else _explicitNullProperties?.Remove("sms"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsSms? Sms { get => _explicitNullValueSms; set { _explicitNullValueSms = value; AdditionalData?.Remove("sms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sms"); else _explicitNullProperties?.Remove("sms"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsSms? _explicitNullValueSms = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsSms Sms { get => _explicitNullValueSms; set { _explicitNullValueSms = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sms"); else _explicitNullProperties?.Remove("sms"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsSms Sms { get => _explicitNullValueSms; set { _explicitNullValueSms = value; AdditionalData?.Remove("sms"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sms"); else _explicitNullProperties?.Remove("sms"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsSms _explicitNullValueSms = default!;
 #endif
         /// <summary>An object containing information about the end user&apos;s TOTP enrollment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsTotp? Totp { get => _explicitNullValueTotp; set { _explicitNullValueTotp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totp"); else _explicitNullProperties?.Remove("totp"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsTotp? Totp { get => _explicitNullValueTotp; set { _explicitNullValueTotp = value; AdditionalData?.Remove("totp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totp"); else _explicitNullProperties?.Remove("totp"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsTotp? _explicitNullValueTotp = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsTotp Totp { get => _explicitNullValueTotp; set { _explicitNullValueTotp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totp"); else _explicitNullProperties?.Remove("totp"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsTotp Totp { get => _explicitNullValueTotp; set { _explicitNullValueTotp = value; AdditionalData?.Remove("totp"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totp"); else _explicitNullProperties?.Remove("totp"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsTotp _explicitNullValueTotp = default!;
 #endif
         /// <summary>

@@ -18,10 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("observations") is { } nullNodeObservations && nullNodeObservations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Observations = null;
-            if (parseNode.GetChildNode("policy") is { } nullNodePolicy && nullNodePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Policy = null;
-            if (parseNode.GetChildNode("rule") is { } nullNodeRule && nullNodeRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rule = null;
-            if (parseNode.GetChildNode("ruleIndex") is { } nullNodeRuleIndex && nullNodeRuleIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleIndex = null;
+            if (parseNode.GetChildNode("observations") is null) { _explicitNullValueObservations = default!; _explicitNullProperties?.Remove("observations"); }
+            else if (parseNode.GetChildNode("observations") is { } nullNodeObservations && nullNodeObservations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Observations = null;
+            if (parseNode.GetChildNode("policy") is null) { _explicitNullValuePolicy = default!; _explicitNullProperties?.Remove("policy"); }
+            else if (parseNode.GetChildNode("policy") is { } nullNodePolicy && nullNodePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Policy = null;
+            if (parseNode.GetChildNode("rule") is null) { _explicitNullValueRule = default!; _explicitNullProperties?.Remove("rule"); }
+            else if (parseNode.GetChildNode("rule") is { } nullNodeRule && nullNodeRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rule = null;
+            if (parseNode.GetChildNode("ruleIndex") is null) { _explicitNullValueRuleIndex = default!; _explicitNullProperties?.Remove("ruleIndex"); }
+            else if (parseNode.GetChildNode("ruleIndex") is { } nullNodeRuleIndex && nullNodeRuleIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleIndex = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,35 +33,35 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The value each criterion was compared against, index-aligned with `rule.criteria`: `observations[i]` belongs to `rule.criteria[i]` and has the same `type`. Either every criterion has an entry or the field is omitted. Empty when the rule has no criteria.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation>? Observations { get => _explicitNullValueObservations; set { _explicitNullValueObservations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observations"); else _explicitNullProperties?.Remove("observations"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation>? Observations { get => _explicitNullValueObservations; set { _explicitNullValueObservations = value; AdditionalData?.Remove("observations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observations"); else _explicitNullProperties?.Remove("observations"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation>? _explicitNullValueObservations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation> Observations { get => _explicitNullValueObservations; set { _explicitNullValueObservations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observations"); else _explicitNullProperties?.Remove("observations"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation> Observations { get => _explicitNullValueObservations; set { _explicitNullValueObservations = value; AdditionalData?.Remove("observations"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observations"); else _explicitNullProperties?.Remove("observations"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation> _explicitNullValueObservations = default!;
 #endif
         /// <summary>A policy consulted during evaluation, at the version evaluated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy? Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy? Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; AdditionalData?.Remove("policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy? _explicitNullValuePolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; AdditionalData?.Remove("policy"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy _explicitNullValuePolicy = default!;
 #endif
         /// <summary>The full rule as defined at the evaluated policy version (`policy.updatedAt`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRule? Rule { get => _explicitNullValueRule; set { _explicitNullValueRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule"); else _explicitNullProperties?.Remove("rule"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRule? Rule { get => _explicitNullValueRule; set { _explicitNullValueRule = value; AdditionalData?.Remove("rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule"); else _explicitNullProperties?.Remove("rule"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRule? _explicitNullValueRule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRule Rule { get => _explicitNullValueRule; set { _explicitNullValueRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule"); else _explicitNullProperties?.Remove("rule"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRule Rule { get => _explicitNullValueRule; set { _explicitNullValueRule = value; AdditionalData?.Remove("rule"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rule"); else _explicitNullProperties?.Remove("rule"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRule _explicitNullValueRule = default!;
 #endif
         /// <summary>Zero-based index into the policy&apos;s `rules`.</summary>
-        public int? RuleIndex { get => _explicitNullValueRuleIndex; set { _explicitNullValueRuleIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleIndex"); else _explicitNullProperties?.Remove("ruleIndex"); } }
+        public int? RuleIndex { get => _explicitNullValueRuleIndex; set { _explicitNullValueRuleIndex = value; AdditionalData?.Remove("ruleIndex"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleIndex"); else _explicitNullProperties?.Remove("ruleIndex"); } }
         private int? _explicitNullValueRuleIndex = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRule"/> and sets the default values.

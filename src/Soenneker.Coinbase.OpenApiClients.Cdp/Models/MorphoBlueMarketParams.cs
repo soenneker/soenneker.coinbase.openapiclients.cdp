@@ -18,12 +18,18 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("collateralToken") is { } nullNodeCollateralToken && nullNodeCollateralToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CollateralToken = null;
-            if (parseNode.GetChildNode("interestRateModelAddress") is { } nullNodeInterestRateModelAddress && nullNodeInterestRateModelAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterestRateModelAddress = null;
-            if (parseNode.GetChildNode("lltvBps") is { } nullNodeLltvBps && nullNodeLltvBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LltvBps = null;
-            if (parseNode.GetChildNode("loanToken") is { } nullNodeLoanToken && nullNodeLoanToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoanToken = null;
-            if (parseNode.GetChildNode("onchainMarketId") is { } nullNodeOnchainMarketId && nullNodeOnchainMarketId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnchainMarketId = null;
-            if (parseNode.GetChildNode("oracleAddress") is { } nullNodeOracleAddress && nullNodeOracleAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OracleAddress = null;
+            if (parseNode.GetChildNode("collateralToken") is null) { _explicitNullValueCollateralToken = default!; _explicitNullProperties?.Remove("collateralToken"); }
+            else if (parseNode.GetChildNode("collateralToken") is { } nullNodeCollateralToken && nullNodeCollateralToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CollateralToken = null;
+            if (parseNode.GetChildNode("interestRateModelAddress") is null) { _explicitNullValueInterestRateModelAddress = default!; _explicitNullProperties?.Remove("interestRateModelAddress"); }
+            else if (parseNode.GetChildNode("interestRateModelAddress") is { } nullNodeInterestRateModelAddress && nullNodeInterestRateModelAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterestRateModelAddress = null;
+            if (parseNode.GetChildNode("lltvBps") is null) { _explicitNullValueLltvBps = default!; _explicitNullProperties?.Remove("lltvBps"); }
+            else if (parseNode.GetChildNode("lltvBps") is { } nullNodeLltvBps && nullNodeLltvBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LltvBps = null;
+            if (parseNode.GetChildNode("loanToken") is null) { _explicitNullValueLoanToken = default!; _explicitNullProperties?.Remove("loanToken"); }
+            else if (parseNode.GetChildNode("loanToken") is { } nullNodeLoanToken && nullNodeLoanToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoanToken = null;
+            if (parseNode.GetChildNode("onchainMarketId") is null) { _explicitNullValueOnchainMarketId = default!; _explicitNullProperties?.Remove("onchainMarketId"); }
+            else if (parseNode.GetChildNode("onchainMarketId") is { } nullNodeOnchainMarketId && nullNodeOnchainMarketId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnchainMarketId = null;
+            if (parseNode.GetChildNode("oracleAddress") is null) { _explicitNullValueOracleAddress = default!; _explicitNullProperties?.Remove("oracleAddress"); }
+            else if (parseNode.GetChildNode("oracleAddress") is { } nullNodeOracleAddress && nullNodeOracleAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OracleAddress = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -31,54 +37,54 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The token posted as collateral in the product.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? CollateralToken { get => _explicitNullValueCollateralToken; set { _explicitNullValueCollateralToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateralToken"); else _explicitNullProperties?.Remove("collateralToken"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? CollateralToken { get => _explicitNullValueCollateralToken; set { _explicitNullValueCollateralToken = value; AdditionalData?.Remove("collateralToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateralToken"); else _explicitNullProperties?.Remove("collateralToken"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? _explicitNullValueCollateralToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken CollateralToken { get => _explicitNullValueCollateralToken; set { _explicitNullValueCollateralToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateralToken"); else _explicitNullProperties?.Remove("collateralToken"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken CollateralToken { get => _explicitNullValueCollateralToken; set { _explicitNullValueCollateralToken = value; AdditionalData?.Remove("collateralToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateralToken"); else _explicitNullProperties?.Remove("collateralToken"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken _explicitNullValueCollateralToken = default!;
 #endif
         /// <summary>The contract address of the interest rate model that governs the product&apos;s borrow rate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InterestRateModelAddress { get => _explicitNullValueInterestRateModelAddress; set { _explicitNullValueInterestRateModelAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interestRateModelAddress"); else _explicitNullProperties?.Remove("interestRateModelAddress"); } }
+        public string? InterestRateModelAddress { get => _explicitNullValueInterestRateModelAddress; set { _explicitNullValueInterestRateModelAddress = value; AdditionalData?.Remove("interestRateModelAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interestRateModelAddress"); else _explicitNullProperties?.Remove("interestRateModelAddress"); } }
         private string? _explicitNullValueInterestRateModelAddress = default!;
 #nullable restore
 #else
-        public string InterestRateModelAddress { get => _explicitNullValueInterestRateModelAddress; set { _explicitNullValueInterestRateModelAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interestRateModelAddress"); else _explicitNullProperties?.Remove("interestRateModelAddress"); } }
+        public string InterestRateModelAddress { get => _explicitNullValueInterestRateModelAddress; set { _explicitNullValueInterestRateModelAddress = value; AdditionalData?.Remove("interestRateModelAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interestRateModelAddress"); else _explicitNullProperties?.Remove("interestRateModelAddress"); } }
         private string _explicitNullValueInterestRateModelAddress = default!;
 #endif
         /// <summary>The liquidation loan-to-value of the product, expressed in basis points. For example, `9150` represents an LLTV of 91.5%.</summary>
-        public int? LltvBps { get => _explicitNullValueLltvBps; set { _explicitNullValueLltvBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lltvBps"); else _explicitNullProperties?.Remove("lltvBps"); } }
+        public int? LltvBps { get => _explicitNullValueLltvBps; set { _explicitNullValueLltvBps = value; AdditionalData?.Remove("lltvBps"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lltvBps"); else _explicitNullProperties?.Remove("lltvBps"); } }
         private int? _explicitNullValueLltvBps = default!;
         /// <summary>The token that is borrowed in the product.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? LoanToken { get => _explicitNullValueLoanToken; set { _explicitNullValueLoanToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loanToken"); else _explicitNullProperties?.Remove("loanToken"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? LoanToken { get => _explicitNullValueLoanToken; set { _explicitNullValueLoanToken = value; AdditionalData?.Remove("loanToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loanToken"); else _explicitNullProperties?.Remove("loanToken"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? _explicitNullValueLoanToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken LoanToken { get => _explicitNullValueLoanToken; set { _explicitNullValueLoanToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loanToken"); else _explicitNullProperties?.Remove("loanToken"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken LoanToken { get => _explicitNullValueLoanToken; set { _explicitNullValueLoanToken = value; AdditionalData?.Remove("loanToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loanToken"); else _explicitNullProperties?.Remove("loanToken"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken _explicitNullValueLoanToken = default!;
 #endif
         /// <summary>The Morpho Blue native bytes32 market ID that uniquely identifies  the underlying market onchain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnchainMarketId { get => _explicitNullValueOnchainMarketId; set { _explicitNullValueOnchainMarketId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainMarketId"); else _explicitNullProperties?.Remove("onchainMarketId"); } }
+        public string? OnchainMarketId { get => _explicitNullValueOnchainMarketId; set { _explicitNullValueOnchainMarketId = value; AdditionalData?.Remove("onchainMarketId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainMarketId"); else _explicitNullProperties?.Remove("onchainMarketId"); } }
         private string? _explicitNullValueOnchainMarketId = default!;
 #nullable restore
 #else
-        public string OnchainMarketId { get => _explicitNullValueOnchainMarketId; set { _explicitNullValueOnchainMarketId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainMarketId"); else _explicitNullProperties?.Remove("onchainMarketId"); } }
+        public string OnchainMarketId { get => _explicitNullValueOnchainMarketId; set { _explicitNullValueOnchainMarketId = value; AdditionalData?.Remove("onchainMarketId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainMarketId"); else _explicitNullProperties?.Remove("onchainMarketId"); } }
         private string _explicitNullValueOnchainMarketId = default!;
 #endif
         /// <summary>The contract address of the oracle used to price the collateral token against the loan token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OracleAddress { get => _explicitNullValueOracleAddress; set { _explicitNullValueOracleAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oracleAddress"); else _explicitNullProperties?.Remove("oracleAddress"); } }
+        public string? OracleAddress { get => _explicitNullValueOracleAddress; set { _explicitNullValueOracleAddress = value; AdditionalData?.Remove("oracleAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oracleAddress"); else _explicitNullProperties?.Remove("oracleAddress"); } }
         private string? _explicitNullValueOracleAddress = default!;
 #nullable restore
 #else
-        public string OracleAddress { get => _explicitNullValueOracleAddress; set { _explicitNullValueOracleAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oracleAddress"); else _explicitNullProperties?.Remove("oracleAddress"); } }
+        public string OracleAddress { get => _explicitNullValueOracleAddress; set { _explicitNullValueOracleAddress = value; AdditionalData?.Remove("oracleAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oracleAddress"); else _explicitNullProperties?.Remove("oracleAddress"); } }
         private string _explicitNullValueOracleAddress = default!;
 #endif
         /// <summary>

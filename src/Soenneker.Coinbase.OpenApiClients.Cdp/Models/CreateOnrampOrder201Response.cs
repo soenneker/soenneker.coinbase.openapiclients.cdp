@@ -17,9 +17,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("order") is { } nullNodeOrder && nullNodeOrder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Order = null;
-            if (parseNode.GetChildNode("paymentLink") is { } nullNodePaymentLink && nullNodePaymentLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentLink = null;
-            if (parseNode.GetChildNode("userAuthToken") is { } nullNodeUserAuthToken && nullNodeUserAuthToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAuthToken = null;
+            if (parseNode.GetChildNode("order") is null) { _explicitNullValueOrder = default!; _explicitNullProperties?.Remove("order"); }
+            else if (parseNode.GetChildNode("order") is { } nullNodeOrder && nullNodeOrder.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Order = null;
+            if (parseNode.GetChildNode("paymentLink") is null) { _explicitNullValuePaymentLink = default!; _explicitNullProperties?.Remove("paymentLink"); }
+            else if (parseNode.GetChildNode("paymentLink") is { } nullNodePaymentLink && nullNodePaymentLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentLink = null;
+            if (parseNode.GetChildNode("userAuthToken") is null) { _explicitNullValueUserAuthToken = default!; _explicitNullProperties?.Remove("userAuthToken"); }
+            else if (parseNode.GetChildNode("userAuthToken") is { } nullNodeUserAuthToken && nullNodeUserAuthToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserAuthToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>An Onramp order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder? Order { get => _explicitNullValueOrder; set { _explicitNullValueOrder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order"); else _explicitNullProperties?.Remove("order"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder? Order { get => _explicitNullValueOrder; set { _explicitNullValueOrder = value; AdditionalData?.Remove("order"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order"); else _explicitNullProperties?.Remove("order"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder? _explicitNullValueOrder = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder Order { get => _explicitNullValueOrder; set { _explicitNullValueOrder = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order"); else _explicitNullProperties?.Remove("order"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder Order { get => _explicitNullValueOrder; set { _explicitNullValueOrder = value; AdditionalData?.Remove("order"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("order"); else _explicitNullProperties?.Remove("order"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrder _explicitNullValueOrder = default!;
 #endif
         /// <summary>A payment link to pay for an order.Please refer to the [Onramp docs](https://docs.cdp.coinbase.com/onramp-&amp;-offramp/onramp-apis/onramp-overview) for details on how to integrate with the different payment link types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink? PaymentLink { get => _explicitNullValuePaymentLink; set { _explicitNullValuePaymentLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentLink"); else _explicitNullProperties?.Remove("paymentLink"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink? PaymentLink { get => _explicitNullValuePaymentLink; set { _explicitNullValuePaymentLink = value; AdditionalData?.Remove("paymentLink"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentLink"); else _explicitNullProperties?.Remove("paymentLink"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink? _explicitNullValuePaymentLink = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink PaymentLink { get => _explicitNullValuePaymentLink; set { _explicitNullValuePaymentLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentLink"); else _explicitNullProperties?.Remove("paymentLink"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink PaymentLink { get => _explicitNullValuePaymentLink; set { _explicitNullValuePaymentLink = value; AdditionalData?.Remove("paymentLink"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentLink"); else _explicitNullProperties?.Remove("paymentLink"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampPaymentLink _explicitNullValuePaymentLink = default!;
 #endif
         /// <summary>A reusable, PII-free token issued after a user completes verification in the embedded onramp flow. It encodes only the underlying verification IDs, no personal information. Pass it on subsequent orders to take a returning user straight to the pay button, skipping OTP when checking out to the same wallet.In the embedded flow, `phoneNumber`, `email`, `phoneNumberVerifiedAt`, and `agreementAcceptedAt` are handled by Coinbase in the hosted popup and may be omitted from the request even though they are required for the standard partner-verified flow. Reuse is best-effort: an invalid, expired, or different-wallet token still requires the user to verify. Valid for 60 days.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserAuthToken { get => _explicitNullValueUserAuthToken; set { _explicitNullValueUserAuthToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userAuthToken"); else _explicitNullProperties?.Remove("userAuthToken"); } }
+        public string? UserAuthToken { get => _explicitNullValueUserAuthToken; set { _explicitNullValueUserAuthToken = value; AdditionalData?.Remove("userAuthToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userAuthToken"); else _explicitNullProperties?.Remove("userAuthToken"); } }
         private string? _explicitNullValueUserAuthToken = default!;
 #nullable restore
 #else
-        public string UserAuthToken { get => _explicitNullValueUserAuthToken; set { _explicitNullValueUserAuthToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userAuthToken"); else _explicitNullProperties?.Remove("userAuthToken"); } }
+        public string UserAuthToken { get => _explicitNullValueUserAuthToken; set { _explicitNullValueUserAuthToken = value; AdditionalData?.Remove("userAuthToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userAuthToken"); else _explicitNullProperties?.Remove("userAuthToken"); } }
         private string _explicitNullValueUserAuthToken = default!;
 #endif
         /// <summary>

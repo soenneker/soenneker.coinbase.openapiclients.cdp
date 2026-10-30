@@ -18,13 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("enrolledAt") is { } nullNodeEnrolledAt && nullNodeEnrolledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrolledAt = null;
+            if (parseNode.GetChildNode("enrolledAt") is null) { _explicitNullValueEnrolledAt = default!; _explicitNullProperties?.Remove("enrolledAt"); }
+            else if (parseNode.GetChildNode("enrolledAt") is { } nullNodeEnrolledAt && nullNodeEnrolledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrolledAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time when the method was enrolled, in ISO 8601 format.</summary>
-        public DateTimeOffset? EnrolledAt { get => _explicitNullValueEnrolledAt; set { _explicitNullValueEnrolledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrolledAt"); else _explicitNullProperties?.Remove("enrolledAt"); } }
+        public DateTimeOffset? EnrolledAt { get => _explicitNullValueEnrolledAt; set { _explicitNullValueEnrolledAt = value; AdditionalData?.Remove("enrolledAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrolledAt"); else _explicitNullProperties?.Remove("enrolledAt"); } }
         private DateTimeOffset? _explicitNullValueEnrolledAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethodsSms"/> and sets the default values.

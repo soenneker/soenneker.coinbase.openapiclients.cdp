@@ -18,13 +18,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("createSmartAccount") is { } nullNodeCreateSmartAccount && nullNodeCreateSmartAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateSmartAccount = null;
+            if (parseNode.GetChildNode("createSmartAccount") is null) { _explicitNullValueCreateSmartAccount = default!; _explicitNullProperties?.Remove("createSmartAccount"); }
+            else if (parseNode.GetChildNode("createSmartAccount") is { } nullNodeCreateSmartAccount && nullNodeCreateSmartAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateSmartAccount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Only false is a valid option since currently smart accounts on Solana are not supported.</summary>
-        public bool? CreateSmartAccount { get => _explicitNullValueCreateSmartAccount; set { _explicitNullValueCreateSmartAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createSmartAccount"); else _explicitNullProperties?.Remove("createSmartAccount"); } }
+        public bool? CreateSmartAccount { get => _explicitNullValueCreateSmartAccount; set { _explicitNullValueCreateSmartAccount = value; AdditionalData?.Remove("createSmartAccount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createSmartAccount"); else _explicitNullProperties?.Remove("createSmartAccount"); } }
         private bool? _explicitNullValueCreateSmartAccount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserRequestSolanaAccount"/> and sets the default values.

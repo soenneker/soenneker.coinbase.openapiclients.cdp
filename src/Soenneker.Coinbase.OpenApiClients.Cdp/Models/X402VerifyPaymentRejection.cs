@@ -19,10 +19,14 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("invalidMessage") is { } nullNodeInvalidMessage && nullNodeInvalidMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidMessage = null;
-            if (parseNode.GetChildNode("invalidReason") is { } nullNodeInvalidReason && nullNodeInvalidReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidReason = null;
-            if (parseNode.GetChildNode("isValid") is { } nullNodeIsValid && nullNodeIsValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsValid = null;
-            if (parseNode.GetChildNode("payer") is { } nullNodePayer && nullNodePayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payer = null;
+            if (parseNode.GetChildNode("invalidMessage") is null) { _explicitNullValueInvalidMessage = default!; _explicitNullProperties?.Remove("invalidMessage"); }
+            else if (parseNode.GetChildNode("invalidMessage") is { } nullNodeInvalidMessage && nullNodeInvalidMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidMessage = null;
+            if (parseNode.GetChildNode("invalidReason") is null) { _explicitNullValueInvalidReason = default!; _explicitNullProperties?.Remove("invalidReason"); }
+            else if (parseNode.GetChildNode("invalidReason") is { } nullNodeInvalidReason && nullNodeInvalidReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidReason = null;
+            if (parseNode.GetChildNode("isValid") is null) { _explicitNullValueIsValid = default!; _explicitNullProperties?.Remove("isValid"); }
+            else if (parseNode.GetChildNode("isValid") is { } nullNodeIsValid && nullNodeIsValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsValid = null;
+            if (parseNode.GetChildNode("payer") is null) { _explicitNullValuePayer = default!; _explicitNullProperties?.Remove("payer"); }
+            else if (parseNode.GetChildNode("payer") is { } nullNodePayer && nullNodePayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payer = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,29 +34,29 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The message describing the invalid reason.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InvalidMessage { get => _explicitNullValueInvalidMessage; set { _explicitNullValueInvalidMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidMessage"); else _explicitNullProperties?.Remove("invalidMessage"); } }
+        public string? InvalidMessage { get => _explicitNullValueInvalidMessage; set { _explicitNullValueInvalidMessage = value; AdditionalData?.Remove("invalidMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidMessage"); else _explicitNullProperties?.Remove("invalidMessage"); } }
         private string? _explicitNullValueInvalidMessage = default!;
 #nullable restore
 #else
-        public string InvalidMessage { get => _explicitNullValueInvalidMessage; set { _explicitNullValueInvalidMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidMessage"); else _explicitNullProperties?.Remove("invalidMessage"); } }
+        public string InvalidMessage { get => _explicitNullValueInvalidMessage; set { _explicitNullValueInvalidMessage = value; AdditionalData?.Remove("invalidMessage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidMessage"); else _explicitNullProperties?.Remove("invalidMessage"); } }
         private string _explicitNullValueInvalidMessage = default!;
 #endif
         /// <summary>The reason the payment is invalid on the x402 protocol.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason? InvalidReason { get => _explicitNullValueInvalidReason; set { _explicitNullValueInvalidReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidReason"); else _explicitNullProperties?.Remove("invalidReason"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason? InvalidReason { get => _explicitNullValueInvalidReason; set { _explicitNullValueInvalidReason = value; AdditionalData?.Remove("invalidReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidReason"); else _explicitNullProperties?.Remove("invalidReason"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason? _explicitNullValueInvalidReason = default!;
         /// <summary>Indicates whether the payment is valid.</summary>
-        public bool? IsValid { get => _explicitNullValueIsValid; set { _explicitNullValueIsValid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isValid"); else _explicitNullProperties?.Remove("isValid"); } }
+        public bool? IsValid { get => _explicitNullValueIsValid; set { _explicitNullValueIsValid = value; AdditionalData?.Remove("isValid"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isValid"); else _explicitNullProperties?.Remove("isValid"); } }
         private bool? _explicitNullValueIsValid = default!;
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
         /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
+        public string? Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; AdditionalData?.Remove("payer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
         private string? _explicitNullValuePayer = default!;
 #nullable restore
 #else
-        public string Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
+        public string Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; AdditionalData?.Remove("payer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
         private string _explicitNullValuePayer = default!;
 #endif
         /// <summary>
@@ -81,7 +85,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "invalidMessage", n => { InvalidMessage = n.GetStringValue(); } },
-                { "invalidReason", n => { InvalidReason = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason>(); } },
+                { "invalidReason", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInvalidReason = default; _explicitNullProperties?.Remove("invalidReason"); AdditionalData["invalidReason"] = unknown; } else { InvalidReason = parsed; AdditionalData.Remove("invalidReason"); } } },
                 { "isValid", n => { IsValid = n.GetBoolValue(); } },
                 { "payer", n => { Payer = n.GetStringValue(); } },
             };

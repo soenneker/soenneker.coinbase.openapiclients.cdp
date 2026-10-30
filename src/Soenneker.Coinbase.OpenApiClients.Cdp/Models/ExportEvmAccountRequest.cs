@@ -17,7 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("exportEncryptionKey") is { } nullNodeExportEncryptionKey && nullNodeExportEncryptionKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExportEncryptionKey = null;
+            if (parseNode.GetChildNode("exportEncryptionKey") is null) { _explicitNullValueExportEncryptionKey = default!; _explicitNullProperties?.Remove("exportEncryptionKey"); }
+            else if (parseNode.GetChildNode("exportEncryptionKey") is { } nullNodeExportEncryptionKey && nullNodeExportEncryptionKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExportEncryptionKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The base64-encoded, public part of the RSA key in DER format used to encrypt the account private key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExportEncryptionKey { get => _explicitNullValueExportEncryptionKey; set { _explicitNullValueExportEncryptionKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exportEncryptionKey"); else _explicitNullProperties?.Remove("exportEncryptionKey"); } }
+        public string? ExportEncryptionKey { get => _explicitNullValueExportEncryptionKey; set { _explicitNullValueExportEncryptionKey = value; AdditionalData?.Remove("exportEncryptionKey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exportEncryptionKey"); else _explicitNullProperties?.Remove("exportEncryptionKey"); } }
         private string? _explicitNullValueExportEncryptionKey = default!;
 #nullable restore
 #else
-        public string ExportEncryptionKey { get => _explicitNullValueExportEncryptionKey; set { _explicitNullValueExportEncryptionKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exportEncryptionKey"); else _explicitNullProperties?.Remove("exportEncryptionKey"); } }
+        public string ExportEncryptionKey { get => _explicitNullValueExportEncryptionKey; set { _explicitNullValueExportEncryptionKey = value; AdditionalData?.Remove("exportEncryptionKey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exportEncryptionKey"); else _explicitNullProperties?.Remove("exportEncryptionKey"); } }
         private string _explicitNullValueExportEncryptionKey = default!;
 #endif
         /// <summary>

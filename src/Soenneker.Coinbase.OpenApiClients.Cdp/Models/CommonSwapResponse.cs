@@ -17,15 +17,24 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("blockNumber") is { } nullNodeBlockNumber && nullNodeBlockNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockNumber = null;
-            if (parseNode.GetChildNode("fees") is { } nullNodeFees && nullNodeFees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fees = null;
-            if (parseNode.GetChildNode("fromAmount") is { } nullNodeFromAmount && nullNodeFromAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromAmount = null;
-            if (parseNode.GetChildNode("fromToken") is { } nullNodeFromToken && nullNodeFromToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromToken = null;
-            if (parseNode.GetChildNode("issues") is { } nullNodeIssues && nullNodeIssues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Issues = null;
-            if (parseNode.GetChildNode("liquidityAvailable") is { } nullNodeLiquidityAvailable && nullNodeLiquidityAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiquidityAvailable = null;
-            if (parseNode.GetChildNode("minToAmount") is { } nullNodeMinToAmount && nullNodeMinToAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinToAmount = null;
-            if (parseNode.GetChildNode("toAmount") is { } nullNodeToAmount && nullNodeToAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToAmount = null;
-            if (parseNode.GetChildNode("toToken") is { } nullNodeToToken && nullNodeToToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToToken = null;
+            if (parseNode.GetChildNode("blockNumber") is null) { _explicitNullValueBlockNumber = default!; _explicitNullProperties?.Remove("blockNumber"); }
+            else if (parseNode.GetChildNode("blockNumber") is { } nullNodeBlockNumber && nullNodeBlockNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockNumber = null;
+            if (parseNode.GetChildNode("fees") is null) { _explicitNullValueFees = default!; _explicitNullProperties?.Remove("fees"); }
+            else if (parseNode.GetChildNode("fees") is { } nullNodeFees && nullNodeFees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fees = null;
+            if (parseNode.GetChildNode("fromAmount") is null) { _explicitNullValueFromAmount = default!; _explicitNullProperties?.Remove("fromAmount"); }
+            else if (parseNode.GetChildNode("fromAmount") is { } nullNodeFromAmount && nullNodeFromAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromAmount = null;
+            if (parseNode.GetChildNode("fromToken") is null) { _explicitNullValueFromToken = default!; _explicitNullProperties?.Remove("fromToken"); }
+            else if (parseNode.GetChildNode("fromToken") is { } nullNodeFromToken && nullNodeFromToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromToken = null;
+            if (parseNode.GetChildNode("issues") is null) { _explicitNullValueIssues = default!; _explicitNullProperties?.Remove("issues"); }
+            else if (parseNode.GetChildNode("issues") is { } nullNodeIssues && nullNodeIssues.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Issues = null;
+            if (parseNode.GetChildNode("liquidityAvailable") is null) { _explicitNullValueLiquidityAvailable = default!; _explicitNullProperties?.Remove("liquidityAvailable"); }
+            else if (parseNode.GetChildNode("liquidityAvailable") is { } nullNodeLiquidityAvailable && nullNodeLiquidityAvailable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiquidityAvailable = null;
+            if (parseNode.GetChildNode("minToAmount") is null) { _explicitNullValueMinToAmount = default!; _explicitNullProperties?.Remove("minToAmount"); }
+            else if (parseNode.GetChildNode("minToAmount") is { } nullNodeMinToAmount && nullNodeMinToAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinToAmount = null;
+            if (parseNode.GetChildNode("toAmount") is null) { _explicitNullValueToAmount = default!; _explicitNullProperties?.Remove("toAmount"); }
+            else if (parseNode.GetChildNode("toAmount") is { } nullNodeToAmount && nullNodeToAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToAmount = null;
+            if (parseNode.GetChildNode("toToken") is null) { _explicitNullValueToToken = default!; _explicitNullProperties?.Remove("toToken"); }
+            else if (parseNode.GetChildNode("toToken") is { } nullNodeToToken && nullNodeToToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToToken = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -33,84 +42,84 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The block number at which the liquidity conditions were examined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockNumber"); else _explicitNullProperties?.Remove("blockNumber"); } }
+        public string? BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; AdditionalData?.Remove("blockNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockNumber"); else _explicitNullProperties?.Remove("blockNumber"); } }
         private string? _explicitNullValueBlockNumber = default!;
 #nullable restore
 #else
-        public string BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockNumber"); else _explicitNullProperties?.Remove("blockNumber"); } }
+        public string BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; AdditionalData?.Remove("blockNumber"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockNumber"); else _explicitNullProperties?.Remove("blockNumber"); } }
         private string _explicitNullValueBlockNumber = default!;
 #endif
         /// <summary>The estimated fees for the swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees? Fees { get => _explicitNullValueFees; set { _explicitNullValueFees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fees"); else _explicitNullProperties?.Remove("fees"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees? Fees { get => _explicitNullValueFees; set { _explicitNullValueFees = value; AdditionalData?.Remove("fees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fees"); else _explicitNullProperties?.Remove("fees"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees? _explicitNullValueFees = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees Fees { get => _explicitNullValueFees; set { _explicitNullValueFees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fees"); else _explicitNullProperties?.Remove("fees"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees Fees { get => _explicitNullValueFees; set { _explicitNullValueFees = value; AdditionalData?.Remove("fees"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fees"); else _explicitNullProperties?.Remove("fees"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees _explicitNullValueFees = default!;
 #endif
         /// <summary>The amount of the `fromToken` that will be sent in this swap, in atomic units of the `fromToken`. For example, `1000000000000000000` when sending ETH equates to 1 ETH, `1000000` when sending USDC equates to 1 USDC, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromAmount { get => _explicitNullValueFromAmount; set { _explicitNullValueFromAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAmount"); else _explicitNullProperties?.Remove("fromAmount"); } }
+        public string? FromAmount { get => _explicitNullValueFromAmount; set { _explicitNullValueFromAmount = value; AdditionalData?.Remove("fromAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAmount"); else _explicitNullProperties?.Remove("fromAmount"); } }
         private string? _explicitNullValueFromAmount = default!;
 #nullable restore
 #else
-        public string FromAmount { get => _explicitNullValueFromAmount; set { _explicitNullValueFromAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAmount"); else _explicitNullProperties?.Remove("fromAmount"); } }
+        public string FromAmount { get => _explicitNullValueFromAmount; set { _explicitNullValueFromAmount = value; AdditionalData?.Remove("fromAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAmount"); else _explicitNullProperties?.Remove("fromAmount"); } }
         private string _explicitNullValueFromAmount = default!;
 #endif
         /// <summary>The 0x-prefixed contract address of the token that will be sent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromToken { get => _explicitNullValueFromToken; set { _explicitNullValueFromToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromToken"); else _explicitNullProperties?.Remove("fromToken"); } }
+        public string? FromToken { get => _explicitNullValueFromToken; set { _explicitNullValueFromToken = value; AdditionalData?.Remove("fromToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromToken"); else _explicitNullProperties?.Remove("fromToken"); } }
         private string? _explicitNullValueFromToken = default!;
 #nullable restore
 #else
-        public string FromToken { get => _explicitNullValueFromToken; set { _explicitNullValueFromToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromToken"); else _explicitNullProperties?.Remove("fromToken"); } }
+        public string FromToken { get => _explicitNullValueFromToken; set { _explicitNullValueFromToken = value; AdditionalData?.Remove("fromToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromToken"); else _explicitNullProperties?.Remove("fromToken"); } }
         private string _explicitNullValueFromToken = default!;
 #endif
         /// <summary>An object containing potential issues discovered during validation that could prevent the swap from being executed successfully.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues? Issues { get => _explicitNullValueIssues; set { _explicitNullValueIssues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issues"); else _explicitNullProperties?.Remove("issues"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues? Issues { get => _explicitNullValueIssues; set { _explicitNullValueIssues = value; AdditionalData?.Remove("issues"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issues"); else _explicitNullProperties?.Remove("issues"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues? _explicitNullValueIssues = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues Issues { get => _explicitNullValueIssues; set { _explicitNullValueIssues = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issues"); else _explicitNullProperties?.Remove("issues"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues Issues { get => _explicitNullValueIssues; set { _explicitNullValueIssues = value; AdditionalData?.Remove("issues"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issues"); else _explicitNullProperties?.Remove("issues"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues _explicitNullValueIssues = default!;
 #endif
         /// <summary>Whether sufficient liquidity is available to settle the swap. All other fields in the response will be empty if this is false.</summary>
-        public bool? LiquidityAvailable { get => _explicitNullValueLiquidityAvailable; set { _explicitNullValueLiquidityAvailable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("liquidityAvailable"); else _explicitNullProperties?.Remove("liquidityAvailable"); } }
+        public bool? LiquidityAvailable { get => _explicitNullValueLiquidityAvailable; set { _explicitNullValueLiquidityAvailable = value; AdditionalData?.Remove("liquidityAvailable"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("liquidityAvailable"); else _explicitNullProperties?.Remove("liquidityAvailable"); } }
         private bool? _explicitNullValueLiquidityAvailable = default!;
         /// <summary>The minimum amount of the `toToken` that must be received for the swap to succeed, in atomic units of the `toToken`.  For example, `1000000000000000000` when receiving ETH equates to 1 ETH, `1000000` when receiving USDC equates to 1 USDC, etc. This value is influenced by the `slippageBps` parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MinToAmount { get => _explicitNullValueMinToAmount; set { _explicitNullValueMinToAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minToAmount"); else _explicitNullProperties?.Remove("minToAmount"); } }
+        public string? MinToAmount { get => _explicitNullValueMinToAmount; set { _explicitNullValueMinToAmount = value; AdditionalData?.Remove("minToAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minToAmount"); else _explicitNullProperties?.Remove("minToAmount"); } }
         private string? _explicitNullValueMinToAmount = default!;
 #nullable restore
 #else
-        public string MinToAmount { get => _explicitNullValueMinToAmount; set { _explicitNullValueMinToAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minToAmount"); else _explicitNullProperties?.Remove("minToAmount"); } }
+        public string MinToAmount { get => _explicitNullValueMinToAmount; set { _explicitNullValueMinToAmount = value; AdditionalData?.Remove("minToAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minToAmount"); else _explicitNullProperties?.Remove("minToAmount"); } }
         private string _explicitNullValueMinToAmount = default!;
 #endif
         /// <summary>The amount of the `toToken` that will be received in atomic units of the `toToken`. For example, `1000000000000000000` when receiving ETH equates to 1 ETH, `1000000` when receiving USDC equates to 1 USDC, etc.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToAmount { get => _explicitNullValueToAmount; set { _explicitNullValueToAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toAmount"); else _explicitNullProperties?.Remove("toAmount"); } }
+        public string? ToAmount { get => _explicitNullValueToAmount; set { _explicitNullValueToAmount = value; AdditionalData?.Remove("toAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toAmount"); else _explicitNullProperties?.Remove("toAmount"); } }
         private string? _explicitNullValueToAmount = default!;
 #nullable restore
 #else
-        public string ToAmount { get => _explicitNullValueToAmount; set { _explicitNullValueToAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toAmount"); else _explicitNullProperties?.Remove("toAmount"); } }
+        public string ToAmount { get => _explicitNullValueToAmount; set { _explicitNullValueToAmount = value; AdditionalData?.Remove("toAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toAmount"); else _explicitNullProperties?.Remove("toAmount"); } }
         private string _explicitNullValueToAmount = default!;
 #endif
         /// <summary>The 0x-prefixed contract address of the token that will be received.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToToken { get => _explicitNullValueToToken; set { _explicitNullValueToToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toToken"); else _explicitNullProperties?.Remove("toToken"); } }
+        public string? ToToken { get => _explicitNullValueToToken; set { _explicitNullValueToToken = value; AdditionalData?.Remove("toToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toToken"); else _explicitNullProperties?.Remove("toToken"); } }
         private string? _explicitNullValueToToken = default!;
 #nullable restore
 #else
-        public string ToToken { get => _explicitNullValueToToken; set { _explicitNullValueToToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toToken"); else _explicitNullProperties?.Remove("toToken"); } }
+        public string ToToken { get => _explicitNullValueToToken; set { _explicitNullValueToToken = value; AdditionalData?.Remove("toToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toToken"); else _explicitNullProperties?.Remove("toToken"); } }
         private string _explicitNullValueToToken = default!;
 #endif
         /// <summary>

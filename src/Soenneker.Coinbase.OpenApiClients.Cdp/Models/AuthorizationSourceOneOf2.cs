@@ -17,7 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("coinbaseUserId") is { } nullNodeCoinbaseUserId && nullNodeCoinbaseUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoinbaseUserId = null;
+            if (parseNode.GetChildNode("coinbaseUserId") is null) { _explicitNullValueCoinbaseUserId = default!; _explicitNullProperties?.Remove("coinbaseUserId"); }
+            else if (parseNode.GetChildNode("coinbaseUserId") is { } nullNodeCoinbaseUserId && nullNodeCoinbaseUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoinbaseUserId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The unique identifier of the payer within Coinbase.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CoinbaseUserId { get => _explicitNullValueCoinbaseUserId; set { _explicitNullValueCoinbaseUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coinbaseUserId"); else _explicitNullProperties?.Remove("coinbaseUserId"); } }
+        public string? CoinbaseUserId { get => _explicitNullValueCoinbaseUserId; set { _explicitNullValueCoinbaseUserId = value; AdditionalData?.Remove("coinbaseUserId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coinbaseUserId"); else _explicitNullProperties?.Remove("coinbaseUserId"); } }
         private string? _explicitNullValueCoinbaseUserId = default!;
 #nullable restore
 #else
-        public string CoinbaseUserId { get => _explicitNullValueCoinbaseUserId; set { _explicitNullValueCoinbaseUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coinbaseUserId"); else _explicitNullProperties?.Remove("coinbaseUserId"); } }
+        public string CoinbaseUserId { get => _explicitNullValueCoinbaseUserId; set { _explicitNullValueCoinbaseUserId = value; AdditionalData?.Remove("coinbaseUserId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coinbaseUserId"); else _explicitNullProperties?.Remove("coinbaseUserId"); } }
         private string _explicitNullValueCoinbaseUserId = default!;
 #endif
         /// <summary>

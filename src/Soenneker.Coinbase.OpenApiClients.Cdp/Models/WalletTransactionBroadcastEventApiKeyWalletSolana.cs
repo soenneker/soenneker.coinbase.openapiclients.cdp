@@ -18,27 +18,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("broadcast_at") is { } nullNodeBroadcastAt && nullNodeBroadcastAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BroadcastAt = null;
-            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
-            if (parseNode.GetChildNode("transaction_signature") is { } nullNodeTransactionSignature && nullNodeTransactionSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionSignature = null;
+            if (parseNode.GetChildNode("broadcast_at") is null) { _explicitNullValueBroadcastAt = default!; _explicitNullProperties?.Remove("broadcast_at"); }
+            else if (parseNode.GetChildNode("broadcast_at") is { } nullNodeBroadcastAt && nullNodeBroadcastAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BroadcastAt = null;
+            if (parseNode.GetChildNode("network") is null) { _explicitNullValueNetwork = default!; _explicitNullProperties?.Remove("network"); }
+            else if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("transaction_signature") is null) { _explicitNullValueTransactionSignature = default!; _explicitNullProperties?.Remove("transaction_signature"); }
+            else if (parseNode.GetChildNode("transaction_signature") is { } nullNodeTransactionSignature && nullNodeTransactionSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionSignature = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When the transaction was broadcast (ISO 8601 format).</summary>
-        public DateTimeOffset? BroadcastAt { get => _explicitNullValueBroadcastAt; set { _explicitNullValueBroadcastAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("broadcast_at"); else _explicitNullProperties?.Remove("broadcast_at"); } }
+        public DateTimeOffset? BroadcastAt { get => _explicitNullValueBroadcastAt; set { _explicitNullValueBroadcastAt = value; AdditionalData?.Remove("broadcast_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("broadcast_at"); else _explicitNullProperties?.Remove("broadcast_at"); } }
         private DateTimeOffset? _explicitNullValueBroadcastAt = default!;
         /// <summary>The blockchain network for the payment. Supported networks depend on the account type.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletSolanaTransactionBroadcastPayloadNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletSolanaTransactionBroadcastPayloadNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; AdditionalData?.Remove("network"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletSolanaTransactionBroadcastPayloadNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The Solana transaction signature.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionSignature { get => _explicitNullValueTransactionSignature; set { _explicitNullValueTransactionSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_signature"); else _explicitNullProperties?.Remove("transaction_signature"); } }
+        public string? TransactionSignature { get => _explicitNullValueTransactionSignature; set { _explicitNullValueTransactionSignature = value; AdditionalData?.Remove("transaction_signature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_signature"); else _explicitNullProperties?.Remove("transaction_signature"); } }
         private string? _explicitNullValueTransactionSignature = default!;
 #nullable restore
 #else
-        public string TransactionSignature { get => _explicitNullValueTransactionSignature; set { _explicitNullValueTransactionSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_signature"); else _explicitNullProperties?.Remove("transaction_signature"); } }
+        public string TransactionSignature { get => _explicitNullValueTransactionSignature; set { _explicitNullValueTransactionSignature = value; AdditionalData?.Remove("transaction_signature"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_signature"); else _explicitNullProperties?.Remove("transaction_signature"); } }
         private string _explicitNullValueTransactionSignature = default!;
 #endif
         /// <summary>
@@ -67,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "broadcast_at", n => { BroadcastAt = n.GetDateTimeOffsetValue(); } },
-                { "network", n => { Network = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletSolanaTransactionBroadcastPayloadNetwork>(); } },
+                { "network", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletSolanaTransactionBroadcastPayloadNetwork>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNetwork = default; _explicitNullProperties?.Remove("network"); AdditionalData["network"] = unknown; } else { Network = parsed; AdditionalData.Remove("network"); } } },
                 { "transaction_signature", n => { TransactionSignature = n.GetStringValue(); } },
             };
         }

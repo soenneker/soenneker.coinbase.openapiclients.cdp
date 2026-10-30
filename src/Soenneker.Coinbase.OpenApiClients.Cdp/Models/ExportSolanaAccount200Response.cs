@@ -17,7 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("encryptedPrivateKey") is { } nullNodeEncryptedPrivateKey && nullNodeEncryptedPrivateKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedPrivateKey = null;
+            if (parseNode.GetChildNode("encryptedPrivateKey") is null) { _explicitNullValueEncryptedPrivateKey = default!; _explicitNullProperties?.Remove("encryptedPrivateKey"); }
+            else if (parseNode.GetChildNode("encryptedPrivateKey") is { } nullNodeEncryptedPrivateKey && nullNodeEncryptedPrivateKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedPrivateKey = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The base64-encoded, encrypted private key of the Solana account which is a 32 byte raw private key. The private key is encrypted in transport using the exportEncryptionKey in the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
+        public string? EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; AdditionalData?.Remove("encryptedPrivateKey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
         private string? _explicitNullValueEncryptedPrivateKey = default!;
 #nullable restore
 #else
-        public string EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
+        public string EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; AdditionalData?.Remove("encryptedPrivateKey"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
         private string _explicitNullValueEncryptedPrivateKey = default!;
 #endif
         /// <summary>

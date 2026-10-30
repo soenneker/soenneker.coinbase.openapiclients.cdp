@@ -37175,7 +37175,7 @@
       "SignEvmTransactionCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SignEvmTransactionCriteriaItem"
+          "$ref": "#/components/schemas/SignEndUserEvmTransactionCriteriaItem"
         },
         "description": "A schema for specifying criteria for the SignEvmTransaction operation.",
         "example": [
@@ -37211,7 +37211,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SignEvmTransactionCriteriaItem"
+              "$ref": "#/components/schemas/SignEndUserEvmTransactionCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SignEvmTransaction operation.",
             "example": [
@@ -37264,7 +37264,7 @@
       "SendEvmTransactionCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SendEvmTransactionCriteriaItem"
+          "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
         },
         "description": "A schema for specifying criteria for the SignEvmTransaction operation.",
         "example": [
@@ -37301,7 +37301,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendEvmTransactionCriteriaItem"
+              "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SignEvmTransaction operation.",
             "example": [
@@ -37550,7 +37550,7 @@
       "SignEvmTypedDataCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SignEvmTypedDataCriteriaItem"
+          "$ref": "#/components/schemas/SignEndUserEvmTypedDataCriteriaItem"
         },
         "description": "A schema for specifying criteria for the SignEvmTypedData operation.",
         "example": [
@@ -37636,7 +37636,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SignEvmTypedDataCriteriaItem"
+              "$ref": "#/components/schemas/SignEndUserEvmTypedDataCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SignEvmTypedData operation.",
             "example": [
@@ -38157,7 +38157,7 @@
       "SignSolTransactionCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SignSolTransactionCriteriaItem"
+          "$ref": "#/components/schemas/SignEndUserSolTransactionCriteriaItem"
         },
         "description": "A schema for specifying criteria for the SignSolTransaction operation.",
         "example": [
@@ -38189,7 +38189,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SignSolTransactionCriteriaItem"
+              "$ref": "#/components/schemas/SignEndUserSolTransactionCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SignSolTransaction operation.",
             "example": [
@@ -38238,7 +38238,7 @@
       "SendSolTransactionCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SendSolTransactionCriteriaItem"
+          "$ref": "#/components/schemas/SendEndUserSolTransactionCriteriaItem"
         },
         "description": "A schema for specifying criteria for the SendSolTransaction operation.",
         "example": [
@@ -38275,7 +38275,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendSolTransactionCriteriaItem"
+              "$ref": "#/components/schemas/SendEndUserSolTransactionCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SendSolTransaction operation.",
             "example": [
@@ -38445,7 +38445,7 @@
       "SendUserOperationCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SendUserOperationCriteriaItem"
+          "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
         },
         "description": "A schema for specifying criteria for the SendUserOperation operation.",
         "example": [
@@ -38482,7 +38482,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendUserOperationCriteriaItem"
+              "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SendUserOperation operation.",
             "example": [
@@ -38611,7 +38611,7 @@
       "SendEndUserEvmTransactionCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SendEndUserEvmTransactionCriteriaItem"
+          "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
         },
         "description": "A schema for specifying criteria for the sendEndUserEvmTransaction operation.",
         "example": [
@@ -38677,7 +38677,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendEndUserEvmTransactionCriteriaItem"
+              "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
             },
             "description": "A schema for specifying criteria for the sendEndUserEvmTransaction operation.",
             "example": [
@@ -39316,7 +39316,7 @@
       "SendEndUserEvmAssetCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SendEndUserEvmAssetCriteriaItem"
+          "$ref": "#/components/schemas/CreateEndUserEvmSwapCriteriaItem"
         },
         "description": "A schema for specifying criteria for the sendEndUserEvmAsset operation.",
         "example": [
@@ -39382,7 +39382,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendEndUserEvmAssetCriteriaItem"
+              "$ref": "#/components/schemas/CreateEndUserEvmSwapCriteriaItem"
             },
             "description": "A schema for specifying criteria for the sendEndUserEvmAsset operation.",
             "example": [
@@ -39550,7 +39550,7 @@
       "SendEndUserOperationCriteria": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/SendEndUserOperationCriteriaItem"
+          "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
         },
         "description": "A schema for specifying criteria for the sendEndUserOperation operation.",
         "example": [
@@ -39616,7 +39616,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendEndUserOperationCriteriaItem"
+              "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
             },
             "description": "A schema for specifying criteria for the sendEndUserOperation operation.",
             "example": [
@@ -78326,7 +78326,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SignEvmTransactionCriteriaItem"
+              "$ref": "#/components/schemas/SignEndUserEvmTransactionCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SignEvmTransaction operation.",
             "example": [
@@ -78363,7 +78363,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendEvmTransactionCriteriaItem"
+              "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SignEvmTransaction operation.",
             "example": [
@@ -78431,7 +78431,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SignEvmTypedDataCriteriaItem"
+              "$ref": "#/components/schemas/SignEndUserEvmTypedDataCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SignEvmTypedData operation.",
             "example": [
@@ -78518,7 +78518,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SignSolTransactionCriteriaItem"
+              "$ref": "#/components/schemas/SignEndUserSolTransactionCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SignSolTransaction operation.",
             "example": [
@@ -78551,7 +78551,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendSolTransactionCriteriaItem"
+              "$ref": "#/components/schemas/SendEndUserSolTransactionCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SendSolTransaction operation.",
             "example": [
@@ -78672,7 +78672,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendUserOperationCriteriaItem"
+              "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
             },
             "description": "A schema for specifying criteria for the SendUserOperation operation.",
             "example": [
@@ -78769,7 +78769,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendEndUserEvmTransactionCriteriaItem"
+              "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
             },
             "description": "A schema for specifying criteria for the sendEndUserEvmTransaction operation.",
             "example": [
@@ -79170,7 +79170,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendEndUserEvmAssetCriteriaItem"
+              "$ref": "#/components/schemas/CreateEndUserEvmSwapCriteriaItem"
             },
             "description": "A schema for specifying criteria for the sendEndUserEvmAsset operation.",
             "example": [
@@ -79301,7 +79301,7 @@
           "criteria": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SendEndUserOperationCriteriaItem"
+              "$ref": "#/components/schemas/PrepareUserOperationCriteriaItem"
             },
             "description": "A schema for specifying criteria for the sendEndUserOperation operation.",
             "example": [

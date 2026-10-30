@@ -18,32 +18,36 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("partialResults") is { } nullNodePartialResults && nullNodePartialResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartialResults = null;
-            if (parseNode.GetChildNode("resources") is { } nullNodeResources && nullNodeResources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resources = null;
-            if (parseNode.GetChildNode("searchMethod") is { } nullNodeSearchMethod && nullNodeSearchMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchMethod = null;
-            if (parseNode.GetChildNode("x402Version") is { } nullNodeX402Version && nullNodeX402Version.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) X402Version = null;
+            if (parseNode.GetChildNode("partialResults") is null) { _explicitNullValuePartialResults = default!; _explicitNullProperties?.Remove("partialResults"); }
+            else if (parseNode.GetChildNode("partialResults") is { } nullNodePartialResults && nullNodePartialResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartialResults = null;
+            if (parseNode.GetChildNode("resources") is null) { _explicitNullValueResources = default!; _explicitNullProperties?.Remove("resources"); }
+            else if (parseNode.GetChildNode("resources") is { } nullNodeResources && nullNodeResources.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resources = null;
+            if (parseNode.GetChildNode("searchMethod") is null) { _explicitNullValueSearchMethod = default!; _explicitNullProperties?.Remove("searchMethod"); }
+            else if (parseNode.GetChildNode("searchMethod") is { } nullNodeSearchMethod && nullNodeSearchMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SearchMethod = null;
+            if (parseNode.GetChildNode("x402Version") is null) { _explicitNullValueX402Version = default!; _explicitNullProperties?.Remove("x402Version"); }
+            else if (parseNode.GetChildNode("x402Version") is { } nullNodeX402Version && nullNodeX402Version.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) X402Version = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates whether the result set was truncated because there were more results than the requested limit.</summary>
-        public bool? PartialResults { get => _explicitNullValuePartialResults; set { _explicitNullValuePartialResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partialResults"); else _explicitNullProperties?.Remove("partialResults"); } }
+        public bool? PartialResults { get => _explicitNullValuePartialResults; set { _explicitNullValuePartialResults = value; AdditionalData?.Remove("partialResults"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partialResults"); else _explicitNullProperties?.Remove("partialResults"); } }
         private bool? _explicitNullValuePartialResults = default!;
         /// <summary>List of x402 resources matching the search query and filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource>? Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource>? Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; AdditionalData?.Remove("resources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource>? _explicitNullValueResources = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource> Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource> Resources { get => _explicitNullValueResources; set { _explicitNullValueResources = value; AdditionalData?.Remove("resources"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resources"); else _explicitNullProperties?.Remove("resources"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource> _explicitNullValueResources = default!;
 #endif
         /// <summary>The search method used to retrieve the results (e.g., &quot;text&quot;, &quot;vector&quot;, &quot;hybrid&quot;).</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponseSearchMethod? SearchMethod { get => _explicitNullValueSearchMethod; set { _explicitNullValueSearchMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("searchMethod"); else _explicitNullProperties?.Remove("searchMethod"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponseSearchMethod? SearchMethod { get => _explicitNullValueSearchMethod; set { _explicitNullValueSearchMethod = value; AdditionalData?.Remove("searchMethod"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("searchMethod"); else _explicitNullProperties?.Remove("searchMethod"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponseSearchMethod? _explicitNullValueSearchMethod = default!;
         /// <summary>The version of the x402 protocol.</summary>
-        public int? X402Version { get => _explicitNullValueX402Version; set { _explicitNullValueX402Version = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("x402Version"); else _explicitNullProperties?.Remove("x402Version"); } }
+        public int? X402Version { get => _explicitNullValueX402Version; set { _explicitNullValueX402Version = value; AdditionalData?.Remove("x402Version"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("x402Version"); else _explicitNullProperties?.Remove("x402Version"); } }
         private int? _explicitNullValueX402Version = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponse"/> and sets the default values.
@@ -72,7 +76,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "partialResults", n => { PartialResults = n.GetBoolValue(); } },
                 { "resources", n => { Resources = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "searchMethod", n => { SearchMethod = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponseSearchMethod>(); } },
+                { "searchMethod", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SearchResourcesResponseSearchMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueSearchMethod = default; _explicitNullProperties?.Remove("searchMethod"); AdditionalData["searchMethod"] = unknown; } else { SearchMethod = parsed; AdditionalData.Remove("searchMethod"); } } },
                 { "x402Version", n => { X402Version = n.GetIntValue(); } },
             };
         }

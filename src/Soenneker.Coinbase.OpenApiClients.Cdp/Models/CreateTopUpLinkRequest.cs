@@ -18,11 +18,16 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
-            if (parseNode.GetChildNode("customerDisplay") is { } nullNodeCustomerDisplay && nullNodeCustomerDisplay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerDisplay = null;
-            if (parseNode.GetChildNode("orderTotalAmount") is { } nullNodeOrderTotalAmount && nullNodeOrderTotalAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderTotalAmount = null;
-            if (parseNode.GetChildNode("redirectUrl") is { } nullNodeRedirectUrl && nullNodeRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUrl = null;
-            if (parseNode.GetChildNode("topUpAmount") is { } nullNodeTopUpAmount && nullNodeTopUpAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpAmount = null;
+            if (parseNode.GetChildNode("asset") is null) { _explicitNullValueAsset = default!; _explicitNullProperties?.Remove("asset"); }
+            else if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("customerDisplay") is null) { _explicitNullValueCustomerDisplay = default!; _explicitNullProperties?.Remove("customerDisplay"); }
+            else if (parseNode.GetChildNode("customerDisplay") is { } nullNodeCustomerDisplay && nullNodeCustomerDisplay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerDisplay = null;
+            if (parseNode.GetChildNode("orderTotalAmount") is null) { _explicitNullValueOrderTotalAmount = default!; _explicitNullProperties?.Remove("orderTotalAmount"); }
+            else if (parseNode.GetChildNode("orderTotalAmount") is { } nullNodeOrderTotalAmount && nullNodeOrderTotalAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderTotalAmount = null;
+            if (parseNode.GetChildNode("redirectUrl") is null) { _explicitNullValueRedirectUrl = default!; _explicitNullProperties?.Remove("redirectUrl"); }
+            else if (parseNode.GetChildNode("redirectUrl") is { } nullNodeRedirectUrl && nullNodeRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUrl = null;
+            if (parseNode.GetChildNode("topUpAmount") is null) { _explicitNullValueTopUpAmount = default!; _explicitNullProperties?.Remove("topUpAmount"); }
+            else if (parseNode.GetChildNode("topUpAmount") is { } nullNodeTopUpAmount && nullNodeTopUpAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpAmount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,51 +35,51 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The asset credited by the Top-Up Link. Currently, only `usdc` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; AdditionalData?.Remove("asset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
         private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; AdditionalData?.Remove("asset"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
         private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>Display details supplied for the hosted Top-Up page. Only the merchant name is supported. Unrecognized fields are allowed and ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplayInput? CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplayInput? CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; AdditionalData?.Remove("customerDisplay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplayInput? _explicitNullValueCustomerDisplay = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplayInput CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplayInput CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; AdditionalData?.Remove("customerDisplay"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpCustomerDisplayInput _explicitNullValueCustomerDisplay = default!;
 #endif
         /// <summary>The total balance, denominated in `asset`, that the merchant expects the payer to need to complete the order. When supplied, the hosted Top-Up page shows the order total and the payer&apos;s current available balance, and computes the remaining shortfall from those values. This live shortfall is presentation context: it is separate from `topUpAmount` and does not replace, change, or limit that fixed suggestion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestOrderTotalAmount? OrderTotalAmount { get => _explicitNullValueOrderTotalAmount; set { _explicitNullValueOrderTotalAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("orderTotalAmount"); else _explicitNullProperties?.Remove("orderTotalAmount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestOrderTotalAmount? OrderTotalAmount { get => _explicitNullValueOrderTotalAmount; set { _explicitNullValueOrderTotalAmount = value; AdditionalData?.Remove("orderTotalAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("orderTotalAmount"); else _explicitNullProperties?.Remove("orderTotalAmount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestOrderTotalAmount? _explicitNullValueOrderTotalAmount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestOrderTotalAmount OrderTotalAmount { get => _explicitNullValueOrderTotalAmount; set { _explicitNullValueOrderTotalAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("orderTotalAmount"); else _explicitNullProperties?.Remove("orderTotalAmount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestOrderTotalAmount OrderTotalAmount { get => _explicitNullValueOrderTotalAmount; set { _explicitNullValueOrderTotalAmount = value; AdditionalData?.Remove("orderTotalAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("orderTotalAmount"); else _explicitNullProperties?.Remove("orderTotalAmount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestOrderTotalAmount _explicitNullValueOrderTotalAmount = default!;
 #endif
         /// <summary>A valid HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrl"); else _explicitNullProperties?.Remove("redirectUrl"); } }
+        public string? RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; AdditionalData?.Remove("redirectUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrl"); else _explicitNullProperties?.Remove("redirectUrl"); } }
         private string? _explicitNullValueRedirectUrl = default!;
 #nullable restore
 #else
-        public string RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrl"); else _explicitNullProperties?.Remove("redirectUrl"); } }
+        public string RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; AdditionalData?.Remove("redirectUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrl"); else _explicitNullProperties?.Remove("redirectUrl"); } }
         private string _explicitNullValueRedirectUrl = default!;
 #endif
         /// <summary>The merchant-provided initial suggested net amount to add, denominated in `asset`. The suggestion remains fixed on the created link and is not recomputed from `orderTotalAmount` or the payer&apos;s current available balance. The payer can adjust the amount they add in the hosted flow. Fiat fees are outside this value. Positive and nonzero, with at most two fractional digits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestTopUpAmount? TopUpAmount { get => _explicitNullValueTopUpAmount; set { _explicitNullValueTopUpAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpAmount"); else _explicitNullProperties?.Remove("topUpAmount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestTopUpAmount? TopUpAmount { get => _explicitNullValueTopUpAmount; set { _explicitNullValueTopUpAmount = value; AdditionalData?.Remove("topUpAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpAmount"); else _explicitNullProperties?.Remove("topUpAmount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestTopUpAmount? _explicitNullValueTopUpAmount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestTopUpAmount TopUpAmount { get => _explicitNullValueTopUpAmount; set { _explicitNullValueTopUpAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpAmount"); else _explicitNullProperties?.Remove("topUpAmount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestTopUpAmount TopUpAmount { get => _explicitNullValueTopUpAmount; set { _explicitNullValueTopUpAmount = value; AdditionalData?.Remove("topUpAmount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpAmount"); else _explicitNullProperties?.Remove("topUpAmount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTopUpLinkRequestTopUpAmount _explicitNullValueTopUpAmount = default!;
 #endif
         /// <summary>

@@ -17,7 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("evmAccount") is { } nullNodeEvmAccount && nullNodeEvmAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmAccount = null;
+            if (parseNode.GetChildNode("evmAccount") is null) { _explicitNullValueEvmAccount = default!; _explicitNullProperties?.Remove("evmAccount"); }
+            else if (parseNode.GetChildNode("evmAccount") is { } nullNodeEvmAccount && nullNodeEvmAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmAccount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Information about an EVM account associated with an end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount? EvmAccount { get => _explicitNullValueEvmAccount; set { _explicitNullValueEvmAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccount"); else _explicitNullProperties?.Remove("evmAccount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount? EvmAccount { get => _explicitNullValueEvmAccount; set { _explicitNullValueEvmAccount = value; AdditionalData?.Remove("evmAccount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccount"); else _explicitNullProperties?.Remove("evmAccount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount? _explicitNullValueEvmAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount EvmAccount { get => _explicitNullValueEvmAccount; set { _explicitNullValueEvmAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccount"); else _explicitNullProperties?.Remove("evmAccount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount EvmAccount { get => _explicitNullValueEvmAccount; set { _explicitNullValueEvmAccount = value; AdditionalData?.Remove("evmAccount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccount"); else _explicitNullProperties?.Remove("evmAccount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount _explicitNullValueEvmAccount = default!;
 #endif
         /// <summary>

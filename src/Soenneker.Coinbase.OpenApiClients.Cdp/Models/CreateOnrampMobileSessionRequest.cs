@@ -18,9 +18,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("android") is { } nullNodeAndroid && nullNodeAndroid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Android = null;
-            if (parseNode.GetChildNode("challenge") is { } nullNodeChallenge && nullNodeChallenge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Challenge = null;
-            if (parseNode.GetChildNode("ios") is { } nullNodeIos && nullNodeIos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ios = null;
+            if (parseNode.GetChildNode("android") is null) { _explicitNullValueAndroid = default!; _explicitNullProperties?.Remove("android"); }
+            else if (parseNode.GetChildNode("android") is { } nullNodeAndroid && nullNodeAndroid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Android = null;
+            if (parseNode.GetChildNode("challenge") is null) { _explicitNullValueChallenge = default!; _explicitNullProperties?.Remove("challenge"); }
+            else if (parseNode.GetChildNode("challenge") is { } nullNodeChallenge && nullNodeChallenge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Challenge = null;
+            if (parseNode.GetChildNode("ios") is null) { _explicitNullValueIos = default!; _explicitNullProperties?.Remove("ios"); }
+            else if (parseNode.GetChildNode("ios") is { } nullNodeIos && nullNodeIos.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ios = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Android Play Integrity Standard API payload for verifying a signed challenge.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AndroidIntegrityPayload? Android { get => _explicitNullValueAndroid; set { _explicitNullValueAndroid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("android"); else _explicitNullProperties?.Remove("android"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AndroidIntegrityPayload? Android { get => _explicitNullValueAndroid; set { _explicitNullValueAndroid = value; AdditionalData?.Remove("android"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("android"); else _explicitNullProperties?.Remove("android"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AndroidIntegrityPayload? _explicitNullValueAndroid = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AndroidIntegrityPayload Android { get => _explicitNullValueAndroid; set { _explicitNullValueAndroid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("android"); else _explicitNullProperties?.Remove("android"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AndroidIntegrityPayload Android { get => _explicitNullValueAndroid; set { _explicitNullValueAndroid = value; AdditionalData?.Remove("android"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("android"); else _explicitNullProperties?.Remove("android"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AndroidIntegrityPayload _explicitNullValueAndroid = default!;
 #endif
         /// <summary>An opaque server-issued token used in the App2App onramp handoff. Treat it as an opaque string — do not attempt to parse or decode its contents.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Challenge { get => _explicitNullValueChallenge; set { _explicitNullValueChallenge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenge"); else _explicitNullProperties?.Remove("challenge"); } }
+        public string? Challenge { get => _explicitNullValueChallenge; set { _explicitNullValueChallenge = value; AdditionalData?.Remove("challenge"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenge"); else _explicitNullProperties?.Remove("challenge"); } }
         private string? _explicitNullValueChallenge = default!;
 #nullable restore
 #else
-        public string Challenge { get => _explicitNullValueChallenge; set { _explicitNullValueChallenge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenge"); else _explicitNullProperties?.Remove("challenge"); } }
+        public string Challenge { get => _explicitNullValueChallenge; set { _explicitNullValueChallenge = value; AdditionalData?.Remove("challenge"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("challenge"); else _explicitNullProperties?.Remove("challenge"); } }
         private string _explicitNullValueChallenge = default!;
 #endif
         /// <summary>iOS App Attest assertion payload for verifying a signed challenge.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IosAssertionPayload? Ios { get => _explicitNullValueIos; set { _explicitNullValueIos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ios"); else _explicitNullProperties?.Remove("ios"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IosAssertionPayload? Ios { get => _explicitNullValueIos; set { _explicitNullValueIos = value; AdditionalData?.Remove("ios"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ios"); else _explicitNullProperties?.Remove("ios"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IosAssertionPayload? _explicitNullValueIos = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IosAssertionPayload Ios { get => _explicitNullValueIos; set { _explicitNullValueIos = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ios"); else _explicitNullProperties?.Remove("ios"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IosAssertionPayload Ios { get => _explicitNullValueIos; set { _explicitNullValueIos = value; AdditionalData?.Remove("ios"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ios"); else _explicitNullProperties?.Remove("ios"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IosAssertionPayload _explicitNullValueIos = default!;
 #endif
         /// <summary>

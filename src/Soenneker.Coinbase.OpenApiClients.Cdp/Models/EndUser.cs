@@ -18,16 +18,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("authenticationMethods") is { } nullNodeAuthenticationMethods && nullNodeAuthenticationMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthenticationMethods = null;
-            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
-            if (parseNode.GetChildNode("evmAccountObjects") is { } nullNodeEvmAccountObjects && nullNodeEvmAccountObjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmAccountObjects = null;
-            if (parseNode.GetChildNode("evmAccounts") is { } nullNodeEvmAccounts && nullNodeEvmAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmAccounts = null;
-            if (parseNode.GetChildNode("evmSmartAccountObjects") is { } nullNodeEvmSmartAccountObjects && nullNodeEvmSmartAccountObjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmSmartAccountObjects = null;
-            if (parseNode.GetChildNode("evmSmartAccounts") is { } nullNodeEvmSmartAccounts && nullNodeEvmSmartAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmSmartAccounts = null;
-            if (parseNode.GetChildNode("mfaMethods") is { } nullNodeMfaMethods && nullNodeMfaMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MfaMethods = null;
-            if (parseNode.GetChildNode("solanaAccountObjects") is { } nullNodeSolanaAccountObjects && nullNodeSolanaAccountObjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SolanaAccountObjects = null;
-            if (parseNode.GetChildNode("solanaAccounts") is { } nullNodeSolanaAccounts && nullNodeSolanaAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SolanaAccounts = null;
-            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+            if (parseNode.GetChildNode("authenticationMethods") is null) { _explicitNullValueAuthenticationMethods = default!; _explicitNullProperties?.Remove("authenticationMethods"); }
+            else if (parseNode.GetChildNode("authenticationMethods") is { } nullNodeAuthenticationMethods && nullNodeAuthenticationMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthenticationMethods = null;
+            if (parseNode.GetChildNode("createdAt") is null) { _explicitNullValueCreatedAt = default!; _explicitNullProperties?.Remove("createdAt"); }
+            else if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("evmAccountObjects") is null) { _explicitNullValueEvmAccountObjects = default!; _explicitNullProperties?.Remove("evmAccountObjects"); }
+            else if (parseNode.GetChildNode("evmAccountObjects") is { } nullNodeEvmAccountObjects && nullNodeEvmAccountObjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmAccountObjects = null;
+            if (parseNode.GetChildNode("evmAccounts") is null) { _explicitNullValueEvmAccounts = default!; _explicitNullProperties?.Remove("evmAccounts"); }
+            else if (parseNode.GetChildNode("evmAccounts") is { } nullNodeEvmAccounts && nullNodeEvmAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmAccounts = null;
+            if (parseNode.GetChildNode("evmSmartAccountObjects") is null) { _explicitNullValueEvmSmartAccountObjects = default!; _explicitNullProperties?.Remove("evmSmartAccountObjects"); }
+            else if (parseNode.GetChildNode("evmSmartAccountObjects") is { } nullNodeEvmSmartAccountObjects && nullNodeEvmSmartAccountObjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmSmartAccountObjects = null;
+            if (parseNode.GetChildNode("evmSmartAccounts") is null) { _explicitNullValueEvmSmartAccounts = default!; _explicitNullProperties?.Remove("evmSmartAccounts"); }
+            else if (parseNode.GetChildNode("evmSmartAccounts") is { } nullNodeEvmSmartAccounts && nullNodeEvmSmartAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EvmSmartAccounts = null;
+            if (parseNode.GetChildNode("mfaMethods") is null) { _explicitNullValueMfaMethods = default!; _explicitNullProperties?.Remove("mfaMethods"); }
+            else if (parseNode.GetChildNode("mfaMethods") is { } nullNodeMfaMethods && nullNodeMfaMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MfaMethods = null;
+            if (parseNode.GetChildNode("solanaAccountObjects") is null) { _explicitNullValueSolanaAccountObjects = default!; _explicitNullProperties?.Remove("solanaAccountObjects"); }
+            else if (parseNode.GetChildNode("solanaAccountObjects") is { } nullNodeSolanaAccountObjects && nullNodeSolanaAccountObjects.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SolanaAccountObjects = null;
+            if (parseNode.GetChildNode("solanaAccounts") is null) { _explicitNullValueSolanaAccounts = default!; _explicitNullProperties?.Remove("solanaAccounts"); }
+            else if (parseNode.GetChildNode("solanaAccounts") is { } nullNodeSolanaAccounts && nullNodeSolanaAccounts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SolanaAccounts = null;
+            if (parseNode.GetChildNode("userId") is null) { _explicitNullValueUserId = default!; _explicitNullProperties?.Remove("userId"); }
+            else if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -35,97 +45,97 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The list of valid authentication methods linked to the end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod>? AuthenticationMethods { get => _explicitNullValueAuthenticationMethods; set { _explicitNullValueAuthenticationMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authenticationMethods"); else _explicitNullProperties?.Remove("authenticationMethods"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod>? AuthenticationMethods { get => _explicitNullValueAuthenticationMethods; set { _explicitNullValueAuthenticationMethods = value; AdditionalData?.Remove("authenticationMethods"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authenticationMethods"); else _explicitNullProperties?.Remove("authenticationMethods"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod>? _explicitNullValueAuthenticationMethods = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod> AuthenticationMethods { get => _explicitNullValueAuthenticationMethods; set { _explicitNullValueAuthenticationMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authenticationMethods"); else _explicitNullProperties?.Remove("authenticationMethods"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod> AuthenticationMethods { get => _explicitNullValueAuthenticationMethods; set { _explicitNullValueAuthenticationMethods = value; AdditionalData?.Remove("authenticationMethods"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authenticationMethods"); else _explicitNullProperties?.Remove("authenticationMethods"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod> _explicitNullValueAuthenticationMethods = default!;
 #endif
         /// <summary>The date and time when the end user was created, in ISO 8601 format.</summary>
-        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; AdditionalData?.Remove("createdAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
         private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The list of EVM accounts associated with the end user. End users can have up to 10 EVM accounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount>? EvmAccountObjects { get => _explicitNullValueEvmAccountObjects; set { _explicitNullValueEvmAccountObjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccountObjects"); else _explicitNullProperties?.Remove("evmAccountObjects"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount>? EvmAccountObjects { get => _explicitNullValueEvmAccountObjects; set { _explicitNullValueEvmAccountObjects = value; AdditionalData?.Remove("evmAccountObjects"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccountObjects"); else _explicitNullProperties?.Remove("evmAccountObjects"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount>? _explicitNullValueEvmAccountObjects = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount> EvmAccountObjects { get => _explicitNullValueEvmAccountObjects; set { _explicitNullValueEvmAccountObjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccountObjects"); else _explicitNullProperties?.Remove("evmAccountObjects"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount> EvmAccountObjects { get => _explicitNullValueEvmAccountObjects; set { _explicitNullValueEvmAccountObjects = value; AdditionalData?.Remove("evmAccountObjects"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccountObjects"); else _explicitNullProperties?.Remove("evmAccountObjects"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmAccount> _explicitNullValueEvmAccountObjects = default!;
 #endif
         /// <summary>**DEPRECATED**: Use `evmAccountObjects` instead for richer account information. The list of EVM account addresses associated with the end user. End users can have up to 10 EVM accounts.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EvmAccounts { get => _explicitNullValueEvmAccounts; set { _explicitNullValueEvmAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccounts"); else _explicitNullProperties?.Remove("evmAccounts"); } }
+        public List<string>? EvmAccounts { get => _explicitNullValueEvmAccounts; set { _explicitNullValueEvmAccounts = value; AdditionalData?.Remove("evmAccounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccounts"); else _explicitNullProperties?.Remove("evmAccounts"); } }
         private List<string>? _explicitNullValueEvmAccounts = default!;
 #nullable restore
 #else
-        public List<string> EvmAccounts { get => _explicitNullValueEvmAccounts; set { _explicitNullValueEvmAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccounts"); else _explicitNullProperties?.Remove("evmAccounts"); } }
+        public List<string> EvmAccounts { get => _explicitNullValueEvmAccounts; set { _explicitNullValueEvmAccounts = value; AdditionalData?.Remove("evmAccounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmAccounts"); else _explicitNullProperties?.Remove("evmAccounts"); } }
         private List<string> _explicitNullValueEvmAccounts = default!;
 #endif
         /// <summary>The list of EVM smart accounts associated with the end user. Each EVM EOA can own one smart account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount>? EvmSmartAccountObjects { get => _explicitNullValueEvmSmartAccountObjects; set { _explicitNullValueEvmSmartAccountObjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmSmartAccountObjects"); else _explicitNullProperties?.Remove("evmSmartAccountObjects"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount>? EvmSmartAccountObjects { get => _explicitNullValueEvmSmartAccountObjects; set { _explicitNullValueEvmSmartAccountObjects = value; AdditionalData?.Remove("evmSmartAccountObjects"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmSmartAccountObjects"); else _explicitNullProperties?.Remove("evmSmartAccountObjects"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount>? _explicitNullValueEvmSmartAccountObjects = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount> EvmSmartAccountObjects { get => _explicitNullValueEvmSmartAccountObjects; set { _explicitNullValueEvmSmartAccountObjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmSmartAccountObjects"); else _explicitNullProperties?.Remove("evmSmartAccountObjects"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount> EvmSmartAccountObjects { get => _explicitNullValueEvmSmartAccountObjects; set { _explicitNullValueEvmSmartAccountObjects = value; AdditionalData?.Remove("evmSmartAccountObjects"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmSmartAccountObjects"); else _explicitNullProperties?.Remove("evmSmartAccountObjects"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserEvmSmartAccount> _explicitNullValueEvmSmartAccountObjects = default!;
 #endif
         /// <summary>**DEPRECATED**: Use `evmSmartAccountObjects` instead for richer account information including owner relationships. The list of EVM smart account addresses associated with the end user. Each EVM EOA can own one smart account.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? EvmSmartAccounts { get => _explicitNullValueEvmSmartAccounts; set { _explicitNullValueEvmSmartAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmSmartAccounts"); else _explicitNullProperties?.Remove("evmSmartAccounts"); } }
+        public List<string>? EvmSmartAccounts { get => _explicitNullValueEvmSmartAccounts; set { _explicitNullValueEvmSmartAccounts = value; AdditionalData?.Remove("evmSmartAccounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmSmartAccounts"); else _explicitNullProperties?.Remove("evmSmartAccounts"); } }
         private List<string>? _explicitNullValueEvmSmartAccounts = default!;
 #nullable restore
 #else
-        public List<string> EvmSmartAccounts { get => _explicitNullValueEvmSmartAccounts; set { _explicitNullValueEvmSmartAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmSmartAccounts"); else _explicitNullProperties?.Remove("evmSmartAccounts"); } }
+        public List<string> EvmSmartAccounts { get => _explicitNullValueEvmSmartAccounts; set { _explicitNullValueEvmSmartAccounts = value; AdditionalData?.Remove("evmSmartAccounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("evmSmartAccounts"); else _explicitNullProperties?.Remove("evmSmartAccounts"); } }
         private List<string> _explicitNullValueEvmSmartAccounts = default!;
 #endif
         /// <summary>Information about the end user&apos;s MFA enrollments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods? MfaMethods { get => _explicitNullValueMfaMethods; set { _explicitNullValueMfaMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mfaMethods"); else _explicitNullProperties?.Remove("mfaMethods"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods? MfaMethods { get => _explicitNullValueMfaMethods; set { _explicitNullValueMfaMethods = value; AdditionalData?.Remove("mfaMethods"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mfaMethods"); else _explicitNullProperties?.Remove("mfaMethods"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods? _explicitNullValueMfaMethods = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods MfaMethods { get => _explicitNullValueMfaMethods; set { _explicitNullValueMfaMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mfaMethods"); else _explicitNullProperties?.Remove("mfaMethods"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods MfaMethods { get => _explicitNullValueMfaMethods; set { _explicitNullValueMfaMethods = value; AdditionalData?.Remove("mfaMethods"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mfaMethods"); else _explicitNullProperties?.Remove("mfaMethods"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MfaMethods _explicitNullValueMfaMethods = default!;
 #endif
         /// <summary>The list of Solana accounts associated with the end user. End users can have up to 10 Solana accounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount>? SolanaAccountObjects { get => _explicitNullValueSolanaAccountObjects; set { _explicitNullValueSolanaAccountObjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccountObjects"); else _explicitNullProperties?.Remove("solanaAccountObjects"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount>? SolanaAccountObjects { get => _explicitNullValueSolanaAccountObjects; set { _explicitNullValueSolanaAccountObjects = value; AdditionalData?.Remove("solanaAccountObjects"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccountObjects"); else _explicitNullProperties?.Remove("solanaAccountObjects"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount>? _explicitNullValueSolanaAccountObjects = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount> SolanaAccountObjects { get => _explicitNullValueSolanaAccountObjects; set { _explicitNullValueSolanaAccountObjects = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccountObjects"); else _explicitNullProperties?.Remove("solanaAccountObjects"); } }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount> SolanaAccountObjects { get => _explicitNullValueSolanaAccountObjects; set { _explicitNullValueSolanaAccountObjects = value; AdditionalData?.Remove("solanaAccountObjects"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccountObjects"); else _explicitNullProperties?.Remove("solanaAccountObjects"); } }
         private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount> _explicitNullValueSolanaAccountObjects = default!;
 #endif
         /// <summary>**DEPRECATED**: Use `solanaAccountObjects` instead for richer account information. The list of Solana account addresses associated with the end user. End users can have up to 10 Solana accounts.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? SolanaAccounts { get => _explicitNullValueSolanaAccounts; set { _explicitNullValueSolanaAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccounts"); else _explicitNullProperties?.Remove("solanaAccounts"); } }
+        public List<string>? SolanaAccounts { get => _explicitNullValueSolanaAccounts; set { _explicitNullValueSolanaAccounts = value; AdditionalData?.Remove("solanaAccounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccounts"); else _explicitNullProperties?.Remove("solanaAccounts"); } }
         private List<string>? _explicitNullValueSolanaAccounts = default!;
 #nullable restore
 #else
-        public List<string> SolanaAccounts { get => _explicitNullValueSolanaAccounts; set { _explicitNullValueSolanaAccounts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccounts"); else _explicitNullProperties?.Remove("solanaAccounts"); } }
+        public List<string> SolanaAccounts { get => _explicitNullValueSolanaAccounts; set { _explicitNullValueSolanaAccounts = value; AdditionalData?.Remove("solanaAccounts"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccounts"); else _explicitNullProperties?.Remove("solanaAccounts"); } }
         private List<string> _explicitNullValueSolanaAccounts = default!;
 #endif
         /// <summary>A stable, unique identifier for the end user. The `userId` must be unique across all end users in the developer&apos;s CDP Project. It must be between 1 and 100 characters long and can only contain alphanumeric characters and hyphens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; AdditionalData?.Remove("userId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
         private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>

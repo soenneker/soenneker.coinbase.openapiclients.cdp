@@ -17,7 +17,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("solanaAccount") is { } nullNodeSolanaAccount && nullNodeSolanaAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SolanaAccount = null;
+            if (parseNode.GetChildNode("solanaAccount") is null) { _explicitNullValueSolanaAccount = default!; _explicitNullProperties?.Remove("solanaAccount"); }
+            else if (parseNode.GetChildNode("solanaAccount") is { } nullNodeSolanaAccount && nullNodeSolanaAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SolanaAccount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>Information about a Solana account associated with an end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount? SolanaAccount { get => _explicitNullValueSolanaAccount; set { _explicitNullValueSolanaAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccount"); else _explicitNullProperties?.Remove("solanaAccount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount? SolanaAccount { get => _explicitNullValueSolanaAccount; set { _explicitNullValueSolanaAccount = value; AdditionalData?.Remove("solanaAccount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccount"); else _explicitNullProperties?.Remove("solanaAccount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount? _explicitNullValueSolanaAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount SolanaAccount { get => _explicitNullValueSolanaAccount; set { _explicitNullValueSolanaAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccount"); else _explicitNullProperties?.Remove("solanaAccount"); } }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount SolanaAccount { get => _explicitNullValueSolanaAccount; set { _explicitNullValueSolanaAccount = value; AdditionalData?.Remove("solanaAccount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccount"); else _explicitNullProperties?.Remove("solanaAccount"); } }
         private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount _explicitNullValueSolanaAccount = default!;
 #endif
         /// <summary>

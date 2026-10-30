@@ -18,7 +18,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("cancellationReason") is { } nullNodeCancellationReason && nullNodeCancellationReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancellationReason = null;
+            if (parseNode.GetChildNode("cancellationReason") is null) { _explicitNullValueCancellationReason = default!; _explicitNullProperties?.Remove("cancellationReason"); }
+            else if (parseNode.GetChildNode("cancellationReason") is { } nullNodeCancellationReason && nullNodeCancellationReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CancellationReason = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The reason for cancelling the payment session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CancellationReason { get => _explicitNullValueCancellationReason; set { _explicitNullValueCancellationReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancellationReason"); else _explicitNullProperties?.Remove("cancellationReason"); } }
+        public string? CancellationReason { get => _explicitNullValueCancellationReason; set { _explicitNullValueCancellationReason = value; AdditionalData?.Remove("cancellationReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancellationReason"); else _explicitNullProperties?.Remove("cancellationReason"); } }
         private string? _explicitNullValueCancellationReason = default!;
 #nullable restore
 #else
-        public string CancellationReason { get => _explicitNullValueCancellationReason; set { _explicitNullValueCancellationReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancellationReason"); else _explicitNullProperties?.Remove("cancellationReason"); } }
+        public string CancellationReason { get => _explicitNullValueCancellationReason; set { _explicitNullValueCancellationReason = value; AdditionalData?.Remove("cancellationReason"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cancellationReason"); else _explicitNullProperties?.Remove("cancellationReason"); } }
         private string _explicitNullValueCancellationReason = default!;
 #endif
         /// <summary>

@@ -18,19 +18,22 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accountAddress") is { } nullNodeAccountAddress && nullNodeAccountAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountAddress = null;
-            if (parseNode.GetChildNode("tokenAddresses") is { } nullNodeTokenAddresses && nullNodeTokenAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenAddresses = null;
-            if (parseNode.GetChildNode("totalCount") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
+            if (parseNode.GetChildNode("accountAddress") is null) { _explicitNullValueAccountAddress = default!; _explicitNullProperties?.Remove("accountAddress"); }
+            else if (parseNode.GetChildNode("accountAddress") is { } nullNodeAccountAddress && nullNodeAccountAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountAddress = null;
+            if (parseNode.GetChildNode("tokenAddresses") is null) { _explicitNullValueTokenAddresses = default!; _explicitNullProperties?.Remove("tokenAddresses"); }
+            else if (parseNode.GetChildNode("tokenAddresses") is { } nullNodeTokenAddresses && nullNodeTokenAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenAddresses = null;
+            if (parseNode.GetChildNode("totalCount") is null) { _explicitNullValueTotalCount = default!; _explicitNullProperties?.Remove("totalCount"); }
+            else if (parseNode.GetChildNode("totalCount") is { } nullNodeTotalCount && nullNodeTotalCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TotalCount = null;
         }
 
         /// <summary>The account address that was queried.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountAddress { get => _explicitNullValueAccountAddress; set { _explicitNullValueAccountAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountAddress"); else _explicitNullProperties?.Remove("accountAddress"); } }
+        public string? AccountAddress { get => _explicitNullValueAccountAddress; set { _explicitNullValueAccountAddress = value; AdditionalData?.Remove("accountAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountAddress"); else _explicitNullProperties?.Remove("accountAddress"); } }
         private string? _explicitNullValueAccountAddress = default!;
 #nullable restore
 #else
-        public string AccountAddress { get => _explicitNullValueAccountAddress; set { _explicitNullValueAccountAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountAddress"); else _explicitNullProperties?.Remove("accountAddress"); } }
+        public string AccountAddress { get => _explicitNullValueAccountAddress; set { _explicitNullValueAccountAddress = value; AdditionalData?.Remove("accountAddress"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountAddress"); else _explicitNullProperties?.Remove("accountAddress"); } }
         private string _explicitNullValueAccountAddress = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,15 +41,15 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>List of token contract addresses that the account has received.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? TokenAddresses { get => _explicitNullValueTokenAddresses; set { _explicitNullValueTokenAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenAddresses"); else _explicitNullProperties?.Remove("tokenAddresses"); } }
+        public List<string>? TokenAddresses { get => _explicitNullValueTokenAddresses; set { _explicitNullValueTokenAddresses = value; AdditionalData?.Remove("tokenAddresses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenAddresses"); else _explicitNullProperties?.Remove("tokenAddresses"); } }
         private List<string>? _explicitNullValueTokenAddresses = default!;
 #nullable restore
 #else
-        public List<string> TokenAddresses { get => _explicitNullValueTokenAddresses; set { _explicitNullValueTokenAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenAddresses"); else _explicitNullProperties?.Remove("tokenAddresses"); } }
+        public List<string> TokenAddresses { get => _explicitNullValueTokenAddresses; set { _explicitNullValueTokenAddresses = value; AdditionalData?.Remove("tokenAddresses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenAddresses"); else _explicitNullProperties?.Remove("tokenAddresses"); } }
         private List<string> _explicitNullValueTokenAddresses = default!;
 #endif
         /// <summary>Total number of unique token addresses discovered.</summary>
-        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalCount"); else _explicitNullProperties?.Remove("totalCount"); } }
+        public int? TotalCount { get => _explicitNullValueTotalCount; set { _explicitNullValueTotalCount = value; AdditionalData?.Remove("totalCount"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("totalCount"); else _explicitNullProperties?.Remove("totalCount"); } }
         private int? _explicitNullValueTotalCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AccountTokenAddressesResponse"/> and sets the default values.

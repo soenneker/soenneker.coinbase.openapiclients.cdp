@@ -18,23 +18,25 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("verificationExpiresAt") is { } nullNodeVerificationExpiresAt && nullNodeVerificationExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationExpiresAt = null;
-            if (parseNode.GetChildNode("verificationId") is { } nullNodeVerificationId && nullNodeVerificationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationId = null;
+            if (parseNode.GetChildNode("verificationExpiresAt") is null) { _explicitNullValueVerificationExpiresAt = default!; _explicitNullProperties?.Remove("verificationExpiresAt"); }
+            else if (parseNode.GetChildNode("verificationExpiresAt") is { } nullNodeVerificationExpiresAt && nullNodeVerificationExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationExpiresAt = null;
+            if (parseNode.GetChildNode("verificationId") is null) { _explicitNullValueVerificationId = default!; _explicitNullProperties?.Remove("verificationId"); }
+            else if (parseNode.GetChildNode("verificationId") is { } nullNodeVerificationId && nullNodeVerificationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time when this verification expires for order placement.</summary>
-        public DateTimeOffset? VerificationExpiresAt { get => _explicitNullValueVerificationExpiresAt; set { _explicitNullValueVerificationExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationExpiresAt"); else _explicitNullProperties?.Remove("verificationExpiresAt"); } }
+        public DateTimeOffset? VerificationExpiresAt { get => _explicitNullValueVerificationExpiresAt; set { _explicitNullValueVerificationExpiresAt = value; AdditionalData?.Remove("verificationExpiresAt"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationExpiresAt"); else _explicitNullProperties?.Remove("verificationExpiresAt"); } }
         private DateTimeOffset? _explicitNullValueVerificationExpiresAt = default!;
         /// <summary>A unique identifier for an onramp verification record, in the format `onramp_verification_&lt;uuid&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerificationId { get => _explicitNullValueVerificationId; set { _explicitNullValueVerificationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationId"); else _explicitNullProperties?.Remove("verificationId"); } }
+        public string? VerificationId { get => _explicitNullValueVerificationId; set { _explicitNullValueVerificationId = value; AdditionalData?.Remove("verificationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationId"); else _explicitNullProperties?.Remove("verificationId"); } }
         private string? _explicitNullValueVerificationId = default!;
 #nullable restore
 #else
-        public string VerificationId { get => _explicitNullValueVerificationId; set { _explicitNullValueVerificationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationId"); else _explicitNullProperties?.Remove("verificationId"); } }
+        public string VerificationId { get => _explicitNullValueVerificationId; set { _explicitNullValueVerificationId = value; AdditionalData?.Remove("verificationId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationId"); else _explicitNullProperties?.Remove("verificationId"); } }
         private string _explicitNullValueVerificationId = default!;
 #endif
         /// <summary>
