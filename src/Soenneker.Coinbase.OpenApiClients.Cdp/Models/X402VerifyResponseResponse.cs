@@ -11,36 +11,56 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class X402VerifyResponseResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("extra") is { } nullNodeExtra && nullNodeExtra.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Extra = null;
+            if (parseNode.GetChildNode("invalidMessage") is { } nullNodeInvalidMessage && nullNodeInvalidMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidMessage = null;
+            if (parseNode.GetChildNode("invalidReason") is { } nullNodeInvalidReason && nullNodeInvalidReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InvalidReason = null;
+            if (parseNode.GetChildNode("isValid") is { } nullNodeIsValid && nullNodeIsValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsValid = null;
+            if (parseNode.GetChildNode("payer") is { } nullNodePayer && nullNodePayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payer = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional scheme-specific verify metadata returned by the facilitator.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponseExtraProperty? Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponseExtraProperty? Extra { get => _explicitNullValueExtra; set { _explicitNullValueExtra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra"); else _explicitNullProperties?.Remove("extra"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponseExtraProperty? _explicitNullValueExtra = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponseExtraProperty Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponseExtraProperty Extra { get => _explicitNullValueExtra; set { _explicitNullValueExtra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra"); else _explicitNullProperties?.Remove("extra"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponseExtraProperty _explicitNullValueExtra = default!;
 #endif
         /// <summary>The message describing the invalid reason.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InvalidMessage { get; set; }
+        public string? InvalidMessage { get => _explicitNullValueInvalidMessage; set { _explicitNullValueInvalidMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidMessage"); else _explicitNullProperties?.Remove("invalidMessage"); } }
+        private string? _explicitNullValueInvalidMessage = default!;
 #nullable restore
 #else
-        public string InvalidMessage { get; set; }
+        public string InvalidMessage { get => _explicitNullValueInvalidMessage; set { _explicitNullValueInvalidMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidMessage"); else _explicitNullProperties?.Remove("invalidMessage"); } }
+        private string _explicitNullValueInvalidMessage = default!;
 #endif
         /// <summary>The reason the payment is invalid on the x402 protocol.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason? InvalidReason { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason? InvalidReason { get => _explicitNullValueInvalidReason; set { _explicitNullValueInvalidReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("invalidReason"); else _explicitNullProperties?.Remove("invalidReason"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason? _explicitNullValueInvalidReason = default!;
         /// <summary>Indicates whether the payment is valid.</summary>
-        public bool? IsValid { get; set; }
+        public bool? IsValid { get => _explicitNullValueIsValid; set { _explicitNullValueIsValid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isValid"); else _explicitNullProperties?.Remove("isValid"); } }
+        private bool? _explicitNullValueIsValid = default!;
         /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Payer { get; set; }
+        public string? Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
+        private string? _explicitNullValuePayer = default!;
 #nullable restore
 #else
-        public string Payer { get; set; }
+        public string Payer { get => _explicitNullValuePayer; set { _explicitNullValuePayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payer"); else _explicitNullProperties?.Remove("payer"); } }
+        private string _explicitNullValuePayer = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponse"/> and sets the default values.
@@ -57,7 +77,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyResponseResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +106,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402VerifyInvalidReason>("invalidReason", InvalidReason);
             writer.WriteBoolValue("isValid", IsValid);
             writer.WriteStringValue("payer", Payer);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

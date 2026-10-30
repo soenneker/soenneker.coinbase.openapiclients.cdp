@@ -11,27 +11,42 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class VerifyX402PaymentRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("paymentPayload") is { } nullNodePaymentPayload && nullNodePaymentPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentPayload = null;
+            if (parseNode.GetChildNode("paymentRequirements") is { } nullNodePaymentRequirements && nullNodePaymentRequirements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRequirements = null;
+            if (parseNode.GetChildNode("x402Version") is { } nullNodeX402Version && nullNodeX402Version.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) X402Version = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The x402 protocol payment payload that the client attaches to x402-paid API requests to the resource server in the PAYMENT-SIGNATURE header.For EVM networks, smart account signatures can be longer than 65 bytes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload? PaymentPayload { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload? PaymentPayload { get => _explicitNullValuePaymentPayload; set { _explicitNullValuePaymentPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentPayload"); else _explicitNullProperties?.Remove("paymentPayload"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload? _explicitNullValuePaymentPayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload PaymentPayload { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload PaymentPayload { get => _explicitNullValuePaymentPayload; set { _explicitNullValuePaymentPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentPayload"); else _explicitNullProperties?.Remove("paymentPayload"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload _explicitNullValuePaymentPayload = default!;
 #endif
         /// <summary>The x402 protocol payment requirements that the resource server expects the client&apos;s payment payload to meet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements? PaymentRequirements { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements? PaymentRequirements { get => _explicitNullValuePaymentRequirements; set { _explicitNullValuePaymentRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRequirements"); else _explicitNullProperties?.Remove("paymentRequirements"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements? _explicitNullValuePaymentRequirements = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements PaymentRequirements { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements PaymentRequirements { get => _explicitNullValuePaymentRequirements; set { _explicitNullValuePaymentRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRequirements"); else _explicitNullProperties?.Remove("paymentRequirements"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements _explicitNullValuePaymentRequirements = default!;
 #endif
         /// <summary>The version of the x402 protocol.</summary>
-        public int? X402Version { get; set; }
+        public int? X402Version { get => _explicitNullValueX402Version; set { _explicitNullValueX402Version = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("x402Version"); else _explicitNullProperties?.Remove("x402Version"); } }
+        private int? _explicitNullValueX402Version = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.VerifyX402PaymentRequest"/> and sets the default values.
         /// </summary>
@@ -47,7 +62,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.VerifyX402PaymentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.VerifyX402PaymentRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.VerifyX402PaymentRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,6 +87,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentPayload>("paymentPayload", PaymentPayload);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>("paymentRequirements", PaymentRequirements);
             writer.WriteIntValue("x402Version", X402Version);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

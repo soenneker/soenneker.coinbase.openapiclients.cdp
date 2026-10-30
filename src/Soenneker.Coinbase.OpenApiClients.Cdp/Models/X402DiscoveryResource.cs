@@ -12,97 +12,142 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402DiscoveryResource : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accepts") is { } nullNodeAccepts && nullNodeAccepts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Accepts = null;
+            if (parseNode.GetChildNode("bundleSlugs") is { } nullNodeBundleSlugs && nullNodeBundleSlugs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BundleSlugs = null;
+            if (parseNode.GetChildNode("curated") is { } nullNodeCurated && nullNodeCurated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Curated = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("extensions") is { } nullNodeExtensions && nullNodeExtensions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Extensions = null;
+            if (parseNode.GetChildNode("iconUrl") is { } nullNodeIconUrl && nullNodeIconUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IconUrl = null;
+            if (parseNode.GetChildNode("lastUpdated") is { } nullNodeLastUpdated && nullNodeLastUpdated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastUpdated = null;
+            if (parseNode.GetChildNode("quality") is { } nullNodeQuality && nullNodeQuality.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Quality = null;
+            if (parseNode.GetChildNode("resource") is { } nullNodeResource && nullNodeResource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resource = null;
+            if (parseNode.GetChildNode("serviceName") is { } nullNodeServiceName && nullNodeServiceName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceName = null;
+            if (parseNode.GetChildNode("skillUrl") is { } nullNodeSkillUrl && nullNodeSkillUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkillUrl = null;
+            if (parseNode.GetChildNode("tags") is { } nullNodeTags && nullNodeTags.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Tags = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("x402Version") is { } nullNodeX402Version && nullNodeX402Version.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) X402Version = null;
+        }
+
         /// <summary>Payment requirements accepted by the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>? Accepts { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>? Accepts { get => _explicitNullValueAccepts; set { _explicitNullValueAccepts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accepts"); else _explicitNullProperties?.Remove("accepts"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements>? _explicitNullValueAccepts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements> Accepts { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements> Accepts { get => _explicitNullValueAccepts; set { _explicitNullValueAccepts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accepts"); else _explicitNullProperties?.Remove("accepts"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402PaymentRequirements> _explicitNullValueAccepts = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Slugs of the curated x402 bundles this resource belongs to. A bundle is an ordered, named grouping of curated resources covering a common agent workflow. Present only for Coinbase-curated resources (`curated: true`); omitted when the resource is not curated or is not a member of any bundle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BundleSlugs { get; set; }
+        public List<string>? BundleSlugs { get => _explicitNullValueBundleSlugs; set { _explicitNullValueBundleSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundleSlugs"); else _explicitNullProperties?.Remove("bundleSlugs"); } }
+        private List<string>? _explicitNullValueBundleSlugs = default!;
 #nullable restore
 #else
-        public List<string> BundleSlugs { get; set; }
+        public List<string> BundleSlugs { get => _explicitNullValueBundleSlugs; set { _explicitNullValueBundleSlugs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bundleSlugs"); else _explicitNullProperties?.Remove("bundleSlugs"); } }
+        private List<string> _explicitNullValueBundleSlugs = default!;
 #endif
         /// <summary>Whether this resource is a Coinbase-curated endpoint. Curated endpoints have passed thepartner-admission and verification bar and surface higher in search and listing results.Omitted (treated as `false`) when the resource is not curated.</summary>
-        public bool? Curated { get; set; }
+        public bool? Curated { get => _explicitNullValueCurated; set { _explicitNullValueCurated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("curated"); else _explicitNullProperties?.Remove("curated"); } }
+        private bool? _explicitNullValueCurated = default!;
         /// <summary>A human-readable description of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>Map of x402 protocol extensions supported by the resource, keyed by extension name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty? Extensions { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty? Extensions { get => _explicitNullValueExtensions; set { _explicitNullValueExtensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extensions"); else _explicitNullProperties?.Remove("extensions"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty? _explicitNullValueExtensions = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty Extensions { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty Extensions { get => _explicitNullValueExtensions; set { _explicitNullValueExtensions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extensions"); else _explicitNullProperties?.Remove("extensions"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceExtensionsProperty _explicitNullValueExtensions = default!;
 #endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IconUrl { get; set; }
+        public string? IconUrl { get => _explicitNullValueIconUrl; set { _explicitNullValueIconUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iconUrl"); else _explicitNullProperties?.Remove("iconUrl"); } }
+        private string? _explicitNullValueIconUrl = default!;
 #nullable restore
 #else
-        public string IconUrl { get; set; }
+        public string IconUrl { get => _explicitNullValueIconUrl; set { _explicitNullValueIconUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("iconUrl"); else _explicitNullProperties?.Remove("iconUrl"); } }
+        private string _explicitNullValueIconUrl = default!;
 #endif
         /// <summary>Timestamp of the last update.</summary>
-        public DateTimeOffset? LastUpdated { get; set; }
+        public DateTimeOffset? LastUpdated { get => _explicitNullValueLastUpdated; set { _explicitNullValueLastUpdated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastUpdated"); else _explicitNullProperties?.Remove("lastUpdated"); } }
+        private DateTimeOffset? _explicitNullValueLastUpdated = default!;
         /// <summary>Quality metrics for a discovered x402 resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality? Quality { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality? Quality { get => _explicitNullValueQuality; set { _explicitNullValueQuality = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quality"); else _explicitNullProperties?.Remove("quality"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality? _explicitNullValueQuality = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality Quality { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality Quality { get => _explicitNullValueQuality; set { _explicitNullValueQuality = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("quality"); else _explicitNullProperties?.Remove("quality"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality _explicitNullValueQuality = default!;
 #endif
         /// <summary>The URL of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Resource { get; set; }
+        public string? Resource { get => _explicitNullValueResource; set { _explicitNullValueResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource"); else _explicitNullProperties?.Remove("resource"); } }
+        private string? _explicitNullValueResource = default!;
 #nullable restore
 #else
-        public string Resource { get; set; }
+        public string Resource { get => _explicitNullValueResource; set { _explicitNullValueResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource"); else _explicitNullProperties?.Remove("resource"); } }
+        private string _explicitNullValueResource = default!;
 #endif
         /// <summary>Display name of the service this resource belongs to. This is a free-formlabel for grouping and presentation only — it is not a stable identifier, and two resourcessharing the same `serviceName` are not guaranteed to belong to the same logical service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServiceName { get; set; }
+        public string? ServiceName { get => _explicitNullValueServiceName; set { _explicitNullValueServiceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serviceName"); else _explicitNullProperties?.Remove("serviceName"); } }
+        private string? _explicitNullValueServiceName = default!;
 #nullable restore
 #else
-        public string ServiceName { get; set; }
+        public string ServiceName { get => _explicitNullValueServiceName; set { _explicitNullValueServiceName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("serviceName"); else _explicitNullProperties?.Remove("serviceName"); } }
+        private string _explicitNullValueServiceName = default!;
 #endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SkillUrl { get; set; }
+        public string? SkillUrl { get => _explicitNullValueSkillUrl; set { _explicitNullValueSkillUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skillUrl"); else _explicitNullProperties?.Remove("skillUrl"); } }
+        private string? _explicitNullValueSkillUrl = default!;
 #nullable restore
 #else
-        public string SkillUrl { get; set; }
+        public string SkillUrl { get => _explicitNullValueSkillUrl; set { _explicitNullValueSkillUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skillUrl"); else _explicitNullProperties?.Remove("skillUrl"); } }
+        private string _explicitNullValueSkillUrl = default!;
 #endif
         /// <summary>Low-cardinality string labels associated with the resource for client-sidefiltering and display. Values are free-form (no controlled vocabulary) and case-sensitive.Order is not significant and duplicates are not expected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Tags { get; set; }
+        public List<string>? Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string>? _explicitNullValueTags = default!;
 #nullable restore
 #else
-        public List<string> Tags { get; set; }
+        public List<string> Tags { get => _explicitNullValueTags; set { _explicitNullValueTags = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tags"); else _explicitNullProperties?.Remove("tags"); } }
+        private List<string> _explicitNullValueTags = default!;
 #endif
         /// <summary>Communication protocol (e.g., &quot;http&quot;, &quot;mcp&quot;).</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceType? _explicitNullValueType = default!;
         /// <summary>The version of the x402 protocol.</summary>
-        public int? X402Version { get; set; }
+        public int? X402Version { get => _explicitNullValueX402Version; set { _explicitNullValueX402Version = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("x402Version"); else _explicitNullProperties?.Remove("x402Version"); } }
+        private int? _explicitNullValueX402Version = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource"/> and sets the default values.
         /// </summary>
@@ -118,7 +163,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -165,6 +210,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResourceType>("type", Type);
             writer.WriteIntValue("x402Version", X402Version);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -70,6 +70,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPolicies200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -105,6 +107,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PolicyEngine.Policies
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policy>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Policy.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

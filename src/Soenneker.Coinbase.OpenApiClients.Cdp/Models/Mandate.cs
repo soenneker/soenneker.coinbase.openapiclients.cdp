@@ -12,72 +12,112 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Mandate : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("approvalRedirect") is { } nullNodeApprovalRedirect && nullNodeApprovalRedirect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovalRedirect = null;
+            if (parseNode.GetChildNode("approvedAt") is { } nullNodeApprovedAt && nullNodeApprovedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovedAt = null;
+            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("canceledAt") is { } nullNodeCanceledAt && nullNodeCanceledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanceledAt = null;
+            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("customerDisplay") is { } nullNodeCustomerDisplay && nullNodeCustomerDisplay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerDisplay = null;
+            if (parseNode.GetChildNode("expiresAt") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("mandateId") is { } nullNodeMandateId && nullNodeMandateId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MandateId = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("policy") is { } nullNodePolicy && nullNodePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Policy = null;
+            if (parseNode.GetChildNode("revocationRedirect") is { } nullNodeRevocationRedirect && nullNodeRevocationRedirect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevocationRedirect = null;
+            if (parseNode.GetChildNode("revokedAt") is { } nullNodeRevokedAt && nullNodeRevokedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevokedAt = null;
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional merchant URLs used by the hosted mandate approval flow. The approval page redirects to `successUrl` when approval succeeds, or `failureUrl` when it fails. When omitted, the approval page keeps the customer on the Coinbase-hosted experience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateApprovalRedirect? ApprovalRedirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateApprovalRedirect? ApprovalRedirect { get => _explicitNullValueApprovalRedirect; set { _explicitNullValueApprovalRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvalRedirect"); else _explicitNullProperties?.Remove("approvalRedirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateApprovalRedirect? _explicitNullValueApprovalRedirect = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateApprovalRedirect ApprovalRedirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateApprovalRedirect ApprovalRedirect { get => _explicitNullValueApprovalRedirect; set { _explicitNullValueApprovalRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvalRedirect"); else _explicitNullProperties?.Remove("approvalRedirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateApprovalRedirect _explicitNullValueApprovalRedirect = default!;
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which an approval succeeded and the mandate became usable. Present only once the mandate has been approved; set once, on the successful approval, and unchanged by later transitions. Its presence is the durable signal that the mandate was approved, independent of `status`.</summary>
-        public DateTimeOffset? ApprovedAt { get; set; }
+        public DateTimeOffset? ApprovedAt { get => _explicitNullValueApprovedAt; set { _explicitNullValueApprovedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvedAt"); else _explicitNullProperties?.Remove("approvedAt"); } }
+        private DateTimeOffset? _explicitNullValueApprovedAt = default!;
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get; set; }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get; set; }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which the merchant canceled the mandate off-chain. Present only once the mandate has been canceled. Canceling does not touch the on-chain spending allowance; check `revokedAt` for that.</summary>
-        public DateTimeOffset? CanceledAt { get; set; }
+        public DateTimeOffset? CanceledAt { get => _explicitNullValueCanceledAt; set { _explicitNullValueCanceledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("canceledAt"); else _explicitNullProperties?.Remove("canceledAt"); } }
+        private DateTimeOffset? _explicitNullValueCanceledAt = default!;
         /// <summary>The UTC ISO 8601 timestamp at which the mandate was created.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Merchant-provided display data shown to the customer on the hosted mandate pages. All fields are informational only. They are stored and returned as-is and do not affect mandate approval, authorization, or policy enforcement.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay? CustomerDisplay { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay? CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay? _explicitNullValueCustomerDisplay = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay CustomerDisplay { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay _explicitNullValueCustomerDisplay = default!;
 #endif
         /// <summary>The UTC ISO 8601 timestamp after which the mandate can no longer be authorized against. Authorization attempts after this time return `422`; `status` does not change. Omit for no expiry.</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiresAt"); else _explicitNullProperties?.Remove("expiresAt"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>The ID of the mandate, a UUID prefixed by `mandate_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MandateId { get; set; }
+        public string? MandateId { get => _explicitNullValueMandateId; set { _explicitNullValueMandateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mandateId"); else _explicitNullProperties?.Remove("mandateId"); } }
+        private string? _explicitNullValueMandateId = default!;
 #nullable restore
 #else
-        public string MandateId { get; set; }
+        public string MandateId { get => _explicitNullValueMandateId; set { _explicitNullValueMandateId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mandateId"); else _explicitNullProperties?.Remove("mandateId"); } }
+        private string _explicitNullValueMandateId = default!;
 #endif
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateMetadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateMetadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>Debit caps. Always present. If you omitted `policy` at create, this is a Coinbase-configured monthly max.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed? Policy { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed? Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed? _explicitNullValuePolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed Policy { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed _explicitNullValuePolicy = default!;
 #endif
         /// <summary>Optional merchant URLs used by the hosted mandate revocation flow. The revocation page redirects to `successUrl` when revocation succeeds, or `failureUrl` when it fails. When omitted, the revocation page keeps the customer on the Coinbase-hosted experience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateRevocationRedirect? RevocationRedirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateRevocationRedirect? RevocationRedirect { get => _explicitNullValueRevocationRedirect; set { _explicitNullValueRevocationRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocationRedirect"); else _explicitNullProperties?.Remove("revocationRedirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateRevocationRedirect? _explicitNullValueRevocationRedirect = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateRevocationRedirect RevocationRedirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateRevocationRedirect RevocationRedirect { get => _explicitNullValueRevocationRedirect; set { _explicitNullValueRevocationRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocationRedirect"); else _explicitNullProperties?.Remove("revocationRedirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateRevocationRedirect _explicitNullValueRevocationRedirect = default!;
 #endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,19 +128,24 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public string RevocationUrl { get; private set; }
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which the spending allowance was removed on-chain by a wallet revocation. Present only once that has happened. Its presence is the single signal that the allowance is gone, independent of `status` (for example, it can be set on a `canceled` mandate whose allowance was later cleaned up).</summary>
-        public DateTimeOffset? RevokedAt { get; set; }
+        public DateTimeOffset? RevokedAt { get => _explicitNullValueRevokedAt; set { _explicitNullValueRevokedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revokedAt"); else _explicitNullProperties?.Remove("revokedAt"); } }
+        private DateTimeOffset? _explicitNullValueRevokedAt = default!;
         /// <summary>The funding source the mandate draws against. Set when an approval succeeds. Not present before the mandate is `approval_succeeded`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed? Source { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed Source { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed _explicitNullValueSource = default!;
 #endif
         /// <summary>The most recent action on the mandate. `status` is an informational indicator of the latest transition; it is not the source of truth for what has durably happened. Read the timestamps for that: `approvedAt`, `canceledAt`, and `revokedAt` each record a durable milestone independently of `status`.- `created`: the mandate exists but no approval has been attempted. No  source attached. Not usable.- `approval_pending`: an approval is in flight. Not usable. Emits  `acceptance.mandate.approval_initiated`.- `approval_succeeded`: the mandate has a source and is usable.- `approval_failed`: the last approval attempt failed. Not usable. Submit  a new approval to retry.- `revocation_pending`: a wallet revocation is being confirmed on the  network. Emits `acceptance.mandate.revocation_initiated`. Resolves to  `revocation_succeeded` on success or `revocation_failed` on failure.- `revocation_succeeded`: a wallet revocation removed the spending allowance  on-chain (`revokedAt` is set). Terminal.- `revocation_failed`: the last wallet revocation attempt did not complete.  The spending allowance was not removed, so the mandate remains usable if it  was usable before. Submit a new revocation to retry.- `canceled`: the merchant ended the mandate off-chain (`canceledAt` is set).  The on-chain spending allowance may still be live; a later wallet  revocation can still move `status` through the `revocation_*` values and  set `revokedAt`.**Usable when** `approvedAt` is set, `canceledAt` is null, `revokedAt` is null, and `expiresAt` is null or in the future. Usability is derived from these timestamps, not from `status`: a failed revocation, for example, leaves `status` at `revocation_failed` but the mandate stays usable because the allowance was never removed. Authorization checks the durable conditions in order, and the first match wins: an in-flight approval or revocation returns `409` (`mandate_action_pending`); `revokedAt` set returns `422` (`mandate_revoked`); `canceledAt` set returns `422` (`mandate_canceled`); a past `expiresAt` returns `400` (`mandate_expired`); any other status returns `422` (`mandate_invalid_status`). Approve a mandate and get wallet approval options use that same order for the in-flight, revoked, canceled, and expired checks. Any other status except `created` or `approval_failed` returns `422` (`mandate_invalid_status`). Those rejections do not change the timestamps. Debit limits are enforced at authorization time.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed? _explicitNullValueStatus = default!;
         /// <summary>The UTC ISO 8601 timestamp at which the mandate was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,7 +169,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -175,6 +220,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateSourceComposed>("source", Source);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateStatusComposed>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

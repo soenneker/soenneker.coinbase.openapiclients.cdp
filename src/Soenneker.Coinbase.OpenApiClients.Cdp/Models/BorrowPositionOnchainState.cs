@@ -12,47 +12,65 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BorrowPositionOnchainState : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("collateral") is { } nullNodeCollateral && nullNodeCollateral.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Collateral = null;
+            if (parseNode.GetChildNode("currentLtvBps") is { } nullNodeCurrentLtvBps && nullNodeCurrentLtvBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentLtvBps = null;
+            if (parseNode.GetChildNode("debt") is { } nullNodeDebt && nullNodeDebt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Debt = null;
+            if (parseNode.GetChildNode("healthFactor") is { } nullNodeHealthFactor && nullNodeHealthFactor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthFactor = null;
+            if (parseNode.GetChildNode("healthStatus") is { } nullNodeHealthStatus && nullNodeHealthStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HealthStatus = null;
+            if (parseNode.GetChildNode("liquidationThresholdBps") is { } nullNodeLiquidationThresholdBps && nullNodeLiquidationThresholdBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LiquidationThresholdBps = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The non-zero collateral balances securing the position.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount>? Collateral { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount>? Collateral { get => _explicitNullValueCollateral; set { _explicitNullValueCollateral = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateral"); else _explicitNullProperties?.Remove("collateral"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount>? _explicitNullValueCollateral = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount> Collateral { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount> Collateral { get => _explicitNullValueCollateral; set { _explicitNullValueCollateral = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateral"); else _explicitNullProperties?.Remove("collateral"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionAssetAmount> _explicitNullValueCollateral = default!;
 #endif
         /// <summary>The position&apos;s current loan-to-value, expressed in basis points. For example, `5000` represents a current LTV of 50%. Omitted when the position has no debt.</summary>
-        public int? CurrentLtvBps { get; set; }
+        public int? CurrentLtvBps { get => _explicitNullValueCurrentLtvBps; set { _explicitNullValueCurrentLtvBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currentLtvBps"); else _explicitNullProperties?.Remove("currentLtvBps"); } }
+        private int? _explicitNullValueCurrentLtvBps = default!;
         /// <summary>The non-zero debt balances owed by the position.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt>? Debt { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt>? Debt { get => _explicitNullValueDebt; set { _explicitNullValueDebt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debt"); else _explicitNullProperties?.Remove("debt"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt>? _explicitNullValueDebt = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt> Debt { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt> Debt { get => _explicitNullValueDebt; set { _explicitNullValueDebt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("debt"); else _explicitNullProperties?.Remove("debt"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionDebt> _explicitNullValueDebt = default!;
 #endif
         /// <summary>The position&apos;s liquidation headroom as a decimal string, where `1.0` is the liquidation boundary and higher is safer. For example, `1.79` means the position&apos;s weighted collateral is 1.79x its debt. Omitted when the position has no debt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? HealthFactor { get; set; }
+        public string? HealthFactor { get => _explicitNullValueHealthFactor; set { _explicitNullValueHealthFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthFactor"); else _explicitNullProperties?.Remove("healthFactor"); } }
+        private string? _explicitNullValueHealthFactor = default!;
 #nullable restore
 #else
-        public string HealthFactor { get; set; }
+        public string HealthFactor { get => _explicitNullValueHealthFactor; set { _explicitNullValueHealthFactor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthFactor"); else _explicitNullProperties?.Remove("healthFactor"); } }
+        private string _explicitNullValueHealthFactor = default!;
 #endif
         /// <summary>The aggregate health of a borrow position.- `no_debt`: the position has no outstanding debt.- `healthy`: the position has debt and is above its liquidation threshold.- `undercollateralized`: the position is at or below its liquidation threshold and may be eligible for liquidation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus? HealthStatus { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus? HealthStatus { get => _explicitNullValueHealthStatus; set { _explicitNullValueHealthStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("healthStatus"); else _explicitNullProperties?.Remove("healthStatus"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus? _explicitNullValueHealthStatus = default!;
         /// <summary>The loan-to-value at which the position becomes eligible for liquidation, expressed in basis points. For example, `8250` represents 82.5%. Omitted when the position has no debt.</summary>
-        public int? LiquidationThresholdBps { get; set; }
-        /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        public int? LiquidationThresholdBps { get => _explicitNullValueLiquidationThresholdBps; set { _explicitNullValueLiquidationThresholdBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("liquidationThresholdBps"); else _explicitNullProperties?.Remove("liquidationThresholdBps"); } }
+        private int? _explicitNullValueLiquidationThresholdBps = default!;
+        /// <summary>The lending protocol that operates the borrow product.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionOnchainState"/> and sets the default values.
         /// </summary>
@@ -68,7 +86,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionOnchainState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionOnchainState();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionOnchainState(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,7 +102,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
                 { "healthFactor", n => { HealthFactor = n.GetStringValue(); } },
                 { "healthStatus", n => { HealthStatus = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus>(); } },
                 { "liquidationThresholdBps", n => { LiquidationThresholdBps = n.GetIntValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType>(); } },
             };
         }
         /// <summary>
@@ -100,7 +118,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("healthFactor", HealthFactor);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowPositionHealthStatus>("healthStatus", HealthStatus);
             writer.WriteIntValue("liquidationThresholdBps", LiquidationThresholdBps);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueOnchainStateType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

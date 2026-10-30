@@ -12,42 +12,63 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferEstimate : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("estimatedAt") is { } nullNodeEstimatedAt && nullNodeEstimatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EstimatedAt = null;
+            if (parseNode.GetChildNode("exchangeRate") is { } nullNodeExchangeRate && nullNodeExchangeRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExchangeRate = null;
+            if (parseNode.GetChildNode("fees") is { } nullNodeFees && nullNodeFees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fees = null;
+            if (parseNode.GetChildNode("targetAmount") is { } nullNodeTargetAmount && nullNodeTargetAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetAmount = null;
+            if (parseNode.GetChildNode("targetAsset") is { } nullNodeTargetAsset && nullNodeTargetAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TargetAsset = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The date and time when this estimate was captured.</summary>
-        public DateTimeOffset? EstimatedAt { get; set; }
+        public DateTimeOffset? EstimatedAt { get => _explicitNullValueEstimatedAt; set { _explicitNullValueEstimatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimatedAt"); else _explicitNullProperties?.Remove("estimatedAt"); } }
+        private DateTimeOffset? _explicitNullValueEstimatedAt = default!;
         /// <summary>The estimated exchange rate at the time this estimate was captured.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate? ExchangeRate { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate? ExchangeRate { get => _explicitNullValueExchangeRate; set { _explicitNullValueExchangeRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchangeRate"); else _explicitNullProperties?.Remove("exchangeRate"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate? _explicitNullValueExchangeRate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate ExchangeRate { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate ExchangeRate { get => _explicitNullValueExchangeRate; set { _explicitNullValueExchangeRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchangeRate"); else _explicitNullProperties?.Remove("exchangeRate"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferExchangeRate _explicitNullValueExchangeRate = default!;
 #endif
         /// <summary>The fees associated with this transfer. Different transfer types have different fee structures.**NOTE:** These examples are not exhaustive.Common examples:* **Crypto transfers**: Network fees (gas) paid in the native token* **Fiat conversions**: Processing fees + exchange fees in USD* **Wire transfers**: Wire fees ($15) + processing fees ($5) in USD* **Crypto conversions**: Spread fees paid in the source asset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>? Fees { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>? Fees { get => _explicitNullValueFees; set { _explicitNullValueFees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fees"); else _explicitNullProperties?.Remove("fees"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>? _explicitNullValueFees = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee> Fees { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee> Fees { get => _explicitNullValueFees; set { _explicitNullValueFees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fees"); else _explicitNullProperties?.Remove("fees"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee> _explicitNullValueFees = default!;
 #endif
         /// <summary>Estimated amount of the target asset that will be received, as a decimal string in standard unit denomination.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetAmount { get; set; }
+        public string? TargetAmount { get => _explicitNullValueTargetAmount; set { _explicitNullValueTargetAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetAmount"); else _explicitNullProperties?.Remove("targetAmount"); } }
+        private string? _explicitNullValueTargetAmount = default!;
 #nullable restore
 #else
-        public string TargetAmount { get; set; }
+        public string TargetAmount { get => _explicitNullValueTargetAmount; set { _explicitNullValueTargetAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetAmount"); else _explicitNullProperties?.Remove("targetAmount"); } }
+        private string _explicitNullValueTargetAmount = default!;
 #endif
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TargetAsset { get; set; }
+        public string? TargetAsset { get => _explicitNullValueTargetAsset; set { _explicitNullValueTargetAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetAsset"); else _explicitNullProperties?.Remove("targetAsset"); } }
+        private string? _explicitNullValueTargetAsset = default!;
 #nullable restore
 #else
-        public string TargetAsset { get; set; }
+        public string TargetAsset { get => _explicitNullValueTargetAsset; set { _explicitNullValueTargetAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("targetAsset"); else _explicitNullProperties?.Remove("targetAsset"); } }
+        private string _explicitNullValueTargetAsset = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate"/> and sets the default values.
@@ -64,7 +85,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferEstimate(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +114,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferFee>("fees", Fees);
             writer.WriteStringValue("targetAmount", TargetAmount);
             writer.WriteStringValue("targetAsset", TargetAsset);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

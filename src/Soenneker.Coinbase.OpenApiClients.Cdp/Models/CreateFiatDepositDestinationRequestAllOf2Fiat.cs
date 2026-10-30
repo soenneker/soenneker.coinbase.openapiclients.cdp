@@ -12,13 +12,24 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateFiatDepositDestinationRequestAllOf2Fiat : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("paymentRail") is { } nullNodePaymentRail && nullNodePaymentRail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRail = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The fiat currency for the deposit destination.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? Currency { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? _explicitNullValueCurrency = default!;
         /// <summary>A payment rail supported by a fiat deposit destination.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail? PaymentRail { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail? PaymentRail { get => _explicitNullValuePaymentRail; set { _explicitNullValuePaymentRail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRail"); else _explicitNullProperties?.Remove("paymentRail"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail? _explicitNullValuePaymentRail = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat"/> and sets the default values.
         /// </summary>
@@ -34,7 +45,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateFiatDepositDestinationRequestAllOf2Fiat(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,6 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency>("currency", Currency);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDepositDestinationFiatPaymentRail>("paymentRail", PaymentRail);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

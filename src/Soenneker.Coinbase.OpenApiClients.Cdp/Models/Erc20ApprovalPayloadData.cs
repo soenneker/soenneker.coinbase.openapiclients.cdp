@@ -12,58 +12,85 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Erc20ApprovalPayloadData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("chainId") is { } nullNodeChainId && nullNodeChainId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChainId = null;
+            if (parseNode.GetChildNode("data") is { } nullNodeData && nullNodeData.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Data = null;
+            if (parseNode.GetChildNode("gas") is { } nullNodeGas && nullNodeGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gas = null;
+            if (parseNode.GetChildNode("maxFeePerGas") is { } nullNodeMaxFeePerGas && nullNodeMaxFeePerGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFeePerGas = null;
+            if (parseNode.GetChildNode("maxPriorityFeePerGas") is { } nullNodeMaxPriorityFeePerGas && nullNodeMaxPriorityFeePerGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPriorityFeePerGas = null;
+            if (parseNode.GetChildNode("to") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
+            if (parseNode.GetChildNode("value") is { } nullNodeValue && nullNodeValue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Value = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The EVM chain ID for the transaction.</summary>
-        public int? ChainId { get; set; }
+        public int? ChainId { get => _explicitNullValueChainId; set { _explicitNullValueChainId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("chainId"); else _explicitNullProperties?.Remove("chainId"); } }
+        private int? _explicitNullValueChainId = default!;
         /// <summary>The ABI-encoded `approve()` calldata.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Data { get; set; }
+        public string? Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private string? _explicitNullValueData = default!;
 #nullable restore
 #else
-        public string Data { get; set; }
+        public string Data { get => _explicitNullValueData; set { _explicitNullValueData = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("data"); else _explicitNullProperties?.Remove("data"); } }
+        private string _explicitNullValueData = default!;
 #endif
         /// <summary>The estimated gas limit for the transaction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Gas { get; set; }
+        public string? Gas { get => _explicitNullValueGas; set { _explicitNullValueGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gas"); else _explicitNullProperties?.Remove("gas"); } }
+        private string? _explicitNullValueGas = default!;
 #nullable restore
 #else
-        public string Gas { get; set; }
+        public string Gas { get => _explicitNullValueGas; set { _explicitNullValueGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gas"); else _explicitNullProperties?.Remove("gas"); } }
+        private string _explicitNullValueGas = default!;
 #endif
         /// <summary>The maximum fee per gas unit (EIP-1559).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxFeePerGas { get; set; }
+        public string? MaxFeePerGas { get => _explicitNullValueMaxFeePerGas; set { _explicitNullValueMaxFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxFeePerGas"); else _explicitNullProperties?.Remove("maxFeePerGas"); } }
+        private string? _explicitNullValueMaxFeePerGas = default!;
 #nullable restore
 #else
-        public string MaxFeePerGas { get; set; }
+        public string MaxFeePerGas { get => _explicitNullValueMaxFeePerGas; set { _explicitNullValueMaxFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxFeePerGas"); else _explicitNullProperties?.Remove("maxFeePerGas"); } }
+        private string _explicitNullValueMaxFeePerGas = default!;
 #endif
         /// <summary>The maximum priority fee per gas unit (EIP-1559).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxPriorityFeePerGas { get; set; }
+        public string? MaxPriorityFeePerGas { get => _explicitNullValueMaxPriorityFeePerGas; set { _explicitNullValueMaxPriorityFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPriorityFeePerGas"); else _explicitNullProperties?.Remove("maxPriorityFeePerGas"); } }
+        private string? _explicitNullValueMaxPriorityFeePerGas = default!;
 #nullable restore
 #else
-        public string MaxPriorityFeePerGas { get; set; }
+        public string MaxPriorityFeePerGas { get => _explicitNullValueMaxPriorityFeePerGas; set { _explicitNullValueMaxPriorityFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPriorityFeePerGas"); else _explicitNullProperties?.Remove("maxPriorityFeePerGas"); } }
+        private string _explicitNullValueMaxPriorityFeePerGas = default!;
 #endif
         /// <summary>The 0x-prefixed address of the ERC-20 token contract to approve.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? To { get; set; }
+        public string? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private string? _explicitNullValueTo = default!;
 #nullable restore
 #else
-        public string To { get; set; }
+        public string To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private string _explicitNullValueTo = default!;
 #endif
         /// <summary>The native token value to send (always `&quot;0&quot;` for approvals).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Value { get; set; }
+        public string? Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private string? _explicitNullValueValue = default!;
 #nullable restore
 #else
-        public string Value { get; set; }
+        public string Value { get => _explicitNullValueValue; set { _explicitNullValueValue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("value"); else _explicitNullProperties?.Remove("value"); } }
+        private string _explicitNullValueValue = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayloadData"/> and sets the default values.
@@ -80,7 +107,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayloadData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayloadData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayloadData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +140,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("maxPriorityFeePerGas", MaxPriorityFeePerGas);
             writer.WriteStringValue("to", To);
             writer.WriteStringValue("value", Value);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

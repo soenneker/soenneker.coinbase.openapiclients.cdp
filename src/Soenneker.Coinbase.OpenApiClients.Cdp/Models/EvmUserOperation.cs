@@ -12,46 +12,71 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvmUserOperation : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("calls") is { } nullNodeCalls && nullNodeCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Calls = null;
+            if (parseNode.GetChildNode("expiresAt") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("receipts") is { } nullNodeReceipts && nullNodeReceipts.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Receipts = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("transactionHash") is { } nullNodeTransactionHash && nullNodeTransactionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionHash = null;
+            if (parseNode.GetChildNode("userOpHash") is { } nullNodeUserOpHash && nullNodeUserOpHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserOpHash = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The list of calls in the user operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>? Calls { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>? Calls { get => _explicitNullValueCalls; set { _explicitNullValueCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calls"); else _explicitNullProperties?.Remove("calls"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>? _explicitNullValueCalls = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall> Calls { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall> Calls { get => _explicitNullValueCalls; set { _explicitNullValueCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calls"); else _explicitNullProperties?.Remove("calls"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall> _explicitNullValueCalls = default!;
 #endif
         /// <summary>The timestamp at which the prepared user operation expires.</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiresAt"); else _explicitNullProperties?.Remove("expiresAt"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>The network the user operation is for.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The list of receipts associated with the user operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt>? Receipts { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt>? Receipts { get => _explicitNullValueReceipts; set { _explicitNullValueReceipts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receipts"); else _explicitNullProperties?.Remove("receipts"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt>? _explicitNullValueReceipts = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt> Receipts { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt> Receipts { get => _explicitNullValueReceipts; set { _explicitNullValueReceipts = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("receipts"); else _explicitNullProperties?.Remove("receipts"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt> _explicitNullValueReceipts = default!;
 #endif
         /// <summary>The status of the user operation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus? _explicitNullValueStatus = default!;
         /// <summary>The hash of the transaction that included this particular user operation. This gets set after the user operation is broadcasted and the transaction is included in a block.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionHash { get; set; }
+        public string? TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
+        private string? _explicitNullValueTransactionHash = default!;
 #nullable restore
 #else
-        public string TransactionHash { get; set; }
+        public string TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
+        private string _explicitNullValueTransactionHash = default!;
 #endif
         /// <summary>The hash of the user operation. This is not the transaction hash, as a transaction consists of multiple user operations. The user operation hash is the hash of this particular user operation which gets signed by the owner of the Smart Account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserOpHash { get; set; }
+        public string? UserOpHash { get => _explicitNullValueUserOpHash; set { _explicitNullValueUserOpHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userOpHash"); else _explicitNullProperties?.Remove("userOpHash"); } }
+        private string? _explicitNullValueUserOpHash = default!;
 #nullable restore
 #else
-        public string UserOpHash { get; set; }
+        public string UserOpHash { get => _explicitNullValueUserOpHash; set { _explicitNullValueUserOpHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userOpHash"); else _explicitNullProperties?.Remove("userOpHash"); } }
+        private string _explicitNullValueUserOpHash = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation"/> and sets the default values.
@@ -68,7 +93,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,6 +126,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationStatus>("status", Status);
             writer.WriteStringValue("transactionHash", TransactionHash);
             writer.WriteStringValue("userOpHash", UserOpHash);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

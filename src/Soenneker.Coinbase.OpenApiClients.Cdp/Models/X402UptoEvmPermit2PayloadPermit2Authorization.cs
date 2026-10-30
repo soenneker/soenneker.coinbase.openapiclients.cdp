@@ -12,56 +12,81 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402UptoEvmPermit2PayloadPermit2Authorization : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("deadline") is { } nullNodeDeadline && nullNodeDeadline.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Deadline = null;
+            if (parseNode.GetChildNode("from") is { } nullNodeFrom && nullNodeFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) From = null;
+            if (parseNode.GetChildNode("nonce") is { } nullNodeNonce && nullNodeNonce.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Nonce = null;
+            if (parseNode.GetChildNode("permitted") is { } nullNodePermitted && nullNodePermitted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Permitted = null;
+            if (parseNode.GetChildNode("spender") is { } nullNodeSpender && nullNodeSpender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Spender = null;
+            if (parseNode.GetChildNode("witness") is { } nullNodeWitness && nullNodeWitness.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Witness = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unix timestamp before which the permit is valid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Deadline { get; set; }
+        public string? Deadline { get => _explicitNullValueDeadline; set { _explicitNullValueDeadline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deadline"); else _explicitNullProperties?.Remove("deadline"); } }
+        private string? _explicitNullValueDeadline = default!;
 #nullable restore
 #else
-        public string Deadline { get; set; }
+        public string Deadline { get => _explicitNullValueDeadline; set { _explicitNullValueDeadline = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deadline"); else _explicitNullProperties?.Remove("deadline"); } }
+        private string _explicitNullValueDeadline = default!;
 #endif
         /// <summary>The 0x-prefixed, checksum EVM address of the sender of the payment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? From { get; set; }
+        public string? From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private string? _explicitNullValueFrom = default!;
 #nullable restore
 #else
-        public string From { get; set; }
+        public string From { get => _explicitNullValueFrom; set { _explicitNullValueFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("from"); else _explicitNullProperties?.Remove("from"); } }
+        private string _explicitNullValueFrom = default!;
 #endif
         /// <summary>The Permit2 nonce as a decimal string (uint256).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Nonce { get; set; }
+        public string? Nonce { get => _explicitNullValueNonce; set { _explicitNullValueNonce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nonce"); else _explicitNullProperties?.Remove("nonce"); } }
+        private string? _explicitNullValueNonce = default!;
 #nullable restore
 #else
-        public string Nonce { get; set; }
+        public string Nonce { get => _explicitNullValueNonce; set { _explicitNullValueNonce = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nonce"); else _explicitNullProperties?.Remove("nonce"); } }
+        private string _explicitNullValueNonce = default!;
 #endif
         /// <summary>The token permissions for the transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationPermitted? Permitted { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationPermitted? Permitted { get => _explicitNullValuePermitted; set { _explicitNullValuePermitted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permitted"); else _explicitNullProperties?.Remove("permitted"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationPermitted? _explicitNullValuePermitted = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationPermitted Permitted { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationPermitted Permitted { get => _explicitNullValuePermitted; set { _explicitNullValuePermitted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permitted"); else _explicitNullProperties?.Remove("permitted"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationPermitted _explicitNullValuePermitted = default!;
 #endif
         /// <summary>The 0x-prefixed, checksum EVM address of the spender (the x402 Upto Permit2 proxy contract).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Spender { get; set; }
+        public string? Spender { get => _explicitNullValueSpender; set { _explicitNullValueSpender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spender"); else _explicitNullProperties?.Remove("spender"); } }
+        private string? _explicitNullValueSpender = default!;
 #nullable restore
 #else
-        public string Spender { get; set; }
+        public string Spender { get => _explicitNullValueSpender; set { _explicitNullValueSpender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spender"); else _explicitNullProperties?.Remove("spender"); } }
+        private string _explicitNullValueSpender = default!;
 #endif
         /// <summary>The witness data containing payment details. Includes a `facilitator` field to bind the authorization to a specific facilitator address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationWitness? Witness { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationWitness? Witness { get => _explicitNullValueWitness; set { _explicitNullValueWitness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("witness"); else _explicitNullProperties?.Remove("witness"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationWitness? _explicitNullValueWitness = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationWitness Witness { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationWitness Witness { get => _explicitNullValueWitness; set { _explicitNullValueWitness = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("witness"); else _explicitNullProperties?.Remove("witness"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationWitness _explicitNullValueWitness = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2Authorization"/> and sets the default values.
@@ -78,7 +103,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2Authorization CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2Authorization();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2Authorization(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,6 +134,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationPermitted>("permitted", Permitted);
             writer.WriteStringValue("spender", Spender);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402UptoEvmPermit2PayloadPermit2AuthorizationWitness>("witness", Witness);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

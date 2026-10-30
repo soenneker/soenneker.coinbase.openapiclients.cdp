@@ -12,17 +12,32 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnchainDataResultMetadata : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("cached") is { } nullNodeCached && nullNodeCached.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Cached = null;
+            if (parseNode.GetChildNode("executionTimeMs") is { } nullNodeExecutionTimeMs && nullNodeExecutionTimeMs.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionTimeMs = null;
+            if (parseNode.GetChildNode("executionTimestamp") is { } nullNodeExecutionTimestamp && nullNodeExecutionTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExecutionTimestamp = null;
+            if (parseNode.GetChildNode("rowCount") is { } nullNodeRowCount && nullNodeRowCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RowCount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the result was served from the query result cache.</summary>
-        public bool? Cached { get; set; }
+        public bool? Cached { get => _explicitNullValueCached; set { _explicitNullValueCached = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("cached"); else _explicitNullProperties?.Remove("cached"); } }
+        private bool? _explicitNullValueCached = default!;
         /// <summary>Query execution time in milliseconds.</summary>
-        public int? ExecutionTimeMs { get; set; }
+        public int? ExecutionTimeMs { get => _explicitNullValueExecutionTimeMs; set { _explicitNullValueExecutionTimeMs = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executionTimeMs"); else _explicitNullProperties?.Remove("executionTimeMs"); } }
+        private int? _explicitNullValueExecutionTimeMs = default!;
         /// <summary>When the query result was executed against the backing store in RFC 3339 format.</summary>
-        public DateTimeOffset? ExecutionTimestamp { get; set; }
+        public DateTimeOffset? ExecutionTimestamp { get => _explicitNullValueExecutionTimestamp; set { _explicitNullValueExecutionTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("executionTimestamp"); else _explicitNullProperties?.Remove("executionTimestamp"); } }
+        private DateTimeOffset? _explicitNullValueExecutionTimestamp = default!;
         /// <summary>Number of rows returned.</summary>
-        public int? RowCount { get; set; }
+        public int? RowCount { get => _explicitNullValueRowCount; set { _explicitNullValueRowCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rowCount"); else _explicitNullProperties?.Remove("rowCount"); } }
+        private int? _explicitNullValueRowCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata"/> and sets the default values.
         /// </summary>
@@ -38,7 +53,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataResultMetadata(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,6 +80,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteIntValue("executionTimeMs", ExecutionTimeMs);
             writer.WriteDateTimeOffsetValue("executionTimestamp", ExecutionTimestamp);
             writer.WriteIntValue("rowCount", RowCount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

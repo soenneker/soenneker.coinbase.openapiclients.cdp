@@ -12,18 +12,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402ValidateSimulation : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("outcome") is { } nullNodeOutcome && nullNodeOutcome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Outcome = null;
+            if (parseNode.GetChildNode("rejectionReason") is { } nullNodeRejectionReason && nullNodeRejectionReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RejectionReason = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The simulated facilitator outcome: `accepted` if the facilitator would index the resource, or `rejected` if it would reject it.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulationOutcome? Outcome { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulationOutcome? Outcome { get => _explicitNullValueOutcome; set { _explicitNullValueOutcome = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outcome"); else _explicitNullProperties?.Remove("outcome"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulationOutcome? _explicitNullValueOutcome = default!;
         /// <summary>The reason the resource would be rejected, present only when `outcome` is `rejected`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RejectionReason { get; set; }
+        public string? RejectionReason { get => _explicitNullValueRejectionReason; set { _explicitNullValueRejectionReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejectionReason"); else _explicitNullProperties?.Remove("rejectionReason"); } }
+        private string? _explicitNullValueRejectionReason = default!;
 #nullable restore
 #else
-        public string RejectionReason { get; set; }
+        public string RejectionReason { get => _explicitNullValueRejectionReason; set { _explicitNullValueRejectionReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rejectionReason"); else _explicitNullProperties?.Remove("rejectionReason"); } }
+        private string _explicitNullValueRejectionReason = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulationOutcome>("outcome", Outcome);
             writer.WriteStringValue("rejectionReason", RejectionReason);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

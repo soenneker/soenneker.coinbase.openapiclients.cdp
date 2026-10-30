@@ -12,18 +12,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnrampVerificationInitiation : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("otpExpiresAt") is { } nullNodeOtpExpiresAt && nullNodeOtpExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OtpExpiresAt = null;
+            if (parseNode.GetChildNode("verificationId") is { } nullNodeVerificationId && nullNodeVerificationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VerificationId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The deadline for submitting the OTP code (10 minutes from now).</summary>
-        public DateTimeOffset? OtpExpiresAt { get; set; }
+        public DateTimeOffset? OtpExpiresAt { get => _explicitNullValueOtpExpiresAt; set { _explicitNullValueOtpExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("otpExpiresAt"); else _explicitNullProperties?.Remove("otpExpiresAt"); } }
+        private DateTimeOffset? _explicitNullValueOtpExpiresAt = default!;
         /// <summary>A unique identifier for an onramp verification record, in the format `onramp_verification_&lt;uuid&gt;`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VerificationId { get; set; }
+        public string? VerificationId { get => _explicitNullValueVerificationId; set { _explicitNullValueVerificationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationId"); else _explicitNullProperties?.Remove("verificationId"); } }
+        private string? _explicitNullValueVerificationId = default!;
 #nullable restore
 #else
-        public string VerificationId { get; set; }
+        public string VerificationId { get => _explicitNullValueVerificationId; set { _explicitNullValueVerificationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("verificationId"); else _explicitNullProperties?.Remove("verificationId"); } }
+        private string _explicitNullValueVerificationId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampVerificationInitiation"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampVerificationInitiation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampVerificationInitiation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampVerificationInitiation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("otpExpiresAt", OtpExpiresAt);
             writer.WriteStringValue("verificationId", VerificationId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

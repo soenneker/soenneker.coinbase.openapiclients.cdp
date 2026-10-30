@@ -12,37 +12,57 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UnmatchedPolicyRule : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("criterion") is { } nullNodeCriterion && nullNodeCriterion.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Criterion = null;
+            if (parseNode.GetChildNode("criterionIndex") is { } nullNodeCriterionIndex && nullNodeCriterionIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CriterionIndex = null;
+            if (parseNode.GetChildNode("observed") is { } nullNodeObserved && nullNodeObserved.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Observed = null;
+            if (parseNode.GetChildNode("policy") is { } nullNodePolicy && nullNodePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Policy = null;
+            if (parseNode.GetChildNode("ruleIndex") is { } nullNodeRuleIndex && nullNodeRuleIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RuleIndex = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unmet criterion, exactly as defined in the rule, discriminated by `type`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterion? Criterion { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterion? Criterion { get => _explicitNullValueCriterion; set { _explicitNullValueCriterion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("criterion"); else _explicitNullProperties?.Remove("criterion"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterion? _explicitNullValueCriterion = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterion Criterion { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterion Criterion { get => _explicitNullValueCriterion; set { _explicitNullValueCriterion = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("criterion"); else _explicitNullProperties?.Remove("criterion"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterion _explicitNullValueCriterion = default!;
 #endif
         /// <summary>Zero-based index into the rule&apos;s `criteria` of the first unmet criterion.</summary>
-        public int? CriterionIndex { get; set; }
+        public int? CriterionIndex { get => _explicitNullValueCriterionIndex; set { _explicitNullValueCriterionIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("criterionIndex"); else _explicitNullProperties?.Remove("criterionIndex"); } }
+        private int? _explicitNullValueCriterionIndex = default!;
         /// <summary>The value taken from the operation that a criterion was compared against, discriminated by the criterion&apos;s `type`. Amounts use the criterion&apos;s units: integer strings of base units (wei, lamports, or token atomic units) and USD in integer cents, so a unit mistake in a rule shows as a difference in magnitude. A field is omitted when the operation has no such value; each field says when that happens.Values come only from the request, the prepared user operation it names, transaction simulation, and the rate-limit counters the criterion reads. These are never returned: signatures, raw transaction bytes, calldata or instruction data beyond the decoded selector, instruction and arguments, the operations or accounts that make up a rate-limit total, and simulation results other than the net USD change. A string longer than its `maxLength` is cut to its first `maxLength` characters and marked `truncated: true`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation? Observed { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation? Observed { get => _explicitNullValueObserved; set { _explicitNullValueObserved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observed"); else _explicitNullProperties?.Remove("observed"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation? _explicitNullValueObserved = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation Observed { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation Observed { get => _explicitNullValueObserved; set { _explicitNullValueObserved = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observed"); else _explicitNullProperties?.Remove("observed"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation _explicitNullValueObserved = default!;
 #endif
         /// <summary>A policy consulted during evaluation, at the version evaluated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy? Policy { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy? Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy? _explicitNullValuePolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy Policy { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy _explicitNullValuePolicy = default!;
 #endif
         /// <summary>Zero-based index into the policy&apos;s `rules`.</summary>
-        public int? RuleIndex { get; set; }
+        public int? RuleIndex { get => _explicitNullValueRuleIndex; set { _explicitNullValueRuleIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ruleIndex"); else _explicitNullProperties?.Remove("ruleIndex"); } }
+        private int? _explicitNullValueRuleIndex = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UnmatchedPolicyRule"/> and sets the default values.
         /// </summary>
@@ -58,7 +78,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UnmatchedPolicyRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UnmatchedPolicyRule();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UnmatchedPolicyRule(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,6 +107,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PolicyCriterionObservation>("observed", Observed);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvaluatedPolicy>("policy", Policy);
             writer.WriteIntValue("ruleIndex", RuleIndex);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

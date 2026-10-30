@@ -12,7 +12,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferTarget : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,21 +62,32 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget();
             if("EmailInstrument".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EmailInstrument = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument();
+                
             }
             else if("OnchainAddress".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OnchainAddress = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress();
+                
             }
             else if("PaymentMethod".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.PaymentMethod = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod();
+                
             }
             else if("TransfersAccount".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.TransfersAccount = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("accountId") != null && parseNode.GetChildNode("asset") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("paymentMethodId") != null && parseNode.GetChildNode("asset") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("address") != null && parseNode.GetChildNode("network") != null && (parseNode.GetChildNode("network")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("base".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "ethereum".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "solana".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "arbitrum".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "optimism".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "monad".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "sui".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "avacchain".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "tempo".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("asset") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("email") != null && parseNode.GetChildNode("asset") != null))();
+            if (result.EmailInstrument == null && result.OnchainAddress == null && result.PaymentMethod == null && result.TransfersAccount == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.TransfersAccount = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount(), parseNode);
+            if (result.EmailInstrument == null && result.OnchainAddress == null && result.PaymentMethod == null && result.TransfersAccount == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.PaymentMethod = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod(), parseNode);
+            if (result.EmailInstrument == null && result.OnchainAddress == null && result.PaymentMethod == null && result.TransfersAccount == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.OnchainAddress = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress(), parseNode);
+            if (result.EmailInstrument == null && result.OnchainAddress == null && result.PaymentMethod == null && result.TransfersAccount == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.EmailInstrument = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument(), parseNode);
+            if (result.EmailInstrument == null && result.OnchainAddress == null && result.PaymentMethod == null && result.TransfersAccount == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (EmailInstrument == null && OnchainAddress == null && PaymentMethod == null && TransfersAccount == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (EmailInstrument != null && OnchainAddress == null && PaymentMethod == null && TransfersAccount == null) { if (EmailInstrument is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EmailInstrument); return; }
+            if (OnchainAddress != null && EmailInstrument == null && PaymentMethod == null && TransfersAccount == null) { if (OnchainAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OnchainAddress); return; }
+            if (PaymentMethod != null && EmailInstrument == null && OnchainAddress == null && TransfersAccount == null) { if (PaymentMethod is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, PaymentMethod); return; }
+            if (TransfersAccount != null && EmailInstrument == null && OnchainAddress == null && PaymentMethod == null) { if (TransfersAccount is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TransfersAccount); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(EmailInstrument != null)
             {
+                if (EmailInstrument is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailInstrument>(null, EmailInstrument);
             }
             else if(OnchainAddress != null)
             {
+                if (OnchainAddress is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainAddress>(null, OnchainAddress);
             }
             else if(PaymentMethod != null)
             {
+                if (PaymentMethod is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentMethod>(null, PaymentMethod);
             }
             else if(TransfersAccount != null)
             {
+                if (TransfersAccount is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransfersAccount>(null, TransfersAccount);
             }
         }

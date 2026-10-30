@@ -11,16 +11,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class SignSolanaX402PaymentWithEndUserAccount200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("paymentPayload") is { } nullNodePaymentPayload && nullNodePaymentPayload.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentPayload = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The signed x402 payment payload. Base64-encode this and send it in the PAYMENT-SIGNATURE header of the resource request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200ResponsePaymentPayload? PaymentPayload { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200ResponsePaymentPayload? PaymentPayload { get => _explicitNullValuePaymentPayload; set { _explicitNullValuePaymentPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentPayload"); else _explicitNullProperties?.Remove("paymentPayload"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200ResponsePaymentPayload? _explicitNullValuePaymentPayload = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200ResponsePaymentPayload PaymentPayload { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200ResponsePaymentPayload PaymentPayload { get => _explicitNullValuePaymentPayload; set { _explicitNullValuePaymentPayload = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentPayload"); else _explicitNullProperties?.Remove("paymentPayload"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200ResponsePaymentPayload _explicitNullValuePaymentPayload = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200Response"/> and sets the default values.
@@ -37,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccount200ResponsePaymentPayload>("paymentPayload", PaymentPayload);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

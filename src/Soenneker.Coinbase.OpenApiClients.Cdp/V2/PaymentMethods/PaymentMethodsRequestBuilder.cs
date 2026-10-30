@@ -70,6 +70,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods
                 { "400", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "401", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPaymentMethods200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListPaymentMethods200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

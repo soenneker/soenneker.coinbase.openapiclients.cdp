@@ -12,13 +12,24 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateEndUserRequestEvmAccount : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("createSmartAccount") is { } nullNodeCreateSmartAccount && nullNodeCreateSmartAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateSmartAccount = null;
+            if (parseNode.GetChildNode("enableSpendPermissions") is { } nullNodeEnableSpendPermissions && nullNodeEnableSpendPermissions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnableSpendPermissions = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>If true, creates an EVM smart account and a default EVM EOA account as the owner. If false, only a EVM EOA account is created.</summary>
-        public bool? CreateSmartAccount { get; set; }
+        public bool? CreateSmartAccount { get => _explicitNullValueCreateSmartAccount; set { _explicitNullValueCreateSmartAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createSmartAccount"); else _explicitNullProperties?.Remove("createSmartAccount"); } }
+        private bool? _explicitNullValueCreateSmartAccount = default!;
         /// <summary>If true, enables spend permissions for the EVM smart account.</summary>
-        public bool? EnableSpendPermissions { get; set; }
+        public bool? EnableSpendPermissions { get => _explicitNullValueEnableSpendPermissions; set { _explicitNullValueEnableSpendPermissions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enableSpendPermissions"); else _explicitNullProperties?.Remove("enableSpendPermissions"); } }
+        private bool? _explicitNullValueEnableSpendPermissions = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserRequestEvmAccount"/> and sets the default values.
         /// </summary>
@@ -35,7 +46,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserRequestEvmAccount CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserRequestEvmAccount();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateEndUserRequestEvmAccount(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("createSmartAccount", CreateSmartAccount);
             writer.WriteBoolValue("enableSpendPermissions", EnableSpendPermissions);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

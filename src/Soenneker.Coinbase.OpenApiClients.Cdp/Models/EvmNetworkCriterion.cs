@@ -12,21 +12,35 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvmNetworkCriterion : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("networks") is { } nullNodeNetworks && nullNodeNetworks.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Networks = null;
+            if (parseNode.GetChildNode("operator") is { } nullNodeOperator && nullNodeOperator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operator = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A list of EVM network identifiers that the transaction&apos;s intended `network` should be compared to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem?>? Networks { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem?>? Networks { get => _explicitNullValueNetworks; set { _explicitNullValueNetworks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("networks"); else _explicitNullProperties?.Remove("networks"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem?>? _explicitNullValueNetworks = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem?> Networks { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem?> Networks { get => _explicitNullValueNetworks; set { _explicitNullValueNetworks = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("networks"); else _explicitNullProperties?.Remove("networks"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem?> _explicitNullValueNetworks = default!;
 #endif
         /// <summary>The operator to use for the comparison. The transaction&apos;s intended `network` will be on the left-hand side of the operator, and the `networks` field will be on the right-hand side.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator? Operator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator? Operator { get => _explicitNullValueOperator; set { _explicitNullValueOperator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operator"); else _explicitNullProperties?.Remove("operator"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator? _explicitNullValueOperator = default!;
         /// <summary>The type of criterion to use. This should be `evmNetwork`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterion(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionNetworksItem>("networks", Networks);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkCriterionOperator>("operator", Operator);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmNetworkType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

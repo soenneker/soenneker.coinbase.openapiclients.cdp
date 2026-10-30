@@ -12,7 +12,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ApprovalPayload : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip2612Payload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,25 +58,36 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalPayload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
+            var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ApprovalPayload();
-            if("eip2612".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("Eip2612Payload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Eip2612Payload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip2612Payload();
+                
             }
-            else if("erc20_approval".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("Erc20ApprovalPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Erc20ApprovalPayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayload();
+                
             }
-            else if("permit2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("Permit2AllowancePayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.Permit2AllowancePayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Permit2AllowancePayload();
+                
             }
-            else if("solana_subscription".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("SolanaSubscriptionPayload".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SolanaSubscriptionPayload = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolanaSubscriptionPayload();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("payloadId") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("eip2612".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("data") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("payloadId") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("permit2".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("data") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("payloadId") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("erc20_approval".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("data") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("payloadId") != null && parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("solana_subscription".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("data") != null))();
+            if (result.Eip2612Payload == null && result.Erc20ApprovalPayload == null && result.Permit2AllowancePayload == null && result.SolanaSubscriptionPayload == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3) result.Eip2612Payload = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip2612Payload(), parseNode);
+            if (result.Eip2612Payload == null && result.Erc20ApprovalPayload == null && result.Permit2AllowancePayload == null && result.SolanaSubscriptionPayload == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3) result.Permit2AllowancePayload = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Permit2AllowancePayload(), parseNode);
+            if (result.Eip2612Payload == null && result.Erc20ApprovalPayload == null && result.Permit2AllowancePayload == null && result.SolanaSubscriptionPayload == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3) result.Erc20ApprovalPayload = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayload(), parseNode);
+            if (result.Eip2612Payload == null && result.Erc20ApprovalPayload == null && result.Permit2AllowancePayload == null && result.SolanaSubscriptionPayload == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.SolanaSubscriptionPayload = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolanaSubscriptionPayload(), parseNode);
+            if (result.Eip2612Payload == null && result.Erc20ApprovalPayload == null && result.Permit2AllowancePayload == null && result.SolanaSubscriptionPayload == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,21 +119,32 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (Eip2612Payload == null && Erc20ApprovalPayload == null && Permit2AllowancePayload == null && SolanaSubscriptionPayload == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (Eip2612Payload != null && Erc20ApprovalPayload == null && Permit2AllowancePayload == null && SolanaSubscriptionPayload == null) { if (Eip2612Payload is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Eip2612Payload); return; }
+            if (Erc20ApprovalPayload != null && Eip2612Payload == null && Permit2AllowancePayload == null && SolanaSubscriptionPayload == null) { if (Erc20ApprovalPayload is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Erc20ApprovalPayload); return; }
+            if (Permit2AllowancePayload != null && Eip2612Payload == null && Erc20ApprovalPayload == null && SolanaSubscriptionPayload == null) { if (Permit2AllowancePayload is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, Permit2AllowancePayload); return; }
+            if (SolanaSubscriptionPayload != null && Eip2612Payload == null && Erc20ApprovalPayload == null && Permit2AllowancePayload == null) { if (SolanaSubscriptionPayload is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SolanaSubscriptionPayload); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(Eip2612Payload != null)
             {
+                if (Eip2612Payload is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip2612Payload>(null, Eip2612Payload);
             }
             else if(Erc20ApprovalPayload != null)
             {
+                if (Erc20ApprovalPayload is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Erc20ApprovalPayload>(null, Erc20ApprovalPayload);
             }
             else if(Permit2AllowancePayload != null)
             {
+                if (Permit2AllowancePayload is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Permit2AllowancePayload>(null, Permit2AllowancePayload);
             }
             else if(SolanaSubscriptionPayload != null)
             {
+                if (SolanaSubscriptionPayload is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SolanaSubscriptionPayload>(null, SolanaSubscriptionPayload);
             }
         }

@@ -12,16 +12,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402BatchSettlementDepositPayloadDepositAuthorization : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("erc3009Authorization") is { } nullNodeErc3009Authorization && nullNodeErc3009Authorization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Erc3009Authorization = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>An ERC-3009 receiveWithAuthorization message authorizing the channel-funding transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization? Erc3009Authorization { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization? Erc3009Authorization { get => _explicitNullValueErc3009Authorization; set { _explicitNullValueErc3009Authorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("erc3009Authorization"); else _explicitNullProperties?.Remove("erc3009Authorization"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization? _explicitNullValueErc3009Authorization = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization Erc3009Authorization { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization Erc3009Authorization { get => _explicitNullValueErc3009Authorization; set { _explicitNullValueErc3009Authorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("erc3009Authorization"); else _explicitNullProperties?.Remove("erc3009Authorization"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization _explicitNullValueErc3009Authorization = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorization"/> and sets the default values.
@@ -38,7 +48,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorization CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorization();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorization(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,6 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization>("erc3009Authorization", Erc3009Authorization);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

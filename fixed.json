@@ -26304,21 +26304,44 @@
         }
       },
       "TaxAttestation": {
+        "title": "IRS Form W-9",
         "required": [
-          "form"
+          "form",
+          "edeliveryConsent",
+          "acceptedAt",
+          "isExemptBackupWithholding"
         ],
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/UsW9Attestation"
-          }
-        ],
+        "type": "object",
         "properties": {
           "form": {
-            "type": "string"
+            "$ref": "#/components/schemas/UsW9Form"
+          },
+          "edeliveryConsent": {
+            "type": "boolean",
+            "description": "Whether the Customer consents to electronic delivery (e-delivery) of\ntax documents. Both \u0060true\u0060 and \u0060false\u0060 are recorded as submitted.\n",
+            "example": true
+          },
+          "acceptedAt": {
+            "type": "string",
+            "description": "Timestamp at which the Customer completed the tax attestation, in\nISO 8601 / RFC 3339 format. The server may reject obviously\nnon-credible timestamps.\n",
+            "format": "date-time",
+            "example": "2026-04-17T20:00:00Z"
+          },
+          "isExemptBackupWithholding": {
+            "type": "boolean",
+            "description": "Whether the Customer is exempt from backup withholding, as certified\non IRS Form W-9.\n",
+            "example": true
           }
         },
+        "additionalProperties": false,
         "description": "A single tax attestation recorded for a Customer. Submit one entry per\nrequired form listed in \u0060Customer.requirements.taxAttestation.taxForms[]\u0060\n(returned on \u0060Get Customer\u0060, \u0060Create Customer\u0060, and \u0060Update Customer\u0060\nwhenever a \u0060taxAttestation\u0060 requirement is unsatisfied). The \u0060form\u0060 field\nselects the variant and determines which additional fields are required.\n",
-        "discriminator": {
+        "example": {
+          "form": "us_w9",
+          "isExemptBackupWithholding": true,
+          "edeliveryConsent": true,
+          "acceptedAt": "2026-04-17T20:00:00Z"
+        },
+        "x-client-original-discriminator": {
           "propertyName": "form",
           "mapping": {
             "us_w9": "#/components/schemas/UsW9Attestation"
@@ -26928,26 +26951,88 @@
       },
       "DepositDestinationFiat": {
         "required": [
-          "accountType"
+          "accountType",
+          "currency",
+          "bankName",
+          "beneficiaryName",
+          "routingNumber",
+          "accountNumber",
+          "supportedRails"
         ],
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/BankAccountUs"
-          }
-        ],
+        "type": "object",
         "properties": {
           "accountType": {
-            "type": "string"
+            "$ref": "#/components/schemas/UsBankAccountType"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/UsdCurrency"
+          },
+          "bankName": {
+            "type": "string",
+            "description": "The name of the bank holding the account.",
+            "example": "Citibank N.A."
+          },
+          "beneficiaryName": {
+            "type": "string",
+            "description": "The name of the account beneficiary.",
+            "example": "John Smith"
+          },
+          "routingNumber": {
+            "pattern": "^[0-9]{9}$",
+            "type": "string",
+            "description": "The ABA routing number of the bank.",
+            "example": "987654321"
+          },
+          "accountNumber": {
+            "pattern": "^[0-9]{4,17}$",
+            "type": "string",
+            "description": "The bank account number.",
+            "example": "123456789",
+            "x-audience": "public"
+          },
+          "bankAddress": {
+            "type": "string",
+            "description": "The address of the bank. Present when required by the receiving institution.",
+            "example": "399 Park Avenue, New York, NY 10022"
+          },
+          "referenceCode": {
+            "type": "string",
+            "description": "A reference code that must be included in the payment memo or reference field so the receiving institution can route the deposit to the correct account. Only present when required by the receiving institution.",
+            "example": "CBAUSD1A2B3C4D"
+          },
+          "supportedRails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DepositDestinationPaymentRail"
+            },
+            "description": "The payment rails this account can receive deposits on.",
+            "example": [
+              "ach",
+              "fedwire"
+            ]
           }
         },
         "description": "Fiat bank account details for a deposit destination. The \u0060accountType\u0060 field indicates the account identification scheme and determines which fields are present.",
-        "discriminator": {
+        "example": {
+          "accountType": "us_bank",
+          "currency": "usd",
+          "bankName": "Citibank N.A.",
+          "beneficiaryName": "John Smith",
+          "routingNumber": "987654321",
+          "accountNumber": "123456789",
+          "bankAddress": "399 Park Avenue, New York, NY 10022",
+          "supportedRails": [
+            "ach",
+            "fedwire"
+          ]
+        },
+        "x-audience": "public",
+        "x-client-original-discriminator": {
           "propertyName": "accountType",
           "mapping": {
             "us_bank": "#/components/schemas/BankAccountUs"
           }
-        },
-        "x-audience": "public"
+        }
       },
       "FiatDepositDestination": {
         "title": "Fiat",
@@ -27038,9 +27123,6 @@
         "x-audience": "public"
       },
       "DepositDestination": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/CryptoDepositDestination"
@@ -27049,13 +27131,8 @@
             "$ref": "#/components/schemas/FiatDepositDestination"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "A deposit destination for receiving funds to an account.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "crypto": "#/components/schemas/CryptoDepositDestination",
@@ -27241,24 +27318,16 @@
         "x-audience": "public"
       },
       "CreateDepositDestinationRequest": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
-            "$ref": "#/components/schemas/CreateCryptoDepositDestinationRequest"
+            "$ref": "#/components/schemas/CreateDepositDestinationRequestOneOf1"
           },
           {
-            "$ref": "#/components/schemas/CreateFiatDepositDestinationRequest"
+            "$ref": "#/components/schemas/CreateDepositDestinationRequestOneOf2"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "Request to create a new deposit destination. Provide the type-specific details matching the chosen \u0060type\u0060.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "crypto": "#/components/schemas/CreateCryptoDepositDestinationRequest",
@@ -31630,9 +31699,6 @@
         }
       },
       "RevocationPayload": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/Eip2612Payload"
@@ -31647,13 +31713,8 @@
             "$ref": "#/components/schemas/SolanaSubscriptionPayload"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "A single payload the customer signs to remove the mandate\u0027s spending allowance on-chain. Each payload sets the allowance to zero using the same credential type that granted it. Inspect \u0060type\u0060 to determine how to handle \u0060data\u0060:\n\n- \u0060eip2612\u0060: an EIP-2612 \u0060Permit\u0060 with \u0060value\u0060 of \u00600\u0060; pass \u0060data\u0060 to\n  \u0060eth_signTypedData_v4\u0060, return the signature.\n\n\n- \u0060permit2\u0060: a Permit2 \u0060PermitSingle\u0060 with \u0060amount\u0060 of \u00600\u0060; pass \u0060data\u0060 to\n  \u0060eth_signTypedData_v4\u0060, return the signature.\n\n\n- \u0060erc20_approval\u0060: an ERC-20 \u0060approve\u0060 of \u00600\u0060; send \u0060data\u0060 via\n  \u0060eth_sendTransaction\u0060, return the transaction hash.\n\n- \u0060solana_subscription\u0060: decode \u0060data.transaction\u0060 from base64 and pass the\n  bytes to the Solana Wallet Standard \u0060signTransaction\u0060 method (never\n  \u0060signAndSendTransaction\u0060). The transaction is \u0060revokeDelegation\u0060.\n  From the signed transaction, extract the 64-byte ed25519 signature for\n  the payer that signed, base58-encode it, and return that string as\n  \u0060OnchainSignedPayload.signature\u0060.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "eip2612": "#/components/schemas/Eip2612Payload",
@@ -31992,9 +32053,6 @@
         }
       },
       "ApprovalPayload": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/Eip2612Payload"
@@ -32009,13 +32067,8 @@
             "$ref": "#/components/schemas/SolanaSubscriptionPayload"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "A single payload the customer signs to approve a mandate on a wallet source. Mandates support allowance-style credentials only, since a mandate must be reusable for later debits when the customer is not present. Inspect \u0060type\u0060 to determine how to handle \u0060data\u0060:\n\n- \u0060eip2612\u0060: pass \u0060data\u0060 to \u0060eth_signTypedData_v4\u0060, return the signature.\n\n- \u0060permit2\u0060: a Permit2 \u0060PermitSingle\u0060 (AllowanceTransfer) granting a\n  reusable allowance; pass \u0060data\u0060 to \u0060eth_signTypedData_v4\u0060, return the\n  signature. Preceded by a one-time \u0060erc20_approval\u0060 of the Permit2 contract\n  when the wallet has not yet approved Permit2 for this asset.\n\n\n- \u0060erc20_approval\u0060: send \u0060data\u0060 via \u0060eth_sendTransaction\u0060, return the transaction hash.\n- \u0060solana_subscription\u0060: decode \u0060data.transaction\u0060 from base64 and pass the\n  bytes to the Solana Wallet Standard \u0060signTransaction\u0060 method (never\n  \u0060signAndSendTransaction\u0060). From the signed transaction, extract the\n  64-byte ed25519 signature for the payer that signed, base58-encode it,\n  and return that string as \u0060OnchainSignedPayload.signature\u0060. Do not\n  submit the signed transaction bytes.",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "eip2612": "#/components/schemas/Eip2612Payload",
@@ -33790,27 +33843,9 @@
         }
       },
       "BorrowProductProtocolDetails": {
-        "required": [
-          "type"
-        ],
-        "oneOf": [
-          {
-            "title": "Morpho Blue",
-            "$ref": "#/components/schemas/MorphoBlueProtocolDetails"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
+        "title": "Morpho Blue",
+        "$ref": "#/components/schemas/MorphoBlueProtocolDetails",
         "description": "Protocol-specific immutable onchain details that uniquely define a borrow product. The \u0060type\u0060 field indicates which protocol-specific schema describes the product\u0027s details.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "morpho_blue": "#/components/schemas/MorphoBlueProtocolDetails"
-          }
-        },
         "example": {
           "type": "morpho_blue",
           "marketParams": {
@@ -33828,6 +33863,12 @@
             "oracleAddress": "0x182e072f2c9c58c6f19f144c97986f7496c6a109",
             "interestRateModelAddress": "0x46415998764c29ab2a25cbea6254146d50d22687",
             "lltvBps": 9150
+          }
+        },
+        "x-client-original-discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "morpho_blue": "#/components/schemas/MorphoBlueProtocolDetails"
           }
         }
       },
@@ -34439,27 +34480,9 @@
         }
       },
       "BorrowPositionOnchainState": {
-        "required": [
-          "type"
-        ],
-        "oneOf": [
-          {
-            "title": "Morpho Blue",
-            "$ref": "#/components/schemas/MorphoBlueOnchainState"
-          }
-        ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
+        "title": "Morpho Blue",
+        "$ref": "#/components/schemas/MorphoBlueOnchainState",
         "description": "The live onchain state of a borrow position. The \u0060type\u0060 field indicates which protocol-specific schema describes the state.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "morpho_blue": "#/components/schemas/MorphoBlueOnchainState"
-          }
-        },
         "example": {
           "type": "morpho_blue",
           "collateral": [
@@ -34489,6 +34512,12 @@
           "currentLtvBps": 5000,
           "liquidationThresholdBps": 8250,
           "healthStatus": "healthy"
+        },
+        "x-client-original-discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "morpho_blue": "#/components/schemas/MorphoBlueOnchainState"
+          }
         }
       },
       "BorrowPosition": {
@@ -35579,10 +35608,6 @@
       },
       "X402BatchSettlementEvmPayload": {
         "title": "x402BatchSettlementEvmPayload",
-        "required": [
-          "type"
-        ],
-        "type": "object",
         "oneOf": [
           {
             "$ref": "#/components/schemas/X402BatchSettlementDepositPayload"
@@ -35600,13 +35625,8 @@
             "$ref": "#/components/schemas/X402BatchSettlementSettlePayload"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The x402 protocol batch-settlement scheme payload for EVM networks. The \u0060batch-settlement\u0060 scheme uses pre-funded payment channels with off-chain cumulative-ceiling vouchers, allowing servers to batch-claim accumulated value in a single on-chain transaction. The payload is a discriminated union on the \u0060type\u0060 field with five variants:\n\n  - \u0060deposit\u0060: client-initiated channel funding via ERC-3009.\n  - \u0060voucher\u0060: client-side cumulative voucher against an already-funded channel.\n  - \u0060refund\u0060: cooperative refund request. The client emits a minimal shape (just channelConfig \u002B voucher, with an optional \u0060amount\u0060); a mediating server enriches it with \u0060amount\u0060, \u0060refundNonce\u0060, and \u0060claims\u0060 before forwarding to the facilitator. Authorizer signatures are optional \u2014 the facilitator auto-signs when absent.\n  - \u0060claim\u0060: server-to-facilitator request to batch on-chain voucher claims.\n  - \u0060settle\u0060: server-to-facilitator request to transfer claimed funds to the receiver.\n\nFor more details, see [batch-settlement specs](https://github.com/x402-foundation/x402/tree/main/specs/schemes/batch-settlement).",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "deposit": "#/components/schemas/X402BatchSettlementDepositPayload",
@@ -40976,9 +40996,6 @@
         }
       },
       "SimulatePoliciesRequest": {
-        "required": [
-          "operation"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/SignEvmTransactionSimulationInput"
@@ -41047,13 +41064,8 @@
             "$ref": "#/components/schemas/CreateEndUserEvmSwapSimulationInput"
           }
         ],
-        "properties": {
-          "operation": {
-            "type": "string"
-          }
-        },
         "description": "Inputs for one operation, without signing credentials. \u0060operation\u0060 is the policy rule operation name (for example \u0060signSolTransaction\u0060), not the HTTP operation ID (\u0060signSolanaTransaction\u0060).",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "operation",
           "mapping": {
             "signEvmTransaction": "#/components/schemas/SignEvmTransactionSimulationInput",
@@ -41935,9 +41947,6 @@
         }
       },
       "RateLimitUsage": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/RateLimitCountUsage"
@@ -41946,23 +41955,18 @@
             "$ref": "#/components/schemas/RateLimitValueUsage"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The usage totals the criterion compared, discriminated by \u0060type\u0060: \u0060count\u0060 when the criterion sets \u0060maxCount\u0060, \u0060value\u0060 when it sets \u0060maxValueCents\u0060.",
-        "discriminator": {
+        "example": {
+          "type": "count",
+          "windowCount": 10,
+          "pendingCount": 0
+        },
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "count": "#/components/schemas/RateLimitCountUsage",
             "value": "#/components/schemas/RateLimitValueUsage"
           }
-        },
-        "example": {
-          "type": "count",
-          "windowCount": 10,
-          "pendingCount": 0
         }
       },
       "RateLimitingObservation": {
@@ -41998,9 +42002,6 @@
         }
       },
       "PolicyCriterionObservation": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/EthValueObservation"
@@ -42057,13 +42058,12 @@
             "$ref": "#/components/schemas/RateLimitingObservation"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The value taken from the operation that a criterion was compared against, discriminated by the criterion\u0027s \u0060type\u0060. Amounts use the criterion\u0027s units: integer strings of base units (wei, lamports, or token atomic units) and USD in integer cents, so a unit mistake in a rule shows as a difference in magnitude. A field is omitted when the operation has no such value; each field says when that happens.\nValues come only from the request, the prepared user operation it names, transaction simulation, and the rate-limit counters the criterion reads. These are never returned: signatures, raw transaction bytes, calldata or instruction data beyond the decoded selector, instruction and arguments, the operations or accounts that make up a rate-limit total, and simulation results other than the net USD change. A string longer than its \u0060maxLength\u0060 is cut to its first \u0060maxLength\u0060 characters and marked \u0060truncated: true\u0060.",
-        "discriminator": {
+        "example": {
+          "type": "evmAddress",
+          "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "ethValue": "#/components/schemas/EthValueObservation",
@@ -42085,10 +42085,6 @@
             "solNetwork": "#/components/schemas/SolNetworkObservation",
             "rateLimiting": "#/components/schemas/RateLimitingObservation"
           }
-        },
-        "example": {
-          "type": "evmAddress",
-          "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
         }
       },
       "MatchedPolicyRule": {
@@ -42148,9 +42144,6 @@
         }
       },
       "PolicyCriterion": {
-        "required": [
-          "type"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/EthValueCriterion"
@@ -42204,13 +42197,15 @@
             "$ref": "#/components/schemas/SolNetworkCriterion"
           }
         ],
-        "properties": {
-          "type": {
-            "type": "string"
-          }
-        },
         "description": "The unmet criterion, exactly as defined in the rule, discriminated by \u0060type\u0060.",
-        "discriminator": {
+        "example": {
+          "type": "evmAddress",
+          "addresses": [
+            "0x000000000000000000000000000000000000dEaD"
+          ],
+          "operator": "in"
+        },
+        "x-client-original-discriminator": {
           "propertyName": "type",
           "mapping": {
             "ethValue": "#/components/schemas/EthValueCriterion",
@@ -42231,13 +42226,6 @@
             "programId": "#/components/schemas/ProgramIdCriterion",
             "solNetwork": "#/components/schemas/SolNetworkCriterion"
           }
-        },
-        "example": {
-          "type": "evmAddress",
-          "addresses": [
-            "0x000000000000000000000000000000000000dEaD"
-          ],
-          "operator": "in"
         }
       },
       "UnmatchedPolicyRule": {
@@ -48574,9 +48562,6 @@
         }
       },
       "PaymentMethodsPaymentMethod": {
-        "required": [
-          "paymentRail"
-        ],
         "oneOf": [
           {
             "$ref": "#/components/schemas/FedwirePaymentMethod"
@@ -48588,13 +48573,8 @@
             "$ref": "#/components/schemas/SepaPaymentMethod"
           }
         ],
-        "properties": {
-          "paymentRail": {
-            "type": "string"
-          }
-        },
         "description": "A payment method linked to your entity. Payment methods represent external financial instruments that can be used as a target for transfers.\n\nThe \u0060paymentRail\u0060 field indicates which type-specific details object is present. Type-specific fields are nested under a key matching the rail name (e.g., \u0060fedwire\u0060, \u0060swift\u0060).",
-        "discriminator": {
+        "x-client-original-discriminator": {
           "propertyName": "paymentRail",
           "mapping": {
             "fedwire": "#/components/schemas/FedwirePaymentMethod",
@@ -50122,247 +50102,10 @@
         "x-event-type": "onramp.transaction.created",
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "The webhook event type.",
-                "example": "onramp.transaction.updated"
-              },
-              "transactionId": {
-                "type": "string",
-                "description": "Unique transaction identifier.",
-                "example": "1f087a54-ff1f-62e8-9f85-aa77ac0499a5"
-              },
-              "status": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadStatus"
-              },
-              "purchaseCurrency": {
-                "type": "string",
-                "description": "The crypto currency purchased (e.g., \u0022USDC\u0022, \u0022ETH\u0022).",
-                "example": "USDC"
-              },
-              "purchaseNetwork": {
-                "type": "string",
-                "description": "The blockchain network for the purchase (e.g., \u0022ethereum\u0022, \u0022base\u0022).",
-                "example": "ethereum"
-              },
-              "purchaseAmount": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentTotal": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentTotalUsd": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentSubtotal": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "coinbaseFee": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "networkFee": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "exchangeRate": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "txHash": {
-                "type": "string",
-                "description": "The onchain transaction hash of the send (0x-prefixed for EVM).",
-                "example": "0x"
-              },
-              "createdAt": {
-                "type": "string",
-                "description": "When the transaction was created.",
-                "format": "date-time",
-                "example": "2025-09-02T02:34:13Z"
-              },
-              "completedAt": {
-                "type": "string",
-                "description": "When the transaction completed (uses send_started_at for early success).",
-                "format": "date-time",
-                "example": "0001-01-01T00:00:00Z"
-              },
-              "country": {
-                "type": "string",
-                "description": "The user\u0027s country code.",
-                "example": "US"
-              },
-              "userId": {
-                "type": "string",
-                "description": "Hashed user identifier (entity hash for guest, user ID for authed).",
-                "example": "4132b63ee21128686458155b28570289"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadPaymentMethod"
-              },
-              "walletAddress": {
-                "type": "string",
-                "description": "The destination wallet address.",
-                "example": "0xe0512E358C347cc2b1A42d057065CE642068b7Ba"
-              },
-              "type": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadType"
-              },
-              "userType": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadUserType"
-              },
-              "partnerUserRef": {
-                "type": "string",
-                "description": "The partnerUserId provided when initializing the onramp session.",
-                "example": "example_user_ref"
-              },
-              "contractAddress": {
-                "type": "string",
-                "description": "The token contract address (populated when asset metadata is available).",
-                "example": ""
-              },
-              "failureReason": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadFailureReason"
-              },
-              "endPartnerName": {
-                "type": "string",
-                "description": "The name of the developer app.",
-                "example": ""
-              },
-              "errorCode": {
-                "type": "string",
-                "description": "Error code for the transaction failure (if applicable).",
-                "example": "ERROR_CODE_UNSPECIFIED"
-              },
-              "partnerId": {
-                "type": "string",
-                "description": "The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.",
-                "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
-              }
-            },
-            "required": [
-              "eventType",
-              "transactionId",
-              "status"
-            ]
+            "$ref": "#/components/schemas/OnrampTransactionCreatedEventOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "The webhook event type.",
-                "example": "onramp.transaction.success"
-              },
-              "orderId": {
-                "type": "string",
-                "description": "Unique order identifier.",
-                "format": "uuid",
-                "example": "123e4567-e89b-12d3-a456-426614174000"
-              },
-              "paymentTotal": {
-                "type": "string",
-                "description": "The total fiat amount paid.",
-                "example": "100.75"
-              },
-              "paymentSubtotal": {
-                "type": "string",
-                "description": "The fiat amount converted to crypto (excluding fees).",
-                "example": "100"
-              },
-              "paymentCurrency": {
-                "type": "string",
-                "description": "The fiat currency used for payment.",
-                "example": "USD"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/OnrampOrderPayloadPaymentMethod"
-              },
-              "purchaseAmount": {
-                "type": "string",
-                "description": "The amount of crypto purchased.",
-                "example": "100.000000"
-              },
-              "purchaseCurrency": {
-                "type": "string",
-                "description": "The crypto currency purchased.",
-                "example": "USDC"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/OrderFee"
-                },
-                "description": "Breakdown of fees for the order.",
-                "example": [
-                  {
-                    "feeType": "FEE_TYPE_NETWORK",
-                    "feeAmount": "0.5",
-                    "feeCurrency": "USD"
-                  },
-                  {
-                    "feeType": "FEE_TYPE_EXCHANGE",
-                    "feeAmount": "0.25",
-                    "feeCurrency": "USD"
-                  }
-                ]
-              },
-              "exchangeRate": {
-                "type": "string",
-                "description": "The exchange rate used for conversion.",
-                "example": "1"
-              },
-              "destinationAddress": {
-                "type": "string",
-                "description": "The destination wallet address.",
-                "example": "0x1234567890abcdef1234567890abcdef12345678"
-              },
-              "destinationNetwork": {
-                "type": "string",
-                "description": "The blockchain network for delivery.",
-                "example": "base"
-              },
-              "status": {
-                "$ref": "#/components/schemas/OnrampOrderPayloadStatus"
-              },
-              "txHash": {
-                "type": "string",
-                "description": "The onchain transaction hash (available once crypto is sent).",
-                "example": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
-              },
-              "createdAt": {
-                "type": "string",
-                "description": "When the order was created.",
-                "format": "date-time",
-                "example": "2025-09-10T10:30:00Z"
-              },
-              "updatedAt": {
-                "type": "string",
-                "description": "When the order was last updated.",
-                "format": "date-time",
-                "example": "2025-09-10T10:35:00Z"
-              },
-              "partnerUserRef": {
-                "type": "string",
-                "description": "The partner user reference ID.",
-                "example": "example_user_ref"
-              },
-              "partnerId": {
-                "type": "string",
-                "description": "The Onramp-issued identifier of the end partner this order was scoped to via the X-Onramp-Partner-Id header. Only present for orders created by an aggregator on behalf of a registered end partner.",
-                "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
-              }
-            },
-            "required": [
-              "eventType",
-              "orderId",
-              "status"
-            ]
+            "$ref": "#/components/schemas/OnrampTransactionCreatedEventOneOf2"
           }
         ]
       },
@@ -50370,247 +50113,10 @@
         "x-event-type": "onramp.transaction.updated",
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "The webhook event type.",
-                "example": "onramp.transaction.updated"
-              },
-              "transactionId": {
-                "type": "string",
-                "description": "Unique transaction identifier.",
-                "example": "1f087a54-ff1f-62e8-9f85-aa77ac0499a5"
-              },
-              "status": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadStatus"
-              },
-              "purchaseCurrency": {
-                "type": "string",
-                "description": "The crypto currency purchased (e.g., \u0022USDC\u0022, \u0022ETH\u0022).",
-                "example": "USDC"
-              },
-              "purchaseNetwork": {
-                "type": "string",
-                "description": "The blockchain network for the purchase (e.g., \u0022ethereum\u0022, \u0022base\u0022).",
-                "example": "ethereum"
-              },
-              "purchaseAmount": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentTotal": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentTotalUsd": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentSubtotal": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "coinbaseFee": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "networkFee": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "exchangeRate": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "txHash": {
-                "type": "string",
-                "description": "The onchain transaction hash of the send (0x-prefixed for EVM).",
-                "example": "0x"
-              },
-              "createdAt": {
-                "type": "string",
-                "description": "When the transaction was created.",
-                "format": "date-time",
-                "example": "2025-09-02T02:34:13Z"
-              },
-              "completedAt": {
-                "type": "string",
-                "description": "When the transaction completed (uses send_started_at for early success).",
-                "format": "date-time",
-                "example": "0001-01-01T00:00:00Z"
-              },
-              "country": {
-                "type": "string",
-                "description": "The user\u0027s country code.",
-                "example": "US"
-              },
-              "userId": {
-                "type": "string",
-                "description": "Hashed user identifier (entity hash for guest, user ID for authed).",
-                "example": "4132b63ee21128686458155b28570289"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadPaymentMethod"
-              },
-              "walletAddress": {
-                "type": "string",
-                "description": "The destination wallet address.",
-                "example": "0xe0512E358C347cc2b1A42d057065CE642068b7Ba"
-              },
-              "type": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadType"
-              },
-              "userType": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadUserType"
-              },
-              "partnerUserRef": {
-                "type": "string",
-                "description": "The partnerUserId provided when initializing the onramp session.",
-                "example": "example_user_ref"
-              },
-              "contractAddress": {
-                "type": "string",
-                "description": "The token contract address (populated when asset metadata is available).",
-                "example": ""
-              },
-              "failureReason": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadFailureReason"
-              },
-              "endPartnerName": {
-                "type": "string",
-                "description": "The name of the developer app.",
-                "example": ""
-              },
-              "errorCode": {
-                "type": "string",
-                "description": "Error code for the transaction failure (if applicable).",
-                "example": "ERROR_CODE_UNSPECIFIED"
-              },
-              "partnerId": {
-                "type": "string",
-                "description": "The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.",
-                "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
-              }
-            },
-            "required": [
-              "eventType",
-              "transactionId",
-              "status"
-            ]
+            "$ref": "#/components/schemas/OnrampTransactionUpdatedEventOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "The webhook event type.",
-                "example": "onramp.transaction.success"
-              },
-              "orderId": {
-                "type": "string",
-                "description": "Unique order identifier.",
-                "format": "uuid",
-                "example": "123e4567-e89b-12d3-a456-426614174000"
-              },
-              "paymentTotal": {
-                "type": "string",
-                "description": "The total fiat amount paid.",
-                "example": "100.75"
-              },
-              "paymentSubtotal": {
-                "type": "string",
-                "description": "The fiat amount converted to crypto (excluding fees).",
-                "example": "100"
-              },
-              "paymentCurrency": {
-                "type": "string",
-                "description": "The fiat currency used for payment.",
-                "example": "USD"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/OnrampOrderPayloadPaymentMethod"
-              },
-              "purchaseAmount": {
-                "type": "string",
-                "description": "The amount of crypto purchased.",
-                "example": "100.000000"
-              },
-              "purchaseCurrency": {
-                "type": "string",
-                "description": "The crypto currency purchased.",
-                "example": "USDC"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/OrderFee"
-                },
-                "description": "Breakdown of fees for the order.",
-                "example": [
-                  {
-                    "feeType": "FEE_TYPE_NETWORK",
-                    "feeAmount": "0.5",
-                    "feeCurrency": "USD"
-                  },
-                  {
-                    "feeType": "FEE_TYPE_EXCHANGE",
-                    "feeAmount": "0.25",
-                    "feeCurrency": "USD"
-                  }
-                ]
-              },
-              "exchangeRate": {
-                "type": "string",
-                "description": "The exchange rate used for conversion.",
-                "example": "1"
-              },
-              "destinationAddress": {
-                "type": "string",
-                "description": "The destination wallet address.",
-                "example": "0x1234567890abcdef1234567890abcdef12345678"
-              },
-              "destinationNetwork": {
-                "type": "string",
-                "description": "The blockchain network for delivery.",
-                "example": "base"
-              },
-              "status": {
-                "$ref": "#/components/schemas/OnrampOrderPayloadStatus"
-              },
-              "txHash": {
-                "type": "string",
-                "description": "The onchain transaction hash (available once crypto is sent).",
-                "example": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
-              },
-              "createdAt": {
-                "type": "string",
-                "description": "When the order was created.",
-                "format": "date-time",
-                "example": "2025-09-10T10:30:00Z"
-              },
-              "updatedAt": {
-                "type": "string",
-                "description": "When the order was last updated.",
-                "format": "date-time",
-                "example": "2025-09-10T10:35:00Z"
-              },
-              "partnerUserRef": {
-                "type": "string",
-                "description": "The partner user reference ID.",
-                "example": "example_user_ref"
-              },
-              "partnerId": {
-                "type": "string",
-                "description": "The Onramp-issued identifier of the end partner this order was scoped to via the X-Onramp-Partner-Id header. Only present for orders created by an aggregator on behalf of a registered end partner.",
-                "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
-              }
-            },
-            "required": [
-              "eventType",
-              "orderId",
-              "status"
-            ]
+            "$ref": "#/components/schemas/OnrampTransactionUpdatedEventOneOf2"
           }
         ]
       },
@@ -50618,247 +50124,10 @@
         "x-event-type": "onramp.transaction.success",
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "The webhook event type.",
-                "example": "onramp.transaction.updated"
-              },
-              "transactionId": {
-                "type": "string",
-                "description": "Unique transaction identifier.",
-                "example": "1f087a54-ff1f-62e8-9f85-aa77ac0499a5"
-              },
-              "status": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadStatus"
-              },
-              "purchaseCurrency": {
-                "type": "string",
-                "description": "The crypto currency purchased (e.g., \u0022USDC\u0022, \u0022ETH\u0022).",
-                "example": "USDC"
-              },
-              "purchaseNetwork": {
-                "type": "string",
-                "description": "The blockchain network for the purchase (e.g., \u0022ethereum\u0022, \u0022base\u0022).",
-                "example": "ethereum"
-              },
-              "purchaseAmount": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentTotal": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentTotalUsd": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentSubtotal": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "coinbaseFee": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "networkFee": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "exchangeRate": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "txHash": {
-                "type": "string",
-                "description": "The onchain transaction hash of the send (0x-prefixed for EVM).",
-                "example": "0x"
-              },
-              "createdAt": {
-                "type": "string",
-                "description": "When the transaction was created.",
-                "format": "date-time",
-                "example": "2025-09-02T02:34:13Z"
-              },
-              "completedAt": {
-                "type": "string",
-                "description": "When the transaction completed (uses send_started_at for early success).",
-                "format": "date-time",
-                "example": "0001-01-01T00:00:00Z"
-              },
-              "country": {
-                "type": "string",
-                "description": "The user\u0027s country code.",
-                "example": "US"
-              },
-              "userId": {
-                "type": "string",
-                "description": "Hashed user identifier (entity hash for guest, user ID for authed).",
-                "example": "4132b63ee21128686458155b28570289"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadPaymentMethod"
-              },
-              "walletAddress": {
-                "type": "string",
-                "description": "The destination wallet address.",
-                "example": "0xe0512E358C347cc2b1A42d057065CE642068b7Ba"
-              },
-              "type": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadType"
-              },
-              "userType": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadUserType"
-              },
-              "partnerUserRef": {
-                "type": "string",
-                "description": "The partnerUserId provided when initializing the onramp session.",
-                "example": "example_user_ref"
-              },
-              "contractAddress": {
-                "type": "string",
-                "description": "The token contract address (populated when asset metadata is available).",
-                "example": ""
-              },
-              "failureReason": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadFailureReason"
-              },
-              "endPartnerName": {
-                "type": "string",
-                "description": "The name of the developer app.",
-                "example": ""
-              },
-              "errorCode": {
-                "type": "string",
-                "description": "Error code for the transaction failure (if applicable).",
-                "example": "ERROR_CODE_UNSPECIFIED"
-              },
-              "partnerId": {
-                "type": "string",
-                "description": "The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.",
-                "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
-              }
-            },
-            "required": [
-              "eventType",
-              "transactionId",
-              "status"
-            ]
+            "$ref": "#/components/schemas/OnrampTransactionSuccessEventOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "The webhook event type.",
-                "example": "onramp.transaction.success"
-              },
-              "orderId": {
-                "type": "string",
-                "description": "Unique order identifier.",
-                "format": "uuid",
-                "example": "123e4567-e89b-12d3-a456-426614174000"
-              },
-              "paymentTotal": {
-                "type": "string",
-                "description": "The total fiat amount paid.",
-                "example": "100.75"
-              },
-              "paymentSubtotal": {
-                "type": "string",
-                "description": "The fiat amount converted to crypto (excluding fees).",
-                "example": "100"
-              },
-              "paymentCurrency": {
-                "type": "string",
-                "description": "The fiat currency used for payment.",
-                "example": "USD"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/OnrampOrderPayloadPaymentMethod"
-              },
-              "purchaseAmount": {
-                "type": "string",
-                "description": "The amount of crypto purchased.",
-                "example": "100.000000"
-              },
-              "purchaseCurrency": {
-                "type": "string",
-                "description": "The crypto currency purchased.",
-                "example": "USDC"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/OrderFee"
-                },
-                "description": "Breakdown of fees for the order.",
-                "example": [
-                  {
-                    "feeType": "FEE_TYPE_NETWORK",
-                    "feeAmount": "0.5",
-                    "feeCurrency": "USD"
-                  },
-                  {
-                    "feeType": "FEE_TYPE_EXCHANGE",
-                    "feeAmount": "0.25",
-                    "feeCurrency": "USD"
-                  }
-                ]
-              },
-              "exchangeRate": {
-                "type": "string",
-                "description": "The exchange rate used for conversion.",
-                "example": "1"
-              },
-              "destinationAddress": {
-                "type": "string",
-                "description": "The destination wallet address.",
-                "example": "0x1234567890abcdef1234567890abcdef12345678"
-              },
-              "destinationNetwork": {
-                "type": "string",
-                "description": "The blockchain network for delivery.",
-                "example": "base"
-              },
-              "status": {
-                "$ref": "#/components/schemas/OnrampOrderPayloadStatus"
-              },
-              "txHash": {
-                "type": "string",
-                "description": "The onchain transaction hash (available once crypto is sent).",
-                "example": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
-              },
-              "createdAt": {
-                "type": "string",
-                "description": "When the order was created.",
-                "format": "date-time",
-                "example": "2025-09-10T10:30:00Z"
-              },
-              "updatedAt": {
-                "type": "string",
-                "description": "When the order was last updated.",
-                "format": "date-time",
-                "example": "2025-09-10T10:35:00Z"
-              },
-              "partnerUserRef": {
-                "type": "string",
-                "description": "The partner user reference ID.",
-                "example": "example_user_ref"
-              },
-              "partnerId": {
-                "type": "string",
-                "description": "The Onramp-issued identifier of the end partner this order was scoped to via the X-Onramp-Partner-Id header. Only present for orders created by an aggregator on behalf of a registered end partner.",
-                "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
-              }
-            },
-            "required": [
-              "eventType",
-              "orderId",
-              "status"
-            ]
+            "$ref": "#/components/schemas/OnrampTransactionSuccessEventOneOf2"
           }
         ]
       },
@@ -50866,247 +50135,10 @@
         "x-event-type": "onramp.transaction.failed",
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "The webhook event type.",
-                "example": "onramp.transaction.updated"
-              },
-              "transactionId": {
-                "type": "string",
-                "description": "Unique transaction identifier.",
-                "example": "1f087a54-ff1f-62e8-9f85-aa77ac0499a5"
-              },
-              "status": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadStatus"
-              },
-              "purchaseCurrency": {
-                "type": "string",
-                "description": "The crypto currency purchased (e.g., \u0022USDC\u0022, \u0022ETH\u0022).",
-                "example": "USDC"
-              },
-              "purchaseNetwork": {
-                "type": "string",
-                "description": "The blockchain network for the purchase (e.g., \u0022ethereum\u0022, \u0022base\u0022).",
-                "example": "ethereum"
-              },
-              "purchaseAmount": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentTotal": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentTotalUsd": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "paymentSubtotal": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "coinbaseFee": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "networkFee": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "exchangeRate": {
-                "description": "A monetary amount with currency.",
-                "$ref": "#/components/schemas/MoneyAmount"
-              },
-              "txHash": {
-                "type": "string",
-                "description": "The onchain transaction hash of the send (0x-prefixed for EVM).",
-                "example": "0x"
-              },
-              "createdAt": {
-                "type": "string",
-                "description": "When the transaction was created.",
-                "format": "date-time",
-                "example": "2025-09-02T02:34:13Z"
-              },
-              "completedAt": {
-                "type": "string",
-                "description": "When the transaction completed (uses send_started_at for early success).",
-                "format": "date-time",
-                "example": "0001-01-01T00:00:00Z"
-              },
-              "country": {
-                "type": "string",
-                "description": "The user\u0027s country code.",
-                "example": "US"
-              },
-              "userId": {
-                "type": "string",
-                "description": "Hashed user identifier (entity hash for guest, user ID for authed).",
-                "example": "4132b63ee21128686458155b28570289"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadPaymentMethod"
-              },
-              "walletAddress": {
-                "type": "string",
-                "description": "The destination wallet address.",
-                "example": "0xe0512E358C347cc2b1A42d057065CE642068b7Ba"
-              },
-              "type": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadType"
-              },
-              "userType": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadUserType"
-              },
-              "partnerUserRef": {
-                "type": "string",
-                "description": "The partnerUserId provided when initializing the onramp session.",
-                "example": "example_user_ref"
-              },
-              "contractAddress": {
-                "type": "string",
-                "description": "The token contract address (populated when asset metadata is available).",
-                "example": ""
-              },
-              "failureReason": {
-                "$ref": "#/components/schemas/OnrampTransactionPayloadFailureReason"
-              },
-              "endPartnerName": {
-                "type": "string",
-                "description": "The name of the developer app.",
-                "example": ""
-              },
-              "errorCode": {
-                "type": "string",
-                "description": "Error code for the transaction failure (if applicable).",
-                "example": "ERROR_CODE_UNSPECIFIED"
-              },
-              "partnerId": {
-                "type": "string",
-                "description": "The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.",
-                "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
-              }
-            },
-            "required": [
-              "eventType",
-              "transactionId",
-              "status"
-            ]
+            "$ref": "#/components/schemas/OnrampTransactionFailedEventOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "eventType": {
-                "type": "string",
-                "description": "The webhook event type.",
-                "example": "onramp.transaction.success"
-              },
-              "orderId": {
-                "type": "string",
-                "description": "Unique order identifier.",
-                "format": "uuid",
-                "example": "123e4567-e89b-12d3-a456-426614174000"
-              },
-              "paymentTotal": {
-                "type": "string",
-                "description": "The total fiat amount paid.",
-                "example": "100.75"
-              },
-              "paymentSubtotal": {
-                "type": "string",
-                "description": "The fiat amount converted to crypto (excluding fees).",
-                "example": "100"
-              },
-              "paymentCurrency": {
-                "type": "string",
-                "description": "The fiat currency used for payment.",
-                "example": "USD"
-              },
-              "paymentMethod": {
-                "$ref": "#/components/schemas/OnrampOrderPayloadPaymentMethod"
-              },
-              "purchaseAmount": {
-                "type": "string",
-                "description": "The amount of crypto purchased.",
-                "example": "100.000000"
-              },
-              "purchaseCurrency": {
-                "type": "string",
-                "description": "The crypto currency purchased.",
-                "example": "USDC"
-              },
-              "fees": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/OrderFee"
-                },
-                "description": "Breakdown of fees for the order.",
-                "example": [
-                  {
-                    "feeType": "FEE_TYPE_NETWORK",
-                    "feeAmount": "0.5",
-                    "feeCurrency": "USD"
-                  },
-                  {
-                    "feeType": "FEE_TYPE_EXCHANGE",
-                    "feeAmount": "0.25",
-                    "feeCurrency": "USD"
-                  }
-                ]
-              },
-              "exchangeRate": {
-                "type": "string",
-                "description": "The exchange rate used for conversion.",
-                "example": "1"
-              },
-              "destinationAddress": {
-                "type": "string",
-                "description": "The destination wallet address.",
-                "example": "0x1234567890abcdef1234567890abcdef12345678"
-              },
-              "destinationNetwork": {
-                "type": "string",
-                "description": "The blockchain network for delivery.",
-                "example": "base"
-              },
-              "status": {
-                "$ref": "#/components/schemas/OnrampOrderPayloadStatus"
-              },
-              "txHash": {
-                "type": "string",
-                "description": "The onchain transaction hash (available once crypto is sent).",
-                "example": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
-              },
-              "createdAt": {
-                "type": "string",
-                "description": "When the order was created.",
-                "format": "date-time",
-                "example": "2025-09-10T10:30:00Z"
-              },
-              "updatedAt": {
-                "type": "string",
-                "description": "When the order was last updated.",
-                "format": "date-time",
-                "example": "2025-09-10T10:35:00Z"
-              },
-              "partnerUserRef": {
-                "type": "string",
-                "description": "The partner user reference ID.",
-                "example": "example_user_ref"
-              },
-              "partnerId": {
-                "type": "string",
-                "description": "The Onramp-issued identifier of the end partner this order was scoped to via the X-Onramp-Partner-Id header. Only present for orders created by an aggregator on behalf of a registered end partner.",
-                "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
-              }
-            },
-            "required": [
-              "eventType",
-              "orderId",
-              "status"
-            ]
+            "$ref": "#/components/schemas/OnrampTransactionFailedEventOneOf2"
           }
         ]
       },
@@ -56378,42 +55410,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/PaymentSourceWalletNetwork"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/AuthorizationSourceOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "coinbaseUserId": {
-                "type": "string",
-                "description": "The unique identifier of the payer within Coinbase.",
-                "example": "coinbase_user_abc123"
-              }
-            },
-            "required": [
-              "coinbaseUserId"
-            ]
+            "$ref": "#/components/schemas/AuthorizationSourceOneOf2"
           }
         ]
       },
@@ -56560,41 +55560,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "accountId": {
-                "pattern": "^account_[a-f0-9\\-]{36}$",
-                "type": "string",
-                "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
-                "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "accountId",
-              "asset"
-            ]
+            "$ref": "#/components/schemas/RefundSourceComposedOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/RefundSourceComposedOneOf2"
           }
         ]
       },
@@ -56683,44 +55652,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/PaymentTargetWalletNetwork"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionTargetComposedOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "accountId": {
-                "pattern": "^account_[a-f0-9\\-]{36}$",
-                "type": "string",
-                "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
-                "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "accountId",
-              "asset"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionTargetComposedOneOf2"
           }
         ]
       },
@@ -56733,42 +55668,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/PaymentSourceWalletNetwork"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionSourceComposedOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "coinbaseUserId": {
-                "type": "string",
-                "description": "The unique identifier of the payer within Coinbase.",
-                "example": "coinbase_user_abc123"
-              }
-            },
-            "required": [
-              "coinbaseUserId"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionSourceComposedOneOf2"
           }
         ]
       },
@@ -56952,44 +55855,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/PaymentTargetWalletNetwork"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/CreatePaymentSessionRequestTargetOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "accountId": {
-                "pattern": "^account_[a-f0-9\\-]{36}$",
-                "type": "string",
-                "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
-                "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "accountId",
-              "asset"
-            ]
+            "$ref": "#/components/schemas/CreatePaymentSessionRequestTargetOneOf2"
           }
         ]
       },
@@ -57632,41 +56501,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "accountId": {
-                "pattern": "^account_[a-f0-9\\-]{36}$",
-                "type": "string",
-                "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
-                "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "accountId",
-              "asset"
-            ]
+            "$ref": "#/components/schemas/CreateRefundRequestSourceOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/CreateRefundRequestSourceOneOf2"
           }
         ]
       },
@@ -58734,36 +57572,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "coinbaseUserId": {
-                "type": "string",
-                "description": "The unique identifier of the recipient within Coinbase.",
-                "example": "coinbase_user_abc123"
-              }
-            },
-            "required": [
-              "coinbaseUserId"
-            ]
+            "$ref": "#/components/schemas/DisbursementTargetComposedOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/DisbursementWalletTargetNetwork"
-              }
-            },
-            "required": [
-              "address",
-              "network"
-            ]
+            "$ref": "#/components/schemas/DisbursementTargetComposedOneOf2"
           }
         ]
       },
@@ -58890,36 +57702,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "coinbaseUserId": {
-                "type": "string",
-                "description": "The unique identifier of the recipient within Coinbase.",
-                "example": "coinbase_user_abc123"
-              }
-            },
-            "required": [
-              "coinbaseUserId"
-            ]
+            "$ref": "#/components/schemas/CreateDisbursementRequestTargetOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/DisbursementWalletTargetNetwork"
-              }
-            },
-            "required": [
-              "address",
-              "network"
-            ]
+            "$ref": "#/components/schemas/CreateDisbursementRequestTargetOneOf2"
           }
         ]
       },
@@ -60287,97 +59073,97 @@
         "description": "The full rule as defined at the evaluated policy version (\u0060policy.updatedAt\u0060).",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEvmTransaction"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf1"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSendEvmTransaction"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf2"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEvmMessage"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf3"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEvmTypedData"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf4"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignSolTransaction"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf5"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSendSolTransaction"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf6"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignSolMessage"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf7"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEvmHash"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf8"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRulePrepareUserOperation"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf9"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSendUserOperation"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf10"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserEvmTransaction"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf11"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserEvmTransaction"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf12"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserEvmMessage"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf13"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserEvmTypedData"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf14"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserEvmHash"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf15"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserSolTransaction"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf16"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserSolTransaction"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf17"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserSolMessage"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf18"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserEvmAsset"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf19"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserSolAsset"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf20"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserOperation"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf21"
           },
           {
-            "$ref": "#/components/schemas/MatchedPolicyRuleRuleCreateEndUserEvmSwap"
+            "$ref": "#/components/schemas/MatchedPolicyRuleRuleOneOf22"
           }
         ],
         "discriminator": {
           "propertyName": "operation",
           "mapping": {
-            "signEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleSignEvmTransaction",
-            "sendEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleSendEvmTransaction",
-            "signEvmMessage": "#/components/schemas/MatchedPolicyRuleRuleSignEvmMessage",
-            "signEvmTypedData": "#/components/schemas/MatchedPolicyRuleRuleSignEvmTypedData",
-            "signSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleSignSolTransaction",
-            "sendSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleSendSolTransaction",
-            "signSolMessage": "#/components/schemas/MatchedPolicyRuleRuleSignSolMessage",
-            "signEvmHash": "#/components/schemas/MatchedPolicyRuleRuleSignEvmHash",
-            "prepareUserOperation": "#/components/schemas/MatchedPolicyRuleRulePrepareUserOperation",
-            "sendUserOperation": "#/components/schemas/MatchedPolicyRuleRuleSendUserOperation",
-            "signEndUserEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserEvmTransaction",
-            "sendEndUserEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserEvmTransaction",
-            "signEndUserEvmMessage": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserEvmMessage",
-            "signEndUserEvmTypedData": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserEvmTypedData",
-            "signEndUserEvmHash": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserEvmHash",
-            "signEndUserSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserSolTransaction",
-            "sendEndUserSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserSolTransaction",
-            "signEndUserSolMessage": "#/components/schemas/MatchedPolicyRuleRuleSignEndUserSolMessage",
-            "sendEndUserEvmAsset": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserEvmAsset",
-            "sendEndUserSolAsset": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserSolAsset",
-            "sendEndUserOperation": "#/components/schemas/MatchedPolicyRuleRuleSendEndUserOperation",
-            "createEndUserEvmSwap": "#/components/schemas/MatchedPolicyRuleRuleCreateEndUserEvmSwap"
+            "signEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf1",
+            "sendEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf2",
+            "signEvmMessage": "#/components/schemas/MatchedPolicyRuleRuleOneOf3",
+            "signEvmTypedData": "#/components/schemas/MatchedPolicyRuleRuleOneOf4",
+            "signSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf5",
+            "sendSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf6",
+            "signSolMessage": "#/components/schemas/MatchedPolicyRuleRuleOneOf7",
+            "signEvmHash": "#/components/schemas/MatchedPolicyRuleRuleOneOf8",
+            "prepareUserOperation": "#/components/schemas/MatchedPolicyRuleRuleOneOf9",
+            "sendUserOperation": "#/components/schemas/MatchedPolicyRuleRuleOneOf10",
+            "signEndUserEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf11",
+            "sendEndUserEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf12",
+            "signEndUserEvmMessage": "#/components/schemas/MatchedPolicyRuleRuleOneOf13",
+            "signEndUserEvmTypedData": "#/components/schemas/MatchedPolicyRuleRuleOneOf14",
+            "signEndUserEvmHash": "#/components/schemas/MatchedPolicyRuleRuleOneOf15",
+            "signEndUserSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf16",
+            "sendEndUserSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf17",
+            "signEndUserSolMessage": "#/components/schemas/MatchedPolicyRuleRuleOneOf18",
+            "sendEndUserEvmAsset": "#/components/schemas/MatchedPolicyRuleRuleOneOf19",
+            "sendEndUserSolAsset": "#/components/schemas/MatchedPolicyRuleRuleOneOf20",
+            "sendEndUserOperation": "#/components/schemas/MatchedPolicyRuleRuleOneOf21",
+            "createEndUserEvmSwap": "#/components/schemas/MatchedPolicyRuleRuleOneOf22"
           }
         }
       },
@@ -60623,119 +59409,10 @@
         "description": "The raw decoded payment requirements returned by the endpoint, or \u0060null\u0060 if the endpoint was not reachable or did not return a parseable 402 payload. Lets sellers inspect exactly what their endpoint is advertising.",
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "scheme": {
-                "$ref": "#/components/schemas/X402V2PaymentRequirementsScheme"
-              },
-              "network": {
-                "$ref": "#/components/schemas/X402V2PaymentRequirementsNetwork"
-              },
-              "asset": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "amount": {
-                "type": "string",
-                "description": "The amount to pay for the resource in atomic units of the payment asset.",
-                "example": "1000000"
-              },
-              "payTo": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "maxTimeoutSeconds": {
-                "type": "integer",
-                "description": "The maximum time in seconds for the resource server to respond.",
-                "example": 10
-              },
-              "extra": {
-                "$ref": "#/components/schemas/X402V2PaymentRequirementsExtraProperty"
-              }
-            },
-            "required": [
-              "scheme",
-              "network",
-              "asset",
-              "amount",
-              "payTo",
-              "maxTimeoutSeconds"
-            ]
+            "$ref": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "scheme": {
-                "$ref": "#/components/schemas/ExactScheme"
-              },
-              "network": {
-                "$ref": "#/components/schemas/X402V1PaymentRequirementsNetwork"
-              },
-              "maxAmountRequired": {
-                "type": "string",
-                "description": "The maximum amount required to pay for the resource in atomic units of the payment asset.",
-                "example": "1000000"
-              },
-              "resource": {
-                "type": "string",
-                "description": "The URL of the resource to pay for.",
-                "example": "https://api.example.com/premium/resource/123"
-              },
-              "description": {
-                "maxLength": 500,
-                "minLength": 0,
-                "type": "string",
-                "description": "A human-readable description.",
-                "example": "A description of the resource."
-              },
-              "mimeType": {
-                "type": "string",
-                "description": "The MIME type of the resource response.",
-                "example": "application/json"
-              },
-              "outputSchema": {
-                "$ref": "#/components/schemas/X402V1PaymentRequirementsOutputSchemaProperty"
-              },
-              "payTo": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "maxTimeoutSeconds": {
-                "type": "integer",
-                "description": "The maximum time in seconds for the resource server to respond.",
-                "example": 10
-              },
-              "asset": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "extra": {
-                "$ref": "#/components/schemas/X402V1PaymentRequirementsExtraProperty"
-              }
-            },
-            "required": [
-              "scheme",
-              "network",
-              "maxAmountRequired",
-              "resource",
-              "description",
-              "mimeType",
-              "payTo",
-              "asset",
-              "maxTimeoutSeconds"
-            ]
+            "$ref": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf2"
           }
         ]
       },
@@ -61827,42 +60504,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/PaymentSourceWalletNetwork"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionSummarySourceOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "coinbaseUserId": {
-                "type": "string",
-                "description": "The unique identifier of the payer within Coinbase.",
-                "example": "coinbase_user_abc123"
-              }
-            },
-            "required": [
-              "coinbaseUserId"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionSummarySourceOneOf2"
           }
         ]
       },
@@ -61874,44 +60519,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/PaymentTargetWalletNetwork"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionSummaryTargetOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "accountId": {
-                "pattern": "^account_[a-f0-9\\-]{36}$",
-                "type": "string",
-                "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
-                "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "accountId",
-              "asset"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionSummaryTargetOneOf2"
           }
         ]
       },
@@ -62163,42 +60774,10 @@
         },
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "address": {
-                "maxLength": 128,
-                "minLength": 1,
-                "type": "string",
-                "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
-                "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
-              },
-              "network": {
-                "$ref": "#/components/schemas/PaymentSourceWalletNetwork"
-              },
-              "asset": {
-                "maxLength": 42,
-                "minLength": 1,
-                "type": "string",
-                "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
-                "example": "usd"
-              }
-            },
-            "required": [
-              "address"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionEventDataAuthorizationSourceOneOf1"
           },
           {
-            "type": "object",
-            "properties": {
-              "coinbaseUserId": {
-                "type": "string",
-                "description": "The unique identifier of the payer within Coinbase.",
-                "example": "coinbase_user_abc123"
-              }
-            },
-            "required": [
-              "coinbaseUserId"
-            ]
+            "$ref": "#/components/schemas/PaymentSessionEventDataAuthorizationSourceOneOf2"
           }
         ]
       },
@@ -78385,7 +76964,1357 @@
           ]
         }
       },
-      "MatchedPolicyRuleRuleSignEvmTransaction": {
+      "CreateDepositDestinationRequestOneOf1": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "pattern": "^account_[a-f0-9\\-]{36}$",
+            "type": "string",
+            "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
+            "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+          },
+          "type": {
+            "allOf": [
+              {
+                "description": "The type of deposit destination.",
+                "$ref": "#/components/schemas/DepositDestinationType"
+              },
+              {
+                "$ref": "#/components/schemas/CryptoType"
+              }
+            ]
+          },
+          "target": {
+            "description": "The intended target for deposited funds.",
+            "$ref": "#/components/schemas/DepositDestinationTarget"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/CreateCryptoDepositDestinationRequestMetadata"
+          },
+          "compliance": {
+            "description": "Compliance context for a request. Carries per-request compliance signals,\nsuch as the IP address of the individual (i.e., end-customer) that\ninitiated the request.\n\nThis object is request-only \u2014 it is never echoed back in responses.\nInner fields are write-only.\n",
+            "writeOnly": true,
+            "$ref": "#/components/schemas/Compliance"
+          },
+          "crypto": {
+            "$ref": "#/components/schemas/CreateCryptoDepositDestinationRequestAllOf2Crypto"
+          }
+        },
+        "required": [
+          "accountId",
+          "type",
+          "crypto"
+        ]
+      },
+      "CreateDepositDestinationRequestOneOf2": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "pattern": "^account_[a-f0-9\\-]{36}$",
+            "type": "string",
+            "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
+            "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+          },
+          "type": {
+            "allOf": [
+              {
+                "description": "The type of deposit destination.",
+                "$ref": "#/components/schemas/DepositDestinationType"
+              },
+              {
+                "$ref": "#/components/schemas/FiatType"
+              }
+            ]
+          },
+          "target": {
+            "description": "The intended target for deposited funds.",
+            "$ref": "#/components/schemas/DepositDestinationTarget"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/CreateFiatDepositDestinationRequestMetadata"
+          },
+          "compliance": {
+            "description": "Compliance context for a request. Carries per-request compliance signals,\nsuch as the IP address of the individual (i.e., end-customer) that\ninitiated the request.\n\nThis object is request-only \u2014 it is never echoed back in responses.\nInner fields are write-only.\n",
+            "writeOnly": true,
+            "$ref": "#/components/schemas/Compliance"
+          },
+          "fiat": {
+            "$ref": "#/components/schemas/CreateFiatDepositDestinationRequestAllOf2Fiat"
+          }
+        },
+        "required": [
+          "accountId",
+          "type",
+          "fiat"
+        ]
+      },
+      "OnrampTransactionCreatedEventOneOf1": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The webhook event type.",
+            "example": "onramp.transaction.updated"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique transaction identifier.",
+            "example": "1f087a54-ff1f-62e8-9f85-aa77ac0499a5"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadStatus"
+          },
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The crypto currency purchased (e.g., \u0022USDC\u0022, \u0022ETH\u0022).",
+            "example": "USDC"
+          },
+          "purchaseNetwork": {
+            "type": "string",
+            "description": "The blockchain network for the purchase (e.g., \u0022ethereum\u0022, \u0022base\u0022).",
+            "example": "ethereum"
+          },
+          "purchaseAmount": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentTotal": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentTotalUsd": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentSubtotal": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "coinbaseFee": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "networkFee": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "exchangeRate": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "txHash": {
+            "type": "string",
+            "description": "The onchain transaction hash of the send (0x-prefixed for EVM).",
+            "example": "0x"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the transaction was created.",
+            "format": "date-time",
+            "example": "2025-09-02T02:34:13Z"
+          },
+          "completedAt": {
+            "type": "string",
+            "description": "When the transaction completed (uses send_started_at for early success).",
+            "format": "date-time",
+            "example": "0001-01-01T00:00:00Z"
+          },
+          "country": {
+            "type": "string",
+            "description": "The user\u0027s country code.",
+            "example": "US"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Hashed user identifier (entity hash for guest, user ID for authed).",
+            "example": "4132b63ee21128686458155b28570289"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadPaymentMethod"
+          },
+          "walletAddress": {
+            "type": "string",
+            "description": "The destination wallet address.",
+            "example": "0xe0512E358C347cc2b1A42d057065CE642068b7Ba"
+          },
+          "type": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadType"
+          },
+          "userType": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadUserType"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "The partnerUserId provided when initializing the onramp session.",
+            "example": "example_user_ref"
+          },
+          "contractAddress": {
+            "type": "string",
+            "description": "The token contract address (populated when asset metadata is available).",
+            "example": ""
+          },
+          "failureReason": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadFailureReason"
+          },
+          "endPartnerName": {
+            "type": "string",
+            "description": "The name of the developer app.",
+            "example": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error code for the transaction failure (if applicable).",
+            "example": "ERROR_CODE_UNSPECIFIED"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.",
+            "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
+          }
+        },
+        "required": [
+          "eventType",
+          "transactionId",
+          "status"
+        ]
+      },
+      "OnrampTransactionCreatedEventOneOf2": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The webhook event type.",
+            "example": "onramp.transaction.success"
+          },
+          "orderId": {
+            "type": "string",
+            "description": "Unique order identifier.",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "paymentTotal": {
+            "type": "string",
+            "description": "The total fiat amount paid.",
+            "example": "100.75"
+          },
+          "paymentSubtotal": {
+            "type": "string",
+            "description": "The fiat amount converted to crypto (excluding fees).",
+            "example": "100"
+          },
+          "paymentCurrency": {
+            "type": "string",
+            "description": "The fiat currency used for payment.",
+            "example": "USD"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/OnrampOrderPayloadPaymentMethod"
+          },
+          "purchaseAmount": {
+            "type": "string",
+            "description": "The amount of crypto purchased.",
+            "example": "100.000000"
+          },
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The crypto currency purchased.",
+            "example": "USDC"
+          },
+          "fees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderFee"
+            },
+            "description": "Breakdown of fees for the order.",
+            "example": [
+              {
+                "feeType": "FEE_TYPE_NETWORK",
+                "feeAmount": "0.5",
+                "feeCurrency": "USD"
+              },
+              {
+                "feeType": "FEE_TYPE_EXCHANGE",
+                "feeAmount": "0.25",
+                "feeCurrency": "USD"
+              }
+            ]
+          },
+          "exchangeRate": {
+            "type": "string",
+            "description": "The exchange rate used for conversion.",
+            "example": "1"
+          },
+          "destinationAddress": {
+            "type": "string",
+            "description": "The destination wallet address.",
+            "example": "0x1234567890abcdef1234567890abcdef12345678"
+          },
+          "destinationNetwork": {
+            "type": "string",
+            "description": "The blockchain network for delivery.",
+            "example": "base"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OnrampOrderPayloadStatus"
+          },
+          "txHash": {
+            "type": "string",
+            "description": "The onchain transaction hash (available once crypto is sent).",
+            "example": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the order was created.",
+            "format": "date-time",
+            "example": "2025-09-10T10:30:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the order was last updated.",
+            "format": "date-time",
+            "example": "2025-09-10T10:35:00Z"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "The partner user reference ID.",
+            "example": "example_user_ref"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The Onramp-issued identifier of the end partner this order was scoped to via the X-Onramp-Partner-Id header. Only present for orders created by an aggregator on behalf of a registered end partner.",
+            "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
+          }
+        },
+        "required": [
+          "eventType",
+          "orderId",
+          "status"
+        ]
+      },
+      "OnrampTransactionUpdatedEventOneOf1": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The webhook event type.",
+            "example": "onramp.transaction.updated"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique transaction identifier.",
+            "example": "1f087a54-ff1f-62e8-9f85-aa77ac0499a5"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadStatus"
+          },
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The crypto currency purchased (e.g., \u0022USDC\u0022, \u0022ETH\u0022).",
+            "example": "USDC"
+          },
+          "purchaseNetwork": {
+            "type": "string",
+            "description": "The blockchain network for the purchase (e.g., \u0022ethereum\u0022, \u0022base\u0022).",
+            "example": "ethereum"
+          },
+          "purchaseAmount": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentTotal": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentTotalUsd": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentSubtotal": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "coinbaseFee": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "networkFee": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "exchangeRate": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "txHash": {
+            "type": "string",
+            "description": "The onchain transaction hash of the send (0x-prefixed for EVM).",
+            "example": "0x"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the transaction was created.",
+            "format": "date-time",
+            "example": "2025-09-02T02:34:13Z"
+          },
+          "completedAt": {
+            "type": "string",
+            "description": "When the transaction completed (uses send_started_at for early success).",
+            "format": "date-time",
+            "example": "0001-01-01T00:00:00Z"
+          },
+          "country": {
+            "type": "string",
+            "description": "The user\u0027s country code.",
+            "example": "US"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Hashed user identifier (entity hash for guest, user ID for authed).",
+            "example": "4132b63ee21128686458155b28570289"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadPaymentMethod"
+          },
+          "walletAddress": {
+            "type": "string",
+            "description": "The destination wallet address.",
+            "example": "0xe0512E358C347cc2b1A42d057065CE642068b7Ba"
+          },
+          "type": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadType"
+          },
+          "userType": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadUserType"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "The partnerUserId provided when initializing the onramp session.",
+            "example": "example_user_ref"
+          },
+          "contractAddress": {
+            "type": "string",
+            "description": "The token contract address (populated when asset metadata is available).",
+            "example": ""
+          },
+          "failureReason": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadFailureReason"
+          },
+          "endPartnerName": {
+            "type": "string",
+            "description": "The name of the developer app.",
+            "example": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error code for the transaction failure (if applicable).",
+            "example": "ERROR_CODE_UNSPECIFIED"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.",
+            "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
+          }
+        },
+        "required": [
+          "eventType",
+          "transactionId",
+          "status"
+        ]
+      },
+      "OnrampTransactionUpdatedEventOneOf2": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The webhook event type.",
+            "example": "onramp.transaction.success"
+          },
+          "orderId": {
+            "type": "string",
+            "description": "Unique order identifier.",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "paymentTotal": {
+            "type": "string",
+            "description": "The total fiat amount paid.",
+            "example": "100.75"
+          },
+          "paymentSubtotal": {
+            "type": "string",
+            "description": "The fiat amount converted to crypto (excluding fees).",
+            "example": "100"
+          },
+          "paymentCurrency": {
+            "type": "string",
+            "description": "The fiat currency used for payment.",
+            "example": "USD"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/OnrampOrderPayloadPaymentMethod"
+          },
+          "purchaseAmount": {
+            "type": "string",
+            "description": "The amount of crypto purchased.",
+            "example": "100.000000"
+          },
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The crypto currency purchased.",
+            "example": "USDC"
+          },
+          "fees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderFee"
+            },
+            "description": "Breakdown of fees for the order.",
+            "example": [
+              {
+                "feeType": "FEE_TYPE_NETWORK",
+                "feeAmount": "0.5",
+                "feeCurrency": "USD"
+              },
+              {
+                "feeType": "FEE_TYPE_EXCHANGE",
+                "feeAmount": "0.25",
+                "feeCurrency": "USD"
+              }
+            ]
+          },
+          "exchangeRate": {
+            "type": "string",
+            "description": "The exchange rate used for conversion.",
+            "example": "1"
+          },
+          "destinationAddress": {
+            "type": "string",
+            "description": "The destination wallet address.",
+            "example": "0x1234567890abcdef1234567890abcdef12345678"
+          },
+          "destinationNetwork": {
+            "type": "string",
+            "description": "The blockchain network for delivery.",
+            "example": "base"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OnrampOrderPayloadStatus"
+          },
+          "txHash": {
+            "type": "string",
+            "description": "The onchain transaction hash (available once crypto is sent).",
+            "example": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the order was created.",
+            "format": "date-time",
+            "example": "2025-09-10T10:30:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the order was last updated.",
+            "format": "date-time",
+            "example": "2025-09-10T10:35:00Z"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "The partner user reference ID.",
+            "example": "example_user_ref"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The Onramp-issued identifier of the end partner this order was scoped to via the X-Onramp-Partner-Id header. Only present for orders created by an aggregator on behalf of a registered end partner.",
+            "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
+          }
+        },
+        "required": [
+          "eventType",
+          "orderId",
+          "status"
+        ]
+      },
+      "OnrampTransactionSuccessEventOneOf1": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The webhook event type.",
+            "example": "onramp.transaction.updated"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique transaction identifier.",
+            "example": "1f087a54-ff1f-62e8-9f85-aa77ac0499a5"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadStatus"
+          },
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The crypto currency purchased (e.g., \u0022USDC\u0022, \u0022ETH\u0022).",
+            "example": "USDC"
+          },
+          "purchaseNetwork": {
+            "type": "string",
+            "description": "The blockchain network for the purchase (e.g., \u0022ethereum\u0022, \u0022base\u0022).",
+            "example": "ethereum"
+          },
+          "purchaseAmount": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentTotal": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentTotalUsd": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentSubtotal": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "coinbaseFee": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "networkFee": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "exchangeRate": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "txHash": {
+            "type": "string",
+            "description": "The onchain transaction hash of the send (0x-prefixed for EVM).",
+            "example": "0x"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the transaction was created.",
+            "format": "date-time",
+            "example": "2025-09-02T02:34:13Z"
+          },
+          "completedAt": {
+            "type": "string",
+            "description": "When the transaction completed (uses send_started_at for early success).",
+            "format": "date-time",
+            "example": "0001-01-01T00:00:00Z"
+          },
+          "country": {
+            "type": "string",
+            "description": "The user\u0027s country code.",
+            "example": "US"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Hashed user identifier (entity hash for guest, user ID for authed).",
+            "example": "4132b63ee21128686458155b28570289"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadPaymentMethod"
+          },
+          "walletAddress": {
+            "type": "string",
+            "description": "The destination wallet address.",
+            "example": "0xe0512E358C347cc2b1A42d057065CE642068b7Ba"
+          },
+          "type": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadType"
+          },
+          "userType": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadUserType"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "The partnerUserId provided when initializing the onramp session.",
+            "example": "example_user_ref"
+          },
+          "contractAddress": {
+            "type": "string",
+            "description": "The token contract address (populated when asset metadata is available).",
+            "example": ""
+          },
+          "failureReason": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadFailureReason"
+          },
+          "endPartnerName": {
+            "type": "string",
+            "description": "The name of the developer app.",
+            "example": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error code for the transaction failure (if applicable).",
+            "example": "ERROR_CODE_UNSPECIFIED"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.",
+            "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
+          }
+        },
+        "required": [
+          "eventType",
+          "transactionId",
+          "status"
+        ]
+      },
+      "OnrampTransactionSuccessEventOneOf2": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The webhook event type.",
+            "example": "onramp.transaction.success"
+          },
+          "orderId": {
+            "type": "string",
+            "description": "Unique order identifier.",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "paymentTotal": {
+            "type": "string",
+            "description": "The total fiat amount paid.",
+            "example": "100.75"
+          },
+          "paymentSubtotal": {
+            "type": "string",
+            "description": "The fiat amount converted to crypto (excluding fees).",
+            "example": "100"
+          },
+          "paymentCurrency": {
+            "type": "string",
+            "description": "The fiat currency used for payment.",
+            "example": "USD"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/OnrampOrderPayloadPaymentMethod"
+          },
+          "purchaseAmount": {
+            "type": "string",
+            "description": "The amount of crypto purchased.",
+            "example": "100.000000"
+          },
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The crypto currency purchased.",
+            "example": "USDC"
+          },
+          "fees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderFee"
+            },
+            "description": "Breakdown of fees for the order.",
+            "example": [
+              {
+                "feeType": "FEE_TYPE_NETWORK",
+                "feeAmount": "0.5",
+                "feeCurrency": "USD"
+              },
+              {
+                "feeType": "FEE_TYPE_EXCHANGE",
+                "feeAmount": "0.25",
+                "feeCurrency": "USD"
+              }
+            ]
+          },
+          "exchangeRate": {
+            "type": "string",
+            "description": "The exchange rate used for conversion.",
+            "example": "1"
+          },
+          "destinationAddress": {
+            "type": "string",
+            "description": "The destination wallet address.",
+            "example": "0x1234567890abcdef1234567890abcdef12345678"
+          },
+          "destinationNetwork": {
+            "type": "string",
+            "description": "The blockchain network for delivery.",
+            "example": "base"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OnrampOrderPayloadStatus"
+          },
+          "txHash": {
+            "type": "string",
+            "description": "The onchain transaction hash (available once crypto is sent).",
+            "example": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the order was created.",
+            "format": "date-time",
+            "example": "2025-09-10T10:30:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the order was last updated.",
+            "format": "date-time",
+            "example": "2025-09-10T10:35:00Z"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "The partner user reference ID.",
+            "example": "example_user_ref"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The Onramp-issued identifier of the end partner this order was scoped to via the X-Onramp-Partner-Id header. Only present for orders created by an aggregator on behalf of a registered end partner.",
+            "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
+          }
+        },
+        "required": [
+          "eventType",
+          "orderId",
+          "status"
+        ]
+      },
+      "OnrampTransactionFailedEventOneOf1": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The webhook event type.",
+            "example": "onramp.transaction.updated"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Unique transaction identifier.",
+            "example": "1f087a54-ff1f-62e8-9f85-aa77ac0499a5"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadStatus"
+          },
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The crypto currency purchased (e.g., \u0022USDC\u0022, \u0022ETH\u0022).",
+            "example": "USDC"
+          },
+          "purchaseNetwork": {
+            "type": "string",
+            "description": "The blockchain network for the purchase (e.g., \u0022ethereum\u0022, \u0022base\u0022).",
+            "example": "ethereum"
+          },
+          "purchaseAmount": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentTotal": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentTotalUsd": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "paymentSubtotal": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "coinbaseFee": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "networkFee": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "exchangeRate": {
+            "description": "A monetary amount with currency.",
+            "$ref": "#/components/schemas/MoneyAmount"
+          },
+          "txHash": {
+            "type": "string",
+            "description": "The onchain transaction hash of the send (0x-prefixed for EVM).",
+            "example": "0x"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the transaction was created.",
+            "format": "date-time",
+            "example": "2025-09-02T02:34:13Z"
+          },
+          "completedAt": {
+            "type": "string",
+            "description": "When the transaction completed (uses send_started_at for early success).",
+            "format": "date-time",
+            "example": "0001-01-01T00:00:00Z"
+          },
+          "country": {
+            "type": "string",
+            "description": "The user\u0027s country code.",
+            "example": "US"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Hashed user identifier (entity hash for guest, user ID for authed).",
+            "example": "4132b63ee21128686458155b28570289"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadPaymentMethod"
+          },
+          "walletAddress": {
+            "type": "string",
+            "description": "The destination wallet address.",
+            "example": "0xe0512E358C347cc2b1A42d057065CE642068b7Ba"
+          },
+          "type": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadType"
+          },
+          "userType": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadUserType"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "The partnerUserId provided when initializing the onramp session.",
+            "example": "example_user_ref"
+          },
+          "contractAddress": {
+            "type": "string",
+            "description": "The token contract address (populated when asset metadata is available).",
+            "example": ""
+          },
+          "failureReason": {
+            "$ref": "#/components/schemas/OnrampTransactionPayloadFailureReason"
+          },
+          "endPartnerName": {
+            "type": "string",
+            "description": "The name of the developer app.",
+            "example": ""
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Error code for the transaction failure (if applicable).",
+            "example": "ERROR_CODE_UNSPECIFIED"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The Onramp-issued identifier of the end partner this transaction was scoped to via the X-Onramp-Partner-Id header on the session that initiated it. Only present for transactions created by an aggregator on behalf of a registered end partner.",
+            "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
+          }
+        },
+        "required": [
+          "eventType",
+          "transactionId",
+          "status"
+        ]
+      },
+      "OnrampTransactionFailedEventOneOf2": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "description": "The webhook event type.",
+            "example": "onramp.transaction.success"
+          },
+          "orderId": {
+            "type": "string",
+            "description": "Unique order identifier.",
+            "format": "uuid",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "paymentTotal": {
+            "type": "string",
+            "description": "The total fiat amount paid.",
+            "example": "100.75"
+          },
+          "paymentSubtotal": {
+            "type": "string",
+            "description": "The fiat amount converted to crypto (excluding fees).",
+            "example": "100"
+          },
+          "paymentCurrency": {
+            "type": "string",
+            "description": "The fiat currency used for payment.",
+            "example": "USD"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/OnrampOrderPayloadPaymentMethod"
+          },
+          "purchaseAmount": {
+            "type": "string",
+            "description": "The amount of crypto purchased.",
+            "example": "100.000000"
+          },
+          "purchaseCurrency": {
+            "type": "string",
+            "description": "The crypto currency purchased.",
+            "example": "USDC"
+          },
+          "fees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderFee"
+            },
+            "description": "Breakdown of fees for the order.",
+            "example": [
+              {
+                "feeType": "FEE_TYPE_NETWORK",
+                "feeAmount": "0.5",
+                "feeCurrency": "USD"
+              },
+              {
+                "feeType": "FEE_TYPE_EXCHANGE",
+                "feeAmount": "0.25",
+                "feeCurrency": "USD"
+              }
+            ]
+          },
+          "exchangeRate": {
+            "type": "string",
+            "description": "The exchange rate used for conversion.",
+            "example": "1"
+          },
+          "destinationAddress": {
+            "type": "string",
+            "description": "The destination wallet address.",
+            "example": "0x1234567890abcdef1234567890abcdef12345678"
+          },
+          "destinationNetwork": {
+            "type": "string",
+            "description": "The blockchain network for delivery.",
+            "example": "base"
+          },
+          "status": {
+            "$ref": "#/components/schemas/OnrampOrderPayloadStatus"
+          },
+          "txHash": {
+            "type": "string",
+            "description": "The onchain transaction hash (available once crypto is sent).",
+            "example": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the order was created.",
+            "format": "date-time",
+            "example": "2025-09-10T10:30:00Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the order was last updated.",
+            "format": "date-time",
+            "example": "2025-09-10T10:35:00Z"
+          },
+          "partnerUserRef": {
+            "type": "string",
+            "description": "The partner user reference ID.",
+            "example": "example_user_ref"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "The Onramp-issued identifier of the end partner this order was scoped to via the X-Onramp-Partner-Id header. Only present for orders created by an aggregator on behalf of a registered end partner.",
+            "example": "1f1c19e8-d0e9-6443-b706-92a4d033d043"
+          }
+        },
+        "required": [
+          "eventType",
+          "orderId",
+          "status"
+        ]
+      },
+      "AuthorizationSourceOneOf1": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/PaymentSourceWalletNetwork"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "AuthorizationSourceOneOf2": {
+        "type": "object",
+        "properties": {
+          "coinbaseUserId": {
+            "type": "string",
+            "description": "The unique identifier of the payer within Coinbase.",
+            "example": "coinbase_user_abc123"
+          }
+        },
+        "required": [
+          "coinbaseUserId"
+        ]
+      },
+      "RefundSourceComposedOneOf1": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "pattern": "^account_[a-f0-9\\-]{36}$",
+            "type": "string",
+            "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
+            "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "accountId",
+          "asset"
+        ]
+      },
+      "RefundSourceComposedOneOf2": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "PaymentSessionTargetComposedOneOf1": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/PaymentTargetWalletNetwork"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "PaymentSessionTargetComposedOneOf2": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "pattern": "^account_[a-f0-9\\-]{36}$",
+            "type": "string",
+            "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
+            "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "accountId",
+          "asset"
+        ]
+      },
+      "PaymentSessionSourceComposedOneOf1": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/PaymentSourceWalletNetwork"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "PaymentSessionSourceComposedOneOf2": {
+        "type": "object",
+        "properties": {
+          "coinbaseUserId": {
+            "type": "string",
+            "description": "The unique identifier of the payer within Coinbase.",
+            "example": "coinbase_user_abc123"
+          }
+        },
+        "required": [
+          "coinbaseUserId"
+        ]
+      },
+      "CreatePaymentSessionRequestTargetOneOf1": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/PaymentTargetWalletNetwork"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "CreatePaymentSessionRequestTargetOneOf2": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "pattern": "^account_[a-f0-9\\-]{36}$",
+            "type": "string",
+            "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
+            "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "accountId",
+          "asset"
+        ]
+      },
+      "CreateRefundRequestSourceOneOf1": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "pattern": "^account_[a-f0-9\\-]{36}$",
+            "type": "string",
+            "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
+            "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "accountId",
+          "asset"
+        ]
+      },
+      "CreateRefundRequestSourceOneOf2": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "DisbursementTargetComposedOneOf1": {
+        "type": "object",
+        "properties": {
+          "coinbaseUserId": {
+            "type": "string",
+            "description": "The unique identifier of the recipient within Coinbase.",
+            "example": "coinbase_user_abc123"
+          }
+        },
+        "required": [
+          "coinbaseUserId"
+        ]
+      },
+      "DisbursementTargetComposedOneOf2": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/DisbursementWalletTargetNetwork"
+          }
+        },
+        "required": [
+          "address",
+          "network"
+        ]
+      },
+      "CreateDisbursementRequestTargetOneOf1": {
+        "type": "object",
+        "properties": {
+          "coinbaseUserId": {
+            "type": "string",
+            "description": "The unique identifier of the recipient within Coinbase.",
+            "example": "coinbase_user_abc123"
+          }
+        },
+        "required": [
+          "coinbaseUserId"
+        ]
+      },
+      "CreateDisbursementRequestTargetOneOf2": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/DisbursementWalletTargetNetwork"
+          }
+        },
+        "required": [
+          "address",
+          "network"
+        ]
+      },
+      "MatchedPolicyRuleRuleOneOf1": {
         "type": "object",
         "properties": {
           "action": {
@@ -78422,7 +78351,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSendEvmTransaction": {
+      "MatchedPolicyRuleRuleOneOf2": {
         "type": "object",
         "properties": {
           "action": {
@@ -78460,7 +78389,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignEvmMessage": {
+      "MatchedPolicyRuleRuleOneOf3": {
         "type": "object",
         "properties": {
           "action": {
@@ -78490,7 +78419,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignEvmTypedData": {
+      "MatchedPolicyRuleRuleOneOf4": {
         "type": "object",
         "properties": {
           "action": {
@@ -78577,7 +78506,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignSolTransaction": {
+      "MatchedPolicyRuleRuleOneOf5": {
         "type": "object",
         "properties": {
           "action": {
@@ -78610,7 +78539,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSendSolTransaction": {
+      "MatchedPolicyRuleRuleOneOf6": {
         "type": "object",
         "properties": {
           "action": {
@@ -78648,7 +78577,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignSolMessage": {
+      "MatchedPolicyRuleRuleOneOf7": {
         "type": "object",
         "properties": {
           "action": {
@@ -78678,7 +78607,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignEvmHash": {
+      "MatchedPolicyRuleRuleOneOf8": {
         "type": "object",
         "properties": {
           "action": {
@@ -78693,7 +78622,7 @@
           "operation"
         ]
       },
-      "MatchedPolicyRuleRulePrepareUserOperation": {
+      "MatchedPolicyRuleRuleOneOf9": {
         "type": "object",
         "properties": {
           "action": {
@@ -78731,7 +78660,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSendUserOperation": {
+      "MatchedPolicyRuleRuleOneOf10": {
         "type": "object",
         "properties": {
           "action": {
@@ -78769,7 +78698,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignEndUserEvmTransaction": {
+      "MatchedPolicyRuleRuleOneOf11": {
         "type": "object",
         "properties": {
           "action": {
@@ -78828,7 +78757,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSendEndUserEvmTransaction": {
+      "MatchedPolicyRuleRuleOneOf12": {
         "type": "object",
         "properties": {
           "action": {
@@ -78895,7 +78824,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignEndUserEvmMessage": {
+      "MatchedPolicyRuleRuleOneOf13": {
         "type": "object",
         "properties": {
           "action": {
@@ -78925,7 +78854,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignEndUserEvmTypedData": {
+      "MatchedPolicyRuleRuleOneOf14": {
         "type": "object",
         "properties": {
           "action": {
@@ -79012,7 +78941,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignEndUserEvmHash": {
+      "MatchedPolicyRuleRuleOneOf15": {
         "type": "object",
         "properties": {
           "action": {
@@ -79027,7 +78956,7 @@
           "operation"
         ]
       },
-      "MatchedPolicyRuleRuleSignEndUserSolTransaction": {
+      "MatchedPolicyRuleRuleOneOf16": {
         "type": "object",
         "properties": {
           "action": {
@@ -79109,7 +79038,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSendEndUserSolTransaction": {
+      "MatchedPolicyRuleRuleOneOf17": {
         "type": "object",
         "properties": {
           "action": {
@@ -79199,7 +79128,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSignEndUserSolMessage": {
+      "MatchedPolicyRuleRuleOneOf18": {
         "type": "object",
         "properties": {
           "action": {
@@ -79229,7 +79158,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSendEndUserEvmAsset": {
+      "MatchedPolicyRuleRuleOneOf19": {
         "type": "object",
         "properties": {
           "action": {
@@ -79296,7 +79225,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSendEndUserSolAsset": {
+      "MatchedPolicyRuleRuleOneOf20": {
         "type": "object",
         "properties": {
           "action": {
@@ -79360,7 +79289,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleSendEndUserOperation": {
+      "MatchedPolicyRuleRuleOneOf21": {
         "type": "object",
         "properties": {
           "action": {
@@ -79427,7 +79356,7 @@
           "criteria"
         ]
       },
-      "MatchedPolicyRuleRuleCreateEndUserEvmSwap": {
+      "MatchedPolicyRuleRuleOneOf22": {
         "type": "object",
         "properties": {
           "action": {
@@ -79480,6 +79409,237 @@
           "action",
           "operation",
           "criteria"
+        ]
+      },
+      "X402ValidateResponsePaymentRequirementsOneOf1": {
+        "type": "object",
+        "properties": {
+          "scheme": {
+            "$ref": "#/components/schemas/X402V2PaymentRequirementsScheme"
+          },
+          "network": {
+            "$ref": "#/components/schemas/X402V2PaymentRequirementsNetwork"
+          },
+          "asset": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "amount": {
+            "type": "string",
+            "description": "The amount to pay for the resource in atomic units of the payment asset.",
+            "example": "1000000"
+          },
+          "payTo": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "maxTimeoutSeconds": {
+            "type": "integer",
+            "description": "The maximum time in seconds for the resource server to respond.",
+            "example": 10
+          },
+          "extra": {
+            "$ref": "#/components/schemas/X402V2PaymentRequirementsExtraProperty"
+          }
+        },
+        "required": [
+          "scheme",
+          "network",
+          "asset",
+          "amount",
+          "payTo",
+          "maxTimeoutSeconds"
+        ]
+      },
+      "X402ValidateResponsePaymentRequirementsOneOf2": {
+        "type": "object",
+        "properties": {
+          "scheme": {
+            "$ref": "#/components/schemas/ExactScheme"
+          },
+          "network": {
+            "$ref": "#/components/schemas/X402V1PaymentRequirementsNetwork"
+          },
+          "maxAmountRequired": {
+            "type": "string",
+            "description": "The maximum amount required to pay for the resource in atomic units of the payment asset.",
+            "example": "1000000"
+          },
+          "resource": {
+            "type": "string",
+            "description": "The URL of the resource to pay for.",
+            "example": "https://api.example.com/premium/resource/123"
+          },
+          "description": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "description": "A human-readable description.",
+            "example": "A description of the resource."
+          },
+          "mimeType": {
+            "type": "string",
+            "description": "The MIME type of the resource response.",
+            "example": "application/json"
+          },
+          "outputSchema": {
+            "$ref": "#/components/schemas/X402V1PaymentRequirementsOutputSchemaProperty"
+          },
+          "payTo": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "maxTimeoutSeconds": {
+            "type": "integer",
+            "description": "The maximum time in seconds for the resource server to respond.",
+            "example": 10
+          },
+          "asset": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "extra": {
+            "$ref": "#/components/schemas/X402V1PaymentRequirementsExtraProperty"
+          }
+        },
+        "required": [
+          "scheme",
+          "network",
+          "maxAmountRequired",
+          "resource",
+          "description",
+          "mimeType",
+          "payTo",
+          "asset",
+          "maxTimeoutSeconds"
+        ]
+      },
+      "PaymentSessionSummarySourceOneOf1": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/PaymentSourceWalletNetwork"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "PaymentSessionSummarySourceOneOf2": {
+        "type": "object",
+        "properties": {
+          "coinbaseUserId": {
+            "type": "string",
+            "description": "The unique identifier of the payer within Coinbase.",
+            "example": "coinbase_user_abc123"
+          }
+        },
+        "required": [
+          "coinbaseUserId"
+        ]
+      },
+      "PaymentSessionSummaryTargetOneOf1": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/PaymentTargetWalletNetwork"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "PaymentSessionSummaryTargetOneOf2": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "pattern": "^account_[a-f0-9\\-]{36}$",
+            "type": "string",
+            "description": "The ID of the Account, which is a UUID prefixed by the string \u0060account_\u0060.",
+            "example": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "accountId",
+          "asset"
+        ]
+      },
+      "PaymentSessionEventDataAuthorizationSourceOneOf1": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "$ref": "#/components/schemas/PaymentSourceWalletNetwork"
+          },
+          "asset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      },
+      "PaymentSessionEventDataAuthorizationSourceOneOf2": {
+        "type": "object",
+        "properties": {
+          "coinbaseUserId": {
+            "type": "string",
+            "description": "The unique identifier of the payer within Coinbase.",
+            "example": "coinbase_user_abc123"
+          }
+        },
+        "required": [
+          "coinbaseUserId"
         ]
       }
     },

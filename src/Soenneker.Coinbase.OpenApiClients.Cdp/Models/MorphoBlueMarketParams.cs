@@ -12,50 +12,74 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MorphoBlueMarketParams : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("collateralToken") is { } nullNodeCollateralToken && nullNodeCollateralToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CollateralToken = null;
+            if (parseNode.GetChildNode("interestRateModelAddress") is { } nullNodeInterestRateModelAddress && nullNodeInterestRateModelAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) InterestRateModelAddress = null;
+            if (parseNode.GetChildNode("lltvBps") is { } nullNodeLltvBps && nullNodeLltvBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LltvBps = null;
+            if (parseNode.GetChildNode("loanToken") is { } nullNodeLoanToken && nullNodeLoanToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LoanToken = null;
+            if (parseNode.GetChildNode("onchainMarketId") is { } nullNodeOnchainMarketId && nullNodeOnchainMarketId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnchainMarketId = null;
+            if (parseNode.GetChildNode("oracleAddress") is { } nullNodeOracleAddress && nullNodeOracleAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OracleAddress = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The token posted as collateral in the product.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? CollateralToken { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? CollateralToken { get => _explicitNullValueCollateralToken; set { _explicitNullValueCollateralToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateralToken"); else _explicitNullProperties?.Remove("collateralToken"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? _explicitNullValueCollateralToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken CollateralToken { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken CollateralToken { get => _explicitNullValueCollateralToken; set { _explicitNullValueCollateralToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("collateralToken"); else _explicitNullProperties?.Remove("collateralToken"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken _explicitNullValueCollateralToken = default!;
 #endif
         /// <summary>The contract address of the interest rate model that governs the product&apos;s borrow rate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? InterestRateModelAddress { get; set; }
+        public string? InterestRateModelAddress { get => _explicitNullValueInterestRateModelAddress; set { _explicitNullValueInterestRateModelAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interestRateModelAddress"); else _explicitNullProperties?.Remove("interestRateModelAddress"); } }
+        private string? _explicitNullValueInterestRateModelAddress = default!;
 #nullable restore
 #else
-        public string InterestRateModelAddress { get; set; }
+        public string InterestRateModelAddress { get => _explicitNullValueInterestRateModelAddress; set { _explicitNullValueInterestRateModelAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("interestRateModelAddress"); else _explicitNullProperties?.Remove("interestRateModelAddress"); } }
+        private string _explicitNullValueInterestRateModelAddress = default!;
 #endif
         /// <summary>The liquidation loan-to-value of the product, expressed in basis points. For example, `9150` represents an LLTV of 91.5%.</summary>
-        public int? LltvBps { get; set; }
+        public int? LltvBps { get => _explicitNullValueLltvBps; set { _explicitNullValueLltvBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lltvBps"); else _explicitNullProperties?.Remove("lltvBps"); } }
+        private int? _explicitNullValueLltvBps = default!;
         /// <summary>The token that is borrowed in the product.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? LoanToken { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? LoanToken { get => _explicitNullValueLoanToken; set { _explicitNullValueLoanToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loanToken"); else _explicitNullProperties?.Remove("loanToken"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken? _explicitNullValueLoanToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken LoanToken { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken LoanToken { get => _explicitNullValueLoanToken; set { _explicitNullValueLoanToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("loanToken"); else _explicitNullProperties?.Remove("loanToken"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken _explicitNullValueLoanToken = default!;
 #endif
         /// <summary>The Morpho Blue native bytes32 market ID that uniquely identifies  the underlying market onchain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OnchainMarketId { get; set; }
+        public string? OnchainMarketId { get => _explicitNullValueOnchainMarketId; set { _explicitNullValueOnchainMarketId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainMarketId"); else _explicitNullProperties?.Remove("onchainMarketId"); } }
+        private string? _explicitNullValueOnchainMarketId = default!;
 #nullable restore
 #else
-        public string OnchainMarketId { get; set; }
+        public string OnchainMarketId { get => _explicitNullValueOnchainMarketId; set { _explicitNullValueOnchainMarketId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainMarketId"); else _explicitNullProperties?.Remove("onchainMarketId"); } }
+        private string _explicitNullValueOnchainMarketId = default!;
 #endif
         /// <summary>The contract address of the oracle used to price the collateral token against the loan token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OracleAddress { get; set; }
+        public string? OracleAddress { get => _explicitNullValueOracleAddress; set { _explicitNullValueOracleAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oracleAddress"); else _explicitNullProperties?.Remove("oracleAddress"); } }
+        private string? _explicitNullValueOracleAddress = default!;
 #nullable restore
 #else
-        public string OracleAddress { get; set; }
+        public string OracleAddress { get => _explicitNullValueOracleAddress; set { _explicitNullValueOracleAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("oracleAddress"); else _explicitNullProperties?.Remove("oracleAddress"); } }
+        private string _explicitNullValueOracleAddress = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams"/> and sets the default values.
@@ -72,7 +96,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,6 +127,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken>("loanToken", LoanToken);
             writer.WriteStringValue("onchainMarketId", OnchainMarketId);
             writer.WriteStringValue("oracleAddress", OracleAddress);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

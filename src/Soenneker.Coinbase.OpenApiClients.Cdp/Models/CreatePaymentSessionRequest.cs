@@ -12,82 +12,118 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreatePaymentSessionRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amount") is { } nullNodeAmount && nullNodeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Amount = null;
+            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("autoCapture") is { } nullNodeAutoCapture && nullNodeAutoCapture.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoCapture = null;
+            if (parseNode.GetChildNode("compliance") is { } nullNodeCompliance && nullNodeCompliance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Compliance = null;
+            if (parseNode.GetChildNode("customerDisplay") is { } nullNodeCustomerDisplay && nullNodeCustomerDisplay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerDisplay = null;
+            if (parseNode.GetChildNode("expiries") is { } nullNodeExpiries && nullNodeExpiries.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expiries = null;
+            if (parseNode.GetChildNode("externalReferenceId") is { } nullNodeExternalReferenceId && nullNodeExternalReferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalReferenceId = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("redirect") is { } nullNodeRedirect && nullNodeRedirect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Redirect = null;
+            if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A decimal representation of the payment amount, denominated in `asset`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Amount { get; set; }
+        public string? Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private string? _explicitNullValueAmount = default!;
 #nullable restore
 #else
-        public string Amount { get; set; }
+        public string Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private string _explicitNullValueAmount = default!;
 #endif
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get; set; }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get; set; }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>When true, a capture is automatically created after a successful authorization. When false or omitted, the merchant must create captures manually via the captures endpoint.</summary>
-        public bool? AutoCapture { get; set; }
+        public bool? AutoCapture { get => _explicitNullValueAutoCapture; set { _explicitNullValueAutoCapture = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autoCapture"); else _explicitNullProperties?.Remove("autoCapture"); } }
+        private bool? _explicitNullValueAutoCapture = default!;
         /// <summary>Compliance context for this payment session. Carries buyer information required by some entity configurations to meet regulatory requirements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestCompliance? Compliance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestCompliance? Compliance { get => _explicitNullValueCompliance; set { _explicitNullValueCompliance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compliance"); else _explicitNullProperties?.Remove("compliance"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestCompliance? _explicitNullValueCompliance = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestCompliance Compliance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestCompliance Compliance { get => _explicitNullValueCompliance; set { _explicitNullValueCompliance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compliance"); else _explicitNullProperties?.Remove("compliance"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestCompliance _explicitNullValueCompliance = default!;
 #endif
         /// <summary>Merchant-provided display data shown to the payer during checkout. All fields are informational only — stored and returned as-is, with no effect on payment processing, settlement, or validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay? CustomerDisplay { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay? CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay? _explicitNullValueCustomerDisplay = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay CustomerDisplay { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay _explicitNullValueCustomerDisplay = default!;
 #endif
         /// <summary>Deadlines for each stage of the payment session lifecycle. All fields are optional; when omitted from a create request, the following defaults apply: `authorizationExpiresAt` = now + 1 day, `captureExpiresAt` = now + 7 days, `refundExpiresAt` = now + 30 days.Expiries must satisfy `authorizationExpiresAt` ≤ `captureExpiresAt` ≤ `refundExpiresAt`. The API returns a 400 error if this constraint is violated.Each deadline acts as a guard — after it passes, the corresponding action is rejected, but the session remains in its current status. No automatic state transitions occur; the merchant must take explicit action (e.g., cancel or void) to move the session to a terminal state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries? Expiries { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries? Expiries { get => _explicitNullValueExpiries; set { _explicitNullValueExpiries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiries"); else _explicitNullProperties?.Remove("expiries"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries? _explicitNullValueExpiries = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries Expiries { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries Expiries { get => _explicitNullValueExpiries; set { _explicitNullValueExpiries = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiries"); else _explicitNullProperties?.Remove("expiries"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries _explicitNullValueExpiries = default!;
 #endif
         /// <summary>A merchant-provided internal identifier for this payment session, from the merchant&apos;s own system—not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalReferenceId { get; set; }
+        public string? ExternalReferenceId { get => _explicitNullValueExternalReferenceId; set { _explicitNullValueExternalReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalReferenceId"); else _explicitNullProperties?.Remove("externalReferenceId"); } }
+        private string? _explicitNullValueExternalReferenceId = default!;
 #nullable restore
 #else
-        public string ExternalReferenceId { get; set; }
+        public string ExternalReferenceId { get => _explicitNullValueExternalReferenceId; set { _explicitNullValueExternalReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalReferenceId"); else _explicitNullProperties?.Remove("externalReferenceId"); } }
+        private string _explicitNullValueExternalReferenceId = default!;
 #endif
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestMetadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestMetadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>Redirect URLs used to direct the payer after a web-based payment flow completes or fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect? Redirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect? Redirect { get => _explicitNullValueRedirect; set { _explicitNullValueRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect"); else _explicitNullProperties?.Remove("redirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect? _explicitNullValueRedirect = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect Redirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect Redirect { get => _explicitNullValueRedirect; set { _explicitNullValueRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirect"); else _explicitNullProperties?.Remove("redirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect _explicitNullValueRedirect = default!;
 #endif
         /// <summary>The target of the payment session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestTarget? Target { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestTarget? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestTarget? _explicitNullValueTarget = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestTarget Target { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestTarget Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestTarget _explicitNullValueTarget = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequest"/> and sets the default values.
@@ -105,7 +141,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -144,6 +180,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentRedirect>("redirect", Redirect);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreatePaymentSessionRequestTarget>("target", Target);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

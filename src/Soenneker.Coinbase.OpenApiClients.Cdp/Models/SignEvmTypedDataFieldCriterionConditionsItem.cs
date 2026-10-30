@@ -12,7 +12,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SignEvmTypedDataFieldCriterionConditionsItem : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedAddressCondition"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,17 +54,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataFieldCriterionConditionsItem();
             if("EvmTypedAddressCondition".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvmTypedAddressCondition = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedAddressCondition();
+                
             }
             else if("EvmTypedNumericalCondition".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvmTypedNumericalCondition = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedNumericalCondition();
+                
             }
             else if("EvmTypedStringCondition".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EvmTypedStringCondition = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedStringCondition();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("addresses") != null && parseNode.GetChildNode("operator") != null && (parseNode.GetChildNode("operator")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("in".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "not in".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("path") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("value") != null && parseNode.GetChildNode("operator") != null && (parseNode.GetChildNode("operator")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag2 && ("\u003E".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "\u003E=".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "\u003C".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "\u003C=".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal) || "==".Equals(tag2.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("path") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("match") != null && parseNode.GetChildNode("path") != null))();
+            if (result.EvmTypedAddressCondition == null && result.EvmTypedNumericalCondition == null && result.EvmTypedStringCondition == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2) result.EvmTypedAddressCondition = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedAddressCondition(), parseNode);
+            if (result.EvmTypedAddressCondition == null && result.EvmTypedNumericalCondition == null && result.EvmTypedStringCondition == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2) result.EvmTypedNumericalCondition = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedNumericalCondition(), parseNode);
+            if (result.EvmTypedAddressCondition == null && result.EvmTypedNumericalCondition == null && result.EvmTypedStringCondition == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1) result.EvmTypedStringCondition = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedStringCondition(), parseNode);
+            if (result.EvmTypedAddressCondition == null && result.EvmTypedNumericalCondition == null && result.EvmTypedStringCondition == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,17 +101,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (EvmTypedAddressCondition == null && EvmTypedNumericalCondition == null && EvmTypedStringCondition == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (EvmTypedAddressCondition != null && EvmTypedNumericalCondition == null && EvmTypedStringCondition == null) { if (EvmTypedAddressCondition is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EvmTypedAddressCondition); return; }
+            if (EvmTypedNumericalCondition != null && EvmTypedAddressCondition == null && EvmTypedStringCondition == null) { if (EvmTypedNumericalCondition is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EvmTypedNumericalCondition); return; }
+            if (EvmTypedStringCondition != null && EvmTypedAddressCondition == null && EvmTypedNumericalCondition == null) { if (EvmTypedStringCondition is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EvmTypedStringCondition); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(EvmTypedAddressCondition != null)
             {
+                if (EvmTypedAddressCondition is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedAddressCondition>(null, EvmTypedAddressCondition);
             }
             else if(EvmTypedNumericalCondition != null)
             {
+                if (EvmTypedNumericalCondition is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedNumericalCondition>(null, EvmTypedNumericalCondition);
             }
             else if(EvmTypedStringCondition != null)
             {
+                if (EvmTypedStringCondition is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedStringCondition>(null, EvmTypedStringCondition);
             }
         }

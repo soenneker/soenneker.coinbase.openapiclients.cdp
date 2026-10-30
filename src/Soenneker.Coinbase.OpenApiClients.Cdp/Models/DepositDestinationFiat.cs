@@ -12,74 +12,100 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DepositDestinationFiat : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accountNumber") is { } nullNodeAccountNumber && nullNodeAccountNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountNumber = null;
+            if (parseNode.GetChildNode("accountType") is { } nullNodeAccountType && nullNodeAccountType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountType = null;
+            if (parseNode.GetChildNode("bankAddress") is { } nullNodeBankAddress && nullNodeBankAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BankAddress = null;
+            if (parseNode.GetChildNode("bankName") is { } nullNodeBankName && nullNodeBankName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BankName = null;
+            if (parseNode.GetChildNode("beneficiaryName") is { } nullNodeBeneficiaryName && nullNodeBeneficiaryName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BeneficiaryName = null;
+            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("referenceCode") is { } nullNodeReferenceCode && nullNodeReferenceCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReferenceCode = null;
+            if (parseNode.GetChildNode("routingNumber") is { } nullNodeRoutingNumber && nullNodeRoutingNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RoutingNumber = null;
+            if (parseNode.GetChildNode("supportedRails") is { } nullNodeSupportedRails && nullNodeSupportedRails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportedRails = null;
+        }
+
         /// <summary>The bank account number.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountNumber { get; set; }
+        public string? AccountNumber { get => _explicitNullValueAccountNumber; set { _explicitNullValueAccountNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountNumber"); else _explicitNullProperties?.Remove("accountNumber"); } }
+        private string? _explicitNullValueAccountNumber = default!;
 #nullable restore
 #else
-        public string AccountNumber { get; set; }
+        public string AccountNumber { get => _explicitNullValueAccountNumber; set { _explicitNullValueAccountNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountNumber"); else _explicitNullProperties?.Remove("accountNumber"); } }
+        private string _explicitNullValueAccountNumber = default!;
 #endif
-        /// <summary>The accountType property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AccountType { get; set; }
-#nullable restore
-#else
-        public string AccountType { get; set; }
-#endif
+        /// <summary>The type of bank account, based on the account identification scheme (e.g., `us_bank`).</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsBankAccountType? AccountType { get => _explicitNullValueAccountType; set { _explicitNullValueAccountType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountType"); else _explicitNullProperties?.Remove("accountType"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsBankAccountType? _explicitNullValueAccountType = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The address of the bank. Present when required by the receiving institution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BankAddress { get; set; }
+        public string? BankAddress { get => _explicitNullValueBankAddress; set { _explicitNullValueBankAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bankAddress"); else _explicitNullProperties?.Remove("bankAddress"); } }
+        private string? _explicitNullValueBankAddress = default!;
 #nullable restore
 #else
-        public string BankAddress { get; set; }
+        public string BankAddress { get => _explicitNullValueBankAddress; set { _explicitNullValueBankAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bankAddress"); else _explicitNullProperties?.Remove("bankAddress"); } }
+        private string _explicitNullValueBankAddress = default!;
 #endif
         /// <summary>The name of the bank holding the account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BankName { get; set; }
+        public string? BankName { get => _explicitNullValueBankName; set { _explicitNullValueBankName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bankName"); else _explicitNullProperties?.Remove("bankName"); } }
+        private string? _explicitNullValueBankName = default!;
 #nullable restore
 #else
-        public string BankName { get; set; }
+        public string BankName { get => _explicitNullValueBankName; set { _explicitNullValueBankName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bankName"); else _explicitNullProperties?.Remove("bankName"); } }
+        private string _explicitNullValueBankName = default!;
 #endif
         /// <summary>The name of the account beneficiary.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BeneficiaryName { get; set; }
+        public string? BeneficiaryName { get => _explicitNullValueBeneficiaryName; set { _explicitNullValueBeneficiaryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beneficiaryName"); else _explicitNullProperties?.Remove("beneficiaryName"); } }
+        private string? _explicitNullValueBeneficiaryName = default!;
 #nullable restore
 #else
-        public string BeneficiaryName { get; set; }
+        public string BeneficiaryName { get => _explicitNullValueBeneficiaryName; set { _explicitNullValueBeneficiaryName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beneficiaryName"); else _explicitNullProperties?.Remove("beneficiaryName"); } }
+        private string _explicitNullValueBeneficiaryName = default!;
 #endif
         /// <summary>The fiat currency for the deposit destination.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? Currency { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsdCurrency? _explicitNullValueCurrency = default!;
         /// <summary>A reference code that must be included in the payment memo or reference field so the receiving institution can route the deposit to the correct account. Only present when required by the receiving institution.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReferenceCode { get; set; }
+        public string? ReferenceCode { get => _explicitNullValueReferenceCode; set { _explicitNullValueReferenceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCode"); else _explicitNullProperties?.Remove("referenceCode"); } }
+        private string? _explicitNullValueReferenceCode = default!;
 #nullable restore
 #else
-        public string ReferenceCode { get; set; }
+        public string ReferenceCode { get => _explicitNullValueReferenceCode; set { _explicitNullValueReferenceCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("referenceCode"); else _explicitNullProperties?.Remove("referenceCode"); } }
+        private string _explicitNullValueReferenceCode = default!;
 #endif
         /// <summary>The ABA routing number of the bank.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RoutingNumber { get; set; }
+        public string? RoutingNumber { get => _explicitNullValueRoutingNumber; set { _explicitNullValueRoutingNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingNumber"); else _explicitNullProperties?.Remove("routingNumber"); } }
+        private string? _explicitNullValueRoutingNumber = default!;
 #nullable restore
 #else
-        public string RoutingNumber { get; set; }
+        public string RoutingNumber { get => _explicitNullValueRoutingNumber; set { _explicitNullValueRoutingNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("routingNumber"); else _explicitNullProperties?.Remove("routingNumber"); } }
+        private string _explicitNullValueRoutingNumber = default!;
 #endif
         /// <summary>The payment rails this account can receive deposits on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationPaymentRail?>? SupportedRails { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationPaymentRail?>? SupportedRails { get => _explicitNullValueSupportedRails; set { _explicitNullValueSupportedRails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedRails"); else _explicitNullProperties?.Remove("supportedRails"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationPaymentRail?>? _explicitNullValueSupportedRails = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationPaymentRail?> SupportedRails { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationPaymentRail?> SupportedRails { get => _explicitNullValueSupportedRails; set { _explicitNullValueSupportedRails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supportedRails"); else _explicitNullProperties?.Remove("supportedRails"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationPaymentRail?> _explicitNullValueSupportedRails = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationFiat"/> and sets the default values.
@@ -96,7 +122,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationFiat CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationFiat();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationFiat(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,7 +133,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "accountNumber", n => { AccountNumber = n.GetStringValue(); } },
-                { "accountType", n => { AccountType = n.GetStringValue(); } },
+                { "accountType", n => { AccountType = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsBankAccountType>(); } },
                 { "bankAddress", n => { BankAddress = n.GetStringValue(); } },
                 { "bankName", n => { BankName = n.GetStringValue(); } },
                 { "beneficiaryName", n => { BeneficiaryName = n.GetStringValue(); } },
@@ -125,7 +151,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("accountNumber", AccountNumber);
-            writer.WriteStringValue("accountType", AccountType);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsBankAccountType>("accountType", AccountType);
             writer.WriteStringValue("bankAddress", BankAddress);
             writer.WriteStringValue("bankName", BankName);
             writer.WriteStringValue("beneficiaryName", BeneficiaryName);
@@ -133,6 +159,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("referenceCode", ReferenceCode);
             writer.WriteStringValue("routingNumber", RoutingNumber);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationPaymentRail>("supportedRails", SupportedRails);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

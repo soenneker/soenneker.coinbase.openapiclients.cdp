@@ -11,48 +11,72 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class SignEvmTypedDataSimulationInput : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("domain") is { } nullNodeDomain && nullNodeDomain.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Domain = null;
+            if (parseNode.GetChildNode("message") is { } nullNodeMessage && nullNodeMessage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Message = null;
+            if (parseNode.GetChildNode("operation") is { } nullNodeOperation && nullNodeOperation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operation = null;
+            if (parseNode.GetChildNode("primaryType") is { } nullNodePrimaryType && nullNodePrimaryType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryType = null;
+            if (parseNode.GetChildNode("types") is { } nullNodeTypes && nullNodeTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Types = null;
+        }
+
         /// <summary>The 0x-prefixed address of the EVM account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Address { get; set; }
+        public string? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public string Address { get; set; }
+        public string Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string _explicitNullValueAddress = default!;
 #endif
         /// <summary>The domain of the EIP-712 typed data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Domain? Domain { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Domain? Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Domain? _explicitNullValueDomain = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Domain Domain { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Domain Domain { get => _explicitNullValueDomain; set { _explicitNullValueDomain = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("domain"); else _explicitNullProperties?.Remove("domain"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Domain _explicitNullValueDomain = default!;
 #endif
         /// <summary>The message to evaluate. The structure of this message must match the `primaryType` struct in the `types` object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputMessageProperty? Message { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputMessageProperty? Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputMessageProperty? _explicitNullValueMessage = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputMessageProperty Message { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputMessageProperty Message { get => _explicitNullValueMessage; set { _explicitNullValueMessage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputMessageProperty _explicitNullValueMessage = default!;
 #endif
         /// <summary>The operation to which the rule applies. Every element of the `criteria` array must match the specified operation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataOperation? Operation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataOperation? Operation { get => _explicitNullValueOperation; set { _explicitNullValueOperation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operation"); else _explicitNullProperties?.Remove("operation"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataOperation? _explicitNullValueOperation = default!;
         /// <summary>The primary type of the message. This is the name of the struct in the `types` object that is the root of the message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryType { get; set; }
+        public string? PrimaryType { get => _explicitNullValuePrimaryType; set { _explicitNullValuePrimaryType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primaryType"); else _explicitNullProperties?.Remove("primaryType"); } }
+        private string? _explicitNullValuePrimaryType = default!;
 #nullable restore
 #else
-        public string PrimaryType { get; set; }
+        public string PrimaryType { get => _explicitNullValuePrimaryType; set { _explicitNullValuePrimaryType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primaryType"); else _explicitNullProperties?.Remove("primaryType"); } }
+        private string _explicitNullValuePrimaryType = default!;
 #endif
         /// <summary>A mapping of struct names to an array of type objects (name + type).Each key corresponds to a type name (e.g., &quot;`EIP712Domain`&quot;, &quot;`PermitTransferFrom`&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputTypes? Types { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputTypes? Types { get => _explicitNullValueTypes; set { _explicitNullValueTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("types"); else _explicitNullProperties?.Remove("types"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputTypes? _explicitNullValueTypes = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputTypes Types { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputTypes Types { get => _explicitNullValueTypes; set { _explicitNullValueTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("types"); else _explicitNullProperties?.Remove("types"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputTypes _explicitNullValueTypes = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -62,7 +86,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,7 +116,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputMessageProperty>("message", Message);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataOperation>("operation", Operation);
             writer.WriteStringValue("primaryType", PrimaryType);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputTypes>("types", Types);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignEvmTypedDataSimulationInputTypes>("types", Types);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

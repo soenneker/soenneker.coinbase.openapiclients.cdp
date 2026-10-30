@@ -11,38 +11,60 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class SendSolanaAssetWithEndUserAccountRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amount") is { } nullNodeAmount && nullNodeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Amount = null;
+            if (parseNode.GetChildNode("createRecipientAta") is { } nullNodeCreateRecipientAta && nullNodeCreateRecipientAta.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreateRecipientAta = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("to") is { } nullNodeTo && nullNodeTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) To = null;
+            if (parseNode.GetChildNode("useCdpSponsor") is { } nullNodeUseCdpSponsor && nullNodeUseCdpSponsor.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseCdpSponsor = null;
+            if (parseNode.GetChildNode("walletSecretId") is { } nullNodeWalletSecretId && nullNodeWalletSecretId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WalletSecretId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amount of USDC to send as a decimal string (e.g., &quot;1.5&quot; or &quot;25.50&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Amount { get; set; }
+        public string? Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private string? _explicitNullValueAmount = default!;
 #nullable restore
 #else
-        public string Amount { get; set; }
+        public string Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private string _explicitNullValueAmount = default!;
 #endif
         /// <summary>Whether to automatically create an Associated Token Account (ATA) for the recipient if it doesn&apos;t exist. When true, the sender pays the rent-exempt minimum to create the recipient&apos;s USDC ATA. When false, the transaction will fail if the recipient doesn&apos;t have a USDC ATA.</summary>
-        public bool? CreateRecipientAta { get; set; }
+        public bool? CreateRecipientAta { get => _explicitNullValueCreateRecipientAta; set { _explicitNullValueCreateRecipientAta = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createRecipientAta"); else _explicitNullProperties?.Remove("createRecipientAta"); } }
+        private bool? _explicitNullValueCreateRecipientAta = default!;
         /// <summary>The Solana network to send USDC on.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequestNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequestNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequestNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The base58 encoded address of the recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? To { get; set; }
+        public string? To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private string? _explicitNullValueTo = default!;
 #nullable restore
 #else
-        public string To { get; set; }
+        public string To { get => _explicitNullValueTo; set { _explicitNullValueTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("to"); else _explicitNullProperties?.Remove("to"); } }
+        private string _explicitNullValueTo = default!;
 #endif
         /// <summary>Whether transaction fees should be sponsored by CDP. When true, CDP sponsors the transaction fees on behalf of the end user. When false, the end user is responsible for paying the transaction fees.</summary>
-        public bool? UseCdpSponsor { get; set; }
+        public bool? UseCdpSponsor { get => _explicitNullValueUseCdpSponsor; set { _explicitNullValueUseCdpSponsor = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("useCdpSponsor"); else _explicitNullProperties?.Remove("useCdpSponsor"); } }
+        private bool? _explicitNullValueUseCdpSponsor = default!;
         /// <summary>Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WalletSecretId { get; set; }
+        public string? WalletSecretId { get => _explicitNullValueWalletSecretId; set { _explicitNullValueWalletSecretId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("walletSecretId"); else _explicitNullProperties?.Remove("walletSecretId"); } }
+        private string? _explicitNullValueWalletSecretId = default!;
 #nullable restore
 #else
-        public string WalletSecretId { get; set; }
+        public string WalletSecretId { get => _explicitNullValueWalletSecretId; set { _explicitNullValueWalletSecretId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("walletSecretId"); else _explicitNullProperties?.Remove("walletSecretId"); } }
+        private string _explicitNullValueWalletSecretId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequest"/> and sets the default values.
@@ -59,7 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendSolanaAssetWithEndUserAccountRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,6 +112,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("to", To);
             writer.WriteBoolValue("useCdpSponsor", UseCdpSponsor);
             writer.WriteStringValue("walletSecretId", WalletSecretId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

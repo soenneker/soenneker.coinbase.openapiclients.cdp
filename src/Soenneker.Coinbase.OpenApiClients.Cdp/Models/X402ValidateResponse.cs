@@ -12,55 +12,83 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402ValidateResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("bazaarExtension") is { } nullNodeBazaarExtension && nullNodeBazaarExtension.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BazaarExtension = null;
+            if (parseNode.GetChildNode("index") is { } nullNodeIndex && nullNodeIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Index = null;
+            if (parseNode.GetChildNode("paymentRequirements") is { } nullNodePaymentRequirements && nullNodePaymentRequirements.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRequirements = null;
+            if (parseNode.GetChildNode("preflight") is { } nullNodePreflight && nullNodePreflight.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Preflight = null;
+            if (parseNode.GetChildNode("simulation") is { } nullNodeSimulation && nullNodeSimulation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Simulation = null;
+            if (parseNode.GetChildNode("statusCode") is { } nullNodeStatusCode && nullNodeStatusCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StatusCode = null;
+            if (parseNode.GetChildNode("valid") is { } nullNodeValid && nullNodeValid.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Valid = null;
+            if (parseNode.GetChildNode("x402Version") is { } nullNodeX402Version && nullNodeX402Version.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) X402Version = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The `extensions.bazaar` block from the endpoint&apos;s discovery metadata, or `null` if the bazaar extension was absent or the endpoint was not reachable. Lets sellers verify the discovery configuration their endpoint is advertising.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty? BazaarExtension { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty? BazaarExtension { get => _explicitNullValueBazaarExtension; set { _explicitNullValueBazaarExtension = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bazaarExtension"); else _explicitNullProperties?.Remove("bazaarExtension"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty? _explicitNullValueBazaarExtension = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty BazaarExtension { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty BazaarExtension { get => _explicitNullValueBazaarExtension; set { _explicitNullValueBazaarExtension = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("bazaarExtension"); else _explicitNullProperties?.Remove("bazaarExtension"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty _explicitNullValueBazaarExtension = default!;
 #endif
         /// <summary>Bazaar index status for the endpoint, or `null` if the endpoint is not yet indexed. Present on every response regardless of simulation outcome.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex? Index { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex? Index { get => _explicitNullValueIndex; set { _explicitNullValueIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index"); else _explicitNullProperties?.Remove("index"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex? _explicitNullValueIndex = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex Index { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex Index { get => _explicitNullValueIndex; set { _explicitNullValueIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index"); else _explicitNullProperties?.Remove("index"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex _explicitNullValueIndex = default!;
 #endif
         /// <summary>The raw decoded payment requirements returned by the endpoint, or `null` if the endpoint was not reachable or did not return a parseable 402 payload. Lets sellers inspect exactly what their endpoint is advertising.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements? PaymentRequirements { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements? PaymentRequirements { get => _explicitNullValuePaymentRequirements; set { _explicitNullValuePaymentRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRequirements"); else _explicitNullProperties?.Remove("paymentRequirements"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements? _explicitNullValuePaymentRequirements = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements PaymentRequirements { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements PaymentRequirements { get => _explicitNullValuePaymentRequirements; set { _explicitNullValuePaymentRequirements = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRequirements"); else _explicitNullProperties?.Remove("paymentRequirements"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements _explicitNullValuePaymentRequirements = default!;
 #endif
         /// <summary>All check results in run order. Well-known check names are `reachable`, `returns_402`, `has_bazaar_extension`, and `parse`. Additional checks may be added in future versions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck>? Preflight { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck>? Preflight { get => _explicitNullValuePreflight; set { _explicitNullValuePreflight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preflight"); else _explicitNullProperties?.Remove("preflight"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck>? _explicitNullValuePreflight = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck> Preflight { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck> Preflight { get => _explicitNullValuePreflight; set { _explicitNullValuePreflight = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preflight"); else _explicitNullProperties?.Remove("preflight"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck> _explicitNullValuePreflight = default!;
 #endif
         /// <summary>The simulated facilitator decision for the x402 endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation? Simulation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation? Simulation { get => _explicitNullValueSimulation; set { _explicitNullValueSimulation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulation"); else _explicitNullProperties?.Remove("simulation"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation? _explicitNullValueSimulation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation Simulation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation Simulation { get => _explicitNullValueSimulation; set { _explicitNullValueSimulation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulation"); else _explicitNullProperties?.Remove("simulation"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateSimulation _explicitNullValueSimulation = default!;
 #endif
         /// <summary>The HTTP status code returned by the endpoint, or `null` if the endpoint was not reachable.</summary>
-        public int? StatusCode { get; set; }
+        public int? StatusCode { get => _explicitNullValueStatusCode; set { _explicitNullValueStatusCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("statusCode"); else _explicitNullProperties?.Remove("statusCode"); } }
+        private int? _explicitNullValueStatusCode = default!;
         /// <summary>Whether the endpoint is valid: all preflight checks passed and the facilitator would index the resource.</summary>
-        public bool? Valid { get; set; }
+        public bool? Valid { get => _explicitNullValueValid; set { _explicitNullValueValid = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("valid"); else _explicitNullProperties?.Remove("valid"); } }
+        private bool? _explicitNullValueValid = default!;
         /// <summary>The x402 protocol version advertised by the endpoint, or `null` if it could not be determined. Intentionally a bare integer rather than the `X402Version` enum so the validator can surface unsupported or malformed version values returned by non-conforming endpoints.</summary>
-        public int? X402Version { get; set; }
+        public int? X402Version { get => _explicitNullValueX402Version; set { _explicitNullValueX402Version = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("x402Version"); else _explicitNullProperties?.Remove("x402Version"); } }
+        private int? _explicitNullValueX402Version = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponse"/> and sets the default values.
         /// </summary>
@@ -76,7 +104,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,6 +139,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteIntValue("statusCode", StatusCode);
             writer.WriteBoolValue("valid", Valid);
             writer.WriteIntValue("x402Version", X402Version);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

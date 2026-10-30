@@ -12,15 +12,28 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PaymentExpiries : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("authorizationExpiresAt") is { } nullNodeAuthorizationExpiresAt && nullNodeAuthorizationExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthorizationExpiresAt = null;
+            if (parseNode.GetChildNode("captureExpiresAt") is { } nullNodeCaptureExpiresAt && nullNodeCaptureExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaptureExpiresAt = null;
+            if (parseNode.GetChildNode("refundExpiresAt") is { } nullNodeRefundExpiresAt && nullNodeRefundExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RefundExpiresAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The UTC ISO 8601 timestamp after which authorization attempts are rejected. Defaults to now + 1 day if omitted. The session remains in its current pre-authorization status; the merchant must explicitly cancel the session.</summary>
-        public DateTimeOffset? AuthorizationExpiresAt { get; set; }
+        public DateTimeOffset? AuthorizationExpiresAt { get => _explicitNullValueAuthorizationExpiresAt; set { _explicitNullValueAuthorizationExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authorizationExpiresAt"); else _explicitNullProperties?.Remove("authorizationExpiresAt"); } }
+        private DateTimeOffset? _explicitNullValueAuthorizationExpiresAt = default!;
         /// <summary>The UTC ISO 8601 timestamp after which capture attempts are rejected. Defaults to now + 7 days if omitted. The session remains in its current status; the merchant must explicitly void to release uncaptured funds.</summary>
-        public DateTimeOffset? CaptureExpiresAt { get; set; }
+        public DateTimeOffset? CaptureExpiresAt { get => _explicitNullValueCaptureExpiresAt; set { _explicitNullValueCaptureExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("captureExpiresAt"); else _explicitNullProperties?.Remove("captureExpiresAt"); } }
+        private DateTimeOffset? _explicitNullValueCaptureExpiresAt = default!;
         /// <summary>The UTC ISO 8601 timestamp after which refund attempts are rejected. Defaults to now + 30 days if omitted. The session remains in its current status; the refund window is simply closed.</summary>
-        public DateTimeOffset? RefundExpiresAt { get; set; }
+        public DateTimeOffset? RefundExpiresAt { get => _explicitNullValueRefundExpiresAt; set { _explicitNullValueRefundExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("refundExpiresAt"); else _explicitNullProperties?.Remove("refundExpiresAt"); } }
+        private DateTimeOffset? _explicitNullValueRefundExpiresAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentExpiries(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteDateTimeOffsetValue("authorizationExpiresAt", AuthorizationExpiresAt);
             writer.WriteDateTimeOffsetValue("captureExpiresAt", CaptureExpiresAt);
             writer.WriteDateTimeOffsetValue("refundExpiresAt", RefundExpiresAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

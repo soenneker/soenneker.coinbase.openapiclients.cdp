@@ -8,26 +8,31 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateRefundRequestSource : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember1"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember1? CreateRefundRequestSourceMember1 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf1? CreateRefundRequestSourceOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember1 CreateRefundRequestSourceMember1 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf1 CreateRefundRequestSourceOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember2? CreateRefundRequestSourceMember2 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf2? CreateRefundRequestSourceOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember2 CreateRefundRequestSourceMember2 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf2 CreateRefundRequestSourceOneOf2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +44,22 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSource();
-            return result;
+            if("CreateRefundRequestSourceOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("CreateRefundRequestSourceOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("accountId") != null && parseNode.GetChildNode("asset") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("address") != null))();
+            if (result.CreateRefundRequestSourceOneOf1 == null && result.CreateRefundRequestSourceOneOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.CreateRefundRequestSourceOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf1(), parseNode);
+            if (result.CreateRefundRequestSourceOneOf1 == null && result.CreateRefundRequestSourceOneOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.CreateRefundRequestSourceOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf2(), parseNode);
+            if (result.CreateRefundRequestSourceOneOf1 == null && result.CreateRefundRequestSourceOneOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,13 +67,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(CreateRefundRequestSourceMember1 != null)
+            if(CreateRefundRequestSourceOneOf1 != null)
             {
-                return CreateRefundRequestSourceMember1.GetFieldDeserializers();
+                return CreateRefundRequestSourceOneOf1.GetFieldDeserializers();
             }
-            else if(CreateRefundRequestSourceMember2 != null)
+            else if(CreateRefundRequestSourceOneOf2 != null)
             {
-                return CreateRefundRequestSourceMember2.GetFieldDeserializers();
+                return CreateRefundRequestSourceOneOf2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -63,14 +83,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (CreateRefundRequestSourceOneOf1 == null && CreateRefundRequestSourceOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (CreateRefundRequestSourceOneOf1 != null && CreateRefundRequestSourceOneOf2 == null) { if (CreateRefundRequestSourceOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateRefundRequestSourceOneOf1); return; }
+            if (CreateRefundRequestSourceOneOf2 != null && CreateRefundRequestSourceOneOf1 == null) { if (CreateRefundRequestSourceOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, CreateRefundRequestSourceOneOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(CreateRefundRequestSourceMember1 != null)
+            if(CreateRefundRequestSourceOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember1>(null, CreateRefundRequestSourceMember1);
+                if (CreateRefundRequestSourceOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf1>(null, CreateRefundRequestSourceOneOf1);
             }
-            else if(CreateRefundRequestSourceMember2 != null)
+            else if(CreateRefundRequestSourceOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceMember2>(null, CreateRefundRequestSourceMember2);
+                if (CreateRefundRequestSourceOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateRefundRequestSourceOneOf2>(null, CreateRefundRequestSourceOneOf2);
             }
         }
     }

@@ -12,18 +12,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EoaVaultRedeemFeesRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("maxSlippageBps") is { } nullNodeMaxSlippageBps && nullNodeMaxSlippageBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSlippageBps = null;
+            if (parseNode.GetChildNode("vaultId") is { } nullNodeVaultId && nullNodeVaultId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VaultId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.</summary>
-        public int? MaxSlippageBps { get; set; }
+        public int? MaxSlippageBps { get => _explicitNullValueMaxSlippageBps; set { _explicitNullValueMaxSlippageBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxSlippageBps"); else _explicitNullProperties?.Remove("maxSlippageBps"); } }
+        private int? _explicitNullValueMaxSlippageBps = default!;
         /// <summary>The globally unique ID of the vault, which is a UUID prefixed with the string `vault_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VaultId { get; set; }
+        public string? VaultId { get => _explicitNullValueVaultId; set { _explicitNullValueVaultId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vaultId"); else _explicitNullProperties?.Remove("vaultId"); } }
+        private string? _explicitNullValueVaultId = default!;
 #nullable restore
 #else
-        public string VaultId { get; set; }
+        public string VaultId { get => _explicitNullValueVaultId; set { _explicitNullValueVaultId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vaultId"); else _explicitNullProperties?.Remove("vaultId"); } }
+        private string _explicitNullValueVaultId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EoaVaultRedeemFeesRequest"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EoaVaultRedeemFeesRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EoaVaultRedeemFeesRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EoaVaultRedeemFeesRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("maxSlippageBps", MaxSlippageBps);
             writer.WriteStringValue("vaultId", VaultId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

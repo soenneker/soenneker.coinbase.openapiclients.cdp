@@ -12,32 +12,48 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomerDisplay : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("displayAmount") is { } nullNodeDisplayAmount && nullNodeDisplayAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisplayAmount = null;
+            if (parseNode.GetChildNode("merchantName") is { } nullNodeMerchantName && nullNodeMerchantName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MerchantName = null;
+            if (parseNode.GetChildNode("orderCode") is { } nullNodeOrderCode && nullNodeOrderCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrderCode = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amount to present to the payer, which may differ from the authoritative settlement amount and asset. Commonly used when the payer&apos;s local currency differs from the settlement currency (e.g., charging in USD but displaying the equivalent in CAD). Stored and returned as-is — no cross-validation is performed against the authoritative `amount` and `asset`. Both `amount` and `currency` must be provided together.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount? DisplayAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount? DisplayAmount { get => _explicitNullValueDisplayAmount; set { _explicitNullValueDisplayAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayAmount"); else _explicitNullProperties?.Remove("displayAmount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount? _explicitNullValueDisplayAmount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount DisplayAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount DisplayAmount { get => _explicitNullValueDisplayAmount; set { _explicitNullValueDisplayAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("displayAmount"); else _explicitNullProperties?.Remove("displayAmount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount _explicitNullValueDisplayAmount = default!;
 #endif
         /// <summary>The merchant name to display on the payment UI. When provided, this overrides the default name derived from the entity&apos;s profile. Useful when a merchant operates multiple storefronts or brands under a single entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MerchantName { get; set; }
+        public string? MerchantName { get => _explicitNullValueMerchantName; set { _explicitNullValueMerchantName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merchantName"); else _explicitNullProperties?.Remove("merchantName"); } }
+        private string? _explicitNullValueMerchantName = default!;
 #nullable restore
 #else
-        public string MerchantName { get; set; }
+        public string MerchantName { get => _explicitNullValueMerchantName; set { _explicitNullValueMerchantName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("merchantName"); else _explicitNullProperties?.Remove("merchantName"); } }
+        private string _explicitNullValueMerchantName = default!;
 #endif
         /// <summary>A customer-visible code for the overall order. When omitted, CDP generates one and returns it. It must not contain personally identifiable information (PII) or payment credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrderCode { get; set; }
+        public string? OrderCode { get => _explicitNullValueOrderCode; set { _explicitNullValueOrderCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("orderCode"); else _explicitNullProperties?.Remove("orderCode"); } }
+        private string? _explicitNullValueOrderCode = default!;
 #nullable restore
 #else
-        public string OrderCode { get; set; }
+        public string OrderCode { get => _explicitNullValueOrderCode; set { _explicitNullValueOrderCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("orderCode"); else _explicitNullProperties?.Remove("orderCode"); } }
+        private string _explicitNullValueOrderCode = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplay(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerDisplayDisplayAmount>("displayAmount", DisplayAmount);
             writer.WriteStringValue("merchantName", MerchantName);
             writer.WriteStringValue("orderCode", OrderCode);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,88 +12,132 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomerWriteBaseIndividual : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("citizenship") is { } nullNodeCitizenship && nullNodeCitizenship.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Citizenship = null;
+            if (parseNode.GetChildNode("dateOfBirth") is { } nullNodeDateOfBirth && nullNodeDateOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateOfBirth = null;
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("employmentStatus") is { } nullNodeEmploymentStatus && nullNodeEmploymentStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmploymentStatus = null;
+            if (parseNode.GetChildNode("expectedVolume") is { } nullNodeExpectedVolume && nullNodeExpectedVolume.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpectedVolume = null;
+            if (parseNode.GetChildNode("firstName") is { } nullNodeFirstName && nullNodeFirstName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstName = null;
+            if (parseNode.GetChildNode("fullSsn") is { } nullNodeFullSsn && nullNodeFullSsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullSsn = null;
+            if (parseNode.GetChildNode("lastName") is { } nullNodeLastName && nullNodeLastName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastName = null;
+            if (parseNode.GetChildNode("occupation") is { } nullNodeOccupation && nullNodeOccupation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Occupation = null;
+            if (parseNode.GetChildNode("phoneNumber") is { } nullNodePhoneNumber && nullNodePhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PhoneNumber = null;
+            if (parseNode.GetChildNode("purposeOfAccount") is { } nullNodePurposeOfAccount && nullNodePurposeOfAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PurposeOfAccount = null;
+            if (parseNode.GetChildNode("sourceOfFunds") is { } nullNodeSourceOfFunds && nullNodeSourceOfFunds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SourceOfFunds = null;
+            if (parseNode.GetChildNode("ssnLast4") is { } nullNodeSsnLast4 && nullNodeSsnLast4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SsnLast4 = null;
+        }
+
         /// <summary>Primary residential address. Only US addresses are currentlysupported. Non-US `countryCode` values are rejected with a 400.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputAddress? Address { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputAddress? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputAddress? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputAddress Address { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputAddress Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputAddress _explicitNullValueAddress = default!;
 #endif
         /// <summary>An ISO 3166-1 alpha-2 country code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Citizenship { get; set; }
+        public string? Citizenship { get => _explicitNullValueCitizenship; set { _explicitNullValueCitizenship = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("citizenship"); else _explicitNullProperties?.Remove("citizenship"); } }
+        private string? _explicitNullValueCitizenship = default!;
 #nullable restore
 #else
-        public string Citizenship { get; set; }
+        public string Citizenship { get => _explicitNullValueCitizenship; set { _explicitNullValueCitizenship = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("citizenship"); else _explicitNullProperties?.Remove("citizenship"); } }
+        private string _explicitNullValueCitizenship = default!;
 #endif
         /// <summary>Date of birth.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth? DateOfBirth { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth? DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth? _explicitNullValueDateOfBirth = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth DateOfBirth { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputDateOfBirth _explicitNullValueDateOfBirth = default!;
 #endif
         /// <summary>An email address. Maximum length 254 characters per [RFC 5321](https://www.rfc-editor.org/rfc/rfc5321).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>Current employment status.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputEmploymentStatus? EmploymentStatus { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputEmploymentStatus? EmploymentStatus { get => _explicitNullValueEmploymentStatus; set { _explicitNullValueEmploymentStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employmentStatus"); else _explicitNullProperties?.Remove("employmentStatus"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputEmploymentStatus? _explicitNullValueEmploymentStatus = default!;
         /// <summary>Expected annual volume of activity on the account, expressed as adollar range. Use the dollar-honest ids below:- `under_1k`: $0 – $1,000- `1k_to_10k`: $1,000 – $10,000- `10k_to_100k`: $10,000 – $100,000- `100k_to_250k`: $100,000 – $250,000- `250k_to_750k`: $250,000 – $750,000- `750k_to_1_5m`: $750,000 – $1.5M- `1_5m_plus`: $1.5M+</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputExpectedVolume? ExpectedVolume { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputExpectedVolume? ExpectedVolume { get => _explicitNullValueExpectedVolume; set { _explicitNullValueExpectedVolume = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expectedVolume"); else _explicitNullProperties?.Remove("expectedVolume"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputExpectedVolume? _explicitNullValueExpectedVolume = default!;
         /// <summary>First name (given name).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FirstName { get; set; }
+        public string? FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("firstName"); else _explicitNullProperties?.Remove("firstName"); } }
+        private string? _explicitNullValueFirstName = default!;
 #nullable restore
 #else
-        public string FirstName { get; set; }
+        public string FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("firstName"); else _explicitNullProperties?.Remove("firstName"); } }
+        private string _explicitNullValueFirstName = default!;
 #endif
         /// <summary>Full Social Security Number (US only).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FullSsn { get; set; }
+        public string? FullSsn { get => _explicitNullValueFullSsn; set { _explicitNullValueFullSsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fullSsn"); else _explicitNullProperties?.Remove("fullSsn"); } }
+        private string? _explicitNullValueFullSsn = default!;
 #nullable restore
 #else
-        public string FullSsn { get; set; }
+        public string FullSsn { get => _explicitNullValueFullSsn; set { _explicitNullValueFullSsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fullSsn"); else _explicitNullProperties?.Remove("fullSsn"); } }
+        private string _explicitNullValueFullSsn = default!;
 #endif
         /// <summary>Last name (family name/surname).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastName { get; set; }
+        public string? LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastName"); else _explicitNullProperties?.Remove("lastName"); } }
+        private string? _explicitNullValueLastName = default!;
 #nullable restore
 #else
-        public string LastName { get; set; }
+        public string LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastName"); else _explicitNullProperties?.Remove("lastName"); } }
+        private string _explicitNullValueLastName = default!;
 #endif
         /// <summary>Industry or occupation.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputOccupation? Occupation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputOccupation? Occupation { get => _explicitNullValueOccupation; set { _explicitNullValueOccupation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("occupation"); else _explicitNullProperties?.Remove("occupation"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputOccupation? _explicitNullValueOccupation = default!;
         /// <summary>A phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PhoneNumber { get; set; }
+        public string? PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phoneNumber"); else _explicitNullProperties?.Remove("phoneNumber"); } }
+        private string? _explicitNullValuePhoneNumber = default!;
 #nullable restore
 #else
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get => _explicitNullValuePhoneNumber; set { _explicitNullValuePhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phoneNumber"); else _explicitNullProperties?.Remove("phoneNumber"); } }
+        private string _explicitNullValuePhoneNumber = default!;
 #endif
         /// <summary>Primary purpose for using Coinbase services.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputPurposeOfAccount? PurposeOfAccount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputPurposeOfAccount? PurposeOfAccount { get => _explicitNullValuePurposeOfAccount; set { _explicitNullValuePurposeOfAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purposeOfAccount"); else _explicitNullProperties?.Remove("purposeOfAccount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputPurposeOfAccount? _explicitNullValuePurposeOfAccount = default!;
         /// <summary>Primary source of funds for the account.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputSourceOfFunds? SourceOfFunds { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputSourceOfFunds? SourceOfFunds { get => _explicitNullValueSourceOfFunds; set { _explicitNullValueSourceOfFunds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sourceOfFunds"); else _explicitNullProperties?.Remove("sourceOfFunds"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputSourceOfFunds? _explicitNullValueSourceOfFunds = default!;
         /// <summary>Last 4 digits of the Social Security Number (US only).Used for identity verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SsnLast4 { get; set; }
+        public string? SsnLast4 { get => _explicitNullValueSsnLast4; set { _explicitNullValueSsnLast4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ssnLast4"); else _explicitNullProperties?.Remove("ssnLast4"); } }
+        private string? _explicitNullValueSsnLast4 = default!;
 #nullable restore
 #else
-        public string SsnLast4 { get; set; }
+        public string SsnLast4 { get => _explicitNullValueSsnLast4; set { _explicitNullValueSsnLast4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ssnLast4"); else _explicitNullProperties?.Remove("ssnLast4"); } }
+        private string _explicitNullValueSsnLast4 = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -103,7 +147,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -149,7 +193,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("phoneNumber", PhoneNumber);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputPurposeOfAccount>("purposeOfAccount", PurposeOfAccount);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IndividualInputSourceOfFunds>("sourceOfFunds", SourceOfFunds);
-            writer.WriteStringValue("ssnLast4", SsnLast4);
+            writer.WriteStringValue("ssnLast4", SsnLast4);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

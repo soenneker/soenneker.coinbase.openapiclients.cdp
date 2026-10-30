@@ -66,6 +66,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListFoundationAccounts200Response>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ListFoundationAccounts200Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -97,6 +99,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Accounts
                 { "403", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Account>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Account.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

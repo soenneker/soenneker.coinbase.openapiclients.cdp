@@ -12,58 +12,85 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateMandateRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("approvalRedirect") is { } nullNodeApprovalRedirect && nullNodeApprovalRedirect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApprovalRedirect = null;
+            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("customerDisplay") is { } nullNodeCustomerDisplay && nullNodeCustomerDisplay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerDisplay = null;
+            if (parseNode.GetChildNode("expiresAt") is { } nullNodeExpiresAt && nullNodeExpiresAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpiresAt = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("policy") is { } nullNodePolicy && nullNodePolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Policy = null;
+            if (parseNode.GetChildNode("revocationRedirect") is { } nullNodeRevocationRedirect && nullNodeRevocationRedirect.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RevocationRedirect = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Optional merchant URLs used by the hosted mandate approval flow. The approval page redirects to `successUrl` when approval succeeds, or `failureUrl` when it fails. Omit to keep the customer on the Coinbase-hosted experience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestApprovalRedirect? ApprovalRedirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestApprovalRedirect? ApprovalRedirect { get => _explicitNullValueApprovalRedirect; set { _explicitNullValueApprovalRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvalRedirect"); else _explicitNullProperties?.Remove("approvalRedirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestApprovalRedirect? _explicitNullValueApprovalRedirect = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestApprovalRedirect ApprovalRedirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestApprovalRedirect ApprovalRedirect { get => _explicitNullValueApprovalRedirect; set { _explicitNullValueApprovalRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approvalRedirect"); else _explicitNullProperties?.Remove("approvalRedirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestApprovalRedirect _explicitNullValueApprovalRedirect = default!;
 #endif
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get; set; }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get; set; }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>Merchant-provided display data shown to the customer on the hosted mandate pages. All fields are informational only. They are stored and returned as-is and do not affect mandate approval, authorization, or policy enforcement.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay? CustomerDisplay { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay? CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay? _explicitNullValueCustomerDisplay = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay CustomerDisplay { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateCustomerDisplay _explicitNullValueCustomerDisplay = default!;
 #endif
         /// <summary>The UTC ISO 8601 timestamp after which this mandate can no longer be authorized against. Omit for a mandate with no expiry.</summary>
-        public DateTimeOffset? ExpiresAt { get; set; }
+        public DateTimeOffset? ExpiresAt { get => _explicitNullValueExpiresAt; set { _explicitNullValueExpiresAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expiresAt"); else _explicitNullProperties?.Remove("expiresAt"); } }
+        private DateTimeOffset? _explicitNullValueExpiresAt = default!;
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestMetadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestMetadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>Optional. Omit or send `{}` to default to a Coinbase-configured monthly max. If you set `maxPerPeriod`, include both `amount` and `period`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestPolicy? Policy { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestPolicy? Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestPolicy? _explicitNullValuePolicy = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestPolicy Policy { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestPolicy Policy { get => _explicitNullValuePolicy; set { _explicitNullValuePolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy"); else _explicitNullProperties?.Remove("policy"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestPolicy _explicitNullValuePolicy = default!;
 #endif
         /// <summary>Optional merchant URLs used by the hosted mandate revocation flow. The revocation page redirects to `successUrl` when revocation succeeds, or `failureUrl` when it fails. Omit to keep the customer on the Coinbase-hosted experience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestRevocationRedirect? RevocationRedirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestRevocationRedirect? RevocationRedirect { get => _explicitNullValueRevocationRedirect; set { _explicitNullValueRevocationRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocationRedirect"); else _explicitNullProperties?.Remove("revocationRedirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestRevocationRedirect? _explicitNullValueRevocationRedirect = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestRevocationRedirect RevocationRedirect { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestRevocationRedirect RevocationRedirect { get => _explicitNullValueRevocationRedirect; set { _explicitNullValueRevocationRedirect = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocationRedirect"); else _explicitNullProperties?.Remove("revocationRedirect"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestRevocationRedirect _explicitNullValueRevocationRedirect = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequest"/> and sets the default values.
@@ -80,7 +107,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +140,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestMetadata>("metadata", Metadata);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestPolicy>("policy", Policy);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateMandateRequestRevocationRedirect>("revocationRedirect", RevocationRedirect);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

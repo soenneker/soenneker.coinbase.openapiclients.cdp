@@ -12,81 +12,120 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Capture : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amount") is { } nullNodeAmount && nullNodeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Amount = null;
+            if (parseNode.GetChildNode("captureId") is { } nullNodeCaptureId && nullNodeCaptureId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CaptureId = null;
+            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("customerDisplay") is { } nullNodeCustomerDisplay && nullNodeCustomerDisplay.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerDisplay = null;
+            if (parseNode.GetChildNode("error") is { } nullNodeError && nullNodeError.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Error = null;
+            if (parseNode.GetChildNode("externalReferenceId") is { } nullNodeExternalReferenceId && nullNodeExternalReferenceId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalReferenceId = null;
+            if (parseNode.GetChildNode("finalCapture") is { } nullNodeFinalCapture && nullNodeFinalCapture.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FinalCapture = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("onchainTransactions") is { } nullNodeOnchainTransactions && nullNodeOnchainTransactions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnchainTransactions = null;
+            if (parseNode.GetChildNode("paymentSessionId") is { } nullNodePaymentSessionId && nullNodePaymentSessionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentSessionId = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A decimal representation of the captured amount, denominated in the session&apos;s `asset`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Amount { get; set; }
+        public string? Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private string? _explicitNullValueAmount = default!;
 #nullable restore
 #else
-        public string Amount { get; set; }
+        public string Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private string _explicitNullValueAmount = default!;
 #endif
         /// <summary>The ID of the capture, a UUID prefixed by `capture_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CaptureId { get; set; }
+        public string? CaptureId { get => _explicitNullValueCaptureId; set { _explicitNullValueCaptureId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("captureId"); else _explicitNullProperties?.Remove("captureId"); } }
+        private string? _explicitNullValueCaptureId = default!;
 #nullable restore
 #else
-        public string CaptureId { get; set; }
+        public string CaptureId { get => _explicitNullValueCaptureId; set { _explicitNullValueCaptureId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("captureId"); else _explicitNullProperties?.Remove("captureId"); } }
+        private string _explicitNullValueCaptureId = default!;
 #endif
         /// <summary>The UTC ISO 8601 timestamp at which the capture was created.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>Customer-facing display data for this capture, shown to the payer. A manual capture falls back to the session&apos;s `orderCode` when `referenceCode` is omitted; an auto-capture reuses the authorization&apos;s `referenceCode`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay? CustomerDisplay { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay? CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay? _explicitNullValueCustomerDisplay = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay CustomerDisplay { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay CustomerDisplay { get => _explicitNullValueCustomerDisplay; set { _explicitNullValueCustomerDisplay = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerDisplay"); else _explicitNullProperties?.Remove("customerDisplay"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureCustomerDisplay _explicitNullValueCustomerDisplay = default!;
 #endif
         /// <summary>An error that occurred during a payment operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError? Error { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError? Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError? _explicitNullValueError = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError Error { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError Error { get => _explicitNullValueError; set { _explicitNullValueError = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("error"); else _explicitNullProperties?.Remove("error"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PaymentError _explicitNullValueError = default!;
 #endif
         /// <summary>A merchant-provided internal identifier for a resource from the merchant&apos;s own system—not visible to the payer. It must not contain personally identifiable information (PII) or payment credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalReferenceId { get; set; }
+        public string? ExternalReferenceId { get => _explicitNullValueExternalReferenceId; set { _explicitNullValueExternalReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalReferenceId"); else _explicitNullProperties?.Remove("externalReferenceId"); } }
+        private string? _explicitNullValueExternalReferenceId = default!;
 #nullable restore
 #else
-        public string ExternalReferenceId { get; set; }
+        public string ExternalReferenceId { get => _explicitNullValueExternalReferenceId; set { _explicitNullValueExternalReferenceId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("externalReferenceId"); else _explicitNullProperties?.Remove("externalReferenceId"); } }
+        private string _explicitNullValueExternalReferenceId = default!;
 #endif
         /// <summary>When `true`, this capture is treated as the final one for the authorization. Any remaining capturable balance is released back to the payer immediately after the capture settles. When `false`, the remaining capturable balance stays held and is available for subsequent partial captures (subject to `captureExpiresAt`). Has no effect if `amount` equals the full capturable balance, since no remaining balance exists to release.</summary>
-        public bool? FinalCapture { get; set; }
+        public bool? FinalCapture { get => _explicitNullValueFinalCapture; set { _explicitNullValueFinalCapture = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("finalCapture"); else _explicitNullProperties?.Remove("finalCapture"); } }
+        private bool? _explicitNullValueFinalCapture = default!;
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The onchain transactions associated with this capture.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>? OnchainTransactions { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>? OnchainTransactions { get => _explicitNullValueOnchainTransactions; set { _explicitNullValueOnchainTransactions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainTransactions"); else _explicitNullProperties?.Remove("onchainTransactions"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction>? _explicitNullValueOnchainTransactions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction> OnchainTransactions { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction> OnchainTransactions { get => _explicitNullValueOnchainTransactions; set { _explicitNullValueOnchainTransactions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainTransactions"); else _explicitNullProperties?.Remove("onchainTransactions"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainTransaction> _explicitNullValueOnchainTransactions = default!;
 #endif
         /// <summary>The ID of the payment session, a UUID prefixed by `paymentSession_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentSessionId { get; set; }
+        public string? PaymentSessionId { get => _explicitNullValuePaymentSessionId; set { _explicitNullValuePaymentSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentSessionId"); else _explicitNullProperties?.Remove("paymentSessionId"); } }
+        private string? _explicitNullValuePaymentSessionId = default!;
 #nullable restore
 #else
-        public string PaymentSessionId { get; set; }
+        public string PaymentSessionId { get => _explicitNullValuePaymentSessionId; set { _explicitNullValuePaymentSessionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentSessionId"); else _explicitNullProperties?.Remove("paymentSessionId"); } }
+        private string _explicitNullValuePaymentSessionId = default!;
 #endif
         /// <summary>The current status of a payment action (authorization, capture, void, or refund).</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureStatus? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureStatus? _explicitNullValueStatus = default!;
         /// <summary>The UTC ISO 8601 timestamp at which the capture was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Capture"/> and sets the default values.
         /// </summary>
@@ -102,7 +141,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Capture CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Capture();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Capture(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -145,6 +184,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("paymentSessionId", PaymentSessionId);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CaptureStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

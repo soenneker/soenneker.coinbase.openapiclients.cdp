@@ -12,13 +12,24 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomersCapabilityChangedEventAllOf2DataCapabilitiesItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("code") is { } nullNodeCode && nullNodeCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Code = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of a capability. Capabilities represent granular functional permissionsthat determine what actions a customer can perform. Each capability must beexplicitly requested before use.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode? Code { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode? Code { get => _explicitNullValueCode; set { _explicitNullValueCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("code"); else _explicitNullProperties?.Remove("code"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode? _explicitNullValueCode = default!;
         /// <summary>The status of a capability. Based on recoverability:- `unrequested`: Capability has not been requested by the customer- `pending`: Customer can take action to resolve (requirements `due` or `rejected`)- `active`: Capability is enabled and can be used- `inactive`: Permanently blocked - no customer action possible</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItem"/> and sets the default values.
         /// </summary>
@@ -34,7 +45,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,6 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemCode>("code", Code);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersCapabilityChangedEventAllOf2DataCapabilitiesItemStatus>("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

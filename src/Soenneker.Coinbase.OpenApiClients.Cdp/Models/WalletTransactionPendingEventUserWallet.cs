@@ -12,41 +12,65 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     public partial class WalletTransactionPendingEventUserWallet : global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletUserEventPayload, IParsable
     #pragma warning restore CS1591
     {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            base.CaptureExplicitNulls(parseNode);
+            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("max_fee_per_gas") is { } nullNodeMaxFeePerGas && nullNodeMaxFeePerGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxFeePerGas = null;
+            if (parseNode.GetChildNode("max_priority_fee_per_gas") is { } nullNodeMaxPriorityFeePerGas && nullNodeMaxPriorityFeePerGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPriorityFeePerGas = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("pending_since") is { } nullNodePendingSince && nullNodePendingSince.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingSince = null;
+            if (parseNode.GetChildNode("transaction_hash") is { } nullNodeTransactionHash && nullNodeTransactionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionHash = null;
+        }
+
         /// <summary>The EVM wallet address whose transaction is pending.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Address { get; set; }
+        public string? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public string Address { get; set; }
+        public string Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string _explicitNullValueAddress = default!;
 #endif
         /// <summary>EIP-1559 max fee per gas in wei.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxFeePerGas { get; set; }
+        public string? MaxFeePerGas { get => _explicitNullValueMaxFeePerGas; set { _explicitNullValueMaxFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_fee_per_gas"); else _explicitNullProperties?.Remove("max_fee_per_gas"); } }
+        private string? _explicitNullValueMaxFeePerGas = default!;
 #nullable restore
 #else
-        public string MaxFeePerGas { get; set; }
+        public string MaxFeePerGas { get => _explicitNullValueMaxFeePerGas; set { _explicitNullValueMaxFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_fee_per_gas"); else _explicitNullProperties?.Remove("max_fee_per_gas"); } }
+        private string _explicitNullValueMaxFeePerGas = default!;
 #endif
         /// <summary>EIP-1559 max priority fee per gas in wei.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxPriorityFeePerGas { get; set; }
+        public string? MaxPriorityFeePerGas { get => _explicitNullValueMaxPriorityFeePerGas; set { _explicitNullValueMaxPriorityFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_priority_fee_per_gas"); else _explicitNullProperties?.Remove("max_priority_fee_per_gas"); } }
+        private string? _explicitNullValueMaxPriorityFeePerGas = default!;
 #nullable restore
 #else
-        public string MaxPriorityFeePerGas { get; set; }
+        public string MaxPriorityFeePerGas { get => _explicitNullValueMaxPriorityFeePerGas; set { _explicitNullValueMaxPriorityFeePerGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_priority_fee_per_gas"); else _explicitNullProperties?.Remove("max_priority_fee_per_gas"); } }
+        private string _explicitNullValueMaxPriorityFeePerGas = default!;
 #endif
         /// <summary>The blockchain network for the payment. Supported networks depend on the account type.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionPendingPayloadNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionPendingPayloadNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionPendingPayloadNetwork? _explicitNullValueNetwork = default!;
         /// <summary>When the transaction entered the pending state (ISO 8601 format).</summary>
-        public DateTimeOffset? PendingSince { get; set; }
+        public DateTimeOffset? PendingSince { get => _explicitNullValuePendingSince; set { _explicitNullValuePendingSince = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pending_since"); else _explicitNullProperties?.Remove("pending_since"); } }
+        private DateTimeOffset? _explicitNullValuePendingSince = default!;
         /// <summary>The onchain transaction hash.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionHash { get; set; }
+        public string? TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_hash"); else _explicitNullProperties?.Remove("transaction_hash"); } }
+        private string? _explicitNullValueTransactionHash = default!;
 #nullable restore
 #else
-        public string TransactionHash { get; set; }
+        public string TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_hash"); else _explicitNullProperties?.Remove("transaction_hash"); } }
+        private string _explicitNullValueTransactionHash = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -56,7 +80,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionPendingEventUserWallet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionPendingEventUserWallet();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionPendingEventUserWallet(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,7 +111,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("max_priority_fee_per_gas", MaxPriorityFeePerGas);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionPendingPayloadNetwork>("network", Network);
             writer.WriteDateTimeOffsetValue("pending_since", PendingSince);
-            writer.WriteStringValue("transaction_hash", TransactionHash);
+            writer.WriteStringValue("transaction_hash", TransactionHash);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

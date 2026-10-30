@@ -12,15 +12,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RateLimitValueUsage : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("operationCents") is { } nullNodeOperationCents && nullNodeOperationCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OperationCents = null;
+            if (parseNode.GetChildNode("pendingCents") is { } nullNodePendingCents && nullNodePendingCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PendingCents = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("windowCents") is { } nullNodeWindowCents && nullNodeWindowCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WindowCents = null;
+        }
+
         /// <summary>The absolute USD value, in cents, of this operation.</summary>
-        public int? OperationCents { get; set; }
+        public int? OperationCents { get => _explicitNullValueOperationCents; set { _explicitNullValueOperationCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operationCents"); else _explicitNullProperties?.Remove("operationCents"); } }
+        private int? _explicitNullValueOperationCents = default!;
         /// <summary>USD value, in cents, added by earlier units of this simulation request. It is not persisted. Always `0` when `evaluatedUnit` is absent.</summary>
-        public int? PendingCents { get; set; }
+        public int? PendingCents { get => _explicitNullValuePendingCents; set { _explicitNullValuePendingCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pendingCents"); else _explicitNullProperties?.Remove("pendingCents"); } }
+        private int? _explicitNullValuePendingCents = default!;
         /// <summary>The usage type.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ValueTypeObject? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ValueTypeObject? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ValueTypeObject? _explicitNullValueType = default!;
         /// <summary>USD value, in cents, counted in the current `window`.</summary>
-        public int? WindowCents { get; set; }
+        public int? WindowCents { get => _explicitNullValueWindowCents; set { _explicitNullValueWindowCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("windowCents"); else _explicitNullProperties?.Remove("windowCents"); } }
+        private int? _explicitNullValueWindowCents = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -29,7 +44,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RateLimitValueUsage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RateLimitValueUsage();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RateLimitValueUsage(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +70,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteIntValue("operationCents", OperationCents);
             writer.WriteIntValue("pendingCents", PendingCents);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ValueTypeObject>("type", Type);
-            writer.WriteIntValue("windowCents", WindowCents);
+            writer.WriteIntValue("windowCents", WindowCents);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

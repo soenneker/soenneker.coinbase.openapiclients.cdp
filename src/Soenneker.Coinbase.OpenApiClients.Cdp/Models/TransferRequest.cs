@@ -12,63 +12,94 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amount") is { } nullNodeAmount && nullNodeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Amount = null;
+            if (parseNode.GetChildNode("amountType") is { } nullNodeAmountType && nullNodeAmountType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AmountType = null;
+            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("execute") is { } nullNodeExecute && nullNodeExecute.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Execute = null;
+            if (parseNode.GetChildNode("metadata") is { } nullNodeMetadata && nullNodeMetadata.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Metadata = null;
+            if (parseNode.GetChildNode("source") is { } nullNodeSource && nullNodeSource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Source = null;
+            if (parseNode.GetChildNode("target") is { } nullNodeTarget && nullNodeTarget.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Target = null;
+            if (parseNode.GetChildNode("travelRule") is { } nullNodeTravelRule && nullNodeTravelRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TravelRule = null;
+            if (parseNode.GetChildNode("validateOnly") is { } nullNodeValidateOnly && nullNodeValidateOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidateOnly = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Amount { get; set; }
+        public string? Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private string? _explicitNullValueAmount = default!;
 #nullable restore
 #else
-        public string Amount { get; set; }
+        public string Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private string _explicitNullValueAmount = default!;
 #endif
         /// <summary>Specifies whether the given amount is to be received by the target or taken from the source.- `target`: The transfer `target` receives the exact value specified in `amount`. Fees are added to the amount taken from the transfer `source`.- `source`: The transfer `target` receives the value specified in `amount`, minus any fees.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType? AmountType { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType? AmountType { get => _explicitNullValueAmountType; set { _explicitNullValueAmountType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amountType"); else _explicitNullProperties?.Remove("amountType"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestAmountType? _explicitNullValueAmountType = default!;
         /// <summary>The symbol of the asset (e.g., eth, usd, usdc, usdt).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get; set; }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get; set; }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>Whether to immediately execute the transfer. If false, the transfer will be created in quoted status and must be executed manually via the /execute endpoint.</summary>
-        public bool? Execute { get; set; }
+        public bool? Execute { get => _explicitNullValueExecute; set { _explicitNullValueExecute = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("execute"); else _explicitNullProperties?.Remove("execute"); } }
+        private bool? _explicitNullValueExecute = default!;
         /// <summary>Optional metadata as key-value pairs. Use this to store additional structured information on a resource, such as customer IDs, order references, or any application-specific data. Up to 10 key/value pairs may be provided. Keys and values are both strings. Keys must be ≤ 40 characters; values must be ≤ 500 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata? Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata? Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata? _explicitNullValueMetadata = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata Metadata { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata Metadata { get => _explicitNullValueMetadata; set { _explicitNullValueMetadata = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metadata"); else _explicitNullProperties?.Remove("metadata"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestMetadata _explicitNullValueMetadata = default!;
 #endif
         /// <summary>The source of the transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource? Source { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource? Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource? _explicitNullValueSource = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource Source { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource Source { get => _explicitNullValueSource; set { _explicitNullValueSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("source"); else _explicitNullProperties?.Remove("source"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateTransferSource _explicitNullValueSource = default!;
 #endif
         /// <summary>The target of the transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget? Target { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget? Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget? _explicitNullValueTarget = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget Target { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget Target { get => _explicitNullValueTarget; set { _explicitNullValueTarget = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("target"); else _explicitNullProperties?.Remove("target"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget _explicitNullValueTarget = default!;
 #endif
         /// <summary>Travel Rule compliance information for this transfer. Required for transfers to external wallets above regulatory thresholds. Fields required differ by region and Coinbase contracting entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule? TravelRule { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule? TravelRule { get => _explicitNullValueTravelRule; set { _explicitNullValueTravelRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("travelRule"); else _explicitNullProperties?.Remove("travelRule"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule? _explicitNullValueTravelRule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule TravelRule { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule TravelRule { get => _explicitNullValueTravelRule; set { _explicitNullValueTravelRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("travelRule"); else _explicitNullProperties?.Remove("travelRule"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule _explicitNullValueTravelRule = default!;
 #endif
         /// <summary>If true, validates the transfer without initiating it.  If the request is valid, a 2xx will be returned. If the request is invalid, a 4xx error will be returned. The response will include an errorType, for e.g. invalid_target if the specified target cannot receive funds.</summary>
-        public bool? ValidateOnly { get; set; }
+        public bool? ValidateOnly { get => _explicitNullValueValidateOnly; set { _explicitNullValueValidateOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validateOnly"); else _explicitNullProperties?.Remove("validateOnly"); } }
+        private bool? _explicitNullValueValidateOnly = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest"/> and sets the default values.
         /// </summary>
@@ -85,7 +116,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,6 +153,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferTarget>("target", Target);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferRequestTravelRule>("travelRule", TravelRule);
             writer.WriteBoolValue("validateOnly", ValidateOnly);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

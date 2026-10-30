@@ -11,145 +11,208 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class OfframpTransactionUpdatedEvent : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("coinbaseFee") is { } nullNodeCoinbaseFee && nullNodeCoinbaseFee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoinbaseFee = null;
+            if (parseNode.GetChildNode("createdAt") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("eventType") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
+            if (parseNode.GetChildNode("exchangeRate") is { } nullNodeExchangeRate && nullNodeExchangeRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExchangeRate = null;
+            if (parseNode.GetChildNode("fromAddress") is { } nullNodeFromAddress && nullNodeFromAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FromAddress = null;
+            if (parseNode.GetChildNode("minimumTotal") is { } nullNodeMinimumTotal && nullNodeMinimumTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinimumTotal = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("partnerUserRef") is { } nullNodePartnerUserRef && nullNodePartnerUserRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartnerUserRef = null;
+            if (parseNode.GetChildNode("paymentMethod") is { } nullNodePaymentMethod && nullNodePaymentMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethod = null;
+            if (parseNode.GetChildNode("redirectUrl") is { } nullNodeRedirectUrl && nullNodeRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUrl = null;
+            if (parseNode.GetChildNode("sellAmount") is { } nullNodeSellAmount && nullNodeSellAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SellAmount = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("subtotal") is { } nullNodeSubtotal && nullNodeSubtotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subtotal = null;
+            if (parseNode.GetChildNode("toAddress") is { } nullNodeToAddress && nullNodeToAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToAddress = null;
+            if (parseNode.GetChildNode("total") is { } nullNodeTotal && nullNodeTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Total = null;
+            if (parseNode.GetChildNode("transactionId") is { } nullNodeTransactionId && nullNodeTransactionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionId = null;
+            if (parseNode.GetChildNode("txHash") is { } nullNodeTxHash && nullNodeTxHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TxHash = null;
+            if (parseNode.GetChildNode("unitPrice") is { } nullNodeUnitPrice && nullNodeUnitPrice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UnitPrice = null;
+            if (parseNode.GetChildNode("updatedAt") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The crypto currency being sold (e.g., &quot;ETH&quot;, &quot;USDC&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get; set; }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get; set; }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>A monetary amount with currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? CoinbaseFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? CoinbaseFee { get => _explicitNullValueCoinbaseFee; set { _explicitNullValueCoinbaseFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coinbaseFee"); else _explicitNullProperties?.Remove("coinbaseFee"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? _explicitNullValueCoinbaseFee = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount CoinbaseFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount CoinbaseFee { get => _explicitNullValueCoinbaseFee; set { _explicitNullValueCoinbaseFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coinbaseFee"); else _explicitNullProperties?.Remove("coinbaseFee"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount _explicitNullValueCoinbaseFee = default!;
 #endif
         /// <summary>When the transaction was created.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("createdAt"); else _explicitNullProperties?.Remove("createdAt"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The webhook event type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventType { get; set; }
+        public string? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventType"); else _explicitNullProperties?.Remove("eventType"); } }
+        private string? _explicitNullValueEventType = default!;
 #nullable restore
 #else
-        public string EventType { get; set; }
+        public string EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("eventType"); else _explicitNullProperties?.Remove("eventType"); } }
+        private string _explicitNullValueEventType = default!;
 #endif
         /// <summary>A monetary amount with currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? ExchangeRate { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? ExchangeRate { get => _explicitNullValueExchangeRate; set { _explicitNullValueExchangeRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchangeRate"); else _explicitNullProperties?.Remove("exchangeRate"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? _explicitNullValueExchangeRate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount ExchangeRate { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount ExchangeRate { get => _explicitNullValueExchangeRate; set { _explicitNullValueExchangeRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchangeRate"); else _explicitNullProperties?.Remove("exchangeRate"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount _explicitNullValueExchangeRate = default!;
 #endif
         /// <summary>The address crypto was received from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FromAddress { get; set; }
+        public string? FromAddress { get => _explicitNullValueFromAddress; set { _explicitNullValueFromAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAddress"); else _explicitNullProperties?.Remove("fromAddress"); } }
+        private string? _explicitNullValueFromAddress = default!;
 #nullable restore
 #else
-        public string FromAddress { get; set; }
+        public string FromAddress { get => _explicitNullValueFromAddress; set { _explicitNullValueFromAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fromAddress"); else _explicitNullProperties?.Remove("fromAddress"); } }
+        private string _explicitNullValueFromAddress = default!;
 #endif
         /// <summary>A monetary amount with currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? MinimumTotal { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? MinimumTotal { get => _explicitNullValueMinimumTotal; set { _explicitNullValueMinimumTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimumTotal"); else _explicitNullProperties?.Remove("minimumTotal"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? _explicitNullValueMinimumTotal = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount MinimumTotal { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount MinimumTotal { get => _explicitNullValueMinimumTotal; set { _explicitNullValueMinimumTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minimumTotal"); else _explicitNullProperties?.Remove("minimumTotal"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount _explicitNullValueMinimumTotal = default!;
 #endif
         /// <summary>The blockchain network (e.g., &quot;ethereum&quot;, &quot;base&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Network { get; set; }
+        public string? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private string? _explicitNullValueNetwork = default!;
 #nullable restore
 #else
-        public string Network { get; set; }
+        public string Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private string _explicitNullValueNetwork = default!;
 #endif
         /// <summary>The partnerUserId provided when initializing the offramp session.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PartnerUserRef { get; set; }
+        public string? PartnerUserRef { get => _explicitNullValuePartnerUserRef; set { _explicitNullValuePartnerUserRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partnerUserRef"); else _explicitNullProperties?.Remove("partnerUserRef"); } }
+        private string? _explicitNullValuePartnerUserRef = default!;
 #nullable restore
 #else
-        public string PartnerUserRef { get; set; }
+        public string PartnerUserRef { get => _explicitNullValuePartnerUserRef; set { _explicitNullValuePartnerUserRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partnerUserRef"); else _explicitNullProperties?.Remove("partnerUserRef"); } }
+        private string _explicitNullValuePartnerUserRef = default!;
 #endif
         /// <summary>The payment method type used for cashout.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionPayloadPaymentMethod? PaymentMethod { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionPayloadPaymentMethod? PaymentMethod { get => _explicitNullValuePaymentMethod; set { _explicitNullValuePaymentMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentMethod"); else _explicitNullProperties?.Remove("paymentMethod"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionPayloadPaymentMethod? _explicitNullValuePaymentMethod = default!;
         /// <summary>The URL the user was redirected to after confirming the offramp.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedirectUrl { get; set; }
+        public string? RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrl"); else _explicitNullProperties?.Remove("redirectUrl"); } }
+        private string? _explicitNullValueRedirectUrl = default!;
 #nullable restore
 #else
-        public string RedirectUrl { get; set; }
+        public string RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrl"); else _explicitNullProperties?.Remove("redirectUrl"); } }
+        private string _explicitNullValueRedirectUrl = default!;
 #endif
         /// <summary>A monetary amount with currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? SellAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? SellAmount { get => _explicitNullValueSellAmount; set { _explicitNullValueSellAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sellAmount"); else _explicitNullProperties?.Remove("sellAmount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? _explicitNullValueSellAmount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount SellAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount SellAmount { get => _explicitNullValueSellAmount; set { _explicitNullValueSellAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sellAmount"); else _explicitNullProperties?.Remove("sellAmount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount _explicitNullValueSellAmount = default!;
 #endif
         /// <summary>Current status of the offramp transaction.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionPayloadStatus? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionPayloadStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionPayloadStatus? _explicitNullValueStatus = default!;
         /// <summary>A monetary amount with currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? Subtotal { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? Subtotal { get => _explicitNullValueSubtotal; set { _explicitNullValueSubtotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subtotal"); else _explicitNullProperties?.Remove("subtotal"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? _explicitNullValueSubtotal = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount Subtotal { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount Subtotal { get => _explicitNullValueSubtotal; set { _explicitNullValueSubtotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subtotal"); else _explicitNullProperties?.Remove("subtotal"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount _explicitNullValueSubtotal = default!;
 #endif
         /// <summary>The address crypto was sent to (Coinbase deposit address).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ToAddress { get; set; }
+        public string? ToAddress { get => _explicitNullValueToAddress; set { _explicitNullValueToAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toAddress"); else _explicitNullProperties?.Remove("toAddress"); } }
+        private string? _explicitNullValueToAddress = default!;
 #nullable restore
 #else
-        public string ToAddress { get; set; }
+        public string ToAddress { get => _explicitNullValueToAddress; set { _explicitNullValueToAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toAddress"); else _explicitNullProperties?.Remove("toAddress"); } }
+        private string _explicitNullValueToAddress = default!;
 #endif
         /// <summary>A monetary amount with currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? Total { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? _explicitNullValueTotal = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount Total { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount Total { get => _explicitNullValueTotal; set { _explicitNullValueTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("total"); else _explicitNullProperties?.Remove("total"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount _explicitNullValueTotal = default!;
 #endif
         /// <summary>Unique transaction identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionId { get; set; }
+        public string? TransactionId { get => _explicitNullValueTransactionId; set { _explicitNullValueTransactionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionId"); else _explicitNullProperties?.Remove("transactionId"); } }
+        private string? _explicitNullValueTransactionId = default!;
 #nullable restore
 #else
-        public string TransactionId { get; set; }
+        public string TransactionId { get => _explicitNullValueTransactionId; set { _explicitNullValueTransactionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionId"); else _explicitNullProperties?.Remove("transactionId"); } }
+        private string _explicitNullValueTransactionId = default!;
 #endif
         /// <summary>The onchain transaction hash of the crypto send.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TxHash { get; set; }
+        public string? TxHash { get => _explicitNullValueTxHash; set { _explicitNullValueTxHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txHash"); else _explicitNullProperties?.Remove("txHash"); } }
+        private string? _explicitNullValueTxHash = default!;
 #nullable restore
 #else
-        public string TxHash { get; set; }
+        public string TxHash { get => _explicitNullValueTxHash; set { _explicitNullValueTxHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("txHash"); else _explicitNullProperties?.Remove("txHash"); } }
+        private string _explicitNullValueTxHash = default!;
 #endif
         /// <summary>A monetary amount with currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? UnitPrice { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? UnitPrice { get => _explicitNullValueUnitPrice; set { _explicitNullValueUnitPrice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unitPrice"); else _explicitNullProperties?.Remove("unitPrice"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount? _explicitNullValueUnitPrice = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount UnitPrice { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount UnitPrice { get => _explicitNullValueUnitPrice; set { _explicitNullValueUnitPrice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("unitPrice"); else _explicitNullProperties?.Remove("unitPrice"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount _explicitNullValueUnitPrice = default!;
 #endif
         /// <summary>When the transaction was last updated.</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updatedAt"); else _explicitNullProperties?.Remove("updatedAt"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionUpdatedEvent"/> and sets the default values.
         /// </summary>
@@ -165,7 +228,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionUpdatedEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionUpdatedEvent();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OfframpTransactionUpdatedEvent(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -224,6 +287,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("txHash", TxHash);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MoneyAmount>("unitPrice", UnitPrice);
             writer.WriteDateTimeOffsetValue("updatedAt", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

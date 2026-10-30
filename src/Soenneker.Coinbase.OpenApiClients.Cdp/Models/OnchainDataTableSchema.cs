@@ -12,32 +12,48 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnchainDataTableSchema : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("columns") is { } nullNodeColumns && nullNodeColumns.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Columns = null;
+            if (parseNode.GetChildNode("database") is { } nullNodeDatabase && nullNodeDatabase.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Database = null;
+            if (parseNode.GetChildNode("table") is { } nullNodeTable && nullNodeTable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Table = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Column definitions for this table.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema>? Columns { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema>? Columns { get => _explicitNullValueColumns; set { _explicitNullValueColumns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columns"); else _explicitNullProperties?.Remove("columns"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema>? _explicitNullValueColumns = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema> Columns { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema> Columns { get => _explicitNullValueColumns; set { _explicitNullValueColumns = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("columns"); else _explicitNullProperties?.Remove("columns"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema> _explicitNullValueColumns = default!;
 #endif
         /// <summary>The blockchain network database this table belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Database { get; set; }
+        public string? Database { get => _explicitNullValueDatabase; set { _explicitNullValueDatabase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database"); else _explicitNullProperties?.Remove("database"); } }
+        private string? _explicitNullValueDatabase = default!;
 #nullable restore
 #else
-        public string Database { get; set; }
+        public string Database { get => _explicitNullValueDatabase; set { _explicitNullValueDatabase = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("database"); else _explicitNullProperties?.Remove("database"); } }
+        private string _explicitNullValueDatabase = default!;
 #endif
         /// <summary>Table name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Table { get; set; }
+        public string? Table { get => _explicitNullValueTable; set { _explicitNullValueTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("table"); else _explicitNullProperties?.Remove("table"); } }
+        private string? _explicitNullValueTable = default!;
 #nullable restore
 #else
-        public string Table { get; set; }
+        public string Table { get => _explicitNullValueTable; set { _explicitNullValueTable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("table"); else _explicitNullProperties?.Remove("table"); } }
+        private string _explicitNullValueTable = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataTableSchema"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataTableSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataTableSchema();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataTableSchema(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainDataColumnSchema>("columns", Columns);
             writer.WriteStringValue("database", Database);
             writer.WriteStringValue("table", Table);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

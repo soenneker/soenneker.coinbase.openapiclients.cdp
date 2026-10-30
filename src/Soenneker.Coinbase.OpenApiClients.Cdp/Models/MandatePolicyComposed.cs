@@ -12,32 +12,48 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MandatePolicyComposed : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("maxPerAuthorization") is { } nullNodeMaxPerAuthorization && nullNodeMaxPerAuthorization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPerAuthorization = null;
+            if (parseNode.GetChildNode("maxPerPeriod") is { } nullNodeMaxPerPeriod && nullNodeMaxPerPeriod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxPerPeriod = null;
+            if (parseNode.GetChildNode("minSetupBalance") is { } nullNodeMinSetupBalance && nullNodeMinSetupBalance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MinSetupBalance = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Max amount for one authorization. Omit to use the Coinbase default. Capped at the Coinbase ceiling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxPerAuthorization { get; set; }
+        public string? MaxPerAuthorization { get => _explicitNullValueMaxPerAuthorization; set { _explicitNullValueMaxPerAuthorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPerAuthorization"); else _explicitNullProperties?.Remove("maxPerAuthorization"); } }
+        private string? _explicitNullValueMaxPerAuthorization = default!;
 #nullable restore
 #else
-        public string MaxPerAuthorization { get; set; }
+        public string MaxPerAuthorization { get => _explicitNullValueMaxPerAuthorization; set { _explicitNullValueMaxPerAuthorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPerAuthorization"); else _explicitNullProperties?.Remove("maxPerAuthorization"); } }
+        private string _explicitNullValueMaxPerAuthorization = default!;
 #endif
         /// <summary>One rolling cap. Omit to use a Coinbase-configured monthly max. If set, both `amount` and `period` are required. Amount is capped at that period&apos;s ceiling.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyMaxPerPeriod? MaxPerPeriod { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyMaxPerPeriod? MaxPerPeriod { get => _explicitNullValueMaxPerPeriod; set { _explicitNullValueMaxPerPeriod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPerPeriod"); else _explicitNullProperties?.Remove("maxPerPeriod"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyMaxPerPeriod? _explicitNullValueMaxPerPeriod = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyMaxPerPeriod MaxPerPeriod { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyMaxPerPeriod MaxPerPeriod { get => _explicitNullValueMaxPerPeriod; set { _explicitNullValueMaxPerPeriod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxPerPeriod"); else _explicitNullProperties?.Remove("maxPerPeriod"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyMaxPerPeriod _explicitNullValueMaxPerPeriod = default!;
 #endif
         /// <summary>Optional minimum available balance the payer must have to set up the mandate, denominated in the mandate&apos;s `asset`. When set, the mandate can only be approved if the payer&apos;s available balance is at least this amount; an approval attempted while the balance is below it is rejected with a `422` (`mandate_policy_violation`). This does not dictate the amount debited: the payment session amount remains the source of truth for what is debited. Omit to use the Coinbase-configured default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MinSetupBalance { get; set; }
+        public string? MinSetupBalance { get => _explicitNullValueMinSetupBalance; set { _explicitNullValueMinSetupBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minSetupBalance"); else _explicitNullProperties?.Remove("minSetupBalance"); } }
+        private string? _explicitNullValueMinSetupBalance = default!;
 #nullable restore
 #else
-        public string MinSetupBalance { get; set; }
+        public string MinSetupBalance { get => _explicitNullValueMinSetupBalance; set { _explicitNullValueMinSetupBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("minSetupBalance"); else _explicitNullProperties?.Remove("minSetupBalance"); } }
+        private string _explicitNullValueMinSetupBalance = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyComposed(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("maxPerAuthorization", MaxPerAuthorization);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandatePolicyMaxPerPeriod>("maxPerPeriod", MaxPerPeriod);
             writer.WriteStringValue("minSetupBalance", MinSetupBalance);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

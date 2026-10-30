@@ -12,19 +12,33 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EvmTypedDataFieldObservation : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("typesMatched") is { } nullNodeTypesMatched && nullNodeTypesMatched.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TypesMatched = null;
+        }
+
         /// <summary>The fields that decided the criterion. When the criterion is unmet, this is the field of the first failing condition only. When it is met, this is the field of every condition, in `conditions` order.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedTypedDataField>? Fields { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedTypedDataField>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedTypedDataField>? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedTypedDataField> Fields { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedTypedDataField> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedTypedDataField> _explicitNullValueFields = default!;
 #endif
         /// <summary>The type of criterion to use. This should be `evmTypedDataField`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataFieldType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataFieldType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataFieldType? _explicitNullValueType = default!;
         /// <summary>Whether the message&apos;s types matched the criterion&apos;s `types`. When `false`, no condition was checked and `fields` is empty.</summary>
-        public bool? TypesMatched { get; set; }
+        public bool? TypesMatched { get => _explicitNullValueTypesMatched; set { _explicitNullValueTypesMatched = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("typesMatched"); else _explicitNullProperties?.Remove("typesMatched"); } }
+        private bool? _explicitNullValueTypesMatched = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -33,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataFieldObservation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataFieldObservation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataFieldObservation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +71,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedTypedDataField>("fields", Fields);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmTypedDataFieldType>("type", Type);
-            writer.WriteBoolValue("typesMatched", TypesMatched);
+            writer.WriteBoolValue("typesMatched", TypesMatched);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

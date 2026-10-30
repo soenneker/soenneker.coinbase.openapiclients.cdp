@@ -12,40 +12,59 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("salt") is { } nullNodeSalt && nullNodeSalt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Salt = null;
+            if (parseNode.GetChildNode("signature") is { } nullNodeSignature && nullNodeSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Signature = null;
+            if (parseNode.GetChildNode("validAfter") is { } nullNodeValidAfter && nullNodeValidAfter.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidAfter = null;
+            if (parseNode.GetChildNode("validBefore") is { } nullNodeValidBefore && nullNodeValidBefore.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ValidBefore = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The 32-byte ERC-3009 nonce/salt for replay protection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Salt { get; set; }
+        public string? Salt { get => _explicitNullValueSalt; set { _explicitNullValueSalt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salt"); else _explicitNullProperties?.Remove("salt"); } }
+        private string? _explicitNullValueSalt = default!;
 #nullable restore
 #else
-        public string Salt { get; set; }
+        public string Salt { get => _explicitNullValueSalt; set { _explicitNullValueSalt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("salt"); else _explicitNullProperties?.Remove("salt"); } }
+        private string _explicitNullValueSalt = default!;
 #endif
         /// <summary>The EIP-712 hex-encoded signature of the ERC-3009 authorization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Signature { get; set; }
+        public string? Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        private string? _explicitNullValueSignature = default!;
 #nullable restore
 #else
-        public string Signature { get; set; }
+        public string Signature { get => _explicitNullValueSignature; set { _explicitNullValueSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("signature"); else _explicitNullProperties?.Remove("signature"); } }
+        private string _explicitNullValueSignature = default!;
 #endif
         /// <summary>The unix timestamp after which the authorization is valid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ValidAfter { get; set; }
+        public string? ValidAfter { get => _explicitNullValueValidAfter; set { _explicitNullValueValidAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validAfter"); else _explicitNullProperties?.Remove("validAfter"); } }
+        private string? _explicitNullValueValidAfter = default!;
 #nullable restore
 #else
-        public string ValidAfter { get; set; }
+        public string ValidAfter { get => _explicitNullValueValidAfter; set { _explicitNullValueValidAfter = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validAfter"); else _explicitNullProperties?.Remove("validAfter"); } }
+        private string _explicitNullValueValidAfter = default!;
 #endif
         /// <summary>The unix timestamp before which the authorization is valid.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ValidBefore { get; set; }
+        public string? ValidBefore { get => _explicitNullValueValidBefore; set { _explicitNullValueValidBefore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validBefore"); else _explicitNullProperties?.Remove("validBefore"); } }
+        private string? _explicitNullValueValidBefore = default!;
 #nullable restore
 #else
-        public string ValidBefore { get; set; }
+        public string ValidBefore { get => _explicitNullValueValidBefore; set { _explicitNullValueValidBefore = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("validBefore"); else _explicitNullProperties?.Remove("validBefore"); } }
+        private string _explicitNullValueValidBefore = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization"/> and sets the default values.
@@ -62,7 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementDepositPayloadDepositAuthorizationErc3009Authorization(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,6 +108,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("signature", Signature);
             writer.WriteStringValue("validAfter", ValidAfter);
             writer.WriteStringValue("validBefore", ValidBefore);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

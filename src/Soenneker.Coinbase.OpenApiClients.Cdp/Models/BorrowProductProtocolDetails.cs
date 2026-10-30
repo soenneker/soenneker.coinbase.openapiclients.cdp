@@ -12,25 +12,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BorrowProductProtocolDetails : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("marketParams") is { } nullNodeMarketParams && nullNodeMarketParams.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MarketParams = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The Morpho Blue market parameters that uniquely define the product onchain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams? MarketParams { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams? MarketParams { get => _explicitNullValueMarketParams; set { _explicitNullValueMarketParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketParams"); else _explicitNullProperties?.Remove("marketParams"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams? _explicitNullValueMarketParams = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams MarketParams { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams MarketParams { get => _explicitNullValueMarketParams; set { _explicitNullValueMarketParams = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketParams"); else _explicitNullProperties?.Remove("marketParams"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams _explicitNullValueMarketParams = default!;
 #endif
-        /// <summary>The type property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
+        /// <summary>The protocol type, used to discriminate the protocol details schema.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails"/> and sets the default values.
         /// </summary>
@@ -46,7 +52,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +63,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "marketParams", n => { MarketParams = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueType>(); } },
             };
         }
         /// <summary>
@@ -68,7 +74,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueMarketParams>("marketParams", MarketParams);
-            writer.WriteStringValue("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MorphoBlueType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

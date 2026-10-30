@@ -11,34 +11,52 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class SignSolanaX402PaymentWithEndUserAccountRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("acceptsIndex") is { } nullNodeAcceptsIndex && nullNodeAcceptsIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptsIndex = null;
+            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("paymentRequired") is { } nullNodePaymentRequired && nullNodePaymentRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRequired = null;
+            if (parseNode.GetChildNode("walletSecretId") is { } nullNodeWalletSecretId && nullNodeWalletSecretId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WalletSecretId = null;
+        }
+
         /// <summary>Zero-based index into paymentRequired.accepts selecting which payment option to sign. Must be less than the length of accepts. The entry at this index must be a Solana network payment option for this endpoint.</summary>
-        public int? AcceptsIndex { get; set; }
+        public int? AcceptsIndex { get => _explicitNullValueAcceptsIndex; set { _explicitNullValueAcceptsIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptsIndex"); else _explicitNullProperties?.Remove("acceptsIndex"); } }
+        private int? _explicitNullValueAcceptsIndex = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The base58 encoded address of the end user&apos;s Solana account to sign with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Address { get; set; }
+        public string? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public string Address { get; set; }
+        public string Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string _explicitNullValueAddress = default!;
 #endif
         /// <summary>The complete x402 payment required response body from the resource server. Top-level fields (x402Version, resource, error, extensions) are preserved in the signed payment payload; acceptsIndex selects which entry from accepts is signed as paymentPayload.accepted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequired? PaymentRequired { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequired? PaymentRequired { get => _explicitNullValuePaymentRequired; set { _explicitNullValuePaymentRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRequired"); else _explicitNullProperties?.Remove("paymentRequired"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequired? _explicitNullValuePaymentRequired = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequired PaymentRequired { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequired PaymentRequired { get => _explicitNullValuePaymentRequired; set { _explicitNullValuePaymentRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentRequired"); else _explicitNullProperties?.Remove("paymentRequired"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequired _explicitNullValuePaymentRequired = default!;
 #endif
         /// <summary>Required when not using delegated signing. The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth Header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WalletSecretId { get; set; }
+        public string? WalletSecretId { get => _explicitNullValueWalletSecretId; set { _explicitNullValueWalletSecretId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("walletSecretId"); else _explicitNullProperties?.Remove("walletSecretId"); } }
+        private string? _explicitNullValueWalletSecretId = default!;
 #nullable restore
 #else
-        public string WalletSecretId { get; set; }
+        public string WalletSecretId { get => _explicitNullValueWalletSecretId; set { _explicitNullValueWalletSecretId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("walletSecretId"); else _explicitNullProperties?.Remove("walletSecretId"); } }
+        private string _explicitNullValueWalletSecretId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequest"/> and sets the default values.
@@ -55,7 +73,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("address", Address);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SignSolanaX402PaymentWithEndUserAccountRequestPaymentRequired>("paymentRequired", PaymentRequired);
             writer.WriteStringValue("walletSecretId", WalletSecretId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

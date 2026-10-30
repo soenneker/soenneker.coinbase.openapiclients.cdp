@@ -12,18 +12,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnrampLimitUpgrade : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("limitType") is { } nullNodeLimitType && nullNodeLimitType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitType = null;
+            if (parseNode.GetChildNode("maxUpgrade") is { } nullNodeMaxUpgrade && nullNodeMaxUpgrade.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxUpgrade = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of limit:- `weekly_spending`: Rolling 7-day spending limit. The limit applies to the sum of all completed transactions   within a sliding 168-hour (7-day) window. As time passes, older transactions naturally expire from the window.   $500 is the default limit.- `lifetime_transactions`: All-time transaction count limit. Tracks the total number of completed transactions   across the user&apos;s entire history with no time-based expiration. Once the limit is reached, no further   transactions are allowed. 15 is the default limit.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitType? LimitType { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitType? LimitType { get => _explicitNullValueLimitType; set { _explicitNullValueLimitType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitType"); else _explicitNullProperties?.Remove("limitType"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitType? _explicitNullValueLimitType = default!;
         /// <summary>The maximum limit value possible after completing the upgrade. Risk factors may impact the actual limit value that takes effect. For `lifetime_transactions`, `2147483647` represents an unlimited number of transactions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxUpgrade { get; set; }
+        public string? MaxUpgrade { get => _explicitNullValueMaxUpgrade; set { _explicitNullValueMaxUpgrade = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxUpgrade"); else _explicitNullProperties?.Remove("maxUpgrade"); } }
+        private string? _explicitNullValueMaxUpgrade = default!;
 #nullable restore
 #else
-        public string MaxUpgrade { get; set; }
+        public string MaxUpgrade { get => _explicitNullValueMaxUpgrade; set { _explicitNullValueMaxUpgrade = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxUpgrade"); else _explicitNullProperties?.Remove("maxUpgrade"); } }
+        private string _explicitNullValueMaxUpgrade = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade"/> and sets the default values.
@@ -40,7 +52,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,6 +75,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitType>("limitType", LimitType);
             writer.WriteStringValue("maxUpgrade", MaxUpgrade);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

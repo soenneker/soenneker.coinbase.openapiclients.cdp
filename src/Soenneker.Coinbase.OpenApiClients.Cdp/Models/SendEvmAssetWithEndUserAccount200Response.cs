@@ -11,24 +11,37 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class SendEvmAssetWithEndUserAccount200Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("transactionHash") is { } nullNodeTransactionHash && nullNodeTransactionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionHash = null;
+            if (parseNode.GetChildNode("userOpHash") is { } nullNodeUserOpHash && nullNodeUserOpHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserOpHash = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The hash of the transaction, as a 0x-prefixed hex string. Populated for EOA accounts. Null for Smart Accounts (use userOpHash instead).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionHash { get; set; }
+        public string? TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
+        private string? _explicitNullValueTransactionHash = default!;
 #nullable restore
 #else
-        public string TransactionHash { get; set; }
+        public string TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
+        private string _explicitNullValueTransactionHash = default!;
 #endif
         /// <summary>The hash of the user operation, as a 0x-prefixed hex string. Populated for Smart Accounts. Null for EOA accounts (use transactionHash instead).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserOpHash { get; set; }
+        public string? UserOpHash { get => _explicitNullValueUserOpHash; set { _explicitNullValueUserOpHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userOpHash"); else _explicitNullProperties?.Remove("userOpHash"); } }
+        private string? _explicitNullValueUserOpHash = default!;
 #nullable restore
 #else
-        public string UserOpHash { get; set; }
+        public string UserOpHash { get => _explicitNullValueUserOpHash; set { _explicitNullValueUserOpHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userOpHash"); else _explicitNullProperties?.Remove("userOpHash"); } }
+        private string _explicitNullValueUserOpHash = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccount200Response"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccount200Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccount200Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SendEvmAssetWithEndUserAccount200Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("transactionHash", TransactionHash);
             writer.WriteStringValue("userOpHash", UserOpHash);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

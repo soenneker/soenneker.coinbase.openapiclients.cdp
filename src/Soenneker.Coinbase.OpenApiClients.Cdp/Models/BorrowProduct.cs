@@ -12,58 +12,85 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BorrowProduct : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("assets") is { } nullNodeAssets && nullNodeAssets.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Assets = null;
+            if (parseNode.GetChildNode("borrowProductId") is { } nullNodeBorrowProductId && nullNodeBorrowProductId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorrowProductId = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("protocolDetails") is { } nullNodeProtocolDetails && nullNodeProtocolDetails.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProtocolDetails = null;
+            if (parseNode.GetChildNode("snapshot") is { } nullNodeSnapshot && nullNodeSnapshot.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Snapshot = null;
+            if (parseNode.GetChildNode("venue") is { } nullNodeVenue && nullNodeVenue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Venue = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The assets available to be borrowed or borrowed against in this market.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductAsset>? Assets { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductAsset>? Assets { get => _explicitNullValueAssets; set { _explicitNullValueAssets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assets"); else _explicitNullProperties?.Remove("assets"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductAsset>? _explicitNullValueAssets = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductAsset> Assets { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductAsset> Assets { get => _explicitNullValueAssets; set { _explicitNullValueAssets = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("assets"); else _explicitNullProperties?.Remove("assets"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductAsset> _explicitNullValueAssets = default!;
 #endif
         /// <summary>The globally unique ID of the borrow product, which is a UUID prefixed with the string `bp_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorrowProductId { get; set; }
+        public string? BorrowProductId { get => _explicitNullValueBorrowProductId; set { _explicitNullValueBorrowProductId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowProductId"); else _explicitNullProperties?.Remove("borrowProductId"); } }
+        private string? _explicitNullValueBorrowProductId = default!;
 #nullable restore
 #else
-        public string BorrowProductId { get; set; }
+        public string BorrowProductId { get => _explicitNullValueBorrowProductId; set { _explicitNullValueBorrowProductId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowProductId"); else _explicitNullProperties?.Remove("borrowProductId"); } }
+        private string _explicitNullValueBorrowProductId = default!;
 #endif
         /// <summary>A human-readable name for the product, typically derived from its loan and collateral tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>The name of the EVM network that a borrow product is deployed on.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductNetwork? _explicitNullValueNetwork = default!;
         /// <summary>Protocol-specific immutable onchain details that uniquely define a borrow product. The `type` field indicates which protocol-specific schema describes the product&apos;s details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails? ProtocolDetails { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails? ProtocolDetails { get => _explicitNullValueProtocolDetails; set { _explicitNullValueProtocolDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocolDetails"); else _explicitNullProperties?.Remove("protocolDetails"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails? _explicitNullValueProtocolDetails = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails ProtocolDetails { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails ProtocolDetails { get => _explicitNullValueProtocolDetails; set { _explicitNullValueProtocolDetails = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocolDetails"); else _explicitNullProperties?.Remove("protocolDetails"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails _explicitNullValueProtocolDetails = default!;
 #endif
         /// <summary>The point-in-time at which onchain state, such as a borrow product or borrow position, was captured. This is when the data was last read from the chain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot? Snapshot { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot? Snapshot { get => _explicitNullValueSnapshot; set { _explicitNullValueSnapshot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshot"); else _explicitNullProperties?.Remove("snapshot"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot? _explicitNullValueSnapshot = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot Snapshot { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot Snapshot { get => _explicitNullValueSnapshot; set { _explicitNullValueSnapshot = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("snapshot"); else _explicitNullProperties?.Remove("snapshot"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot _explicitNullValueSnapshot = default!;
 #endif
         /// <summary>The onchain venue that hosts a borrow product. The venue comprises the protocol and  network the product is deployed on. An example of a venue would be Morpho Blue on  Base Mainnet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductVenue? Venue { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductVenue? Venue { get => _explicitNullValueVenue; set { _explicitNullValueVenue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("venue"); else _explicitNullProperties?.Remove("venue"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductVenue? _explicitNullValueVenue = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductVenue Venue { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductVenue Venue { get => _explicitNullValueVenue; set { _explicitNullValueVenue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("venue"); else _explicitNullProperties?.Remove("venue"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductVenue _explicitNullValueVenue = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProduct"/> and sets the default values.
@@ -80,7 +107,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProduct CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProduct();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProduct(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,6 +140,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductProtocolDetails>("protocolDetails", ProtocolDetails);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot>("snapshot", Snapshot);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductVenue>("venue", Venue);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

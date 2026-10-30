@@ -12,32 +12,48 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferDetails : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("depositDestination") is { } nullNodeDepositDestination && nullNodeDepositDestination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DepositDestination = null;
+            if (parseNode.GetChildNode("onchainTransactions") is { } nullNodeOnchainTransactions && nullNodeOnchainTransactions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OnchainTransactions = null;
+            if (parseNode.GetChildNode("travelRule") is { } nullNodeTravelRule && nullNodeTravelRule.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TravelRule = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A reference to the deposit destination associated with the transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference? DepositDestination { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference? DepositDestination { get => _explicitNullValueDepositDestination; set { _explicitNullValueDepositDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("depositDestination"); else _explicitNullProperties?.Remove("depositDestination"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference? _explicitNullValueDepositDestination = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference DepositDestination { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference DepositDestination { get => _explicitNullValueDepositDestination; set { _explicitNullValueDepositDestination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("depositDestination"); else _explicitNullProperties?.Remove("depositDestination"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference _explicitNullValueDepositDestination = default!;
 #endif
         /// <summary>The onchain transactions associated with the transfer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem>? OnchainTransactions { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem>? OnchainTransactions { get => _explicitNullValueOnchainTransactions; set { _explicitNullValueOnchainTransactions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainTransactions"); else _explicitNullProperties?.Remove("onchainTransactions"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem>? _explicitNullValueOnchainTransactions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem> OnchainTransactions { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem> OnchainTransactions { get => _explicitNullValueOnchainTransactions; set { _explicitNullValueOnchainTransactions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("onchainTransactions"); else _explicitNullProperties?.Remove("onchainTransactions"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem> _explicitNullValueOnchainTransactions = default!;
 #endif
         /// <summary>Travel rule compliance status for deposit transfers. Present when the transfer requires travel rule information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule? TravelRule { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule? TravelRule { get => _explicitNullValueTravelRule; set { _explicitNullValueTravelRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("travelRule"); else _explicitNullProperties?.Remove("travelRule"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule? _explicitNullValueTravelRule = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule TravelRule { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule TravelRule { get => _explicitNullValueTravelRule; set { _explicitNullValueTravelRule = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("travelRule"); else _explicitNullProperties?.Remove("travelRule"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule _explicitNullValueTravelRule = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositDestinationReference>("depositDestination", DepositDestination);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsOnchainTransactionsItem>("onchainTransactions", OnchainTransactions);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TransferDetailsTravelRule>("travelRule", TravelRule);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

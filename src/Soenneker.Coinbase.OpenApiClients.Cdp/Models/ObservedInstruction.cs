@@ -12,32 +12,50 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ObservedInstruction : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("arguments") is { } nullNodeArguments && nullNodeArguments.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Arguments = null;
+            if (parseNode.GetChildNode("index") is { } nullNodeIndex && nullNodeIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Index = null;
+            if (parseNode.GetChildNode("instruction") is { } nullNodeInstruction && nullNodeInstruction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Instruction = null;
+            if (parseNode.GetChildNode("programId") is { } nullNodeProgramId && nullNodeProgramId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProgramId = null;
+        }
+
         /// <summary>The decoded arguments, in IDL order. Empty when `instruction` is omitted. Only the first 32 arguments are returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedArgument>? Arguments { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedArgument>? Arguments { get => _explicitNullValueArguments; set { _explicitNullValueArguments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("arguments"); else _explicitNullProperties?.Remove("arguments"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedArgument>? _explicitNullValueArguments = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedArgument> Arguments { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedArgument> Arguments { get => _explicitNullValueArguments; set { _explicitNullValueArguments = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("arguments"); else _explicitNullProperties?.Remove("arguments"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedArgument> _explicitNullValueArguments = default!;
 #endif
         /// <summary>Zero-based index of the instruction in the transaction.</summary>
-        public int? Index { get; set; }
+        public int? Index { get => _explicitNullValueIndex; set { _explicitNullValueIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("index"); else _explicitNullProperties?.Remove("index"); } }
+        private int? _explicitNullValueIndex = default!;
         /// <summary>The instruction name from the IDL. Omitted when no IDL in the criterion decodes the instruction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Instruction { get; set; }
+        public string? Instruction { get => _explicitNullValueInstruction; set { _explicitNullValueInstruction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instruction"); else _explicitNullProperties?.Remove("instruction"); } }
+        private string? _explicitNullValueInstruction = default!;
 #nullable restore
 #else
-        public string Instruction { get; set; }
+        public string Instruction { get => _explicitNullValueInstruction; set { _explicitNullValueInstruction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("instruction"); else _explicitNullProperties?.Remove("instruction"); } }
+        private string _explicitNullValueInstruction = default!;
 #endif
         /// <summary>The program the instruction invokes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ProgramId { get; set; }
+        public string? ProgramId { get => _explicitNullValueProgramId; set { _explicitNullValueProgramId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("programId"); else _explicitNullProperties?.Remove("programId"); } }
+        private string? _explicitNullValueProgramId = default!;
 #nullable restore
 #else
-        public string ProgramId { get; set; }
+        public string ProgramId { get => _explicitNullValueProgramId; set { _explicitNullValueProgramId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("programId"); else _explicitNullProperties?.Remove("programId"); } }
+        private string _explicitNullValueProgramId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -47,7 +65,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedInstruction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedInstruction();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedInstruction(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +91,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ObservedArgument>("arguments", Arguments);
             writer.WriteIntValue("index", Index);
             writer.WriteStringValue("instruction", Instruction);
-            writer.WriteStringValue("programId", ProgramId);
+            writer.WriteStringValue("programId", ProgramId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

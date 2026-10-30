@@ -12,21 +12,35 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CustomersRequirementChangedEventAllOf2DataRequirementsItem : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("field") is { } nullNodeField && nullNodeField.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Field = null;
+            if (parseNode.GetChildNode("impact") is { } nullNodeImpact && nullNodeImpact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Impact = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Flat camelCase field name of a customer data requirement(e.g., `ssnLast4`, `addressCity`).</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField? Field { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField? Field { get => _explicitNullValueField; set { _explicitNullValueField = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("field"); else _explicitNullProperties?.Remove("field"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField? _explicitNullValueField = default!;
         /// <summary>Capability codes gated by this requirement, sorted alphabetically. Matches `impact` on the corresponding `GET /v2/customers/{customerId}` requirement entry. Omit when `status` is `cleared`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?>? Impact { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?>? Impact { get => _explicitNullValueImpact; set { _explicitNullValueImpact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("impact"); else _explicitNullProperties?.Remove("impact"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?>? _explicitNullValueImpact = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?> Impact { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?> Impact { get => _explicitNullValueImpact; set { _explicitNullValueImpact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("impact"); else _explicitNullProperties?.Remove("impact"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName?> _explicitNullValueImpact = default!;
 #endif
         /// <summary>The new status of the requirement after the change. `due`, `past_due`, `pending`, and `rejected` match `RequirementStatus`. `cleared` means verification passed and the requirement no longer appears on `GET /v2/customers/{customerId}`. When `status` is `rejected`, resubmit that field on the Customer.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemStatus? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItem"/> and sets the default values.
         /// </summary>
@@ -42,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,6 +81,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemField>("field", Field);
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilityName>("impact", Impact);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomersRequirementChangedEventAllOf2DataRequirementsItemStatus>("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,24 +12,37 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WalletAuthorizationOptionsResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("ineligibleAddresses") is { } nullNodeIneligibleAddresses && nullNodeIneligibleAddresses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IneligibleAddresses = null;
+            if (parseNode.GetChildNode("options") is { } nullNodeOptions && nullNodeOptions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Options = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Requested payer addresses that have no eligible authorization option, each with a `code` explaining why. Empty when every requested address can authorize the payment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletAuthorizationAddress>? IneligibleAddresses { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletAuthorizationAddress>? IneligibleAddresses { get => _explicitNullValueIneligibleAddresses; set { _explicitNullValueIneligibleAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligibleAddresses"); else _explicitNullProperties?.Remove("ineligibleAddresses"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletAuthorizationAddress>? _explicitNullValueIneligibleAddresses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletAuthorizationAddress> IneligibleAddresses { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletAuthorizationAddress> IneligibleAddresses { get => _explicitNullValueIneligibleAddresses; set { _explicitNullValueIneligibleAddresses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ineligibleAddresses"); else _explicitNullProperties?.Remove("ineligibleAddresses"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletAuthorizationAddress> _explicitNullValueIneligibleAddresses = default!;
 #endif
         /// <summary>The available wallet authorization options.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOption>? Options { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOption>? Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOption>? _explicitNullValueOptions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOption> Options { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOption> Options { get => _explicitNullValueOptions; set { _explicitNullValueOptions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("options"); else _explicitNullProperties?.Remove("options"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOption> _explicitNullValueOptions = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionsResponse"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionsResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOptionsResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.IneligibleWalletAuthorizationAddress>("ineligibleAddresses", IneligibleAddresses);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletAuthorizationOption>("options", Options);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,72 +12,103 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnrampQuote : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("destinationNetwork") is { } nullNodeDestinationNetwork && nullNodeDestinationNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationNetwork = null;
+            if (parseNode.GetChildNode("exchangeRate") is { } nullNodeExchangeRate && nullNodeExchangeRate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExchangeRate = null;
+            if (parseNode.GetChildNode("fees") is { } nullNodeFees && nullNodeFees.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fees = null;
+            if (parseNode.GetChildNode("paymentCurrency") is { } nullNodePaymentCurrency && nullNodePaymentCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentCurrency = null;
+            if (parseNode.GetChildNode("paymentSubtotal") is { } nullNodePaymentSubtotal && nullNodePaymentSubtotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentSubtotal = null;
+            if (parseNode.GetChildNode("paymentTotal") is { } nullNodePaymentTotal && nullNodePaymentTotal.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentTotal = null;
+            if (parseNode.GetChildNode("purchaseAmount") is { } nullNodePurchaseAmount && nullNodePurchaseAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PurchaseAmount = null;
+            if (parseNode.GetChildNode("purchaseCurrency") is { } nullNodePurchaseCurrency && nullNodePurchaseCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PurchaseCurrency = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The network to send the crypto on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationNetwork { get; set; }
+        public string? DestinationNetwork { get => _explicitNullValueDestinationNetwork; set { _explicitNullValueDestinationNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationNetwork"); else _explicitNullProperties?.Remove("destinationNetwork"); } }
+        private string? _explicitNullValueDestinationNetwork = default!;
 #nullable restore
 #else
-        public string DestinationNetwork { get; set; }
+        public string DestinationNetwork { get => _explicitNullValueDestinationNetwork; set { _explicitNullValueDestinationNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationNetwork"); else _explicitNullProperties?.Remove("destinationNetwork"); } }
+        private string _explicitNullValueDestinationNetwork = default!;
 #endif
         /// <summary>The exchange rate used to convert fiat to crypto i.e. the crypto value of one fiat.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExchangeRate { get; set; }
+        public string? ExchangeRate { get => _explicitNullValueExchangeRate; set { _explicitNullValueExchangeRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchangeRate"); else _explicitNullProperties?.Remove("exchangeRate"); } }
+        private string? _explicitNullValueExchangeRate = default!;
 #nullable restore
 #else
-        public string ExchangeRate { get; set; }
+        public string ExchangeRate { get => _explicitNullValueExchangeRate; set { _explicitNullValueExchangeRate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchangeRate"); else _explicitNullProperties?.Remove("exchangeRate"); } }
+        private string _explicitNullValueExchangeRate = default!;
 #endif
         /// <summary>The fees associated with the quote.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee>? Fees { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee>? Fees { get => _explicitNullValueFees; set { _explicitNullValueFees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fees"); else _explicitNullProperties?.Remove("fees"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee>? _explicitNullValueFees = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee> Fees { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee> Fees { get => _explicitNullValueFees; set { _explicitNullValueFees = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fees"); else _explicitNullProperties?.Remove("fees"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampOrderFee> _explicitNullValueFees = default!;
 #endif
         /// <summary>The fiat currency to be converted to crypto.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentCurrency { get; set; }
+        public string? PaymentCurrency { get => _explicitNullValuePaymentCurrency; set { _explicitNullValuePaymentCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentCurrency"); else _explicitNullProperties?.Remove("paymentCurrency"); } }
+        private string? _explicitNullValuePaymentCurrency = default!;
 #nullable restore
 #else
-        public string PaymentCurrency { get; set; }
+        public string PaymentCurrency { get => _explicitNullValuePaymentCurrency; set { _explicitNullValuePaymentCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentCurrency"); else _explicitNullProperties?.Remove("paymentCurrency"); } }
+        private string _explicitNullValuePaymentCurrency = default!;
 #endif
         /// <summary>The amount of fiat to be converted to crypto.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentSubtotal { get; set; }
+        public string? PaymentSubtotal { get => _explicitNullValuePaymentSubtotal; set { _explicitNullValuePaymentSubtotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentSubtotal"); else _explicitNullProperties?.Remove("paymentSubtotal"); } }
+        private string? _explicitNullValuePaymentSubtotal = default!;
 #nullable restore
 #else
-        public string PaymentSubtotal { get; set; }
+        public string PaymentSubtotal { get => _explicitNullValuePaymentSubtotal; set { _explicitNullValuePaymentSubtotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentSubtotal"); else _explicitNullProperties?.Remove("paymentSubtotal"); } }
+        private string _explicitNullValuePaymentSubtotal = default!;
 #endif
         /// <summary>The total amount of fiat to be paid, inclusive of any fees.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentTotal { get; set; }
+        public string? PaymentTotal { get => _explicitNullValuePaymentTotal; set { _explicitNullValuePaymentTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentTotal"); else _explicitNullProperties?.Remove("paymentTotal"); } }
+        private string? _explicitNullValuePaymentTotal = default!;
 #nullable restore
 #else
-        public string PaymentTotal { get; set; }
+        public string PaymentTotal { get => _explicitNullValuePaymentTotal; set { _explicitNullValuePaymentTotal = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentTotal"); else _explicitNullProperties?.Remove("paymentTotal"); } }
+        private string _explicitNullValuePaymentTotal = default!;
 #endif
         /// <summary>The amount of crypto to be purchased.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PurchaseAmount { get; set; }
+        public string? PurchaseAmount { get => _explicitNullValuePurchaseAmount; set { _explicitNullValuePurchaseAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchaseAmount"); else _explicitNullProperties?.Remove("purchaseAmount"); } }
+        private string? _explicitNullValuePurchaseAmount = default!;
 #nullable restore
 #else
-        public string PurchaseAmount { get; set; }
+        public string PurchaseAmount { get => _explicitNullValuePurchaseAmount; set { _explicitNullValuePurchaseAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchaseAmount"); else _explicitNullProperties?.Remove("purchaseAmount"); } }
+        private string _explicitNullValuePurchaseAmount = default!;
 #endif
         /// <summary>The crypto currency to be purchased.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PurchaseCurrency { get; set; }
+        public string? PurchaseCurrency { get => _explicitNullValuePurchaseCurrency; set { _explicitNullValuePurchaseCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchaseCurrency"); else _explicitNullProperties?.Remove("purchaseCurrency"); } }
+        private string? _explicitNullValuePurchaseCurrency = default!;
 #nullable restore
 #else
-        public string PurchaseCurrency { get; set; }
+        public string PurchaseCurrency { get => _explicitNullValuePurchaseCurrency; set { _explicitNullValuePurchaseCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchaseCurrency"); else _explicitNullProperties?.Remove("purchaseCurrency"); } }
+        private string _explicitNullValuePurchaseCurrency = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampQuote"/> and sets the default values.
@@ -94,7 +125,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampQuote CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampQuote();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampQuote(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,6 +160,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("paymentTotal", PaymentTotal);
             writer.WriteStringValue("purchaseAmount", PurchaseAmount);
             writer.WriteStringValue("purchaseCurrency", PurchaseCurrency);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,25 +12,43 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     public partial class WalletTransactionFailedEventUserWalletEvm : global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletUserEventPayload, IParsable
     #pragma warning restore CS1591
     {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            base.CaptureExplicitNulls(parseNode);
+            if (parseNode.GetChildNode("address") is { } nullNodeAddress && nullNodeAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Address = null;
+            if (parseNode.GetChildNode("failed_at") is { } nullNodeFailedAt && nullNodeFailedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FailedAt = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("transaction_hash") is { } nullNodeTransactionHash && nullNodeTransactionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionHash = null;
+        }
+
         /// <summary>The EVM wallet address that submitted the transaction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Address { get; set; }
+        public string? Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string? _explicitNullValueAddress = default!;
 #nullable restore
 #else
-        public string Address { get; set; }
+        public string Address { get => _explicitNullValueAddress; set { _explicitNullValueAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("address"); else _explicitNullProperties?.Remove("address"); } }
+        private string _explicitNullValueAddress = default!;
 #endif
         /// <summary>When the transaction failed (ISO 8601 format).</summary>
-        public DateTimeOffset? FailedAt { get; set; }
+        public DateTimeOffset? FailedAt { get => _explicitNullValueFailedAt; set { _explicitNullValueFailedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("failed_at"); else _explicitNullProperties?.Remove("failed_at"); } }
+        private DateTimeOffset? _explicitNullValueFailedAt = default!;
         /// <summary>The blockchain network for the payment. Supported networks depend on the account type.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletEvmTransactionFailedPayloadNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletEvmTransactionFailedPayloadNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletEvmTransactionFailedPayloadNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The onchain transaction hash.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionHash { get; set; }
+        public string? TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_hash"); else _explicitNullProperties?.Remove("transaction_hash"); } }
+        private string? _explicitNullValueTransactionHash = default!;
 #nullable restore
 #else
-        public string TransactionHash { get; set; }
+        public string TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_hash"); else _explicitNullProperties?.Remove("transaction_hash"); } }
+        private string _explicitNullValueTransactionHash = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -40,7 +58,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionFailedEventUserWalletEvm CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionFailedEventUserWalletEvm();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionFailedEventUserWalletEvm(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +85,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("address", Address);
             writer.WriteDateTimeOffsetValue("failed_at", FailedAt);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletEvmTransactionFailedPayloadNetwork>("network", Network);
-            writer.WriteStringValue("transaction_hash", TransactionHash);
+            writer.WriteStringValue("transaction_hash", TransactionHash);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

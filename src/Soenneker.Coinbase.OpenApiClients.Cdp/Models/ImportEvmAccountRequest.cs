@@ -11,32 +11,48 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class ImportEvmAccountRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("accountPolicy") is { } nullNodeAccountPolicy && nullNodeAccountPolicy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccountPolicy = null;
+            if (parseNode.GetChildNode("encryptedPrivateKey") is { } nullNodeEncryptedPrivateKey && nullNodeEncryptedPrivateKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedPrivateKey = null;
+            if (parseNode.GetChildNode("name") is { } nullNodeName && nullNodeName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Name = null;
+        }
+
         /// <summary>The ID of the account-level policy to apply to the account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccountPolicy { get; set; }
+        public string? AccountPolicy { get => _explicitNullValueAccountPolicy; set { _explicitNullValueAccountPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountPolicy"); else _explicitNullProperties?.Remove("accountPolicy"); } }
+        private string? _explicitNullValueAccountPolicy = default!;
 #nullable restore
 #else
-        public string AccountPolicy { get; set; }
+        public string AccountPolicy { get => _explicitNullValueAccountPolicy; set { _explicitNullValueAccountPolicy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accountPolicy"); else _explicitNullProperties?.Remove("accountPolicy"); } }
+        private string _explicitNullValueAccountPolicy = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The base64-encoded, encrypted private key of the EVM account. The private key must be encrypted using the CDP SDK&apos;s encryption scheme.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncryptedPrivateKey { get; set; }
+        public string? EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
+        private string? _explicitNullValueEncryptedPrivateKey = default!;
 #nullable restore
 #else
-        public string EncryptedPrivateKey { get; set; }
+        public string EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
+        private string _explicitNullValueEncryptedPrivateKey = default!;
 #endif
         /// <summary>An optional name for the account.Account names can consist of alphanumeric characters and hyphens, and be between 2 and 36 characters long.Account names must be unique across all EVM accounts in the developer&apos;s CDP Project.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public string? Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string? _explicitNullValueName = default!;
 #nullable restore
 #else
-        public string Name { get; set; }
+        public string Name { get => _explicitNullValueName; set { _explicitNullValueName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("name"); else _explicitNullProperties?.Remove("name"); } }
+        private string _explicitNullValueName = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEvmAccountRequest"/> and sets the default values.
@@ -53,7 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEvmAccountRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEvmAccountRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEvmAccountRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,6 +94,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("accountPolicy", AccountPolicy);
             writer.WriteStringValue("encryptedPrivateKey", EncryptedPrivateKey);
             writer.WriteStringValue("name", Name);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

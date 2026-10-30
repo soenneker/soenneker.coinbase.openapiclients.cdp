@@ -69,6 +69,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.TopUpLinks
                 { "429", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Error.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink>(requestInfo, global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

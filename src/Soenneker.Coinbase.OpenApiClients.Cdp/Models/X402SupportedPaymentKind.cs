@@ -12,23 +12,39 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402SupportedPaymentKind : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("extra") is { } nullNodeExtra && nullNodeExtra.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Extra = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("scheme") is { } nullNodeScheme && nullNodeScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scheme = null;
+            if (parseNode.GetChildNode("x402Version") is { } nullNodeX402Version && nullNodeX402Version.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) X402Version = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The optional additional scheme-specific payment info.Common scheme-specific fields:  - `exact` on Solana: `feePayer` — the base58-encoded Solana address that pays transaction fees.  - `upto` on EVM: `name`, `version`, and `facilitatorAddress` — the EVM address of the facilitator that the client must bind into the Permit2 witness when constructing the payment payload.  - `batch-settlement` on EVM: `name`, `version`, `receiverAuthorizer` (the EVM address authorized to sign claim batches), `withdrawDelay` (channel non-cooperative withdraw delay in seconds, 900–2,592,000), and optionally `assetTransferMethod` (e.g., `&quot;eip3009&quot;`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty? Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty? Extra { get => _explicitNullValueExtra; set { _explicitNullValueExtra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra"); else _explicitNullProperties?.Remove("extra"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty? _explicitNullValueExtra = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty Extra { get => _explicitNullValueExtra; set { _explicitNullValueExtra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra"); else _explicitNullProperties?.Remove("extra"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindExtraProperty _explicitNullValueExtra = default!;
 #endif
         /// <summary>The network of the blockchain. The format corresponds to the `x402Version` of the enclosing `x402SupportedPaymentKind`: v1 uses human-readable names (see `X402V1Network`); v2 uses CAIP-2 chain IDs (see `X402V2Network`).</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The scheme of the payment protocol.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindScheme? Scheme { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindScheme? Scheme { get => _explicitNullValueScheme; set { _explicitNullValueScheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheme"); else _explicitNullProperties?.Remove("scheme"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindScheme? _explicitNullValueScheme = default!;
         /// <summary>The version of the x402 protocol.</summary>
-        public int? X402Version { get; set; }
+        public int? X402Version { get => _explicitNullValueX402Version; set { _explicitNullValueX402Version = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("x402Version"); else _explicitNullProperties?.Remove("x402Version"); } }
+        private int? _explicitNullValueX402Version = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind"/> and sets the default values.
         /// </summary>
@@ -44,7 +60,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKind(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +87,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindNetwork>("network", Network);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402SupportedPaymentKindScheme>("scheme", Scheme);
             writer.WriteIntValue("x402Version", X402Version);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

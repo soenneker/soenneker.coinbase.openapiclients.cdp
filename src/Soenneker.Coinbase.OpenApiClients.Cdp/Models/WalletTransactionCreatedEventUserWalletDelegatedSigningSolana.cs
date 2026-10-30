@@ -12,21 +12,35 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     public partial class WalletTransactionCreatedEventUserWalletDelegatedSigningSolana : global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletSolanaTransactionCreatedPayload, IParsable
     #pragma warning restore CS1591
     {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            base.CaptureExplicitNulls(parseNode);
+            if (parseNode.GetChildNode("delegation_id") is { } nullNodeDelegationId && nullNodeDelegationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DelegationId = null;
+            if (parseNode.GetChildNode("user_id") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+        }
+
         /// <summary>The delegation grant ID used to authorize the action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DelegationId { get; set; }
+        public string? DelegationId { get => _explicitNullValueDelegationId; set { _explicitNullValueDelegationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegation_id"); else _explicitNullProperties?.Remove("delegation_id"); } }
+        private string? _explicitNullValueDelegationId = default!;
 #nullable restore
 #else
-        public string DelegationId { get; set; }
+        public string DelegationId { get => _explicitNullValueDelegationId; set { _explicitNullValueDelegationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("delegation_id"); else _explicitNullProperties?.Remove("delegation_id"); } }
+        private string _explicitNullValueDelegationId = default!;
 #endif
         /// <summary>The user ID that owns the User Wallet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get; set; }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get; set; }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("user_id"); else _explicitNullProperties?.Remove("user_id"); } }
+        private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +50,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionCreatedEventUserWalletDelegatedSigningSolana CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionCreatedEventUserWalletDelegatedSigningSolana();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.WalletTransactionCreatedEventUserWalletDelegatedSigningSolana(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +73,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("delegation_id", DelegationId);
-            writer.WriteStringValue("user_id", UserId);
+            writer.WriteStringValue("user_id", UserId);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

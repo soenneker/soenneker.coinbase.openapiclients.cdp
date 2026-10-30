@@ -12,15 +12,28 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402ResourceQuality : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("l30DaysTotalCalls") is { } nullNodeL30DaysTotalCalls && nullNodeL30DaysTotalCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) L30DaysTotalCalls = null;
+            if (parseNode.GetChildNode("l30DaysUniquePayers") is { } nullNodeL30DaysUniquePayers && nullNodeL30DaysUniquePayers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) L30DaysUniquePayers = null;
+            if (parseNode.GetChildNode("lastCalledAt") is { } nullNodeLastCalledAt && nullNodeLastCalledAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastCalledAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Total number of paid calls to a resource in the last 30 days.</summary>
-        public int? L30DaysTotalCalls { get; set; }
+        public int? L30DaysTotalCalls { get => _explicitNullValueL30DaysTotalCalls; set { _explicitNullValueL30DaysTotalCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("l30DaysTotalCalls"); else _explicitNullProperties?.Remove("l30DaysTotalCalls"); } }
+        private int? _explicitNullValueL30DaysTotalCalls = default!;
         /// <summary>Number of unique payers to a resource in the last 30 days.</summary>
-        public int? L30DaysUniquePayers { get; set; }
+        public int? L30DaysUniquePayers { get => _explicitNullValueL30DaysUniquePayers; set { _explicitNullValueL30DaysUniquePayers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("l30DaysUniquePayers"); else _explicitNullProperties?.Remove("l30DaysUniquePayers"); } }
+        private int? _explicitNullValueL30DaysUniquePayers = default!;
         /// <summary>Timestamp of the most recent paid call to a resource.</summary>
-        public DateTimeOffset? LastCalledAt { get; set; }
+        public DateTimeOffset? LastCalledAt { get => _explicitNullValueLastCalledAt; set { _explicitNullValueLastCalledAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastCalledAt"); else _explicitNullProperties?.Remove("lastCalledAt"); } }
+        private DateTimeOffset? _explicitNullValueLastCalledAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ResourceQuality(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteIntValue("l30DaysTotalCalls", L30DaysTotalCalls);
             writer.WriteIntValue("l30DaysUniquePayers", L30DaysUniquePayers);
             writer.WriteDateTimeOffsetValue("lastCalledAt", LastCalledAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

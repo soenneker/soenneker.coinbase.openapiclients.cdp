@@ -12,39 +12,61 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402ValidateCheck : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("actual") is { } nullNodeActual && nullNodeActual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Actual = null;
+            if (parseNode.GetChildNode("check") is { } nullNodeCheck && nullNodeCheck.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Check = null;
+            if (parseNode.GetChildNode("detail") is { } nullNodeDetail && nullNodeDetail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Detail = null;
+            if (parseNode.GetChildNode("expected") is { } nullNodeExpected && nullNodeExpected.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Expected = null;
+            if (parseNode.GetChildNode("passed") is { } nullNodePassed && nullNodePassed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Passed = null;
+            if (parseNode.GetChildNode("severity") is { } nullNodeSeverity && nullNodeSeverity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Severity = null;
+        }
+
         /// <summary>The value the check observed, when applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Actual { get; set; }
+        public string? Actual { get => _explicitNullValueActual; set { _explicitNullValueActual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actual"); else _explicitNullProperties?.Remove("actual"); } }
+        private string? _explicitNullValueActual = default!;
 #nullable restore
 #else
-        public string Actual { get; set; }
+        public string Actual { get => _explicitNullValueActual; set { _explicitNullValueActual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("actual"); else _explicitNullProperties?.Remove("actual"); } }
+        private string _explicitNullValueActual = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The name of the preflight check. New values may be added in future versions; clients should handle unknown values gracefully.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheckCheck? Check { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheckCheck? Check { get => _explicitNullValueCheck; set { _explicitNullValueCheck = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("check"); else _explicitNullProperties?.Remove("check"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheckCheck? _explicitNullValueCheck = default!;
         /// <summary>A human-readable explanation of the check result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Detail { get; set; }
+        public string? Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
+        private string? _explicitNullValueDetail = default!;
 #nullable restore
 #else
-        public string Detail { get; set; }
+        public string Detail { get => _explicitNullValueDetail; set { _explicitNullValueDetail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("detail"); else _explicitNullProperties?.Remove("detail"); } }
+        private string _explicitNullValueDetail = default!;
 #endif
         /// <summary>The value the check expected, when applicable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Expected { get; set; }
+        public string? Expected { get => _explicitNullValueExpected; set { _explicitNullValueExpected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected"); else _explicitNullProperties?.Remove("expected"); } }
+        private string? _explicitNullValueExpected = default!;
 #nullable restore
 #else
-        public string Expected { get; set; }
+        public string Expected { get => _explicitNullValueExpected; set { _explicitNullValueExpected = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expected"); else _explicitNullProperties?.Remove("expected"); } }
+        private string _explicitNullValueExpected = default!;
 #endif
         /// <summary>Whether the check passed.</summary>
-        public bool? Passed { get; set; }
+        public bool? Passed { get => _explicitNullValuePassed; set { _explicitNullValuePassed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("passed"); else _explicitNullProperties?.Remove("passed"); } }
+        private bool? _explicitNullValuePassed = default!;
         /// <summary>Whether this check is a hard indexing requirement or a quality recommendation. A `required` check affects validity when it fails. An `advisory` check (for example, a missing output schema) is a suggestion to improve discoverability and does not make the endpoint invalid.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheckSeverity? Severity { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheckSeverity? Severity { get => _explicitNullValueSeverity; set { _explicitNullValueSeverity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("severity"); else _explicitNullProperties?.Remove("severity"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheckSeverity? _explicitNullValueSeverity = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck"/> and sets the default values.
         /// </summary>
@@ -60,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheck(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,6 +113,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("expected", Expected);
             writer.WriteBoolValue("passed", Passed);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateCheckSeverity>("severity", Severity);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

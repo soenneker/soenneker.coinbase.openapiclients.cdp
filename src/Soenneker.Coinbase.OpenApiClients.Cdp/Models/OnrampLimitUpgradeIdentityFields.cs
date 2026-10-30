@@ -12,24 +12,37 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnrampLimitUpgradeIdentityFields : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dateOfBirth") is { } nullNodeDateOfBirth && nullNodeDateOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateOfBirth = null;
+            if (parseNode.GetChildNode("ssnLast4") is { } nullNodeSsnLast4 && nullNodeSsnLast4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SsnLast4 = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Date of birth.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldsDateOfBirth? DateOfBirth { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldsDateOfBirth? DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldsDateOfBirth? _explicitNullValueDateOfBirth = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldsDateOfBirth DateOfBirth { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldsDateOfBirth DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldsDateOfBirth _explicitNullValueDateOfBirth = default!;
 #endif
         /// <summary>Last 4 digits of the Social Security Number (no dashes or spaces).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SsnLast4 { get; set; }
+        public string? SsnLast4 { get => _explicitNullValueSsnLast4; set { _explicitNullValueSsnLast4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ssnLast4"); else _explicitNullProperties?.Remove("ssnLast4"); } }
+        private string? _explicitNullValueSsnLast4 = default!;
 #nullable restore
 #else
-        public string SsnLast4 { get; set; }
+        public string SsnLast4 { get => _explicitNullValueSsnLast4; set { _explicitNullValueSsnLast4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ssnLast4"); else _explicitNullProperties?.Remove("ssnLast4"); } }
+        private string _explicitNullValueSsnLast4 = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldsDateOfBirth>("dateOfBirth", DateOfBirth);
             writer.WriteStringValue("ssnLast4", SsnLast4);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

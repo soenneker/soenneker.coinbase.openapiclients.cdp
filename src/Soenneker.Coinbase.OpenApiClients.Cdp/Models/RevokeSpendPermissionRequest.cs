@@ -12,26 +12,41 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RevokeSpendPermissionRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("paymasterUrl") is { } nullNodePaymasterUrl && nullNodePaymasterUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymasterUrl = null;
+            if (parseNode.GetChildNode("permissionHash") is { } nullNodePermissionHash && nullNodePermissionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PermissionHash = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The network the spend permission is on.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork? _explicitNullValueNetwork = default!;
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymasterUrl { get; set; }
+        public string? PaymasterUrl { get => _explicitNullValuePaymasterUrl; set { _explicitNullValuePaymasterUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterUrl"); else _explicitNullProperties?.Remove("paymasterUrl"); } }
+        private string? _explicitNullValuePaymasterUrl = default!;
 #nullable restore
 #else
-        public string PaymasterUrl { get; set; }
+        public string PaymasterUrl { get => _explicitNullValuePaymasterUrl; set { _explicitNullValuePaymasterUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterUrl"); else _explicitNullProperties?.Remove("paymasterUrl"); } }
+        private string _explicitNullValuePaymasterUrl = default!;
 #endif
         /// <summary>The hash of the spend permission to revoke.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PermissionHash { get; set; }
+        public string? PermissionHash { get => _explicitNullValuePermissionHash; set { _explicitNullValuePermissionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissionHash"); else _explicitNullProperties?.Remove("permissionHash"); } }
+        private string? _explicitNullValuePermissionHash = default!;
 #nullable restore
 #else
-        public string PermissionHash { get; set; }
+        public string PermissionHash { get => _explicitNullValuePermissionHash; set { _explicitNullValuePermissionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permissionHash"); else _explicitNullProperties?.Remove("permissionHash"); } }
+        private string _explicitNullValuePermissionHash = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeSpendPermissionRequest"/> and sets the default values.
@@ -48,7 +63,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeSpendPermissionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeSpendPermissionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RevokeSpendPermissionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SpendPermissionNetwork>("network", Network);
             writer.WriteStringValue("paymasterUrl", PaymasterUrl);
             writer.WriteStringValue("permissionHash", PermissionHash);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

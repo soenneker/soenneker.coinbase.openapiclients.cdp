@@ -11,34 +11,52 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class ImportEndUserRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("authenticationMethods") is { } nullNodeAuthenticationMethods && nullNodeAuthenticationMethods.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AuthenticationMethods = null;
+            if (parseNode.GetChildNode("encryptedPrivateKey") is { } nullNodeEncryptedPrivateKey && nullNodeEncryptedPrivateKey.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EncryptedPrivateKey = null;
+            if (parseNode.GetChildNode("keyType") is { } nullNodeKeyType && nullNodeKeyType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) KeyType = null;
+            if (parseNode.GetChildNode("userId") is { } nullNodeUserId && nullNodeUserId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UserId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The list of valid authentication methods linked to the end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod>? AuthenticationMethods { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod>? AuthenticationMethods { get => _explicitNullValueAuthenticationMethods; set { _explicitNullValueAuthenticationMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authenticationMethods"); else _explicitNullProperties?.Remove("authenticationMethods"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod>? _explicitNullValueAuthenticationMethods = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod> AuthenticationMethods { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod> AuthenticationMethods { get => _explicitNullValueAuthenticationMethods; set { _explicitNullValueAuthenticationMethods = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("authenticationMethods"); else _explicitNullProperties?.Remove("authenticationMethods"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod> _explicitNullValueAuthenticationMethods = default!;
 #endif
         /// <summary>The base64-encoded, encrypted private key to import. The private key must be encrypted using the CDP SDK&apos;s encryption scheme. This is a 32-byte raw private key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EncryptedPrivateKey { get; set; }
+        public string? EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
+        private string? _explicitNullValueEncryptedPrivateKey = default!;
 #nullable restore
 #else
-        public string EncryptedPrivateKey { get; set; }
+        public string EncryptedPrivateKey { get => _explicitNullValueEncryptedPrivateKey; set { _explicitNullValueEncryptedPrivateKey = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("encryptedPrivateKey"); else _explicitNullProperties?.Remove("encryptedPrivateKey"); } }
+        private string _explicitNullValueEncryptedPrivateKey = default!;
 #endif
         /// <summary>The type of key being imported. Determines what type of account will be associated for the end user.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEndUserRequestKeyType? KeyType { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEndUserRequestKeyType? KeyType { get => _explicitNullValueKeyType; set { _explicitNullValueKeyType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("keyType"); else _explicitNullProperties?.Remove("keyType"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEndUserRequestKeyType? _explicitNullValueKeyType = default!;
         /// <summary>A stable, unique identifier for the end user. The `userId` must be unique across all end users in the developer&apos;s CDP Project. It must be between 1 and 100 characters long and can only contain alphanumeric characters and hyphens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UserId { get; set; }
+        public string? UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        private string? _explicitNullValueUserId = default!;
 #nullable restore
 #else
-        public string UserId { get; set; }
+        public string UserId { get => _explicitNullValueUserId; set { _explicitNullValueUserId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("userId"); else _explicitNullProperties?.Remove("userId"); } }
+        private string _explicitNullValueUserId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEndUserRequest"/> and sets the default values.
@@ -55,7 +73,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEndUserRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEndUserRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEndUserRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,6 +100,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("encryptedPrivateKey", EncryptedPrivateKey);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ImportEndUserRequestKeyType>("keyType", KeyType);
             writer.WriteStringValue("userId", UserId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

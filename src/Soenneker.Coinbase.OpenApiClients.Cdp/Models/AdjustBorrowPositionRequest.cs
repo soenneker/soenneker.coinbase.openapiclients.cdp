@@ -12,74 +12,107 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AdjustBorrowPositionRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("addCollateralAmount") is { } nullNodeAddCollateralAmount && nullNodeAddCollateralAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddCollateralAmount = null;
+            if (parseNode.GetChildNode("borrowLoanAmount") is { } nullNodeBorrowLoanAmount && nullNodeBorrowLoanAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorrowLoanAmount = null;
+            if (parseNode.GetChildNode("borrowProductId") is { } nullNodeBorrowProductId && nullNodeBorrowProductId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BorrowProductId = null;
+            if (parseNode.GetChildNode("paymasterContext") is { } nullNodePaymasterContext && nullNodePaymasterContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymasterContext = null;
+            if (parseNode.GetChildNode("paymasterUrl") is { } nullNodePaymasterUrl && nullNodePaymasterUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymasterUrl = null;
+            if (parseNode.GetChildNode("removeCollateralAmount") is { } nullNodeRemoveCollateralAmount && nullNodeRemoveCollateralAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemoveCollateralAmount = null;
+            if (parseNode.GetChildNode("repayLoanAmount") is { } nullNodeRepayLoanAmount && nullNodeRepayLoanAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RepayLoanAmount = null;
+            if (parseNode.GetChildNode("useCdpPaymaster") is { } nullNodeUseCdpPaymaster && nullNodeUseCdpPaymaster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseCdpPaymaster = null;
+            if (parseNode.GetChildNode("walletSecretId") is { } nullNodeWalletSecretId && nullNodeWalletSecretId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WalletSecretId = null;
+        }
+
         /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AddCollateralAmount { get; set; }
+        public string? AddCollateralAmount { get => _explicitNullValueAddCollateralAmount; set { _explicitNullValueAddCollateralAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addCollateralAmount"); else _explicitNullProperties?.Remove("addCollateralAmount"); } }
+        private string? _explicitNullValueAddCollateralAmount = default!;
 #nullable restore
 #else
-        public string AddCollateralAmount { get; set; }
+        public string AddCollateralAmount { get => _explicitNullValueAddCollateralAmount; set { _explicitNullValueAddCollateralAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("addCollateralAmount"); else _explicitNullProperties?.Remove("addCollateralAmount"); } }
+        private string _explicitNullValueAddCollateralAmount = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorrowLoanAmount { get; set; }
+        public string? BorrowLoanAmount { get => _explicitNullValueBorrowLoanAmount; set { _explicitNullValueBorrowLoanAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowLoanAmount"); else _explicitNullProperties?.Remove("borrowLoanAmount"); } }
+        private string? _explicitNullValueBorrowLoanAmount = default!;
 #nullable restore
 #else
-        public string BorrowLoanAmount { get; set; }
+        public string BorrowLoanAmount { get => _explicitNullValueBorrowLoanAmount; set { _explicitNullValueBorrowLoanAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowLoanAmount"); else _explicitNullProperties?.Remove("borrowLoanAmount"); } }
+        private string _explicitNullValueBorrowLoanAmount = default!;
 #endif
         /// <summary>The globally unique ID of the borrow product, which is a UUID prefixed with the string `bp_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BorrowProductId { get; set; }
+        public string? BorrowProductId { get => _explicitNullValueBorrowProductId; set { _explicitNullValueBorrowProductId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowProductId"); else _explicitNullProperties?.Remove("borrowProductId"); } }
+        private string? _explicitNullValueBorrowProductId = default!;
 #nullable restore
 #else
-        public string BorrowProductId { get; set; }
+        public string BorrowProductId { get => _explicitNullValueBorrowProductId; set { _explicitNullValueBorrowProductId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("borrowProductId"); else _explicitNullProperties?.Remove("borrowProductId"); } }
+        private string _explicitNullValueBorrowProductId = default!;
 #endif
         /// <summary>Optional paymaster metadata forwarded to the configured paymaster service. Valid only when a paymaster is configured via `useCdpPaymaster: true` or a `paymasterUrl`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequestPaymasterContext? PaymasterContext { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequestPaymasterContext? PaymasterContext { get => _explicitNullValuePaymasterContext; set { _explicitNullValuePaymasterContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterContext"); else _explicitNullProperties?.Remove("paymasterContext"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequestPaymasterContext? _explicitNullValuePaymasterContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequestPaymasterContext PaymasterContext { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequestPaymasterContext PaymasterContext { get => _explicitNullValuePaymasterContext; set { _explicitNullValuePaymasterContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterContext"); else _explicitNullProperties?.Remove("paymasterContext"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequestPaymasterContext _explicitNullValuePaymasterContext = default!;
 #endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymasterUrl { get; set; }
+        public string? PaymasterUrl { get => _explicitNullValuePaymasterUrl; set { _explicitNullValuePaymasterUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterUrl"); else _explicitNullProperties?.Remove("paymasterUrl"); } }
+        private string? _explicitNullValuePaymasterUrl = default!;
 #nullable restore
 #else
-        public string PaymasterUrl { get; set; }
+        public string PaymasterUrl { get => _explicitNullValuePaymasterUrl; set { _explicitNullValuePaymasterUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterUrl"); else _explicitNullProperties?.Remove("paymasterUrl"); } }
+        private string _explicitNullValuePaymasterUrl = default!;
 #endif
         /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RemoveCollateralAmount { get; set; }
+        public string? RemoveCollateralAmount { get => _explicitNullValueRemoveCollateralAmount; set { _explicitNullValueRemoveCollateralAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removeCollateralAmount"); else _explicitNullProperties?.Remove("removeCollateralAmount"); } }
+        private string? _explicitNullValueRemoveCollateralAmount = default!;
 #nullable restore
 #else
-        public string RemoveCollateralAmount { get; set; }
+        public string RemoveCollateralAmount { get => _explicitNullValueRemoveCollateralAmount; set { _explicitNullValueRemoveCollateralAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removeCollateralAmount"); else _explicitNullProperties?.Remove("removeCollateralAmount"); } }
+        private string _explicitNullValueRemoveCollateralAmount = default!;
 #endif
         /// <summary>A positive decimal string without scientific notation or whitespace.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RepayLoanAmount { get; set; }
+        public string? RepayLoanAmount { get => _explicitNullValueRepayLoanAmount; set { _explicitNullValueRepayLoanAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repayLoanAmount"); else _explicitNullProperties?.Remove("repayLoanAmount"); } }
+        private string? _explicitNullValueRepayLoanAmount = default!;
 #nullable restore
 #else
-        public string RepayLoanAmount { get; set; }
+        public string RepayLoanAmount { get => _explicitNullValueRepayLoanAmount; set { _explicitNullValueRepayLoanAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("repayLoanAmount"); else _explicitNullProperties?.Remove("repayLoanAmount"); } }
+        private string _explicitNullValueRepayLoanAmount = default!;
 #endif
         /// <summary>Whether to use the CDP Paymaster for the user operation. When `true`, `paymasterUrl` must not be set.</summary>
-        public bool? UseCdpPaymaster { get; set; }
+        public bool? UseCdpPaymaster { get => _explicitNullValueUseCdpPaymaster; set { _explicitNullValueUseCdpPaymaster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("useCdpPaymaster"); else _explicitNullProperties?.Remove("useCdpPaymaster"); } }
+        private bool? _explicitNullValueUseCdpPaymaster = default!;
         /// <summary>The ID of the Temporary Wallet Secret that was used to sign the X-Wallet-Auth header.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? WalletSecretId { get; set; }
+        public string? WalletSecretId { get => _explicitNullValueWalletSecretId; set { _explicitNullValueWalletSecretId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("walletSecretId"); else _explicitNullProperties?.Remove("walletSecretId"); } }
+        private string? _explicitNullValueWalletSecretId = default!;
 #nullable restore
 #else
-        public string WalletSecretId { get; set; }
+        public string WalletSecretId { get => _explicitNullValueWalletSecretId; set { _explicitNullValueWalletSecretId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("walletSecretId"); else _explicitNullProperties?.Remove("walletSecretId"); } }
+        private string _explicitNullValueWalletSecretId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequest"/> and sets the default values.
@@ -96,7 +129,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AdjustBorrowPositionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -133,6 +166,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("repayLoanAmount", RepayLoanAmount);
             writer.WriteBoolValue("useCdpPaymaster", UseCdpPaymaster);
             writer.WriteStringValue("walletSecretId", WalletSecretId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

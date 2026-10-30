@@ -12,23 +12,39 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BorrowProductSnapshot : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("blockHash") is { } nullNodeBlockHash && nullNodeBlockHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockHash = null;
+            if (parseNode.GetChildNode("blockNumber") is { } nullNodeBlockNumber && nullNodeBlockNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockNumber = null;
+            if (parseNode.GetChildNode("blockTimestamp") is { } nullNodeBlockTimestamp && nullNodeBlockTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockTimestamp = null;
+            if (parseNode.GetChildNode("observedAt") is { } nullNodeObservedAt && nullNodeObservedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ObservedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The hash of the block at which the state was observed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlockHash { get; set; }
+        public string? BlockHash { get => _explicitNullValueBlockHash; set { _explicitNullValueBlockHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockHash"); else _explicitNullProperties?.Remove("blockHash"); } }
+        private string? _explicitNullValueBlockHash = default!;
 #nullable restore
 #else
-        public string BlockHash { get; set; }
+        public string BlockHash { get => _explicitNullValueBlockHash; set { _explicitNullValueBlockHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockHash"); else _explicitNullProperties?.Remove("blockHash"); } }
+        private string _explicitNullValueBlockHash = default!;
 #endif
         /// <summary>The block number at which the state was observed.</summary>
-        public long? BlockNumber { get; set; }
+        public long? BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockNumber"); else _explicitNullProperties?.Remove("blockNumber"); } }
+        private long? _explicitNullValueBlockNumber = default!;
         /// <summary>The onchain block timestamp at which the state was observed in Unix seconds.</summary>
-        public long? BlockTimestamp { get; set; }
+        public long? BlockTimestamp { get => _explicitNullValueBlockTimestamp; set { _explicitNullValueBlockTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockTimestamp"); else _explicitNullProperties?.Remove("blockTimestamp"); } }
+        private long? _explicitNullValueBlockTimestamp = default!;
         /// <summary>The timestamp at which the state was observed.</summary>
-        public DateTimeOffset? ObservedAt { get; set; }
+        public DateTimeOffset? ObservedAt { get => _explicitNullValueObservedAt; set { _explicitNullValueObservedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("observedAt"); else _explicitNullProperties?.Remove("observedAt"); } }
+        private DateTimeOffset? _explicitNullValueObservedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot"/> and sets the default values.
         /// </summary>
@@ -44,7 +60,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductSnapshot(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +87,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteLongValue("blockNumber", BlockNumber);
             writer.WriteLongValue("blockTimestamp", BlockTimestamp);
             writer.WriteDateTimeOffsetValue("observedAt", ObservedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

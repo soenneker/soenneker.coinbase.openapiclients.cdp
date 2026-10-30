@@ -12,42 +12,63 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UserOperationReceipt : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("blockHash") is { } nullNodeBlockHash && nullNodeBlockHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockHash = null;
+            if (parseNode.GetChildNode("blockNumber") is { } nullNodeBlockNumber && nullNodeBlockNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockNumber = null;
+            if (parseNode.GetChildNode("gasUsed") is { } nullNodeGasUsed && nullNodeGasUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GasUsed = null;
+            if (parseNode.GetChildNode("revert") is { } nullNodeRevert && nullNodeRevert.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revert = null;
+            if (parseNode.GetChildNode("transactionHash") is { } nullNodeTransactionHash && nullNodeTransactionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionHash = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The block hash of the block including the transaction as 0x-prefixed string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BlockHash { get; set; }
+        public string? BlockHash { get => _explicitNullValueBlockHash; set { _explicitNullValueBlockHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockHash"); else _explicitNullProperties?.Remove("blockHash"); } }
+        private string? _explicitNullValueBlockHash = default!;
 #nullable restore
 #else
-        public string BlockHash { get; set; }
+        public string BlockHash { get => _explicitNullValueBlockHash; set { _explicitNullValueBlockHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockHash"); else _explicitNullProperties?.Remove("blockHash"); } }
+        private string _explicitNullValueBlockHash = default!;
 #endif
         /// <summary>The block height (number) of the block including the transaction.</summary>
-        public int? BlockNumber { get; set; }
+        public int? BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blockNumber"); else _explicitNullProperties?.Remove("blockNumber"); } }
+        private int? _explicitNullValueBlockNumber = default!;
         /// <summary>The gas used for landing this user operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GasUsed { get; set; }
+        public string? GasUsed { get => _explicitNullValueGasUsed; set { _explicitNullValueGasUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasUsed"); else _explicitNullProperties?.Remove("gasUsed"); } }
+        private string? _explicitNullValueGasUsed = default!;
 #nullable restore
 #else
-        public string GasUsed { get; set; }
+        public string GasUsed { get => _explicitNullValueGasUsed; set { _explicitNullValueGasUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasUsed"); else _explicitNullProperties?.Remove("gasUsed"); } }
+        private string _explicitNullValueGasUsed = default!;
 #endif
         /// <summary>The revert data if the user operation has reverted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceiptRevert? Revert { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceiptRevert? Revert { get => _explicitNullValueRevert; set { _explicitNullValueRevert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revert"); else _explicitNullProperties?.Remove("revert"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceiptRevert? _explicitNullValueRevert = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceiptRevert Revert { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceiptRevert Revert { get => _explicitNullValueRevert; set { _explicitNullValueRevert = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revert"); else _explicitNullProperties?.Remove("revert"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceiptRevert _explicitNullValueRevert = default!;
 #endif
         /// <summary>The hash of this transaction as 0x-prefixed string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionHash { get; set; }
+        public string? TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
+        private string? _explicitNullValueTransactionHash = default!;
 #nullable restore
 #else
-        public string TransactionHash { get; set; }
+        public string TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionHash"); else _explicitNullProperties?.Remove("transactionHash"); } }
+        private string _explicitNullValueTransactionHash = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt"/> and sets the default values.
@@ -64,7 +85,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceipt(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,6 +114,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("gasUsed", GasUsed);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UserOperationReceiptRevert>("revert", Revert);
             writer.WriteStringValue("transactionHash", TransactionHash);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

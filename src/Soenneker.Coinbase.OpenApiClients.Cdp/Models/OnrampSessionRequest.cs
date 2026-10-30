@@ -12,98 +12,140 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnrampSessionRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("clientIp") is { } nullNodeClientIp && nullNodeClientIp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientIp = null;
+            if (parseNode.GetChildNode("country") is { } nullNodeCountry && nullNodeCountry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Country = null;
+            if (parseNode.GetChildNode("destinationAddress") is { } nullNodeDestinationAddress && nullNodeDestinationAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationAddress = null;
+            if (parseNode.GetChildNode("destinationNetwork") is { } nullNodeDestinationNetwork && nullNodeDestinationNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DestinationNetwork = null;
+            if (parseNode.GetChildNode("partnerUserRef") is { } nullNodePartnerUserRef && nullNodePartnerUserRef.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PartnerUserRef = null;
+            if (parseNode.GetChildNode("paymentAmount") is { } nullNodePaymentAmount && nullNodePaymentAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentAmount = null;
+            if (parseNode.GetChildNode("paymentCurrency") is { } nullNodePaymentCurrency && nullNodePaymentCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentCurrency = null;
+            if (parseNode.GetChildNode("paymentMethod") is { } nullNodePaymentMethod && nullNodePaymentMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentMethod = null;
+            if (parseNode.GetChildNode("purchaseAmount") is { } nullNodePurchaseAmount && nullNodePurchaseAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PurchaseAmount = null;
+            if (parseNode.GetChildNode("purchaseCurrency") is { } nullNodePurchaseCurrency && nullNodePurchaseCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PurchaseCurrency = null;
+            if (parseNode.GetChildNode("redirectUrl") is { } nullNodeRedirectUrl && nullNodeRedirectUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RedirectUrl = null;
+            if (parseNode.GetChildNode("subdivision") is { } nullNodeSubdivision && nullNodeSubdivision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Subdivision = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The IP address of the end user requesting the onramp transaction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientIp { get; set; }
+        public string? ClientIp { get => _explicitNullValueClientIp; set { _explicitNullValueClientIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clientIp"); else _explicitNullProperties?.Remove("clientIp"); } }
+        private string? _explicitNullValueClientIp = default!;
 #nullable restore
 #else
-        public string ClientIp { get; set; }
+        public string ClientIp { get => _explicitNullValueClientIp; set { _explicitNullValueClientIp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clientIp"); else _explicitNullProperties?.Remove("clientIp"); } }
+        private string _explicitNullValueClientIp = default!;
 #endif
         /// <summary>The ISO 3166-1 two letter country code (e.g. US).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Country { get; set; }
+        public string? Country { get => _explicitNullValueCountry; set { _explicitNullValueCountry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country"); else _explicitNullProperties?.Remove("country"); } }
+        private string? _explicitNullValueCountry = default!;
 #nullable restore
 #else
-        public string Country { get; set; }
+        public string Country { get => _explicitNullValueCountry; set { _explicitNullValueCountry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("country"); else _explicitNullProperties?.Remove("country"); } }
+        private string _explicitNullValueCountry = default!;
 #endif
         /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationAddress { get; set; }
+        public string? DestinationAddress { get => _explicitNullValueDestinationAddress; set { _explicitNullValueDestinationAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationAddress"); else _explicitNullProperties?.Remove("destinationAddress"); } }
+        private string? _explicitNullValueDestinationAddress = default!;
 #nullable restore
 #else
-        public string DestinationAddress { get; set; }
+        public string DestinationAddress { get => _explicitNullValueDestinationAddress; set { _explicitNullValueDestinationAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationAddress"); else _explicitNullProperties?.Remove("destinationAddress"); } }
+        private string _explicitNullValueDestinationAddress = default!;
 #endif
         /// <summary>The name of the crypto network the purchased currency will be sent on.Use the [Onramp Buy Options API](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-buy-options) to discover the supported networks for your user&apos;s location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DestinationNetwork { get; set; }
+        public string? DestinationNetwork { get => _explicitNullValueDestinationNetwork; set { _explicitNullValueDestinationNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationNetwork"); else _explicitNullProperties?.Remove("destinationNetwork"); } }
+        private string? _explicitNullValueDestinationNetwork = default!;
 #nullable restore
 #else
-        public string DestinationNetwork { get; set; }
+        public string DestinationNetwork { get => _explicitNullValueDestinationNetwork; set { _explicitNullValueDestinationNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("destinationNetwork"); else _explicitNullProperties?.Remove("destinationNetwork"); } }
+        private string _explicitNullValueDestinationNetwork = default!;
 #endif
         /// <summary>A unique string that represents the user in your app. This can be used to link individual transactions together so you can retrieve the transaction history for your users. Prefix this string with &quot;sandbox-&quot; (e.g. &quot;sandbox-user-1234&quot;) to perform a sandbox transaction which will allow you to test your integration without any real transfer of funds.This value can be used with the [Onramp User Transactions API](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-onramp-transactions-by-id) to retrieve all transactions created by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PartnerUserRef { get; set; }
+        public string? PartnerUserRef { get => _explicitNullValuePartnerUserRef; set { _explicitNullValuePartnerUserRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partnerUserRef"); else _explicitNullProperties?.Remove("partnerUserRef"); } }
+        private string? _explicitNullValuePartnerUserRef = default!;
 #nullable restore
 #else
-        public string PartnerUserRef { get; set; }
+        public string PartnerUserRef { get => _explicitNullValuePartnerUserRef; set { _explicitNullValuePartnerUserRef = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("partnerUserRef"); else _explicitNullProperties?.Remove("partnerUserRef"); } }
+        private string _explicitNullValuePartnerUserRef = default!;
 #endif
         /// <summary>A string representing the amount of fiat the user wishes to pay in exchange for crypto. When using this parameter, the returned quote will be inclusive of fees i.e. the user will pay this exact amount of the payment currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentAmount { get; set; }
+        public string? PaymentAmount { get => _explicitNullValuePaymentAmount; set { _explicitNullValuePaymentAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentAmount"); else _explicitNullProperties?.Remove("paymentAmount"); } }
+        private string? _explicitNullValuePaymentAmount = default!;
 #nullable restore
 #else
-        public string PaymentAmount { get; set; }
+        public string PaymentAmount { get => _explicitNullValuePaymentAmount; set { _explicitNullValuePaymentAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentAmount"); else _explicitNullProperties?.Remove("paymentAmount"); } }
+        private string _explicitNullValuePaymentAmount = default!;
 #endif
         /// <summary>The fiat currency to be converted to crypto.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentCurrency { get; set; }
+        public string? PaymentCurrency { get => _explicitNullValuePaymentCurrency; set { _explicitNullValuePaymentCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentCurrency"); else _explicitNullProperties?.Remove("paymentCurrency"); } }
+        private string? _explicitNullValuePaymentCurrency = default!;
 #nullable restore
 #else
-        public string PaymentCurrency { get; set; }
+        public string PaymentCurrency { get => _explicitNullValuePaymentCurrency; set { _explicitNullValuePaymentCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentCurrency"); else _explicitNullProperties?.Remove("paymentCurrency"); } }
+        private string _explicitNullValuePaymentCurrency = default!;
 #endif
         /// <summary>The type of payment method used to generate the onramp quote.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampQuotePaymentMethodTypeId? PaymentMethod { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampQuotePaymentMethodTypeId? PaymentMethod { get => _explicitNullValuePaymentMethod; set { _explicitNullValuePaymentMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymentMethod"); else _explicitNullProperties?.Remove("paymentMethod"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampQuotePaymentMethodTypeId? _explicitNullValuePaymentMethod = default!;
         /// <summary>A string representing the amount of crypto the user wishes to purchase. When using this parameter, the returned quote will be exclusive of fees i.e. the user will receive this exact amount of the purchase currency.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PurchaseAmount { get; set; }
+        public string? PurchaseAmount { get => _explicitNullValuePurchaseAmount; set { _explicitNullValuePurchaseAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchaseAmount"); else _explicitNullProperties?.Remove("purchaseAmount"); } }
+        private string? _explicitNullValuePurchaseAmount = default!;
 #nullable restore
 #else
-        public string PurchaseAmount { get; set; }
+        public string PurchaseAmount { get => _explicitNullValuePurchaseAmount; set { _explicitNullValuePurchaseAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchaseAmount"); else _explicitNullProperties?.Remove("purchaseAmount"); } }
+        private string _explicitNullValuePurchaseAmount = default!;
 #endif
         /// <summary>The ticker (e.g. `BTC`, `USDC`, `SOL`) or the Coinbase UUID (e.g. `d85dce9b-5b73-5c3c-8978-522ce1d1c1b4`) of the crypto asset to be purchased.Use the [Onramp Buy Options API](https://docs.cdp.coinbase.com/api-reference/rest-api/onramp-offramp/get-buy-options) to discover the supported purchase currencies for your user&apos;s location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PurchaseCurrency { get; set; }
+        public string? PurchaseCurrency { get => _explicitNullValuePurchaseCurrency; set { _explicitNullValuePurchaseCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchaseCurrency"); else _explicitNullProperties?.Remove("purchaseCurrency"); } }
+        private string? _explicitNullValuePurchaseCurrency = default!;
 #nullable restore
 #else
-        public string PurchaseCurrency { get; set; }
+        public string PurchaseCurrency { get => _explicitNullValuePurchaseCurrency; set { _explicitNullValuePurchaseCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("purchaseCurrency"); else _explicitNullProperties?.Remove("purchaseCurrency"); } }
+        private string _explicitNullValuePurchaseCurrency = default!;
 #endif
         /// <summary>A valid URI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RedirectUrl { get; set; }
+        public string? RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrl"); else _explicitNullProperties?.Remove("redirectUrl"); } }
+        private string? _explicitNullValueRedirectUrl = default!;
 #nullable restore
 #else
-        public string RedirectUrl { get; set; }
+        public string RedirectUrl { get => _explicitNullValueRedirectUrl; set { _explicitNullValueRedirectUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("redirectUrl"); else _explicitNullProperties?.Remove("redirectUrl"); } }
+        private string _explicitNullValueRedirectUrl = default!;
 #endif
         /// <summary>The ISO 3166-2 two letter state code (e.g. NY). Only required for US.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Subdivision { get; set; }
+        public string? Subdivision { get => _explicitNullValueSubdivision; set { _explicitNullValueSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subdivision"); else _explicitNullProperties?.Remove("subdivision"); } }
+        private string? _explicitNullValueSubdivision = default!;
 #nullable restore
 #else
-        public string Subdivision { get; set; }
+        public string Subdivision { get => _explicitNullValueSubdivision; set { _explicitNullValueSubdivision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subdivision"); else _explicitNullProperties?.Remove("subdivision"); } }
+        private string _explicitNullValueSubdivision = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSessionRequest"/> and sets the default values.
@@ -120,7 +162,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSessionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSessionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampSessionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -163,6 +205,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("purchaseCurrency", PurchaseCurrency);
             writer.WriteStringValue("redirectUrl", RedirectUrl);
             writer.WriteStringValue("subdivision", Subdivision);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

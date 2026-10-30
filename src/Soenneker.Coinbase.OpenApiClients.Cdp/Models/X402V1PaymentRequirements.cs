@@ -12,79 +12,116 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402V1PaymentRequirements : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("extra") is { } nullNodeExtra && nullNodeExtra.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Extra = null;
+            if (parseNode.GetChildNode("maxAmountRequired") is { } nullNodeMaxAmountRequired && nullNodeMaxAmountRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAmountRequired = null;
+            if (parseNode.GetChildNode("maxTimeoutSeconds") is { } nullNodeMaxTimeoutSeconds && nullNodeMaxTimeoutSeconds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxTimeoutSeconds = null;
+            if (parseNode.GetChildNode("mimeType") is { } nullNodeMimeType && nullNodeMimeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MimeType = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("outputSchema") is { } nullNodeOutputSchema && nullNodeOutputSchema.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OutputSchema = null;
+            if (parseNode.GetChildNode("payTo") is { } nullNodePayTo && nullNodePayTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayTo = null;
+            if (parseNode.GetChildNode("resource") is { } nullNodeResource && nullNodeResource.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Resource = null;
+            if (parseNode.GetChildNode("scheme") is { } nullNodeScheme && nullNodeScheme.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Scheme = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get; set; }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get; set; }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>A human-readable description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get; set; }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get; set; }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The optional additional scheme-specific payment info.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty? Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty? Extra { get => _explicitNullValueExtra; set { _explicitNullValueExtra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra"); else _explicitNullProperties?.Remove("extra"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty? _explicitNullValueExtra = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty Extra { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty Extra { get => _explicitNullValueExtra; set { _explicitNullValueExtra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("extra"); else _explicitNullProperties?.Remove("extra"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsExtraProperty _explicitNullValueExtra = default!;
 #endif
         /// <summary>The maximum amount required to pay for the resource in atomic units of the payment asset.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxAmountRequired { get; set; }
+        public string? MaxAmountRequired { get => _explicitNullValueMaxAmountRequired; set { _explicitNullValueMaxAmountRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxAmountRequired"); else _explicitNullProperties?.Remove("maxAmountRequired"); } }
+        private string? _explicitNullValueMaxAmountRequired = default!;
 #nullable restore
 #else
-        public string MaxAmountRequired { get; set; }
+        public string MaxAmountRequired { get => _explicitNullValueMaxAmountRequired; set { _explicitNullValueMaxAmountRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxAmountRequired"); else _explicitNullProperties?.Remove("maxAmountRequired"); } }
+        private string _explicitNullValueMaxAmountRequired = default!;
 #endif
         /// <summary>The maximum time in seconds for the resource server to respond.</summary>
-        public int? MaxTimeoutSeconds { get; set; }
+        public int? MaxTimeoutSeconds { get => _explicitNullValueMaxTimeoutSeconds; set { _explicitNullValueMaxTimeoutSeconds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxTimeoutSeconds"); else _explicitNullProperties?.Remove("maxTimeoutSeconds"); } }
+        private int? _explicitNullValueMaxTimeoutSeconds = default!;
         /// <summary>The MIME type of the resource response.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MimeType { get; set; }
+        public string? MimeType { get => _explicitNullValueMimeType; set { _explicitNullValueMimeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimeType"); else _explicitNullProperties?.Remove("mimeType"); } }
+        private string? _explicitNullValueMimeType = default!;
 #nullable restore
 #else
-        public string MimeType { get; set; }
+        public string MimeType { get => _explicitNullValueMimeType; set { _explicitNullValueMimeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mimeType"); else _explicitNullProperties?.Remove("mimeType"); } }
+        private string _explicitNullValueMimeType = default!;
 #endif
         /// <summary>The x402 v1 network identifier. x402 v1 uses human-readable network names. Supported networks: Base mainnet and testnet, Solana mainnet and devnet.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The optional JSON schema describing the resource output.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty? OutputSchema { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty? OutputSchema { get => _explicitNullValueOutputSchema; set { _explicitNullValueOutputSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outputSchema"); else _explicitNullProperties?.Remove("outputSchema"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty? _explicitNullValueOutputSchema = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty OutputSchema { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty OutputSchema { get => _explicitNullValueOutputSchema; set { _explicitNullValueOutputSchema = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("outputSchema"); else _explicitNullProperties?.Remove("outputSchema"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirementsOutputSchemaProperty _explicitNullValueOutputSchema = default!;
 #endif
         /// <summary>A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PayTo { get; set; }
+        public string? PayTo { get => _explicitNullValuePayTo; set { _explicitNullValuePayTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payTo"); else _explicitNullProperties?.Remove("payTo"); } }
+        private string? _explicitNullValuePayTo = default!;
 #nullable restore
 #else
-        public string PayTo { get; set; }
+        public string PayTo { get => _explicitNullValuePayTo; set { _explicitNullValuePayTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payTo"); else _explicitNullProperties?.Remove("payTo"); } }
+        private string _explicitNullValuePayTo = default!;
 #endif
         /// <summary>The URL of the resource to pay for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Resource { get; set; }
+        public string? Resource { get => _explicitNullValueResource; set { _explicitNullValueResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource"); else _explicitNullProperties?.Remove("resource"); } }
+        private string? _explicitNullValueResource = default!;
 #nullable restore
 #else
-        public string Resource { get; set; }
+        public string Resource { get => _explicitNullValueResource; set { _explicitNullValueResource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resource"); else _explicitNullProperties?.Remove("resource"); } }
+        private string _explicitNullValueResource = default!;
 #endif
         /// <summary>The scheme of the payment protocol to use. Currently, the only supported scheme is `exact`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme? Scheme { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme? Scheme { get => _explicitNullValueScheme; set { _explicitNullValueScheme = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("scheme"); else _explicitNullProperties?.Remove("scheme"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme? _explicitNullValueScheme = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements"/> and sets the default values.
         /// </summary>
@@ -100,7 +137,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V1PaymentRequirements(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -141,6 +178,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("payTo", PayTo);
             writer.WriteStringValue("resource", Resource);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.ExactScheme>("scheme", Scheme);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,27 +12,42 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OrderFee : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("feeAmount") is { } nullNodeFeeAmount && nullNodeFeeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeeAmount = null;
+            if (parseNode.GetChildNode("feeCurrency") is { } nullNodeFeeCurrency && nullNodeFeeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeeCurrency = null;
+            if (parseNode.GetChildNode("feeType") is { } nullNodeFeeType && nullNodeFeeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FeeType = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amount of the fee.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FeeAmount { get; set; }
+        public string? FeeAmount { get => _explicitNullValueFeeAmount; set { _explicitNullValueFeeAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feeAmount"); else _explicitNullProperties?.Remove("feeAmount"); } }
+        private string? _explicitNullValueFeeAmount = default!;
 #nullable restore
 #else
-        public string FeeAmount { get; set; }
+        public string FeeAmount { get => _explicitNullValueFeeAmount; set { _explicitNullValueFeeAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feeAmount"); else _explicitNullProperties?.Remove("feeAmount"); } }
+        private string _explicitNullValueFeeAmount = default!;
 #endif
         /// <summary>The currency of the fee.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FeeCurrency { get; set; }
+        public string? FeeCurrency { get => _explicitNullValueFeeCurrency; set { _explicitNullValueFeeCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feeCurrency"); else _explicitNullProperties?.Remove("feeCurrency"); } }
+        private string? _explicitNullValueFeeCurrency = default!;
 #nullable restore
 #else
-        public string FeeCurrency { get; set; }
+        public string FeeCurrency { get => _explicitNullValueFeeCurrency; set { _explicitNullValueFeeCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feeCurrency"); else _explicitNullProperties?.Remove("feeCurrency"); } }
+        private string _explicitNullValueFeeCurrency = default!;
 #endif
         /// <summary>The type of fee.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFeeFeeType? FeeType { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFeeFeeType? FeeType { get => _explicitNullValueFeeType; set { _explicitNullValueFeeType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("feeType"); else _explicitNullProperties?.Remove("feeType"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFeeFeeType? _explicitNullValueFeeType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFee"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFee CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFee();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFee(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("feeAmount", FeeAmount);
             writer.WriteStringValue("feeCurrency", FeeCurrency);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OrderFeeFeeType>("feeType", FeeType);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

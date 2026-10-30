@@ -11,16 +11,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class AddEndUserSolanaAccount201Response : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("solanaAccount") is { } nullNodeSolanaAccount && nullNodeSolanaAccount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SolanaAccount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Information about a Solana account associated with an end user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount? SolanaAccount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount? SolanaAccount { get => _explicitNullValueSolanaAccount; set { _explicitNullValueSolanaAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccount"); else _explicitNullProperties?.Remove("solanaAccount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount? _explicitNullValueSolanaAccount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount SolanaAccount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount SolanaAccount { get => _explicitNullValueSolanaAccount; set { _explicitNullValueSolanaAccount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("solanaAccount"); else _explicitNullProperties?.Remove("solanaAccount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount _explicitNullValueSolanaAccount = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserSolanaAccount201Response"/> and sets the default values.
@@ -37,7 +47,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserSolanaAccount201Response CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserSolanaAccount201Response();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AddEndUserSolanaAccount201Response(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,6 +68,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EndUserSolanaAccount>("solanaAccount", SolanaAccount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

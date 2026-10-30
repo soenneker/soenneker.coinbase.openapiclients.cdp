@@ -12,27 +12,42 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnrampLimitUpgradeOption : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("limitUpgrades") is { } nullNodeLimitUpgrades && nullNodeLimitUpgrades.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LimitUpgrades = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The identity fields associated with the current status. Contains fields to submit for `unrequested` and `resubmit`, fields pending review for `pending`, and is empty for `active` and `inactive`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldKey?>? Fields { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldKey?>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldKey?>? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldKey?> Fields { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldKey?> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldKey?> _explicitNullValueFields = default!;
 #endif
         /// <summary>The limit values associated with this upgrade.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade>? LimitUpgrades { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade>? LimitUpgrades { get => _explicitNullValueLimitUpgrades; set { _explicitNullValueLimitUpgrades = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitUpgrades"); else _explicitNullProperties?.Remove("limitUpgrades"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade>? _explicitNullValueLimitUpgrades = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade> LimitUpgrades { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade> LimitUpgrades { get => _explicitNullValueLimitUpgrades; set { _explicitNullValueLimitUpgrades = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("limitUpgrades"); else _explicitNullProperties?.Remove("limitUpgrades"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade> _explicitNullValueLimitUpgrades = default!;
 #endif
         /// <summary>The status of verification:- `unrequested`: The limit upgrade has not been submitted.- `resubmit`: One or more identity fields must be resubmitted.- `pending`: The submitted identity fields are pending review.- `active`: The limit upgrade is active.- `inactive`: The limit upgrade was rejected and cannot be resubmitted.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeStatus? Status { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeStatus? _explicitNullValueStatus = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeOption(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFieldKey>("fields", Fields);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgrade>("limitUpgrades", LimitUpgrades);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeStatus>("status", Status);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

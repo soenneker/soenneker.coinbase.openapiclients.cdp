@@ -12,13 +12,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NetUsdChangeObservation : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("changeCents") is { } nullNodeChangeCents && nullNodeChangeCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChangeCents = null;
+            if (parseNode.GetChildNode("skipped") is { } nullNodeSkipped && nullNodeSkipped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Skipped = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>The net USD change, in cents, of the transaction&apos;s asset transfers and exposure, as simulated at evaluation time. Present exactly when `skipped` is `false`.</summary>
-        public int? ChangeCents { get; set; }
+        public int? ChangeCents { get => _explicitNullValueChangeCents; set { _explicitNullValueChangeCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changeCents"); else _explicitNullProperties?.Remove("changeCents"); } }
+        private int? _explicitNullValueChangeCents = default!;
         /// <summary>Whether simulation was skipped because the operation targets a testnet. A skipped criterion is treated as met, as in the real operation, and `changeCents` is omitted.</summary>
-        public bool? Skipped { get; set; }
+        public bool? Skipped { get => _explicitNullValueSkipped; set { _explicitNullValueSkipped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipped"); else _explicitNullProperties?.Remove("skipped"); } }
+        private bool? _explicitNullValueSkipped = default!;
         /// <summary>The type of criterion to use. This should be `netUSDChange`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -27,7 +40,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeObservation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeObservation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeObservation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +64,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("changeCents", ChangeCents);
             writer.WriteBoolValue("skipped", Skipped);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

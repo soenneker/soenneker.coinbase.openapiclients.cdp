@@ -11,36 +11,56 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class SmartAccountVaultRedeemFeesRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("maxSlippageBps") is { } nullNodeMaxSlippageBps && nullNodeMaxSlippageBps.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxSlippageBps = null;
+            if (parseNode.GetChildNode("paymasterContext") is { } nullNodePaymasterContext && nullNodePaymasterContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymasterContext = null;
+            if (parseNode.GetChildNode("paymasterUrl") is { } nullNodePaymasterUrl && nullNodePaymasterUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymasterUrl = null;
+            if (parseNode.GetChildNode("useCdpPaymaster") is { } nullNodeUseCdpPaymaster && nullNodeUseCdpPaymaster.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UseCdpPaymaster = null;
+            if (parseNode.GetChildNode("vaultId") is { } nullNodeVaultId && nullNodeVaultId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VaultId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.</summary>
-        public int? MaxSlippageBps { get; set; }
+        public int? MaxSlippageBps { get => _explicitNullValueMaxSlippageBps; set { _explicitNullValueMaxSlippageBps = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxSlippageBps"); else _explicitNullProperties?.Remove("maxSlippageBps"); } }
+        private int? _explicitNullValueMaxSlippageBps = default!;
         /// <summary>The ERC-7677 `context` object forwarded to the paymaster service as part of the `paymasterService` capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing `paymasterContext` without a paymaster configured results in an `invalid_request` error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequestPaymasterContext? PaymasterContext { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequestPaymasterContext? PaymasterContext { get => _explicitNullValuePaymasterContext; set { _explicitNullValuePaymasterContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterContext"); else _explicitNullProperties?.Remove("paymasterContext"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequestPaymasterContext? _explicitNullValuePaymasterContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequestPaymasterContext PaymasterContext { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequestPaymasterContext PaymasterContext { get => _explicitNullValuePaymasterContext; set { _explicitNullValuePaymasterContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterContext"); else _explicitNullProperties?.Remove("paymasterContext"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequestPaymasterContext _explicitNullValuePaymasterContext = default!;
 #endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymasterUrl { get; set; }
+        public string? PaymasterUrl { get => _explicitNullValuePaymasterUrl; set { _explicitNullValuePaymasterUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterUrl"); else _explicitNullProperties?.Remove("paymasterUrl"); } }
+        private string? _explicitNullValuePaymasterUrl = default!;
 #nullable restore
 #else
-        public string PaymasterUrl { get; set; }
+        public string PaymasterUrl { get => _explicitNullValuePaymasterUrl; set { _explicitNullValuePaymasterUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterUrl"); else _explicitNullProperties?.Remove("paymasterUrl"); } }
+        private string _explicitNullValuePaymasterUrl = default!;
 #endif
         /// <summary>Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to redeem fees without holding native gas tokens. Cannot be used together with `paymasterUrl`.</summary>
-        public bool? UseCdpPaymaster { get; set; }
+        public bool? UseCdpPaymaster { get => _explicitNullValueUseCdpPaymaster; set { _explicitNullValueUseCdpPaymaster = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("useCdpPaymaster"); else _explicitNullProperties?.Remove("useCdpPaymaster"); } }
+        private bool? _explicitNullValueUseCdpPaymaster = default!;
         /// <summary>The globally unique ID of the vault, which is a UUID prefixed with the string `vault_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? VaultId { get; set; }
+        public string? VaultId { get => _explicitNullValueVaultId; set { _explicitNullValueVaultId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vaultId"); else _explicitNullProperties?.Remove("vaultId"); } }
+        private string? _explicitNullValueVaultId = default!;
 #nullable restore
 #else
-        public string VaultId { get; set; }
+        public string VaultId { get => _explicitNullValueVaultId; set { _explicitNullValueVaultId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vaultId"); else _explicitNullProperties?.Remove("vaultId"); } }
+        private string _explicitNullValueVaultId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequest"/> and sets the default values.
@@ -57,7 +77,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmartAccountVaultRedeemFeesRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,6 +106,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("paymasterUrl", PaymasterUrl);
             writer.WriteBoolValue("useCdpPaymaster", UseCdpPaymaster);
             writer.WriteStringValue("vaultId", VaultId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

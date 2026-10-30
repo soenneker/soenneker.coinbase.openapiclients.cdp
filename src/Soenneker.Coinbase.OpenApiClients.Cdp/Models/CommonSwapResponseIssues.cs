@@ -12,27 +12,42 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CommonSwapResponseIssues : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("allowance") is { } nullNodeAllowance && nullNodeAllowance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Allowance = null;
+            if (parseNode.GetChildNode("balance") is { } nullNodeBalance && nullNodeBalance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Balance = null;
+            if (parseNode.GetChildNode("simulationIncomplete") is { } nullNodeSimulationIncomplete && nullNodeSimulationIncomplete.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SimulationIncomplete = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Details of the allowances that the taker must set in order to execute the swap successfully. Null if no allowance is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance? Allowance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance? Allowance { get => _explicitNullValueAllowance; set { _explicitNullValueAllowance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowance"); else _explicitNullProperties?.Remove("allowance"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance? _explicitNullValueAllowance = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance Allowance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance Allowance { get => _explicitNullValueAllowance; set { _explicitNullValueAllowance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("allowance"); else _explicitNullProperties?.Remove("allowance"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance _explicitNullValueAllowance = default!;
 #endif
         /// <summary>Details of the balance of the `fromToken` that the `taker` must hold. Null if the `taker` has a sufficient balance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance? Balance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance? Balance { get => _explicitNullValueBalance; set { _explicitNullValueBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("balance"); else _explicitNullProperties?.Remove("balance"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance? _explicitNullValueBalance = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance Balance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance Balance { get => _explicitNullValueBalance; set { _explicitNullValueBalance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("balance"); else _explicitNullProperties?.Remove("balance"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance _explicitNullValueBalance = default!;
 #endif
         /// <summary>This is set to true when the transaction cannot be validated. This can happen when the taker has an insufficient balance of the `fromToken`. Note that this does not necessarily mean that the trade will revert.</summary>
-        public bool? SimulationIncomplete { get; set; }
+        public bool? SimulationIncomplete { get => _explicitNullValueSimulationIncomplete; set { _explicitNullValueSimulationIncomplete = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("simulationIncomplete"); else _explicitNullProperties?.Remove("simulationIncomplete"); } }
+        private bool? _explicitNullValueSimulationIncomplete = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues"/> and sets the default values.
         /// </summary>
@@ -48,7 +63,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssues(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,6 +88,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesAllowance>("allowance", Allowance);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseIssuesBalance>("balance", Balance);
             writer.WriteBoolValue("simulationIncomplete", SimulationIncomplete);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,24 +12,37 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class X402BatchSettlementClaimVoucher : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("channel") is { } nullNodeChannel && nullNodeChannel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Channel = null;
+            if (parseNode.GetChildNode("maxClaimableAmount") is { } nullNodeMaxClaimableAmount && nullNodeMaxClaimableAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxClaimableAmount = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Immutable configuration for an x402 batch-settlement payment channel. The EIP-712 hash of this struct produces the `channelId` used by all batch-settlement payloads.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? Channel { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? Channel { get => _explicitNullValueChannel; set { _explicitNullValueChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel"); else _explicitNullProperties?.Remove("channel"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig? _explicitNullValueChannel = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig Channel { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig Channel { get => _explicitNullValueChannel; set { _explicitNullValueChannel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("channel"); else _explicitNullProperties?.Remove("channel"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig _explicitNullValueChannel = default!;
 #endif
         /// <summary>The cumulative maximum claimable amount (uint128 as decimal string) signed by the payer authorizer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaxClaimableAmount { get; set; }
+        public string? MaxClaimableAmount { get => _explicitNullValueMaxClaimableAmount; set { _explicitNullValueMaxClaimableAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxClaimableAmount"); else _explicitNullProperties?.Remove("maxClaimableAmount"); } }
+        private string? _explicitNullValueMaxClaimableAmount = default!;
 #nullable restore
 #else
-        public string MaxClaimableAmount { get; set; }
+        public string MaxClaimableAmount { get => _explicitNullValueMaxClaimableAmount; set { _explicitNullValueMaxClaimableAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("maxClaimableAmount"); else _explicitNullProperties?.Remove("maxClaimableAmount"); } }
+        private string _explicitNullValueMaxClaimableAmount = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementClaimVoucher(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402BatchSettlementChannelConfig>("channel", Channel);
             writer.WriteStringValue("maxClaimableAmount", MaxClaimableAmount);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

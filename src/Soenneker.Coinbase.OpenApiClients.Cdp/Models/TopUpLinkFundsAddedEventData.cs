@@ -12,32 +12,48 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TopUpLinkFundsAddedEventData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("asset") is { } nullNodeAsset && nullNodeAsset.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Asset = null;
+            if (parseNode.GetChildNode("toppedUpAmount") is { } nullNodeToppedUpAmount && nullNodeToppedUpAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ToppedUpAmount = null;
+            if (parseNode.GetChildNode("topUpLinkId") is { } nullNodeTopUpLinkId && nullNodeTopUpLinkId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpLinkId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The asset credited by this purchase. Currently, only `usdc` is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Asset { get; set; }
+        public string? Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string? _explicitNullValueAsset = default!;
 #nullable restore
 #else
-        public string Asset { get; set; }
+        public string Asset { get => _explicitNullValueAsset; set { _explicitNullValueAsset = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("asset"); else _explicitNullProperties?.Remove("asset"); } }
+        private string _explicitNullValueAsset = default!;
 #endif
         /// <summary>The actual net amount credited by this purchase, denominated in `asset`. Never cumulative and independent of the link&apos;s suggested amounts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount? ToppedUpAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount? ToppedUpAmount { get => _explicitNullValueToppedUpAmount; set { _explicitNullValueToppedUpAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toppedUpAmount"); else _explicitNullProperties?.Remove("toppedUpAmount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount? _explicitNullValueToppedUpAmount = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount ToppedUpAmount { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount ToppedUpAmount { get => _explicitNullValueToppedUpAmount; set { _explicitNullValueToppedUpAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("toppedUpAmount"); else _explicitNullProperties?.Remove("toppedUpAmount"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount _explicitNullValueToppedUpAmount = default!;
 #endif
         /// <summary>The ID of the Top-Up Link, a UUID prefixed by `topUpLink_`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TopUpLinkId { get; set; }
+        public string? TopUpLinkId { get => _explicitNullValueTopUpLinkId; set { _explicitNullValueTopUpLinkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLinkId"); else _explicitNullProperties?.Remove("topUpLinkId"); } }
+        private string? _explicitNullValueTopUpLinkId = default!;
 #nullable restore
 #else
-        public string TopUpLinkId { get; set; }
+        public string TopUpLinkId { get => _explicitNullValueTopUpLinkId; set { _explicitNullValueTopUpLinkId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLinkId"); else _explicitNullProperties?.Remove("topUpLinkId"); } }
+        private string _explicitNullValueTopUpLinkId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventData"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("asset", Asset);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkFundsAddedEventDataToppedUpAmount>("toppedUpAmount", ToppedUpAmount);
             writer.WriteStringValue("topUpLinkId", TopUpLinkId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

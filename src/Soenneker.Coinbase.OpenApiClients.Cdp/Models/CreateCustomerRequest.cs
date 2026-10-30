@@ -12,57 +12,84 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateCustomerRequest : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("capabilities") is { } nullNodeCapabilities && nullNodeCapabilities.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Capabilities = null;
+            if (parseNode.GetChildNode("compliance") is { } nullNodeCompliance && nullNodeCompliance.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Compliance = null;
+            if (parseNode.GetChildNode("individual") is { } nullNodeIndividual && nullNodeIndividual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Individual = null;
+            if (parseNode.GetChildNode("projectIds") is { } nullNodeProjectIds && nullNodeProjectIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProjectIds = null;
+            if (parseNode.GetChildNode("taxAttestations") is { } nullNodeTaxAttestations && nullNodeTaxAttestations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TaxAttestations = null;
+            if (parseNode.GetChildNode("tosAcceptances") is { } nullNodeTosAcceptances && nullNodeTosAcceptances.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TosAcceptances = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Capabilities to request for the customer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseCapabilities? Capabilities { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseCapabilities? Capabilities { get => _explicitNullValueCapabilities; set { _explicitNullValueCapabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capabilities"); else _explicitNullProperties?.Remove("capabilities"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseCapabilities? _explicitNullValueCapabilities = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseCapabilities Capabilities { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseCapabilities Capabilities { get => _explicitNullValueCapabilities; set { _explicitNullValueCapabilities = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("capabilities"); else _explicitNullProperties?.Remove("capabilities"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseCapabilities _explicitNullValueCapabilities = default!;
 #endif
         /// <summary>Compliance context for a request. Carries per-request compliance signals,such as the IP address of the individual (i.e., end-customer) thatinitiated the request.This object is request-only — it is never echoed back in responses.Inner fields are write-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance? Compliance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance? Compliance { get => _explicitNullValueCompliance; set { _explicitNullValueCompliance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compliance"); else _explicitNullProperties?.Remove("compliance"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance? _explicitNullValueCompliance = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance Compliance { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance Compliance { get => _explicitNullValueCompliance; set { _explicitNullValueCompliance = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("compliance"); else _explicitNullProperties?.Remove("compliance"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Compliance _explicitNullValueCompliance = default!;
 #endif
         /// <summary>Information about an Individual customer. Not all fields are requiredfor all customers; the requirements depend on which capabilities arerequested. Submit only fields that are required by the capabilitiesthat have been requested.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual? Individual { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual? Individual { get => _explicitNullValueIndividual; set { _explicitNullValueIndividual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("individual"); else _explicitNullProperties?.Remove("individual"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual? _explicitNullValueIndividual = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual Individual { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual Individual { get => _explicitNullValueIndividual; set { _explicitNullValueIndividual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("individual"); else _explicitNullProperties?.Remove("individual"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseIndividual _explicitNullValueIndividual = default!;
 #endif
         /// <summary>The project IDs that this customer is associated with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Guid?>? ProjectIds { get; set; }
+        public List<Guid?>? ProjectIds { get => _explicitNullValueProjectIds; set { _explicitNullValueProjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("projectIds"); else _explicitNullProperties?.Remove("projectIds"); } }
+        private List<Guid?>? _explicitNullValueProjectIds = default!;
 #nullable restore
 #else
-        public List<Guid?> ProjectIds { get; set; }
+        public List<Guid?> ProjectIds { get => _explicitNullValueProjectIds; set { _explicitNullValueProjectIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("projectIds"); else _explicitNullProperties?.Remove("projectIds"); } }
+        private List<Guid?> _explicitNullValueProjectIds = default!;
 #endif
         /// <summary>Tax attestations to record on the customer. Submit one entry perrequired form surfaced inline on`requirements.taxAttestation.taxForms[]` (returned by `Get Customer`,`Create Customer`, and `Update Customer` whenever a `taxAttestation`requirement is unsatisfied). The required fields per entry depend on`form`; see `TaxAttestation`. This field is ingestion-only and isnever returned on read.Omit `taxAttestations` on a partial update to leave previouslyrecorded attestations unchanged. Sending `taxAttestations: []` isinvalid (`errorType: &quot;invalid_request&quot;`) because it would clear allattestations without replacing them; omit the field entirely when youare not updating tax attestations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation>? TaxAttestations { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation>? TaxAttestations { get => _explicitNullValueTaxAttestations; set { _explicitNullValueTaxAttestations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taxAttestations"); else _explicitNullProperties?.Remove("taxAttestations"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation>? _explicitNullValueTaxAttestations = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation> TaxAttestations { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation> TaxAttestations { get => _explicitNullValueTaxAttestations; set { _explicitNullValueTaxAttestations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("taxAttestations"); else _explicitNullProperties?.Remove("taxAttestations"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation> _explicitNullValueTaxAttestations = default!;
 #endif
         /// <summary>Terms of Service acceptances to record on the customer. Submit oneentry per required version surfaced inline on`requirements.tos.tosVersions[]` (returned by `Get Customer`,`Create Customer`, and `Update Customer` whenever a `tos` requirementis unsatisfied). The server rejects each acceptance whose `language`is not listed under `languages` on the matching required version with`errorType: &quot;unsupported_tos_language&quot;`.When new required Terms of Service versions are published, only thenew `versionId`s appear in `requirements.tos.tosVersions[]`; submitacceptances for only those new version(s).Omit `tosAcceptances` on a partial update to leave previously recordedacceptances unchanged. Sending `tosAcceptances: []` is invalid(`errorType: &quot;invalid_request&quot;`) because it would clear all acceptanceswithout replacing them; omit the field entirely when you are notupdating Terms of Service acceptances.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance>? TosAcceptances { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance>? TosAcceptances { get => _explicitNullValueTosAcceptances; set { _explicitNullValueTosAcceptances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tosAcceptances"); else _explicitNullProperties?.Remove("tosAcceptances"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance>? _explicitNullValueTosAcceptances = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance> TosAcceptances { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance> TosAcceptances { get => _explicitNullValueTosAcceptances; set { _explicitNullValueTosAcceptances = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tosAcceptances"); else _explicitNullProperties?.Remove("tosAcceptances"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance> _explicitNullValueTosAcceptances = default!;
 #endif
         /// <summary>The type of the customer. Required on create; accepted but ignored on update.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType? _explicitNullValueType = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -71,7 +98,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCustomerRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCustomerRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateCustomerRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,7 +130,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteCollectionOfPrimitiveValues<Guid?>("projectIds", ProjectIds);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation>("taxAttestations", TaxAttestations);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TosAcceptance>("tosAcceptances", TosAcceptances);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CustomerWriteBaseType>("type", Type);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

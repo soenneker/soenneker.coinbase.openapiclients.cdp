@@ -12,16 +12,26 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TopUpLinkCreatedEventData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("topUpLink") is { } nullNodeTopUpLink && nullNodeTopUpLink.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TopUpLink = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A shareable link that lets a payer add funds to their balance through a hosted Top-Up flow. The resource is immutable once created. The link expires 24 hours after creation and funds a single purchase: once a purchase succeeds, the link is spent and cannot be used again. A purchase that fails does not consume the link, so the payer can retry until it expires. A link is not bound to a specific payer. `orderTotalAmount` and `redirectUrl` are omitted from the response when they were not supplied at creation; they are never returned as null. `customerDisplay` contains the resolved merchant name stored at creation, including the entity&apos;s profile name when no nonempty override was supplied. The response and creation webhook always include `customerDisplay` and its `merchantName`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink? TopUpLink { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink? TopUpLink { get => _explicitNullValueTopUpLink; set { _explicitNullValueTopUpLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLink"); else _explicitNullProperties?.Remove("topUpLink"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink? _explicitNullValueTopUpLink = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink TopUpLink { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink TopUpLink { get => _explicitNullValueTopUpLink; set { _explicitNullValueTopUpLink = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("topUpLink"); else _explicitNullProperties?.Remove("topUpLink"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink _explicitNullValueTopUpLink = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkCreatedEventData"/> and sets the default values.
@@ -38,7 +48,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkCreatedEventData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkCreatedEventData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLinkCreatedEventData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,6 +69,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TopUpLink>("topUpLink", TopUpLink);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

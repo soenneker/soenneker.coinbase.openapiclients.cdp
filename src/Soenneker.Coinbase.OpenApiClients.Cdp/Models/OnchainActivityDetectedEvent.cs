@@ -12,78 +12,115 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class OnchainActivityDetectedEvent : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("block_number") is { } nullNodeBlockNumber && nullNodeBlockNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlockNumber = null;
+            if (parseNode.GetChildNode("contract_address") is { } nullNodeContractAddress && nullNodeContractAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContractAddress = null;
+            if (parseNode.GetChildNode("event_name") is { } nullNodeEventName && nullNodeEventName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventName = null;
+            if (parseNode.GetChildNode("event_signature") is { } nullNodeEventSignature && nullNodeEventSignature.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventSignature = null;
+            if (parseNode.GetChildNode("log_index") is { } nullNodeLogIndex && nullNodeLogIndex.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LogIndex = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("parameters") is { } nullNodeParameters && nullNodeParameters.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Parameters = null;
+            if (parseNode.GetChildNode("timestamp") is { } nullNodeTimestamp && nullNodeTimestamp.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Timestamp = null;
+            if (parseNode.GetChildNode("transaction_from") is { } nullNodeTransactionFrom && nullNodeTransactionFrom.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionFrom = null;
+            if (parseNode.GetChildNode("transaction_hash") is { } nullNodeTransactionHash && nullNodeTransactionHash.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionHash = null;
+            if (parseNode.GetChildNode("transaction_to") is { } nullNodeTransactionTo && nullNodeTransactionTo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionTo = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The block number containing the transaction that emitted the event.</summary>
-        public long? BlockNumber { get; set; }
+        public long? BlockNumber { get => _explicitNullValueBlockNumber; set { _explicitNullValueBlockNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("block_number"); else _explicitNullProperties?.Remove("block_number"); } }
+        private long? _explicitNullValueBlockNumber = default!;
         /// <summary>The contract address that emitted the event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ContractAddress { get; set; }
+        public string? ContractAddress { get => _explicitNullValueContractAddress; set { _explicitNullValueContractAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contract_address"); else _explicitNullProperties?.Remove("contract_address"); } }
+        private string? _explicitNullValueContractAddress = default!;
 #nullable restore
 #else
-        public string ContractAddress { get; set; }
+        public string ContractAddress { get => _explicitNullValueContractAddress; set { _explicitNullValueContractAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contract_address"); else _explicitNullProperties?.Remove("contract_address"); } }
+        private string _explicitNullValueContractAddress = default!;
 #endif
         /// <summary>The name of the decoded contract event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventName { get; set; }
+        public string? EventName { get => _explicitNullValueEventName; set { _explicitNullValueEventName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_name"); else _explicitNullProperties?.Remove("event_name"); } }
+        private string? _explicitNullValueEventName = default!;
 #nullable restore
 #else
-        public string EventName { get; set; }
+        public string EventName { get => _explicitNullValueEventName; set { _explicitNullValueEventName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_name"); else _explicitNullProperties?.Remove("event_name"); } }
+        private string _explicitNullValueEventName = default!;
 #endif
         /// <summary>The canonical event signature used to decode the log, including parameter types (e.g., `Transfer(address,address,uint256)`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? EventSignature { get; set; }
+        public string? EventSignature { get => _explicitNullValueEventSignature; set { _explicitNullValueEventSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_signature"); else _explicitNullProperties?.Remove("event_signature"); } }
+        private string? _explicitNullValueEventSignature = default!;
 #nullable restore
 #else
-        public string EventSignature { get; set; }
+        public string EventSignature { get => _explicitNullValueEventSignature; set { _explicitNullValueEventSignature = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_signature"); else _explicitNullProperties?.Remove("event_signature"); } }
+        private string _explicitNullValueEventSignature = default!;
 #endif
         /// <summary>The zero-based index of the log within the transaction.</summary>
-        public long? LogIndex { get; set; }
+        public long? LogIndex { get => _explicitNullValueLogIndex; set { _explicitNullValueLogIndex = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("log_index"); else _explicitNullProperties?.Remove("log_index"); } }
+        private long? _explicitNullValueLogIndex = default!;
         /// <summary>The blockchain network where the activity was detected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Network { get; set; }
+        public string? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private string? _explicitNullValueNetwork = default!;
 #nullable restore
 #else
-        public string Network { get; set; }
+        public string Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private string _explicitNullValueNetwork = default!;
 #endif
         /// <summary>Decoded event parameters from the contract event. Keys correspond to the named arguments in the event signature (e.g., `from`, `to`, `value` for an ERC-20 `Transfer`). Values are returned as strings to preserve precision for large integers and to avoid loss for address types. The exact set of keys depends on the contract event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEventParameters? Parameters { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEventParameters? Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEventParameters? _explicitNullValueParameters = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEventParameters Parameters { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEventParameters Parameters { get => _explicitNullValueParameters; set { _explicitNullValueParameters = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("parameters"); else _explicitNullProperties?.Remove("parameters"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEventParameters _explicitNullValueParameters = default!;
 #endif
         /// <summary>The block timestamp of the transaction (ISO 8601 format).</summary>
-        public DateTimeOffset? Timestamp { get; set; }
+        public DateTimeOffset? Timestamp { get => _explicitNullValueTimestamp; set { _explicitNullValueTimestamp = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timestamp"); else _explicitNullProperties?.Remove("timestamp"); } }
+        private DateTimeOffset? _explicitNullValueTimestamp = default!;
         /// <summary>The address that initiated the transaction (the transaction sender).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionFrom { get; set; }
+        public string? TransactionFrom { get => _explicitNullValueTransactionFrom; set { _explicitNullValueTransactionFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_from"); else _explicitNullProperties?.Remove("transaction_from"); } }
+        private string? _explicitNullValueTransactionFrom = default!;
 #nullable restore
 #else
-        public string TransactionFrom { get; set; }
+        public string TransactionFrom { get => _explicitNullValueTransactionFrom; set { _explicitNullValueTransactionFrom = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_from"); else _explicitNullProperties?.Remove("transaction_from"); } }
+        private string _explicitNullValueTransactionFrom = default!;
 #endif
         /// <summary>The hash of the transaction that emitted the event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionHash { get; set; }
+        public string? TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_hash"); else _explicitNullProperties?.Remove("transaction_hash"); } }
+        private string? _explicitNullValueTransactionHash = default!;
 #nullable restore
 #else
-        public string TransactionHash { get; set; }
+        public string TransactionHash { get => _explicitNullValueTransactionHash; set { _explicitNullValueTransactionHash = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_hash"); else _explicitNullProperties?.Remove("transaction_hash"); } }
+        private string _explicitNullValueTransactionHash = default!;
 #endif
         /// <summary>The address the transaction was sent to (typically a contract address).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionTo { get; set; }
+        public string? TransactionTo { get => _explicitNullValueTransactionTo; set { _explicitNullValueTransactionTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_to"); else _explicitNullProperties?.Remove("transaction_to"); } }
+        private string? _explicitNullValueTransactionTo = default!;
 #nullable restore
 #else
-        public string TransactionTo { get; set; }
+        public string TransactionTo { get => _explicitNullValueTransactionTo; set { _explicitNullValueTransactionTo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transaction_to"); else _explicitNullProperties?.Remove("transaction_to"); } }
+        private string _explicitNullValueTransactionTo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEvent"/> and sets the default values.
@@ -100,7 +137,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEvent();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnchainActivityDetectedEvent(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -141,6 +178,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteStringValue("transaction_from", TransactionFrom);
             writer.WriteStringValue("transaction_hash", TransactionHash);
             writer.WriteStringValue("transaction_to", TransactionTo);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

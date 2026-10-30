@@ -12,32 +12,48 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MandateEventData : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("approval") is { } nullNodeApproval && nullNodeApproval.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Approval = null;
+            if (parseNode.GetChildNode("mandate") is { } nullNodeMandate && nullNodeMandate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Mandate = null;
+            if (parseNode.GetChildNode("revocation") is { } nullNodeRevocation && nullNodeRevocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Revocation = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The approval attempt this event concerns. Present only on the approval events (`acceptance.mandate.approval_initiated`, `acceptance.mandate.approval_succeeded`, and `acceptance.mandate.approval_failed`); absent on all other events. A `failed` approval carries an `error`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataApproval? Approval { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataApproval? Approval { get => _explicitNullValueApproval; set { _explicitNullValueApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approval"); else _explicitNullProperties?.Remove("approval"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataApproval? _explicitNullValueApproval = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataApproval Approval { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataApproval Approval { get => _explicitNullValueApproval; set { _explicitNullValueApproval = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("approval"); else _explicitNullProperties?.Remove("approval"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataApproval _explicitNullValueApproval = default!;
 #endif
         /// <summary>A durable, revocable standing authorization to debit a funding `source` without the customer present each time, within its `policy` caps. Payment sessions draw against it by referencing its `mandateId`.`source` is set once an approval succeeds. `status` reflects the most recent action; the `approvedAt`, `canceledAt`, and `revokedAt` timestamps are the durable record of what has happened. Ending one mandate does not affect other mandates on the same `source`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate? Mandate { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate? Mandate { get => _explicitNullValueMandate; set { _explicitNullValueMandate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mandate"); else _explicitNullProperties?.Remove("mandate"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate? _explicitNullValueMandate = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate Mandate { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate Mandate { get => _explicitNullValueMandate; set { _explicitNullValueMandate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mandate"); else _explicitNullProperties?.Remove("mandate"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate _explicitNullValueMandate = default!;
 #endif
         /// <summary>The wallet revocation this event concerns. Present only on revocation events (`revocation_initiated`, `revocation_succeeded`, `revocation_failed`); absent on all others. A `failed` revocation carries an `error`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocation? Revocation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocation? Revocation { get => _explicitNullValueRevocation; set { _explicitNullValueRevocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocation"); else _explicitNullProperties?.Remove("revocation"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocation? _explicitNullValueRevocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocation Revocation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocation Revocation { get => _explicitNullValueRevocation; set { _explicitNullValueRevocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("revocation"); else _explicitNullProperties?.Remove("revocation"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocation _explicitNullValueRevocation = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventData"/> and sets the default values.
@@ -54,7 +70,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventData();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventData(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,6 +95,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataApproval>("approval", Approval);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Mandate>("mandate", Mandate);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateEventDataRevocation>("revocation", Revocation);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

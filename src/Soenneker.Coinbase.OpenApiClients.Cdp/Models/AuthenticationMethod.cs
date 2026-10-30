@@ -12,7 +12,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthenticationMethod : IComposedTypeWrapper, IParsable
-    {
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
         /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,29 +78,44 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.AuthenticationMethod();
             if("DeveloperJwtAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.DeveloperJwtAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication();
+                
             }
             else if("EmailAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.EmailAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication();
+                
             }
             else if("OAuth2Authentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.OAuth2Authentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication();
+                
             }
             else if("SiweAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SiweAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication();
+                
             }
             else if("SmsAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.SmsAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication();
+                
             }
             else if("TelegramAuthentication".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.TelegramAuthentication = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TelegramAuthentication();
+                
             }
-            return result;
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("email".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("email") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("sms".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("phoneNumber") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("jwt".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("sub") != null && parseNode.GetChildNode("kid") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("google".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "apple".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "x".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "telegram".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "github".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("sub") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("google".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "apple".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "x".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "telegram".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "github".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("id") != null && parseNode.GetChildNode("authDate") != null))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("type") != null && (parseNode.GetChildNode("type")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("siwe".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("address") != null))();
+            if (result.DeveloperJwtAuthentication == null && result.EmailAuthentication == null && result.OAuth2Authentication == null && result.SiweAuthentication == null && result.SmsAuthentication == null && result.TelegramAuthentication == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.EmailAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication(), parseNode);
+            if (result.DeveloperJwtAuthentication == null && result.EmailAuthentication == null && result.OAuth2Authentication == null && result.SiweAuthentication == null && result.SmsAuthentication == null && result.TelegramAuthentication == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.SmsAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication(), parseNode);
+            if (result.DeveloperJwtAuthentication == null && result.EmailAuthentication == null && result.OAuth2Authentication == null && result.SiweAuthentication == null && result.SmsAuthentication == null && result.TelegramAuthentication == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5) result.DeveloperJwtAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication(), parseNode);
+            if (result.DeveloperJwtAuthentication == null && result.EmailAuthentication == null && result.OAuth2Authentication == null && result.SiweAuthentication == null && result.SmsAuthentication == null && result.TelegramAuthentication == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5) result.OAuth2Authentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication(), parseNode);
+            if (result.DeveloperJwtAuthentication == null && result.EmailAuthentication == null && result.OAuth2Authentication == null && result.SiweAuthentication == null && result.SmsAuthentication == null && result.TelegramAuthentication == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5) result.TelegramAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TelegramAuthentication(), parseNode);
+            if (result.DeveloperJwtAuthentication == null && result.EmailAuthentication == null && result.OAuth2Authentication == null && result.SiweAuthentication == null && result.SmsAuthentication == null && result.TelegramAuthentication == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4) result.SiweAuthentication = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication(), parseNode);
+            if (result.DeveloperJwtAuthentication == null && result.EmailAuthentication == null && result.OAuth2Authentication == null && result.SiweAuthentication == null && result.SmsAuthentication == null && result.TelegramAuthentication == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -135,29 +155,44 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (DeveloperJwtAuthentication == null && EmailAuthentication == null && OAuth2Authentication == null && SiweAuthentication == null && SmsAuthentication == null && TelegramAuthentication == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (DeveloperJwtAuthentication != null && EmailAuthentication == null && OAuth2Authentication == null && SiweAuthentication == null && SmsAuthentication == null && TelegramAuthentication == null) { if (DeveloperJwtAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, DeveloperJwtAuthentication); return; }
+            if (EmailAuthentication != null && DeveloperJwtAuthentication == null && OAuth2Authentication == null && SiweAuthentication == null && SmsAuthentication == null && TelegramAuthentication == null) { if (EmailAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, EmailAuthentication); return; }
+            if (OAuth2Authentication != null && DeveloperJwtAuthentication == null && EmailAuthentication == null && SiweAuthentication == null && SmsAuthentication == null && TelegramAuthentication == null) { if (OAuth2Authentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, OAuth2Authentication); return; }
+            if (SiweAuthentication != null && DeveloperJwtAuthentication == null && EmailAuthentication == null && OAuth2Authentication == null && SmsAuthentication == null && TelegramAuthentication == null) { if (SiweAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SiweAuthentication); return; }
+            if (SmsAuthentication != null && DeveloperJwtAuthentication == null && EmailAuthentication == null && OAuth2Authentication == null && SiweAuthentication == null && TelegramAuthentication == null) { if (SmsAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, SmsAuthentication); return; }
+            if (TelegramAuthentication != null && DeveloperJwtAuthentication == null && EmailAuthentication == null && OAuth2Authentication == null && SiweAuthentication == null && SmsAuthentication == null) { if (TelegramAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, TelegramAuthentication); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             if(DeveloperJwtAuthentication != null)
             {
+                if (DeveloperJwtAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DeveloperJwtAuthentication>(null, DeveloperJwtAuthentication);
             }
             else if(EmailAuthentication != null)
             {
+                if (EmailAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EmailAuthentication>(null, EmailAuthentication);
             }
             else if(OAuth2Authentication != null)
             {
+                if (OAuth2Authentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OAuth2Authentication>(null, OAuth2Authentication);
             }
             else if(SiweAuthentication != null)
             {
+                if (SiweAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SiweAuthentication>(null, SiweAuthentication);
             }
             else if(SmsAuthentication != null)
             {
+                if (SmsAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SmsAuthentication>(null, SmsAuthentication);
             }
             else if(TelegramAuthentication != null)
             {
+                if (TelegramAuthentication is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
                 writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TelegramAuthentication>(null, TelegramAuthentication);
             }
         }

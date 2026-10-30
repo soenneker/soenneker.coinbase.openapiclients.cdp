@@ -8,26 +8,31 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember2"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf2"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RefundSourceComposed : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember1"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember1? RefundSourceComposedMember1 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf1? RefundSourceComposedOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember1 RefundSourceComposedMember1 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf1 RefundSourceComposedOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember2"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember2? RefundSourceComposedMember2 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf2? RefundSourceComposedOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember2 RefundSourceComposedMember2 { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf2 RefundSourceComposedOneOf2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -39,7 +44,22 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposed();
-            return result;
+            if("RefundSourceComposedOneOf1".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("RefundSourceComposedOneOf2".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("accountId") != null && parseNode.GetChildNode("asset") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("address") != null))();
+            if (result.RefundSourceComposedOneOf1 == null && result.RefundSourceComposedOneOf2 == null && matchesUnionBranch0 && !matchesUnionBranch1) result.RefundSourceComposedOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf1(), parseNode);
+            if (result.RefundSourceComposedOneOf1 == null && result.RefundSourceComposedOneOf2 == null && matchesUnionBranch1 && !matchesUnionBranch0) result.RefundSourceComposedOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf2(), parseNode);
+            if (result.RefundSourceComposedOneOf1 == null && result.RefundSourceComposedOneOf2 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,13 +67,13 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(RefundSourceComposedMember1 != null)
+            if(RefundSourceComposedOneOf1 != null)
             {
-                return RefundSourceComposedMember1.GetFieldDeserializers();
+                return RefundSourceComposedOneOf1.GetFieldDeserializers();
             }
-            else if(RefundSourceComposedMember2 != null)
+            else if(RefundSourceComposedOneOf2 != null)
             {
-                return RefundSourceComposedMember2.GetFieldDeserializers();
+                return RefundSourceComposedOneOf2.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -63,14 +83,21 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (RefundSourceComposedOneOf1 == null && RefundSourceComposedOneOf2 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (RefundSourceComposedOneOf1 != null && RefundSourceComposedOneOf2 == null) { if (RefundSourceComposedOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RefundSourceComposedOneOf1); return; }
+            if (RefundSourceComposedOneOf2 != null && RefundSourceComposedOneOf1 == null) { if (RefundSourceComposedOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, RefundSourceComposedOneOf2); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(RefundSourceComposedMember1 != null)
+            if(RefundSourceComposedOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember1>(null, RefundSourceComposedMember1);
+                if (RefundSourceComposedOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf1>(null, RefundSourceComposedOneOf1);
             }
-            else if(RefundSourceComposedMember2 != null)
+            else if(RefundSourceComposedOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedMember2>(null, RefundSourceComposedMember2);
+                if (RefundSourceComposedOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.RefundSourceComposedOneOf2>(null, RefundSourceComposedOneOf2);
             }
         }
     }

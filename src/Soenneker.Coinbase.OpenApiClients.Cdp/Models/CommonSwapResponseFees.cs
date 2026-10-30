@@ -12,24 +12,37 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CommonSwapResponseFees : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("gasFee") is { } nullNodeGasFee && nullNodeGasFee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GasFee = null;
+            if (parseNode.GetChildNode("protocolFee") is { } nullNodeProtocolFee && nullNodeProtocolFee.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ProtocolFee = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The estimated gas fee for the swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee? GasFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee? GasFee { get => _explicitNullValueGasFee; set { _explicitNullValueGasFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasFee"); else _explicitNullProperties?.Remove("gasFee"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee? _explicitNullValueGasFee = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee GasFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee GasFee { get => _explicitNullValueGasFee; set { _explicitNullValueGasFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasFee"); else _explicitNullProperties?.Remove("gasFee"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee _explicitNullValueGasFee = default!;
 #endif
         /// <summary>The estimated protocol fee for the swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee? ProtocolFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee? ProtocolFee { get => _explicitNullValueProtocolFee; set { _explicitNullValueProtocolFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocolFee"); else _explicitNullProperties?.Remove("protocolFee"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee? _explicitNullValueProtocolFee = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee ProtocolFee { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee ProtocolFee { get => _explicitNullValueProtocolFee; set { _explicitNullValueProtocolFee = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("protocolFee"); else _explicitNullProperties?.Remove("protocolFee"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee _explicitNullValueProtocolFee = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponseFees(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee>("gasFee", GasFee);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TokenFee>("protocolFee", ProtocolFee);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

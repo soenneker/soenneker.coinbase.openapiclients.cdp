@@ -12,21 +12,35 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     public partial class GetSwapPriceResponse : global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CommonSwapResponse, IParsable
     #pragma warning restore CS1591
     {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public override void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            base.CaptureExplicitNulls(parseNode);
+            if (parseNode.GetChildNode("gas") is { } nullNodeGas && nullNodeGas.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gas = null;
+            if (parseNode.GetChildNode("gasPrice") is { } nullNodeGasPrice && nullNodeGasPrice.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GasPrice = null;
+        }
+
         /// <summary>The estimated gas limit that should be used to send the transaction to guarantee settlement.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Gas { get; set; }
+        public string? Gas { get => _explicitNullValueGas; set { _explicitNullValueGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gas"); else _explicitNullProperties?.Remove("gas"); } }
+        private string? _explicitNullValueGas = default!;
 #nullable restore
 #else
-        public string Gas { get; set; }
+        public string Gas { get => _explicitNullValueGas; set { _explicitNullValueGas = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gas"); else _explicitNullProperties?.Remove("gas"); } }
+        private string _explicitNullValueGas = default!;
 #endif
         /// <summary>The gas price, in Wei, that should be used to send the transaction. For EIP-1559 transactions, this value should be seen as the `maxFeePerGas` value. The transaction should be sent with this gas price to guarantee settlement.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GasPrice { get; set; }
+        public string? GasPrice { get => _explicitNullValueGasPrice; set { _explicitNullValueGasPrice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasPrice"); else _explicitNullProperties?.Remove("gasPrice"); } }
+        private string? _explicitNullValueGasPrice = default!;
 #nullable restore
 #else
-        public string GasPrice { get; set; }
+        public string GasPrice { get => _explicitNullValueGasPrice; set { _explicitNullValueGasPrice = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gasPrice"); else _explicitNullProperties?.Remove("gasPrice"); } }
+        private string _explicitNullValueGasPrice = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,7 +50,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSwapPriceResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSwapPriceResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.GetSwapPriceResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +73,8 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("gas", Gas);
-            writer.WriteStringValue("gasPrice", GasPrice);
+            writer.WriteStringValue("gasPrice", GasPrice);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

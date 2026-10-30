@@ -11,31 +11,31 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// A single tax attestation recorded for a Customer. Submit one entry perrequired form listed in `Customer.requirements.taxAttestation.taxForms[]`(returned on `Get Customer`, `Create Customer`, and `Update Customer`whenever a `taxAttestation` requirement is unsatisfied). The `form` fieldselects the variant and determines which additional fields are required.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TaxAttestation : IAdditionalDataHolder, IParsable
-    {
-        /// <summary>Timestamp at which the Customer completed the tax attestation, inISO 8601 / RFC 3339 format. The server may reject obviouslynon-credible timestamps.</summary>
-        public DateTimeOffset? AcceptedAt { get; set; }
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Whether the Customer consents to electronic delivery (e-delivery) oftax documents. Both `true` and `false` are recorded as submitted.</summary>
-        public bool? EdeliveryConsent { get; set; }
-        /// <summary>The form property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Form { get; set; }
-#nullable restore
-#else
-        public string Form { get; set; }
-#endif
-        /// <summary>Whether the Customer is exempt from backup withholding, as certifiedon IRS Form W-9.</summary>
-        public bool? IsExemptBackupWithholding { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation"/> and sets the default values.
-        /// </summary>
-        public TaxAttestation()
+    public partial class TaxAttestation : IParsable
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            AdditionalData = new Dictionary<string, object>();
+            if (parseNode.GetChildNode("acceptedAt") is { } nullNodeAcceptedAt && nullNodeAcceptedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptedAt = null;
+            if (parseNode.GetChildNode("edeliveryConsent") is { } nullNodeEdeliveryConsent && nullNodeEdeliveryConsent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EdeliveryConsent = null;
+            if (parseNode.GetChildNode("form") is { } nullNodeForm && nullNodeForm.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Form = null;
+            if (parseNode.GetChildNode("isExemptBackupWithholding") is { } nullNodeIsExemptBackupWithholding && nullNodeIsExemptBackupWithholding.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsExemptBackupWithholding = null;
         }
+
+        /// <summary>Timestamp at which the Customer completed the tax attestation, inISO 8601 / RFC 3339 format. The server may reject obviouslynon-credible timestamps.</summary>
+        public DateTimeOffset? AcceptedAt { get => _explicitNullValueAcceptedAt; set { _explicitNullValueAcceptedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptedAt"); else _explicitNullProperties?.Remove("acceptedAt"); } }
+        private DateTimeOffset? _explicitNullValueAcceptedAt = default!;
+        /// <summary>Whether the Customer consents to electronic delivery (e-delivery) oftax documents. Both `true` and `false` are recorded as submitted.</summary>
+        public bool? EdeliveryConsent { get => _explicitNullValueEdeliveryConsent; set { _explicitNullValueEdeliveryConsent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("edeliveryConsent"); else _explicitNullProperties?.Remove("edeliveryConsent"); } }
+        private bool? _explicitNullValueEdeliveryConsent = default!;
+        /// <summary>The tax form being attested to, as listed in`Customer.requirements.taxAttestation.taxForms[]`. Must be `us_w9`for this variant.</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsW9Form? Form { get => _explicitNullValueForm; set { _explicitNullValueForm = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("form"); else _explicitNullProperties?.Remove("form"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsW9Form? _explicitNullValueForm = default!;
+        /// <summary>Whether the Customer is exempt from backup withholding, as certifiedon IRS Form W-9.</summary>
+        public bool? IsExemptBackupWithholding { get => _explicitNullValueIsExemptBackupWithholding; set { _explicitNullValueIsExemptBackupWithholding = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isExemptBackupWithholding"); else _explicitNullProperties?.Remove("isExemptBackupWithholding"); } }
+        private bool? _explicitNullValueIsExemptBackupWithholding = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -44,7 +44,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.TaxAttestation(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             {
                 { "acceptedAt", n => { AcceptedAt = n.GetDateTimeOffsetValue(); } },
                 { "edeliveryConsent", n => { EdeliveryConsent = n.GetBoolValue(); } },
-                { "form", n => { Form = n.GetStringValue(); } },
+                { "form", n => { Form = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsW9Form>(); } },
                 { "isExemptBackupWithholding", n => { IsExemptBackupWithholding = n.GetBoolValue(); } },
             };
         }
@@ -69,9 +69,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("acceptedAt", AcceptedAt);
             writer.WriteBoolValue("edeliveryConsent", EdeliveryConsent);
-            writer.WriteStringValue("form", Form);
-            writer.WriteBoolValue("isExemptBackupWithholding", IsExemptBackupWithholding);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.UsW9Form>("form", Form);
+            writer.WriteBoolValue("isExemptBackupWithholding", IsExemptBackupWithholding);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,42 +11,63 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     #pragma warning disable CS1591
     public partial class PrepareUserOperationRequest : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("calls") is { } nullNodeCalls && nullNodeCalls.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Calls = null;
+            if (parseNode.GetChildNode("dataSuffix") is { } nullNodeDataSuffix && nullNodeDataSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DataSuffix = null;
+            if (parseNode.GetChildNode("network") is { } nullNodeNetwork && nullNodeNetwork.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Network = null;
+            if (parseNode.GetChildNode("paymasterContext") is { } nullNodePaymasterContext && nullNodePaymasterContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymasterContext = null;
+            if (parseNode.GetChildNode("paymasterUrl") is { } nullNodePaymasterUrl && nullNodePaymasterUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymasterUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The list of calls to make from the Smart Account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>? Calls { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>? Calls { get => _explicitNullValueCalls; set { _explicitNullValueCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calls"); else _explicitNullProperties?.Remove("calls"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>? _explicitNullValueCalls = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall> Calls { get; set; }
+        public List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall> Calls { get => _explicitNullValueCalls; set { _explicitNullValueCalls = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("calls"); else _explicitNullProperties?.Remove("calls"); } }
+        private List<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall> _explicitNullValueCalls = default!;
 #endif
         /// <summary>The EIP-8021 data suffix (hex-encoded) that enables transaction attribution for the user operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DataSuffix { get; set; }
+        public string? DataSuffix { get => _explicitNullValueDataSuffix; set { _explicitNullValueDataSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataSuffix"); else _explicitNullProperties?.Remove("dataSuffix"); } }
+        private string? _explicitNullValueDataSuffix = default!;
 #nullable restore
 #else
-        public string DataSuffix { get; set; }
+        public string DataSuffix { get => _explicitNullValueDataSuffix; set { _explicitNullValueDataSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dataSuffix"); else _explicitNullProperties?.Remove("dataSuffix"); } }
+        private string _explicitNullValueDataSuffix = default!;
 #endif
         /// <summary>The network the user operation is for.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork? Network { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork? Network { get => _explicitNullValueNetwork; set { _explicitNullValueNetwork = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network"); else _explicitNullProperties?.Remove("network"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork? _explicitNullValueNetwork = default!;
         /// <summary>The ERC-7677 `context` object forwarded to the paymaster service as part of the `paymasterService` capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing `paymasterContext` without a paymaster configured results in an `invalid_request` error.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext? PaymasterContext { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext? PaymasterContext { get => _explicitNullValuePaymasterContext; set { _explicitNullValuePaymasterContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterContext"); else _explicitNullProperties?.Remove("paymasterContext"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext? _explicitNullValuePaymasterContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext PaymasterContext { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext PaymasterContext { get => _explicitNullValuePaymasterContext; set { _explicitNullValuePaymasterContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterContext"); else _explicitNullProperties?.Remove("paymasterContext"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext _explicitNullValuePaymasterContext = default!;
 #endif
         /// <summary>A valid HTTP or HTTPS URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymasterUrl { get; set; }
+        public string? PaymasterUrl { get => _explicitNullValuePaymasterUrl; set { _explicitNullValuePaymasterUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterUrl"); else _explicitNullProperties?.Remove("paymasterUrl"); } }
+        private string? _explicitNullValuePaymasterUrl = default!;
 #nullable restore
 #else
-        public string PaymasterUrl { get; set; }
+        public string PaymasterUrl { get => _explicitNullValuePaymasterUrl; set { _explicitNullValuePaymasterUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paymasterUrl"); else _explicitNullProperties?.Remove("paymasterUrl"); } }
+        private string _explicitNullValuePaymasterUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequest"/> and sets the default values.
@@ -63,7 +84,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,6 +113,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork>("network", Network);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.PrepareUserOperationRequestPaymasterContext>("paymasterContext", PaymasterContext);
             writer.WriteStringValue("paymasterUrl", PaymasterUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

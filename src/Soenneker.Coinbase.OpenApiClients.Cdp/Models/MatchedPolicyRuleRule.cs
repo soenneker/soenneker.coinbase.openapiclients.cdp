@@ -8,186 +8,191 @@ using System;
 namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleCreateEndUserEvmSwap"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRulePrepareUserOperation"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmAsset"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmTransaction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserOperation"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolAsset"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolTransaction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEvmTransaction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendSolTransaction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendUserOperation"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmHash"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmMessage"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTransaction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTypedData"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolMessage"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolTransaction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmHash"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmMessage"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTransaction"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTypedData"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolMessage"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolTransaction"/>
+    /// Composed type wrapper for classes <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf1"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf10"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf11"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf12"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf13"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf14"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf15"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf16"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf17"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf18"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf19"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf2"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf20"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf21"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf22"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf3"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf4"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf5"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf6"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf7"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf8"/>, <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf9"/>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MatchedPolicyRuleRule : IComposedTypeWrapper, IParsable
-    {
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleCreateEndUserEvmSwap"/></summary>
+    , global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder {
+        // Preserve ambiguous union payloads without inventing a discriminator.
+        /// <summary>The complete payload when no unique typed union branch can be selected.</summary>
+        public global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode UnrecognizedValue { get; set; } = null!;
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalData { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleCreateEndUserEvmSwap? MatchedPolicyRuleRuleCreateEndUserEvmSwap { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf1? MatchedPolicyRuleRuleOneOf1 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleCreateEndUserEvmSwap MatchedPolicyRuleRuleCreateEndUserEvmSwap { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf1 MatchedPolicyRuleRuleOneOf1 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRulePrepareUserOperation"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf10"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRulePrepareUserOperation? MatchedPolicyRuleRulePrepareUserOperation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf10? MatchedPolicyRuleRuleOneOf10 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRulePrepareUserOperation MatchedPolicyRuleRulePrepareUserOperation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf10 MatchedPolicyRuleRuleOneOf10 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmAsset"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf11"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmAsset? MatchedPolicyRuleRuleSendEndUserEvmAsset { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf11? MatchedPolicyRuleRuleOneOf11 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmAsset MatchedPolicyRuleRuleSendEndUserEvmAsset { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf11 MatchedPolicyRuleRuleOneOf11 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmTransaction"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf12"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmTransaction? MatchedPolicyRuleRuleSendEndUserEvmTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf12? MatchedPolicyRuleRuleOneOf12 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmTransaction MatchedPolicyRuleRuleSendEndUserEvmTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf12 MatchedPolicyRuleRuleOneOf12 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserOperation"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf13"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserOperation? MatchedPolicyRuleRuleSendEndUserOperation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf13? MatchedPolicyRuleRuleOneOf13 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserOperation MatchedPolicyRuleRuleSendEndUserOperation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf13 MatchedPolicyRuleRuleOneOf13 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolAsset"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf14"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolAsset? MatchedPolicyRuleRuleSendEndUserSolAsset { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf14? MatchedPolicyRuleRuleOneOf14 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolAsset MatchedPolicyRuleRuleSendEndUserSolAsset { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf14 MatchedPolicyRuleRuleOneOf14 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolTransaction"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf15"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolTransaction? MatchedPolicyRuleRuleSendEndUserSolTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf15? MatchedPolicyRuleRuleOneOf15 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolTransaction MatchedPolicyRuleRuleSendEndUserSolTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf15 MatchedPolicyRuleRuleOneOf15 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEvmTransaction"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf16"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEvmTransaction? MatchedPolicyRuleRuleSendEvmTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf16? MatchedPolicyRuleRuleOneOf16 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEvmTransaction MatchedPolicyRuleRuleSendEvmTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf16 MatchedPolicyRuleRuleOneOf16 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendSolTransaction"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf17"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendSolTransaction? MatchedPolicyRuleRuleSendSolTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf17? MatchedPolicyRuleRuleOneOf17 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendSolTransaction MatchedPolicyRuleRuleSendSolTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf17 MatchedPolicyRuleRuleOneOf17 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendUserOperation"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf18"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendUserOperation? MatchedPolicyRuleRuleSendUserOperation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf18? MatchedPolicyRuleRuleOneOf18 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendUserOperation MatchedPolicyRuleRuleSendUserOperation { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf18 MatchedPolicyRuleRuleOneOf18 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmHash"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf19"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmHash? MatchedPolicyRuleRuleSignEndUserEvmHash { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf19? MatchedPolicyRuleRuleOneOf19 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmHash MatchedPolicyRuleRuleSignEndUserEvmHash { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf19 MatchedPolicyRuleRuleOneOf19 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmMessage"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmMessage? MatchedPolicyRuleRuleSignEndUserEvmMessage { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf2? MatchedPolicyRuleRuleOneOf2 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmMessage MatchedPolicyRuleRuleSignEndUserEvmMessage { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf2 MatchedPolicyRuleRuleOneOf2 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTransaction"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf20"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTransaction? MatchedPolicyRuleRuleSignEndUserEvmTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf20? MatchedPolicyRuleRuleOneOf20 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTransaction MatchedPolicyRuleRuleSignEndUserEvmTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf20 MatchedPolicyRuleRuleOneOf20 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTypedData"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf21"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTypedData? MatchedPolicyRuleRuleSignEndUserEvmTypedData { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf21? MatchedPolicyRuleRuleOneOf21 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTypedData MatchedPolicyRuleRuleSignEndUserEvmTypedData { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf21 MatchedPolicyRuleRuleOneOf21 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolMessage"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf22"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolMessage? MatchedPolicyRuleRuleSignEndUserSolMessage { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf22? MatchedPolicyRuleRuleOneOf22 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolMessage MatchedPolicyRuleRuleSignEndUserSolMessage { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf22 MatchedPolicyRuleRuleOneOf22 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolTransaction"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf3"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolTransaction? MatchedPolicyRuleRuleSignEndUserSolTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf3? MatchedPolicyRuleRuleOneOf3 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolTransaction MatchedPolicyRuleRuleSignEndUserSolTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf3 MatchedPolicyRuleRuleOneOf3 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmHash"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf4"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmHash? MatchedPolicyRuleRuleSignEvmHash { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf4? MatchedPolicyRuleRuleOneOf4 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmHash MatchedPolicyRuleRuleSignEvmHash { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf4 MatchedPolicyRuleRuleOneOf4 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmMessage"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf5"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmMessage? MatchedPolicyRuleRuleSignEvmMessage { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf5? MatchedPolicyRuleRuleOneOf5 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmMessage MatchedPolicyRuleRuleSignEvmMessage { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf5 MatchedPolicyRuleRuleOneOf5 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTransaction"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf6"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTransaction? MatchedPolicyRuleRuleSignEvmTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf6? MatchedPolicyRuleRuleOneOf6 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTransaction MatchedPolicyRuleRuleSignEvmTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf6 MatchedPolicyRuleRuleOneOf6 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTypedData"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf7"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTypedData? MatchedPolicyRuleRuleSignEvmTypedData { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf7? MatchedPolicyRuleRuleOneOf7 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTypedData MatchedPolicyRuleRuleSignEvmTypedData { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf7 MatchedPolicyRuleRuleOneOf7 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolMessage"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf8"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolMessage? MatchedPolicyRuleRuleSignSolMessage { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf8? MatchedPolicyRuleRuleOneOf8 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolMessage MatchedPolicyRuleRuleSignSolMessage { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf8 MatchedPolicyRuleRuleOneOf8 { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolTransaction"/></summary>
+        /// <summary>Composed type representation for type <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf9"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolTransaction? MatchedPolicyRuleRuleSignSolTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf9? MatchedPolicyRuleRuleOneOf9 { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolTransaction MatchedPolicyRuleRuleSignSolTransaction { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf9 MatchedPolicyRuleRuleOneOf9 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -199,95 +204,142 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("operation")?.GetStringValue();
             var result = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRule();
-            if("createEndUserEvmSwap".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            if("signEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleCreateEndUserEvmSwap = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleCreateEndUserEvmSwap();
-            }
-            else if("prepareUserOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRulePrepareUserOperation = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRulePrepareUserOperation();
-            }
-            else if("sendEndUserEvmAsset".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSendEndUserEvmAsset = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmAsset();
-            }
-            else if("sendEndUserEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSendEndUserEvmTransaction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmTransaction();
-            }
-            else if("sendEndUserOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSendEndUserOperation = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserOperation();
-            }
-            else if("sendEndUserSolAsset".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSendEndUserSolAsset = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolAsset();
-            }
-            else if("sendEndUserSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSendEndUserSolTransaction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolTransaction();
-            }
-            else if("sendEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSendEvmTransaction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEvmTransaction();
-            }
-            else if("sendSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSendSolTransaction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendSolTransaction();
+                
             }
             else if("sendUserOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSendUserOperation = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendUserOperation();
-            }
-            else if("signEndUserEvmHash".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSignEndUserEvmHash = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmHash();
-            }
-            else if("signEndUserEvmMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSignEndUserEvmMessage = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmMessage();
+                
             }
             else if("signEndUserEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSignEndUserEvmTransaction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTransaction();
+                
+            }
+            else if("sendEndUserEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("signEndUserEvmMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
             }
             else if("signEndUserEvmTypedData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSignEndUserEvmTypedData = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTypedData();
+                
             }
-            else if("signEndUserSolMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("signEndUserEvmHash".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSignEndUserSolMessage = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolMessage();
+                
             }
             else if("signEndUserSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSignEndUserSolTransaction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolTransaction();
+                
             }
-            else if("signEvmHash".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            else if("sendEndUserSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSignEvmHash = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmHash();
+                
+            }
+            else if("signEndUserSolMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("sendEndUserEvmAsset".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("sendEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("sendEndUserSolAsset".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("sendEndUserOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("createEndUserEvmSwap".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
             }
             else if("signEvmMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSignEvmMessage = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmMessage();
-            }
-            else if("signEvmTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSignEvmTransaction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTransaction();
+                
             }
             else if("signEvmTypedData".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSignEvmTypedData = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTypedData();
-            }
-            else if("signSolMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-            {
-                result.MatchedPolicyRuleRuleSignSolMessage = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolMessage();
+                
             }
             else if("signSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
             {
-                result.MatchedPolicyRuleRuleSignSolTransaction = new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolTransaction();
+                
             }
-            return result;
+            else if("sendSolTransaction".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("signSolMessage".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("signEvmHash".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            else if("prepareUserOperation".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+            {
+                
+            }
+            
+            var unionPayload = parseNode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue);
+            bool matchesUnionBranch0 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEvmTransaction".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch1 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("sendEvmTransaction".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch2 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEvmMessage".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch3 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEvmTypedData".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch4 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signSolTransaction".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch5 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("sendSolTransaction".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch6 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signSolMessage".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch7 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEvmHash".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch8 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("prepareUserOperation".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch9 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("sendUserOperation".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch10 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEndUserEvmTransaction".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch11 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("sendEndUserEvmTransaction".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch12 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEndUserEvmMessage".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch13 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEndUserEvmTypedData".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch14 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEndUserEvmHash".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal)))))();
+            bool matchesUnionBranch15 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEndUserSolTransaction".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch16 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("sendEndUserSolTransaction".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch17 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("signEndUserSolMessage".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch18 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("sendEndUserEvmAsset".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch19 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("sendEndUserSolAsset".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch20 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("sendEndUserOperation".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            bool matchesUnionBranch21 = unionPayload is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject && ((global::System.Func<bool>)(() => parseNode.GetChildNode("action") != null && (parseNode.GetChildNode("action")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag1 && ("reject".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal) || "accept".Equals(tag1.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("operation") != null && (parseNode.GetChildNode("operation")?.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is global::Microsoft.Kiota.Abstractions.Serialization.UntypedString tag3 && ("createEndUserEvmSwap".Equals(tag3.GetValue(), global::System.StringComparison.Ordinal))) && parseNode.GetChildNode("criteria") != null))();
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf1 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf1(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch1 && !matchesUnionBranch0 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf2 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf2(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch2 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf3 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf3(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch3 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf4 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf4(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch4 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf5 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf5(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch5 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf6 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf6(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch6 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf7 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf7(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch7 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf8 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf8(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch8 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf9 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf9(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch9 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf10 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf10(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch10 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf11 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf11(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch11 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf12 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf12(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch12 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf13 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf13(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch13 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf14 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf14(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch14 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf15 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf15(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch15 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf16 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf16(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch16 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf17 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf17(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch17 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf18 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf18(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch18 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch19 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf19 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf19(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch19 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch20 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf20 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf20(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch20 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch21) result.MatchedPolicyRuleRuleOneOf21 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf21(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null && matchesUnionBranch21 && !matchesUnionBranch0 && !matchesUnionBranch1 && !matchesUnionBranch2 && !matchesUnionBranch3 && !matchesUnionBranch4 && !matchesUnionBranch5 && !matchesUnionBranch6 && !matchesUnionBranch7 && !matchesUnionBranch8 && !matchesUnionBranch9 && !matchesUnionBranch10 && !matchesUnionBranch11 && !matchesUnionBranch12 && !matchesUnionBranch13 && !matchesUnionBranch14 && !matchesUnionBranch15 && !matchesUnionBranch16 && !matchesUnionBranch17 && !matchesUnionBranch18 && !matchesUnionBranch19 && !matchesUnionBranch20) result.MatchedPolicyRuleRuleOneOf22 = global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf22(), parseNode);
+            if (result.MatchedPolicyRuleRuleOneOf1 == null && result.MatchedPolicyRuleRuleOneOf10 == null && result.MatchedPolicyRuleRuleOneOf11 == null && result.MatchedPolicyRuleRuleOneOf12 == null && result.MatchedPolicyRuleRuleOneOf13 == null && result.MatchedPolicyRuleRuleOneOf14 == null && result.MatchedPolicyRuleRuleOneOf15 == null && result.MatchedPolicyRuleRuleOneOf16 == null && result.MatchedPolicyRuleRuleOneOf17 == null && result.MatchedPolicyRuleRuleOneOf18 == null && result.MatchedPolicyRuleRuleOneOf19 == null && result.MatchedPolicyRuleRuleOneOf2 == null && result.MatchedPolicyRuleRuleOneOf20 == null && result.MatchedPolicyRuleRuleOneOf21 == null && result.MatchedPolicyRuleRuleOneOf22 == null && result.MatchedPolicyRuleRuleOneOf3 == null && result.MatchedPolicyRuleRuleOneOf4 == null && result.MatchedPolicyRuleRuleOneOf5 == null && result.MatchedPolicyRuleRuleOneOf6 == null && result.MatchedPolicyRuleRuleOneOf7 == null && result.MatchedPolicyRuleRuleOneOf8 == null && result.MatchedPolicyRuleRuleOneOf9 == null) result.UnrecognizedValue = unionPayload;
+return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -295,93 +347,93 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(MatchedPolicyRuleRuleCreateEndUserEvmSwap != null)
+            if(MatchedPolicyRuleRuleOneOf1 != null)
             {
-                return MatchedPolicyRuleRuleCreateEndUserEvmSwap.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf1.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRulePrepareUserOperation != null)
+            else if(MatchedPolicyRuleRuleOneOf10 != null)
             {
-                return MatchedPolicyRuleRulePrepareUserOperation.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf10.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSendEndUserEvmAsset != null)
+            else if(MatchedPolicyRuleRuleOneOf11 != null)
             {
-                return MatchedPolicyRuleRuleSendEndUserEvmAsset.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf11.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSendEndUserEvmTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf12 != null)
             {
-                return MatchedPolicyRuleRuleSendEndUserEvmTransaction.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf12.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSendEndUserOperation != null)
+            else if(MatchedPolicyRuleRuleOneOf13 != null)
             {
-                return MatchedPolicyRuleRuleSendEndUserOperation.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf13.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSendEndUserSolAsset != null)
+            else if(MatchedPolicyRuleRuleOneOf14 != null)
             {
-                return MatchedPolicyRuleRuleSendEndUserSolAsset.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf14.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSendEndUserSolTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf15 != null)
             {
-                return MatchedPolicyRuleRuleSendEndUserSolTransaction.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf15.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSendEvmTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf16 != null)
             {
-                return MatchedPolicyRuleRuleSendEvmTransaction.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf16.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSendSolTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf17 != null)
             {
-                return MatchedPolicyRuleRuleSendSolTransaction.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf17.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSendUserOperation != null)
+            else if(MatchedPolicyRuleRuleOneOf18 != null)
             {
-                return MatchedPolicyRuleRuleSendUserOperation.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf18.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEndUserEvmHash != null)
+            else if(MatchedPolicyRuleRuleOneOf19 != null)
             {
-                return MatchedPolicyRuleRuleSignEndUserEvmHash.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf19.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEndUserEvmMessage != null)
+            else if(MatchedPolicyRuleRuleOneOf2 != null)
             {
-                return MatchedPolicyRuleRuleSignEndUserEvmMessage.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf2.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEndUserEvmTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf20 != null)
             {
-                return MatchedPolicyRuleRuleSignEndUserEvmTransaction.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf20.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEndUserEvmTypedData != null)
+            else if(MatchedPolicyRuleRuleOneOf21 != null)
             {
-                return MatchedPolicyRuleRuleSignEndUserEvmTypedData.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf21.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEndUserSolMessage != null)
+            else if(MatchedPolicyRuleRuleOneOf22 != null)
             {
-                return MatchedPolicyRuleRuleSignEndUserSolMessage.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf22.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEndUserSolTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf3 != null)
             {
-                return MatchedPolicyRuleRuleSignEndUserSolTransaction.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf3.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEvmHash != null)
+            else if(MatchedPolicyRuleRuleOneOf4 != null)
             {
-                return MatchedPolicyRuleRuleSignEvmHash.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf4.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEvmMessage != null)
+            else if(MatchedPolicyRuleRuleOneOf5 != null)
             {
-                return MatchedPolicyRuleRuleSignEvmMessage.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf5.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEvmTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf6 != null)
             {
-                return MatchedPolicyRuleRuleSignEvmTransaction.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf6.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignEvmTypedData != null)
+            else if(MatchedPolicyRuleRuleOneOf7 != null)
             {
-                return MatchedPolicyRuleRuleSignEvmTypedData.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf7.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignSolMessage != null)
+            else if(MatchedPolicyRuleRuleOneOf8 != null)
             {
-                return MatchedPolicyRuleRuleSignSolMessage.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf8.GetFieldDeserializers();
             }
-            else if(MatchedPolicyRuleRuleSignSolTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf9 != null)
             {
-                return MatchedPolicyRuleRuleSignSolTransaction.GetFieldDeserializers();
+                return MatchedPolicyRuleRuleOneOf9.GetFieldDeserializers();
             }
             return new Dictionary<string, Action<IParseNode>>();
         }
@@ -391,94 +443,141 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <param name="writer">Serialization writer to use to serialize this model</param>
         public virtual void Serialize(ISerializationWriter writer)
         {
+            if (global::System.Object.ReferenceEquals(writer, null)) throw new global::System.ArgumentNullException(nameof(writer));
+            if (MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (UnrecognizedValue is global::Microsoft.Kiota.Abstractions.Serialization.UntypedObject rawObject) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData, rawObject)); else if (UnrecognizedValue != null) writer.WriteObjectValue(null, UnrecognizedValue); else if (AdditionalData.Count > 0) writer.WriteObjectValue(null, new global::Soenneker.OpenApi.Generated.OpenApiUnionAdditionalData(AdditionalData)); else writer.WriteNullValue(null); return; }
+            if (MatchedPolicyRuleRuleOneOf1 != null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf1); return; }
+            if (MatchedPolicyRuleRuleOneOf10 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf10 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf10); return; }
+            if (MatchedPolicyRuleRuleOneOf11 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf11 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf11); return; }
+            if (MatchedPolicyRuleRuleOneOf12 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf12 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf12); return; }
+            if (MatchedPolicyRuleRuleOneOf13 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf13 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf13); return; }
+            if (MatchedPolicyRuleRuleOneOf14 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf14 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf14); return; }
+            if (MatchedPolicyRuleRuleOneOf15 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf15 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf15); return; }
+            if (MatchedPolicyRuleRuleOneOf16 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf16 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf16); return; }
+            if (MatchedPolicyRuleRuleOneOf17 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf17 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf17); return; }
+            if (MatchedPolicyRuleRuleOneOf18 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf18 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf18); return; }
+            if (MatchedPolicyRuleRuleOneOf19 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf19 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf19); return; }
+            if (MatchedPolicyRuleRuleOneOf2 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf2); return; }
+            if (MatchedPolicyRuleRuleOneOf20 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf20 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf20); return; }
+            if (MatchedPolicyRuleRuleOneOf21 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf21 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf21); return; }
+            if (MatchedPolicyRuleRuleOneOf22 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf22 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf22); return; }
+            if (MatchedPolicyRuleRuleOneOf3 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf3); return; }
+            if (MatchedPolicyRuleRuleOneOf4 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf4); return; }
+            if (MatchedPolicyRuleRuleOneOf5 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf5); return; }
+            if (MatchedPolicyRuleRuleOneOf6 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf6 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf6); return; }
+            if (MatchedPolicyRuleRuleOneOf7 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf8 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf7 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf7); return; }
+            if (MatchedPolicyRuleRuleOneOf8 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf9 == null) { if (MatchedPolicyRuleRuleOneOf8 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf8); return; }
+            if (MatchedPolicyRuleRuleOneOf9 != null && MatchedPolicyRuleRuleOneOf1 == null && MatchedPolicyRuleRuleOneOf10 == null && MatchedPolicyRuleRuleOneOf11 == null && MatchedPolicyRuleRuleOneOf12 == null && MatchedPolicyRuleRuleOneOf13 == null && MatchedPolicyRuleRuleOneOf14 == null && MatchedPolicyRuleRuleOneOf15 == null && MatchedPolicyRuleRuleOneOf16 == null && MatchedPolicyRuleRuleOneOf17 == null && MatchedPolicyRuleRuleOneOf18 == null && MatchedPolicyRuleRuleOneOf19 == null && MatchedPolicyRuleRuleOneOf2 == null && MatchedPolicyRuleRuleOneOf20 == null && MatchedPolicyRuleRuleOneOf21 == null && MatchedPolicyRuleRuleOneOf22 == null && MatchedPolicyRuleRuleOneOf3 == null && MatchedPolicyRuleRuleOneOf4 == null && MatchedPolicyRuleRuleOneOf5 == null && MatchedPolicyRuleRuleOneOf6 == null && MatchedPolicyRuleRuleOneOf7 == null && MatchedPolicyRuleRuleOneOf8 == null) { if (MatchedPolicyRuleRuleOneOf9 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder selectedData) foreach (var entry in AdditionalData) selectedData.AdditionalData[entry.Key] = entry.Value; writer.WriteObjectValue(null, MatchedPolicyRuleRuleOneOf9); return; }
+
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            if(MatchedPolicyRuleRuleCreateEndUserEvmSwap != null)
+            if(MatchedPolicyRuleRuleOneOf1 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleCreateEndUserEvmSwap>(null, MatchedPolicyRuleRuleCreateEndUserEvmSwap);
+                if (MatchedPolicyRuleRuleOneOf1 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf1>(null, MatchedPolicyRuleRuleOneOf1);
             }
-            else if(MatchedPolicyRuleRulePrepareUserOperation != null)
+            else if(MatchedPolicyRuleRuleOneOf10 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRulePrepareUserOperation>(null, MatchedPolicyRuleRulePrepareUserOperation);
+                if (MatchedPolicyRuleRuleOneOf10 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf10>(null, MatchedPolicyRuleRuleOneOf10);
             }
-            else if(MatchedPolicyRuleRuleSendEndUserEvmAsset != null)
+            else if(MatchedPolicyRuleRuleOneOf11 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmAsset>(null, MatchedPolicyRuleRuleSendEndUserEvmAsset);
+                if (MatchedPolicyRuleRuleOneOf11 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf11>(null, MatchedPolicyRuleRuleOneOf11);
             }
-            else if(MatchedPolicyRuleRuleSendEndUserEvmTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf12 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserEvmTransaction>(null, MatchedPolicyRuleRuleSendEndUserEvmTransaction);
+                if (MatchedPolicyRuleRuleOneOf12 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf12>(null, MatchedPolicyRuleRuleOneOf12);
             }
-            else if(MatchedPolicyRuleRuleSendEndUserOperation != null)
+            else if(MatchedPolicyRuleRuleOneOf13 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserOperation>(null, MatchedPolicyRuleRuleSendEndUserOperation);
+                if (MatchedPolicyRuleRuleOneOf13 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf13>(null, MatchedPolicyRuleRuleOneOf13);
             }
-            else if(MatchedPolicyRuleRuleSendEndUserSolAsset != null)
+            else if(MatchedPolicyRuleRuleOneOf14 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolAsset>(null, MatchedPolicyRuleRuleSendEndUserSolAsset);
+                if (MatchedPolicyRuleRuleOneOf14 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf14>(null, MatchedPolicyRuleRuleOneOf14);
             }
-            else if(MatchedPolicyRuleRuleSendEndUserSolTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf15 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEndUserSolTransaction>(null, MatchedPolicyRuleRuleSendEndUserSolTransaction);
+                if (MatchedPolicyRuleRuleOneOf15 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf15>(null, MatchedPolicyRuleRuleOneOf15);
             }
-            else if(MatchedPolicyRuleRuleSendEvmTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf16 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendEvmTransaction>(null, MatchedPolicyRuleRuleSendEvmTransaction);
+                if (MatchedPolicyRuleRuleOneOf16 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf16>(null, MatchedPolicyRuleRuleOneOf16);
             }
-            else if(MatchedPolicyRuleRuleSendSolTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf17 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendSolTransaction>(null, MatchedPolicyRuleRuleSendSolTransaction);
+                if (MatchedPolicyRuleRuleOneOf17 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf17>(null, MatchedPolicyRuleRuleOneOf17);
             }
-            else if(MatchedPolicyRuleRuleSendUserOperation != null)
+            else if(MatchedPolicyRuleRuleOneOf18 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSendUserOperation>(null, MatchedPolicyRuleRuleSendUserOperation);
+                if (MatchedPolicyRuleRuleOneOf18 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf18>(null, MatchedPolicyRuleRuleOneOf18);
             }
-            else if(MatchedPolicyRuleRuleSignEndUserEvmHash != null)
+            else if(MatchedPolicyRuleRuleOneOf19 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmHash>(null, MatchedPolicyRuleRuleSignEndUserEvmHash);
+                if (MatchedPolicyRuleRuleOneOf19 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf19>(null, MatchedPolicyRuleRuleOneOf19);
             }
-            else if(MatchedPolicyRuleRuleSignEndUserEvmMessage != null)
+            else if(MatchedPolicyRuleRuleOneOf2 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmMessage>(null, MatchedPolicyRuleRuleSignEndUserEvmMessage);
+                if (MatchedPolicyRuleRuleOneOf2 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf2>(null, MatchedPolicyRuleRuleOneOf2);
             }
-            else if(MatchedPolicyRuleRuleSignEndUserEvmTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf20 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTransaction>(null, MatchedPolicyRuleRuleSignEndUserEvmTransaction);
+                if (MatchedPolicyRuleRuleOneOf20 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf20>(null, MatchedPolicyRuleRuleOneOf20);
             }
-            else if(MatchedPolicyRuleRuleSignEndUserEvmTypedData != null)
+            else if(MatchedPolicyRuleRuleOneOf21 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserEvmTypedData>(null, MatchedPolicyRuleRuleSignEndUserEvmTypedData);
+                if (MatchedPolicyRuleRuleOneOf21 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf21>(null, MatchedPolicyRuleRuleOneOf21);
             }
-            else if(MatchedPolicyRuleRuleSignEndUserSolMessage != null)
+            else if(MatchedPolicyRuleRuleOneOf22 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolMessage>(null, MatchedPolicyRuleRuleSignEndUserSolMessage);
+                if (MatchedPolicyRuleRuleOneOf22 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf22>(null, MatchedPolicyRuleRuleOneOf22);
             }
-            else if(MatchedPolicyRuleRuleSignEndUserSolTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf3 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEndUserSolTransaction>(null, MatchedPolicyRuleRuleSignEndUserSolTransaction);
+                if (MatchedPolicyRuleRuleOneOf3 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf3>(null, MatchedPolicyRuleRuleOneOf3);
             }
-            else if(MatchedPolicyRuleRuleSignEvmHash != null)
+            else if(MatchedPolicyRuleRuleOneOf4 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmHash>(null, MatchedPolicyRuleRuleSignEvmHash);
+                if (MatchedPolicyRuleRuleOneOf4 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf4>(null, MatchedPolicyRuleRuleOneOf4);
             }
-            else if(MatchedPolicyRuleRuleSignEvmMessage != null)
+            else if(MatchedPolicyRuleRuleOneOf5 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmMessage>(null, MatchedPolicyRuleRuleSignEvmMessage);
+                if (MatchedPolicyRuleRuleOneOf5 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf5>(null, MatchedPolicyRuleRuleOneOf5);
             }
-            else if(MatchedPolicyRuleRuleSignEvmTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf6 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTransaction>(null, MatchedPolicyRuleRuleSignEvmTransaction);
+                if (MatchedPolicyRuleRuleOneOf6 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf6>(null, MatchedPolicyRuleRuleOneOf6);
             }
-            else if(MatchedPolicyRuleRuleSignEvmTypedData != null)
+            else if(MatchedPolicyRuleRuleOneOf7 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignEvmTypedData>(null, MatchedPolicyRuleRuleSignEvmTypedData);
+                if (MatchedPolicyRuleRuleOneOf7 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf7>(null, MatchedPolicyRuleRuleOneOf7);
             }
-            else if(MatchedPolicyRuleRuleSignSolMessage != null)
+            else if(MatchedPolicyRuleRuleOneOf8 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolMessage>(null, MatchedPolicyRuleRuleSignSolMessage);
+                if (MatchedPolicyRuleRuleOneOf8 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf8>(null, MatchedPolicyRuleRuleOneOf8);
             }
-            else if(MatchedPolicyRuleRuleSignSolTransaction != null)
+            else if(MatchedPolicyRuleRuleOneOf9 != null)
             {
-                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleSignSolTransaction>(null, MatchedPolicyRuleRuleSignSolTransaction);
+                if (MatchedPolicyRuleRuleOneOf9 is global::Microsoft.Kiota.Abstractions.Serialization.IAdditionalDataHolder unionData) foreach (var entry in AdditionalData) unionData.AdditionalData[entry.Key] = entry.Value;
+                writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MatchedPolicyRuleRuleOneOf9>(null, MatchedPolicyRuleRuleOneOf9);
             }
         }
     }

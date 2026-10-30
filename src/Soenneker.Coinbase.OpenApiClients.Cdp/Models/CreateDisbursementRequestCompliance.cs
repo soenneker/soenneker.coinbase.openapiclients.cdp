@@ -12,24 +12,37 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreateDisbursementRequestCompliance : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("recipient") is { } nullNodeRecipient && nullNodeRecipient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Recipient = null;
+            if (parseNode.GetChildNode("requesterIpAddress") is { } nullNodeRequesterIpAddress && nullNodeRequesterIpAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RequesterIpAddress = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Information about the person receiving this disbursement. Required by some entity configurations to meet regulatory requirements for fund transfers. When required, omitting this field or leaving required sub-fields empty returns a 400 listing the specific fields needed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient? Recipient { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient? Recipient { get => _explicitNullValueRecipient; set { _explicitNullValueRecipient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient"); else _explicitNullProperties?.Remove("recipient"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient? _explicitNullValueRecipient = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient Recipient { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient Recipient { get => _explicitNullValueRecipient; set { _explicitNullValueRecipient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("recipient"); else _explicitNullProperties?.Remove("recipient"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient _explicitNullValueRecipient = default!;
 #endif
         /// <summary>IPv4 or IPv6 address of the individual (i.e., end-customer) thatinitiated this request. NOT the IP of the partner server making theAPI call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RequesterIpAddress { get; set; }
+        public string? RequesterIpAddress { get => _explicitNullValueRequesterIpAddress; set { _explicitNullValueRequesterIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requesterIpAddress"); else _explicitNullProperties?.Remove("requesterIpAddress"); } }
+        private string? _explicitNullValueRequesterIpAddress = default!;
 #nullable restore
 #else
-        public string RequesterIpAddress { get; set; }
+        public string RequesterIpAddress { get => _explicitNullValueRequesterIpAddress; set { _explicitNullValueRequesterIpAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("requesterIpAddress"); else _explicitNullProperties?.Remove("requesterIpAddress"); } }
+        private string _explicitNullValueRequesterIpAddress = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance"/> and sets the default values.
@@ -46,7 +59,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateDisbursementRequestCompliance(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DisbursementComplianceAllOf2Recipient>("recipient", Recipient);
             writer.WriteStringValue("requesterIpAddress", RequesterIpAddress);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

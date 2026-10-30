@@ -12,15 +12,30 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class NetUsdChangeCriterion : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("changeCents") is { } nullNodeChangeCents && nullNodeChangeCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChangeCents = null;
+            if (parseNode.GetChildNode("operator") is { } nullNodeOperator && nullNodeOperator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Operator = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The amount of USD, in cents, that the total value of a transaction&apos;s asset transfer should be compared to.</summary>
-        public int? ChangeCents { get; set; }
+        public int? ChangeCents { get => _explicitNullValueChangeCents; set { _explicitNullValueChangeCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("changeCents"); else _explicitNullProperties?.Remove("changeCents"); } }
+        private int? _explicitNullValueChangeCents = default!;
         /// <summary>The operator to use for the comparison. The total value of a transaction&apos;s asset transfer will be on the left-hand side of the operator, and the `changeCents` field will be on the right-hand side.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionOperator? Operator { get; set; }
+#nullable enable
+        public string? Operator { get => _explicitNullValueOperator; set { _explicitNullValueOperator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("operator"); else _explicitNullProperties?.Remove("operator"); } }
+        private string? _explicitNullValueOperator = default!;
+#nullable restore
         /// <summary>The type of criterion to use. This should be `netUSDChange`.</summary>
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType? Type { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType? _explicitNullValueType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterion"/> and sets the default values.
         /// </summary>
@@ -36,7 +51,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterion();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterion(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +62,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "changeCents", n => { ChangeCents = n.GetIntValue(); } },
-                { "operator", n => { Operator = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionOperator>(); } },
+                { "operator", n => { Operator = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType>(); } },
             };
         }
@@ -59,8 +74,9 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("changeCents", ChangeCents);
-            writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeCriterionOperator>("operator", Operator);
+            writer.WriteStringValue("operator", Operator);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.NetUsdChangeType>("type", Type);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

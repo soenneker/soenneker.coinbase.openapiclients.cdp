@@ -12,30 +12,49 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DepositTravelRuleRequest : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("attestVerifiedWalletOwnership") is { } nullNodeAttestVerifiedWalletOwnership && nullNodeAttestVerifiedWalletOwnership.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AttestVerifiedWalletOwnership = null;
+            if (parseNode.GetChildNode("beneficiary") is { } nullNodeBeneficiary && nullNodeBeneficiary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Beneficiary = null;
+            if (parseNode.GetChildNode("isIntermediary") is { } nullNodeIsIntermediary && nullNodeIsIntermediary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsIntermediary = null;
+            if (parseNode.GetChildNode("isSelf") is { } nullNodeIsSelf && nullNodeIsSelf.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsSelf = null;
+            if (parseNode.GetChildNode("originator") is { } nullNodeOriginator && nullNodeOriginator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Originator = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>When `true`, you attest that the originating wallet&apos;s ownership has been verified out-of-band. Instructs Coinbase to skip the wallet verification check for this travel-rule submission.**Only valid when `isIntermediary` is `true`.** You can only attest to the originating wallet&apos;s ownership when your organization is acting as the originating VASP on behalf of your end customer, and Coinbase is acting as the intermediary VASP. Returns a `400` error if set to `true` when `isIntermediary` is `false` or omitted.</summary>
-        public bool? AttestVerifiedWalletOwnership { get; set; }
+        public bool? AttestVerifiedWalletOwnership { get => _explicitNullValueAttestVerifiedWalletOwnership; set { _explicitNullValueAttestVerifiedWalletOwnership = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("attestVerifiedWalletOwnership"); else _explicitNullProperties?.Remove("attestVerifiedWalletOwnership"); } }
+        private bool? _explicitNullValueAttestVerifiedWalletOwnership = default!;
         /// <summary>Beneficiary information for the travel rule submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary? Beneficiary { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary? Beneficiary { get => _explicitNullValueBeneficiary; set { _explicitNullValueBeneficiary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beneficiary"); else _explicitNullProperties?.Remove("beneficiary"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary? _explicitNullValueBeneficiary = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary Beneficiary { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary Beneficiary { get => _explicitNullValueBeneficiary; set { _explicitNullValueBeneficiary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("beneficiary"); else _explicitNullProperties?.Remove("beneficiary"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary _explicitNullValueBeneficiary = default!;
 #endif
         /// <summary>Indicates whether **Coinbase is acting as the intermediary Virtual Asset Service Provider (VASP)**, and your organization is acting as an originating VASP on behalf of your own end customer.**Background:**The Travel Rule (FATF Recommendation 16) requires VASPs to collect and share certain information about virtual asset transfers. If your organization is a VASP, and you are acting on behalf of your end customer, you must provide additional Travel Rule data to satisfy compliance requirements.**Set to `true` when** your organization is itself a VASP acting on behalf of your own end customer (the true originator).**Set to `false` (or omit) when** your organization is not itself a VASP acting on behalf of an end customer — for example, if the virtual assets involved are your organization&apos;s own funds.**Impact on required fields:**When `isIntermediary` is `true`, you must provide the `originator` object with the following details:- The originator&apos;s (i.e. your end customer&apos;s) name- The originator&apos;s address- Your organization&apos;s VASP information (`virtualAssetServiceProvider` object with `identifier`, `name`, and `address`)In certain jurisdictions, `personalId` and `dateOfBirth` must also reflect the **original sender&apos;s** identity — not your organization&apos;s. These fields will not be auto-populated from any internal KYC data when `isIntermediary` is `true`.</summary>
-        public bool? IsIntermediary { get; set; }
+        public bool? IsIntermediary { get => _explicitNullValueIsIntermediary; set { _explicitNullValueIsIntermediary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isIntermediary"); else _explicitNullProperties?.Remove("isIntermediary"); } }
+        private bool? _explicitNullValueIsIntermediary = default!;
         /// <summary>Indicates whether the user attests that the originating wallet belongs to them.</summary>
-        public bool? IsSelf { get; set; }
+        public bool? IsSelf { get => _explicitNullValueIsSelf; set { _explicitNullValueIsSelf = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("isSelf"); else _explicitNullProperties?.Remove("isSelf"); } }
+        private bool? _explicitNullValueIsSelf = default!;
         /// <summary>Originator information for the travel rule submission.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator? Originator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator? Originator { get => _explicitNullValueOriginator; set { _explicitNullValueOriginator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originator"); else _explicitNullProperties?.Remove("originator"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator? _explicitNullValueOriginator = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator Originator { get; set; }
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator Originator { get => _explicitNullValueOriginator; set { _explicitNullValueOriginator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("originator"); else _explicitNullProperties?.Remove("originator"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator _explicitNullValueOriginator = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequest"/> and sets the default values.
@@ -52,7 +71,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         public static global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,6 +100,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             writer.WriteBoolValue("isIntermediary", IsIntermediary);
             writer.WriteBoolValue("isSelf", IsSelf);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestOriginator>("originator", Originator);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
