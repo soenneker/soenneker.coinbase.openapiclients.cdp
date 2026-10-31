@@ -997,6 +997,77 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Customer created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                },
+                "example": {
+                  "customerId": "customer_af2937b0-9846-4fe7-bfe9-ccc22d935114",
+                  "type": "individual",
+                  "individual": {},
+                  "capabilities": {
+                    "custodyCrypto": {
+                      "requested": true,
+                      "status": "pending"
+                    },
+                    "custodyFiat": {
+                      "requested": false,
+                      "status": "unrequested"
+                    },
+                    "custodyStablecoin": {
+                      "requested": false,
+                      "status": "unrequested"
+                    },
+                    "tradeCrypto": {
+                      "requested": false,
+                      "status": "unrequested"
+                    },
+                    "tradeStablecoin": {
+                      "requested": false,
+                      "status": "unrequested"
+                    },
+                    "transferCrypto": {
+                      "requested": true,
+                      "status": "pending"
+                    },
+                    "transferFiat": {
+                      "requested": false,
+                      "status": "unrequested"
+                    },
+                    "transferStablecoin": {
+                      "requested": false,
+                      "status": "unrequested"
+                    }
+                  },
+                  "requirements": {
+                    "firstName": {
+                      "status": "due",
+                      "impact": [
+                        "custodyCrypto",
+                        "transferCrypto"
+                      ]
+                    },
+                    "lastName": {
+                      "status": "due",
+                      "impact": [
+                        "custodyCrypto",
+                        "transferCrypto"
+                      ]
+                    },
+                    "ssnLast4": {
+                      "status": "due"
+                    }
+                  },
+                  "createdAt": "2026-01-10T14:25:00Z",
+                  "updatedAt": "2026-01-10T14:25:00Z"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -2338,6 +2409,74 @@
           "503": {
             "description": "The endpoint cannot serve the request right now, either because the API is in an unintended outage (\u0060service_unavailable\u0060 \u2014 dependency failure, deploy issue) or because an operator has intentionally disabled this specific endpoint via a kill switch (\u0060endpoint_unavailable\u0060). Clients should dispatch on \u0060errorType\u0060: \u0060service_unavailable\u0060 is typically transient and safe to retry, while \u0060endpoint_unavailable\u0060 may persist until an operator re-enables the endpoint.",
             "$ref": "#/components/responses/EndpointUnavailableError"
+          },
+          "200": {
+            "description": "Successfully created deposit destination.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DepositDestination"
+                },
+                "examples": {
+                  "crypto": {
+                    "summary": "Crypto deposit destination",
+                    "value": {
+                      "depositDestinationId": "depositDestination_af2937b0-9846-4fe7-bfe9-ccc22d935114",
+                      "accountId": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114",
+                      "type": "crypto",
+                      "crypto": {
+                        "network": "base",
+                        "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                      },
+                      "target": {
+                        "accountId": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114",
+                        "asset": "usd"
+                      },
+                      "status": "active",
+                      "metadata": {
+                        "customer_id": "123e4567-e89b-12d3-a456-426614174000",
+                        "reference": "order-12345"
+                      },
+                      "createdAt": "2023-10-08T14:30:00Z",
+                      "updatedAt": "2023-10-08T14:30:00Z"
+                    }
+                  },
+                  "fiat": {
+                    "summary": "Fiat deposit destination",
+                    "value": {
+                      "depositDestinationId": "depositDestination_cf4958d2-b068-6bf9-da01-eee44f157336",
+                      "accountId": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114",
+                      "type": "fiat",
+                      "status": "pending",
+                      "fiat": {
+                        "accountType": "us_bank",
+                        "currency": "usd",
+                        "bankName": "Citibank N.A.",
+                        "beneficiaryName": "John Smith",
+                        "routingNumber": "987654321",
+                        "accountNumber": "123456789",
+                        "bankAddress": "399 Park Avenue, New York, NY 10022",
+                        "supportedRails": [
+                          "ach",
+                          "fedwire"
+                        ]
+                      },
+                      "target": {
+                        "accountId": "account_af2937b0-9846-4fe7-bfe9-ccc22d935114",
+                        "asset": "usdc"
+                      },
+                      "metadata": {
+                        "customer_id": "123e4567-e89b-12d3-a456-426614174000"
+                      },
+                      "createdAt": "2025-06-01T00:00:00Z",
+                      "updatedAt": "2025-06-01T00:00:00Z"
+                    },
+                    "x-audience": "public"
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -8221,6 +8360,30 @@
           "503": {
             "description": "The endpoint cannot serve the request right now, either because the API is in an unintended outage (\u0060service_unavailable\u0060 \u2014 dependency failure, deploy issue) or because an operator has intentionally disabled this specific endpoint via a kill switch (\u0060endpoint_unavailable\u0060). Clients should dispatch on \u0060errorType\u0060: \u0060service_unavailable\u0060 is typically transient and safe to retry, while \u0060endpoint_unavailable\u0060 may persist until an operator re-enables the endpoint.",
             "$ref": "#/components/responses/EndpointUnavailableError"
+          },
+          "200": {
+            "description": "Successfully created Top-Up Link.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TopUpLink"
+                },
+                "example": {
+                  "topUpLinkId": "topUpLink_6f2e9b41-c0f4-4bf8-a4b2-c105f9453a24",
+                  "topUpAmount": "100.00",
+                  "asset": "usdc",
+                  "orderTotalAmount": "130.45",
+                  "redirectUrl": "https://www.example-merchant.com/checkout/return?orderId=701-3358192-4471016\u0026sig=8a3f",
+                  "customerDisplay": {
+                    "merchantName": "Example Merchant"
+                  },
+                  "topUpUrl": "https://pay.coinbase.com/top-up/topUpLink_6f2e9b41-c0f4-4bf8-a4b2-c105f9453a24",
+                  "expiresAt": "2026-09-12T20:00:00Z",
+                  "createdAt": "2026-09-11T20:00:00Z"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -8915,6 +9078,192 @@
           "500": {
             "description": "Internal server error.",
             "$ref": "#/components/responses/InternalServerError"
+          },
+          "200": {
+            "description": "Successfully created end user.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EndUser"
+                },
+                "examples": {
+                  "default_no_accounts": {
+                    "summary": "Default behavior - No accounts created",
+                    "value": {
+                      "userId": "user-001",
+                      "authenticationMethods": [
+                        {
+                          "type": "email",
+                          "email": "user@example.com"
+                        }
+                      ],
+                      "evmAccounts": [],
+                      "evmAccountObjects": [],
+                      "evmSmartAccounts": [],
+                      "evmSmartAccountObjects": [],
+                      "solanaAccounts": [],
+                      "solanaAccountObjects": [],
+                      "createdAt": "2025-11-17T10:00:00Z"
+                    }
+                  },
+                  "evm_smart_account_only": {
+                    "summary": "EVM smart account only",
+                    "value": {
+                      "userId": "user-003",
+                      "authenticationMethods": [
+                        {
+                          "type": "email",
+                          "email": "user@example.com"
+                        }
+                      ],
+                      "evmAccounts": [
+                        "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                      ],
+                      "evmAccountObjects": [
+                        {
+                          "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        }
+                      ],
+                      "evmSmartAccounts": [
+                        "0x842d35Cc6634C0532925a3b844Bc454e4438f55f"
+                      ],
+                      "evmSmartAccountObjects": [
+                        {
+                          "address": "0x842d35Cc6634C0532925a3b844Bc454e4438f55f",
+                          "ownerAddresses": [
+                            "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                          ],
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        }
+                      ],
+                      "solanaAccounts": [],
+                      "solanaAccountObjects": [],
+                      "createdAt": "2025-11-17T10:00:00Z"
+                    }
+                  },
+                  "solana_only": {
+                    "summary": "Solana account only",
+                    "value": {
+                      "userId": "user-004",
+                      "authenticationMethods": [
+                        {
+                          "type": "sms",
+                          "phoneNumber": "\u002B15555551234"
+                        }
+                      ],
+                      "evmAccounts": [],
+                      "evmAccountObjects": [],
+                      "evmSmartAccounts": [],
+                      "evmSmartAccountObjects": [],
+                      "solanaAccounts": [
+                        "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
+                      ],
+                      "solanaAccountObjects": [
+                        {
+                          "address": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT",
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        }
+                      ],
+                      "createdAt": "2025-11-17T10:00:00Z"
+                    }
+                  },
+                  "evm_no_smart_account": {
+                    "summary": "EVM without smart account",
+                    "value": {
+                      "userId": "user-004",
+                      "authenticationMethods": [
+                        {
+                          "type": "email",
+                          "email": "user@example.com"
+                        }
+                      ],
+                      "evmAccounts": [
+                        "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                      ],
+                      "evmAccountObjects": [
+                        {
+                          "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        }
+                      ],
+                      "evmSmartAccounts": [],
+                      "evmSmartAccountObjects": [],
+                      "solanaAccounts": [],
+                      "solanaAccountObjects": [],
+                      "createdAt": "2025-11-17T10:00:00Z"
+                    }
+                  },
+                  "multiple_accounts": {
+                    "summary": "End user with multiple accounts created",
+                    "value": {
+                      "userId": "user-005",
+                      "authenticationMethods": [
+                        {
+                          "type": "email",
+                          "email": "user@example.com"
+                        }
+                      ],
+                      "evmAccounts": [
+                        "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                        "0x8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A",
+                        "0xA1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0"
+                      ],
+                      "evmAccountObjects": [
+                        {
+                          "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        },
+                        {
+                          "address": "0x8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A",
+                          "createdAt": "2025-11-17T10:05:00Z"
+                        },
+                        {
+                          "address": "0xA1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D6E7F8A9B0",
+                          "createdAt": "2025-11-17T10:10:00Z"
+                        }
+                      ],
+                      "evmSmartAccounts": [
+                        "0x842d35Cc6634C0532925a3b844Bc454e4438f55f",
+                        "0x9D3E4F5A6B7C8D9E0F1A2B3C4D5E6F7A8B9C0D1E"
+                      ],
+                      "evmSmartAccountObjects": [
+                        {
+                          "address": "0x842d35Cc6634C0532925a3b844Bc454e4438f55f",
+                          "ownerAddresses": [
+                            "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                          ],
+                          "createdAt": "2025-11-17T10:02:00Z"
+                        },
+                        {
+                          "address": "0x9D3E4F5A6B7C8D9E0F1A2B3C4D5E6F7A8B9C0D1E",
+                          "ownerAddresses": [
+                            "0x8F2A9B5C3D4E6F7A8B9C0D1E2F3A4B5C6D7E8F9A"
+                          ],
+                          "createdAt": "2025-11-17T10:07:00Z"
+                        }
+                      ],
+                      "solanaAccounts": [
+                        "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT",
+                        "9ZN8wT6gKxLmJvP4rQnYt7VxKwL3mN9rT8Qx2WzJpK5s"
+                      ],
+                      "solanaAccountObjects": [
+                        {
+                          "address": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT",
+                          "createdAt": "2025-11-17T10:15:00Z"
+                        },
+                        {
+                          "address": "9ZN8wT6gKxLmJvP4rQnYt7VxKwL3mN9rT8Qx2WzJpK5s",
+                          "createdAt": "2025-11-17T10:20:00Z"
+                        }
+                      ],
+                      "createdAt": "2025-11-17T10:00:00Z"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -9589,6 +9938,28 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully added EVM account to end user.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddEndUserEvmAccount201Response"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "EVM EOA account created",
+                    "value": {
+                      "evmAccount": {
+                        "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                        "createdAt": "2025-11-17T10:00:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -9747,6 +10118,31 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully added EVM smart account to end user.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddEndUserEvmSmartAccount201Response"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "EVM smart account created",
+                    "value": {
+                      "evmSmartAccount": {
+                        "address": "0x842d35Cc6634C0532925a3b844Bc454e4438f55f",
+                        "ownerAddresses": [
+                          "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                        ],
+                        "createdAt": "2025-11-17T10:00:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -9896,6 +10292,28 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully added Solana account to end user.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddEndUserSolanaAccount201Response"
+                },
+                "examples": {
+                  "default": {
+                    "summary": "Solana account created",
+                    "value": {
+                      "solanaAccount": {
+                        "address": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT",
+                        "createdAt": "2025-11-17T10:00:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -10128,6 +10546,71 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully imported key and created end user with the associated account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EndUser"
+                },
+                "examples": {
+                  "evm_key_imported": {
+                    "summary": "End user with imported EVM account",
+                    "value": {
+                      "userId": "user-001",
+                      "authenticationMethods": [
+                        {
+                          "type": "email",
+                          "email": "user@example.com"
+                        }
+                      ],
+                      "evmAccounts": [
+                        "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+                      ],
+                      "evmAccountObjects": [
+                        {
+                          "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        }
+                      ],
+                      "evmSmartAccounts": [],
+                      "evmSmartAccountObjects": [],
+                      "solanaAccounts": [],
+                      "solanaAccountObjects": [],
+                      "createdAt": "2025-11-17T10:00:00Z"
+                    }
+                  },
+                  "solana_key_imported": {
+                    "summary": "End user with imported Solana account",
+                    "value": {
+                      "userId": "user-002",
+                      "authenticationMethods": [
+                        {
+                          "type": "sms",
+                          "phoneNumber": "\u002B15555551234"
+                        }
+                      ],
+                      "evmAccounts": [],
+                      "evmAccountObjects": [],
+                      "evmSmartAccounts": [],
+                      "evmSmartAccountObjects": [],
+                      "solanaAccounts": [
+                        "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT"
+                      ],
+                      "solanaAccountObjects": [
+                        {
+                          "address": "HpabPRRCFbBKSuJr5PdkVvQc85FyxyTWkFM2obBRSvHT",
+                          "createdAt": "2025-11-17T10:00:00Z"
+                        }
+                      ],
+                      "createdAt": "2025-11-17T10:00:00Z"
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -11798,6 +12281,20 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Delegation created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateDelegationForEndUserAccount201Response"
+                },
+                "example": {
+                  "expiresAt": "2026-02-03T10:35:00Z"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -12303,6 +12800,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Delegation operation created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateEvmEip7702DelegationWithEndUserAccount201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -14445,6 +14953,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully created EVM account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmAccount"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -15553,6 +16072,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Delegation operation created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateEvmEip7702Delegation201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -15787,6 +16317,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully created Smart Account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmSmartAccount"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -15995,6 +16536,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully imported EVM account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmAccount"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -16578,6 +17130,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "The prepared user operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmUserOperation"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -18091,6 +18654,130 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully created swap quote.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSwapQuoteResponseWrapper"
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Successful swap quote creation",
+                    "value": {
+                      "blockNumber": "17038723",
+                      "toAmount": "1000000000000000000",
+                      "toToken": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+                      "fees": {
+                        "gasFee": {
+                          "amount": "1000000000000000000",
+                          "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                        },
+                        "protocolFee": {
+                          "amount": "1000000000000000000",
+                          "token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+                        }
+                      },
+                      "issues": {
+                        "allowance": {
+                          "currentAllowance": "1000000000",
+                          "spender": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                        },
+                        "balance": {
+                          "token": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+                          "currentBalance": "1000000000000000000",
+                          "requiredBalance": "1000000000000000000"
+                        },
+                        "simulationIncomplete": false
+                      },
+                      "liquidityAvailable": true,
+                      "minToAmount": "900000000000000000",
+                      "fromAmount": "1000000000000000000",
+                      "fromToken": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+                      "permit2": {
+                        "hash": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+                        "eip712": {
+                          "domain": {
+                            "name": "Permit2",
+                            "chainId": 1,
+                            "verifyingContract": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+                          },
+                          "types": {
+                            "EIP712Domain": [
+                              {
+                                "name": "name",
+                                "type": "string"
+                              },
+                              {
+                                "name": "chainId",
+                                "type": "uint256"
+                              },
+                              {
+                                "name": "verifyingContract",
+                                "type": "address"
+                              }
+                            ],
+                            "PermitTransferFrom": [
+                              {
+                                "name": "permitted",
+                                "type": "TokenPermissions"
+                              },
+                              {
+                                "name": "spender",
+                                "type": "address"
+                              },
+                              {
+                                "name": "nonce",
+                                "type": "uint256"
+                              },
+                              {
+                                "name": "deadline",
+                                "type": "uint256"
+                              }
+                            ],
+                            "TokenPermissions": [
+                              {
+                                "name": "token",
+                                "type": "address"
+                              },
+                              {
+                                "name": "amount",
+                                "type": "uint256"
+                              }
+                            ]
+                          },
+                          "primaryType": "PermitTransferFrom",
+                          "message": {
+                            "permitted": {
+                              "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+                              "amount": "1000000"
+                            },
+                            "spender": "0xFfFfFfFFfFFfFFfFFfFFFFFffFFFffffFfFFFfFf",
+                            "nonce": "123456",
+                            "deadline": "1717123200"
+                          }
+                        }
+                      },
+                      "transaction": {
+                        "to": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+                        "data": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+                        "gas": "100000",
+                        "gasPrice": "1000000000",
+                        "value": "1000000000000000000"
+                      }
+                    }
+                  },
+                  "unavailable": {
+                    "summary": "Swap with unavailable liquidity",
+                    "value": {
+                      "liquidityAvailable": false
+                    }
+                  }
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -18440,6 +19127,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully created policy.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Policy"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -19492,6 +20190,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully created Solana account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SolanaAccount"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -19898,6 +20607,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Successfully imported Solana account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SolanaAccount"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -21618,6 +22338,17 @@
           "500": {
             "description": "Internal server error.",
             "$ref": "#/components/responses/InternalServerError"
+          },
+          "200": {
+            "description": "Webhook subscription created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookSubscriptionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -23120,6 +23851,17 @@
           "500": {
             "description": "Internal server error.",
             "$ref": "#/components/responses/InternalServerError"
+          },
+          "200": {
+            "description": "Successfully initiated onramp verification.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnrampVerificationInitiation"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -23421,6 +24163,17 @@
           "500": {
             "description": "Internal server error.",
             "$ref": "#/components/responses/InternalServerError"
+          },
+          "200": {
+            "description": "Successfully created an onramp order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOnrampOrder201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -23591,6 +24344,17 @@
           "500": {
             "description": "Internal server error.",
             "$ref": "#/components/responses/InternalServerError"
+          },
+          "200": {
+            "description": "Onramp session created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOnrampSession201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -23687,6 +24451,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Onramp mobile challenge created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnrampMobileChallenge"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -23797,6 +24572,17 @@
           "503": {
             "description": "Service unavailable.",
             "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "200": {
+            "description": "Onramp mobile session created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOnrampMobileSession201Response"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -23841,6 +24627,17 @@
           "500": {
             "description": "Internal server error.",
             "$ref": "#/components/responses/InternalServerError"
+          },
+          "200": {
+            "description": "Attestation challenge created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IosAttestationChallenge"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         },
         "security": [
@@ -59332,16 +60129,7 @@
       "X402McpResponseId": {
         "anyOf": [
           {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "integer"
-              }
-            ],
-            "description": "Request identifier (matches the request ID, null for notifications).",
-            "example": 1
+            "$ref": "#/components/schemas/X402McpResponseIdAnyOf1"
           },
           {
             "type": "null"
@@ -79410,6 +80198,18 @@
           "operation",
           "criteria"
         ]
+      },
+      "X402McpResponseIdAnyOf1": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          }
+        ],
+        "description": "Request identifier (matches the request ID, null for notifications).",
+        "example": 1
       },
       "X402ValidateResponsePaymentRequirementsOneOf1": {
         "type": "object",

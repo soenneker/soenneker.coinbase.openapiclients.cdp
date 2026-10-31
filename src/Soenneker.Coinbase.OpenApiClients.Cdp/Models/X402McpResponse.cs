@@ -43,12 +43,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UntypedNode? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
-        private UntypedNode? _explicitNullValueId = default!;
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseIdAnyOf1? Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseIdAnyOf1? _explicitNullValueId = default!;
 #nullable restore
 #else
-        public UntypedNode Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
-        private UntypedNode _explicitNullValueId = default!;
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseIdAnyOf1 Id { get => _explicitNullValueId; set { _explicitNullValueId = value; AdditionalData?.Remove("id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("id"); else _explicitNullProperties?.Remove("id"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseIdAnyOf1 _explicitNullValueId = default!;
 #endif
         /// <summary>JSON-RPC version, must be &quot;2.0&quot;.</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Value20Jsonrpc? Jsonrpc { get => _explicitNullValueJsonrpc; set { _explicitNullValueJsonrpc = value; AdditionalData?.Remove("jsonrpc"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jsonrpc"); else _explicitNullProperties?.Remove("jsonrpc"); } }
@@ -89,7 +89,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "error", n => { Error = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError.CreateFromDiscriminatorValue); } },
-                { "id", n => { Id = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseIdAnyOf1>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseIdAnyOf1.CreateFromDiscriminatorValue); } },
                 { "jsonrpc", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Value20Jsonrpc>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueJsonrpc = default; _explicitNullProperties?.Remove("jsonrpc"); AdditionalData["jsonrpc"] = unknown; } else { Jsonrpc = parsed; AdditionalData.Remove("jsonrpc"); } } },
                 { "result", n => { Result = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty.CreateFromDiscriminatorValue); } },
             };
@@ -102,7 +102,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpError>("error", Error);
-            writer.WriteObjectValue<UntypedNode>("id", Id);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseIdAnyOf1>("id", Id);
             writer.WriteEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Value20Jsonrpc>("jsonrpc", Jsonrpc);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpResponseResultProperty>("result", Result);
             if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
