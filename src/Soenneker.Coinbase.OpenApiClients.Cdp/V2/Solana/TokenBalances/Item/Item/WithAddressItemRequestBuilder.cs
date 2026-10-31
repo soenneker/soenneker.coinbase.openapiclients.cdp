@@ -80,7 +80,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.TokenBalances.Item.Ite
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Solana.TokenBalances.Item.Item.WithAddressItemRequestBuilder.WithAddressItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.cdp.coinbase.com/platform", "/v2/solana/token-balances/{network}/{address}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
