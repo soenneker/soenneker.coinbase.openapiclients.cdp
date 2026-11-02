@@ -27,12 +27,12 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <summary>The approval object which contains the necessary fields to submit an approval for this transaction. Null if the `fromToken` is the native token or the transaction is a native token wrap / unwrap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval? Permit2 { get => _explicitNullValuePermit2; set { _explicitNullValuePermit2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permit2"); else _explicitNullProperties?.Remove("permit2"); } }
-        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval? _explicitNullValuePermit2 = default!;
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2? Permit2 { get => _explicitNullValuePermit2; set { _explicitNullValuePermit2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permit2"); else _explicitNullProperties?.Remove("permit2"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2? _explicitNullValuePermit2 = default!;
 #nullable restore
 #else
-        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval Permit2 { get => _explicitNullValuePermit2; set { _explicitNullValuePermit2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permit2"); else _explicitNullProperties?.Remove("permit2"); } }
-        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval _explicitNullValuePermit2 = default!;
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2 Permit2 { get => _explicitNullValuePermit2; set { _explicitNullValuePermit2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("permit2"); else _explicitNullProperties?.Remove("permit2"); } }
+        private global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2 _explicitNullValuePermit2 = default!;
 #endif
         /// <summary>The details of the transaction to be signed and submitted to execute the swap.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "permit2", n => { Permit2 = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval.CreateFromDiscriminatorValue); } },
+                { "permit2", n => { Permit2 = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2.CreateFromDiscriminatorValue); } },
                 { "transaction", n => { Transaction = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Transaction>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Transaction.CreateFromDiscriminatorValue); } },
             };
         }
@@ -74,7 +74,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.SwapPermit2Approval>("permit2", Permit2);
+            writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Permit2>("permit2", Permit2);
             writer.WriteObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CreateSwapQuoteResponseAllOf1Transaction>("transaction", Transaction);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             
         }
