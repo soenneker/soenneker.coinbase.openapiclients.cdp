@@ -44905,20 +44905,20 @@
         "discriminator": {
           "propertyName": "status",
           "mapping": {
-            "ONRAMP_TRANSACTION_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_CREATED": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_IN_PROGRESS": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_SUCCESS": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_FAILED": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_AWAITING_AUTH": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_AWAITING_PAYMENT": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf1",
-            "ONRAMP_ORDER_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_AUTH": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_PAYMENT": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PROCESSING": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_COMPLETED": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_FAILED": "#/components/schemas/OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf2"
+            "ONRAMP_TRANSACTION_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionCreatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_CREATED": "#/components/schemas/OnrampTransactionCreatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_IN_PROGRESS": "#/components/schemas/OnrampTransactionCreatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_SUCCESS": "#/components/schemas/OnrampTransactionCreatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_FAILED": "#/components/schemas/OnrampTransactionCreatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_AWAITING_AUTH": "#/components/schemas/OnrampTransactionCreatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_AWAITING_PAYMENT": "#/components/schemas/OnrampTransactionCreatedEventOneOf1Variant",
+            "ONRAMP_ORDER_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionCreatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_AUTH": "#/components/schemas/OnrampTransactionCreatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION": "#/components/schemas/OnrampTransactionCreatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_PAYMENT": "#/components/schemas/OnrampTransactionCreatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PROCESSING": "#/components/schemas/OnrampTransactionCreatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_COMPLETED": "#/components/schemas/OnrampTransactionCreatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_FAILED": "#/components/schemas/OnrampTransactionCreatedEventOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -44966,20 +44966,20 @@
         "discriminator": {
           "propertyName": "status",
           "mapping": {
-            "ONRAMP_TRANSACTION_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_CREATED": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_IN_PROGRESS": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_SUCCESS": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_FAILED": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_AWAITING_AUTH": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_AWAITING_PAYMENT": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf1",
-            "ONRAMP_ORDER_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_AUTH": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_PAYMENT": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PROCESSING": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_COMPLETED": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_FAILED": "#/components/schemas/OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf2"
+            "ONRAMP_TRANSACTION_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionUpdatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_CREATED": "#/components/schemas/OnrampTransactionUpdatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_IN_PROGRESS": "#/components/schemas/OnrampTransactionUpdatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_SUCCESS": "#/components/schemas/OnrampTransactionUpdatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_FAILED": "#/components/schemas/OnrampTransactionUpdatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_AWAITING_AUTH": "#/components/schemas/OnrampTransactionUpdatedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_AWAITING_PAYMENT": "#/components/schemas/OnrampTransactionUpdatedEventOneOf1Variant",
+            "ONRAMP_ORDER_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionUpdatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_AUTH": "#/components/schemas/OnrampTransactionUpdatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION": "#/components/schemas/OnrampTransactionUpdatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_PAYMENT": "#/components/schemas/OnrampTransactionUpdatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PROCESSING": "#/components/schemas/OnrampTransactionUpdatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_COMPLETED": "#/components/schemas/OnrampTransactionUpdatedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_FAILED": "#/components/schemas/OnrampTransactionUpdatedEventOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -45027,20 +45027,20 @@
         "discriminator": {
           "propertyName": "status",
           "mapping": {
-            "ONRAMP_TRANSACTION_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_CREATED": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_IN_PROGRESS": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_SUCCESS": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_FAILED": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_AWAITING_AUTH": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_AWAITING_PAYMENT": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf1",
-            "ONRAMP_ORDER_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_AUTH": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_PAYMENT": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PROCESSING": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf2",
-            "ONRAMP_ORDER_STATUS_COMPLETED": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf2",
-            "ONRAMP_ORDER_STATUS_FAILED": "#/components/schemas/OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf2"
+            "ONRAMP_TRANSACTION_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionSuccessEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_CREATED": "#/components/schemas/OnrampTransactionSuccessEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_IN_PROGRESS": "#/components/schemas/OnrampTransactionSuccessEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_SUCCESS": "#/components/schemas/OnrampTransactionSuccessEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_FAILED": "#/components/schemas/OnrampTransactionSuccessEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_AWAITING_AUTH": "#/components/schemas/OnrampTransactionSuccessEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_AWAITING_PAYMENT": "#/components/schemas/OnrampTransactionSuccessEventOneOf1Variant",
+            "ONRAMP_ORDER_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionSuccessEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_AUTH": "#/components/schemas/OnrampTransactionSuccessEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION": "#/components/schemas/OnrampTransactionSuccessEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_PAYMENT": "#/components/schemas/OnrampTransactionSuccessEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PROCESSING": "#/components/schemas/OnrampTransactionSuccessEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_COMPLETED": "#/components/schemas/OnrampTransactionSuccessEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_FAILED": "#/components/schemas/OnrampTransactionSuccessEventOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -45088,20 +45088,20 @@
         "discriminator": {
           "propertyName": "status",
           "mapping": {
-            "ONRAMP_TRANSACTION_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_CREATED": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_IN_PROGRESS": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_SUCCESS": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_FAILED": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_AWAITING_AUTH": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf1",
-            "ONRAMP_TRANSACTION_STATUS_AWAITING_PAYMENT": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf1",
-            "ONRAMP_ORDER_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_AUTH": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PENDING_PAYMENT": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_PROCESSING": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_COMPLETED": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf2",
-            "ONRAMP_ORDER_STATUS_FAILED": "#/components/schemas/OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf2"
+            "ONRAMP_TRANSACTION_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionFailedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_CREATED": "#/components/schemas/OnrampTransactionFailedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_IN_PROGRESS": "#/components/schemas/OnrampTransactionFailedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_SUCCESS": "#/components/schemas/OnrampTransactionFailedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_FAILED": "#/components/schemas/OnrampTransactionFailedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_AWAITING_AUTH": "#/components/schemas/OnrampTransactionFailedEventOneOf1Variant",
+            "ONRAMP_TRANSACTION_STATUS_AWAITING_PAYMENT": "#/components/schemas/OnrampTransactionFailedEventOneOf1Variant",
+            "ONRAMP_ORDER_STATUS_UNSPECIFIED": "#/components/schemas/OnrampTransactionFailedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_AUTH": "#/components/schemas/OnrampTransactionFailedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_VERIFICATION": "#/components/schemas/OnrampTransactionFailedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PENDING_PAYMENT": "#/components/schemas/OnrampTransactionFailedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_PROCESSING": "#/components/schemas/OnrampTransactionFailedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_COMPLETED": "#/components/schemas/OnrampTransactionFailedEventOneOf2Variant",
+            "ONRAMP_ORDER_STATUS_FAILED": "#/components/schemas/OnrampTransactionFailedEventOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -52599,28 +52599,28 @@
         "discriminator": {
           "propertyName": "operation",
           "mapping": {
-            "signEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf1",
-            "sendEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf2",
-            "signEvmMessage": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf3",
-            "signEvmTypedData": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf4",
-            "signSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf5",
-            "sendSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf6",
-            "signSolMessage": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf7",
-            "signEvmHash": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf8",
-            "prepareUserOperation": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf9",
-            "sendUserOperation": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf10",
-            "signEndUserEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf11",
-            "sendEndUserEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf12",
-            "signEndUserEvmMessage": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf13",
-            "signEndUserEvmTypedData": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf14",
-            "signEndUserEvmHash": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf15",
-            "signEndUserSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf16",
-            "sendEndUserSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf17",
-            "signEndUserSolMessage": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf18",
-            "sendEndUserEvmAsset": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf19",
-            "sendEndUserSolAsset": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf20",
-            "sendEndUserOperation": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf21",
-            "createEndUserEvmSwap": "#/components/schemas/MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf22"
+            "signEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf1Variant",
+            "sendEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf2Variant",
+            "signEvmMessage": "#/components/schemas/MatchedPolicyRuleRuleOneOf3Variant",
+            "signEvmTypedData": "#/components/schemas/MatchedPolicyRuleRuleOneOf4Variant",
+            "signSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf5Variant",
+            "sendSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf6Variant",
+            "signSolMessage": "#/components/schemas/MatchedPolicyRuleRuleOneOf7Variant",
+            "signEvmHash": "#/components/schemas/MatchedPolicyRuleRuleOneOf8Variant",
+            "prepareUserOperation": "#/components/schemas/MatchedPolicyRuleRuleOneOf9Variant",
+            "sendUserOperation": "#/components/schemas/MatchedPolicyRuleRuleOneOf10Variant",
+            "signEndUserEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf11Variant",
+            "sendEndUserEvmTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf12Variant",
+            "signEndUserEvmMessage": "#/components/schemas/MatchedPolicyRuleRuleOneOf13Variant",
+            "signEndUserEvmTypedData": "#/components/schemas/MatchedPolicyRuleRuleOneOf14Variant",
+            "signEndUserEvmHash": "#/components/schemas/MatchedPolicyRuleRuleOneOf15Variant",
+            "signEndUserSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf16Variant",
+            "sendEndUserSolTransaction": "#/components/schemas/MatchedPolicyRuleRuleOneOf17Variant",
+            "signEndUserSolMessage": "#/components/schemas/MatchedPolicyRuleRuleOneOf18Variant",
+            "sendEndUserEvmAsset": "#/components/schemas/MatchedPolicyRuleRuleOneOf19Variant",
+            "sendEndUserSolAsset": "#/components/schemas/MatchedPolicyRuleRuleOneOf20Variant",
+            "sendEndUserOperation": "#/components/schemas/MatchedPolicyRuleRuleOneOf21Variant",
+            "createEndUserEvmSwap": "#/components/schemas/MatchedPolicyRuleRuleOneOf22Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -52866,19 +52866,19 @@
         "discriminator": {
           "propertyName": "network",
           "mapping": {
-            "eip155:8453": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "eip155:84532": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "eip155:137": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "eip155:42161": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "eip155:143": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "eip155:480": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "eip155:4801": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1",
-            "base": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2",
-            "base-sepolia": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2",
-            "solana": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2",
-            "solana-devnet": "#/components/schemas/X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2"
+            "eip155:8453": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "eip155:84532": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "eip155:137": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "eip155:42161": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "eip155:143": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "eip155:480": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "eip155:4801": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf1Variant",
+            "base": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf2Variant",
+            "base-sepolia": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf2Variant",
+            "solana": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf2Variant",
+            "solana-devnet": "#/components/schemas/X402ValidateResponsePaymentRequirementsOneOf2Variant"
           }
         },
         "x-client-original-tagged-union": {
@@ -71994,7 +71994,7 @@
           }
         ]
       },
-      "OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf1": {
+      "OnrampTransactionCreatedEventOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OnrampTransactionCreatedEvent"
@@ -72131,7 +72131,7 @@
           }
         ]
       },
-      "OnrampTransactionCreatedEventOnrampTransactionCreatedEventOneOf2": {
+      "OnrampTransactionCreatedEventOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OnrampTransactionCreatedEvent"
@@ -72251,7 +72251,7 @@
           }
         ]
       },
-      "OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf1": {
+      "OnrampTransactionUpdatedEventOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OnrampTransactionUpdatedEvent"
@@ -72388,7 +72388,7 @@
           }
         ]
       },
-      "OnrampTransactionUpdatedEventOnrampTransactionUpdatedEventOneOf2": {
+      "OnrampTransactionUpdatedEventOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OnrampTransactionUpdatedEvent"
@@ -72508,7 +72508,7 @@
           }
         ]
       },
-      "OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf1": {
+      "OnrampTransactionSuccessEventOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OnrampTransactionSuccessEvent"
@@ -72645,7 +72645,7 @@
           }
         ]
       },
-      "OnrampTransactionSuccessEventOnrampTransactionSuccessEventOneOf2": {
+      "OnrampTransactionSuccessEventOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OnrampTransactionSuccessEvent"
@@ -72765,7 +72765,7 @@
           }
         ]
       },
-      "OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf1": {
+      "OnrampTransactionFailedEventOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OnrampTransactionFailedEvent"
@@ -72902,7 +72902,7 @@
           }
         ]
       },
-      "OnrampTransactionFailedEventOnrampTransactionFailedEventOneOf2": {
+      "OnrampTransactionFailedEventOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/OnrampTransactionFailedEvent"
@@ -73297,7 +73297,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf1": {
+      "MatchedPolicyRuleRuleOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73341,7 +73341,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf2": {
+      "MatchedPolicyRuleRuleOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73386,7 +73386,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf3": {
+      "MatchedPolicyRuleRuleOneOf3Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73423,7 +73423,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf4": {
+      "MatchedPolicyRuleRuleOneOf4Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73517,7 +73517,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf5": {
+      "MatchedPolicyRuleRuleOneOf5Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73557,7 +73557,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf6": {
+      "MatchedPolicyRuleRuleOneOf6Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73602,7 +73602,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf7": {
+      "MatchedPolicyRuleRuleOneOf7Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73639,7 +73639,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf8": {
+      "MatchedPolicyRuleRuleOneOf8Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73661,7 +73661,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf9": {
+      "MatchedPolicyRuleRuleOneOf9Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73706,7 +73706,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf10": {
+      "MatchedPolicyRuleRuleOneOf10Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73751,7 +73751,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf11": {
+      "MatchedPolicyRuleRuleOneOf11Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73817,7 +73817,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf12": {
+      "MatchedPolicyRuleRuleOneOf12Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73891,7 +73891,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf13": {
+      "MatchedPolicyRuleRuleOneOf13Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -73928,7 +73928,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf14": {
+      "MatchedPolicyRuleRuleOneOf14Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74022,7 +74022,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf15": {
+      "MatchedPolicyRuleRuleOneOf15Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74044,7 +74044,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf16": {
+      "MatchedPolicyRuleRuleOneOf16Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74133,7 +74133,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf17": {
+      "MatchedPolicyRuleRuleOneOf17Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74230,7 +74230,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf18": {
+      "MatchedPolicyRuleRuleOneOf18Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74267,7 +74267,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf19": {
+      "MatchedPolicyRuleRuleOneOf19Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74341,7 +74341,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf20": {
+      "MatchedPolicyRuleRuleOneOf20Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74412,7 +74412,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf21": {
+      "MatchedPolicyRuleRuleOneOf21Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74486,7 +74486,7 @@
           }
         ]
       },
-      "MatchedPolicyRuleRuleMatchedPolicyRuleRuleOneOf22": {
+      "MatchedPolicyRuleRuleOneOf22Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/MatchedPolicyRuleRule"
@@ -74548,7 +74548,7 @@
           }
         ]
       },
-      "X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1": {
+      "X402ValidateResponsePaymentRequirementsOneOf1Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/X402ValidateResponsePaymentRequirements"
@@ -74601,7 +74601,7 @@
           }
         ]
       },
-      "X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2": {
+      "X402ValidateResponsePaymentRequirementsOneOf2Variant": {
         "allOf": [
           {
             "$ref": "#/components/schemas/X402ValidateResponsePaymentRequirements"

@@ -52,19 +52,19 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
             var mappingValue = parseNode.GetChildNode("network")?.GetStringValue();
             return mappingValue switch
             {
-                "base" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2(),
-                "base-sepolia" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2(),
-                "eip155:137" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
-                "eip155:143" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
-                "eip155:42161" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
-                "eip155:480" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
-                "eip155:4801" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
-                "eip155:8453" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
-                "eip155:84532" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
-                "solana" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2(),
-                "solana-devnet" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf2(),
-                "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
-                "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsX402ValidateResponsePaymentRequirementsOneOf1(),
+                "base" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf2Variant(),
+                "base-sepolia" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf2Variant(),
+                "eip155:137" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
+                "eip155:143" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
+                "eip155:42161" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
+                "eip155:480" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
+                "eip155:4801" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
+                "eip155:8453" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
+                "eip155:84532" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
+                "solana" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf2Variant(),
+                "solana-devnet" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf2Variant(),
+                "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
+                "solana:EtWTRABZaYq6iMfeYKouRu166VU2xqa1" => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirementsOneOf1Variant(),
                 _ => new global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponsePaymentRequirements(),
             };
         }
