@@ -10,6 +10,7 @@ using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Disbursements;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EmbeddedWalletApi;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.EndUsers;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Mandates;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Onramp;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.PaymentMethods;
@@ -70,6 +71,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.EvmRequestBuilder Evm
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.EvmRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The lend property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend.LendRequestBuilder Lend
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend.LendRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The mandates property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Mandates.MandatesRequestBuilder Mandates

@@ -17889,6 +17889,203 @@
         "x-audience": "public"
       }
     },
+    "/v2/lend/vaults": {
+      "get": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "List vaults",
+        "description": "Lists the vaults created by the project. Use \u0060pageSize\u0060 and \u0060pageToken\u0060 to page through the results. Each vault includes its current metrics, when a metrics snapshot has been observed for it.",
+        "operationId": "ListVaults",
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of vaults to return per page.",
+            "schema": {
+              "maximum": 1000,
+              "minimum": 1,
+              "type": "integer",
+              "default": 20
+            },
+            "example": 10
+          },
+          {
+            "description": "The token for the next page of resources, if any.",
+            "$ref": "#/components/parameters/PageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved vaults.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListVaults200Response"
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "vaults": [
+                        {
+                          "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                          "address": "0x15966F1582CAEFB56CDB4Fba1dC622E41F2Ad33D",
+                          "catalogVaultId": "cv_019ee022-3586-7473-8354-b2c32c18221a",
+                          "underlyingAsset": "usdc",
+                          "performanceFeeBps": 2000,
+                          "feeRecipientAddress": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                          "network": "base",
+                          "status": "active",
+                          "createdAt": "2026-09-15T15:39:37Z",
+                          "metrics": {
+                            "apyBps": 500,
+                            "apyUpdatedAt": "2026-09-22T00:00:00Z",
+                            "tvl": "1000",
+                            "tvlUpdatedAt": "2026-09-22T00:00:00Z"
+                          }
+                        }
+                      ],
+                      "nextPageToken": "eyJsYXN0X2lkIjogImFiYzEyMyIsICJ0aW1lc3RhbXAiOiAxNzA3ODIzNzAxfQ=="
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_request": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "pageSize must be between 1 and 1000."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "public"
+      }
+    },
+    "/v2/lend/vaults/{vaultId}": {
+      "get": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "Get a vault",
+        "description": "Retrieves a vault created by the project, including its current metrics such as APY and TVL.",
+        "operationId": "GetVault",
+        "parameters": [
+          {
+            "name": "vaultId",
+            "in": "path",
+            "description": "The ID of the vault to retrieve.",
+            "required": true,
+            "schema": {
+              "pattern": "^vault_[a-f0-9-]{36}$",
+              "type": "string",
+              "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+              "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+            },
+            "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the vault.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vault"
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                      "address": "0x15966F1582CAEFB56CDB4Fba1dC622E41F2Ad33D",
+                      "catalogVaultId": "cv_019ee022-3586-7473-8354-b2c32c18221a",
+                      "underlyingAsset": "usdc",
+                      "performanceFeeBps": 2000,
+                      "feeRecipientAddress": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+                      "network": "base",
+                      "status": "active",
+                      "createdAt": "2026-09-15T15:39:37Z",
+                      "metrics": {
+                        "apyBps": 500,
+                        "apyUpdatedAt": "2026-09-22T00:00:00Z",
+                        "tvl": "1000",
+                        "tvlUpdatedAt": "2026-09-22T00:00:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "Not found. The vault does not exist or belongs to a different project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "vault_not_found": {
+                    "summary": "Vault not found",
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Vault not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "public"
+      }
+    },
     "/v2/evm/accounts/{address}/lend/redeem-fees": {
       "post": {
         "tags": [
@@ -34182,6 +34379,106 @@
         },
         "description": "Request parameters for revoking a Spend Permission."
       },
+      "VaultStatus": {
+        "enum": [
+          "pending",
+          "active",
+          "failed"
+        ],
+        "type": "string",
+        "description": "The lifecycle status of the vault. A vault is \u0060pending\u0060 from creation until its deployment user operation succeeds onchain, then \u0060active\u0060. If the deployment user operation fails onchain, then the status is \u0060failed\u0060.",
+        "example": "pending",
+        "x-ms-enum": {
+          "name": "VaultStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "pending",
+              "name": "Pending"
+            },
+            {
+              "value": "active",
+              "name": "Active"
+            },
+            {
+              "value": "failed",
+              "name": "Failed"
+            }
+          ]
+        }
+      },
+      "Vault": {
+        "required": [
+          "vaultId",
+          "address",
+          "catalogVaultId",
+          "underlyingAsset",
+          "performanceFeeBps",
+          "feeRecipientAddress",
+          "network",
+          "status",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+            "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+          },
+          "address": {
+            "pattern": "^0x[a-fA-F0-9]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed onchain address of the vault. The address is deterministic and known at creation; the vault deploys at this address once the deployment user operation is included onchain.",
+            "example": "0x15966F1582CAEFB56CDB4Fba1dC622E41F2Ad33D"
+          },
+          "catalogVaultId": {
+            "pattern": "^cv_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the catalog vault, which is a UUID prefixed with the string \u0060cv_\u0060.",
+            "example": "cv_019ee022-3586-7473-8354-b2c32c18221a"
+          },
+          "performanceFeeBps": {
+            "maximum": 5000,
+            "minimum": 0,
+            "type": "integer",
+            "description": "Your performance fee, in basis points. CDP charges an additional fee equal to currently 10% (1000 bps) of your fee.",
+            "example": 2000
+          },
+          "feeRecipientAddress": {
+            "pattern": "^0x[a-fA-F0-9]{40}$",
+            "type": "string",
+            "description": "The 0x-prefixed address that receives the vault\u0027s performance fees.",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          "network": {
+            "description": "The network on which the lend resource (catalog vault or vault) is deployed.",
+            "$ref": "#/components/schemas/LendNetwork"
+          },
+          "status": {
+            "description": "The lifecycle status of the vault. A vault is \u0060pending\u0060 from creation until its deployment user operation succeeds onchain, then \u0060active\u0060. If the deployment user operation fails onchain, then the status is \u0060failed\u0060.",
+            "$ref": "#/components/schemas/VaultStatus"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The time the vault was created, in RFC 3339 format.",
+            "format": "date-time",
+            "example": "2026-09-15T15:39:37Z"
+          },
+          "underlyingAsset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          },
+          "metrics": {
+            "$ref": "#/components/schemas/VaultMetricsComposed"
+          }
+        },
+        "description": "A vault created on top of a catalog vault."
+      },
       "EvmSwapsNetwork": {
         "enum": [
           "base",
@@ -48162,6 +48459,24 @@
         },
         "x-event-type": "customers.requirement.changed"
       },
+      "LendNetwork": {
+        "enum": [
+          "base"
+        ],
+        "type": "string",
+        "description": "The network on which the lend resource (catalog vault or vault) is deployed.",
+        "example": "base",
+        "x-ms-enum": {
+          "name": "LendNetwork",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "base",
+              "name": "BaseValue"
+            }
+          ]
+        }
+      },
       "EoaVaultRedeemFeesRequest": {
         "required": [
           "vaultId"
@@ -51799,6 +52114,41 @@
             "validBefore": "1716150000",
             "nonce": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
           }
+        }
+      },
+      "VaultMetricsComposed": {
+        "type": "object",
+        "properties": {
+          "apyBps": {
+            "type": "integer",
+            "description": "The trailing 30-day net APY, in basis points, after all applicable performance fees. For example, \u0060500\u0060 equates to 5%. Only present once sufficient history has been observed.",
+            "example": 500
+          },
+          "apyUpdatedAt": {
+            "type": "string",
+            "description": "The time the APY metrics were last updated, in RFC 3339 format. Only present when \u0060apyBps\u0060 is present.",
+            "format": "date-time",
+            "example": "2026-09-22T00:00:00Z"
+          },
+          "tvl": {
+            "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+            "type": "string",
+            "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+            "example": "100.00"
+          },
+          "tvlUpdatedAt": {
+            "type": "string",
+            "description": "The time the TVL metrics were last updated, in RFC 3339 format. Only present when \u0060tvl\u0060 is present.",
+            "format": "date-time",
+            "example": "2026-09-22T00:00:00Z"
+          }
+        },
+        "description": "The vault\u0027s current metrics. Only present once at least one metrics snapshot has been observed for the vault.",
+        "example": {
+          "apyBps": 500,
+          "apyUpdatedAt": "2026-09-22T00:00:00Z",
+          "tvl": "1000",
+          "tvlUpdatedAt": "2026-09-22T00:00:00Z"
         }
       },
       "CommonSwapResponseFeesGasFee": {
@@ -58586,6 +58936,26 @@
               "$ref": "#/components/schemas/SpendPermissionResponseObject"
             },
             "description": "The spend permissions for the smart account."
+          },
+          "nextPageToken": {
+            "type": "string",
+            "description": "The token for the next page of items, if any.",
+            "example": "eyJsYXN0X2lkIjogImFiYzEyMyIsICJ0aW1lc3RhbXAiOiAxNzA3ODIzNzAxfQ=="
+          }
+        }
+      },
+      "ListVaults200Response": {
+        "required": [
+          "vaults"
+        ],
+        "type": "object",
+        "properties": {
+          "vaults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Vault"
+            },
+            "description": "The list of vaults created by the project."
           },
           "nextPageToken": {
             "type": "string",
@@ -81921,6 +82291,58 @@
         "token": "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
       }
     },
+    "CatalogVaultId": {
+      "pattern": "^cv_[a-f0-9-]{36}$",
+      "type": "string",
+      "description": "The globally unique ID of the catalog vault, which is a UUID prefixed with the string \u0060cv_\u0060.",
+      "example": "cv_019ee022-3586-7473-8354-b2c32c18221a"
+    },
+    "ApyMetrics": {
+      "type": "object",
+      "properties": {
+        "apyBps": {
+          "type": "integer",
+          "description": "The trailing 30-day net APY, in basis points, after all applicable performance fees. For example, \u0060500\u0060 equates to 5%. Only present once sufficient history has been observed.",
+          "example": 500
+        },
+        "apyUpdatedAt": {
+          "type": "string",
+          "description": "The time the APY metrics were last updated, in RFC 3339 format. Only present when \u0060apyBps\u0060 is present.",
+          "format": "date-time",
+          "example": "2026-09-22T00:00:00Z"
+        }
+      },
+      "description": "The trailing 30-day net APY of a lend resource, along with the timestamp of observation."
+    },
+    "VaultMetrics": {
+      "type": "object",
+      "properties": {
+        "apyBps": {
+          "type": "integer",
+          "description": "The trailing 30-day net APY, in basis points, after all applicable performance fees. For example, \u0060500\u0060 equates to 5%. Only present once sufficient history has been observed.",
+          "example": 500
+        },
+        "apyUpdatedAt": {
+          "type": "string",
+          "description": "The time the APY metrics were last updated, in RFC 3339 format. Only present when \u0060apyBps\u0060 is present.",
+          "format": "date-time",
+          "example": "2026-09-22T00:00:00Z"
+        },
+        "tvl": {
+          "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+          "type": "string",
+          "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+          "example": "100.00"
+        },
+        "tvlUpdatedAt": {
+          "type": "string",
+          "description": "The time the TVL metrics were last updated, in RFC 3339 format. Only present when \u0060tvl\u0060 is present.",
+          "format": "date-time",
+          "example": "2026-09-22T00:00:00Z"
+        }
+      },
+      "description": "The current performance metrics of a vault."
+    },
     "ToToken": {
       "pattern": "^0x[a-fA-F0-9]{40}$",
       "type": "string",
@@ -85951,6 +86373,12 @@
       "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
       "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
     },
+    "NonNegativeDecimal": {
+      "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+      "type": "string",
+      "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+      "example": "100.00"
+    },
     "VaultRedeemFeesRequest": {
       "required": [
         "vaultId"
@@ -86767,6 +87195,30 @@
       "description": "A valid HTTP or HTTPS URL.",
       "example": "https://example.com",
       "x-client-original-format": "uri"
+    },
+    "VaultMetricsAllOf2": {
+      "type": "object",
+      "properties": {
+        "tvl": {
+          "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+          "type": "string",
+          "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+          "example": "100.00"
+        },
+        "tvlUpdatedAt": {
+          "type": "string",
+          "description": "The time the TVL metrics were last updated, in RFC 3339 format. Only present when \u0060tvl\u0060 is present.",
+          "format": "date-time",
+          "example": "2026-09-22T00:00:00Z"
+        }
+      }
+    },
+    "VaultUnderlyingAsset": {
+      "maxLength": 42,
+      "minLength": 1,
+      "type": "string",
+      "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+      "example": "usd"
     },
     "GetSwapPriceResponseAllOf2": {
       "required": [
@@ -88080,6 +88532,12 @@
         }
       },
       "x-audience": "public"
+    },
+    "VaultMetricsAllOf2Tvl": {
+      "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+      "type": "string",
+      "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+      "example": "100.00"
     },
     "WebhookSubscriptionResponseMetadataAllOf2": {
       "type": "object",
