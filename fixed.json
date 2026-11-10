@@ -17889,6 +17889,175 @@
         "x-audience": "public"
       }
     },
+    "/v2/lend/positions": {
+      "get": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "List lend positions",
+        "description": "Lists non-zero lend positions for an EVM account or EVM Smart Account in the project. Each position reports the account\u0027s vault share balance and its current value in the vault\u0027s underlying asset.\nWhen \u0060vaultIds\u0060 is omitted, only vaults where the address received shares through a Lend deposit are listed. Shares received any other way are not discovered, including transfers, deposits made outside the Lend deposit APIs, and fee shares CDP distributes to a vault\u0027s fee recipient, so an empty list does not mean the address holds no shares. Supply \u0060vaultIds\u0060 to read specific project-owned vaults.\nPositions are ordered by vault ID. \u0060pageSize\u0060 defaults to 20 and must be between 1 and 100. Keep the address and vault filter unchanged when following \u0060nextPageToken\u0060. Each page fetches fresh balances, so positions and balances may change between page requests as deposits, withdrawals, or yield accrual occur.",
+        "operationId": "ListLendPositions",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "description": "The 0x-prefixed address of the EVM account or EVM Smart Account to list lend positions for.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          },
+          {
+            "name": "vaultIds",
+            "in": "query",
+            "description": "Filter positions to these project-owned vaults. Provide 1 to 100 unique, comma-separated vault IDs. Omit to list positions in the vaults discovered for the address.",
+            "explode": false,
+            "schema": {
+              "maxItems": 100,
+              "minItems": 1,
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "pattern": "^vault_[a-f0-9-]{36}$",
+                "type": "string",
+                "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+                "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+              }
+            },
+            "example": [
+              "vault_019f5f10-096a-7a23-86df-f479650d813f"
+            ]
+          },
+          {
+            "description": "The number of resources to return per page.",
+            "$ref": "#/components/parameters/PageSize"
+          },
+          {
+            "description": "The token for the next page of resources, if any.",
+            "$ref": "#/components/parameters/PageToken"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully listed lend positions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListLendPositions200Response"
+                },
+                "examples": {
+                  "success": {
+                    "value": {
+                      "lendPositions": [
+                        {
+                          "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                          "network": "base",
+                          "underlyingAsset": "usdc",
+                          "vaultShares": "1",
+                          "assetBalance": "1.025"
+                        }
+                      ],
+                      "nextPageToken": "MTpkY2Y0M2U4MzI5OTM2NTNiOTE1ZWUxZDUzYjY3YjI1MTVjODFiNWE3Yzg1OGI5ZWQyZTZjZmIxNDM3NjEzZjBjOjAxOWY1ZjEwLTA5NmEtN2EyMy04NmRmLWY0Nzk2NTBkODEzZg=="
+                    }
+                  },
+                  "empty": {
+                    "value": {
+                      "lendPositions": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid address, vault filter, page size, or page token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_page_size": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Page size must be between 1 and 100."
+                    }
+                  },
+                  "invalid_page_token": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid page token for this request."
+                    }
+                  },
+                  "invalid_vault_filter": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "vaultIds must not contain duplicate IDs."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "description": "User forbidden from performing the action.",
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "404": {
+            "description": "The address or an explicitly requested vault was not found in the authenticated project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "vault_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Vault not found."
+                    }
+                  },
+                  "account_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "No EVM account or EVM Smart Account with the given address was found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          },
+          "504": {
+            "description": "The request timed out.",
+            "$ref": "#/components/responses/TimedOutError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "development"
+      }
+    },
     "/v2/lend/vaults": {
       "get": {
         "tags": [
@@ -18409,6 +18578,803 @@
           },
           "409": {
             "description": "Conflict. A fee redemption or another lend operation for this account is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "operation_in_progress": {
+                    "value": {
+                      "errorType": "operation_in_progress",
+                      "errorMessage": "A lend operation for this account and vault is already in progress. In-progress operations typically complete in under 30 seconds. Please wait for it to complete before retrying."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency key conflict.",
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "development"
+      }
+    },
+    "/v2/evm/accounts/{address}/lend/deposit": {
+      "post": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "Deposit into a vault with an EVM account",
+        "description": "Deposits the vault\u0027s underlying asset (e.g. USDC) from an EVM account into a vault. The account signs an EIP-2612 permit authorizing the deposit, and the token approval and deposit are executed in a single transaction. The transaction hash is returned in the response.\nFor deposits from EVM Smart Accounts, use \u0060depositToVaultWithEvmSmartAccount\u0060 instead.\nThe \u0060amount\u0060 field accepts human-readable amounts as decimal strings (e.g., \u00221.5\u0022, \u002225.50\u0022) in the standard unit denomination of the vault\u0027s underlying asset.",
+        "operationId": "DepositToVaultWithEvmAccount",
+        "parameters": [
+          {
+            "description": "A JWT signed using your Wallet Secret, encoded in base64. Refer to the\n[Generate Wallet Token](https://docs.cdp.coinbase.com/api-reference/v2/authentication#2-generate-wallet-token)\nsection of our Authentication docs for more details on how to generate your Wallet Token.\n",
+            "$ref": "#/components/parameters/XWalletAuth"
+          },
+          {
+            "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The 0x-prefixed address of the EVM account to deposit from.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositToVaultWithEvmAccountRequest"
+              },
+              "examples": {
+                "deposit": {
+                  "summary": "Deposit into a vault",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50",
+                    "maxSlippageBps": 100
+                  }
+                },
+                "deposit_to_different_receiver": {
+                  "summary": "Deposit and send the vault shares to a different address",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50",
+                    "receiver": "0x1234567890123456789012345678901234567890"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully broadcast the deposit.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EoaVaultDepositResponse"
+                },
+                "examples": {
+                  "deposit": {
+                    "summary": "Deposit response",
+                    "value": {
+                      "transactionHash": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_amount": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid amount format. Amount must be a valid decimal string."
+                    }
+                  },
+                  "vault_not_active": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Vault \u0027vault_019f5f10-096a-7a23-86df-f479650d813f\u0027 is not active."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "description": "A payment method is required to complete this operation.",
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "User forbidden from performing the action.",
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "vault_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Vault not found."
+                    }
+                  },
+                  "account_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A deposit or another lend operation for this account and vault is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "operation_in_progress": {
+                    "value": {
+                      "errorType": "operation_in_progress",
+                      "errorMessage": "A lend operation for this account and vault is already in progress. In-progress operations typically complete in under 30 seconds. Please wait for it to complete before retrying."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency key conflict.",
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "development"
+      }
+    },
+    "/v2/evm/smart-accounts/{address}/lend/deposit": {
+      "post": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "Deposit into a vault with an EVM Smart Account",
+        "description": "Deposits the vault\u0027s underlying asset (e.g. USDC) from an EVM Smart Account into a vault. The Smart Account\u0027s owner must be a CDP EVM account. The token approval and deposit are batched into a single user operation, whose hash is returned in \u0060userOpHash\u0060.\nBecause the approval and deposit execute atomically in a single user operation, no share-price guard is required.\nPoll \u0060getUserOperation\u0060 until the user operation reaches a terminal status.\nFor deposits from EVM accounts, use \u0060depositToVaultWithEvmAccount\u0060 instead.\nThe \u0060amount\u0060 field accepts human-readable amounts as decimal strings (e.g., \u00221.5\u0022, \u002225.50\u0022) in the standard unit denomination of the vault\u0027s underlying asset.",
+        "operationId": "DepositToVaultWithEvmSmartAccount",
+        "parameters": [
+          {
+            "description": "A JWT signed using your Wallet Secret, encoded in base64. Refer to the\n[Generate Wallet Token](https://docs.cdp.coinbase.com/api-reference/v2/authentication#2-generate-wallet-token)\nsection of our Authentication docs for more details on how to generate your Wallet Token.\n",
+            "$ref": "#/components/parameters/XWalletAuth"
+          },
+          {
+            "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The 0x-prefixed address of the EVM Smart Account to deposit from.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositToVaultWithEvmSmartAccountRequest"
+              },
+              "examples": {
+                "deposit": {
+                  "summary": "Deposit",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50"
+                  }
+                },
+                "deposit_cdp_paymaster": {
+                  "summary": "Deposit with CDP Paymaster",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50",
+                    "useCdpPaymaster": true
+                  }
+                },
+                "deposit_to_different_receiver": {
+                  "summary": "Deposit and send the vault shares to a different address",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50",
+                    "receiver": "0x1234567890123456789012345678901234567890"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully broadcast the deposit user operation. Poll \u0060getUserOperation\u0060 for its status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SmartAccountVaultDepositResponse"
+                },
+                "examples": {
+                  "deposit": {
+                    "summary": "Deposit response",
+                    "value": {
+                      "userOpHash": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_amount": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid amount format. Amount must be a valid decimal string."
+                    }
+                  },
+                  "vault_not_active": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Vault \u0027vault_019f5f10-096a-7a23-86df-f479650d813f\u0027 is not active."
+                    }
+                  },
+                  "conflicting_paymaster": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Cannot specify both \u0027useCdpPaymaster\u0027 and \u0027paymasterUrl\u0027. Please use only one."
+                    }
+                  },
+                  "paymaster_context_without_paymaster": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "paymasterContext requires a paymaster: set paymasterUrl or useCdpPaymaster."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "description": "A payment method is required to complete this operation.",
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "User forbidden from performing the action.",
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "vault_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Vault not found."
+                    }
+                  },
+                  "account_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM Smart Account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A deposit or another lend operation for this account and vault is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "operation_in_progress": {
+                    "value": {
+                      "errorType": "operation_in_progress",
+                      "errorMessage": "A lend operation for this account and vault is already in progress. In-progress operations typically complete in under 30 seconds. Please wait for it to complete before retrying."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency key conflict.",
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "development"
+      }
+    },
+    "/v2/evm/accounts/{address}/lend/withdraw": {
+      "post": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "Withdraw from a vault with an EVM account",
+        "description": "Withdraws the vault\u0027s underlying asset (e.g. USDC) from an EVM account\u0027s position in a vault. The account signs an EIP-2612 permit over its vault shares authorizing the withdrawal, and the share approval and withdrawal are executed in a single transaction. The transaction hash is returned in the response.\nFor withdrawals from EVM Smart Accounts, use \u0060withdrawFromVaultWithEvmSmartAccount\u0060 instead.\nProvide either \u0060amount\u0060 or \u0060withdrawAll: true\u0060. The \u0060amount\u0060 field accepts human-readable amounts as decimal strings (e.g., \u00221.5\u0022, \u002225.50\u0022) in the standard unit denomination of the vault\u0027s underlying asset. Set \u0060withdrawAll\u0060 to \u0060true\u0060 to withdraw the entire position: every vault share held by the account is redeemed, so no residual shares remain from interest that accrues before execution.",
+        "operationId": "WithdrawFromVaultWithEvmAccount",
+        "parameters": [
+          {
+            "description": "A JWT signed using your Wallet Secret, encoded in base64. Refer to the\n[Generate Wallet Token](https://docs.cdp.coinbase.com/api-reference/v2/authentication#2-generate-wallet-token)\nsection of our Authentication docs for more details on how to generate your Wallet Token.\n",
+            "$ref": "#/components/parameters/XWalletAuth"
+          },
+          {
+            "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The 0x-prefixed address of the EVM account to withdraw from.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawFromVaultWithEvmAccountRequest"
+              },
+              "examples": {
+                "withdraw_amount": {
+                  "summary": "Withdraw an amount from a vault",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50",
+                    "maxSlippageBps": 100
+                  }
+                },
+                "withdraw_all": {
+                  "summary": "Withdraw the entire position from a vault",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "withdrawAll": true
+                  }
+                },
+                "withdraw_to_different_receiver": {
+                  "summary": "Withdraw and send the underlying asset to a different address",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50",
+                    "receiver": "0x1234567890123456789012345678901234567890"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully broadcast the withdrawal.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EoaVaultWithdrawResponse"
+                },
+                "examples": {
+                  "withdraw": {
+                    "summary": "Withdrawal response",
+                    "value": {
+                      "transactionHash": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_amount": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid amount format. Amount must be a valid decimal string."
+                    }
+                  },
+                  "amount_and_withdraw_all": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Cannot specify both \u0027amount\u0027 and \u0027withdrawAll\u0027. Please use only one."
+                    }
+                  },
+                  "missing_amount": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Either \u0027amount\u0027 or \u0027withdrawAll\u0027 must be provided."
+                    }
+                  },
+                  "insufficient_position": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Withdrawal amount exceeds the account\u0027s position in the vault."
+                    }
+                  },
+                  "no_position": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "The account has no position in the vault to withdraw."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "description": "A payment method is required to complete this operation.",
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "User forbidden from performing the action.",
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "vault_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Vault not found."
+                    }
+                  },
+                  "account_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A withdrawal or another lend operation for this account and vault is already in progress.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "operation_in_progress": {
+                    "value": {
+                      "errorType": "operation_in_progress",
+                      "errorMessage": "A lend operation for this account and vault is already in progress. In-progress operations typically complete in under 30 seconds. Please wait for it to complete before retrying."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Idempotency key conflict.",
+            "$ref": "#/components/responses/IdempotencyError"
+          },
+          "500": {
+            "description": "Internal server error.",
+            "$ref": "#/components/responses/InternalServerError"
+          },
+          "502": {
+            "description": "Bad gateway.",
+            "$ref": "#/components/responses/BadGatewayError"
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "$ref": "#/components/responses/ServiceUnavailableError"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "x-audience": "development"
+      }
+    },
+    "/v2/evm/smart-accounts/{address}/lend/withdraw": {
+      "post": {
+        "tags": [
+          "Lend"
+        ],
+        "summary": "Withdraw from a vault with an EVM Smart Account",
+        "description": "Withdraws the vault\u0027s underlying asset (e.g. USDC) from an EVM Smart Account\u0027s position in a vault. The Smart Account\u0027s owner must be a CDP EVM account. The share approval and withdrawal are batched into a single user operation, whose hash is returned in \u0060userOpHash\u0060.\nThe withdrawal reverts if the vault\u0027s share price moves beyond \u0060maxSlippageBps\u0060 before the user operation is included onchain.\nPoll \u0060getUserOperation\u0060 until the user operation reaches a terminal status.\nFor withdrawals from EVM accounts, use \u0060withdrawFromVaultWithEvmAccount\u0060 instead.\nProvide either \u0060amount\u0060 or \u0060withdrawAll: true\u0060. The \u0060amount\u0060 field accepts human-readable amounts as decimal strings (e.g., \u00221.5\u0022, \u002225.50\u0022) in the standard unit denomination of the vault\u0027s underlying asset. Set \u0060withdrawAll\u0060 to \u0060true\u0060 to withdraw the entire position: every vault share held by the account is redeemed, so no residual shares remain from interest that accrues before execution.",
+        "operationId": "WithdrawFromVaultWithEvmSmartAccount",
+        "parameters": [
+          {
+            "description": "A JWT signed using your Wallet Secret, encoded in base64. Refer to the\n[Generate Wallet Token](https://docs.cdp.coinbase.com/api-reference/v2/authentication#2-generate-wallet-token)\nsection of our Authentication docs for more details on how to generate your Wallet Token.\n",
+            "$ref": "#/components/parameters/XWalletAuth"
+          },
+          {
+            "description": "An optional string request header for making requests safely retryable.\nWhen included, duplicate requests with the same key will return identical responses.\nRefer to our [Idempotency docs](https://docs.cdp.coinbase.com/api-reference/v2/idempotency) for more information on using idempotency keys.\n",
+            "$ref": "#/components/parameters/IdempotencyKey"
+          },
+          {
+            "name": "address",
+            "in": "path",
+            "description": "The 0x-prefixed address of the EVM Smart Account to withdraw from.",
+            "required": true,
+            "schema": {
+              "pattern": "^0x[0-9a-fA-F]{40}$",
+              "type": "string"
+            },
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawFromVaultWithEvmSmartAccountRequest"
+              },
+              "examples": {
+                "withdraw_amount": {
+                  "summary": "Withdraw an amount",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50"
+                  }
+                },
+                "withdraw_all_cdp_paymaster": {
+                  "summary": "Withdraw the entire position with CDP Paymaster",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "withdrawAll": true,
+                    "useCdpPaymaster": true
+                  }
+                },
+                "withdraw_to_different_receiver": {
+                  "summary": "Withdraw and send the underlying asset to a different address",
+                  "value": {
+                    "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+                    "amount": "25.50",
+                    "receiver": "0x1234567890123456789012345678901234567890"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully broadcast the withdrawal user operation. Poll \u0060getUserOperation\u0060 for its status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SmartAccountVaultWithdrawResponse"
+                },
+                "examples": {
+                  "withdraw": {
+                    "summary": "Withdrawal response",
+                    "value": {
+                      "userOpHash": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "invalid_amount": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Invalid amount format. Amount must be a valid decimal string."
+                    }
+                  },
+                  "amount_and_withdraw_all": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Cannot specify both \u0027amount\u0027 and \u0027withdrawAll\u0027. Please use only one."
+                    }
+                  },
+                  "missing_amount": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Either \u0027amount\u0027 or \u0027withdrawAll\u0027 must be provided."
+                    }
+                  },
+                  "insufficient_position": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Withdrawal amount exceeds the account\u0027s position in the vault."
+                    }
+                  },
+                  "no_position": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "The account has no position in the vault to withdraw."
+                    }
+                  },
+                  "conflicting_paymaster": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "Cannot specify both \u0027useCdpPaymaster\u0027 and \u0027paymasterUrl\u0027. Please use only one."
+                    }
+                  },
+                  "paymaster_context_without_paymaster": {
+                    "value": {
+                      "errorType": "invalid_request",
+                      "errorMessage": "paymasterContext requires a paymaster: set paymasterUrl or useCdpPaymaster."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "402": {
+            "description": "A payment method is required to complete this operation.",
+            "$ref": "#/components/responses/PaymentMethodRequiredError"
+          },
+          "403": {
+            "description": "User forbidden from performing the action.",
+            "$ref": "#/components/responses/ForbiddenError"
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "vault_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "Vault not found."
+                    }
+                  },
+                  "account_not_found": {
+                    "value": {
+                      "errorType": "not_found",
+                      "errorMessage": "EVM Smart Account with the given address not found."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. A withdrawal or another lend operation for this account and vault is already in progress.",
             "content": {
               "application/json": {
                 "schema": {
@@ -48477,6 +49443,48 @@
           ]
         }
       },
+      "LendPosition": {
+        "required": [
+          "vaultId",
+          "network",
+          "underlyingAsset",
+          "vaultShares",
+          "assetBalance"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+            "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+          },
+          "network": {
+            "description": "The network on which the lend resource (catalog vault or vault) is deployed.",
+            "$ref": "#/components/schemas/LendNetwork"
+          },
+          "underlyingAsset": {
+            "maxLength": 42,
+            "minLength": 1,
+            "type": "string",
+            "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+            "example": "usd"
+          },
+          "vaultShares": {
+            "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+            "type": "string",
+            "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+            "example": "100.00"
+          },
+          "assetBalance": {
+            "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+            "type": "string",
+            "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+            "example": "100.00"
+          }
+        },
+        "description": "An account\u0027s current share balance and underlying asset value in a lend vault."
+      },
       "EoaVaultRedeemFeesRequest": {
         "required": [
           "vaultId"
@@ -48570,6 +49578,262 @@
           }
         },
         "description": "The result of a vault fee redemption from an EVM Smart Account after broadcast."
+      },
+      "DepositToVaultWithEvmAccountRequest": {
+        "required": [
+          "vaultId",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+            "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+          },
+          "amount": {
+            "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+            "type": "string",
+            "description": "A positive decimal string without scientific notation or whitespace.",
+            "example": "100.00"
+          },
+          "receiver": {
+            "description": "The 0x-prefixed address that receives the minted vault shares. Defaults to the depositing account given in the path.",
+            "$ref": "#/components/schemas/VaultDepositReceiver"
+          },
+          "maxSlippageBps": {
+            "maximum": 9999,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. The deposit reverts if the vault\u0027s share price moves beyond this bound. A guard of 100 bps (i.e. 1%) is applied when omitted.",
+            "example": 100
+          }
+        }
+      },
+      "DepositToVaultWithEvmSmartAccountRequest": {
+        "required": [
+          "vaultId",
+          "amount"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+            "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+          },
+          "amount": {
+            "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+            "type": "string",
+            "description": "A positive decimal string without scientific notation or whitespace.",
+            "example": "100.00"
+          },
+          "receiver": {
+            "description": "The 0x-prefixed address that receives the minted vault shares. Defaults to the depositing account given in the path.",
+            "$ref": "#/components/schemas/VaultDepositReceiver"
+          },
+          "useCdpPaymaster": {
+            "type": "boolean",
+            "description": "Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to deposit without holding native gas tokens. Cannot be used together with \u0060paymasterUrl\u0060.",
+            "example": true
+          },
+          "paymasterUrl": {
+            "maxLength": 2048,
+            "minLength": 11,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "example": "https://example.com",
+            "x-client-original-format": "uri"
+          },
+          "paymasterContext": {
+            "$ref": "#/components/schemas/DepositToVaultWithEvmSmartAccountRequestPaymasterContext"
+          }
+        }
+      },
+      "EoaVaultDepositResponse": {
+        "required": [
+          "transactionHash"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionHash": {
+            "pattern": "^0x[0-9a-fA-F]{64}$",
+            "type": "string",
+            "description": "The hash of the broadcast deposit transaction, as a 0x-prefixed hex string.",
+            "example": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+          }
+        },
+        "description": "The result of a vault deposit from an EOA after broadcast."
+      },
+      "SmartAccountVaultDepositResponse": {
+        "required": [
+          "userOpHash"
+        ],
+        "type": "object",
+        "properties": {
+          "userOpHash": {
+            "pattern": "^0x[0-9a-fA-F]{64}$",
+            "type": "string",
+            "description": "The hash of the user operation executing the deposit, as a 0x-prefixed hex string.",
+            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          }
+        },
+        "description": "The result of a vault deposit from an EVM Smart Account after broadcast."
+      },
+      "VaultDepositReceiver": {
+        "pattern": "^0x[0-9a-fA-F]{40}$",
+        "allOf": [
+          {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        ],
+        "description": "The 0x-prefixed address that receives the minted vault shares. Defaults to the depositing account given in the path.",
+        "example": "0x1234567890123456789012345678901234567890"
+      },
+      "EoaVaultWithdrawResponse": {
+        "required": [
+          "transactionHash"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionHash": {
+            "pattern": "^0x[0-9a-fA-F]{64}$",
+            "type": "string",
+            "description": "The hash of the broadcast withdrawal transaction, as a 0x-prefixed hex string.",
+            "example": "0xf8f98fb6726fc936f24b2007df5cb20e2b8444ff3dfaa2a929335f432a9be2e7"
+          }
+        },
+        "description": "The result of a vault withdrawal from an EOA after broadcast."
+      },
+      "SmartAccountVaultWithdrawResponse": {
+        "required": [
+          "userOpHash"
+        ],
+        "type": "object",
+        "properties": {
+          "userOpHash": {
+            "pattern": "^0x[0-9a-fA-F]{64}$",
+            "type": "string",
+            "description": "The hash of the user operation executing the withdrawal, as a 0x-prefixed hex string.",
+            "example": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+          }
+        },
+        "description": "The result of a vault withdrawal from an EVM Smart Account after broadcast."
+      },
+      "VaultWithdrawReceiver": {
+        "pattern": "^0x[0-9a-fA-F]{40}$",
+        "allOf": [
+          {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "A blockchain address. Format varies by network (e.g., 0x-prefixed for EVM, base58 for Solana).",
+            "example": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e"
+          }
+        ],
+        "description": "The 0x-prefixed address that receives the withdrawn underlying asset. Defaults to the withdrawing account given in the path.",
+        "example": "0x1234567890123456789012345678901234567890"
+      },
+      "WithdrawFromVaultWithEvmAccountRequest": {
+        "required": [
+          "vaultId"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+            "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+          },
+          "amount": {
+            "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+            "type": "string",
+            "description": "A positive decimal string without scientific notation or whitespace.",
+            "example": "100.00"
+          },
+          "withdrawAll": {
+            "type": "boolean",
+            "description": "Whether to withdraw the account\u0027s entire position in the vault. When true, every vault share held by the account is redeemed for the underlying asset (e.g. USDC). Cannot be \u0060true\u0060 when \u0060amount\u0060 is set.",
+            "example": true
+          },
+          "receiver": {
+            "description": "The 0x-prefixed address that receives the withdrawn underlying asset. Defaults to the withdrawing account given in the path.",
+            "$ref": "#/components/schemas/VaultWithdrawReceiver"
+          },
+          "maxSlippageBps": {
+            "maximum": 9999,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.",
+            "example": 100
+          }
+        },
+        "description": "A request to withdraw the vault\u0027s underlying asset (e.g. USDC) from a vault position held by an EVM account. The account signs an EIP-2612 permit over its vault shares authorizing the withdrawal, and the share approval and withdrawal are executed in a single transaction.",
+        "example": {
+          "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+          "amount": "25.50"
+        }
+      },
+      "WithdrawFromVaultWithEvmSmartAccountRequest": {
+        "required": [
+          "vaultId"
+        ],
+        "type": "object",
+        "properties": {
+          "vaultId": {
+            "pattern": "^vault_[a-f0-9-]{36}$",
+            "type": "string",
+            "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+            "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+          },
+          "amount": {
+            "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+            "type": "string",
+            "description": "A positive decimal string without scientific notation or whitespace.",
+            "example": "100.00"
+          },
+          "withdrawAll": {
+            "type": "boolean",
+            "description": "Whether to withdraw the account\u0027s entire position in the vault. When true, every vault share held by the account is redeemed for the underlying asset (e.g. USDC). Cannot be \u0060true\u0060 when \u0060amount\u0060 is set.",
+            "example": true
+          },
+          "receiver": {
+            "description": "The 0x-prefixed address that receives the withdrawn underlying asset. Defaults to the withdrawing account given in the path.",
+            "$ref": "#/components/schemas/VaultWithdrawReceiver"
+          },
+          "maxSlippageBps": {
+            "maximum": 9999,
+            "minimum": 0,
+            "type": "integer",
+            "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.",
+            "example": 100
+          },
+          "useCdpPaymaster": {
+            "type": "boolean",
+            "description": "Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to withdraw without holding native gas tokens. Cannot be used together with \u0060paymasterUrl\u0060.",
+            "example": true
+          },
+          "paymasterUrl": {
+            "maxLength": 2048,
+            "minLength": 11,
+            "pattern": "^https?://.*$",
+            "type": "string",
+            "description": "A valid HTTP or HTTPS URL.",
+            "example": "https://example.com",
+            "x-client-original-format": "uri"
+          },
+          "paymasterContext": {
+            "$ref": "#/components/schemas/WithdrawFromVaultWithEvmSmartAccountRequestPaymasterContext"
+          }
+        }
       },
       "X402VerifyResponseResponse": {
         "required": [
@@ -58944,6 +60208,26 @@
           }
         }
       },
+      "ListLendPositions200Response": {
+        "required": [
+          "lendPositions"
+        ],
+        "type": "object",
+        "properties": {
+          "lendPositions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LendPosition"
+            },
+            "description": "The lend positions on this page. Empty when no matching positions remain."
+          },
+          "nextPageToken": {
+            "type": "string",
+            "description": "The token for the next page of items, if any.",
+            "example": "eyJsYXN0X2lkIjogImFiYzEyMyIsICJ0aW1lc3RhbXAiOiAxNzA3ODIzNzAxfQ=="
+          }
+        }
+      },
       "ListVaults200Response": {
         "required": [
           "vaults"
@@ -62758,6 +64042,20 @@
         }
       },
       "SmartAccountVaultRedeemFeesRequestPaymasterContext": {
+        "type": "object",
+        "description": "The ERC-7677 \u0060context\u0060 object forwarded to the paymaster service as part of the \u0060paymasterService\u0060 capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing \u0060paymasterContext\u0060 without a paymaster configured results in an \u0060invalid_request\u0060 error.",
+        "example": {
+          "policyId": "962b252c-a726-4a37-8d86-333ce0a07299"
+        }
+      },
+      "DepositToVaultWithEvmSmartAccountRequestPaymasterContext": {
+        "type": "object",
+        "description": "The ERC-7677 \u0060context\u0060 object forwarded to the paymaster service as part of the \u0060paymasterService\u0060 capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing \u0060paymasterContext\u0060 without a paymaster configured results in an \u0060invalid_request\u0060 error.",
+        "example": {
+          "policyId": "962b252c-a726-4a37-8d86-333ce0a07299"
+        }
+      },
+      "WithdrawFromVaultWithEvmSmartAccountRequestPaymasterContext": {
         "type": "object",
         "description": "The ERC-7677 \u0060context\u0060 object forwarded to the paymaster service as part of the \u0060paymasterService\u0060 capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing \u0060paymasterContext\u0060 without a paymaster configured results in an \u0060invalid_request\u0060 error.",
         "example": {
@@ -86401,6 +87699,124 @@
       },
       "description": "Fields shared by vault fee redemption requests. Composed into \u0060EoaVaultRedeemFeesRequest\u0060 and \u0060SmartAccountVaultRedeemFeesRequest\u0060, which add their account-specific fields on top."
     },
+    "DepositToVaultBaseRequest": {
+      "type": "object",
+      "properties": {
+        "vaultId": {
+          "pattern": "^vault_[a-f0-9-]{36}$",
+          "type": "string",
+          "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+          "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+        },
+        "amount": {
+          "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+          "type": "string",
+          "description": "A positive decimal string without scientific notation or whitespace.",
+          "example": "100.00"
+        },
+        "receiver": {
+          "description": "The 0x-prefixed address that receives the minted vault shares. Defaults to the depositing account given in the path.",
+          "$ref": "#/components/schemas/VaultDepositReceiver"
+        }
+      },
+      "description": "Fields shared by the API-key requests that deposit into a vault from an EVM account or an EVM Smart Account. Composed into \u0060DepositToVaultWithEvmAccountRequest\u0060 and \u0060DepositToVaultWithEvmSmartAccountRequest\u0060."
+    },
+    "VaultDepositAmount": {
+      "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+      "type": "string",
+      "description": "A positive decimal string without scientific notation or whitespace.",
+      "example": "100.00"
+    },
+    "VaultDepositMaxSlippageBps": {
+      "maximum": 9999,
+      "minimum": 0,
+      "type": "integer",
+      "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. The deposit reverts if the vault\u0027s share price moves beyond this bound. A guard of 100 bps (i.e. 1%) is applied when omitted.",
+      "example": 100
+    },
+    "VaultDepositPaymasterUrl": {
+      "maxLength": 2048,
+      "minLength": 11,
+      "pattern": "^https?://.*$",
+      "type": "string",
+      "description": "A valid HTTP or HTTPS URL.",
+      "example": "https://example.com",
+      "x-client-original-format": "uri"
+    },
+    "VaultDepositUseCdpPaymaster": {
+      "type": "boolean",
+      "description": "Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to deposit without holding native gas tokens. Cannot be used together with \u0060paymasterUrl\u0060.",
+      "example": true
+    },
+    "VaultWithdrawAll": {
+      "type": "boolean",
+      "description": "Whether to withdraw the account\u0027s entire position in the vault. When true, every vault share held by the account is redeemed for the underlying asset (e.g. USDC). Cannot be \u0060true\u0060 when \u0060amount\u0060 is set.",
+      "example": true
+    },
+    "VaultWithdrawAmount": {
+      "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+      "type": "string",
+      "description": "A positive decimal string without scientific notation or whitespace.",
+      "example": "100.00"
+    },
+    "VaultWithdrawMaxSlippageBps": {
+      "maximum": 9999,
+      "minimum": 0,
+      "type": "integer",
+      "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.",
+      "example": 100
+    },
+    "VaultWithdrawPaymasterUrl": {
+      "maxLength": 2048,
+      "minLength": 11,
+      "pattern": "^https?://.*$",
+      "type": "string",
+      "description": "A valid HTTP or HTTPS URL.",
+      "example": "https://example.com",
+      "x-client-original-format": "uri"
+    },
+    "VaultWithdrawUseCdpPaymaster": {
+      "type": "boolean",
+      "description": "Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to withdraw without holding native gas tokens. Cannot be used together with \u0060paymasterUrl\u0060.",
+      "example": true
+    },
+    "WithdrawFromVaultBaseRequest": {
+      "required": [
+        "vaultId"
+      ],
+      "type": "object",
+      "properties": {
+        "vaultId": {
+          "pattern": "^vault_[a-f0-9-]{36}$",
+          "type": "string",
+          "description": "The globally unique ID of the vault, which is a UUID prefixed with the string \u0060vault_\u0060.",
+          "example": "vault_019f5f10-096a-7a23-86df-f479650d813f"
+        },
+        "amount": {
+          "pattern": "^\\\u002B?(?:(?:0*[1-9]\\d*)(?:\\.\\d*)?|0*\\.\\d*[1-9]\\d*)$",
+          "type": "string",
+          "description": "A positive decimal string without scientific notation or whitespace.",
+          "example": "100.00"
+        },
+        "withdrawAll": {
+          "type": "boolean",
+          "description": "Whether to withdraw the account\u0027s entire position in the vault. When true, every vault share held by the account is redeemed for the underlying asset (e.g. USDC). Cannot be \u0060true\u0060 when \u0060amount\u0060 is set.",
+          "example": true
+        },
+        "receiver": {
+          "description": "The 0x-prefixed address that receives the withdrawn underlying asset. Defaults to the withdrawing account given in the path.",
+          "$ref": "#/components/schemas/VaultWithdrawReceiver"
+        },
+        "maxSlippageBps": {
+          "maximum": 9999,
+          "minimum": 0,
+          "type": "integer",
+          "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. Defaults to 100 bps (1%) when omitted.",
+          "example": 100
+        }
+      },
+      "description": "Fields shared by the API-key requests that withdraw from a vault with an EVM account or an EVM Smart Account. Composed into \u0060WithdrawFromVaultWithEvmAccountRequest\u0060 and \u0060WithdrawFromVaultWithEvmSmartAccountRequest\u0060.\nProvide either \u0060amount\u0060 or \u0060withdrawAll: true\u0060. \u0060withdrawAll: false\u0060 is treated as omitted. Requests that set both \u0060amount\u0060 and \u0060withdrawAll: true\u0060, or neither, are rejected with \u0060invalid_request\u0060."
+    },
     "ErrorErrorLink": {
       "maxLength": 2048,
       "minLength": 11,
@@ -88445,6 +89861,25 @@
         }
       }
     },
+    "LendPositionUnderlyingAsset": {
+      "maxLength": 42,
+      "minLength": 1,
+      "type": "string",
+      "description": "The symbol of the asset (e.g., eth, usd, usdc, usdt).",
+      "example": "usd"
+    },
+    "LendPositionVaultShares": {
+      "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+      "type": "string",
+      "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+      "example": "100.00"
+    },
+    "LendPositionAssetBalance": {
+      "pattern": "^(0|[1-9][0-9]*)([.][0-9]\u002B)?$",
+      "type": "string",
+      "description": "A non-negative decimal string without scientific notation, whitespace, leading zeros, or a trailing dot. Zero is allowed.",
+      "example": "100.00"
+    },
     "SmartAccountVaultRedeemFeesRequestAllOf2": {
       "type": "object",
       "properties": {
@@ -88469,6 +89904,87 @@
       "description": "A request to redeem the fee shares held by the vault\u0027s fee recipient EVM Smart Account for the vault\u0027s underlying asset (e.g. USDC). The share approval and redemption are batched into a single user operation.",
       "example": {
         "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+        "useCdpPaymaster": true
+      }
+    },
+    "DepositToVaultWithEvmAccountRequestAllOf2": {
+      "required": [
+        "vaultId",
+        "amount"
+      ],
+      "type": "object",
+      "properties": {
+        "maxSlippageBps": {
+          "maximum": 9999,
+          "minimum": 0,
+          "type": "integer",
+          "description": "The maximum share-price movement tolerated between calldata construction and onchain execution, in basis points. The deposit reverts if the vault\u0027s share price moves beyond this bound. A guard of 100 bps (i.e. 1%) is applied when omitted.",
+          "example": 100
+        }
+      },
+      "description": "A request to deposit the vault\u0027s underlying asset (e.g. USDC) into a vault from an EVM account. The account signs an EIP-2612 permit authorizing the deposit, and the token approval and deposit are executed in a single transaction.",
+      "example": {
+        "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+        "amount": "25.50"
+      }
+    },
+    "DepositToVaultWithEvmSmartAccountRequestAllOf2": {
+      "required": [
+        "vaultId",
+        "amount"
+      ],
+      "type": "object",
+      "properties": {
+        "useCdpPaymaster": {
+          "type": "boolean",
+          "description": "Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to deposit without holding native gas tokens. Cannot be used together with \u0060paymasterUrl\u0060.",
+          "example": true
+        },
+        "paymasterUrl": {
+          "maxLength": 2048,
+          "minLength": 11,
+          "pattern": "^https?://.*$",
+          "type": "string",
+          "description": "A valid HTTP or HTTPS URL.",
+          "example": "https://example.com",
+          "x-client-original-format": "uri"
+        },
+        "paymasterContext": {
+          "$ref": "#/components/schemas/DepositToVaultWithEvmSmartAccountRequestAllOf2PaymasterContext"
+        }
+      },
+      "description": "A request to deposit the vault\u0027s underlying asset (e.g. USDC) into a vault from an EVM Smart Account. The token approval and deposit are batched into a single user operation.",
+      "example": {
+        "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+        "amount": "25.50",
+        "useCdpPaymaster": true
+      }
+    },
+    "WithdrawFromVaultWithEvmSmartAccountRequestAllOf2": {
+      "type": "object",
+      "properties": {
+        "useCdpPaymaster": {
+          "type": "boolean",
+          "description": "Whether to use CDP Paymaster to sponsor gas fees. When true, the user operation gas will be paid by the Paymaster, allowing the account to withdraw without holding native gas tokens. Cannot be used together with \u0060paymasterUrl\u0060.",
+          "example": true
+        },
+        "paymasterUrl": {
+          "maxLength": 2048,
+          "minLength": 11,
+          "pattern": "^https?://.*$",
+          "type": "string",
+          "description": "A valid HTTP or HTTPS URL.",
+          "example": "https://example.com",
+          "x-client-original-format": "uri"
+        },
+        "paymasterContext": {
+          "$ref": "#/components/schemas/WithdrawFromVaultWithEvmSmartAccountRequestAllOf2PaymasterContext"
+        }
+      },
+      "description": "A request to withdraw the vault\u0027s underlying asset (e.g. USDC) from a vault position held by an EVM Smart Account. The share approval and withdrawal are batched into a single user operation.",
+      "example": {
+        "vaultId": "vault_019f5f10-096a-7a23-86df-f479650d813f",
+        "withdrawAll": true,
         "useCdpPaymaster": true
       }
     },
@@ -88883,6 +90399,20 @@
       "description": "Optional protocol extensions. Unknown keys are forwarded as-is into the signed payment payload."
     },
     "SmartAccountVaultRedeemFeesRequestAllOf2PaymasterContext": {
+      "type": "object",
+      "description": "The ERC-7677 \u0060context\u0060 object forwarded to the paymaster service as part of the \u0060paymasterService\u0060 capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing \u0060paymasterContext\u0060 without a paymaster configured results in an \u0060invalid_request\u0060 error.",
+      "example": {
+        "policyId": "962b252c-a726-4a37-8d86-333ce0a07299"
+      }
+    },
+    "DepositToVaultWithEvmSmartAccountRequestAllOf2PaymasterContext": {
+      "type": "object",
+      "description": "The ERC-7677 \u0060context\u0060 object forwarded to the paymaster service as part of the \u0060paymasterService\u0060 capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing \u0060paymasterContext\u0060 without a paymaster configured results in an \u0060invalid_request\u0060 error.",
+      "example": {
+        "policyId": "962b252c-a726-4a37-8d86-333ce0a07299"
+      }
+    },
+    "WithdrawFromVaultWithEvmSmartAccountRequestAllOf2PaymasterContext": {
       "type": "object",
       "description": "The ERC-7677 \u0060context\u0060 object forwarded to the paymaster service as part of the \u0060paymasterService\u0060 capability. The fields in this object are defined by the paymaster service provider; CDP forwards them to the paymaster unchanged. This field is only valid when a paymaster is configured for the request. Providing \u0060paymasterContext\u0060 without a paymaster configured results in an \u0060invalid_request\u0060 error.",
       "example": {

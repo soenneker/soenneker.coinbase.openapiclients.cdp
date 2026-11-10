@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend.Positions;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend.Vaults;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +16,11 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LendRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The positions property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend.Positions.PositionsRequestBuilder Positions
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend.Positions.PositionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The vaults property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Lend.Vaults.VaultsRequestBuilder Vaults
         {

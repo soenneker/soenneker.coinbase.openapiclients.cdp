@@ -2,7 +2,9 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.Deposit;
 using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.RedeemFees;
+using Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.Withdraw;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,10 +17,20 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LendRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The deposit property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.Deposit.DepositRequestBuilder Deposit
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.Deposit.DepositRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The redeemFees property</summary>
         public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.RedeemFees.RedeemFeesRequestBuilder RedeemFees
         {
             get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.RedeemFees.RedeemFeesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The withdraw property</summary>
+        public global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.Withdraw.WithdrawRequestBuilder Withdraw
+        {
+            get => new global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.Withdraw.WithdrawRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Coinbase.OpenApiClients.Cdp.V2.Evm.Accounts.Item.Lend.LendRequestBuilder"/> and sets the default values.
