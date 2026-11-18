@@ -93,7 +93,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "customerDisplay", n => { CustomerDisplay = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateAuthorizationRequestCustomerDisplay>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.MandateAuthorizationRequestCustomerDisplay.CreateFromDiscriminatorValue); } },
                 { "externalReferenceId", n => { ExternalReferenceId = n.GetStringValue(); } },

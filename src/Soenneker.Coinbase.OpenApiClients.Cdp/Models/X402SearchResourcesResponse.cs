@@ -72,7 +72,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "partialResults", n => { PartialResults = n.GetBoolValue(); } },
                 { "resources", n => { Resources = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402DiscoveryResource.CreateFromDiscriminatorValue)?.AsList(); } },

@@ -110,7 +110,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "collateralToken", n => { CollateralToken = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductToken.CreateFromDiscriminatorValue); } },
                 { "interestRateModelAddress", n => { InterestRateModelAddress = n.GetStringValue(); } },

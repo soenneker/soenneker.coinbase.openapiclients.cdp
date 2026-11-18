@@ -79,7 +79,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "fields", n => { Fields = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeIdentityFields.CreateFromDiscriminatorValue); } },
                 { "interactionMode", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.OnrampLimitUpgradeRequestInteractionMode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueInteractionMode = default; _explicitNullProperties?.Remove("interactionMode"); AdditionalData["interactionMode"] = unknown; } else { InteractionMode = parsed; AdditionalData.Remove("interactionMode"); } } },

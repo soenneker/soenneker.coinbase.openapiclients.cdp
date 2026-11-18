@@ -120,7 +120,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "bazaarExtension", n => { BazaarExtension = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseBazaarExtensionProperty.CreateFromDiscriminatorValue); } },
                 { "index", n => { Index = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402ValidateResponseIndex.CreateFromDiscriminatorValue); } },

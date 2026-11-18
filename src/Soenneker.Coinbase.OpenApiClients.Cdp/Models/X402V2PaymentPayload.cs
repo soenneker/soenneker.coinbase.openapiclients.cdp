@@ -98,7 +98,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "accepted", n => { Accepted = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirements>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentRequirements.CreateFromDiscriminatorValue); } },
                 { "extensions", n => { Extensions = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayloadExtensionsProperty>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402V2PaymentPayloadExtensionsProperty.CreateFromDiscriminatorValue); } },

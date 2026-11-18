@@ -85,7 +85,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "calls", n => { Calls = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmCall.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "network", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.EvmUserOperationNetwork>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueNetwork = default; _explicitNullProperties?.Remove("network"); AdditionalData["network"] = unknown; } else { Network = parsed; AdditionalData.Remove("network"); } } },

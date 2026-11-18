@@ -132,7 +132,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "custodyCrypto", n => { CustodyCrypto = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapInputCustodyCrypto>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapInputCustodyCrypto.CreateFromDiscriminatorValue); } },
                 { "custodyFiat", n => { CustodyFiat = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapInputCustodyFiat>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.CapabilitiesMapInputCustodyFiat.CreateFromDiscriminatorValue); } },

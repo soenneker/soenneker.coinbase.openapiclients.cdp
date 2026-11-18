@@ -122,7 +122,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "assets", n => { Assets = n.GetCollectionOfObjectValues<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductAsset>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.BorrowProductAsset.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "borrowProductId", n => { BorrowProductId = n.GetStringValue(); } },

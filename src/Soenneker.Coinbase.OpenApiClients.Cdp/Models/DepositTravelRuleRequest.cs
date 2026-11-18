@@ -84,7 +84,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "attestVerifiedWalletOwnership", n => { AttestVerifiedWalletOwnership = n.GetBoolValue(); } },
                 { "beneficiary", n => { Beneficiary = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.DepositTravelRuleRequestBeneficiary.CreateFromDiscriminatorValue); } },

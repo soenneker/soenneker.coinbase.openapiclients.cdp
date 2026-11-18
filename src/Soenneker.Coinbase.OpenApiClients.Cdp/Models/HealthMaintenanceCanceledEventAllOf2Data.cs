@@ -82,7 +82,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(6)
             {
                 { "expectedDurationSeconds", n => { ExpectedDurationSeconds = n.GetIntValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },

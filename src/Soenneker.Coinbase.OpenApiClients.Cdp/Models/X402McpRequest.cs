@@ -86,7 +86,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "id", n => { Id = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestId>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.X402McpRequestId.CreateFromDiscriminatorValue); } },
                 { "jsonrpc", n => { var parsed = n.GetEnumValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Value20Jsonrpc>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueJsonrpc = default; _explicitNullProperties?.Remove("jsonrpc"); AdditionalData["jsonrpc"] = unknown; } else { Jsonrpc = parsed; AdditionalData.Remove("jsonrpc"); } } },

@@ -93,7 +93,7 @@ namespace Soenneker.Coinbase.OpenApiClients.Cdp.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "domain", n => { Domain = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Domain>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip712Domain.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetObjectValue<global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip3009PayloadDataMessage>(global::Soenneker.Coinbase.OpenApiClients.Cdp.Models.Eip3009PayloadDataMessage.CreateFromDiscriminatorValue); } },
